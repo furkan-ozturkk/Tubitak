@@ -1,29 +1,12 @@
-version: "3.9"
-
 networks:
   logrouter-net:
     name: logrouter-net
     driver: bridge
 
 volumes:
-  ollama_data:
   postgres_data:
 
 services:
-  ollama:
-    image: ollama/ollama:latest
-    container_name: logrouter-ollama
-    restart: unless-stopped
-    ports:
-      - "11434:11434"
-    volumes:
-      - ollama_data:/root/.ollama
-    environment:
-      - OLLAMA_NUM_PARALLEL=${OLLAMA_NUM_PARALLEL:-4}
-      - OLLAMA_MAX_LOADED_MODELS=${OLLAMA_MAX_LOADED_MODELS:-3}
-    networks:
-      - logrouter-net
-
   postgres:
     image: pgvector/pgvector:pg16
     container_name: logrouter-postgres
@@ -42,15 +25,29 @@ services:
   app:
     build:
       context: .
-    container_name: logrouter-app
-    restart: "no"
+    container_name: t-bitak-app
+    restart: unless-stopped
+    command: sleep infinity
     depends_on:
       - postgres
-      - ollama
     environment:
       - POSTGRES_HOST=postgres
-      - OLLAMA_HOST=http://ollama:11434
+      - OLLAMA_HOST=${OLLAMA_HOST}
+      - INGEST_DATASET=${INGEST_DATASET:-HDFS}
     volumes:
       - .:/app
     networks:
       - logrouter-net
+    develop:
+      watch:
+        - action: rebuild
+          path: requirements.txt
+        - action: rebuild
+          path: Dockerfile
+        - action: sync+restart
+          path: .
+          target: /app
+          ignore:
+            - .git/
+            - "**/__pycache__/"
+            - "*.pyc"
