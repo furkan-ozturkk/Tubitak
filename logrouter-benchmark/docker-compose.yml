@@ -1,0 +1,76 @@
+version: "3.9"
+
+# LogRouter mimarisinin altyapisi (taslak). Ollama uc modeli servis eder
+# (embed + 14B + 32B + coder), Postgres pgvector uzantisiyla hem "structured"
+# hem "semantic" indeksleri barindirir (Druid'in bu olcekteki karsiligi).
+#
+# NOT: main.py ve tum moduller henuz stub - bu compose dosyasi sadece
+# altyapinin (network, servisler) mimaride nasil goruneceginin taslagidir.
+
+networks:
+  logrouter-net:
+    name: logrouter-net
+    driver: bridge
+
+volumes:
+  ollama_data:
+  postgres_data:
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: logrouter-ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_NUM_PARALLEL=${OLLAMA_NUM_PARALLEL:-4}
+      - OLLAMA_MAX_LOADED_MODELS=${OLLAMA_MAX_LOADED_MODELS:-3}
+    networks:
+      - logrouter-net
+    # Makaledeki gibi: nomic-embed-text, Qwen2.5-14B-Instruct, Qwen3-32B,
+    # Qwen2.5-Coder-14B tek GPU node uzerinde servis edilir (bkz. SS III-A).
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: ["gpu"]
+
+  # postgres + pgvector: Druid'in "structured" (keyword/SQL) ve pgvector'un
+  # "semantic" indekslerinin bu olcekte tek veritabaninda birlestirilmis hali.
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: logrouter-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-logrouter}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-logrouter_pass}
+      - POSTGRES_DB=${POSTGRES_DB:-logrouter_db}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - logrouter-net
+
+  # Uygulama container'i: main.py (ingest/index/route/evaluate/ablate) burada
+  # calisir. Su an stub oldugu icin build/CMD bilgilendirme amacli.
+  app:
+    build:
+      context: .
+    container_name: logrouter-app
+    restart: "no"
+    depends_on:
+      - postgres
+      - ollama
+    environment:
+      - POSTGRES_HOST=postgres
+      - OLLAMA_HOST=http://ollama:11434
+    volumes:
+      - .:/app
+    networks:
+      - logrouter-net
