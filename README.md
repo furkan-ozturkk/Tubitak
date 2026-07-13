@@ -1,95 +1,82 @@
-# LogRouter Benchmark Extension – Proje Mimarisi (Taslak)
+# LogRouter Benchmark Extension
 
-Bu klasor, **"LogRouter: Adaptive Two-Level LLM Routing for Log Question Answering
-in Big Data Systems"** (Coskuner, Zeybel, Dolan - TUBITAK BILGEM) makalesindeki
-sistemin mimarisini referans alarak, makaledeki **benchmark ve veri kumesini
-genisletme** hedefi icin hazirlanan proje iskeletidir.
+This repository is a project skeleton built around the paper **"LogRouter:
+Adaptive Two-Level LLM Routing for Log Question Answering in Big Data
+Systems"** (Coskuner, Zeybel, Dolan; TUBITAK BILGEM). The goal of this project
+is to extend the paper's benchmark and dataset.
 
-Tum dosyalar su an **bos / sadece aciklama docstring'i iceren** taslaklardir -
-amac, hocaya "proje mimarisi bu sekilde olacak" diye gosterebilmek. Hicbir modulde
-henuz gercek implementasyon yok.
+All modules currently contain only a module-level docstring describing their
+intended responsibility; no implementation has been added yet.
 
-## Makale ile iliski
+## Relation to the paper
 
-Makale, 4 LogHub veri seti (Linux, Apache, Windows, Mac - toplam 70 soru) uzerinde
-iki seviyeli bir router (L1: GENERAL/KEYWORD/SQL/SEMANTIC, L2: 14B/32B model secimi)
-ile %88.4 ortalama dogruluk ve 18.6 sn uctan uca gecikme elde ediyor (bkz. Tablo II).
-Acik bilim (Open Science) bolumunde yazarlar, uygulamayi, degerlendirme setini ve
-altin (gold) routing etiketli LogHub soru setini kabul sonrasi acik kaynak olarak
-yayinlayacaklarini belirtiyor.
+The paper evaluates a two-level cost-aware LLM router on four LogHub datasets
+(Linux, Apache, Windows, Mac; 70 questions in total), reaching 88.4% mean
+routing accuracy and an 18.6 second mean end-to-end latency (Table II). The
+authors state that the implementation, evaluation harness, and the
+LogHub-derived question set with gold routing labels will be released after
+acceptance.
 
-**Bu projenin hedefi:** ayni mimariyi (veya kucuk olcekli bir yeniden uretimini)
-kurup, makaledeki 4 veri seti / 70 soruluk kapsami, Loghub-2.0'daki diger sistemlere
-(HDFS, BGL, Hadoop, Spark, Zookeeper, HPC, Thunderbird, OpenSSH, HealthApp,
-Proxifier, OpenStack) ve daha fazla soruya genisletmek.
+This project extends that scope in two directions: adding the remaining
+Loghub-2.0 systems (HDFS, BGL, Hadoop, Spark, Zookeeper, HPC, Thunderbird,
+OpenSSH, HealthApp, Proxifier, OpenStack) to the benchmark, and growing the
+question set beyond the paper's original 70 questions.
 
-## Mimari esleme (makale -> bu proje)
+## Architecture mapping
 
-| Makaledeki bilesen | Makalede kullanilan | Bu projede karsiligi |
+| Paper component | Used in the paper | Counterpart in this project |
 |---|---|---|
-| Log kaynagi | Grafana Loki (canli akis) | `ingestion/source_loader.py` - Loghub-2.0 statik verisetleri (bkz. onceki `dataset-pipeline`) |
-| Normalizasyon | PySpark ingester | `ingestion/normalizer.py` |
-| Structured branch | Drain3 (PySpark stage) | `ingestion/drain3_parser.py` |
-| Semantic branch | Ollama nomic-embed-text + chunker | `ingestion/chunker_embedder.py` |
-| Keyword/SQL backend | Apache Druid | `storage/structured_store.py` (kucuk olcekte: Postgres) |
-| Semantic index | PostgreSQL + pgvector | `storage/vector_store.py` |
-| Hybrid retrieval | pgvector + FTS + RRF (k=60) | `retrieval/hybrid_retrieval.py` |
-| Level-1 router | Regex tabanli P0-P7 sozlugu | `router/keyword_patterns.py`, `router/level1_router.py` |
-| Level-2 router | Karmasiklik skoru -> 14B/32B | `router/level2_router.py` |
-| Ureticiler | Qwen2.5-14B, Qwen3-32B, Qwen2.5-Coder-14B (Ollama) | `generation/ollama_client.py`, `sql_generator.py`, `semantic_generator.py` |
-| Soru seti (70 soru, 4 sistem) | LogHub + altin routing etiketi | `benchmark/question_sets/`, `benchmark/datasets/` |
-| Degerlendirme | Routing acc., ROUGE-1, BERTScore, RAGAS, Answer Correctness, Hit@k/Recall@k/MRR, gecikme | `evaluation/metrics/*` |
-| Baseline'lar / ablation | Fixed-14B, Fixed-32B, 9 kosullu ablation | `evaluation/baselines.py`, `evaluation/ablation.py` |
+| Keyword and SQL backend | Apache Druid | `storage/structured_store.py` (Postgres at this scale) |
+| SQL generation | Coder LLM via Ollama | `generation/sql_generator.py` |
+| Semantic answer generation | Qwen2.5-14B / Qwen3-32B via Ollama | `generation/semantic_generator.py` |
+| Model serving | Ollama (embedding, 14B, 32B, coder) | `generation/ollama_client.py` |
+| Question set (70 questions, 4 systems) | LogHub with gold routing labels | `benchmark/question_generator.py` |
+| Task taxonomy | Seven task families | `benchmark/task_taxonomy.py` |
+| Baselines | Fixed-14B, Fixed-32B | `evaluation/baselines.py` |
+| Ablation study | Nine ablation conditions | `evaluation/ablation.py` |
+| Result tables | Table II-V format | `evaluation/report_generator.py` |
 
-## Klasor yapisi
+## Current structure
 
 ```
 logrouter-benchmark/
-├── main.py                    # TEK giris noktasi (ingest / index / route / evaluate / ablate)
-├── config.py                  # merkezi ayarlar
-├── docker-compose.yml         # ollama + postgres(pgvector) altyapisi
-├── ingestion/                 # Sekil 1 - Indexing Pipeline
-│   ├── source_loader.py
-│   ├── normalizer.py
-│   ├── drain3_parser.py       # structured branch
-│   └── chunker_embedder.py    # semantic branch
+├── main.py
+├── config.py
+├── docker-compose.yml
+├── requirements.txt
 ├── storage/
-│   ├── structured_store.py    # keyword + SQL backend
-│   └── vector_store.py        # pgvector semantic index
-├── retrieval/
-│   └── hybrid_retrieval.py    # dense + FTS + RRF
-├── router/                    # Sekil 2 - Query-time Routing
-│   ├── keyword_patterns.py    # P0-P7 (Tablo I)
-│   ├── level1_router.py       # GENERAL/KEYWORD/SQL/SEMANTIC
-│   └── level2_router.py       # 14B/32B secimi
+│   └── structured_store.py
 ├── generation/
 │   ├── ollama_client.py
 │   ├── sql_generator.py
 │   └── semantic_generator.py
-├── benchmark/                 # veri kumesi/soru seti genisletme
-│   ├── datasets/
-│   │   ├── linux/ apache/ windows/ mac/   # makaledeki mevcut 4 set
-│   │   └── extended/                       # yeni eklenecek Loghub-2.0 sistemleri
-│   ├── question_sets/
+├── benchmark/
 │   ├── question_generator.py
-│   └── task_taxonomy.py       # 7 gorev ailesi
-├── evaluation/                # Tablo II-V
-│   ├── metrics/                # routing / lexical / semantic / ragas / judge / retrieval / latency
-│   ├── baselines.py            # Fixed-14B / Fixed-32B
-│   ├── ablation.py             # 9 kosullu ablation
+│   └── task_taxonomy.py
+├── evaluation/
+│   ├── baselines.py
+│   ├── ablation.py
 │   └── report_generator.py
-├── models/                     # Question, RouteResult veri siniflari
-├── utils/
-└── tests/
+└── utils/
+    └── logging_utils.py
 ```
 
-## Siradaki adimlar (bu iskelet onaylandiktan sonra)
+## Planned modules
 
-1. `ingestion/` + `storage/`: mevcut `dataset-pipeline` (Loghub-2.0 -> Postgres) mantiginin
-   buraya tasinmasi, `pgvector` uzantisinin Postgres'e eklenmesi, Drain3 entegrasyonu.
-2. `router/`: Tablo I'deki P0-P7 regex sozlugunun ve Level-2 karmasiklik skorunun
-   birebir uygulanmasi.
-3. `benchmark/`: makaledeki 4 sistemin (Linux/Apache/Windows/Mac) soru setinin
-   toplanmasi + Loghub-2.0'daki diger sistemler icin yeni soru/gold-label uretimi.
-4. `evaluation/`: ROUGE-1/BERTScore/RAGAS/LLM-judge metriklerinin ve ablation
-   kosullarinin uygulanmasi, makaledeki Tablo II-V formatinda raporlama.
+The following components appear in the paper's architecture and are planned
+for a later iteration: ingestion (Drain3 parsing, chunking, and embedding),
+a vector store (pgvector), hybrid retrieval, a two-level router (keyword
+signal vocabulary and complexity-based model selection), full evaluation
+metrics (ROUGE-1, BERTScore, RAGAS, LLM-judge Answer Correctness, and
+retrieval metrics), and a test suite.
+
+## Next steps
+
+1. Implement `storage/structured_store.py` on top of the existing Loghub-2.0
+   ingestion pipeline.
+2. Implement the Ollama client and generation modules against a running
+   Ollama instance.
+3. Collect the paper's four-dataset question set and extend it with new
+   questions and gold routing labels for the remaining Loghub-2.0 systems.
+4. Implement the evaluation metrics and reporting in the format of the
+   paper's Table II-V.

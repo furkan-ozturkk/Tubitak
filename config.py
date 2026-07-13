@@ -1,4 +1,9 @@
-"""
-config.py - Merkezi ayarlar: Ollama modelleri (14B/32B/coder/embed), L1/L2 router esikleri, Postgres+pgvector baglantisi, chunk boyutu.
-Referans: LogRouter makalesi SS III-A, III-E (Hardware and Implementation).
+"""Centralized configuration for the LogRouter benchmark extension.
+
+Holds the Ollama model names (14B, 32B, coder, and embedding models), the
+Level-1 and Level-2 router thresholds, the Postgres and pgvector connection
+settings, and the chunking window size.
+
+Reference:
+    LogRouter paper, Section III-A and III-E (Hardware and Implementation).
 """

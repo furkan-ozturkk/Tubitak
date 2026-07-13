@@ -1,3 +1,1 @@
-"""
-utils/logging_utils.py - Ortak logger yardimcisi (tum modullerde ayni format).
-"""
+"""Shared logging helper used across all modules to keep a consistent format."""

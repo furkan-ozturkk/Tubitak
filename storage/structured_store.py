@@ -1,5 +1,8 @@
-"""
-storage/structured_store.py - Keyword + SQL backend.
-Makalede Apache Druid; bizim olcegimizde Postgres tablosu (logs) + tam metin arama ile karsilanir.
-Referans: SS III-A (Storage and orchestration).
+"""Keyword and SQL storage backend.
+
+The paper uses Apache Druid; at this project's scale the same role is served
+by a Postgres table (``logs``) with full-text search.
+
+Reference:
+    LogRouter paper, Section III-A (Storage and orchestration).
 """
