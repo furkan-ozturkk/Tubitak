@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "stats": {
+    "total_questions": 20,
+    "unique_ids": 20,
+    "distinct_group_ids": 20,
+    "by_difficulty": {
+      "medium": 20
+    },
+    "by_routing_path": {
+      "semantic": 20
+    },
+    "by_split": {
+      "test": 5,
+      "dev": 15
+    },
+    "by_review_status": {
+      "in_review": 20
+    },
+    "hard_question_count": 0
+  },
+  "error_count": 0,
+  "warning_count": 0,
+  "errors": [],
+  "warnings": []
+}

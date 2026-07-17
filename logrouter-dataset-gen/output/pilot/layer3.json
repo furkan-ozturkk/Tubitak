@@ -1,0 +1,239 @@
+[
+  {
+    "id": "linux_v1_hard_brute_force_compare",
+    "question": "Compare the SSH authentication attempts coming from 150.183.249.110 and 207.243.167.114: contrast their volume and timing. Which source looks more anomalous, and what is your root-cause hypothesis?",
+    "routing_path": "semantic",
+    "answer_type": "synthesis",
+    "task": "RootCauseAnalysis",
+    "difficulty": "hard",
+    "phrasing_family": "hard-synthesis",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The logs show that the source IP 150.183.249.110 generated four authentication‑failure entries within a span of only two seconds (Jul 10 16:01:43–16:01:45), whereas 207.243.167.114 produced four failures over roughly eight minutes (Jul 26 07:02:27–07:02:45). This contrast in volume and timing makes the first source appear far more anomalous, as it exhibits a rapid burst of failed SSH attempts that could indicate an automated brute‑force or credential‑spraying campaign. The second source’s slower, spaced‑out pattern is consistent with manual or low‑intensity probing rather than a coordinated attack. A plausible root‑cause hypothesis is that the first IP belongs to a compromised botnet or scripted scanner attempting mass password guessing against the SSH service, while the second may be an isolated user or misconfigured client experiencing intermittent connectivity issues.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer3_hard.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:b3e20bc1afe732ab1bf3ed1de4bf9c809e4194e02f7dea911d918e5342e8e173",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:b069a4f14dd9656494f2a05af8a859977db153d59bd952b374dabe9e66e76bd7"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "linux:line:00001136:2bcf2d2d5c4a269c",
+          "line_number": 1136,
+          "line_hash": "sha256:2bcf2d2d5c4a269c1622637b86e445af25bb1338657ed8fa723e0ebe378cb7a7",
+          "group_id": "linux:hard:brute_force_compare:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001137:9c09887b031b4b1d",
+          "line_number": 1137,
+          "line_hash": "sha256:9c09887b031b4b1def2e59f933b85a34bb35b3d17fba8a5986a5efeb1960aeba",
+          "group_id": "linux:hard:brute_force_compare:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001138:458a26572494de62",
+          "line_number": 1138,
+          "line_hash": "sha256:458a26572494de62e67367116d0f728ab050037020b46f9a7a45713d6fe9b3ee",
+          "group_id": "linux:hard:brute_force_compare:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001139:d0207dfce0dd0973",
+          "line_number": 1139,
+          "line_hash": "sha256:d0207dfce0dd09738488d6dd6290daaeea1f62f36d99fc8fd579ca901903a714",
+          "group_id": "linux:hard:brute_force_compare:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001879:32a3098bff43b50d",
+          "line_number": 1879,
+          "line_hash": "sha256:32a3098bff43b50d3695cb6173da4d03c58c627b7eba14920da73262b59a808d",
+          "group_id": "linux:hard:brute_force_compare:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001880:407d3621ea268a79",
+          "line_number": 1880,
+          "line_hash": "sha256:407d3621ea268a79748192cbe90d37f14f3be93151c47179fd465ffb94bb09f2",
+          "group_id": "linux:hard:brute_force_compare:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001881:4030a2397f21eb57",
+          "line_number": 1881,
+          "line_hash": "sha256:4030a2397f21eb577048623dff1fa6b1fccfc491be7e87bf57bd267f8595b9e5",
+          "group_id": "linux:hard:brute_force_compare:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001882:b582c137666adaa2",
+          "line_number": 1882,
+          "line_hash": "sha256:b582c137666adaa2e1291e357b09b58282d0d7ce3f7aa715e30097efdc179e32",
+          "group_id": "linux:hard:brute_force_compare:207_243_167_114"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openssh_v1_hard_attacker_compare",
+    "question": "Compare the attack patterns from source 183.62.140.253 and source 187.141.143.180 (target accounts, request cadence, outcome). Which one is the more anomalous attacker, and what is your root-cause hypothesis?",
+    "routing_path": "semantic",
+    "answer_type": "synthesis",
+    "task": "RootCauseAnalysis",
+    "difficulty": "hard",
+    "phrasing_family": "hard-synthesis",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The evidence shows that source 183.62.140.253 generated three distinct invalid‑user attempts (zhangyan, dff) within a single minute before terminating the session with “Bye Bye,” whereas source 187.141.143.180 issued two repeated failed password attempts for the privileged account root over a six‑second interval and also ended each attempt with the same disconnect message. Both groups share the identical pre‑authentication disconnection pattern, but only the second group targets a legitimate system account (root) and exhibits a tighter request cadence of exactly three seconds between failures, making its behavior more anomalous in terms of intent and timing. The root‑cause hypothesis is that an automated brute‑force script is being used to probe for weak credentials, with the first source likely testing generic username lists while the second source is specifically attempting credential theft against high‑value accounts; the consistent “Bye Bye” termination indicates a coordinated disconnect after each failed attempt, suggesting a single attacker or shared tooling orchestrating both sources.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer3_hard.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:1e4912727fa88245113d41b16a0cd25ceadba7f931e1c406542885b91254264f",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:d09c7b2906bd059a67e7b7da744671d134e758cc4cae5bff2b56c8d29153cbec"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "openssh:line:00001020:1877b6d1be3217e2",
+          "line_number": 1020,
+          "line_hash": "sha256:1877b6d1be3217e2cab65fd0d7000584e7c6aa2b08ded5219b68258258cd5603",
+          "group_id": "openssh:hard:attacker_compare:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001024:79c29cb17432b055",
+          "line_number": 1024,
+          "line_hash": "sha256:79c29cb17432b0550d60a13debfaa8f7cb3da46519cd4fd03e2b47f6ada591b7",
+          "group_id": "openssh:hard:attacker_compare:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001025:3f5eacd7a31f1156",
+          "line_number": 1025,
+          "line_hash": "sha256:3f5eacd7a31f115638e90cf084a65c180fd1ad6b2c4c68e9fb4a930b305062c4",
+          "group_id": "openssh:hard:attacker_compare:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001026:b3cf34264c65c210",
+          "line_number": 1026,
+          "line_hash": "sha256:b3cf34264c65c2100b42438da69a5bc9f9423fc8bba1a9f11edeb6655538fdcb",
+          "group_id": "openssh:hard:attacker_compare:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00000519:bea478518acdb6be",
+          "line_number": 519,
+          "line_hash": "sha256:bea478518acdb6be10d71fd9b95c605c278e23d8bde63f155128b60d3dc9f4e4",
+          "group_id": "openssh:hard:attacker_compare:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000520:f0daf0ed48c1d4f3",
+          "line_number": 520,
+          "line_hash": "sha256:f0daf0ed48c1d4f3a67440d42720afade5993edda831ca6c1faa33bef1b25d57",
+          "group_id": "openssh:hard:attacker_compare:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000523:4046fd3058791217",
+          "line_number": 523,
+          "line_hash": "sha256:4046fd30587912179cdfa319b259d74d5576eec2b2bb6c57e9181c1807bdcb8d",
+          "group_id": "openssh:hard:attacker_compare:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000524:dc5d1924ba54f01f",
+          "line_number": 524,
+          "line_hash": "sha256:dc5d1924ba54f01f69496ab4754ec472b5f47bb96760d20a045a8f4048a1679e",
+          "group_id": "openssh:hard:attacker_compare:187_141_143_180"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bgl_v1_hard_hardware_error_chain",
+    "question": "Correlate the occurrences of 'double-hummer alignment exceptions' and 'instruction cache parity error corrected' across the observation window. Propose a root-cause hypothesis for why this supercomputer node is showing both error types.",
+    "routing_path": "semantic",
+    "answer_type": "synthesis",
+    "task": "RootCauseAnalysis",
+    "difficulty": "hard",
+    "phrasing_family": "hard-synthesis",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The evidence shows that the same compute node (R02-M1-N0-C) experienced multiple instances of both double‑hummer alignment exceptions and instruction‑cache parity errors within a short time window on 2005‑06‑03, indicating that these error types co‑occur on this hardware. The repeated “double‑hummer alignment exceptions” entries (e.g., counts of 141–199 680) demonstrate frequent alignment faults in the node’s execution pipelines, while the four consecutive “instruction cache parity error corrected” messages confirm that the instruction cache is repeatedly detecting and correcting parity mismatches. Because both error streams originate from the same RAS KERNEL INFO source on identical rack identifiers (R21‑M1‑N6‑C, R24‑M0‑N1‑C, etc.) and timestamps cluster around the same minutes, it suggests a systemic fault rather than isolated glitches. The most plausible root‑cause hypothesis is that a hardware defect—such as a failing memory controller or corrupted cache tags—is causing misaligned memory accesses that trigger double‑hummer exceptions while simultaneously corrupting instruction fetches, leading the cache parity logic to correct errors repeatedly. This combined symptom pattern points to a deteriorating node-level component (e.g., faulty SRAM/DRAM module or bus interface) that degrades both alignment checking and instruction cache integrity.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer3_hard.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:2a819ea540909db682005c9cf948387a40729b5c2e9f19d430e29ce704825496",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:2608156840ebdf5d96812511fe242edf2894ad83e9830665e21504b1fec4c66b"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "bgl:line:00000005:d464d5a5c12a72cf",
+          "line_number": 5,
+          "line_hash": "sha256:d464d5a5c12a72cf3b0586ef97fe92d2f9f109029a13f2fc75f2a8c462af0618",
+          "group_id": "bgl:hard:hardware_error_chain:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000006:162da96aba3437c5",
+          "line_number": 6,
+          "line_hash": "sha256:162da96aba3437c51c642849a2bbb31ac2be144fb83612092d9a22756ec4b191",
+          "group_id": "bgl:hard:hardware_error_chain:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000007:6a4dc16d6cf0a104",
+          "line_number": 7,
+          "line_hash": "sha256:6a4dc16d6cf0a10416576160d48321ce8da7b8d24a559ec32d449216a0909048",
+          "group_id": "bgl:hard:hardware_error_chain:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000374:bc4b5fc11a88f41e",
+          "line_number": 374,
+          "line_hash": "sha256:bc4b5fc11a88f41e0d285a18250c4dbacf8e1ba35618a8537a5c3227dd080ecd",
+          "group_id": "bgl:hard:hardware_error_chain:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000001:10c9ab95b65a37be",
+          "line_number": 1,
+          "line_hash": "sha256:10c9ab95b65a37be0ed65e2df284ce49e77a4553138f9e027a1f467235114d6e",
+          "group_id": "bgl:hard:hardware_error_chain:instruction_cache_parity_error_corrected"
+        },
+        {
+          "id": "bgl:line:00000002:1e6cfc32f22cf677",
+          "line_number": 2,
+          "line_hash": "sha256:1e6cfc32f22cf6770f983099eed28fdaf97fb3335b6a30d0c11124a2b2c57f10",
+          "group_id": "bgl:hard:hardware_error_chain:instruction_cache_parity_error_corrected"
+        },
+        {
+          "id": "bgl:line:00000003:02f06ade61925cae",
+          "line_number": 3,
+          "line_hash": "sha256:02f06ade61925cae7b8ae0355bd731e512e356f4d891f6243543f2ffcf2801b6",
+          "group_id": "bgl:hard:hardware_error_chain:instruction_cache_parity_error_corrected"
+        },
+        {
+          "id": "bgl:line:00000004:ad5610f48b767ca4",
+          "line_number": 4,
+          "line_hash": "sha256:ad5610f48b767ca41a45b9a32df27db33475de2864cd7b3d6d067c175c316310",
+          "group_id": "bgl:hard:hardware_error_chain:instruction_cache_parity_error_corrected"
+        }
+      ]
+    }
+  }
+]

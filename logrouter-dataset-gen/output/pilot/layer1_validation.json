@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "stats": {
+    "total_questions": 90,
+    "unique_ids": 90,
+    "distinct_group_ids": 30,
+    "by_difficulty": {
+      "easy": 90
+    },
+    "by_routing_path": {
+      "sql": 60,
+      "keyword": 30
+    },
+    "by_split": {
+      "dev": 75,
+      "test": 15
+    },
+    "by_review_status": {
+      "verified": 90
+    },
+    "hard_question_count": 0
+  },
+  "error_count": 0,
+  "warning_count": 0,
+  "errors": [],
+  "warnings": []
+}

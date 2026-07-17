@@ -1,0 +1,1582 @@
+[
+  {
+    "id": "linux_v1_semantic_check_pass_user_unknown_0",
+    "question": "Looking at these Linux log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "test",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The log shows multiple failed SSH authentication attempts for the root user from a single external IP address (218.188.2.4 and later 220-135-151-1.hinet-ip.hinet.net), with each attempt recorded as an \"authentication failure\" by the sshd PAM module using pam_unix, indicating repeated unsuccessful login attempts targeting the root account from a remote host.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:b3e20bc1afe732ab1bf3ed1de4bf9c809e4194e02f7dea911d918e5342e8e173",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:c5f12be53cc4decc7c56ec97a54e987d036eebda4583c008db05a1319e71afcb"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "linux:line:00000002:e2e3fcb4ede42046",
+          "line_number": 2,
+          "line_hash": "sha256:e2e3fcb4ede4204698bb8c2074469aeefac4baf646e56ebc263f25d6ac18061a",
+          "group_id": "linux:semantic:check_pass_user_unknown_0"
+        },
+        {
+          "id": "linux:line:00000003:f6a256ef53a802e8",
+          "line_number": 3,
+          "line_hash": "sha256:f6a256ef53a802e8b1db72276f975c7fa142b2b7505dce2b090f034b5e9aea73",
+          "group_id": "linux:semantic:check_pass_user_unknown_0"
+        },
+        {
+          "id": "linux:line:00000004:db1b1106960dd813",
+          "line_number": 4,
+          "line_hash": "sha256:db1b1106960dd813545aa0f2b88974a1e942217ef28cb213dcf92f88f89ac588",
+          "group_id": "linux:semantic:check_pass_user_unknown_0"
+        },
+        {
+          "id": "linux:line:00000005:6859041b6d08936e",
+          "line_number": 5,
+          "line_hash": "sha256:6859041b6d08936e758d4035ec58e0fb27da6f62b0ade849b41f027024019f82",
+          "group_id": "linux:semantic:check_pass_user_unknown_0"
+        },
+        {
+          "id": "linux:line:00000006:5722995c75571b00",
+          "line_number": 6,
+          "line_hash": "sha256:5722995c75571b00e6e83d8679d9b721a2113b5a47dac5e3eec992d9f189c8f6",
+          "group_id": "linux:semantic:check_pass_user_unknown_0"
+        },
+        {
+          "id": "linux:line:00000007:5e8d69994c472d89",
+          "line_number": 7,
+          "line_hash": "sha256:5e8d69994c472d8954d72f6368a6c2ddaacca85f735d4a4be28173638d653e61",
+          "group_id": "linux:semantic:check_pass_user_unknown_0"
+        },
+        {
+          "id": "linux:line:00000008:1299789a54a37961",
+          "line_number": 8,
+          "line_hash": "sha256:1299789a54a3796107e89b89a722d081e9e776415403ecf5d4b2c4e78f33756c",
+          "group_id": "linux:semantic:check_pass_user_unknown_0"
+        },
+        {
+          "id": "linux:line:00000009:2d4b274fd609f040",
+          "line_number": 9,
+          "line_hash": "sha256:2d4b274fd609f04065b1227364848a7d2f98b183d2dd3de60472c7a0e8553308",
+          "group_id": "linux:semantic:check_pass_user_unknown_0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "linux_v1_semantic_check_pass_user_unknown_1",
+    "question": "Looking at these Linux log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The log shows multiple failed SSH authentication attempts from external IPs (200.60.37.201 and 218.22.3.51) for unknown users, followed by successful su sessions opening and closing for system accounts like cyrus and news, ending with a logrotate error indicating an abnormal exit.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:b3e20bc1afe732ab1bf3ed1de4bf9c809e4194e02f7dea911d918e5342e8e173",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:fc4b67cba44a19d23767e99b98e1ff5b56bc827fdbbd73bd2f2c6726a2b98ac5"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "linux:line:00000280:1ec5e20d9f3360b0",
+          "line_number": 280,
+          "line_hash": "sha256:1ec5e20d9f3360b03028f5cf8f23199f55ddc32f41ba967db9f1596a7c69d32f",
+          "group_id": "linux:semantic:check_pass_user_unknown_1"
+        },
+        {
+          "id": "linux:line:00000281:1f6a5ebdf895ed40",
+          "line_number": 281,
+          "line_hash": "sha256:1f6a5ebdf895ed40e98df0036f129e2d566f526d812e9b3b118d76a1765250f4",
+          "group_id": "linux:semantic:check_pass_user_unknown_1"
+        },
+        {
+          "id": "linux:line:00000282:a75242246738d6d3",
+          "line_number": 282,
+          "line_hash": "sha256:a75242246738d6d38d28f65b5b5312ffba5108110c19630c0de8134a3952bd79",
+          "group_id": "linux:semantic:check_pass_user_unknown_1"
+        },
+        {
+          "id": "linux:line:00000283:666eee0c11a5a3dd",
+          "line_number": 283,
+          "line_hash": "sha256:666eee0c11a5a3dd0b2d90603a45ed334571914c4469d5ba0f8179835e257870",
+          "group_id": "linux:semantic:check_pass_user_unknown_1"
+        },
+        {
+          "id": "linux:line:00000284:3e53ae0ebdf31a3a",
+          "line_number": 284,
+          "line_hash": "sha256:3e53ae0ebdf31a3a5c6b8f643694e696fd75242abfd90d2fdda3fb94ef262ba6",
+          "group_id": "linux:semantic:check_pass_user_unknown_1"
+        },
+        {
+          "id": "linux:line:00000285:542425ff4af1a6d9",
+          "line_number": 285,
+          "line_hash": "sha256:542425ff4af1a6d971c82d5eefcbf337b6624f6191e3130b9a6e13697e6b6cc3",
+          "group_id": "linux:semantic:check_pass_user_unknown_1"
+        },
+        {
+          "id": "linux:line:00000286:23695c8f3f676891",
+          "line_number": 286,
+          "line_hash": "sha256:23695c8f3f6768914b7b7e99de19467b7c5ff42d74c6e14c4d8b34a05d5d0fba",
+          "group_id": "linux:semantic:check_pass_user_unknown_1"
+        },
+        {
+          "id": "linux:line:00000287:a9a2e1c9a6c3010a",
+          "line_number": 287,
+          "line_hash": "sha256:a9a2e1c9a6c3010a5a8834ab5c3551e1c9656b5633b9a68e8c5408d82f5a5262",
+          "group_id": "linux:semantic:check_pass_user_unknown_1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apache_v1_semantic_child_workerenv_in_error_state_0",
+    "question": "Looking at these Apache log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The log shows repeated errors indicating that the Apache module mod_jk is encountering a persistent issue where its worker process named \"workerEnv\" repeatedly enters an error state 6, suggesting a failure in initializing or maintaining the Java connector's child processes despite successful configuration loading. This pattern points to a problem with the JK2 integration setup rather than general server operation.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:c7efa3eb686e3a96bd2f8f4457b2a7887e9cf2f3649327f1b4e87af841363ce8",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:2f3ee30b5f808a172a95382dff34b15a9fa16e7110cf9343f16348136040f4b2"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "apache:line:00000002:96e6755838d22b1f",
+          "line_number": 2,
+          "line_hash": "sha256:96e6755838d22b1f8f3979e2c18d9ae9ce994e12f66931bcbb2c7d38cdb8611d",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_0"
+        },
+        {
+          "id": "apache:line:00000003:a41ecadc57156e34",
+          "line_number": 3,
+          "line_hash": "sha256:a41ecadc57156e34212794444b9924ecbe5cb5fd6065ddfb3687875792266764",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_0"
+        },
+        {
+          "id": "apache:line:00000004:b001dc147abf0e2f",
+          "line_number": 4,
+          "line_hash": "sha256:b001dc147abf0e2f070b7b37eeb524d24db5e45be61ecf22afa5872dccf3b7d1",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_0"
+        },
+        {
+          "id": "apache:line:00000005:358a17f606fc3319",
+          "line_number": 5,
+          "line_hash": "sha256:358a17f606fc3319fc8538403b9c21f183a243571662254a739393a02a831378",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_0"
+        },
+        {
+          "id": "apache:line:00000006:f7f1570bed0d5be4",
+          "line_number": 6,
+          "line_hash": "sha256:f7f1570bed0d5be43ae2b635ce4206e9e5c62793937ae1440e2b615cf4cacceb",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_0"
+        },
+        {
+          "id": "apache:line:00000007:f7f1570bed0d5be4",
+          "line_number": 7,
+          "line_hash": "sha256:f7f1570bed0d5be43ae2b635ce4206e9e5c62793937ae1440e2b615cf4cacceb",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_0"
+        },
+        {
+          "id": "apache:line:00000008:f7f1570bed0d5be4",
+          "line_number": 8,
+          "line_hash": "sha256:f7f1570bed0d5be43ae2b635ce4206e9e5c62793937ae1440e2b615cf4cacceb",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_0"
+        },
+        {
+          "id": "apache:line:00000009:f4ac7f9bf686396b",
+          "line_number": 9,
+          "line_hash": "sha256:f4ac7f9bf686396b032a2d22a568490f44a893b7fac6c4017f83e9664c120d5e",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apache_v1_semantic_child_workerenv_in_error_state_1",
+    "question": "Looking at these Apache log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The log shows Apache's mod_jk connector initializing multiple backend workers and encountering repeated errors (states 6, 7, and 9) during startup, indicating issues with worker configuration or connectivity that prevent successful initialization of the application server components. These persistent error states suggest a failure in establishing healthy communication between Apache and the Java-based services it proxies.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:c7efa3eb686e3a96bd2f8f4457b2a7887e9cf2f3649327f1b4e87af841363ce8",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:73c1ea1e831bfba590bf955b7ea64373b2fae033c91be923a286cb3911d34cee"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "apache:line:00000999:096eb52abd3338d5",
+          "line_number": 999,
+          "line_hash": "sha256:096eb52abd3338d513d608fa05998351a63bd073a1f2bec6c7ec1e9ba57ef26e",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_1"
+        },
+        {
+          "id": "apache:line:00001000:7f2a73bc0e21f037",
+          "line_number": 1000,
+          "line_hash": "sha256:7f2a73bc0e21f0378beafe7a6b30be05e837ba82abb185708d15898d2ed45a2f",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_1"
+        },
+        {
+          "id": "apache:line:00001001:4fc0a649e8c74325",
+          "line_number": 1001,
+          "line_hash": "sha256:4fc0a649e8c74325500e8de22ce16752d4791fab11fb7c9c641b126d934303cd",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_1"
+        },
+        {
+          "id": "apache:line:00001002:a948a370826993b4",
+          "line_number": 1002,
+          "line_hash": "sha256:a948a370826993b4e0caa5fe8e11a0e25a0ef972b2e8580761fa63d7a3303ad8",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_1"
+        },
+        {
+          "id": "apache:line:00001003:949d7baf7501a496",
+          "line_number": 1003,
+          "line_hash": "sha256:949d7baf7501a4965d0a438853a1d5386f742522f8dde855f080673c4158bf24",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_1"
+        },
+        {
+          "id": "apache:line:00001004:5b3cd5bc373445fc",
+          "line_number": 1004,
+          "line_hash": "sha256:5b3cd5bc373445fce2e14e2d5013a7a9f17f69be35eb8e643a0cd4e64a22d658",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_1"
+        },
+        {
+          "id": "apache:line:00001005:949d7baf7501a496",
+          "line_number": 1005,
+          "line_hash": "sha256:949d7baf7501a4965d0a438853a1d5386f742522f8dde855f080673c4158bf24",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_1"
+        },
+        {
+          "id": "apache:line:00001006:d574d7895e39b557",
+          "line_number": 1006,
+          "line_hash": "sha256:d574d7895e39b55757589bc07dce17b93f1f047a2365e49df2d8f87257278107",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "windows_v1_semantic_csi_0",
+    "question": "Looking at these Windows log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The excerpt shows that at 2016‑09‑28 04:30:31 the TrustedInstaller service was initialized and started successfully by the CBS subsystem, completing its initialization phase. This indicates a normal Windows component servicing process beginning without errors.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:372fb809464a6d6016e599e9272d7cf1e8b644f25c90c7f76f19c936362456d0",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:a277f2eecf432772d90c049e9cfea0ad9ff4cedd68a078ab02f8f496d3c7fc48"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "windows:line:00000002:635189722009a381",
+          "line_number": 2,
+          "line_hash": "sha256:635189722009a38143e1b1c9c5c7909f5852bb8a8e47bc18ca085302df425e1b",
+          "group_id": "windows:semantic:csi_0"
+        },
+        {
+          "id": "windows:line:00000003:2d397aa9b579613c",
+          "line_number": 3,
+          "line_hash": "sha256:2d397aa9b579613c44075f86dea0b49f8ea5ab30361f8e1c8e0e9b002964ec8a",
+          "group_id": "windows:semantic:csi_0"
+        },
+        {
+          "id": "windows:line:00000004:371206a8b387303b",
+          "line_number": 4,
+          "line_hash": "sha256:371206a8b387303b06546fb265a05e7b81b9513d3a682d3358744e0a639e5bef",
+          "group_id": "windows:semantic:csi_0"
+        },
+        {
+          "id": "windows:line:00000005:2b9ab40d82946345",
+          "line_number": 5,
+          "line_hash": "sha256:2b9ab40d829463453e9441a8a987c403e4dbf391d1051244ca803c837fe13a98",
+          "group_id": "windows:semantic:csi_0"
+        },
+        {
+          "id": "windows:line:00000006:eaa81cf82d072a7b",
+          "line_number": 6,
+          "line_hash": "sha256:eaa81cf82d072a7b0769e5cb4bde59600665a032c9871b039bc0ab899e04e379",
+          "group_id": "windows:semantic:csi_0"
+        },
+        {
+          "id": "windows:line:00000007:b200da3e375009ea",
+          "line_number": 7,
+          "line_hash": "sha256:b200da3e375009ea9500ec9e3bfcc4e5a65facb8401e0189508167304f80ae2d",
+          "group_id": "windows:semantic:csi_0"
+        },
+        {
+          "id": "windows:line:00000008:7bc4514822c6dd11",
+          "line_number": 8,
+          "line_hash": "sha256:7bc4514822c6dd11e639e5d57455a2f980ad6f3bf6194ad156ab90cda3fa4825",
+          "group_id": "windows:semantic:csi_0"
+        },
+        {
+          "id": "windows:line:00000009:d741ce11055963d0",
+          "line_number": 9,
+          "line_hash": "sha256:d741ce11055963d0bd7b63f6b14b555b06f4b08b0a5d6a1a3bfcf16fe320c21d",
+          "group_id": "windows:semantic:csi_0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "windows_v1_semantic_csi_1",
+    "question": "Looking at these Windows log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The excerpt shows that Windows Update's background service (TrustedInstaller) completed a transaction and entered its final cleanup phase, ending the main loop after idle processing finished. This indicates normal termination of update operations without errors.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:372fb809464a6d6016e599e9272d7cf1e8b644f25c90c7f76f19c936362456d0",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:c6cd5d33228442be9cac547d9eae1393284b2e8b8d8ae7476d5ccc9affd0b361"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "windows:line:00000945:485a627b756f08df",
+          "line_number": 945,
+          "line_hash": "sha256:485a627b756f08df29810791b135ed52bdb4038ad4edcd93da1bd07ff7fa5b42",
+          "group_id": "windows:semantic:csi_1"
+        },
+        {
+          "id": "windows:line:00000946:91fe559762d0c229",
+          "line_number": 946,
+          "line_hash": "sha256:91fe559762d0c2299468df73ccfbce21614c38559ee0dce0414b03213f1bc79c",
+          "group_id": "windows:semantic:csi_1"
+        },
+        {
+          "id": "windows:line:00000947:0f2f8fee1afedb2f",
+          "line_number": 947,
+          "line_hash": "sha256:0f2f8fee1afedb2fa60ae467a5621b8acbe76569397bc7c7b3112e5948469bb7",
+          "group_id": "windows:semantic:csi_1"
+        },
+        {
+          "id": "windows:line:00000948:724b51631e1b43d2",
+          "line_number": 948,
+          "line_hash": "sha256:724b51631e1b43d2e8ade178fb36fc42d1e66f2e9b303c3cb29b4bb718a1900d",
+          "group_id": "windows:semantic:csi_1"
+        },
+        {
+          "id": "windows:line:00000949:fdc667a3b19942e3",
+          "line_number": 949,
+          "line_hash": "sha256:fdc667a3b19942e398360d253d6f1266955ad4085438f42f3f376f91b80f1757",
+          "group_id": "windows:semantic:csi_1"
+        },
+        {
+          "id": "windows:line:00000950:1d161237808e4302",
+          "line_number": 950,
+          "line_hash": "sha256:1d161237808e4302c824adc698455ec063f161418a261f8d8bd5ab991ab48481",
+          "group_id": "windows:semantic:csi_1"
+        },
+        {
+          "id": "windows:line:00000951:f1295179de953419",
+          "line_number": 951,
+          "line_hash": "sha256:f1295179de953419e5eb79b0f465d85c42ee5d61ee3173840a5081550d81667f",
+          "group_id": "windows:semantic:csi_1"
+        },
+        {
+          "id": "windows:line:00000952:9da275f15731d9c1",
+          "line_number": 952,
+          "line_hash": "sha256:9da275f15731d9c168602cfae019adccce6eca45d3fb9167b75eb91afcae2b77",
+          "group_id": "windows:semantic:csi_1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mac_v1_semantic_thermal_pressure_0",
+    "question": "Looking at these Mac log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The system logged a thermal pressure state of 1 indicating elevated heat while memory pressure was normal and later recorded a wake event triggered by scan offload activity. These entries show normal power management transitions including sleep/wake cycles and network interface behavior without any critical errors or anomalies.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:d9ea495488728d8c989dc942fca3324a3cc7b19b0a6f409a5fd568ad547fd931",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:c9dc100ebd4bd1e49396b993b9b3ba8addbf2ffb77eb80fdc0835a99d264ce4a"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "mac:line:00000002:c863f1cb8f3f5182",
+          "line_number": 2,
+          "line_hash": "sha256:c863f1cb8f3f5182f44f4a7b3e86eff448297269a6151b82086add805dd59f01",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000003:77f3db5d24865cf8",
+          "line_number": 3,
+          "line_hash": "sha256:77f3db5d24865cf8e7b39c2ac93f1ccafa490f93012d95454e9477478b807cdf",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000004:f0637712b711582b",
+          "line_number": 4,
+          "line_hash": "sha256:f0637712b711582b3e4bdd76c56a71104dfcb9c8b7f47ee9c886cfbdb241ddea",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000005:94f85d28609f491a",
+          "line_number": 5,
+          "line_hash": "sha256:94f85d28609f491aafb2693cf7d7a1aa5106c837c0c7413b1a943847a0bf364e",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000006:b045a4374d6a692c",
+          "line_number": 6,
+          "line_hash": "sha256:b045a4374d6a692c11a7299af37771813989df9f37034644153701865cb64df0",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000007:59395d6da84765d1",
+          "line_number": 7,
+          "line_hash": "sha256:59395d6da84765d12ba74b6a2208bc19ef3c570e63f8c0d309768b5e77f9e4e1",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000008:9473ab57c2e84dd4",
+          "line_number": 8,
+          "line_hash": "sha256:9473ab57c2e84dd487078ba18fef529dc1212eaf8bb385330eb2857012569919",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000009:b3931e93076d24ac",
+          "line_number": 9,
+          "line_hash": "sha256:b3931e93076d24ac49144d0282843feb8f6d6496d9de62afa446a8153aeddff9",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mac_v1_semantic_thermal_pressure_1",
+    "question": "Looking at these Mac log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "test",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The system logged two wake events from sleep caused by a thermal pressure state of zero and an Apple Thunderbolt Generic HAL early wake completion of one millisecond, indicating it resumed normally without thermal or memory pressure issues. Subsequent messages show scheduled background tasks being ignored because their intended start times had not yet elapsed.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:d9ea495488728d8c989dc942fca3324a3cc7b19b0a6f409a5fd568ad547fd931",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:6060e1bc8c7196193e65cc7bd7e5b72abd08e11e0106976b18366a74303c7919"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "mac:line:00000736:56fee406e3fcd3c7",
+          "line_number": 736,
+          "line_hash": "sha256:56fee406e3fcd3c774918fd59c057d7910be7bb90b65935694997775670682ac",
+          "group_id": "mac:semantic:thermal_pressure_1"
+        },
+        {
+          "id": "mac:line:00000737:18a3ad7e2f0b05f9",
+          "line_number": 737,
+          "line_hash": "sha256:18a3ad7e2f0b05f92cf16c877a57485b3a9e16f757f0ad957adcbaea61b6d38a",
+          "group_id": "mac:semantic:thermal_pressure_1"
+        },
+        {
+          "id": "mac:line:00000738:39fc95cade1def99",
+          "line_number": 738,
+          "line_hash": "sha256:39fc95cade1def99a13ffd9088098279aa9f7f3c04f23422c44e2b5a3d928322",
+          "group_id": "mac:semantic:thermal_pressure_1"
+        },
+        {
+          "id": "mac:line:00000739:34c6dc2f9049cd75",
+          "line_number": 739,
+          "line_hash": "sha256:34c6dc2f9049cd753a9094b68bc2bd771ef4b34b6cf59ce23f04fbdad9a8feb9",
+          "group_id": "mac:semantic:thermal_pressure_1"
+        },
+        {
+          "id": "mac:line:00000740:96ccd4a37cb1a752",
+          "line_number": 740,
+          "line_hash": "sha256:96ccd4a37cb1a75220e1145bbac95345be4d176f06c52989d9ad02232eda73bc",
+          "group_id": "mac:semantic:thermal_pressure_1"
+        },
+        {
+          "id": "mac:line:00000741:05c4e5d702dcd8a0",
+          "line_number": 741,
+          "line_hash": "sha256:05c4e5d702dcd8a0f167b501556ecd25ba43cca4ca89d20bc588a17f4485fc41",
+          "group_id": "mac:semantic:thermal_pressure_1"
+        },
+        {
+          "id": "mac:line:00000742:5e930122dbc3cc1f",
+          "line_number": 742,
+          "line_hash": "sha256:5e930122dbc3cc1f4e3226b396c21d148b55445a095f56130903be660f89ef03",
+          "group_id": "mac:semantic:thermal_pressure_1"
+        },
+        {
+          "id": "mac:line:00000743:6b76ced3dbbe7c9f",
+          "line_number": 743,
+          "line_hash": "sha256:6b76ced3dbbe7c9f01c892fe8821a47de4a4feaa2e872eba756a608af5c8c7de",
+          "group_id": "mac:semantic:thermal_pressure_1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hdfs_v1_semantic_addstoredblock_0",
+    "question": "Looking at these HDFS log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "test",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The excerpt shows NameNode updates to its block map indicating new blocks have been added by DataNodes at specific IP addresses and ports, confirming ongoing storage operations where data nodes are reporting block additions or termination of packet responses for large 64MB blocks. These messages reflect the normal flow of block management between DataNodes and the NameNode in HDFS.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:7c967000980c086ed55fa6544ba4f05fe66d44622795e890c68caf8bbb635035",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:b399322b47ef9bcb88b000a5edc3baad77a579b90626e5401ce37957dbfae578"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "hdfs:line:00000003:edbcf4b8fe3a999c",
+          "line_number": 3,
+          "line_hash": "sha256:edbcf4b8fe3a999cb88943d805692faaa95df2b3dab53158343d79bc209057ff",
+          "group_id": "hdfs:semantic:addstoredblock_0"
+        },
+        {
+          "id": "hdfs:line:00000004:48804dd370dc39b4",
+          "line_number": 4,
+          "line_hash": "sha256:48804dd370dc39b4b02b406dd2b5cd42d3c7860e077b6cd40f5838434308a738",
+          "group_id": "hdfs:semantic:addstoredblock_0"
+        },
+        {
+          "id": "hdfs:line:00000005:48485e81413177e0",
+          "line_number": 5,
+          "line_hash": "sha256:48485e81413177e09092ef54f8ec608cba9367dce6e56420955387bdc23b87b2",
+          "group_id": "hdfs:semantic:addstoredblock_0"
+        },
+        {
+          "id": "hdfs:line:00000006:a57f50308fe079bb",
+          "line_number": 6,
+          "line_hash": "sha256:a57f50308fe079bb704a14acdbf08116023cac72feb39283142b6d33c9fceaa7",
+          "group_id": "hdfs:semantic:addstoredblock_0"
+        },
+        {
+          "id": "hdfs:line:00000007:efacbff6c501fcc2",
+          "line_number": 7,
+          "line_hash": "sha256:efacbff6c501fcc2b9296a44c5fa0805f9b73f8f01e5456f61d443cefb1999b1",
+          "group_id": "hdfs:semantic:addstoredblock_0"
+        },
+        {
+          "id": "hdfs:line:00000008:43c872dcba85c614",
+          "line_number": 8,
+          "line_hash": "sha256:43c872dcba85c6148c55cd02ac6f019120c9d124fc835e14a5740317a0e709cc",
+          "group_id": "hdfs:semantic:addstoredblock_0"
+        },
+        {
+          "id": "hdfs:line:00000009:f22502ca1c80d5d0",
+          "line_number": 9,
+          "line_hash": "sha256:f22502ca1c80d5d0428bc0e2e6b528742733340d88d65bffdae869e2ce46f1fa",
+          "group_id": "hdfs:semantic:addstoredblock_0"
+        },
+        {
+          "id": "hdfs:line:00000010:60d00429404278e9",
+          "line_number": 10,
+          "line_hash": "sha256:60d00429404278e9a489f96b37c04000afebb4a58ad2302553c93a3e2efdab2c",
+          "group_id": "hdfs:semantic:addstoredblock_0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hdfs_v1_semantic_addstoredblock_1",
+    "question": "Looking at these HDFS log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The excerpt shows NameNode operations adding new blocks to its block map and DataNodes receiving those blocks for storage, indicating ongoing block replication and placement in HDFS. These log entries reflect normal block management activities where the NameNode assigns new blocks to specific DataNode IP addresses and acknowledges their addition to the system's storage map.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:7c967000980c086ed55fa6544ba4f05fe66d44622795e890c68caf8bbb635035",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:5990b4945351b0a075a5664e4cd91994c6fa910c3896ec9cd173e5fa20ddcaeb"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "hdfs:line:00001085:f33cf0af10deaa66",
+          "line_number": 1085,
+          "line_hash": "sha256:f33cf0af10deaa66865d76e688a8ebaa05eec8950be30f83afe73ec6c3788ffe",
+          "group_id": "hdfs:semantic:addstoredblock_1"
+        },
+        {
+          "id": "hdfs:line:00001086:581963506bf1ccc8",
+          "line_number": 1086,
+          "line_hash": "sha256:581963506bf1ccc87f51a88957fc688ef425f2b2bf231347858f3858e1df80d5",
+          "group_id": "hdfs:semantic:addstoredblock_1"
+        },
+        {
+          "id": "hdfs:line:00001087:5f12fbbb1500cecc",
+          "line_number": 1087,
+          "line_hash": "sha256:5f12fbbb1500cecca7e940fe092faac06a84de5d725d4dd0688892d16d956993",
+          "group_id": "hdfs:semantic:addstoredblock_1"
+        },
+        {
+          "id": "hdfs:line:00001088:6f50c1d8ea219a5f",
+          "line_number": 1088,
+          "line_hash": "sha256:6f50c1d8ea219a5fa93783e219ac3af2a2c5bab2de3f7c1c50d94e6f484abedc",
+          "group_id": "hdfs:semantic:addstoredblock_1"
+        },
+        {
+          "id": "hdfs:line:00001089:2fb7326f879b3cb8",
+          "line_number": 1089,
+          "line_hash": "sha256:2fb7326f879b3cb86e9e5a459da21ad7a79771731277c2db1cbc34d3582c37a4",
+          "group_id": "hdfs:semantic:addstoredblock_1"
+        },
+        {
+          "id": "hdfs:line:00001090:1b606de810cb6cc5",
+          "line_number": 1090,
+          "line_hash": "sha256:1b606de810cb6cc54e47f8909c3580b93d39022f0d14a42817d9c849b08f8566",
+          "group_id": "hdfs:semantic:addstoredblock_1"
+        },
+        {
+          "id": "hdfs:line:00001091:e33d4ed513989826",
+          "line_number": 1091,
+          "line_hash": "sha256:e33d4ed5139898261579a44f0a2cb1ebe7234f46465df94c3cb86e66339ec3cd",
+          "group_id": "hdfs:semantic:addstoredblock_1"
+        },
+        {
+          "id": "hdfs:line:00001092:e127641597703ffa",
+          "line_number": 1092,
+          "line_hash": "sha256:e127641597703ffaf030da8f5256e967242ab21220b78e82b6bc493e12c4fafc",
+          "group_id": "hdfs:semantic:addstoredblock_1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openssh_v1_semantic_possible_break_in_attempt_0",
+    "question": "Looking at these OpenSSH log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The log shows multiple failed authentication attempts from IP 173.234.31.186 targeting a non‑existent user “webmaster”, including reverse‑DNS lookup failures and explicit “Invalid user” messages, indicating a brute‑force or credential‑guessing attack against the SSH service. The server rejected each attempt and closed the connections before any successful login could occur.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:1e4912727fa88245113d41b16a0cd25ceadba7f931e1c406542885b91254264f",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:765a69892e247bcd8ca25b2a12d4254eb9c8f3ebb86ceedc3648a25e7db518c1"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "openssh:line:00000001:67a67a97134aa89a",
+          "line_number": 1,
+          "line_hash": "sha256:67a67a97134aa89a05433857bfa69d0f4b50ffd6398392b6f4aa4d163774a8a5",
+          "group_id": "openssh:semantic:possible_break_in_attempt_0"
+        },
+        {
+          "id": "openssh:line:00000002:d341236a332ef9dd",
+          "line_number": 2,
+          "line_hash": "sha256:d341236a332ef9ddcf117867360b68d3924195f2a717c23e44844eb1d06ff8fc",
+          "group_id": "openssh:semantic:possible_break_in_attempt_0"
+        },
+        {
+          "id": "openssh:line:00000003:f3f74ddc7197bc4d",
+          "line_number": 3,
+          "line_hash": "sha256:f3f74ddc7197bc4d664d69aafa396055a379faf0cf85bb423c53a25a4da36fed",
+          "group_id": "openssh:semantic:possible_break_in_attempt_0"
+        },
+        {
+          "id": "openssh:line:00000004:3402daed896cdd2c",
+          "line_number": 4,
+          "line_hash": "sha256:3402daed896cdd2c76b89e74292de493d9091d1eb1a523fe5228be2cda9b2f90",
+          "group_id": "openssh:semantic:possible_break_in_attempt_0"
+        },
+        {
+          "id": "openssh:line:00000005:cc0ed0c938ccc957",
+          "line_number": 5,
+          "line_hash": "sha256:cc0ed0c938ccc957d6e6dc6f42ad4d9a78a80a9c7be10d83d874266449a4439b",
+          "group_id": "openssh:semantic:possible_break_in_attempt_0"
+        },
+        {
+          "id": "openssh:line:00000006:61d3d948516c1d3e",
+          "line_number": 6,
+          "line_hash": "sha256:61d3d948516c1d3ea9f9ea07b4df9b436db77c915bf9aff8c8831d162f56aaff",
+          "group_id": "openssh:semantic:possible_break_in_attempt_0"
+        },
+        {
+          "id": "openssh:line:00000007:3e30aa45cff046e4",
+          "line_number": 7,
+          "line_hash": "sha256:3e30aa45cff046e4afbaf3c05ff1507f4753fd93da5fc6523d8e0df726d24cc7",
+          "group_id": "openssh:semantic:possible_break_in_attempt_0"
+        },
+        {
+          "id": "openssh:line:00000008:82d6de4136545817",
+          "line_number": 8,
+          "line_hash": "sha256:82d6de413654581731db33a3d5f944a2ceff0da515bdb6e455d99af2bd94869a",
+          "group_id": "openssh:semantic:possible_break_in_attempt_0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openssh_v1_semantic_possible_break_in_attempt_1",
+    "question": "Looking at these OpenSSH log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The log shows repeated failed authentication attempts by a remote host at IP address 187.141.143.180 targeting the root user over SSH, triggering OpenSSH's \"POSSIBLE BREAK-IN ATTEMPT\" warning due to reverse mapping failures and immediate disconnections after password rejections. This indicates a brute-force or targeted attack attempting unauthorized access to the server via the root account from that source IP.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:1e4912727fa88245113d41b16a0cd25ceadba7f931e1c406542885b91254264f",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:768144efbad5bd3e31fa96ca6269c49c5aae991a20a56bd1b7557fc0353593e6"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "openssh:line:00000672:1a8f7d7d3b5239a5",
+          "line_number": 672,
+          "line_hash": "sha256:1a8f7d7d3b5239a5175e6497afb4857f69e9cd213edb3be2ab0dea2aa1e3b8ef",
+          "group_id": "openssh:semantic:possible_break_in_attempt_1"
+        },
+        {
+          "id": "openssh:line:00000673:db8f82f5d1dd2113",
+          "line_number": 673,
+          "line_hash": "sha256:db8f82f5d1dd21134eae528e4f22123755b6d774c6efcad24ea2ed051b0e173b",
+          "group_id": "openssh:semantic:possible_break_in_attempt_1"
+        },
+        {
+          "id": "openssh:line:00000674:caffdc74fdd6dcd1",
+          "line_number": 674,
+          "line_hash": "sha256:caffdc74fdd6dcd1d42fd172ddeac5714c98faeb5432157fcf577487e273fa35",
+          "group_id": "openssh:semantic:possible_break_in_attempt_1"
+        },
+        {
+          "id": "openssh:line:00000675:f2d731a525709255",
+          "line_number": 675,
+          "line_hash": "sha256:f2d731a52570925591dd965f7f1987ac0795a948bffb9b04e38aecafe2748386",
+          "group_id": "openssh:semantic:possible_break_in_attempt_1"
+        },
+        {
+          "id": "openssh:line:00000676:e73724b6a4b4f22a",
+          "line_number": 676,
+          "line_hash": "sha256:e73724b6a4b4f22a25a4e7322f1c870c8839b6a285c79291f6210f431f406cc6",
+          "group_id": "openssh:semantic:possible_break_in_attempt_1"
+        },
+        {
+          "id": "openssh:line:00000677:6c65efbef4054848",
+          "line_number": 677,
+          "line_hash": "sha256:6c65efbef4054848f5dfd1fa4182f65c82a12d9cf522f4b2355bef52e64dcbde",
+          "group_id": "openssh:semantic:possible_break_in_attempt_1"
+        },
+        {
+          "id": "openssh:line:00000678:3c54434b96d3b05f",
+          "line_number": 678,
+          "line_hash": "sha256:3c54434b96d3b05fa85f42dc9120e0d158e9331d4109810b117bef1e5ee42e41",
+          "group_id": "openssh:semantic:possible_break_in_attempt_1"
+        },
+        {
+          "id": "openssh:line:00000679:e18089d2bb4c5a1b",
+          "line_number": 679,
+          "line_hash": "sha256:e18089d2bb4c5a1bf3ea631964d832c386461f54a1cdb6c41349e9b47759e4d9",
+          "group_id": "openssh:semantic:possible_break_in_attempt_1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bgl_v1_semantic_instruction_cache_parity_error_corrected_0",
+    "question": "Looking at these BGL log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The excerpt shows multiple instances of corrected instruction cache parity errors and double-hummer alignment exceptions occurring in rapid succession across different processors and time stamps on June 3 2005, indicating a pattern of hardware‑level memory or execution anomalies being logged by the RAS kernel. The final line also records a specific CE (correctable error) event with a masked address, confirming that correctable errors are being detected and reported in real time.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:2a819ea540909db682005c9cf948387a40729b5c2e9f19d430e29ce704825496",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:21e53ed88580c50316cc363999fd7da85ff7595682e2186e6ed796eb2f36ac3e"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "bgl:line:00000001:10c9ab95b65a37be",
+          "line_number": 1,
+          "line_hash": "sha256:10c9ab95b65a37be0ed65e2df284ce49e77a4553138f9e027a1f467235114d6e",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_0"
+        },
+        {
+          "id": "bgl:line:00000002:1e6cfc32f22cf677",
+          "line_number": 2,
+          "line_hash": "sha256:1e6cfc32f22cf6770f983099eed28fdaf97fb3335b6a30d0c11124a2b2c57f10",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_0"
+        },
+        {
+          "id": "bgl:line:00000003:02f06ade61925cae",
+          "line_number": 3,
+          "line_hash": "sha256:02f06ade61925cae7b8ae0355bd731e512e356f4d891f6243543f2ffcf2801b6",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_0"
+        },
+        {
+          "id": "bgl:line:00000004:ad5610f48b767ca4",
+          "line_number": 4,
+          "line_hash": "sha256:ad5610f48b767ca41a45b9a32df27db33475de2864cd7b3d6d067c175c316310",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_0"
+        },
+        {
+          "id": "bgl:line:00000005:d464d5a5c12a72cf",
+          "line_number": 5,
+          "line_hash": "sha256:d464d5a5c12a72cf3b0586ef97fe92d2f9f109029a13f2fc75f2a8c462af0618",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_0"
+        },
+        {
+          "id": "bgl:line:00000006:162da96aba3437c5",
+          "line_number": 6,
+          "line_hash": "sha256:162da96aba3437c51c642849a2bbb31ac2be144fb83612092d9a22756ec4b191",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_0"
+        },
+        {
+          "id": "bgl:line:00000007:6a4dc16d6cf0a104",
+          "line_number": 7,
+          "line_hash": "sha256:6a4dc16d6cf0a10416576160d48321ce8da7b8d24a559ec32d449216a0909048",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_0"
+        },
+        {
+          "id": "bgl:line:00000008:448644064815abcd",
+          "line_number": 8,
+          "line_hash": "sha256:448644064815abcd8c7055e21b3127752f22117da7f0351490a1a2cfc8faec34",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bgl_v1_semantic_instruction_cache_parity_error_corrected_1",
+    "question": "Looking at these BGL log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "test",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The excerpt shows repeated corrected instruction cache parity errors in the RAS kernel logs across multiple timestamps and system components, indicating ongoing hardware-level memory integrity issues within the processor's cache subsystem. These events suggest a persistent fault condition affecting instruction cache reliability, potentially leading to system instability or requiring hardware intervention if not resolved.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:2a819ea540909db682005c9cf948387a40729b5c2e9f19d430e29ce704825496",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:b972fbca855617c15b95dee250bb77b8ad4d51cbfe42103f75522b050b383a09"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "bgl:line:00000329:aab4565ce76bd111",
+          "line_number": 329,
+          "line_hash": "sha256:aab4565ce76bd11155bfc751be7a490473b2b59f52547b6827f34f1f1c943eba",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_1"
+        },
+        {
+          "id": "bgl:line:00000330:c5183dd89b3b9655",
+          "line_number": 330,
+          "line_hash": "sha256:c5183dd89b3b96552d9496d475199b14f56754638c5bad894fbcbdc5dd4be011",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_1"
+        },
+        {
+          "id": "bgl:line:00000331:a400c423a7c45a57",
+          "line_number": 331,
+          "line_hash": "sha256:a400c423a7c45a57b43be260bfad35cf52cabe39aedc47c0e5bb6b32df58edbb",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_1"
+        },
+        {
+          "id": "bgl:line:00000332:240b64da18ab409b",
+          "line_number": 332,
+          "line_hash": "sha256:240b64da18ab409bbdf2cba1aa6661512a8eaba1ab4e3efb9e58c2b7c1583047",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_1"
+        },
+        {
+          "id": "bgl:line:00000333:7f6ea1de6edd0e3e",
+          "line_number": 333,
+          "line_hash": "sha256:7f6ea1de6edd0e3e6e4d255a7e11de3218d0c23198d0b9bc5a3207ea71fc6a58",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_1"
+        },
+        {
+          "id": "bgl:line:00000334:b4ce2b099a195b44",
+          "line_number": 334,
+          "line_hash": "sha256:b4ce2b099a195b4487b574f8f8de1a15439936cbdc2030b57573f2b60b56b281",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_1"
+        },
+        {
+          "id": "bgl:line:00000335:f3595540f7a40b5f",
+          "line_number": 335,
+          "line_hash": "sha256:f3595540f7a40b5f1ba7bd749d2bc28d963a8e2e20ed5d0a3f340a7fba5eedad",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_1"
+        },
+        {
+          "id": "bgl:line:00000336:d8faa7358dc23d9e",
+          "line_number": 336,
+          "line_hash": "sha256:d8faa7358dc23d9e0934f1dd301d6015b6ae7990b031a692f60afde705bab8dc",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hadoop_v1_semantic_mrappmaster_0",
+    "question": "Looking at these Hadoop log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "test",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The excerpt shows that a MapReduce application master has been created and is initializing its execution environment in YARN, including registering token types and output committers for job handling. This indicates the start of a MapReduce job submission process within the Hadoop ecosystem.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:9ecaeb807d50d5fb5a20982ea66f1c8d32545259a51ce7456c1ab78db0509732",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:8ec84fee0c453912f3da1eb69ecc9719f87b74c80f6f41039cd7204808de3642"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "hadoop:line:00000001:771550133c6d5a80",
+          "line_number": 1,
+          "line_hash": "sha256:771550133c6d5a80dcb1aea31ca9ab846c16aeca42fc41c55f946ed603479d9d",
+          "group_id": "hadoop:semantic:mrappmaster_0"
+        },
+        {
+          "id": "hadoop:line:00000002:1882afc4e9ec9f51",
+          "line_number": 2,
+          "line_hash": "sha256:1882afc4e9ec9f51c4c6b234a30f105d6e372ae4201624a83db32b5512117655",
+          "group_id": "hadoop:semantic:mrappmaster_0"
+        },
+        {
+          "id": "hadoop:line:00000003:31b8a512df598861",
+          "line_number": 3,
+          "line_hash": "sha256:31b8a512df5988617b3c0cffa101c81d62f37e3ca7539e20699a96c6a1f40e1a",
+          "group_id": "hadoop:semantic:mrappmaster_0"
+        },
+        {
+          "id": "hadoop:line:00000004:ed4df0935843b821",
+          "line_number": 4,
+          "line_hash": "sha256:ed4df0935843b82158a8960a11a95411b537b281b8ab2ba83c2560e6545a29b7",
+          "group_id": "hadoop:semantic:mrappmaster_0"
+        },
+        {
+          "id": "hadoop:line:00000005:c0a7c69da4de9df7",
+          "line_number": 5,
+          "line_hash": "sha256:c0a7c69da4de9df737116742b1940600748bb2f07444aaad7ce48bfca148370d",
+          "group_id": "hadoop:semantic:mrappmaster_0"
+        },
+        {
+          "id": "hadoop:line:00000006:a196822108128043",
+          "line_number": 6,
+          "line_hash": "sha256:a19682210812804338b33462cfb3c47d32e06a3433ed8c8d59b9a82ec5cd0479",
+          "group_id": "hadoop:semantic:mrappmaster_0"
+        },
+        {
+          "id": "hadoop:line:00000007:ef5b291df2a7570c",
+          "line_number": 7,
+          "line_hash": "sha256:ef5b291df2a7570c0bc7231c57d1b9a4e75e18e9aecab1d3c9440e5957ef4496",
+          "group_id": "hadoop:semantic:mrappmaster_0"
+        },
+        {
+          "id": "hadoop:line:00000008:7aabdc7a26337f06",
+          "line_number": 8,
+          "line_hash": "sha256:7aabdc7a26337f06f2ee619bfa8bac6d683f90648d26ef9ae2fbee18ef331fb2",
+          "group_id": "hadoop:semantic:mrappmaster_0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hadoop_v1_semantic_mrappmaster_1",
+    "question": "Looking at these Hadoop log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The excerpt shows that a Hadoop MapReduce application master is initializing and registering several internal event dispatcher classes for handling tasks, attempts, commit events, speculation, container allocation, and container launching within YARN, while also configuring the default file system to HDFS at msra-sa-41:9000. This indicates the start-up phase of a MapReduce job where core components are being set up to manage execution and resource coordination in the cluster.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:9ecaeb807d50d5fb5a20982ea66f1c8d32545259a51ce7456c1ab78db0509732",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:5f4ff77d46b59677f1d6418a2dc86c0d6e844a7984c9f384d22b160b98a63caa"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "hadoop:line:00000009:da65df018aecc4d7",
+          "line_number": 9,
+          "line_hash": "sha256:da65df018aecc4d7b90c3a5bda0585473ef5671c47e184f95d85a57ab15bac4f",
+          "group_id": "hadoop:semantic:mrappmaster_1"
+        },
+        {
+          "id": "hadoop:line:00000010:b8908cf911ec7e11",
+          "line_number": 10,
+          "line_hash": "sha256:b8908cf911ec7e11f9d43be462b374ceb7f8bd68189a0487e62cde9e3acd6b2a",
+          "group_id": "hadoop:semantic:mrappmaster_1"
+        },
+        {
+          "id": "hadoop:line:00000011:5df87c106f554b9d",
+          "line_number": 11,
+          "line_hash": "sha256:5df87c106f554b9d2f518aeffceb535ac96a071ab62431aa47332031ca5a1bca",
+          "group_id": "hadoop:semantic:mrappmaster_1"
+        },
+        {
+          "id": "hadoop:line:00000012:8ec4179ca7b45274",
+          "line_number": 12,
+          "line_hash": "sha256:8ec4179ca7b45274a94c1d36d6cd8612efb9713db8cbdf339ba22bf2a0bef9a4",
+          "group_id": "hadoop:semantic:mrappmaster_1"
+        },
+        {
+          "id": "hadoop:line:00000013:495c2c597a19610d",
+          "line_number": 13,
+          "line_hash": "sha256:495c2c597a19610ddde55b439ec0b5e7be1db3891bd810c9605cccb0c1fd6af4",
+          "group_id": "hadoop:semantic:mrappmaster_1"
+        },
+        {
+          "id": "hadoop:line:00000014:cba6d70e74f6c464",
+          "line_number": 14,
+          "line_hash": "sha256:cba6d70e74f6c46417564350abf7f2e754acb8d8fe208952e6234e99e04e3ec4",
+          "group_id": "hadoop:semantic:mrappmaster_1"
+        },
+        {
+          "id": "hadoop:line:00000015:6679b8dd869758b4",
+          "line_number": 15,
+          "line_hash": "sha256:6679b8dd869758b4cf00ec3a69c61323355055edc779478b4afb9e9a180627c9",
+          "group_id": "hadoop:semantic:mrappmaster_1"
+        },
+        {
+          "id": "hadoop:line:00000016:fef4bddf263c142a",
+          "line_number": 16,
+          "line_hash": "sha256:fef4bddf263c142a19279f7384dc51e1080e99e3223efe1a4fa5c6d8136b97f2",
+          "group_id": "hadoop:semantic:mrappmaster_1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "zookeeper_v1_semantic_fastleaderelection_0",
+    "question": "Looking at these Zookeeper log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The log shows repeated connection failures and restarts of a quorum election process on server myid=1, indicating it is losing connections to peers and attempting to re-establish them. The warnings about SendWorker leaving threads and RecvWorker reporting broken connections suggest the server is experiencing instability in its communication channels with other Zookeeper ensemble members.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:e40e0af5ef9eb6e4097200f260b9d1f626b3676f861a432e87977242e75543d8",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:e53d86dcfb6aa95723ee264bb0cc1cd5129fbbf862328342bf82d04b14149545"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "zookeeper:line:00000001:358742b8fb60f84b",
+          "line_number": 1,
+          "line_hash": "sha256:358742b8fb60f84b49ae49c1ca7251be11470b8f6582ef4d6d35027cd283def6",
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
+        },
+        {
+          "id": "zookeeper:line:00000002:6bcad5a26f6501c1",
+          "line_number": 2,
+          "line_hash": "sha256:6bcad5a26f6501c15e9f0b0413a8e1341dbcb1d4f16929b1ac18fa1917166034",
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
+        },
+        {
+          "id": "zookeeper:line:00000003:5292653b1d18ddc2",
+          "line_number": 3,
+          "line_hash": "sha256:5292653b1d18ddc27654a158f0c121fed549d40a7645be397ec28b3a9635901c",
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
+        },
+        {
+          "id": "zookeeper:line:00000004:b8a0099521014b9d",
+          "line_number": 4,
+          "line_hash": "sha256:b8a0099521014b9d7796b2216ad0078a068198fc2df961891d2d93cf46f7c7aa",
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
+        },
+        {
+          "id": "zookeeper:line:00000005:2553253d714f7137",
+          "line_number": 5,
+          "line_hash": "sha256:2553253d714f713759e2b779f59135e203ee42db7c091ed042760aea4e57ddd9",
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
+        },
+        {
+          "id": "zookeeper:line:00000006:722fb7e701788cd1",
+          "line_number": 6,
+          "line_hash": "sha256:722fb7e701788cd1f8f98fa6ed7c458789820af0e8e10062d477e0082e812093",
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
+        },
+        {
+          "id": "zookeeper:line:00000007:b908f3ae9b6125da",
+          "line_number": 7,
+          "line_hash": "sha256:b908f3ae9b6125da35451ecb3d74f9e1cc5f8dc7dd1a33ebdbd6ecdc6986f30d",
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
+        },
+        {
+          "id": "zookeeper:line:00000008:6ea9854578da3504",
+          "line_number": 8,
+          "line_hash": "sha256:6ea9854578da35040fdeba955497143ce315b1d8c52f7de7444c7af70cf190d3",
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "zookeeper_v1_semantic_fastleaderelection_1",
+    "question": "Looking at these Zookeeper log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The log shows repeated warnings that Zookeeper cannot establish connections to peer nodes 2 and 3 on ports 3888 during leader election timeouts, indicating network connectivity issues preventing those peers from participating in the quorum. This suggests a failure or instability in the underlying TCP/IP communication between the Zookeeper server (myid=1) and its follower servers at addresses 10.10.34.12 and 10.10.34.13.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:e40e0af5ef9eb6e4097200f260b9d1f626b3676f861a432e87977242e75543d8",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:aec26fb0eac5df8c3aaa16482b9eea4879e62132be3cd99b549ada0bc66d4d4e"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "zookeeper:line:00000700:171ece3bf323fe01",
+          "line_number": 700,
+          "line_hash": "sha256:171ece3bf323fe019c0234e617b0c11f987c964d4cae0cc18cf2e63f2e28202c",
+          "group_id": "zookeeper:semantic:fastleaderelection_1"
+        },
+        {
+          "id": "zookeeper:line:00000701:5b58499d3c861bfa",
+          "line_number": 701,
+          "line_hash": "sha256:5b58499d3c861bfa72633e47b0e3133cd3f3c167596fb1fea4445caf1f43b6d0",
+          "group_id": "zookeeper:semantic:fastleaderelection_1"
+        },
+        {
+          "id": "zookeeper:line:00000702:7bb155007371d03a",
+          "line_number": 702,
+          "line_hash": "sha256:7bb155007371d03aecb599bd4df7f630b4915db2ed6d3a303db82c1846665a60",
+          "group_id": "zookeeper:semantic:fastleaderelection_1"
+        },
+        {
+          "id": "zookeeper:line:00000703:6cc3dd205658e468",
+          "line_number": 703,
+          "line_hash": "sha256:6cc3dd205658e468a7bcbee3ed6d6249a82c490fa2f9c74abb7db8daf2596251",
+          "group_id": "zookeeper:semantic:fastleaderelection_1"
+        },
+        {
+          "id": "zookeeper:line:00000704:fc11f707dec3971a",
+          "line_number": 704,
+          "line_hash": "sha256:fc11f707dec3971a81a12b45d145f1f32bd355314af412fab32c2624899b9d32",
+          "group_id": "zookeeper:semantic:fastleaderelection_1"
+        },
+        {
+          "id": "zookeeper:line:00000705:d8a7876cff5210c3",
+          "line_number": 705,
+          "line_hash": "sha256:d8a7876cff5210c3d797cdf9fce119ed78de32b7fdeaa3816e3bb17ea4b8b4cf",
+          "group_id": "zookeeper:semantic:fastleaderelection_1"
+        },
+        {
+          "id": "zookeeper:line:00000706:26f88169575e4d6d",
+          "line_number": 706,
+          "line_hash": "sha256:26f88169575e4d6dcd7f23507b8ea34c8fc0977abbaa1a7c105e776a4238f076",
+          "group_id": "zookeeper:semantic:fastleaderelection_1"
+        },
+        {
+          "id": "zookeeper:line:00000707:7edc795595515975",
+          "line_number": 707,
+          "line_hash": "sha256:7edc7955955159752700054a6ce4ea8695a8da00b8a4b93bfdea68031e1b0cb3",
+          "group_id": "zookeeper:semantic:fastleaderelection_1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openstack_v1_semantic_nova_osapi_compute_wsgi_server_0",
+    "question": "Looking at these OpenStack log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The log shows repeated successful API requests to list servers ending in status 200, followed by a compute node recording that instance **b9000564‑fe1a‑409b‑b8cc‑1e88b294cd1d** experienced a \"VM Started\" lifecycle event and then immediately a \"VM Paused\" event. This indicates the virtual machine was launched and then paused shortly thereafter.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:025a1bc64ff5b2ef4a4bda6c4ad5c5c5f18478b71cd1ad2b0676e01625629f2f",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:4920c335daf3e21261db8021d7964a3d70dfb83d016baefe5a55330eda3e8b24"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "openstack:line:00000001:5f4530e474d6d1a0",
+          "line_number": 1,
+          "line_hash": "sha256:5f4530e474d6d1a07291b942913aae8685926d3f0be97aeb6c050a8131adc438",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
+        },
+        {
+          "id": "openstack:line:00000002:3597904b1d73d9dc",
+          "line_number": 2,
+          "line_hash": "sha256:3597904b1d73d9dcb26a072874f0e0bef170d2cf210e615fe7b74999bfe6c0d8",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
+        },
+        {
+          "id": "openstack:line:00000003:d6e1306b669d798a",
+          "line_number": 3,
+          "line_hash": "sha256:d6e1306b669d798a96b4529b45b555e81f36a449b9ef10d40f4d53c84ee9a968",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
+        },
+        {
+          "id": "openstack:line:00000004:bac99dc524bed55d",
+          "line_number": 4,
+          "line_hash": "sha256:bac99dc524bed55de7126f3a2cf629f80fbf74f49e0149efbaa0d0afabd54e68",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
+        },
+        {
+          "id": "openstack:line:00000005:78916d26b4d394be",
+          "line_number": 5,
+          "line_hash": "sha256:78916d26b4d394be0c925e2536212af5ea5271156d3d5a6e7dba771bdfbf6869",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
+        },
+        {
+          "id": "openstack:line:00000006:6bd8ccf633b867a5",
+          "line_number": 6,
+          "line_hash": "sha256:6bd8ccf633b867a5160cf9b015c5d0b0a9b110fd874085314d1fc6ab0d96267a",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
+        },
+        {
+          "id": "openstack:line:00000007:b62b2e37d0ea5017",
+          "line_number": 7,
+          "line_hash": "sha256:b62b2e37d0ea5017697a5b0f7c006a41c9d4869551579e06a8ca957be067f19a",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
+        },
+        {
+          "id": "openstack:line:00000008:6bc48904cbd8b4dd",
+          "line_number": 8,
+          "line_hash": "sha256:6bc48904cbd8b4dd7d090abf5a32245ff2c79083b21c978476fa628531f81679",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openstack_v1_semantic_nova_osapi_compute_wsgi_server_1",
+    "question": "Looking at these OpenStack log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The log shows repeated successful API calls to list servers (status 200) from a Nova‑API process at 10.11.10.1, followed by a separate entry indicating that a VM with instance ID 63a0d960‑70b6‑44c6‑b606‑491478a5cadf was stopped as a lifecycle event. This suggests an administrator or automated system queried the server list and then triggered a stop operation on that specific VM.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:025a1bc64ff5b2ef4a4bda6c4ad5c5c5f18478b71cd1ad2b0676e01625629f2f",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:d5c00dcca9c6acc7e09c7c5270b0b5513edb3650f699d0bfaa424b45dbcffc47"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "openstack:line:00001002:b0008d701a619d54",
+          "line_number": 1002,
+          "line_hash": "sha256:b0008d701a619d5455a771cd0830698d9bac92c7d0ad235a312fc4db529aca1a",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_1"
+        },
+        {
+          "id": "openstack:line:00001003:6ae3fbfbfe9b3281",
+          "line_number": 1003,
+          "line_hash": "sha256:6ae3fbfbfe9b3281c7a00cb7f47149bdd56c59c51ed13d4db3f72ad86f649f1e",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_1"
+        },
+        {
+          "id": "openstack:line:00001004:591d0fbba2ae4dda",
+          "line_number": 1004,
+          "line_hash": "sha256:591d0fbba2ae4ddaa5645f09c26388507101260deb0ab750f12a32952db62b00",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_1"
+        },
+        {
+          "id": "openstack:line:00001005:b1b0cbfc301e35b2",
+          "line_number": 1005,
+          "line_hash": "sha256:b1b0cbfc301e35b29c0a892f8b58105fae0f9c9d2c60b6c0c62ec05a6b9c8bd6",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_1"
+        },
+        {
+          "id": "openstack:line:00001006:ccf9eabd53db2109",
+          "line_number": 1006,
+          "line_hash": "sha256:ccf9eabd53db210947c87e15b573ed93cf14f2e4326f28d9dc021769db3660cb",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_1"
+        },
+        {
+          "id": "openstack:line:00001007:55a32c4d8673e614",
+          "line_number": 1007,
+          "line_hash": "sha256:55a32c4d8673e6143563a42234c496cf68c5ba54b3dc08985f198f67475b5c97",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_1"
+        },
+        {
+          "id": "openstack:line:00001008:9b5f1669d4fe2051",
+          "line_number": 1008,
+          "line_hash": "sha256:9b5f1669d4fe20514b35eb0295863ad2274ff46cc9e20f05dee6321988431f9d",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_1"
+        },
+        {
+          "id": "openstack:line:00001009:67e71984b0b5597d",
+          "line_number": 1009,
+          "line_hash": "sha256:67e71984b0b5597dbd2835ecd1de5f60a0ec2ba1f567b669bd04142608beb1b8",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_1"
+        }
+      ]
+    }
+  }
+]

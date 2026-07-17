@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "stats": {
+    "total_questions": 116,
+    "unique_ids": 116,
+    "distinct_group_ids": 62,
+    "by_difficulty": {
+      "easy": 90,
+      "medium": 20,
+      "hard": 6
+    },
+    "by_routing_path": {
+      "sql": 60,
+      "keyword": 30,
+      "semantic": 26
+    },
+    "by_split": {
+      "dev": 94,
+      "test": 22
+    },
+    "by_review_status": {
+      "verified": 90,
+      "in_review": 26
+    },
+    "hard_question_count": 6
+  },
+  "error_count": 0,
+  "warning_count": 1,
+  "errors": [],
+  "warnings": [
+    "[/output/pilot/questions.json#112] id=openssh_v1_hard_attacker_compare: difficulty=hard but expected_answer has ~3 sentence(s) (Section 7.3 expects >=4)."
+  ]
+}

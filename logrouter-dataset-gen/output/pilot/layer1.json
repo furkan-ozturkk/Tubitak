@@ -1,0 +1,4634 @@
+[
+  {
+    "id": "linux_v1_count_authentication_failure_0",
+    "question": "How many log lines contain 'authentication failure'?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "490",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:b3e20bc1afe732ab1bf3ed1de4bf9c809e4194e02f7dea911d918e5342e8e173"
+    },
+    "numeric_claims": [
+      {
+        "value": 490,
+        "query": {
+          "operator": "count_literal",
+          "literal": "authentication failure",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "linux:line:00000001:7c5641a6bf9d4b23",
+          "line_number": 1,
+          "line_hash": "sha256:7c5641a6bf9d4b23528e1acff86e81c35238cafa8bfdeed4cca35ed38ea47d37",
+          "group_id": "linux:count:authentication_failure"
+        },
+        {
+          "id": "linux:line:00000003:f6a256ef53a802e8",
+          "line_number": 3,
+          "line_hash": "sha256:f6a256ef53a802e8b1db72276f975c7fa142b2b7505dce2b090f034b5e9aea73",
+          "group_id": "linux:count:authentication_failure"
+        },
+        {
+          "id": "linux:line:00000004:db1b1106960dd813",
+          "line_number": 4,
+          "line_hash": "sha256:db1b1106960dd813545aa0f2b88974a1e942217ef28cb213dcf92f88f89ac588",
+          "group_id": "linux:count:authentication_failure"
+        },
+        {
+          "id": "linux:line:00000005:6859041b6d08936e",
+          "line_number": 5,
+          "line_hash": "sha256:6859041b6d08936e758d4035ec58e0fb27da6f62b0ade849b41f027024019f82",
+          "group_id": "linux:count:authentication_failure"
+        },
+        {
+          "id": "linux:line:00000006:5722995c75571b00",
+          "line_number": 6,
+          "line_hash": "sha256:5722995c75571b00e6e83d8679d9b721a2113b5a47dac5e3eec992d9f189c8f6",
+          "group_id": "linux:count:authentication_failure"
+        }
+      ]
+    }
+  },
+  {
+    "id": "linux_v1_count_authentication_failure_1",
+    "question": "Count the lines mentioning 'authentication failure'.",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "490",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:b3e20bc1afe732ab1bf3ed1de4bf9c809e4194e02f7dea911d918e5342e8e173"
+    },
+    "numeric_claims": [
+      {
+        "value": 490,
+        "query": {
+          "operator": "count_literal",
+          "literal": "authentication failure",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "linux:line:00000001:7c5641a6bf9d4b23",
+          "line_number": 1,
+          "line_hash": "sha256:7c5641a6bf9d4b23528e1acff86e81c35238cafa8bfdeed4cca35ed38ea47d37",
+          "group_id": "linux:count:authentication_failure"
+        },
+        {
+          "id": "linux:line:00000003:f6a256ef53a802e8",
+          "line_number": 3,
+          "line_hash": "sha256:f6a256ef53a802e8b1db72276f975c7fa142b2b7505dce2b090f034b5e9aea73",
+          "group_id": "linux:count:authentication_failure"
+        },
+        {
+          "id": "linux:line:00000004:db1b1106960dd813",
+          "line_number": 4,
+          "line_hash": "sha256:db1b1106960dd813545aa0f2b88974a1e942217ef28cb213dcf92f88f89ac588",
+          "group_id": "linux:count:authentication_failure"
+        },
+        {
+          "id": "linux:line:00000005:6859041b6d08936e",
+          "line_number": 5,
+          "line_hash": "sha256:6859041b6d08936e758d4035ec58e0fb27da6f62b0ade849b41f027024019f82",
+          "group_id": "linux:count:authentication_failure"
+        },
+        {
+          "id": "linux:line:00000006:5722995c75571b00",
+          "line_number": 6,
+          "line_hash": "sha256:5722995c75571b00e6e83d8679d9b721a2113b5a47dac5e3eec992d9f189c8f6",
+          "group_id": "linux:count:authentication_failure"
+        }
+      ]
+    }
+  },
+  {
+    "id": "linux_v1_count_authentication_failure_2",
+    "question": "What is the total number of 'authentication failure' occurrences?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "total-of",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "490",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:b3e20bc1afe732ab1bf3ed1de4bf9c809e4194e02f7dea911d918e5342e8e173"
+    },
+    "numeric_claims": [
+      {
+        "value": 490,
+        "query": {
+          "operator": "count_literal",
+          "literal": "authentication failure",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "linux:line:00000001:7c5641a6bf9d4b23",
+          "line_number": 1,
+          "line_hash": "sha256:7c5641a6bf9d4b23528e1acff86e81c35238cafa8bfdeed4cca35ed38ea47d37",
+          "group_id": "linux:count:authentication_failure"
+        },
+        {
+          "id": "linux:line:00000003:f6a256ef53a802e8",
+          "line_number": 3,
+          "line_hash": "sha256:f6a256ef53a802e8b1db72276f975c7fa142b2b7505dce2b090f034b5e9aea73",
+          "group_id": "linux:count:authentication_failure"
+        },
+        {
+          "id": "linux:line:00000004:db1b1106960dd813",
+          "line_number": 4,
+          "line_hash": "sha256:db1b1106960dd813545aa0f2b88974a1e942217ef28cb213dcf92f88f89ac588",
+          "group_id": "linux:count:authentication_failure"
+        },
+        {
+          "id": "linux:line:00000005:6859041b6d08936e",
+          "line_number": 5,
+          "line_hash": "sha256:6859041b6d08936e758d4035ec58e0fb27da6f62b0ade849b41f027024019f82",
+          "group_id": "linux:count:authentication_failure"
+        },
+        {
+          "id": "linux:line:00000006:5722995c75571b00",
+          "line_number": 6,
+          "line_hash": "sha256:5722995c75571b00e6e83d8679d9b721a2113b5a47dac5e3eec992d9f189c8f6",
+          "group_id": "linux:count:authentication_failure"
+        }
+      ]
+    }
+  },
+  {
+    "id": "linux_v1_presence_invalid_user_0",
+    "question": "Does the log contain any line with 'Invalid user'?",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "test",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "No",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:b3e20bc1afe732ab1bf3ed1de4bf9c809e4194e02f7dea911d918e5342e8e173"
+    },
+    "numeric_claims": [
+      {
+        "value": 0,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Invalid user",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "linux:line:00000001:7c5641a6bf9d4b23",
+          "line_number": 1,
+          "line_hash": "sha256:7c5641a6bf9d4b23528e1acff86e81c35238cafa8bfdeed4cca35ed38ea47d37",
+          "group_id": "linux:presence:invalid_user"
+        }
+      ]
+    }
+  },
+  {
+    "id": "linux_v1_presence_invalid_user_1",
+    "question": "Check whether the log has a line mentioning 'Invalid user'.",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "test",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "No",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:b3e20bc1afe732ab1bf3ed1de4bf9c809e4194e02f7dea911d918e5342e8e173"
+    },
+    "numeric_claims": [
+      {
+        "value": 0,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Invalid user",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "linux:line:00000001:7c5641a6bf9d4b23",
+          "line_number": 1,
+          "line_hash": "sha256:7c5641a6bf9d4b23528e1acff86e81c35238cafa8bfdeed4cca35ed38ea47d37",
+          "group_id": "linux:presence:invalid_user"
+        }
+      ]
+    }
+  },
+  {
+    "id": "linux_v1_presence_invalid_user_2",
+    "question": "Tell me if there is at least one occurrence of 'Invalid user' in the log.",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "imperative",
+    "split": "test",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "No",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:b3e20bc1afe732ab1bf3ed1de4bf9c809e4194e02f7dea911d918e5342e8e173"
+    },
+    "numeric_claims": [
+      {
+        "value": 0,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Invalid user",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "linux:line:00000001:7c5641a6bf9d4b23",
+          "line_number": 1,
+          "line_hash": "sha256:7c5641a6bf9d4b23528e1acff86e81c35238cafa8bfdeed4cca35ed38ea47d37",
+          "group_id": "linux:presence:invalid_user"
+        }
+      ]
+    }
+  },
+  {
+    "id": "linux_v1_lookup_authentication_failure_first_0",
+    "question": "Show the first line that reports 'authentication failure'.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Jun 14 15:16:01 combo sshd(pam_unix)[19939]: authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=218.188.2.4 \r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:b3e20bc1afe732ab1bf3ed1de4bf9c809e4194e02f7dea911d918e5342e8e173"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "linux:line:00000001:7c5641a6bf9d4b23",
+          "line_number": 1,
+          "line_hash": "sha256:7c5641a6bf9d4b23528e1acff86e81c35238cafa8bfdeed4cca35ed38ea47d37",
+          "group_id": "linux:lookup:authentication_failure_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "linux_v1_lookup_authentication_failure_first_1",
+    "question": "Find the first log line mentioning 'authentication failure'.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Jun 14 15:16:01 combo sshd(pam_unix)[19939]: authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=218.188.2.4 \r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:b3e20bc1afe732ab1bf3ed1de4bf9c809e4194e02f7dea911d918e5342e8e173"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "linux:line:00000001:7c5641a6bf9d4b23",
+          "line_number": 1,
+          "line_hash": "sha256:7c5641a6bf9d4b23528e1acff86e81c35238cafa8bfdeed4cca35ed38ea47d37",
+          "group_id": "linux:lookup:authentication_failure_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "linux_v1_lookup_authentication_failure_first_2",
+    "question": "Give me the first line where 'authentication failure' appears.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "imperative",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Jun 14 15:16:01 combo sshd(pam_unix)[19939]: authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=218.188.2.4 \r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:b3e20bc1afe732ab1bf3ed1de4bf9c809e4194e02f7dea911d918e5342e8e173"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "linux:line:00000001:7c5641a6bf9d4b23",
+          "line_number": 1,
+          "line_hash": "sha256:7c5641a6bf9d4b23528e1acff86e81c35238cafa8bfdeed4cca35ed38ea47d37",
+          "group_id": "linux:lookup:authentication_failure_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apache_v1_count_notice_0",
+    "question": "How many log lines contain '[notice]'?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "1405",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:c7efa3eb686e3a96bd2f8f4457b2a7887e9cf2f3649327f1b4e87af841363ce8"
+    },
+    "numeric_claims": [
+      {
+        "value": 1405,
+        "query": {
+          "operator": "count_literal",
+          "literal": "[notice]",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "apache:line:00000001:347048756a4f62da",
+          "line_number": 1,
+          "line_hash": "sha256:347048756a4f62da720a9bb348a5e2ec8a82413e1c3798a556b172ba7b4e0942",
+          "group_id": "apache:count:notice"
+        },
+        {
+          "id": "apache:line:00000003:a41ecadc57156e34",
+          "line_number": 3,
+          "line_hash": "sha256:a41ecadc57156e34212794444b9924ecbe5cb5fd6065ddfb3687875792266764",
+          "group_id": "apache:count:notice"
+        },
+        {
+          "id": "apache:line:00000004:b001dc147abf0e2f",
+          "line_number": 4,
+          "line_hash": "sha256:b001dc147abf0e2f070b7b37eeb524d24db5e45be61ecf22afa5872dccf3b7d1",
+          "group_id": "apache:count:notice"
+        },
+        {
+          "id": "apache:line:00000005:358a17f606fc3319",
+          "line_number": 5,
+          "line_hash": "sha256:358a17f606fc3319fc8538403b9c21f183a243571662254a739393a02a831378",
+          "group_id": "apache:count:notice"
+        },
+        {
+          "id": "apache:line:00000006:f7f1570bed0d5be4",
+          "line_number": 6,
+          "line_hash": "sha256:f7f1570bed0d5be43ae2b635ce4206e9e5c62793937ae1440e2b615cf4cacceb",
+          "group_id": "apache:count:notice"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apache_v1_count_notice_1",
+    "question": "Count the lines mentioning '[notice]'.",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "1405",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:c7efa3eb686e3a96bd2f8f4457b2a7887e9cf2f3649327f1b4e87af841363ce8"
+    },
+    "numeric_claims": [
+      {
+        "value": 1405,
+        "query": {
+          "operator": "count_literal",
+          "literal": "[notice]",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "apache:line:00000001:347048756a4f62da",
+          "line_number": 1,
+          "line_hash": "sha256:347048756a4f62da720a9bb348a5e2ec8a82413e1c3798a556b172ba7b4e0942",
+          "group_id": "apache:count:notice"
+        },
+        {
+          "id": "apache:line:00000003:a41ecadc57156e34",
+          "line_number": 3,
+          "line_hash": "sha256:a41ecadc57156e34212794444b9924ecbe5cb5fd6065ddfb3687875792266764",
+          "group_id": "apache:count:notice"
+        },
+        {
+          "id": "apache:line:00000004:b001dc147abf0e2f",
+          "line_number": 4,
+          "line_hash": "sha256:b001dc147abf0e2f070b7b37eeb524d24db5e45be61ecf22afa5872dccf3b7d1",
+          "group_id": "apache:count:notice"
+        },
+        {
+          "id": "apache:line:00000005:358a17f606fc3319",
+          "line_number": 5,
+          "line_hash": "sha256:358a17f606fc3319fc8538403b9c21f183a243571662254a739393a02a831378",
+          "group_id": "apache:count:notice"
+        },
+        {
+          "id": "apache:line:00000006:f7f1570bed0d5be4",
+          "line_number": 6,
+          "line_hash": "sha256:f7f1570bed0d5be43ae2b635ce4206e9e5c62793937ae1440e2b615cf4cacceb",
+          "group_id": "apache:count:notice"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apache_v1_count_notice_2",
+    "question": "What is the total number of '[notice]' occurrences?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "total-of",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "1405",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:c7efa3eb686e3a96bd2f8f4457b2a7887e9cf2f3649327f1b4e87af841363ce8"
+    },
+    "numeric_claims": [
+      {
+        "value": 1405,
+        "query": {
+          "operator": "count_literal",
+          "literal": "[notice]",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "apache:line:00000001:347048756a4f62da",
+          "line_number": 1,
+          "line_hash": "sha256:347048756a4f62da720a9bb348a5e2ec8a82413e1c3798a556b172ba7b4e0942",
+          "group_id": "apache:count:notice"
+        },
+        {
+          "id": "apache:line:00000003:a41ecadc57156e34",
+          "line_number": 3,
+          "line_hash": "sha256:a41ecadc57156e34212794444b9924ecbe5cb5fd6065ddfb3687875792266764",
+          "group_id": "apache:count:notice"
+        },
+        {
+          "id": "apache:line:00000004:b001dc147abf0e2f",
+          "line_number": 4,
+          "line_hash": "sha256:b001dc147abf0e2f070b7b37eeb524d24db5e45be61ecf22afa5872dccf3b7d1",
+          "group_id": "apache:count:notice"
+        },
+        {
+          "id": "apache:line:00000005:358a17f606fc3319",
+          "line_number": 5,
+          "line_hash": "sha256:358a17f606fc3319fc8538403b9c21f183a243571662254a739393a02a831378",
+          "group_id": "apache:count:notice"
+        },
+        {
+          "id": "apache:line:00000006:f7f1570bed0d5be4",
+          "line_number": 6,
+          "line_hash": "sha256:f7f1570bed0d5be43ae2b635ce4206e9e5c62793937ae1440e2b615cf4cacceb",
+          "group_id": "apache:count:notice"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apache_v1_presence_mod_jk_0",
+    "question": "Does the log contain any line with 'mod_jk'?",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:c7efa3eb686e3a96bd2f8f4457b2a7887e9cf2f3649327f1b4e87af841363ce8"
+    },
+    "numeric_claims": [
+      {
+        "value": 551,
+        "query": {
+          "operator": "count_literal",
+          "literal": "mod_jk",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "apache:line:00000002:96e6755838d22b1f",
+          "line_number": 2,
+          "line_hash": "sha256:96e6755838d22b1f8f3979e2c18d9ae9ce994e12f66931bcbb2c7d38cdb8611d",
+          "group_id": "apache:presence:mod_jk"
+        },
+        {
+          "id": "apache:line:00000009:f4ac7f9bf686396b",
+          "line_number": 9,
+          "line_hash": "sha256:f4ac7f9bf686396b032a2d22a568490f44a893b7fac6c4017f83e9664c120d5e",
+          "group_id": "apache:presence:mod_jk"
+        },
+        {
+          "id": "apache:line:00000010:f4ac7f9bf686396b",
+          "line_number": 10,
+          "line_hash": "sha256:f4ac7f9bf686396b032a2d22a568490f44a893b7fac6c4017f83e9664c120d5e",
+          "group_id": "apache:presence:mod_jk"
+        },
+        {
+          "id": "apache:line:00000011:f4ac7f9bf686396b",
+          "line_number": 11,
+          "line_hash": "sha256:f4ac7f9bf686396b032a2d22a568490f44a893b7fac6c4017f83e9664c120d5e",
+          "group_id": "apache:presence:mod_jk"
+        },
+        {
+          "id": "apache:line:00000017:3a29718733c1c356",
+          "line_number": 17,
+          "line_hash": "sha256:3a29718733c1c356bbbc104f2e1d108f1a1f71067672b5a717a93b8429049262",
+          "group_id": "apache:presence:mod_jk"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apache_v1_presence_mod_jk_1",
+    "question": "Check whether the log has a line mentioning 'mod_jk'.",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:c7efa3eb686e3a96bd2f8f4457b2a7887e9cf2f3649327f1b4e87af841363ce8"
+    },
+    "numeric_claims": [
+      {
+        "value": 551,
+        "query": {
+          "operator": "count_literal",
+          "literal": "mod_jk",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "apache:line:00000002:96e6755838d22b1f",
+          "line_number": 2,
+          "line_hash": "sha256:96e6755838d22b1f8f3979e2c18d9ae9ce994e12f66931bcbb2c7d38cdb8611d",
+          "group_id": "apache:presence:mod_jk"
+        },
+        {
+          "id": "apache:line:00000009:f4ac7f9bf686396b",
+          "line_number": 9,
+          "line_hash": "sha256:f4ac7f9bf686396b032a2d22a568490f44a893b7fac6c4017f83e9664c120d5e",
+          "group_id": "apache:presence:mod_jk"
+        },
+        {
+          "id": "apache:line:00000010:f4ac7f9bf686396b",
+          "line_number": 10,
+          "line_hash": "sha256:f4ac7f9bf686396b032a2d22a568490f44a893b7fac6c4017f83e9664c120d5e",
+          "group_id": "apache:presence:mod_jk"
+        },
+        {
+          "id": "apache:line:00000011:f4ac7f9bf686396b",
+          "line_number": 11,
+          "line_hash": "sha256:f4ac7f9bf686396b032a2d22a568490f44a893b7fac6c4017f83e9664c120d5e",
+          "group_id": "apache:presence:mod_jk"
+        },
+        {
+          "id": "apache:line:00000017:3a29718733c1c356",
+          "line_number": 17,
+          "line_hash": "sha256:3a29718733c1c356bbbc104f2e1d108f1a1f71067672b5a717a93b8429049262",
+          "group_id": "apache:presence:mod_jk"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apache_v1_presence_mod_jk_2",
+    "question": "Tell me if there is at least one occurrence of 'mod_jk' in the log.",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "imperative",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:c7efa3eb686e3a96bd2f8f4457b2a7887e9cf2f3649327f1b4e87af841363ce8"
+    },
+    "numeric_claims": [
+      {
+        "value": 551,
+        "query": {
+          "operator": "count_literal",
+          "literal": "mod_jk",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "apache:line:00000002:96e6755838d22b1f",
+          "line_number": 2,
+          "line_hash": "sha256:96e6755838d22b1f8f3979e2c18d9ae9ce994e12f66931bcbb2c7d38cdb8611d",
+          "group_id": "apache:presence:mod_jk"
+        },
+        {
+          "id": "apache:line:00000009:f4ac7f9bf686396b",
+          "line_number": 9,
+          "line_hash": "sha256:f4ac7f9bf686396b032a2d22a568490f44a893b7fac6c4017f83e9664c120d5e",
+          "group_id": "apache:presence:mod_jk"
+        },
+        {
+          "id": "apache:line:00000010:f4ac7f9bf686396b",
+          "line_number": 10,
+          "line_hash": "sha256:f4ac7f9bf686396b032a2d22a568490f44a893b7fac6c4017f83e9664c120d5e",
+          "group_id": "apache:presence:mod_jk"
+        },
+        {
+          "id": "apache:line:00000011:f4ac7f9bf686396b",
+          "line_number": 11,
+          "line_hash": "sha256:f4ac7f9bf686396b032a2d22a568490f44a893b7fac6c4017f83e9664c120d5e",
+          "group_id": "apache:presence:mod_jk"
+        },
+        {
+          "id": "apache:line:00000017:3a29718733c1c356",
+          "line_number": 17,
+          "line_hash": "sha256:3a29718733c1c356bbbc104f2e1d108f1a1f71067672b5a717a93b8429049262",
+          "group_id": "apache:presence:mod_jk"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apache_v1_lookup_child_workerenv_in_error_state_first_0",
+    "question": "Show the first line that reports 'child workerEnv in error state'.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "[Sun Dec 04 04:47:44 2005] [error] mod_jk child workerEnv in error state 6\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:c7efa3eb686e3a96bd2f8f4457b2a7887e9cf2f3649327f1b4e87af841363ce8"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "apache:line:00000002:96e6755838d22b1f",
+          "line_number": 2,
+          "line_hash": "sha256:96e6755838d22b1f8f3979e2c18d9ae9ce994e12f66931bcbb2c7d38cdb8611d",
+          "group_id": "apache:lookup:child_workerenv_in_error_state_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apache_v1_lookup_child_workerenv_in_error_state_first_1",
+    "question": "Find the first log line mentioning 'child workerEnv in error state'.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "[Sun Dec 04 04:47:44 2005] [error] mod_jk child workerEnv in error state 6\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:c7efa3eb686e3a96bd2f8f4457b2a7887e9cf2f3649327f1b4e87af841363ce8"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "apache:line:00000002:96e6755838d22b1f",
+          "line_number": 2,
+          "line_hash": "sha256:96e6755838d22b1f8f3979e2c18d9ae9ce994e12f66931bcbb2c7d38cdb8611d",
+          "group_id": "apache:lookup:child_workerenv_in_error_state_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apache_v1_lookup_child_workerenv_in_error_state_first_2",
+    "question": "Give me the first line where 'child workerEnv in error state' appears.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "imperative",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "[Sun Dec 04 04:47:44 2005] [error] mod_jk child workerEnv in error state 6\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:c7efa3eb686e3a96bd2f8f4457b2a7887e9cf2f3649327f1b4e87af841363ce8"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "apache:line:00000002:96e6755838d22b1f",
+          "line_number": 2,
+          "line_hash": "sha256:96e6755838d22b1f8f3979e2c18d9ae9ce994e12f66931bcbb2c7d38cdb8611d",
+          "group_id": "apache:lookup:child_workerenv_in_error_state_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "windows_v1_count_cbs_0",
+    "question": "How many log lines contain 'CBS'?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "1973",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:372fb809464a6d6016e599e9272d7cf1e8b644f25c90c7f76f19c936362456d0"
+    },
+    "numeric_claims": [
+      {
+        "value": 1973,
+        "query": {
+          "operator": "count_literal",
+          "literal": "CBS",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "windows:line:00000001:ed4b253644abbb21",
+          "line_number": 1,
+          "line_hash": "sha256:ed4b253644abbb210473ce0409147213e7cd642284fe08efbeef276a4c94d8b0",
+          "group_id": "windows:count:cbs"
+        },
+        {
+          "id": "windows:line:00000005:2b9ab40d82946345",
+          "line_number": 5,
+          "line_hash": "sha256:2b9ab40d829463453e9441a8a987c403e4dbf391d1051244ca803c837fe13a98",
+          "group_id": "windows:count:cbs"
+        },
+        {
+          "id": "windows:line:00000006:eaa81cf82d072a7b",
+          "line_number": 6,
+          "line_hash": "sha256:eaa81cf82d072a7b0769e5cb4bde59600665a032c9871b039bc0ab899e04e379",
+          "group_id": "windows:count:cbs"
+        },
+        {
+          "id": "windows:line:00000007:b200da3e375009ea",
+          "line_number": 7,
+          "line_hash": "sha256:b200da3e375009ea9500ec9e3bfcc4e5a65facb8401e0189508167304f80ae2d",
+          "group_id": "windows:count:cbs"
+        },
+        {
+          "id": "windows:line:00000008:7bc4514822c6dd11",
+          "line_number": 8,
+          "line_hash": "sha256:7bc4514822c6dd11e639e5d57455a2f980ad6f3bf6194ad156ab90cda3fa4825",
+          "group_id": "windows:count:cbs"
+        }
+      ]
+    }
+  },
+  {
+    "id": "windows_v1_count_cbs_1",
+    "question": "Count the lines mentioning 'CBS'.",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "1973",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:372fb809464a6d6016e599e9272d7cf1e8b644f25c90c7f76f19c936362456d0"
+    },
+    "numeric_claims": [
+      {
+        "value": 1973,
+        "query": {
+          "operator": "count_literal",
+          "literal": "CBS",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "windows:line:00000001:ed4b253644abbb21",
+          "line_number": 1,
+          "line_hash": "sha256:ed4b253644abbb210473ce0409147213e7cd642284fe08efbeef276a4c94d8b0",
+          "group_id": "windows:count:cbs"
+        },
+        {
+          "id": "windows:line:00000005:2b9ab40d82946345",
+          "line_number": 5,
+          "line_hash": "sha256:2b9ab40d829463453e9441a8a987c403e4dbf391d1051244ca803c837fe13a98",
+          "group_id": "windows:count:cbs"
+        },
+        {
+          "id": "windows:line:00000006:eaa81cf82d072a7b",
+          "line_number": 6,
+          "line_hash": "sha256:eaa81cf82d072a7b0769e5cb4bde59600665a032c9871b039bc0ab899e04e379",
+          "group_id": "windows:count:cbs"
+        },
+        {
+          "id": "windows:line:00000007:b200da3e375009ea",
+          "line_number": 7,
+          "line_hash": "sha256:b200da3e375009ea9500ec9e3bfcc4e5a65facb8401e0189508167304f80ae2d",
+          "group_id": "windows:count:cbs"
+        },
+        {
+          "id": "windows:line:00000008:7bc4514822c6dd11",
+          "line_number": 8,
+          "line_hash": "sha256:7bc4514822c6dd11e639e5d57455a2f980ad6f3bf6194ad156ab90cda3fa4825",
+          "group_id": "windows:count:cbs"
+        }
+      ]
+    }
+  },
+  {
+    "id": "windows_v1_count_cbs_2",
+    "question": "What is the total number of 'CBS' occurrences?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "total-of",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "1973",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:372fb809464a6d6016e599e9272d7cf1e8b644f25c90c7f76f19c936362456d0"
+    },
+    "numeric_claims": [
+      {
+        "value": 1973,
+        "query": {
+          "operator": "count_literal",
+          "literal": "CBS",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "windows:line:00000001:ed4b253644abbb21",
+          "line_number": 1,
+          "line_hash": "sha256:ed4b253644abbb210473ce0409147213e7cd642284fe08efbeef276a4c94d8b0",
+          "group_id": "windows:count:cbs"
+        },
+        {
+          "id": "windows:line:00000005:2b9ab40d82946345",
+          "line_number": 5,
+          "line_hash": "sha256:2b9ab40d829463453e9441a8a987c403e4dbf391d1051244ca803c837fe13a98",
+          "group_id": "windows:count:cbs"
+        },
+        {
+          "id": "windows:line:00000006:eaa81cf82d072a7b",
+          "line_number": 6,
+          "line_hash": "sha256:eaa81cf82d072a7b0769e5cb4bde59600665a032c9871b039bc0ab899e04e379",
+          "group_id": "windows:count:cbs"
+        },
+        {
+          "id": "windows:line:00000007:b200da3e375009ea",
+          "line_number": 7,
+          "line_hash": "sha256:b200da3e375009ea9500ec9e3bfcc4e5a65facb8401e0189508167304f80ae2d",
+          "group_id": "windows:count:cbs"
+        },
+        {
+          "id": "windows:line:00000008:7bc4514822c6dd11",
+          "line_number": 8,
+          "line_hash": "sha256:7bc4514822c6dd11e639e5d57455a2f980ad6f3bf6194ad156ab90cda3fa4825",
+          "group_id": "windows:count:cbs"
+        }
+      ]
+    }
+  },
+  {
+    "id": "windows_v1_presence_error_0",
+    "question": "Does the log contain any line with 'Error'?",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:372fb809464a6d6016e599e9272d7cf1e8b644f25c90c7f76f19c936362456d0"
+    },
+    "numeric_claims": [
+      {
+        "value": 2,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Error",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "windows:line:00000936:89453ee3d5e61521",
+          "line_number": 936,
+          "line_hash": "sha256:89453ee3d5e615218678749add6c547d94e8add3ad0d451f56dd7e3f2d24af30",
+          "group_id": "windows:presence:error"
+        },
+        {
+          "id": "windows:line:00001103:91a6583e8256911d",
+          "line_number": 1103,
+          "line_hash": "sha256:91a6583e8256911d2db1152a64eeb066b2f6fd35b1e0df50521a8fc47560b760",
+          "group_id": "windows:presence:error"
+        }
+      ]
+    }
+  },
+  {
+    "id": "windows_v1_presence_error_1",
+    "question": "Check whether the log has a line mentioning 'Error'.",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:372fb809464a6d6016e599e9272d7cf1e8b644f25c90c7f76f19c936362456d0"
+    },
+    "numeric_claims": [
+      {
+        "value": 2,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Error",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "windows:line:00000936:89453ee3d5e61521",
+          "line_number": 936,
+          "line_hash": "sha256:89453ee3d5e615218678749add6c547d94e8add3ad0d451f56dd7e3f2d24af30",
+          "group_id": "windows:presence:error"
+        },
+        {
+          "id": "windows:line:00001103:91a6583e8256911d",
+          "line_number": 1103,
+          "line_hash": "sha256:91a6583e8256911d2db1152a64eeb066b2f6fd35b1e0df50521a8fc47560b760",
+          "group_id": "windows:presence:error"
+        }
+      ]
+    }
+  },
+  {
+    "id": "windows_v1_presence_error_2",
+    "question": "Tell me if there is at least one occurrence of 'Error' in the log.",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "imperative",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:372fb809464a6d6016e599e9272d7cf1e8b644f25c90c7f76f19c936362456d0"
+    },
+    "numeric_claims": [
+      {
+        "value": 2,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Error",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "windows:line:00000936:89453ee3d5e61521",
+          "line_number": 936,
+          "line_hash": "sha256:89453ee3d5e615218678749add6c547d94e8add3ad0d451f56dd7e3f2d24af30",
+          "group_id": "windows:presence:error"
+        },
+        {
+          "id": "windows:line:00001103:91a6583e8256911d",
+          "line_number": 1103,
+          "line_hash": "sha256:91a6583e8256911d2db1152a64eeb066b2f6fd35b1e0df50521a8fc47560b760",
+          "group_id": "windows:presence:error"
+        }
+      ]
+    }
+  },
+  {
+    "id": "windows_v1_lookup_csi_first_0",
+    "question": "Show the first line that reports 'CSI'.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "2016-09-28 04:30:31, Info                  CSI    00000001@2016/9/27:20:30:31.455 WcpInitialize (wcp.dll version 0.0.0.6) called (stack @0x7fed806eb5d @0x7fef9fb9b6d @0x7fef9f8358f @0xff83e97c @0xff83d799 @0xff83db2f)\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:372fb809464a6d6016e599e9272d7cf1e8b644f25c90c7f76f19c936362456d0"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "windows:line:00000002:635189722009a381",
+          "line_number": 2,
+          "line_hash": "sha256:635189722009a38143e1b1c9c5c7909f5852bb8a8e47bc18ca085302df425e1b",
+          "group_id": "windows:lookup:csi_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "windows_v1_lookup_csi_first_1",
+    "question": "Find the first log line mentioning 'CSI'.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "2016-09-28 04:30:31, Info                  CSI    00000001@2016/9/27:20:30:31.455 WcpInitialize (wcp.dll version 0.0.0.6) called (stack @0x7fed806eb5d @0x7fef9fb9b6d @0x7fef9f8358f @0xff83e97c @0xff83d799 @0xff83db2f)\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:372fb809464a6d6016e599e9272d7cf1e8b644f25c90c7f76f19c936362456d0"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "windows:line:00000002:635189722009a381",
+          "line_number": 2,
+          "line_hash": "sha256:635189722009a38143e1b1c9c5c7909f5852bb8a8e47bc18ca085302df425e1b",
+          "group_id": "windows:lookup:csi_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "windows_v1_lookup_csi_first_2",
+    "question": "Give me the first line where 'CSI' appears.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "imperative",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "2016-09-28 04:30:31, Info                  CSI    00000001@2016/9/27:20:30:31.455 WcpInitialize (wcp.dll version 0.0.0.6) called (stack @0x7fed806eb5d @0x7fef9fb9b6d @0x7fef9f8358f @0xff83e97c @0xff83d799 @0xff83db2f)\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:372fb809464a6d6016e599e9272d7cf1e8b644f25c90c7f76f19c936362456d0"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "windows:line:00000002:635189722009a381",
+          "line_number": 2,
+          "line_hash": "sha256:635189722009a38143e1b1c9c5c7909f5852bb8a8e47bc18ca085302df425e1b",
+          "group_id": "windows:lookup:csi_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mac_v1_count_kernel_0",
+    "question": "How many log lines contain 'kernel'?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "775",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:d9ea495488728d8c989dc942fca3324a3cc7b19b0a6f409a5fd568ad547fd931"
+    },
+    "numeric_claims": [
+      {
+        "value": 775,
+        "query": {
+          "operator": "count_literal",
+          "literal": "kernel",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "mac:line:00000001:aa31a3457c9f4af9",
+          "line_number": 1,
+          "line_hash": "sha256:aa31a3457c9f4af9a77ef60d0f4456c34e05574e33ab525cb15b7abdfb08a815",
+          "group_id": "mac:count:kernel"
+        },
+        {
+          "id": "mac:line:00000004:f0637712b711582b",
+          "line_number": 4,
+          "line_hash": "sha256:f0637712b711582b3e4bdd76c56a71104dfcb9c8b7f47ee9c886cfbdb241ddea",
+          "group_id": "mac:count:kernel"
+        },
+        {
+          "id": "mac:line:00000005:94f85d28609f491a",
+          "line_number": 5,
+          "line_hash": "sha256:94f85d28609f491aafb2693cf7d7a1aa5106c837c0c7413b1a943847a0bf364e",
+          "group_id": "mac:count:kernel"
+        },
+        {
+          "id": "mac:line:00000007:59395d6da84765d1",
+          "line_number": 7,
+          "line_hash": "sha256:59395d6da84765d12ba74b6a2208bc19ef3c570e63f8c0d309768b5e77f9e4e1",
+          "group_id": "mac:count:kernel"
+        },
+        {
+          "id": "mac:line:00000008:9473ab57c2e84dd4",
+          "line_number": 8,
+          "line_hash": "sha256:9473ab57c2e84dd487078ba18fef529dc1212eaf8bb385330eb2857012569919",
+          "group_id": "mac:count:kernel"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mac_v1_count_kernel_1",
+    "question": "Count the lines mentioning 'kernel'.",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "775",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:d9ea495488728d8c989dc942fca3324a3cc7b19b0a6f409a5fd568ad547fd931"
+    },
+    "numeric_claims": [
+      {
+        "value": 775,
+        "query": {
+          "operator": "count_literal",
+          "literal": "kernel",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "mac:line:00000001:aa31a3457c9f4af9",
+          "line_number": 1,
+          "line_hash": "sha256:aa31a3457c9f4af9a77ef60d0f4456c34e05574e33ab525cb15b7abdfb08a815",
+          "group_id": "mac:count:kernel"
+        },
+        {
+          "id": "mac:line:00000004:f0637712b711582b",
+          "line_number": 4,
+          "line_hash": "sha256:f0637712b711582b3e4bdd76c56a71104dfcb9c8b7f47ee9c886cfbdb241ddea",
+          "group_id": "mac:count:kernel"
+        },
+        {
+          "id": "mac:line:00000005:94f85d28609f491a",
+          "line_number": 5,
+          "line_hash": "sha256:94f85d28609f491aafb2693cf7d7a1aa5106c837c0c7413b1a943847a0bf364e",
+          "group_id": "mac:count:kernel"
+        },
+        {
+          "id": "mac:line:00000007:59395d6da84765d1",
+          "line_number": 7,
+          "line_hash": "sha256:59395d6da84765d12ba74b6a2208bc19ef3c570e63f8c0d309768b5e77f9e4e1",
+          "group_id": "mac:count:kernel"
+        },
+        {
+          "id": "mac:line:00000008:9473ab57c2e84dd4",
+          "line_number": 8,
+          "line_hash": "sha256:9473ab57c2e84dd487078ba18fef529dc1212eaf8bb385330eb2857012569919",
+          "group_id": "mac:count:kernel"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mac_v1_count_kernel_2",
+    "question": "What is the total number of 'kernel' occurrences?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "total-of",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "775",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:d9ea495488728d8c989dc942fca3324a3cc7b19b0a6f409a5fd568ad547fd931"
+    },
+    "numeric_claims": [
+      {
+        "value": 775,
+        "query": {
+          "operator": "count_literal",
+          "literal": "kernel",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "mac:line:00000001:aa31a3457c9f4af9",
+          "line_number": 1,
+          "line_hash": "sha256:aa31a3457c9f4af9a77ef60d0f4456c34e05574e33ab525cb15b7abdfb08a815",
+          "group_id": "mac:count:kernel"
+        },
+        {
+          "id": "mac:line:00000004:f0637712b711582b",
+          "line_number": 4,
+          "line_hash": "sha256:f0637712b711582b3e4bdd76c56a71104dfcb9c8b7f47ee9c886cfbdb241ddea",
+          "group_id": "mac:count:kernel"
+        },
+        {
+          "id": "mac:line:00000005:94f85d28609f491a",
+          "line_number": 5,
+          "line_hash": "sha256:94f85d28609f491aafb2693cf7d7a1aa5106c837c0c7413b1a943847a0bf364e",
+          "group_id": "mac:count:kernel"
+        },
+        {
+          "id": "mac:line:00000007:59395d6da84765d1",
+          "line_number": 7,
+          "line_hash": "sha256:59395d6da84765d12ba74b6a2208bc19ef3c570e63f8c0d309768b5e77f9e4e1",
+          "group_id": "mac:count:kernel"
+        },
+        {
+          "id": "mac:line:00000008:9473ab57c2e84dd4",
+          "line_number": 8,
+          "line_hash": "sha256:9473ab57c2e84dd487078ba18fef529dc1212eaf8bb385330eb2857012569919",
+          "group_id": "mac:count:kernel"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mac_v1_presence_thermal_pressure_0",
+    "question": "Does the log contain any line with 'Thermal pressure'?",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:d9ea495488728d8c989dc942fca3324a3cc7b19b0a6f409a5fd568ad547fd931"
+    },
+    "numeric_claims": [
+      {
+        "value": 39,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Thermal pressure",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "mac:line:00000002:c863f1cb8f3f5182",
+          "line_number": 2,
+          "line_hash": "sha256:c863f1cb8f3f5182f44f4a7b3e86eff448297269a6151b82086add805dd59f01",
+          "group_id": "mac:presence:thermal_pressure"
+        },
+        {
+          "id": "mac:line:00000034:c8b3cd27cc1aa33e",
+          "line_number": 34,
+          "line_hash": "sha256:c8b3cd27cc1aa33e7ec775d6355d9eb73a0a01529961cb72530dbdea8f79a3c8",
+          "group_id": "mac:presence:thermal_pressure"
+        },
+        {
+          "id": "mac:line:00000061:b3093c99aa6a5a23",
+          "line_number": 61,
+          "line_hash": "sha256:b3093c99aa6a5a236906bfd5d655166a6723d8e3c364b2a7d27b910c5645caef",
+          "group_id": "mac:presence:thermal_pressure"
+        },
+        {
+          "id": "mac:line:00000069:fac411173f0d311c",
+          "line_number": 69,
+          "line_hash": "sha256:fac411173f0d311ca3c218a07cf04aac9b932a31db505526903807d0985d8950",
+          "group_id": "mac:presence:thermal_pressure"
+        },
+        {
+          "id": "mac:line:00000158:21d424afbeb46cc6",
+          "line_number": 158,
+          "line_hash": "sha256:21d424afbeb46cc6c7c3460c95f65e33d827504bf66bd12ee682870659ef2501",
+          "group_id": "mac:presence:thermal_pressure"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mac_v1_presence_thermal_pressure_1",
+    "question": "Check whether the log has a line mentioning 'Thermal pressure'.",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:d9ea495488728d8c989dc942fca3324a3cc7b19b0a6f409a5fd568ad547fd931"
+    },
+    "numeric_claims": [
+      {
+        "value": 39,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Thermal pressure",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "mac:line:00000002:c863f1cb8f3f5182",
+          "line_number": 2,
+          "line_hash": "sha256:c863f1cb8f3f5182f44f4a7b3e86eff448297269a6151b82086add805dd59f01",
+          "group_id": "mac:presence:thermal_pressure"
+        },
+        {
+          "id": "mac:line:00000034:c8b3cd27cc1aa33e",
+          "line_number": 34,
+          "line_hash": "sha256:c8b3cd27cc1aa33e7ec775d6355d9eb73a0a01529961cb72530dbdea8f79a3c8",
+          "group_id": "mac:presence:thermal_pressure"
+        },
+        {
+          "id": "mac:line:00000061:b3093c99aa6a5a23",
+          "line_number": 61,
+          "line_hash": "sha256:b3093c99aa6a5a236906bfd5d655166a6723d8e3c364b2a7d27b910c5645caef",
+          "group_id": "mac:presence:thermal_pressure"
+        },
+        {
+          "id": "mac:line:00000069:fac411173f0d311c",
+          "line_number": 69,
+          "line_hash": "sha256:fac411173f0d311ca3c218a07cf04aac9b932a31db505526903807d0985d8950",
+          "group_id": "mac:presence:thermal_pressure"
+        },
+        {
+          "id": "mac:line:00000158:21d424afbeb46cc6",
+          "line_number": 158,
+          "line_hash": "sha256:21d424afbeb46cc6c7c3460c95f65e33d827504bf66bd12ee682870659ef2501",
+          "group_id": "mac:presence:thermal_pressure"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mac_v1_presence_thermal_pressure_2",
+    "question": "Tell me if there is at least one occurrence of 'Thermal pressure' in the log.",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "imperative",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:d9ea495488728d8c989dc942fca3324a3cc7b19b0a6f409a5fd568ad547fd931"
+    },
+    "numeric_claims": [
+      {
+        "value": 39,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Thermal pressure",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "mac:line:00000002:c863f1cb8f3f5182",
+          "line_number": 2,
+          "line_hash": "sha256:c863f1cb8f3f5182f44f4a7b3e86eff448297269a6151b82086add805dd59f01",
+          "group_id": "mac:presence:thermal_pressure"
+        },
+        {
+          "id": "mac:line:00000034:c8b3cd27cc1aa33e",
+          "line_number": 34,
+          "line_hash": "sha256:c8b3cd27cc1aa33e7ec775d6355d9eb73a0a01529961cb72530dbdea8f79a3c8",
+          "group_id": "mac:presence:thermal_pressure"
+        },
+        {
+          "id": "mac:line:00000061:b3093c99aa6a5a23",
+          "line_number": 61,
+          "line_hash": "sha256:b3093c99aa6a5a236906bfd5d655166a6723d8e3c364b2a7d27b910c5645caef",
+          "group_id": "mac:presence:thermal_pressure"
+        },
+        {
+          "id": "mac:line:00000069:fac411173f0d311c",
+          "line_number": 69,
+          "line_hash": "sha256:fac411173f0d311ca3c218a07cf04aac9b932a31db505526903807d0985d8950",
+          "group_id": "mac:presence:thermal_pressure"
+        },
+        {
+          "id": "mac:line:00000158:21d424afbeb46cc6",
+          "line_number": 158,
+          "line_hash": "sha256:21d424afbeb46cc6c7c3460c95f65e33d827504bf66bd12ee682870659ef2501",
+          "group_id": "mac:presence:thermal_pressure"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mac_v1_lookup_iothunderboltswitch_first_0",
+    "question": "Show the first line that reports 'IOThunderboltSwitch'.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Jul  1 09:00:55 calvisitor-10-105-160-95 kernel[0]: IOThunderboltSwitch<0>(0x0)::listenerCallback - Thunderbolt HPD packet for route = 0x0 port = 11 unplug = 0\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:d9ea495488728d8c989dc942fca3324a3cc7b19b0a6f409a5fd568ad547fd931"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "mac:line:00000001:aa31a3457c9f4af9",
+          "line_number": 1,
+          "line_hash": "sha256:aa31a3457c9f4af9a77ef60d0f4456c34e05574e33ab525cb15b7abdfb08a815",
+          "group_id": "mac:lookup:iothunderboltswitch_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mac_v1_lookup_iothunderboltswitch_first_1",
+    "question": "Find the first log line mentioning 'IOThunderboltSwitch'.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Jul  1 09:00:55 calvisitor-10-105-160-95 kernel[0]: IOThunderboltSwitch<0>(0x0)::listenerCallback - Thunderbolt HPD packet for route = 0x0 port = 11 unplug = 0\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:d9ea495488728d8c989dc942fca3324a3cc7b19b0a6f409a5fd568ad547fd931"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "mac:line:00000001:aa31a3457c9f4af9",
+          "line_number": 1,
+          "line_hash": "sha256:aa31a3457c9f4af9a77ef60d0f4456c34e05574e33ab525cb15b7abdfb08a815",
+          "group_id": "mac:lookup:iothunderboltswitch_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mac_v1_lookup_iothunderboltswitch_first_2",
+    "question": "Give me the first line where 'IOThunderboltSwitch' appears.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "imperative",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Jul  1 09:00:55 calvisitor-10-105-160-95 kernel[0]: IOThunderboltSwitch<0>(0x0)::listenerCallback - Thunderbolt HPD packet for route = 0x0 port = 11 unplug = 0\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:d9ea495488728d8c989dc942fca3324a3cc7b19b0a6f409a5fd568ad547fd931"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "mac:line:00000001:aa31a3457c9f4af9",
+          "line_number": 1,
+          "line_hash": "sha256:aa31a3457c9f4af9a77ef60d0f4456c34e05574e33ab525cb15b7abdfb08a815",
+          "group_id": "mac:lookup:iothunderboltswitch_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hdfs_v1_count_packetresponder_0",
+    "question": "How many log lines contain 'PacketResponder'?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "603",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:7c967000980c086ed55fa6544ba4f05fe66d44622795e890c68caf8bbb635035"
+    },
+    "numeric_claims": [
+      {
+        "value": 603,
+        "query": {
+          "operator": "count_literal",
+          "literal": "PacketResponder",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "hdfs:line:00000001:1fc2acadbb4655e2",
+          "line_number": 1,
+          "line_hash": "sha256:1fc2acadbb4655e2db30c9a3a4772279d0303161b8c9e45f437b32ed27adbf5b",
+          "group_id": "hdfs:count:packetresponder"
+        },
+        {
+          "id": "hdfs:line:00000002:c832ca0cb86f8935",
+          "line_number": 2,
+          "line_hash": "sha256:c832ca0cb86f8935b25b4da60cc9442d3e3068d1f29674b115a1f39deb8607b8",
+          "group_id": "hdfs:count:packetresponder"
+        },
+        {
+          "id": "hdfs:line:00000004:48804dd370dc39b4",
+          "line_number": 4,
+          "line_hash": "sha256:48804dd370dc39b4b02b406dd2b5cd42d3c7860e077b6cd40f5838434308a738",
+          "group_id": "hdfs:count:packetresponder"
+        },
+        {
+          "id": "hdfs:line:00000005:48485e81413177e0",
+          "line_number": 5,
+          "line_hash": "sha256:48485e81413177e09092ef54f8ec608cba9367dce6e56420955387bdc23b87b2",
+          "group_id": "hdfs:count:packetresponder"
+        },
+        {
+          "id": "hdfs:line:00000009:f22502ca1c80d5d0",
+          "line_number": 9,
+          "line_hash": "sha256:f22502ca1c80d5d0428bc0e2e6b528742733340d88d65bffdae869e2ce46f1fa",
+          "group_id": "hdfs:count:packetresponder"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hdfs_v1_count_packetresponder_1",
+    "question": "Count the lines mentioning 'PacketResponder'.",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "603",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:7c967000980c086ed55fa6544ba4f05fe66d44622795e890c68caf8bbb635035"
+    },
+    "numeric_claims": [
+      {
+        "value": 603,
+        "query": {
+          "operator": "count_literal",
+          "literal": "PacketResponder",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "hdfs:line:00000001:1fc2acadbb4655e2",
+          "line_number": 1,
+          "line_hash": "sha256:1fc2acadbb4655e2db30c9a3a4772279d0303161b8c9e45f437b32ed27adbf5b",
+          "group_id": "hdfs:count:packetresponder"
+        },
+        {
+          "id": "hdfs:line:00000002:c832ca0cb86f8935",
+          "line_number": 2,
+          "line_hash": "sha256:c832ca0cb86f8935b25b4da60cc9442d3e3068d1f29674b115a1f39deb8607b8",
+          "group_id": "hdfs:count:packetresponder"
+        },
+        {
+          "id": "hdfs:line:00000004:48804dd370dc39b4",
+          "line_number": 4,
+          "line_hash": "sha256:48804dd370dc39b4b02b406dd2b5cd42d3c7860e077b6cd40f5838434308a738",
+          "group_id": "hdfs:count:packetresponder"
+        },
+        {
+          "id": "hdfs:line:00000005:48485e81413177e0",
+          "line_number": 5,
+          "line_hash": "sha256:48485e81413177e09092ef54f8ec608cba9367dce6e56420955387bdc23b87b2",
+          "group_id": "hdfs:count:packetresponder"
+        },
+        {
+          "id": "hdfs:line:00000009:f22502ca1c80d5d0",
+          "line_number": 9,
+          "line_hash": "sha256:f22502ca1c80d5d0428bc0e2e6b528742733340d88d65bffdae869e2ce46f1fa",
+          "group_id": "hdfs:count:packetresponder"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hdfs_v1_count_packetresponder_2",
+    "question": "What is the total number of 'PacketResponder' occurrences?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "total-of",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "603",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:7c967000980c086ed55fa6544ba4f05fe66d44622795e890c68caf8bbb635035"
+    },
+    "numeric_claims": [
+      {
+        "value": 603,
+        "query": {
+          "operator": "count_literal",
+          "literal": "PacketResponder",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "hdfs:line:00000001:1fc2acadbb4655e2",
+          "line_number": 1,
+          "line_hash": "sha256:1fc2acadbb4655e2db30c9a3a4772279d0303161b8c9e45f437b32ed27adbf5b",
+          "group_id": "hdfs:count:packetresponder"
+        },
+        {
+          "id": "hdfs:line:00000002:c832ca0cb86f8935",
+          "line_number": 2,
+          "line_hash": "sha256:c832ca0cb86f8935b25b4da60cc9442d3e3068d1f29674b115a1f39deb8607b8",
+          "group_id": "hdfs:count:packetresponder"
+        },
+        {
+          "id": "hdfs:line:00000004:48804dd370dc39b4",
+          "line_number": 4,
+          "line_hash": "sha256:48804dd370dc39b4b02b406dd2b5cd42d3c7860e077b6cd40f5838434308a738",
+          "group_id": "hdfs:count:packetresponder"
+        },
+        {
+          "id": "hdfs:line:00000005:48485e81413177e0",
+          "line_number": 5,
+          "line_hash": "sha256:48485e81413177e09092ef54f8ec608cba9367dce6e56420955387bdc23b87b2",
+          "group_id": "hdfs:count:packetresponder"
+        },
+        {
+          "id": "hdfs:line:00000009:f22502ca1c80d5d0",
+          "line_number": 9,
+          "line_hash": "sha256:f22502ca1c80d5d0428bc0e2e6b528742733340d88d65bffdae869e2ce46f1fa",
+          "group_id": "hdfs:count:packetresponder"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hdfs_v1_presence_exception_0",
+    "question": "Does the log contain any line with 'Exception'?",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:7c967000980c086ed55fa6544ba4f05fe66d44622795e890c68caf8bbb635035"
+    },
+    "numeric_claims": [
+      {
+        "value": 80,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Exception",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "hdfs:line:00000078:a3d59c11130eed42",
+          "line_number": 78,
+          "line_hash": "sha256:a3d59c11130eed42e6e5fb0d3d745dedf91ccb4598b3db0d9eedbd72cc83a95a",
+          "group_id": "hdfs:presence:exception"
+        },
+        {
+          "id": "hdfs:line:00000079:8e52085a9dcfa8ba",
+          "line_number": 79,
+          "line_hash": "sha256:8e52085a9dcfa8ba3b4526e16276c9d2e0aaf72f92c77eaa910fc0a7a36d5d71",
+          "group_id": "hdfs:presence:exception"
+        },
+        {
+          "id": "hdfs:line:00000081:ec2e4946af03f7b0",
+          "line_number": 81,
+          "line_hash": "sha256:ec2e4946af03f7b06d8b55682144f061674d6826b6592ea5699146e2f57e6d40",
+          "group_id": "hdfs:presence:exception"
+        },
+        {
+          "id": "hdfs:line:00000082:a15ca4ac09eb2ab4",
+          "line_number": 82,
+          "line_hash": "sha256:a15ca4ac09eb2ab416938e1d0d7ea33f651ec4ac823b9c7341288369bbdb831d",
+          "group_id": "hdfs:presence:exception"
+        },
+        {
+          "id": "hdfs:line:00000084:fefcd2d3b9e0e24a",
+          "line_number": 84,
+          "line_hash": "sha256:fefcd2d3b9e0e24acff02c7f87303e6d12e5fad365d05ea9968d9b5334f14c13",
+          "group_id": "hdfs:presence:exception"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hdfs_v1_presence_exception_1",
+    "question": "Check whether the log has a line mentioning 'Exception'.",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:7c967000980c086ed55fa6544ba4f05fe66d44622795e890c68caf8bbb635035"
+    },
+    "numeric_claims": [
+      {
+        "value": 80,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Exception",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "hdfs:line:00000078:a3d59c11130eed42",
+          "line_number": 78,
+          "line_hash": "sha256:a3d59c11130eed42e6e5fb0d3d745dedf91ccb4598b3db0d9eedbd72cc83a95a",
+          "group_id": "hdfs:presence:exception"
+        },
+        {
+          "id": "hdfs:line:00000079:8e52085a9dcfa8ba",
+          "line_number": 79,
+          "line_hash": "sha256:8e52085a9dcfa8ba3b4526e16276c9d2e0aaf72f92c77eaa910fc0a7a36d5d71",
+          "group_id": "hdfs:presence:exception"
+        },
+        {
+          "id": "hdfs:line:00000081:ec2e4946af03f7b0",
+          "line_number": 81,
+          "line_hash": "sha256:ec2e4946af03f7b06d8b55682144f061674d6826b6592ea5699146e2f57e6d40",
+          "group_id": "hdfs:presence:exception"
+        },
+        {
+          "id": "hdfs:line:00000082:a15ca4ac09eb2ab4",
+          "line_number": 82,
+          "line_hash": "sha256:a15ca4ac09eb2ab416938e1d0d7ea33f651ec4ac823b9c7341288369bbdb831d",
+          "group_id": "hdfs:presence:exception"
+        },
+        {
+          "id": "hdfs:line:00000084:fefcd2d3b9e0e24a",
+          "line_number": 84,
+          "line_hash": "sha256:fefcd2d3b9e0e24acff02c7f87303e6d12e5fad365d05ea9968d9b5334f14c13",
+          "group_id": "hdfs:presence:exception"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hdfs_v1_presence_exception_2",
+    "question": "Tell me if there is at least one occurrence of 'Exception' in the log.",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "imperative",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:7c967000980c086ed55fa6544ba4f05fe66d44622795e890c68caf8bbb635035"
+    },
+    "numeric_claims": [
+      {
+        "value": 80,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Exception",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "hdfs:line:00000078:a3d59c11130eed42",
+          "line_number": 78,
+          "line_hash": "sha256:a3d59c11130eed42e6e5fb0d3d745dedf91ccb4598b3db0d9eedbd72cc83a95a",
+          "group_id": "hdfs:presence:exception"
+        },
+        {
+          "id": "hdfs:line:00000079:8e52085a9dcfa8ba",
+          "line_number": 79,
+          "line_hash": "sha256:8e52085a9dcfa8ba3b4526e16276c9d2e0aaf72f92c77eaa910fc0a7a36d5d71",
+          "group_id": "hdfs:presence:exception"
+        },
+        {
+          "id": "hdfs:line:00000081:ec2e4946af03f7b0",
+          "line_number": 81,
+          "line_hash": "sha256:ec2e4946af03f7b06d8b55682144f061674d6826b6592ea5699146e2f57e6d40",
+          "group_id": "hdfs:presence:exception"
+        },
+        {
+          "id": "hdfs:line:00000082:a15ca4ac09eb2ab4",
+          "line_number": 82,
+          "line_hash": "sha256:a15ca4ac09eb2ab416938e1d0d7ea33f651ec4ac823b9c7341288369bbdb831d",
+          "group_id": "hdfs:presence:exception"
+        },
+        {
+          "id": "hdfs:line:00000084:fefcd2d3b9e0e24a",
+          "line_number": 84,
+          "line_hash": "sha256:fefcd2d3b9e0e24acff02c7f87303e6d12e5fad365d05ea9968d9b5334f14c13",
+          "group_id": "hdfs:presence:exception"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hdfs_v1_lookup_addstoredblock_first_0",
+    "question": "Show the first line that reports 'addStoredBlock'.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "081109 204005 35 INFO dfs.FSNamesystem: BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.73.220:50010 is added to blk_7128370237687728475 size 67108864\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:7c967000980c086ed55fa6544ba4f05fe66d44622795e890c68caf8bbb635035"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "hdfs:line:00000003:edbcf4b8fe3a999c",
+          "line_number": 3,
+          "line_hash": "sha256:edbcf4b8fe3a999cb88943d805692faaa95df2b3dab53158343d79bc209057ff",
+          "group_id": "hdfs:lookup:addstoredblock_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hdfs_v1_lookup_addstoredblock_first_1",
+    "question": "Find the first log line mentioning 'addStoredBlock'.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "081109 204005 35 INFO dfs.FSNamesystem: BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.73.220:50010 is added to blk_7128370237687728475 size 67108864\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:7c967000980c086ed55fa6544ba4f05fe66d44622795e890c68caf8bbb635035"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "hdfs:line:00000003:edbcf4b8fe3a999c",
+          "line_number": 3,
+          "line_hash": "sha256:edbcf4b8fe3a999cb88943d805692faaa95df2b3dab53158343d79bc209057ff",
+          "group_id": "hdfs:lookup:addstoredblock_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hdfs_v1_lookup_addstoredblock_first_2",
+    "question": "Give me the first line where 'addStoredBlock' appears.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "imperative",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "081109 204005 35 INFO dfs.FSNamesystem: BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.73.220:50010 is added to blk_7128370237687728475 size 67108864\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:7c967000980c086ed55fa6544ba4f05fe66d44622795e890c68caf8bbb635035"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "hdfs:line:00000003:edbcf4b8fe3a999c",
+          "line_number": 3,
+          "line_hash": "sha256:edbcf4b8fe3a999cb88943d805692faaa95df2b3dab53158343d79bc209057ff",
+          "group_id": "hdfs:lookup:addstoredblock_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openssh_v1_count_failed_password_0",
+    "question": "How many log lines contain 'Failed password'?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "520",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:1e4912727fa88245113d41b16a0cd25ceadba7f931e1c406542885b91254264f"
+    },
+    "numeric_claims": [
+      {
+        "value": 520,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Failed password",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "openssh:line:00000006:61d3d948516c1d3e",
+          "line_number": 6,
+          "line_hash": "sha256:61d3d948516c1d3ea9f9ea07b4df9b436db77c915bf9aff8c8831d162f56aaff",
+          "group_id": "openssh:count:failed_password"
+        },
+        {
+          "id": "openssh:line:00000013:c2c449b0fe1f3f6b",
+          "line_number": 13,
+          "line_hash": "sha256:c2c449b0fe1f3f6bffddb17430a6fa9fe2a0e4fe48fb9cd3315fb9b18864efed",
+          "group_id": "openssh:count:failed_password"
+        },
+        {
+          "id": "openssh:line:00000020:bc55e0e17a292d32",
+          "line_number": 20,
+          "line_hash": "sha256:bc55e0e17a292d320e950290f4ef74c9bad4399ac244eb9c8637ca42090d466f",
+          "group_id": "openssh:count:failed_password"
+        },
+        {
+          "id": "openssh:line:00000026:ac25958a27287ad3",
+          "line_number": 26,
+          "line_hash": "sha256:ac25958a27287ad3adbd1ad8e4d338a75e0c1d721505f1ac6486ca26f2b1c4df",
+          "group_id": "openssh:count:failed_password"
+        },
+        {
+          "id": "openssh:line:00000029:001d6495fbcab539",
+          "line_number": 29,
+          "line_hash": "sha256:001d6495fbcab539370fc0c8de875bd38ada6a286bdc0420ea89834bfbde39c7",
+          "group_id": "openssh:count:failed_password"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openssh_v1_count_failed_password_1",
+    "question": "Count the lines mentioning 'Failed password'.",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "520",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:1e4912727fa88245113d41b16a0cd25ceadba7f931e1c406542885b91254264f"
+    },
+    "numeric_claims": [
+      {
+        "value": 520,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Failed password",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "openssh:line:00000006:61d3d948516c1d3e",
+          "line_number": 6,
+          "line_hash": "sha256:61d3d948516c1d3ea9f9ea07b4df9b436db77c915bf9aff8c8831d162f56aaff",
+          "group_id": "openssh:count:failed_password"
+        },
+        {
+          "id": "openssh:line:00000013:c2c449b0fe1f3f6b",
+          "line_number": 13,
+          "line_hash": "sha256:c2c449b0fe1f3f6bffddb17430a6fa9fe2a0e4fe48fb9cd3315fb9b18864efed",
+          "group_id": "openssh:count:failed_password"
+        },
+        {
+          "id": "openssh:line:00000020:bc55e0e17a292d32",
+          "line_number": 20,
+          "line_hash": "sha256:bc55e0e17a292d320e950290f4ef74c9bad4399ac244eb9c8637ca42090d466f",
+          "group_id": "openssh:count:failed_password"
+        },
+        {
+          "id": "openssh:line:00000026:ac25958a27287ad3",
+          "line_number": 26,
+          "line_hash": "sha256:ac25958a27287ad3adbd1ad8e4d338a75e0c1d721505f1ac6486ca26f2b1c4df",
+          "group_id": "openssh:count:failed_password"
+        },
+        {
+          "id": "openssh:line:00000029:001d6495fbcab539",
+          "line_number": 29,
+          "line_hash": "sha256:001d6495fbcab539370fc0c8de875bd38ada6a286bdc0420ea89834bfbde39c7",
+          "group_id": "openssh:count:failed_password"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openssh_v1_count_failed_password_2",
+    "question": "What is the total number of 'Failed password' occurrences?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "total-of",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "520",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:1e4912727fa88245113d41b16a0cd25ceadba7f931e1c406542885b91254264f"
+    },
+    "numeric_claims": [
+      {
+        "value": 520,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Failed password",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "openssh:line:00000006:61d3d948516c1d3e",
+          "line_number": 6,
+          "line_hash": "sha256:61d3d948516c1d3ea9f9ea07b4df9b436db77c915bf9aff8c8831d162f56aaff",
+          "group_id": "openssh:count:failed_password"
+        },
+        {
+          "id": "openssh:line:00000013:c2c449b0fe1f3f6b",
+          "line_number": 13,
+          "line_hash": "sha256:c2c449b0fe1f3f6bffddb17430a6fa9fe2a0e4fe48fb9cd3315fb9b18864efed",
+          "group_id": "openssh:count:failed_password"
+        },
+        {
+          "id": "openssh:line:00000020:bc55e0e17a292d32",
+          "line_number": 20,
+          "line_hash": "sha256:bc55e0e17a292d320e950290f4ef74c9bad4399ac244eb9c8637ca42090d466f",
+          "group_id": "openssh:count:failed_password"
+        },
+        {
+          "id": "openssh:line:00000026:ac25958a27287ad3",
+          "line_number": 26,
+          "line_hash": "sha256:ac25958a27287ad3adbd1ad8e4d338a75e0c1d721505f1ac6486ca26f2b1c4df",
+          "group_id": "openssh:count:failed_password"
+        },
+        {
+          "id": "openssh:line:00000029:001d6495fbcab539",
+          "line_number": 29,
+          "line_hash": "sha256:001d6495fbcab539370fc0c8de875bd38ada6a286bdc0420ea89834bfbde39c7",
+          "group_id": "openssh:count:failed_password"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openssh_v1_presence_possible_break_in_attempt_0",
+    "question": "Does the log contain any line with 'POSSIBLE BREAK-IN ATTEMPT'?",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:1e4912727fa88245113d41b16a0cd25ceadba7f931e1c406542885b91254264f"
+    },
+    "numeric_claims": [
+      {
+        "value": 85,
+        "query": {
+          "operator": "count_literal",
+          "literal": "POSSIBLE BREAK-IN ATTEMPT",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "openssh:line:00000001:67a67a97134aa89a",
+          "line_number": 1,
+          "line_hash": "sha256:67a67a97134aa89a05433857bfa69d0f4b50ffd6398392b6f4aa4d163774a8a5",
+          "group_id": "openssh:presence:possible_break_in_attempt"
+        },
+        {
+          "id": "openssh:line:00000015:aa479843f85439de",
+          "line_number": 15,
+          "line_hash": "sha256:aa479843f85439de91359282a2e0f84dc1d602ad669d3db855a88cfa94fc3bee",
+          "group_id": "openssh:presence:possible_break_in_attempt"
+        },
+        {
+          "id": "openssh:line:00000147:a4fdbd93eb077432",
+          "line_number": 147,
+          "line_hash": "sha256:a4fdbd93eb077432f064e56d657068a1d7b36c72632189a236732b8248f68a4a",
+          "group_id": "openssh:presence:possible_break_in_attempt"
+        },
+        {
+          "id": "openssh:line:00000152:7ce7db2e62cdf5b3",
+          "line_number": 152,
+          "line_hash": "sha256:7ce7db2e62cdf5b32b1e01fd635b9e8a37f9b19e870255fab73111a2c7c672d5",
+          "group_id": "openssh:presence:possible_break_in_attempt"
+        },
+        {
+          "id": "openssh:line:00000159:4798d7579d3309d9",
+          "line_number": 159,
+          "line_hash": "sha256:4798d7579d3309d973dbacc5990038805b256e956a4fd7340d2c65b0d785d45f",
+          "group_id": "openssh:presence:possible_break_in_attempt"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openssh_v1_presence_possible_break_in_attempt_1",
+    "question": "Check whether the log has a line mentioning 'POSSIBLE BREAK-IN ATTEMPT'.",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:1e4912727fa88245113d41b16a0cd25ceadba7f931e1c406542885b91254264f"
+    },
+    "numeric_claims": [
+      {
+        "value": 85,
+        "query": {
+          "operator": "count_literal",
+          "literal": "POSSIBLE BREAK-IN ATTEMPT",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "openssh:line:00000001:67a67a97134aa89a",
+          "line_number": 1,
+          "line_hash": "sha256:67a67a97134aa89a05433857bfa69d0f4b50ffd6398392b6f4aa4d163774a8a5",
+          "group_id": "openssh:presence:possible_break_in_attempt"
+        },
+        {
+          "id": "openssh:line:00000015:aa479843f85439de",
+          "line_number": 15,
+          "line_hash": "sha256:aa479843f85439de91359282a2e0f84dc1d602ad669d3db855a88cfa94fc3bee",
+          "group_id": "openssh:presence:possible_break_in_attempt"
+        },
+        {
+          "id": "openssh:line:00000147:a4fdbd93eb077432",
+          "line_number": 147,
+          "line_hash": "sha256:a4fdbd93eb077432f064e56d657068a1d7b36c72632189a236732b8248f68a4a",
+          "group_id": "openssh:presence:possible_break_in_attempt"
+        },
+        {
+          "id": "openssh:line:00000152:7ce7db2e62cdf5b3",
+          "line_number": 152,
+          "line_hash": "sha256:7ce7db2e62cdf5b32b1e01fd635b9e8a37f9b19e870255fab73111a2c7c672d5",
+          "group_id": "openssh:presence:possible_break_in_attempt"
+        },
+        {
+          "id": "openssh:line:00000159:4798d7579d3309d9",
+          "line_number": 159,
+          "line_hash": "sha256:4798d7579d3309d973dbacc5990038805b256e956a4fd7340d2c65b0d785d45f",
+          "group_id": "openssh:presence:possible_break_in_attempt"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openssh_v1_presence_possible_break_in_attempt_2",
+    "question": "Tell me if there is at least one occurrence of 'POSSIBLE BREAK-IN ATTEMPT' in the log.",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "imperative",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:1e4912727fa88245113d41b16a0cd25ceadba7f931e1c406542885b91254264f"
+    },
+    "numeric_claims": [
+      {
+        "value": 85,
+        "query": {
+          "operator": "count_literal",
+          "literal": "POSSIBLE BREAK-IN ATTEMPT",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "openssh:line:00000001:67a67a97134aa89a",
+          "line_number": 1,
+          "line_hash": "sha256:67a67a97134aa89a05433857bfa69d0f4b50ffd6398392b6f4aa4d163774a8a5",
+          "group_id": "openssh:presence:possible_break_in_attempt"
+        },
+        {
+          "id": "openssh:line:00000015:aa479843f85439de",
+          "line_number": 15,
+          "line_hash": "sha256:aa479843f85439de91359282a2e0f84dc1d602ad669d3db855a88cfa94fc3bee",
+          "group_id": "openssh:presence:possible_break_in_attempt"
+        },
+        {
+          "id": "openssh:line:00000147:a4fdbd93eb077432",
+          "line_number": 147,
+          "line_hash": "sha256:a4fdbd93eb077432f064e56d657068a1d7b36c72632189a236732b8248f68a4a",
+          "group_id": "openssh:presence:possible_break_in_attempt"
+        },
+        {
+          "id": "openssh:line:00000152:7ce7db2e62cdf5b3",
+          "line_number": 152,
+          "line_hash": "sha256:7ce7db2e62cdf5b32b1e01fd635b9e8a37f9b19e870255fab73111a2c7c672d5",
+          "group_id": "openssh:presence:possible_break_in_attempt"
+        },
+        {
+          "id": "openssh:line:00000159:4798d7579d3309d9",
+          "line_number": 159,
+          "line_hash": "sha256:4798d7579d3309d973dbacc5990038805b256e956a4fd7340d2c65b0d785d45f",
+          "group_id": "openssh:presence:possible_break_in_attempt"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openssh_v1_lookup_possible_break_in_attempt_first_0",
+    "question": "Show the first line that reports 'POSSIBLE BREAK-IN ATTEMPT'.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Dec 10 06:55:46 LabSZ sshd[24200]: reverse mapping checking getaddrinfo for ns.marryaldkfaczcz.com [173.234.31.186] failed - POSSIBLE BREAK-IN ATTEMPT!\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:1e4912727fa88245113d41b16a0cd25ceadba7f931e1c406542885b91254264f"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "openssh:line:00000001:67a67a97134aa89a",
+          "line_number": 1,
+          "line_hash": "sha256:67a67a97134aa89a05433857bfa69d0f4b50ffd6398392b6f4aa4d163774a8a5",
+          "group_id": "openssh:lookup:possible_break_in_attempt_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openssh_v1_lookup_possible_break_in_attempt_first_1",
+    "question": "Find the first log line mentioning 'POSSIBLE BREAK-IN ATTEMPT'.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Dec 10 06:55:46 LabSZ sshd[24200]: reverse mapping checking getaddrinfo for ns.marryaldkfaczcz.com [173.234.31.186] failed - POSSIBLE BREAK-IN ATTEMPT!\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:1e4912727fa88245113d41b16a0cd25ceadba7f931e1c406542885b91254264f"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "openssh:line:00000001:67a67a97134aa89a",
+          "line_number": 1,
+          "line_hash": "sha256:67a67a97134aa89a05433857bfa69d0f4b50ffd6398392b6f4aa4d163774a8a5",
+          "group_id": "openssh:lookup:possible_break_in_attempt_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openssh_v1_lookup_possible_break_in_attempt_first_2",
+    "question": "Give me the first line where 'POSSIBLE BREAK-IN ATTEMPT' appears.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "imperative",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Dec 10 06:55:46 LabSZ sshd[24200]: reverse mapping checking getaddrinfo for ns.marryaldkfaczcz.com [173.234.31.186] failed - POSSIBLE BREAK-IN ATTEMPT!\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:1e4912727fa88245113d41b16a0cd25ceadba7f931e1c406542885b91254264f"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "openssh:line:00000001:67a67a97134aa89a",
+          "line_number": 1,
+          "line_hash": "sha256:67a67a97134aa89a05433857bfa69d0f4b50ffd6398392b6f4aa4d163774a8a5",
+          "group_id": "openssh:lookup:possible_break_in_attempt_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bgl_v1_count_double_hummer_alignment_exceptions_0",
+    "question": "How many log lines contain 'double-hummer alignment exceptions'?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "test",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "109",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:2a819ea540909db682005c9cf948387a40729b5c2e9f19d430e29ce704825496"
+    },
+    "numeric_claims": [
+      {
+        "value": 109,
+        "query": {
+          "operator": "count_literal",
+          "literal": "double-hummer alignment exceptions",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "bgl:line:00000005:d464d5a5c12a72cf",
+          "line_number": 5,
+          "line_hash": "sha256:d464d5a5c12a72cf3b0586ef97fe92d2f9f109029a13f2fc75f2a8c462af0618",
+          "group_id": "bgl:count:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000006:162da96aba3437c5",
+          "line_number": 6,
+          "line_hash": "sha256:162da96aba3437c51c642849a2bbb31ac2be144fb83612092d9a22756ec4b191",
+          "group_id": "bgl:count:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000007:6a4dc16d6cf0a104",
+          "line_number": 7,
+          "line_hash": "sha256:6a4dc16d6cf0a10416576160d48321ce8da7b8d24a559ec32d449216a0909048",
+          "group_id": "bgl:count:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000374:bc4b5fc11a88f41e",
+          "line_number": 374,
+          "line_hash": "sha256:bc4b5fc11a88f41e0d285a18250c4dbacf8e1ba35618a8537a5c3227dd080ecd",
+          "group_id": "bgl:count:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000375:09af09fb45f587f0",
+          "line_number": 375,
+          "line_hash": "sha256:09af09fb45f587f0593c09c62407578b14b0018359768278d3d4942dbe843bff",
+          "group_id": "bgl:count:double_hummer_alignment_exceptions"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bgl_v1_count_double_hummer_alignment_exceptions_1",
+    "question": "Count the lines mentioning 'double-hummer alignment exceptions'.",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "test",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "109",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:2a819ea540909db682005c9cf948387a40729b5c2e9f19d430e29ce704825496"
+    },
+    "numeric_claims": [
+      {
+        "value": 109,
+        "query": {
+          "operator": "count_literal",
+          "literal": "double-hummer alignment exceptions",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "bgl:line:00000005:d464d5a5c12a72cf",
+          "line_number": 5,
+          "line_hash": "sha256:d464d5a5c12a72cf3b0586ef97fe92d2f9f109029a13f2fc75f2a8c462af0618",
+          "group_id": "bgl:count:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000006:162da96aba3437c5",
+          "line_number": 6,
+          "line_hash": "sha256:162da96aba3437c51c642849a2bbb31ac2be144fb83612092d9a22756ec4b191",
+          "group_id": "bgl:count:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000007:6a4dc16d6cf0a104",
+          "line_number": 7,
+          "line_hash": "sha256:6a4dc16d6cf0a10416576160d48321ce8da7b8d24a559ec32d449216a0909048",
+          "group_id": "bgl:count:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000374:bc4b5fc11a88f41e",
+          "line_number": 374,
+          "line_hash": "sha256:bc4b5fc11a88f41e0d285a18250c4dbacf8e1ba35618a8537a5c3227dd080ecd",
+          "group_id": "bgl:count:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000375:09af09fb45f587f0",
+          "line_number": 375,
+          "line_hash": "sha256:09af09fb45f587f0593c09c62407578b14b0018359768278d3d4942dbe843bff",
+          "group_id": "bgl:count:double_hummer_alignment_exceptions"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bgl_v1_count_double_hummer_alignment_exceptions_2",
+    "question": "What is the total number of 'double-hummer alignment exceptions' occurrences?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "total-of",
+    "split": "test",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "109",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:2a819ea540909db682005c9cf948387a40729b5c2e9f19d430e29ce704825496"
+    },
+    "numeric_claims": [
+      {
+        "value": 109,
+        "query": {
+          "operator": "count_literal",
+          "literal": "double-hummer alignment exceptions",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "bgl:line:00000005:d464d5a5c12a72cf",
+          "line_number": 5,
+          "line_hash": "sha256:d464d5a5c12a72cf3b0586ef97fe92d2f9f109029a13f2fc75f2a8c462af0618",
+          "group_id": "bgl:count:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000006:162da96aba3437c5",
+          "line_number": 6,
+          "line_hash": "sha256:162da96aba3437c51c642849a2bbb31ac2be144fb83612092d9a22756ec4b191",
+          "group_id": "bgl:count:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000007:6a4dc16d6cf0a104",
+          "line_number": 7,
+          "line_hash": "sha256:6a4dc16d6cf0a10416576160d48321ce8da7b8d24a559ec32d449216a0909048",
+          "group_id": "bgl:count:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000374:bc4b5fc11a88f41e",
+          "line_number": 374,
+          "line_hash": "sha256:bc4b5fc11a88f41e0d285a18250c4dbacf8e1ba35618a8537a5c3227dd080ecd",
+          "group_id": "bgl:count:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000375:09af09fb45f587f0",
+          "line_number": 375,
+          "line_hash": "sha256:09af09fb45f587f0593c09c62407578b14b0018359768278d3d4942dbe843bff",
+          "group_id": "bgl:count:double_hummer_alignment_exceptions"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bgl_v1_presence_kerndtlb_0",
+    "question": "Does the log contain any line with 'KERNDTLB'?",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:2a819ea540909db682005c9cf948387a40729b5c2e9f19d430e29ce704825496"
+    },
+    "numeric_claims": [
+      {
+        "value": 60,
+        "query": {
+          "operator": "count_literal",
+          "literal": "KERNDTLB",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "bgl:line:00000104:002cc18d4383e05b",
+          "line_number": 104,
+          "line_hash": "sha256:002cc18d4383e05b45b0eb41e5901b1f02bdedb5ce904c2754bcf6aa5f9dc190",
+          "group_id": "bgl:presence:kerndtlb"
+        },
+        {
+          "id": "bgl:line:00000105:21d5f7f1a8c1695e",
+          "line_number": 105,
+          "line_hash": "sha256:21d5f7f1a8c1695ea0b930ec980a2ca478298d1a60853775433f5b2a6e828451",
+          "group_id": "bgl:presence:kerndtlb"
+        },
+        {
+          "id": "bgl:line:00000106:c825edcefceec85a",
+          "line_number": 106,
+          "line_hash": "sha256:c825edcefceec85af77b3a55ee9b126057e51b9ac09298710dce426c9a796b15",
+          "group_id": "bgl:presence:kerndtlb"
+        },
+        {
+          "id": "bgl:line:00000107:f9ac051911526ff2",
+          "line_number": 107,
+          "line_hash": "sha256:f9ac051911526ff275aed85b980e62f3f0f398da2dcc4f3bd9bdcb66e7c26f1b",
+          "group_id": "bgl:presence:kerndtlb"
+        },
+        {
+          "id": "bgl:line:00000108:eb6a66f579785862",
+          "line_number": 108,
+          "line_hash": "sha256:eb6a66f5797858625a470895cdca14320f6907e94bfe2e0ecb84547b59047a98",
+          "group_id": "bgl:presence:kerndtlb"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bgl_v1_presence_kerndtlb_1",
+    "question": "Check whether the log has a line mentioning 'KERNDTLB'.",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:2a819ea540909db682005c9cf948387a40729b5c2e9f19d430e29ce704825496"
+    },
+    "numeric_claims": [
+      {
+        "value": 60,
+        "query": {
+          "operator": "count_literal",
+          "literal": "KERNDTLB",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "bgl:line:00000104:002cc18d4383e05b",
+          "line_number": 104,
+          "line_hash": "sha256:002cc18d4383e05b45b0eb41e5901b1f02bdedb5ce904c2754bcf6aa5f9dc190",
+          "group_id": "bgl:presence:kerndtlb"
+        },
+        {
+          "id": "bgl:line:00000105:21d5f7f1a8c1695e",
+          "line_number": 105,
+          "line_hash": "sha256:21d5f7f1a8c1695ea0b930ec980a2ca478298d1a60853775433f5b2a6e828451",
+          "group_id": "bgl:presence:kerndtlb"
+        },
+        {
+          "id": "bgl:line:00000106:c825edcefceec85a",
+          "line_number": 106,
+          "line_hash": "sha256:c825edcefceec85af77b3a55ee9b126057e51b9ac09298710dce426c9a796b15",
+          "group_id": "bgl:presence:kerndtlb"
+        },
+        {
+          "id": "bgl:line:00000107:f9ac051911526ff2",
+          "line_number": 107,
+          "line_hash": "sha256:f9ac051911526ff275aed85b980e62f3f0f398da2dcc4f3bd9bdcb66e7c26f1b",
+          "group_id": "bgl:presence:kerndtlb"
+        },
+        {
+          "id": "bgl:line:00000108:eb6a66f579785862",
+          "line_number": 108,
+          "line_hash": "sha256:eb6a66f5797858625a470895cdca14320f6907e94bfe2e0ecb84547b59047a98",
+          "group_id": "bgl:presence:kerndtlb"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bgl_v1_presence_kerndtlb_2",
+    "question": "Tell me if there is at least one occurrence of 'KERNDTLB' in the log.",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "imperative",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:2a819ea540909db682005c9cf948387a40729b5c2e9f19d430e29ce704825496"
+    },
+    "numeric_claims": [
+      {
+        "value": 60,
+        "query": {
+          "operator": "count_literal",
+          "literal": "KERNDTLB",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "bgl:line:00000104:002cc18d4383e05b",
+          "line_number": 104,
+          "line_hash": "sha256:002cc18d4383e05b45b0eb41e5901b1f02bdedb5ce904c2754bcf6aa5f9dc190",
+          "group_id": "bgl:presence:kerndtlb"
+        },
+        {
+          "id": "bgl:line:00000105:21d5f7f1a8c1695e",
+          "line_number": 105,
+          "line_hash": "sha256:21d5f7f1a8c1695ea0b930ec980a2ca478298d1a60853775433f5b2a6e828451",
+          "group_id": "bgl:presence:kerndtlb"
+        },
+        {
+          "id": "bgl:line:00000106:c825edcefceec85a",
+          "line_number": 106,
+          "line_hash": "sha256:c825edcefceec85af77b3a55ee9b126057e51b9ac09298710dce426c9a796b15",
+          "group_id": "bgl:presence:kerndtlb"
+        },
+        {
+          "id": "bgl:line:00000107:f9ac051911526ff2",
+          "line_number": 107,
+          "line_hash": "sha256:f9ac051911526ff275aed85b980e62f3f0f398da2dcc4f3bd9bdcb66e7c26f1b",
+          "group_id": "bgl:presence:kerndtlb"
+        },
+        {
+          "id": "bgl:line:00000108:eb6a66f579785862",
+          "line_number": 108,
+          "line_hash": "sha256:eb6a66f5797858625a470895cdca14320f6907e94bfe2e0ecb84547b59047a98",
+          "group_id": "bgl:presence:kerndtlb"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bgl_v1_lookup_double_hummer_alignment_exceptions_first_0",
+    "question": "Show the first line that reports 'double-hummer alignment exceptions'.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "- 1117842440 2005.06.03 R23-M0-NE-C:J05-U01 2005-06-03-16.47.20.730545 R23-M0-NE-C:J05-U01 RAS KERNEL INFO 63543 double-hummer alignment exceptions\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:2a819ea540909db682005c9cf948387a40729b5c2e9f19d430e29ce704825496"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "bgl:line:00000005:d464d5a5c12a72cf",
+          "line_number": 5,
+          "line_hash": "sha256:d464d5a5c12a72cf3b0586ef97fe92d2f9f109029a13f2fc75f2a8c462af0618",
+          "group_id": "bgl:lookup:double_hummer_alignment_exceptions_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bgl_v1_lookup_double_hummer_alignment_exceptions_first_1",
+    "question": "Find the first log line mentioning 'double-hummer alignment exceptions'.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "- 1117842440 2005.06.03 R23-M0-NE-C:J05-U01 2005-06-03-16.47.20.730545 R23-M0-NE-C:J05-U01 RAS KERNEL INFO 63543 double-hummer alignment exceptions\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:2a819ea540909db682005c9cf948387a40729b5c2e9f19d430e29ce704825496"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "bgl:line:00000005:d464d5a5c12a72cf",
+          "line_number": 5,
+          "line_hash": "sha256:d464d5a5c12a72cf3b0586ef97fe92d2f9f109029a13f2fc75f2a8c462af0618",
+          "group_id": "bgl:lookup:double_hummer_alignment_exceptions_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bgl_v1_lookup_double_hummer_alignment_exceptions_first_2",
+    "question": "Give me the first line where 'double-hummer alignment exceptions' appears.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "imperative",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "- 1117842440 2005.06.03 R23-M0-NE-C:J05-U01 2005-06-03-16.47.20.730545 R23-M0-NE-C:J05-U01 RAS KERNEL INFO 63543 double-hummer alignment exceptions\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:2a819ea540909db682005c9cf948387a40729b5c2e9f19d430e29ce704825496"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "bgl:line:00000005:d464d5a5c12a72cf",
+          "line_number": 5,
+          "line_hash": "sha256:d464d5a5c12a72cf3b0586ef97fe92d2f9f109029a13f2fc75f2a8c462af0618",
+          "group_id": "bgl:lookup:double_hummer_alignment_exceptions_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hadoop_v1_count_container_0",
+    "question": "How many log lines contain 'Container'?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "test",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "547",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:9ecaeb807d50d5fb5a20982ea66f1c8d32545259a51ce7456c1ab78db0509732"
+    },
+    "numeric_claims": [
+      {
+        "value": 547,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Container",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "hadoop:line:00000013:495c2c597a19610d",
+          "line_number": 13,
+          "line_hash": "sha256:495c2c597a19610ddde55b439ec0b5e7be1db3891bd810c9605cccb0c1fd6af4",
+          "group_id": "hadoop:count:container"
+        },
+        {
+          "id": "hadoop:line:00000014:cba6d70e74f6c464",
+          "line_number": 14,
+          "line_hash": "sha256:cba6d70e74f6c46417564350abf7f2e754acb8d8fe208952e6234e99e04e3ec4",
+          "group_id": "hadoop:count:container"
+        },
+        {
+          "id": "hadoop:line:00000028:2092bd80c68550cb",
+          "line_number": 28,
+          "line_hash": "sha256:2092bd80c68550cb0a3623e21525de4abd6e9a1931016d74c471fbf025472c57",
+          "group_id": "hadoop:count:container"
+        },
+        {
+          "id": "hadoop:line:00000050:67178b4e63bb189b",
+          "line_number": 50,
+          "line_hash": "sha256:67178b4e63bb189bd221789baa4bc5efb52cb47c47c05b375c4c319be9684c07",
+          "group_id": "hadoop:count:container"
+        },
+        {
+          "id": "hadoop:line:00000051:6ba2802a6ae14231",
+          "line_number": 51,
+          "line_hash": "sha256:6ba2802a6ae142319ec3a5e2b30c748e10923323cd91816bdfb5d6d03c33094e",
+          "group_id": "hadoop:count:container"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hadoop_v1_count_container_1",
+    "question": "Count the lines mentioning 'Container'.",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "test",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "547",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:9ecaeb807d50d5fb5a20982ea66f1c8d32545259a51ce7456c1ab78db0509732"
+    },
+    "numeric_claims": [
+      {
+        "value": 547,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Container",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "hadoop:line:00000013:495c2c597a19610d",
+          "line_number": 13,
+          "line_hash": "sha256:495c2c597a19610ddde55b439ec0b5e7be1db3891bd810c9605cccb0c1fd6af4",
+          "group_id": "hadoop:count:container"
+        },
+        {
+          "id": "hadoop:line:00000014:cba6d70e74f6c464",
+          "line_number": 14,
+          "line_hash": "sha256:cba6d70e74f6c46417564350abf7f2e754acb8d8fe208952e6234e99e04e3ec4",
+          "group_id": "hadoop:count:container"
+        },
+        {
+          "id": "hadoop:line:00000028:2092bd80c68550cb",
+          "line_number": 28,
+          "line_hash": "sha256:2092bd80c68550cb0a3623e21525de4abd6e9a1931016d74c471fbf025472c57",
+          "group_id": "hadoop:count:container"
+        },
+        {
+          "id": "hadoop:line:00000050:67178b4e63bb189b",
+          "line_number": 50,
+          "line_hash": "sha256:67178b4e63bb189bd221789baa4bc5efb52cb47c47c05b375c4c319be9684c07",
+          "group_id": "hadoop:count:container"
+        },
+        {
+          "id": "hadoop:line:00000051:6ba2802a6ae14231",
+          "line_number": 51,
+          "line_hash": "sha256:6ba2802a6ae142319ec3a5e2b30c748e10923323cd91816bdfb5d6d03c33094e",
+          "group_id": "hadoop:count:container"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hadoop_v1_count_container_2",
+    "question": "What is the total number of 'Container' occurrences?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "total-of",
+    "split": "test",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "547",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:9ecaeb807d50d5fb5a20982ea66f1c8d32545259a51ce7456c1ab78db0509732"
+    },
+    "numeric_claims": [
+      {
+        "value": 547,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Container",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "hadoop:line:00000013:495c2c597a19610d",
+          "line_number": 13,
+          "line_hash": "sha256:495c2c597a19610ddde55b439ec0b5e7be1db3891bd810c9605cccb0c1fd6af4",
+          "group_id": "hadoop:count:container"
+        },
+        {
+          "id": "hadoop:line:00000014:cba6d70e74f6c464",
+          "line_number": 14,
+          "line_hash": "sha256:cba6d70e74f6c46417564350abf7f2e754acb8d8fe208952e6234e99e04e3ec4",
+          "group_id": "hadoop:count:container"
+        },
+        {
+          "id": "hadoop:line:00000028:2092bd80c68550cb",
+          "line_number": 28,
+          "line_hash": "sha256:2092bd80c68550cb0a3623e21525de4abd6e9a1931016d74c471fbf025472c57",
+          "group_id": "hadoop:count:container"
+        },
+        {
+          "id": "hadoop:line:00000050:67178b4e63bb189b",
+          "line_number": 50,
+          "line_hash": "sha256:67178b4e63bb189bd221789baa4bc5efb52cb47c47c05b375c4c319be9684c07",
+          "group_id": "hadoop:count:container"
+        },
+        {
+          "id": "hadoop:line:00000051:6ba2802a6ae14231",
+          "line_number": 51,
+          "line_hash": "sha256:6ba2802a6ae142319ec3a5e2b30c748e10923323cd91816bdfb5d6d03c33094e",
+          "group_id": "hadoop:count:container"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hadoop_v1_presence_mrappmaster_0",
+    "question": "Does the log contain any line with 'MRAppMaster'?",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:9ecaeb807d50d5fb5a20982ea66f1c8d32545259a51ce7456c1ab78db0509732"
+    },
+    "numeric_claims": [
+      {
+        "value": 15,
+        "query": {
+          "operator": "count_literal",
+          "literal": "MRAppMaster",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "hadoop:line:00000001:771550133c6d5a80",
+          "line_number": 1,
+          "line_hash": "sha256:771550133c6d5a80dcb1aea31ca9ab846c16aeca42fc41c55f946ed603479d9d",
+          "group_id": "hadoop:presence:mrappmaster"
+        },
+        {
+          "id": "hadoop:line:00000002:1882afc4e9ec9f51",
+          "line_number": 2,
+          "line_hash": "sha256:1882afc4e9ec9f51c4c6b234a30f105d6e372ae4201624a83db32b5512117655",
+          "group_id": "hadoop:presence:mrappmaster"
+        },
+        {
+          "id": "hadoop:line:00000003:31b8a512df598861",
+          "line_number": 3,
+          "line_hash": "sha256:31b8a512df5988617b3c0cffa101c81d62f37e3ca7539e20699a96c6a1f40e1a",
+          "group_id": "hadoop:presence:mrappmaster"
+        },
+        {
+          "id": "hadoop:line:00000004:ed4df0935843b821",
+          "line_number": 4,
+          "line_hash": "sha256:ed4df0935843b82158a8960a11a95411b537b281b8ab2ba83c2560e6545a29b7",
+          "group_id": "hadoop:presence:mrappmaster"
+        },
+        {
+          "id": "hadoop:line:00000005:c0a7c69da4de9df7",
+          "line_number": 5,
+          "line_hash": "sha256:c0a7c69da4de9df737116742b1940600748bb2f07444aaad7ce48bfca148370d",
+          "group_id": "hadoop:presence:mrappmaster"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hadoop_v1_presence_mrappmaster_1",
+    "question": "Check whether the log has a line mentioning 'MRAppMaster'.",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:9ecaeb807d50d5fb5a20982ea66f1c8d32545259a51ce7456c1ab78db0509732"
+    },
+    "numeric_claims": [
+      {
+        "value": 15,
+        "query": {
+          "operator": "count_literal",
+          "literal": "MRAppMaster",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "hadoop:line:00000001:771550133c6d5a80",
+          "line_number": 1,
+          "line_hash": "sha256:771550133c6d5a80dcb1aea31ca9ab846c16aeca42fc41c55f946ed603479d9d",
+          "group_id": "hadoop:presence:mrappmaster"
+        },
+        {
+          "id": "hadoop:line:00000002:1882afc4e9ec9f51",
+          "line_number": 2,
+          "line_hash": "sha256:1882afc4e9ec9f51c4c6b234a30f105d6e372ae4201624a83db32b5512117655",
+          "group_id": "hadoop:presence:mrappmaster"
+        },
+        {
+          "id": "hadoop:line:00000003:31b8a512df598861",
+          "line_number": 3,
+          "line_hash": "sha256:31b8a512df5988617b3c0cffa101c81d62f37e3ca7539e20699a96c6a1f40e1a",
+          "group_id": "hadoop:presence:mrappmaster"
+        },
+        {
+          "id": "hadoop:line:00000004:ed4df0935843b821",
+          "line_number": 4,
+          "line_hash": "sha256:ed4df0935843b82158a8960a11a95411b537b281b8ab2ba83c2560e6545a29b7",
+          "group_id": "hadoop:presence:mrappmaster"
+        },
+        {
+          "id": "hadoop:line:00000005:c0a7c69da4de9df7",
+          "line_number": 5,
+          "line_hash": "sha256:c0a7c69da4de9df737116742b1940600748bb2f07444aaad7ce48bfca148370d",
+          "group_id": "hadoop:presence:mrappmaster"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hadoop_v1_presence_mrappmaster_2",
+    "question": "Tell me if there is at least one occurrence of 'MRAppMaster' in the log.",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "imperative",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:9ecaeb807d50d5fb5a20982ea66f1c8d32545259a51ce7456c1ab78db0509732"
+    },
+    "numeric_claims": [
+      {
+        "value": 15,
+        "query": {
+          "operator": "count_literal",
+          "literal": "MRAppMaster",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "hadoop:line:00000001:771550133c6d5a80",
+          "line_number": 1,
+          "line_hash": "sha256:771550133c6d5a80dcb1aea31ca9ab846c16aeca42fc41c55f946ed603479d9d",
+          "group_id": "hadoop:presence:mrappmaster"
+        },
+        {
+          "id": "hadoop:line:00000002:1882afc4e9ec9f51",
+          "line_number": 2,
+          "line_hash": "sha256:1882afc4e9ec9f51c4c6b234a30f105d6e372ae4201624a83db32b5512117655",
+          "group_id": "hadoop:presence:mrappmaster"
+        },
+        {
+          "id": "hadoop:line:00000003:31b8a512df598861",
+          "line_number": 3,
+          "line_hash": "sha256:31b8a512df5988617b3c0cffa101c81d62f37e3ca7539e20699a96c6a1f40e1a",
+          "group_id": "hadoop:presence:mrappmaster"
+        },
+        {
+          "id": "hadoop:line:00000004:ed4df0935843b821",
+          "line_number": 4,
+          "line_hash": "sha256:ed4df0935843b82158a8960a11a95411b537b281b8ab2ba83c2560e6545a29b7",
+          "group_id": "hadoop:presence:mrappmaster"
+        },
+        {
+          "id": "hadoop:line:00000005:c0a7c69da4de9df7",
+          "line_number": 5,
+          "line_hash": "sha256:c0a7c69da4de9df737116742b1940600748bb2f07444aaad7ce48bfca148370d",
+          "group_id": "hadoop:presence:mrappmaster"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hadoop_v1_lookup_mrappmaster_first_0",
+    "question": "Show the first line that reports 'MRAppMaster'.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "test",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "2015-10-18 18:01:47,978 INFO [main] org.apache.hadoop.mapreduce.v2.app.MRAppMaster: Created MRAppMaster for application appattempt_1445144423722_0020_000001\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:9ecaeb807d50d5fb5a20982ea66f1c8d32545259a51ce7456c1ab78db0509732"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "hadoop:line:00000001:771550133c6d5a80",
+          "line_number": 1,
+          "line_hash": "sha256:771550133c6d5a80dcb1aea31ca9ab846c16aeca42fc41c55f946ed603479d9d",
+          "group_id": "hadoop:lookup:mrappmaster_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hadoop_v1_lookup_mrappmaster_first_1",
+    "question": "Find the first log line mentioning 'MRAppMaster'.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "test",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "2015-10-18 18:01:47,978 INFO [main] org.apache.hadoop.mapreduce.v2.app.MRAppMaster: Created MRAppMaster for application appattempt_1445144423722_0020_000001\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:9ecaeb807d50d5fb5a20982ea66f1c8d32545259a51ce7456c1ab78db0509732"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "hadoop:line:00000001:771550133c6d5a80",
+          "line_number": 1,
+          "line_hash": "sha256:771550133c6d5a80dcb1aea31ca9ab846c16aeca42fc41c55f946ed603479d9d",
+          "group_id": "hadoop:lookup:mrappmaster_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hadoop_v1_lookup_mrappmaster_first_2",
+    "question": "Give me the first line where 'MRAppMaster' appears.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "imperative",
+    "split": "test",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "2015-10-18 18:01:47,978 INFO [main] org.apache.hadoop.mapreduce.v2.app.MRAppMaster: Created MRAppMaster for application appattempt_1445144423722_0020_000001\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:9ecaeb807d50d5fb5a20982ea66f1c8d32545259a51ce7456c1ab78db0509732"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "hadoop:line:00000001:771550133c6d5a80",
+          "line_number": 1,
+          "line_hash": "sha256:771550133c6d5a80dcb1aea31ca9ab846c16aeca42fc41c55f946ed603479d9d",
+          "group_id": "hadoop:lookup:mrappmaster_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "zookeeper_v1_count_warn_0",
+    "question": "How many log lines contain 'WARN'?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "test",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "1318",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:e40e0af5ef9eb6e4097200f260b9d1f626b3676f861a432e87977242e75543d8"
+    },
+    "numeric_claims": [
+      {
+        "value": 1318,
+        "query": {
+          "operator": "count_literal",
+          "literal": "WARN",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "zookeeper:line:00000003:5292653b1d18ddc2",
+          "line_number": 3,
+          "line_hash": "sha256:5292653b1d18ddc27654a158f0c121fed549d40a7645be397ec28b3a9635901c",
+          "group_id": "zookeeper:count:warn"
+        },
+        {
+          "id": "zookeeper:line:00000004:b8a0099521014b9d",
+          "line_number": 4,
+          "line_hash": "sha256:b8a0099521014b9d7796b2216ad0078a068198fc2df961891d2d93cf46f7c7aa",
+          "group_id": "zookeeper:count:warn"
+        },
+        {
+          "id": "zookeeper:line:00000005:2553253d714f7137",
+          "line_number": 5,
+          "line_hash": "sha256:2553253d714f713759e2b779f59135e203ee42db7c091ed042760aea4e57ddd9",
+          "group_id": "zookeeper:count:warn"
+        },
+        {
+          "id": "zookeeper:line:00000006:722fb7e701788cd1",
+          "line_number": 6,
+          "line_hash": "sha256:722fb7e701788cd1f8f98fa6ed7c458789820af0e8e10062d477e0082e812093",
+          "group_id": "zookeeper:count:warn"
+        },
+        {
+          "id": "zookeeper:line:00000008:6ea9854578da3504",
+          "line_number": 8,
+          "line_hash": "sha256:6ea9854578da35040fdeba955497143ce315b1d8c52f7de7444c7af70cf190d3",
+          "group_id": "zookeeper:count:warn"
+        }
+      ]
+    }
+  },
+  {
+    "id": "zookeeper_v1_count_warn_1",
+    "question": "Count the lines mentioning 'WARN'.",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "test",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "1318",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:e40e0af5ef9eb6e4097200f260b9d1f626b3676f861a432e87977242e75543d8"
+    },
+    "numeric_claims": [
+      {
+        "value": 1318,
+        "query": {
+          "operator": "count_literal",
+          "literal": "WARN",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "zookeeper:line:00000003:5292653b1d18ddc2",
+          "line_number": 3,
+          "line_hash": "sha256:5292653b1d18ddc27654a158f0c121fed549d40a7645be397ec28b3a9635901c",
+          "group_id": "zookeeper:count:warn"
+        },
+        {
+          "id": "zookeeper:line:00000004:b8a0099521014b9d",
+          "line_number": 4,
+          "line_hash": "sha256:b8a0099521014b9d7796b2216ad0078a068198fc2df961891d2d93cf46f7c7aa",
+          "group_id": "zookeeper:count:warn"
+        },
+        {
+          "id": "zookeeper:line:00000005:2553253d714f7137",
+          "line_number": 5,
+          "line_hash": "sha256:2553253d714f713759e2b779f59135e203ee42db7c091ed042760aea4e57ddd9",
+          "group_id": "zookeeper:count:warn"
+        },
+        {
+          "id": "zookeeper:line:00000006:722fb7e701788cd1",
+          "line_number": 6,
+          "line_hash": "sha256:722fb7e701788cd1f8f98fa6ed7c458789820af0e8e10062d477e0082e812093",
+          "group_id": "zookeeper:count:warn"
+        },
+        {
+          "id": "zookeeper:line:00000008:6ea9854578da3504",
+          "line_number": 8,
+          "line_hash": "sha256:6ea9854578da35040fdeba955497143ce315b1d8c52f7de7444c7af70cf190d3",
+          "group_id": "zookeeper:count:warn"
+        }
+      ]
+    }
+  },
+  {
+    "id": "zookeeper_v1_count_warn_2",
+    "question": "What is the total number of 'WARN' occurrences?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "total-of",
+    "split": "test",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "1318",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:e40e0af5ef9eb6e4097200f260b9d1f626b3676f861a432e87977242e75543d8"
+    },
+    "numeric_claims": [
+      {
+        "value": 1318,
+        "query": {
+          "operator": "count_literal",
+          "literal": "WARN",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "zookeeper:line:00000003:5292653b1d18ddc2",
+          "line_number": 3,
+          "line_hash": "sha256:5292653b1d18ddc27654a158f0c121fed549d40a7645be397ec28b3a9635901c",
+          "group_id": "zookeeper:count:warn"
+        },
+        {
+          "id": "zookeeper:line:00000004:b8a0099521014b9d",
+          "line_number": 4,
+          "line_hash": "sha256:b8a0099521014b9d7796b2216ad0078a068198fc2df961891d2d93cf46f7c7aa",
+          "group_id": "zookeeper:count:warn"
+        },
+        {
+          "id": "zookeeper:line:00000005:2553253d714f7137",
+          "line_number": 5,
+          "line_hash": "sha256:2553253d714f713759e2b779f59135e203ee42db7c091ed042760aea4e57ddd9",
+          "group_id": "zookeeper:count:warn"
+        },
+        {
+          "id": "zookeeper:line:00000006:722fb7e701788cd1",
+          "line_number": 6,
+          "line_hash": "sha256:722fb7e701788cd1f8f98fa6ed7c458789820af0e8e10062d477e0082e812093",
+          "group_id": "zookeeper:count:warn"
+        },
+        {
+          "id": "zookeeper:line:00000008:6ea9854578da3504",
+          "line_number": 8,
+          "line_hash": "sha256:6ea9854578da35040fdeba955497143ce315b1d8c52f7de7444c7af70cf190d3",
+          "group_id": "zookeeper:count:warn"
+        }
+      ]
+    }
+  },
+  {
+    "id": "zookeeper_v1_presence_exception_0",
+    "question": "Does the log contain any line with 'Exception'?",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:e40e0af5ef9eb6e4097200f260b9d1f626b3676f861a432e87977242e75543d8"
+    },
+    "numeric_claims": [
+      {
+        "value": 54,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Exception",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "zookeeper:line:00000496:735006ccb0109385",
+          "line_number": 496,
+          "line_hash": "sha256:735006ccb01093857eb99b3300e1a1a09621b225b0adb885208bbe8e4a0622c8",
+          "group_id": "zookeeper:presence:exception"
+        },
+        {
+          "id": "zookeeper:line:00000506:e8603ec24653a8f8",
+          "line_number": 506,
+          "line_hash": "sha256:e8603ec24653a8f8406a4f5037dbc9f60c7084ef96a15ae02b7ae0ad724746ed",
+          "group_id": "zookeeper:presence:exception"
+        },
+        {
+          "id": "zookeeper:line:00000536:b922eede47f0e9f2",
+          "line_number": 536,
+          "line_hash": "sha256:b922eede47f0e9f282281d79d13a5d1dd380ae5a5a3ce06b0f98091061414130",
+          "group_id": "zookeeper:presence:exception"
+        },
+        {
+          "id": "zookeeper:line:00000538:6005a64b9970e9cd",
+          "line_number": 538,
+          "line_hash": "sha256:6005a64b9970e9cdeb4115ba3aeb70bd0e5638ce4fe0a5283f4d674ce16ee46f",
+          "group_id": "zookeeper:presence:exception"
+        },
+        {
+          "id": "zookeeper:line:00000546:e32c85e2dd84897f",
+          "line_number": 546,
+          "line_hash": "sha256:e32c85e2dd84897f211950b85bef195eafae0e80036490e82ac59d4718621830",
+          "group_id": "zookeeper:presence:exception"
+        }
+      ]
+    }
+  },
+  {
+    "id": "zookeeper_v1_presence_exception_1",
+    "question": "Check whether the log has a line mentioning 'Exception'.",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:e40e0af5ef9eb6e4097200f260b9d1f626b3676f861a432e87977242e75543d8"
+    },
+    "numeric_claims": [
+      {
+        "value": 54,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Exception",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "zookeeper:line:00000496:735006ccb0109385",
+          "line_number": 496,
+          "line_hash": "sha256:735006ccb01093857eb99b3300e1a1a09621b225b0adb885208bbe8e4a0622c8",
+          "group_id": "zookeeper:presence:exception"
+        },
+        {
+          "id": "zookeeper:line:00000506:e8603ec24653a8f8",
+          "line_number": 506,
+          "line_hash": "sha256:e8603ec24653a8f8406a4f5037dbc9f60c7084ef96a15ae02b7ae0ad724746ed",
+          "group_id": "zookeeper:presence:exception"
+        },
+        {
+          "id": "zookeeper:line:00000536:b922eede47f0e9f2",
+          "line_number": 536,
+          "line_hash": "sha256:b922eede47f0e9f282281d79d13a5d1dd380ae5a5a3ce06b0f98091061414130",
+          "group_id": "zookeeper:presence:exception"
+        },
+        {
+          "id": "zookeeper:line:00000538:6005a64b9970e9cd",
+          "line_number": 538,
+          "line_hash": "sha256:6005a64b9970e9cdeb4115ba3aeb70bd0e5638ce4fe0a5283f4d674ce16ee46f",
+          "group_id": "zookeeper:presence:exception"
+        },
+        {
+          "id": "zookeeper:line:00000546:e32c85e2dd84897f",
+          "line_number": 546,
+          "line_hash": "sha256:e32c85e2dd84897f211950b85bef195eafae0e80036490e82ac59d4718621830",
+          "group_id": "zookeeper:presence:exception"
+        }
+      ]
+    }
+  },
+  {
+    "id": "zookeeper_v1_presence_exception_2",
+    "question": "Tell me if there is at least one occurrence of 'Exception' in the log.",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "imperative",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:e40e0af5ef9eb6e4097200f260b9d1f626b3676f861a432e87977242e75543d8"
+    },
+    "numeric_claims": [
+      {
+        "value": 54,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Exception",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "zookeeper:line:00000496:735006ccb0109385",
+          "line_number": 496,
+          "line_hash": "sha256:735006ccb01093857eb99b3300e1a1a09621b225b0adb885208bbe8e4a0622c8",
+          "group_id": "zookeeper:presence:exception"
+        },
+        {
+          "id": "zookeeper:line:00000506:e8603ec24653a8f8",
+          "line_number": 506,
+          "line_hash": "sha256:e8603ec24653a8f8406a4f5037dbc9f60c7084ef96a15ae02b7ae0ad724746ed",
+          "group_id": "zookeeper:presence:exception"
+        },
+        {
+          "id": "zookeeper:line:00000536:b922eede47f0e9f2",
+          "line_number": 536,
+          "line_hash": "sha256:b922eede47f0e9f282281d79d13a5d1dd380ae5a5a3ce06b0f98091061414130",
+          "group_id": "zookeeper:presence:exception"
+        },
+        {
+          "id": "zookeeper:line:00000538:6005a64b9970e9cd",
+          "line_number": 538,
+          "line_hash": "sha256:6005a64b9970e9cdeb4115ba3aeb70bd0e5638ce4fe0a5283f4d674ce16ee46f",
+          "group_id": "zookeeper:presence:exception"
+        },
+        {
+          "id": "zookeeper:line:00000546:e32c85e2dd84897f",
+          "line_number": 546,
+          "line_hash": "sha256:e32c85e2dd84897f211950b85bef195eafae0e80036490e82ac59d4718621830",
+          "group_id": "zookeeper:presence:exception"
+        }
+      ]
+    }
+  },
+  {
+    "id": "zookeeper_v1_lookup_fastleaderelection_first_0",
+    "question": "Show the first line that reports 'FastLeaderElection'.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "2015-07-29 17:41:44,747 - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@774] - Notification time out: 3200\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:e40e0af5ef9eb6e4097200f260b9d1f626b3676f861a432e87977242e75543d8"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "zookeeper:line:00000001:358742b8fb60f84b",
+          "line_number": 1,
+          "line_hash": "sha256:358742b8fb60f84b49ae49c1ca7251be11470b8f6582ef4d6d35027cd283def6",
+          "group_id": "zookeeper:lookup:fastleaderelection_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "zookeeper_v1_lookup_fastleaderelection_first_1",
+    "question": "Find the first log line mentioning 'FastLeaderElection'.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "2015-07-29 17:41:44,747 - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@774] - Notification time out: 3200\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:e40e0af5ef9eb6e4097200f260b9d1f626b3676f861a432e87977242e75543d8"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "zookeeper:line:00000001:358742b8fb60f84b",
+          "line_number": 1,
+          "line_hash": "sha256:358742b8fb60f84b49ae49c1ca7251be11470b8f6582ef4d6d35027cd283def6",
+          "group_id": "zookeeper:lookup:fastleaderelection_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "zookeeper_v1_lookup_fastleaderelection_first_2",
+    "question": "Give me the first line where 'FastLeaderElection' appears.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "imperative",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "2015-07-29 17:41:44,747 - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@774] - Notification time out: 3200\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:e40e0af5ef9eb6e4097200f260b9d1f626b3676f861a432e87977242e75543d8"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "zookeeper:line:00000001:358742b8fb60f84b",
+          "line_number": 1,
+          "line_hash": "sha256:358742b8fb60f84b49ae49c1ca7251be11470b8f6582ef4d6d35027cd283def6",
+          "group_id": "zookeeper:lookup:fastleaderelection_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openstack_v1_count_status_200_0",
+    "question": "How many log lines contain 'status: 200'?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "933",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:025a1bc64ff5b2ef4a4bda6c4ad5c5c5f18478b71cd1ad2b0676e01625629f2f"
+    },
+    "numeric_claims": [
+      {
+        "value": 933,
+        "query": {
+          "operator": "count_literal",
+          "literal": "status: 200",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "openstack:line:00000001:5f4530e474d6d1a0",
+          "line_number": 1,
+          "line_hash": "sha256:5f4530e474d6d1a07291b942913aae8685926d3f0be97aeb6c050a8131adc438",
+          "group_id": "openstack:count:status_200"
+        },
+        {
+          "id": "openstack:line:00000002:3597904b1d73d9dc",
+          "line_number": 2,
+          "line_hash": "sha256:3597904b1d73d9dcb26a072874f0e0bef170d2cf210e615fe7b74999bfe6c0d8",
+          "group_id": "openstack:count:status_200"
+        },
+        {
+          "id": "openstack:line:00000003:d6e1306b669d798a",
+          "line_number": 3,
+          "line_hash": "sha256:d6e1306b669d798a96b4529b45b555e81f36a449b9ef10d40f4d53c84ee9a968",
+          "group_id": "openstack:count:status_200"
+        },
+        {
+          "id": "openstack:line:00000004:bac99dc524bed55d",
+          "line_number": 4,
+          "line_hash": "sha256:bac99dc524bed55de7126f3a2cf629f80fbf74f49e0149efbaa0d0afabd54e68",
+          "group_id": "openstack:count:status_200"
+        },
+        {
+          "id": "openstack:line:00000005:78916d26b4d394be",
+          "line_number": 5,
+          "line_hash": "sha256:78916d26b4d394be0c925e2536212af5ea5271156d3d5a6e7dba771bdfbf6869",
+          "group_id": "openstack:count:status_200"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openstack_v1_count_status_200_1",
+    "question": "Count the lines mentioning 'status: 200'.",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "933",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:025a1bc64ff5b2ef4a4bda6c4ad5c5c5f18478b71cd1ad2b0676e01625629f2f"
+    },
+    "numeric_claims": [
+      {
+        "value": 933,
+        "query": {
+          "operator": "count_literal",
+          "literal": "status: 200",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "openstack:line:00000001:5f4530e474d6d1a0",
+          "line_number": 1,
+          "line_hash": "sha256:5f4530e474d6d1a07291b942913aae8685926d3f0be97aeb6c050a8131adc438",
+          "group_id": "openstack:count:status_200"
+        },
+        {
+          "id": "openstack:line:00000002:3597904b1d73d9dc",
+          "line_number": 2,
+          "line_hash": "sha256:3597904b1d73d9dcb26a072874f0e0bef170d2cf210e615fe7b74999bfe6c0d8",
+          "group_id": "openstack:count:status_200"
+        },
+        {
+          "id": "openstack:line:00000003:d6e1306b669d798a",
+          "line_number": 3,
+          "line_hash": "sha256:d6e1306b669d798a96b4529b45b555e81f36a449b9ef10d40f4d53c84ee9a968",
+          "group_id": "openstack:count:status_200"
+        },
+        {
+          "id": "openstack:line:00000004:bac99dc524bed55d",
+          "line_number": 4,
+          "line_hash": "sha256:bac99dc524bed55de7126f3a2cf629f80fbf74f49e0149efbaa0d0afabd54e68",
+          "group_id": "openstack:count:status_200"
+        },
+        {
+          "id": "openstack:line:00000005:78916d26b4d394be",
+          "line_number": 5,
+          "line_hash": "sha256:78916d26b4d394be0c925e2536212af5ea5271156d3d5a6e7dba771bdfbf6869",
+          "group_id": "openstack:count:status_200"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openstack_v1_count_status_200_2",
+    "question": "What is the total number of 'status: 200' occurrences?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "total-of",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "933",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:025a1bc64ff5b2ef4a4bda6c4ad5c5c5f18478b71cd1ad2b0676e01625629f2f"
+    },
+    "numeric_claims": [
+      {
+        "value": 933,
+        "query": {
+          "operator": "count_literal",
+          "literal": "status: 200",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "openstack:line:00000001:5f4530e474d6d1a0",
+          "line_number": 1,
+          "line_hash": "sha256:5f4530e474d6d1a07291b942913aae8685926d3f0be97aeb6c050a8131adc438",
+          "group_id": "openstack:count:status_200"
+        },
+        {
+          "id": "openstack:line:00000002:3597904b1d73d9dc",
+          "line_number": 2,
+          "line_hash": "sha256:3597904b1d73d9dcb26a072874f0e0bef170d2cf210e615fe7b74999bfe6c0d8",
+          "group_id": "openstack:count:status_200"
+        },
+        {
+          "id": "openstack:line:00000003:d6e1306b669d798a",
+          "line_number": 3,
+          "line_hash": "sha256:d6e1306b669d798a96b4529b45b555e81f36a449b9ef10d40f4d53c84ee9a968",
+          "group_id": "openstack:count:status_200"
+        },
+        {
+          "id": "openstack:line:00000004:bac99dc524bed55d",
+          "line_number": 4,
+          "line_hash": "sha256:bac99dc524bed55de7126f3a2cf629f80fbf74f49e0149efbaa0d0afabd54e68",
+          "group_id": "openstack:count:status_200"
+        },
+        {
+          "id": "openstack:line:00000005:78916d26b4d394be",
+          "line_number": 5,
+          "line_hash": "sha256:78916d26b4d394be0c925e2536212af5ea5271156d3d5a6e7dba771bdfbf6869",
+          "group_id": "openstack:count:status_200"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openstack_v1_presence_error_0",
+    "question": "Does the log contain any line with 'ERROR'?",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "No",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:025a1bc64ff5b2ef4a4bda6c4ad5c5c5f18478b71cd1ad2b0676e01625629f2f"
+    },
+    "numeric_claims": [
+      {
+        "value": 0,
+        "query": {
+          "operator": "count_literal",
+          "literal": "ERROR",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "openstack:line:00000001:5f4530e474d6d1a0",
+          "line_number": 1,
+          "line_hash": "sha256:5f4530e474d6d1a07291b942913aae8685926d3f0be97aeb6c050a8131adc438",
+          "group_id": "openstack:presence:error"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openstack_v1_presence_error_1",
+    "question": "Check whether the log has a line mentioning 'ERROR'.",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "No",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:025a1bc64ff5b2ef4a4bda6c4ad5c5c5f18478b71cd1ad2b0676e01625629f2f"
+    },
+    "numeric_claims": [
+      {
+        "value": 0,
+        "query": {
+          "operator": "count_literal",
+          "literal": "ERROR",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "openstack:line:00000001:5f4530e474d6d1a0",
+          "line_number": 1,
+          "line_hash": "sha256:5f4530e474d6d1a07291b942913aae8685926d3f0be97aeb6c050a8131adc438",
+          "group_id": "openstack:presence:error"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openstack_v1_presence_error_2",
+    "question": "Tell me if there is at least one occurrence of 'ERROR' in the log.",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "imperative",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "No",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:025a1bc64ff5b2ef4a4bda6c4ad5c5c5f18478b71cd1ad2b0676e01625629f2f"
+    },
+    "numeric_claims": [
+      {
+        "value": 0,
+        "query": {
+          "operator": "count_literal",
+          "literal": "ERROR",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "openstack:line:00000001:5f4530e474d6d1a0",
+          "line_number": 1,
+          "line_hash": "sha256:5f4530e474d6d1a07291b942913aae8685926d3f0be97aeb6c050a8131adc438",
+          "group_id": "openstack:presence:error"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openstack_v1_lookup_status_200_first_0",
+    "question": "Show the first line that reports 'status: 200'.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "nova-api.log.1.2017-05-16_13:53:08 2017-05-16 00:00:00.008 25746 INFO nova.osapi_compute.wsgi.server [req-38101a0b-2096-447d-96ea-a692162415ae 113d3a99c3da401fbd62cc2caa5b96d2 54fadb412c4e40cdbaed9335e4c35a9e - - -] 10.11.10.1 \"GET /v2/54fadb412c4e40cdbaed9335e4c35a9e/servers/detail HTTP/1.1\" status: 200 len: 1893 time: 0.2477829\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:025a1bc64ff5b2ef4a4bda6c4ad5c5c5f18478b71cd1ad2b0676e01625629f2f"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "openstack:line:00000001:5f4530e474d6d1a0",
+          "line_number": 1,
+          "line_hash": "sha256:5f4530e474d6d1a07291b942913aae8685926d3f0be97aeb6c050a8131adc438",
+          "group_id": "openstack:lookup:status_200_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openstack_v1_lookup_status_200_first_1",
+    "question": "Find the first log line mentioning 'status: 200'.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "count-the",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "nova-api.log.1.2017-05-16_13:53:08 2017-05-16 00:00:00.008 25746 INFO nova.osapi_compute.wsgi.server [req-38101a0b-2096-447d-96ea-a692162415ae 113d3a99c3da401fbd62cc2caa5b96d2 54fadb412c4e40cdbaed9335e4c35a9e - - -] 10.11.10.1 \"GET /v2/54fadb412c4e40cdbaed9335e4c35a9e/servers/detail HTTP/1.1\" status: 200 len: 1893 time: 0.2477829\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:025a1bc64ff5b2ef4a4bda6c4ad5c5c5f18478b71cd1ad2b0676e01625629f2f"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "openstack:line:00000001:5f4530e474d6d1a0",
+          "line_number": 1,
+          "line_hash": "sha256:5f4530e474d6d1a07291b942913aae8685926d3f0be97aeb6c050a8131adc438",
+          "group_id": "openstack:lookup:status_200_first"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openstack_v1_lookup_status_200_first_2",
+    "question": "Give me the first line where 'status: 200' appears.",
+    "routing_path": "keyword",
+    "answer_type": "line_lookup",
+    "task": "Lookup",
+    "difficulty": "easy",
+    "phrasing_family": "imperative",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "nova-api.log.1.2017-05-16_13:53:08 2017-05-16 00:00:00.008 25746 INFO nova.osapi_compute.wsgi.server [req-38101a0b-2096-447d-96ea-a692162415ae 113d3a99c3da401fbd62cc2caa5b96d2 54fadb412c4e40cdbaed9335e4c35a9e - - -] 10.11.10.1 \"GET /v2/54fadb412c4e40cdbaed9335e4c35a9e/servers/detail HTTP/1.1\" status: 200 len: 1893 time: 0.2477829\r",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:025a1bc64ff5b2ef4a4bda6c4ad5c5c5f18478b71cd1ad2b0676e01625629f2f"
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "openstack:line:00000001:5f4530e474d6d1a0",
+          "line_number": 1,
+          "line_hash": "sha256:5f4530e474d6d1a07291b942913aae8685926d3f0be97aeb6c050a8131adc438",
+          "group_id": "openstack:lookup:status_200_first"
+        }
+      ]
+    }
+  }
+]

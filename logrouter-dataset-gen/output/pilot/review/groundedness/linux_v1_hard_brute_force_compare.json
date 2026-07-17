@@ -1,0 +1,26 @@
+{
+  "question_id": "linux_v1_hard_brute_force_compare",
+  "claims": [
+    {
+      "text": "The logs show that the source IP 150.183.249.110 generated four authentication‑failure entries within a span of only two seconds (Jul 10 16:01:43–16:01:45), whereas 207.243.167.114 produced four failures over roughly eight minutes (Jul 26 07:02:27–07:02:45).",
+      "supported": "partial",
+      "evidence_ref": "linux:line:00001136:2bcf2d2d5c4a269c"
+    },
+    {
+      "text": "This contrast in volume and timing makes the first source appear far more anomalous, as it exhibits a rapid burst of failed SSH attempts that could indicate an automated brute‑force or credential‑spraying campaign.",
+      "supported": "yes",
+      "evidence_ref": "linux:line:00001136:2bcf2d2d5c4a269c"
+    },
+    {
+      "text": "The second source’s slower, spaced‑out pattern is consistent with manual or low‑intensity probing rather than a coordinated attack.",
+      "supported": "yes",
+      "evidence_ref": "linux:line:00001136:2bcf2d2d5c4a269c"
+    },
+    {
+      "text": "A plausible root‑cause hypothesis is that the first IP belongs to a compromised botnet or scripted scanner attempting mass password guessing against the SSH service, while the second may be an isolated user or misconfigured client experiencing intermittent connectivity issues.",
+      "supported": "partial",
+      "evidence_ref": "linux:line:00001136:2bcf2d2d5c4a269c"
+    }
+  ],
+  "verdict": "needs_human_review"
+}
