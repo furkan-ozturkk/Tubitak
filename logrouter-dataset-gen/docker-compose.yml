@@ -1,0 +1,47 @@
+# LogRouter Evaluation Dataset - Phase 0 Docker environment (Section 5)
+# Run with: docker compose up --build
+#   1) The loghub service fetches the LogHub 2k files from the pinned commit
+#      in corpus_manifest.json into the shared 'loghub-corpus' volume, then
+#      stays running (it never exits) so it remains reachable on the shared
+#      network; readiness is reported via HEALTHCHECK instead.
+#   2) The datasetgen service starts once loghub reports healthy; /data/loghub
+#      (read-only), ./output and ./scale_config.yaml are mounted from the
+#      host; it stays up (tail -f) so pipeline steps can be run with
+#      `docker compose exec datasetgen ...` (e.g. the Section 5.5 Ollama
+#      connectivity check).
+
+networks:
+  datasetgen-net:
+    driver: bridge
+
+volumes:
+  loghub-corpus:
+
+services:
+  loghub:
+    build:
+      context: ./loghub
+    container_name: loghub
+    restart: unless-stopped
+    networks:
+      - datasetgen-net
+    volumes:
+      - loghub-corpus:/data/loghub
+
+  datasetgen:
+    build:
+      context: ./datasetgen
+    container_name: datasetgen
+    depends_on:
+      loghub:
+        condition: service_healthy
+    environment:
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://10.15.33.66:11435}
+    networks:
+      - datasetgen-net
+    volumes:
+      - loghub-corpus:/data/loghub:ro
+      - ./output:/output
+      - ./scale_config.yaml:/app/scale_config.yaml:ro
+      - ./datasetgen/src:/app/src
+    command: ["tail", "-f", "/dev/null"]

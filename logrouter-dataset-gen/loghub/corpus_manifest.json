@@ -1,0 +1,96 @@
+{
+  "$schema_version": "1.0",
+  "generated_by": "faz0/manual-pinning",
+  "note": "Scientific Integrity Rule (Section 4.1): data is never downloaded by hand and dropped into an arbitrary folder. This is the only legitimate path: this manifest + fetch_corpus.py fetch the 2k sample files from the LogHub repository at a single pinned commit, and record/verify their SHA-256 checksums in corpus_manifest.lock.json.",
+  "source": {
+    "repository": "https://github.com/logpai/loghub.git",
+    "owner": "logpai",
+    "repo": "loghub",
+    "pinned_commit": "dd61d0952749ee7963bde24220d1be5ede023033",
+    "pinned_commit_verified_on": "2026-07-16",
+    "pinned_commit_verification_note": "GET https://github.com/logpai/loghub/commit/dd61d09.patch -> full 40-character SHA verified; this commit only touches README/CITATION, it does not affect any data files.",
+    "raw_base_url": "https://raw.githubusercontent.com/{owner}/{repo}/{pinned_commit}/{raw_path}"
+  },
+  "datasets": [
+    {
+      "name": "Linux",
+      "status": "existing",
+      "domain": "server syslog",
+      "hard_layer_potential": "SSH brute-force chains, PAM/cron correlation",
+      "raw_path": "Linux/Linux_2k.log",
+      "local_filename": "Linux_2k.log"
+    },
+    {
+      "name": "Apache",
+      "status": "existing",
+      "domain": "web server",
+      "hard_layer_potential": "worker error clusters",
+      "raw_path": "Apache/Apache_2k.log",
+      "local_filename": "Apache_2k.log"
+    },
+    {
+      "name": "Windows",
+      "status": "existing",
+      "domain": "operating system",
+      "hard_layer_potential": "CBS servicing update flows",
+      "raw_path": "Windows/Windows_2k.log",
+      "local_filename": "Windows_2k.log"
+    },
+    {
+      "name": "Mac",
+      "status": "existing",
+      "domain": "desktop",
+      "hard_layer_potential": "sleep/wake, wireless event sequences",
+      "raw_path": "Mac/Mac_2k.log",
+      "local_filename": "Mac_2k.log"
+    },
+    {
+      "name": "HDFS",
+      "status": "existing",
+      "domain": "distributed file system",
+      "hard_layer_potential": "block lifecycle correlation",
+      "raw_path": "HDFS/HDFS_2k.log",
+      "local_filename": "HDFS_2k.log"
+    },
+    {
+      "name": "OpenSSH",
+      "status": "existing",
+      "domain": "server (sshd)",
+      "hard_layer_potential": "attack patterns, reverse-DNS",
+      "raw_path": "OpenSSH/OpenSSH_2k.log",
+      "local_filename": "OpenSSH_2k.log"
+    },
+    {
+      "name": "BGL",
+      "status": "new",
+      "domain": "supercomputer",
+      "hard_layer_potential": "labeled anomalies; hardware error chains",
+      "raw_path": "BGL/BGL_2k.log",
+      "local_filename": "BGL_2k.log"
+    },
+    {
+      "name": "Hadoop",
+      "status": "new",
+      "domain": "distributed computing",
+      "hard_layer_potential": "application task/container failure scenarios",
+      "raw_path": "Hadoop/Hadoop_2k.log",
+      "local_filename": "Hadoop_2k.log"
+    },
+    {
+      "name": "Zookeeper",
+      "status": "new",
+      "domain": "coordination service",
+      "hard_layer_potential": "session/election event sequences",
+      "raw_path": "Zookeeper/Zookeeper_2k.log",
+      "local_filename": "Zookeeper_2k.log"
+    },
+    {
+      "name": "OpenStack",
+      "status": "new",
+      "domain": "cloud infrastructure",
+      "hard_layer_potential": "multi-service request traces (no inline anomaly labels in the 2k sample; needs a manual format note)",
+      "raw_path": "OpenStack/OpenStack_2k.log",
+      "local_filename": "OpenStack_2k.log"
+    }
+  ]
+}

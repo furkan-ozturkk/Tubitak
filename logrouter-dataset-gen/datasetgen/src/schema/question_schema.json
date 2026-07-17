@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://logrouter-datasetgen.local/schema/question_schema.json",
+  "title": "LogRouter Evaluation Question",
+  "description": "The single-source-of-truth schema defined in Section 6.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id", "question", "routing_path", "answer_type", "task", "difficulty",
+    "phrasing_family", "split", "review_status", "reviewers", "expected_answer",
+    "gold_provenance", "evidence"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1, "pattern": "^[a-z0-9_]+$" },
+    "question": { "type": "string", "minLength": 1 },
+    "routing_path": { "type": "string", "enum": ["sql", "keyword", "semantic"] },
+    "answer_type": { "type": "string", "minLength": 1 },
+    "task": { "type": "string", "minLength": 1 },
+    "difficulty": { "type": "string", "enum": ["easy", "medium", "hard"] },
+    "phrasing_family": { "type": "string", "minLength": 1 },
+    "split": { "type": "string", "enum": ["dev", "test"] },
+    "review_status": { "type": "string", "enum": ["verified", "in_review", "rejected"] },
+    "reviewers": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "minItems": 1
+    },
+    "expected_answer": { "type": "string", "minLength": 1 },
+    "gold_provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "created_by", "created_at", "corpus_sha256"],
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": ["deterministic_aggregation", "human", "independent_model_then_human"]
+        },
+        "created_by": { "type": "string", "minLength": 1 },
+        "created_at": { "type": "string", "format": "date-time" },
+        "corpus_sha256": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+        "model": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "family", "digest", "prompt_sha256"],
+          "properties": {
+            "name": { "type": "string", "minLength": 1 },
+            "family": { "type": "string", "minLength": 1 },
+            "digest": { "type": "string", "minLength": 1 },
+            "prompt_sha256": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "comment": "The model block is required ONLY for model-assisted gold (independent_model_then_human).",
+          "if": { "properties": { "method": { "const": "independent_model_then_human" } } },
+          "then": { "required": ["model"] }
+        },
+        {
+          "comment": "Deterministic gold must not include a model block (Section 6: 'only for model-assisted gold').",
+          "if": { "properties": { "method": { "const": "deterministic_aggregation" } } },
+          "then": { "not": { "required": ["model"] } }
+        }
+      ]
+    },
+    "numeric_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["value", "query"],
+        "properties": {
+          "value": { "type": "number" },
+          "query": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["operator"],
+            "properties": {
+              "operator": { "type": "string", "enum": ["count_literal", "count_regex"] },
+              "literal": { "type": "string" },
+              "pattern": { "type": "string" },
+              "case_sensitive": { "type": "boolean" }
+            },
+            "allOf": [
+              {
+                "if": { "properties": { "operator": { "const": "count_literal" } } },
+                "then": { "required": ["literal", "case_sensitive"] }
+              },
+              {
+                "if": { "properties": { "operator": { "const": "count_regex" } } },
+                "then": { "required": ["pattern", "case_sensitive"] }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["refs"],
+      "properties": {
+        "refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "line_number", "line_hash", "group_id"],
+            "properties": {
+              "id": { "type": "string", "minLength": 1 },
+              "line_number": { "type": "integer", "minimum": 1 },
+              "line_hash": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+              "group_id": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "comment": "numeric_claims is REQUIRED for numeric gold (count/presence) (Section 6).",
+      "if": { "properties": { "answer_type": { "enum": ["count", "presence"] } } },
+      "then": { "required": ["numeric_claims"] }
+    },
+    {
+      "comment": "routing_path=sql is only used for numeric/statistic answers.",
+      "if": { "properties": { "routing_path": { "const": "sql" } } },
+      "then": { "properties": { "answer_type": { "enum": ["count", "presence"] } } }
+    },
+    {
+      "comment": "routing_path=keyword is only used for raw line display (line_lookup).",
+      "if": { "properties": { "routing_path": { "const": "keyword" } } },
+      "then": { "properties": { "answer_type": { "const": "line_lookup" } } }
+    }
+  ]
+}

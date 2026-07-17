@@ -1,0 +1,7 @@
+# datasetgen container dependencies (Section 5.3)
+# requests: for Ollama HTTP API calls (explicitly required by the spec)
+# PyYAML: for reading scale_config.yaml (Phase 2)
+# jsonschema: for validating against question_schema.json
+requests==2.32.3
+PyYAML==6.0.2
+jsonschema==4.23.0

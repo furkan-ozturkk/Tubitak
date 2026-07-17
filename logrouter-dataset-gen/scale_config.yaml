@@ -1,0 +1,39 @@
+# scale_config.yaml
+# In Phase 2/3, ALL production parameters are read from THIS file; scaling
+# from 100 -> 1000 -> 2000 -> 3000 questions requires no code changes
+# (Section 3.2). In Phase 0 this is only a skeleton/placeholder; the real
+# build_questions.py (Phase 1 pilot) will be extended to consume these fields.
+
+run:
+  target_total_questions: 100      # Phase 1 pilot target (Section 3.1)
+  seed: 20260716                   # fixed seed for determinism
+  resume: true                     # resume interrupted runs from where they left off
+
+datasets:
+  # status: existing (6) + new (4) - Section 4.2
+  - { name: Linux,     weight: 1.0 }
+  - { name: Apache,    weight: 1.0 }
+  - { name: Windows,   weight: 1.0 }
+  - { name: Mac,       weight: 1.0 }
+  - { name: HDFS,      weight: 1.0 }
+  - { name: OpenSSH,   weight: 1.0 }
+  - { name: BGL,       weight: 1.0 }
+  - { name: Hadoop,    weight: 1.0 }
+  - { name: Zookeeper, weight: 1.0 }
+  - { name: OpenStack, weight: 1.0 }
+
+difficulty_mix:
+  easy: 0.70
+  medium: 0.20
+  hard: 0.10
+
+phrasing_families_min_per_intent: 3   # Section 2/7.4 rule
+
+models:
+  gold_draft: "nemotron-3-nano:30b"
+  groundedness_check: "gpt-oss:20b"
+
+concurrency:
+  max_parallel_model_calls: 4
+  retry_max_attempts: 5
+  retry_backoff_base_seconds: 2.0
