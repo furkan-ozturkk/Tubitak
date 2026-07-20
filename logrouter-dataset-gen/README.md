@@ -5,17 +5,31 @@ the LogRouter black-box evaluation question-answer dataset described in
 `staj.pdf`. It has no connection to LogRouter's source code or infrastructure
 (Section 1.1).
 
-## Status: Phase 0 (Preparation) complete
+## Status: Faz 1 (Pilot) - Stage 1 (20 questions) complete
 
 - [x] LogHub source pinned (`loghub/corpus_manifest.json`) and the fetch
       mechanism written (`loghub/fetch_corpus.py`).
 - [x] Two-container Docker environment (`docker-compose.yml`); the `loghub`
       service stays running (reports readiness via HEALTHCHECK instead of
       exiting) so it remains reachable on the shared network.
-- [x] Ollama connectivity/model verification script (`datasetgen/src/check_ollama.py`).
-- [x] Question schema + automated validator (`datasetgen/src/schema/`).
-
-Next up: **Phase 1 - Pilot** (~100 questions, Section 3.1).
+- [x] Ollama connectivity/model verification (`main.py check-ollama`).
+- [x] Question schema + automated validator (`question_schema.json`, `schema_validator.py`).
+- [x] Official output (`output/pilot/questions.json`) is a 20-question starting
+      set: 1 count + 1 presence question per LogHub dataset (10 datasets x 2),
+      all `difficulty=easy`/`routing_path=sql`. These are computed directly
+      from the corpus with no model involved, so `review_status=verified` for
+      all 20 -- independently checkable against the raw `*_2k.log` files with
+      a plain SQL `COUNT`/`LIKE` query. 0 schema errors.
+- [x] The full first-pass pilot (116 questions across all three difficulty
+      tiers) is kept at `output/pilot/questions_full_v1_116.json` and broken
+      out per tier in `layer1.json`/`layer2.json`/`layer3.json`. Medium/hard
+      questions there are model-drafted and still `review_status=in_review`
+      (Section 7.3 step 5) -- they get folded back into the official output
+      once a human has reviewed them via `main.py review-export`/`review-apply`,
+      growing the 20 upward per the staged-scaling plan (Section 3).
+- [x] A separate 28-question mixed-difficulty sample for advisor review is
+      available at `output/pilot/mini20/` and `output/pilot/sample_for_review.md`
+      (unrelated to the official output above).
 
 ## Directory layout
 
@@ -23,7 +37,7 @@ Next up: **Phase 1 - Pilot** (~100 questions, Section 3.1).
 .
 ├── docker-compose.yml       # two containers, one network, one external connection
 ├── .env.example              # OLLAMA_BASE_URL
-├── scale_config.yaml         # single configuration source for Phase 2/3
+├── scale_config.yaml         # single configuration source
 ├── loghub/
 │   ├── Dockerfile
 │   ├── entrypoint.sh         # fetch once, then stay alive (no exit)
@@ -32,38 +46,54 @@ Next up: **Phase 1 - Pilot** (~100 questions, Section 3.1).
 ├── datasetgen/
 │   ├── Dockerfile
 │   ├── requirements.txt
-│   └── src/
-│       ├── check_ollama.py
-│       └── schema/
-│           ├── question_schema.json   # Section 6 schema (single source of truth)
-│           └── validate_schema.py     # schema + cross-record + groundedness validation
-└── output/                   # dataset/report output exported to the host
+│   ├── main.py                # single entry point, one subcommand per operation
+│   ├── cli.py                 # every CLI parameter, as one frozen dataclass per subcommand
+│   ├── scale_config.py        # scale_config.yaml, typed into RunConfig/DifficultyMix/ConcurrencyConfig
+│   ├── question_generators.py # the three question tiers (Section 7): easy/medium/hard
+│   ├── loghub_datasets.py     # per-LogHub-dataset literals/hard-group specs (Section 7.1)
+│   ├── ollama_client.py       # shared remote-Ollama client (Section 5.5)
+│   ├── corpus_utils.py        # corpus loading, hashing, dev/test split assignment
+│   ├── schema_validator.py    # schema + cross-record + evidence/groundedness validation
+│   ├── human_review.py        # human review worksheet export/apply (Section 7.3 step 5)
+│   └── question_schema.json   # Section 6 schema (single source of truth)
+└── output/
+    └── pilot/                # Faz 1 pilot dataset + reports (tracked in git)
 ```
 
-## Running it (Phase 0 verification)
+Every file above sits directly in `datasetgen/` -- no nested `src/`/`schema/`
+subfolders; opening the repo shows the real files immediately.
+
+## Running it
 
 ```bash
 cp .env.example .env   # edit OLLAMA_BASE_URL if needed
 docker compose up --build
 # loghub fetches the corpus, reports healthy, and keeps running;
 # datasetgen starts once loghub is healthy and stays up (tail -f).
+```
 
-# Verify the Ollama connection and the required models:
-docker compose exec datasetgen python3 src/check_ollama.py
+Everything below is one subcommand of `main.py`, run inside the `datasetgen`
+container. Defaults match the paths docker-compose.yml mounts, so most of
+these work with no extra flags -- pass `--help` on a subcommand to see all
+available overrides.
 
-# Confirm the corpus was fetched correctly:
-docker compose exec datasetgen python3 /app/../loghub/fetch_corpus.py \
-    --verify-only --output-dir /data/loghub \
-    --manifest /app/../loghub/corpus_manifest.json
-# (fetch_corpus.py lives in the loghub image, so in practice you can also run:
-#  docker compose run --rm loghub --verify-only)
+```bash
+# Verify the Ollama connection and the required models (Section 5.5/6):
+docker compose exec datasetgen python3 main.py check-ollama
 
-# Test the schema validator against a sample question file:
-docker compose exec datasetgen python3 src/schema/validate_schema.py \
-    --questions /output/sample_questions.json \
-    --corpus-dir /data/loghub \
-    --manifest /data/loghub/../../loghub/corpus_manifest.json \
-    --report /output/validation_report.json
+# Confirm the corpus was fetched correctly (runs in the loghub image):
+docker compose run --rm loghub --verify-only
+
+# Generate the dataset (writes /output/pilot/questions.json by default):
+docker compose exec datasetgen python3 main.py generate
+
+# Validate it against the schema (writes /output/pilot/validation_report.json):
+docker compose exec datasetgen python3 main.py validate
+
+# Export in_review (medium/hard) records for human review, then apply decisions:
+docker compose exec datasetgen python3 main.py review-export
+#  ... a human fills in the "decision" column (accept | edit | reject) ...
+docker compose exec datasetgen python3 main.py review-apply
 ```
 
 ## Scientific Integrity Rules (summary)

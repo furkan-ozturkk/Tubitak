@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "stats": {
+    "total_questions": 20,
+    "unique_ids": 20,
+    "distinct_group_ids": 22,
+    "by_difficulty": {
+      "easy": 14,
+      "medium": 4,
+      "hard": 2
+    },
+    "by_routing_path": {
+      "sql": 14,
+      "semantic": 6
+    },
+    "by_split": {
+      "dev": 16,
+      "test": 4
+    },
+    "by_review_status": {
+      "verified": 14,
+      "in_review": 6
+    },
+    "hard_question_count": 2
+  },
+  "error_count": 0,
+  "warning_count": 1,
+  "errors": [],
+  "warnings": [
+    "14 group_id(s) do not meet the >=3 phrasing-family rule: {'linux:count:authentication_failure': {'how-many'}, 'apache:count:notice': {'how-many'}, 'windows:count:cbs': {'how-many'}, 'mac:count:kernel': {'how-many'}, 'hdfs:count:packetresponder': {'how-many'}, 'openssh:count:failed_password': {'how-many'}, 'bgl:count:double_hummer_alignment_exceptions': {'how-many'}, 'hadoop:count:container': {'how-many'}, 'zookeeper:count:warn': {'how-many'}, 'openstack:count:status_200': {'how-many'}} ..."
+  ]
+}

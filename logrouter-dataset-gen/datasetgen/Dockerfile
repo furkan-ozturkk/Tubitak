@@ -8,8 +8,9 @@ WORKDIR /app
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY src ./src
+COPY *.py ./
+COPY question_schema.json ./
 
 # Default command: print a help message. Real production/pipeline commands
 # are supplied via `command:` in docker-compose.yml or `docker compose exec`.
-CMD ["python3", "-c", "print('datasetgen ready. Example: docker compose exec datasetgen python3 src/check_ollama.py')"]
+CMD ["python3", "-c", "print('datasetgen ready. Example: docker compose exec datasetgen python3 main.py check-ollama')"]

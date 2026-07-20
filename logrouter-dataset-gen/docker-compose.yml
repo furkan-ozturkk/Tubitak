@@ -43,5 +43,5 @@ services:
       - loghub-corpus:/data/loghub:ro
       - ./output:/output
       - ./scale_config.yaml:/app/scale_config.yaml:ro
-      - ./datasetgen/src:/app/src
+      - ./datasetgen:/app
     command: ["tail", "-f", "/dev/null"]

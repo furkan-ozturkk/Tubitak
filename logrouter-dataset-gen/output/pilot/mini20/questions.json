@@ -1,0 +1,1338 @@
+[
+  {
+    "id": "linux_v1_count_authentication_failure_0",
+    "question": "How many log lines contain 'authentication failure'?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "490",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:b3e20bc1afe732ab1bf3ed1de4bf9c809e4194e02f7dea911d918e5342e8e173"
+    },
+    "numeric_claims": [
+      {
+        "value": 490,
+        "query": {
+          "operator": "count_literal",
+          "literal": "authentication failure",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "linux:line:00000001:7c5641a6bf9d4b23",
+          "line_number": 1,
+          "line_hash": "sha256:7c5641a6bf9d4b23528e1acff86e81c35238cafa8bfdeed4cca35ed38ea47d37",
+          "group_id": "linux:count:authentication_failure"
+        },
+        {
+          "id": "linux:line:00000003:f6a256ef53a802e8",
+          "line_number": 3,
+          "line_hash": "sha256:f6a256ef53a802e8b1db72276f975c7fa142b2b7505dce2b090f034b5e9aea73",
+          "group_id": "linux:count:authentication_failure"
+        },
+        {
+          "id": "linux:line:00000004:db1b1106960dd813",
+          "line_number": 4,
+          "line_hash": "sha256:db1b1106960dd813545aa0f2b88974a1e942217ef28cb213dcf92f88f89ac588",
+          "group_id": "linux:count:authentication_failure"
+        },
+        {
+          "id": "linux:line:00000005:6859041b6d08936e",
+          "line_number": 5,
+          "line_hash": "sha256:6859041b6d08936e758d4035ec58e0fb27da6f62b0ade849b41f027024019f82",
+          "group_id": "linux:count:authentication_failure"
+        },
+        {
+          "id": "linux:line:00000006:5722995c75571b00",
+          "line_number": 6,
+          "line_hash": "sha256:5722995c75571b00e6e83d8679d9b721a2113b5a47dac5e3eec992d9f189c8f6",
+          "group_id": "linux:count:authentication_failure"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apache_v1_count_notice_0",
+    "question": "How many log lines contain '[notice]'?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "1405",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:c7efa3eb686e3a96bd2f8f4457b2a7887e9cf2f3649327f1b4e87af841363ce8"
+    },
+    "numeric_claims": [
+      {
+        "value": 1405,
+        "query": {
+          "operator": "count_literal",
+          "literal": "[notice]",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "apache:line:00000001:347048756a4f62da",
+          "line_number": 1,
+          "line_hash": "sha256:347048756a4f62da720a9bb348a5e2ec8a82413e1c3798a556b172ba7b4e0942",
+          "group_id": "apache:count:notice"
+        },
+        {
+          "id": "apache:line:00000003:a41ecadc57156e34",
+          "line_number": 3,
+          "line_hash": "sha256:a41ecadc57156e34212794444b9924ecbe5cb5fd6065ddfb3687875792266764",
+          "group_id": "apache:count:notice"
+        },
+        {
+          "id": "apache:line:00000004:b001dc147abf0e2f",
+          "line_number": 4,
+          "line_hash": "sha256:b001dc147abf0e2f070b7b37eeb524d24db5e45be61ecf22afa5872dccf3b7d1",
+          "group_id": "apache:count:notice"
+        },
+        {
+          "id": "apache:line:00000005:358a17f606fc3319",
+          "line_number": 5,
+          "line_hash": "sha256:358a17f606fc3319fc8538403b9c21f183a243571662254a739393a02a831378",
+          "group_id": "apache:count:notice"
+        },
+        {
+          "id": "apache:line:00000006:f7f1570bed0d5be4",
+          "line_number": 6,
+          "line_hash": "sha256:f7f1570bed0d5be43ae2b635ce4206e9e5c62793937ae1440e2b615cf4cacceb",
+          "group_id": "apache:count:notice"
+        }
+      ]
+    }
+  },
+  {
+    "id": "windows_v1_count_cbs_0",
+    "question": "How many log lines contain 'CBS'?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "1973",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:372fb809464a6d6016e599e9272d7cf1e8b644f25c90c7f76f19c936362456d0"
+    },
+    "numeric_claims": [
+      {
+        "value": 1973,
+        "query": {
+          "operator": "count_literal",
+          "literal": "CBS",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "windows:line:00000001:ed4b253644abbb21",
+          "line_number": 1,
+          "line_hash": "sha256:ed4b253644abbb210473ce0409147213e7cd642284fe08efbeef276a4c94d8b0",
+          "group_id": "windows:count:cbs"
+        },
+        {
+          "id": "windows:line:00000005:2b9ab40d82946345",
+          "line_number": 5,
+          "line_hash": "sha256:2b9ab40d829463453e9441a8a987c403e4dbf391d1051244ca803c837fe13a98",
+          "group_id": "windows:count:cbs"
+        },
+        {
+          "id": "windows:line:00000006:eaa81cf82d072a7b",
+          "line_number": 6,
+          "line_hash": "sha256:eaa81cf82d072a7b0769e5cb4bde59600665a032c9871b039bc0ab899e04e379",
+          "group_id": "windows:count:cbs"
+        },
+        {
+          "id": "windows:line:00000007:b200da3e375009ea",
+          "line_number": 7,
+          "line_hash": "sha256:b200da3e375009ea9500ec9e3bfcc4e5a65facb8401e0189508167304f80ae2d",
+          "group_id": "windows:count:cbs"
+        },
+        {
+          "id": "windows:line:00000008:7bc4514822c6dd11",
+          "line_number": 8,
+          "line_hash": "sha256:7bc4514822c6dd11e639e5d57455a2f980ad6f3bf6194ad156ab90cda3fa4825",
+          "group_id": "windows:count:cbs"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mac_v1_count_kernel_0",
+    "question": "How many log lines contain 'kernel'?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "775",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:d9ea495488728d8c989dc942fca3324a3cc7b19b0a6f409a5fd568ad547fd931"
+    },
+    "numeric_claims": [
+      {
+        "value": 775,
+        "query": {
+          "operator": "count_literal",
+          "literal": "kernel",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "mac:line:00000001:aa31a3457c9f4af9",
+          "line_number": 1,
+          "line_hash": "sha256:aa31a3457c9f4af9a77ef60d0f4456c34e05574e33ab525cb15b7abdfb08a815",
+          "group_id": "mac:count:kernel"
+        },
+        {
+          "id": "mac:line:00000004:f0637712b711582b",
+          "line_number": 4,
+          "line_hash": "sha256:f0637712b711582b3e4bdd76c56a71104dfcb9c8b7f47ee9c886cfbdb241ddea",
+          "group_id": "mac:count:kernel"
+        },
+        {
+          "id": "mac:line:00000005:94f85d28609f491a",
+          "line_number": 5,
+          "line_hash": "sha256:94f85d28609f491aafb2693cf7d7a1aa5106c837c0c7413b1a943847a0bf364e",
+          "group_id": "mac:count:kernel"
+        },
+        {
+          "id": "mac:line:00000007:59395d6da84765d1",
+          "line_number": 7,
+          "line_hash": "sha256:59395d6da84765d12ba74b6a2208bc19ef3c570e63f8c0d309768b5e77f9e4e1",
+          "group_id": "mac:count:kernel"
+        },
+        {
+          "id": "mac:line:00000008:9473ab57c2e84dd4",
+          "line_number": 8,
+          "line_hash": "sha256:9473ab57c2e84dd487078ba18fef529dc1212eaf8bb385330eb2857012569919",
+          "group_id": "mac:count:kernel"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hdfs_v1_count_packetresponder_0",
+    "question": "How many log lines contain 'PacketResponder'?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "603",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:7c967000980c086ed55fa6544ba4f05fe66d44622795e890c68caf8bbb635035"
+    },
+    "numeric_claims": [
+      {
+        "value": 603,
+        "query": {
+          "operator": "count_literal",
+          "literal": "PacketResponder",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "hdfs:line:00000001:1fc2acadbb4655e2",
+          "line_number": 1,
+          "line_hash": "sha256:1fc2acadbb4655e2db30c9a3a4772279d0303161b8c9e45f437b32ed27adbf5b",
+          "group_id": "hdfs:count:packetresponder"
+        },
+        {
+          "id": "hdfs:line:00000002:c832ca0cb86f8935",
+          "line_number": 2,
+          "line_hash": "sha256:c832ca0cb86f8935b25b4da60cc9442d3e3068d1f29674b115a1f39deb8607b8",
+          "group_id": "hdfs:count:packetresponder"
+        },
+        {
+          "id": "hdfs:line:00000004:48804dd370dc39b4",
+          "line_number": 4,
+          "line_hash": "sha256:48804dd370dc39b4b02b406dd2b5cd42d3c7860e077b6cd40f5838434308a738",
+          "group_id": "hdfs:count:packetresponder"
+        },
+        {
+          "id": "hdfs:line:00000005:48485e81413177e0",
+          "line_number": 5,
+          "line_hash": "sha256:48485e81413177e09092ef54f8ec608cba9367dce6e56420955387bdc23b87b2",
+          "group_id": "hdfs:count:packetresponder"
+        },
+        {
+          "id": "hdfs:line:00000009:f22502ca1c80d5d0",
+          "line_number": 9,
+          "line_hash": "sha256:f22502ca1c80d5d0428bc0e2e6b528742733340d88d65bffdae869e2ce46f1fa",
+          "group_id": "hdfs:count:packetresponder"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openssh_v1_count_failed_password_0",
+    "question": "How many log lines contain 'Failed password'?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "520",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:1e4912727fa88245113d41b16a0cd25ceadba7f931e1c406542885b91254264f"
+    },
+    "numeric_claims": [
+      {
+        "value": 520,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Failed password",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "openssh:line:00000006:61d3d948516c1d3e",
+          "line_number": 6,
+          "line_hash": "sha256:61d3d948516c1d3ea9f9ea07b4df9b436db77c915bf9aff8c8831d162f56aaff",
+          "group_id": "openssh:count:failed_password"
+        },
+        {
+          "id": "openssh:line:00000013:c2c449b0fe1f3f6b",
+          "line_number": 13,
+          "line_hash": "sha256:c2c449b0fe1f3f6bffddb17430a6fa9fe2a0e4fe48fb9cd3315fb9b18864efed",
+          "group_id": "openssh:count:failed_password"
+        },
+        {
+          "id": "openssh:line:00000020:bc55e0e17a292d32",
+          "line_number": 20,
+          "line_hash": "sha256:bc55e0e17a292d320e950290f4ef74c9bad4399ac244eb9c8637ca42090d466f",
+          "group_id": "openssh:count:failed_password"
+        },
+        {
+          "id": "openssh:line:00000026:ac25958a27287ad3",
+          "line_number": 26,
+          "line_hash": "sha256:ac25958a27287ad3adbd1ad8e4d338a75e0c1d721505f1ac6486ca26f2b1c4df",
+          "group_id": "openssh:count:failed_password"
+        },
+        {
+          "id": "openssh:line:00000029:001d6495fbcab539",
+          "line_number": 29,
+          "line_hash": "sha256:001d6495fbcab539370fc0c8de875bd38ada6a286bdc0420ea89834bfbde39c7",
+          "group_id": "openssh:count:failed_password"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bgl_v1_count_double_hummer_alignment_exceptions_0",
+    "question": "How many log lines contain 'double-hummer alignment exceptions'?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "test",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "109",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:2a819ea540909db682005c9cf948387a40729b5c2e9f19d430e29ce704825496"
+    },
+    "numeric_claims": [
+      {
+        "value": 109,
+        "query": {
+          "operator": "count_literal",
+          "literal": "double-hummer alignment exceptions",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "bgl:line:00000005:d464d5a5c12a72cf",
+          "line_number": 5,
+          "line_hash": "sha256:d464d5a5c12a72cf3b0586ef97fe92d2f9f109029a13f2fc75f2a8c462af0618",
+          "group_id": "bgl:count:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000006:162da96aba3437c5",
+          "line_number": 6,
+          "line_hash": "sha256:162da96aba3437c51c642849a2bbb31ac2be144fb83612092d9a22756ec4b191",
+          "group_id": "bgl:count:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000007:6a4dc16d6cf0a104",
+          "line_number": 7,
+          "line_hash": "sha256:6a4dc16d6cf0a10416576160d48321ce8da7b8d24a559ec32d449216a0909048",
+          "group_id": "bgl:count:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000374:bc4b5fc11a88f41e",
+          "line_number": 374,
+          "line_hash": "sha256:bc4b5fc11a88f41e0d285a18250c4dbacf8e1ba35618a8537a5c3227dd080ecd",
+          "group_id": "bgl:count:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000375:09af09fb45f587f0",
+          "line_number": 375,
+          "line_hash": "sha256:09af09fb45f587f0593c09c62407578b14b0018359768278d3d4942dbe843bff",
+          "group_id": "bgl:count:double_hummer_alignment_exceptions"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hadoop_v1_count_container_0",
+    "question": "How many log lines contain 'Container'?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "test",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "547",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:9ecaeb807d50d5fb5a20982ea66f1c8d32545259a51ce7456c1ab78db0509732"
+    },
+    "numeric_claims": [
+      {
+        "value": 547,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Container",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "hadoop:line:00000013:495c2c597a19610d",
+          "line_number": 13,
+          "line_hash": "sha256:495c2c597a19610ddde55b439ec0b5e7be1db3891bd810c9605cccb0c1fd6af4",
+          "group_id": "hadoop:count:container"
+        },
+        {
+          "id": "hadoop:line:00000014:cba6d70e74f6c464",
+          "line_number": 14,
+          "line_hash": "sha256:cba6d70e74f6c46417564350abf7f2e754acb8d8fe208952e6234e99e04e3ec4",
+          "group_id": "hadoop:count:container"
+        },
+        {
+          "id": "hadoop:line:00000028:2092bd80c68550cb",
+          "line_number": 28,
+          "line_hash": "sha256:2092bd80c68550cb0a3623e21525de4abd6e9a1931016d74c471fbf025472c57",
+          "group_id": "hadoop:count:container"
+        },
+        {
+          "id": "hadoop:line:00000050:67178b4e63bb189b",
+          "line_number": 50,
+          "line_hash": "sha256:67178b4e63bb189bd221789baa4bc5efb52cb47c47c05b375c4c319be9684c07",
+          "group_id": "hadoop:count:container"
+        },
+        {
+          "id": "hadoop:line:00000051:6ba2802a6ae14231",
+          "line_number": 51,
+          "line_hash": "sha256:6ba2802a6ae142319ec3a5e2b30c748e10923323cd91816bdfb5d6d03c33094e",
+          "group_id": "hadoop:count:container"
+        }
+      ]
+    }
+  },
+  {
+    "id": "zookeeper_v1_count_warn_0",
+    "question": "How many log lines contain 'WARN'?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "test",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "1318",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:e40e0af5ef9eb6e4097200f260b9d1f626b3676f861a432e87977242e75543d8"
+    },
+    "numeric_claims": [
+      {
+        "value": 1318,
+        "query": {
+          "operator": "count_literal",
+          "literal": "WARN",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "zookeeper:line:00000003:5292653b1d18ddc2",
+          "line_number": 3,
+          "line_hash": "sha256:5292653b1d18ddc27654a158f0c121fed549d40a7645be397ec28b3a9635901c",
+          "group_id": "zookeeper:count:warn"
+        },
+        {
+          "id": "zookeeper:line:00000004:b8a0099521014b9d",
+          "line_number": 4,
+          "line_hash": "sha256:b8a0099521014b9d7796b2216ad0078a068198fc2df961891d2d93cf46f7c7aa",
+          "group_id": "zookeeper:count:warn"
+        },
+        {
+          "id": "zookeeper:line:00000005:2553253d714f7137",
+          "line_number": 5,
+          "line_hash": "sha256:2553253d714f713759e2b779f59135e203ee42db7c091ed042760aea4e57ddd9",
+          "group_id": "zookeeper:count:warn"
+        },
+        {
+          "id": "zookeeper:line:00000006:722fb7e701788cd1",
+          "line_number": 6,
+          "line_hash": "sha256:722fb7e701788cd1f8f98fa6ed7c458789820af0e8e10062d477e0082e812093",
+          "group_id": "zookeeper:count:warn"
+        },
+        {
+          "id": "zookeeper:line:00000008:6ea9854578da3504",
+          "line_number": 8,
+          "line_hash": "sha256:6ea9854578da35040fdeba955497143ce315b1d8c52f7de7444c7af70cf190d3",
+          "group_id": "zookeeper:count:warn"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openstack_v1_count_status_200_0",
+    "question": "How many log lines contain 'status: 200'?",
+    "routing_path": "sql",
+    "answer_type": "count",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "933",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:025a1bc64ff5b2ef4a4bda6c4ad5c5c5f18478b71cd1ad2b0676e01625629f2f"
+    },
+    "numeric_claims": [
+      {
+        "value": 933,
+        "query": {
+          "operator": "count_literal",
+          "literal": "status: 200",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "openstack:line:00000001:5f4530e474d6d1a0",
+          "line_number": 1,
+          "line_hash": "sha256:5f4530e474d6d1a07291b942913aae8685926d3f0be97aeb6c050a8131adc438",
+          "group_id": "openstack:count:status_200"
+        },
+        {
+          "id": "openstack:line:00000002:3597904b1d73d9dc",
+          "line_number": 2,
+          "line_hash": "sha256:3597904b1d73d9dcb26a072874f0e0bef170d2cf210e615fe7b74999bfe6c0d8",
+          "group_id": "openstack:count:status_200"
+        },
+        {
+          "id": "openstack:line:00000003:d6e1306b669d798a",
+          "line_number": 3,
+          "line_hash": "sha256:d6e1306b669d798a96b4529b45b555e81f36a449b9ef10d40f4d53c84ee9a968",
+          "group_id": "openstack:count:status_200"
+        },
+        {
+          "id": "openstack:line:00000004:bac99dc524bed55d",
+          "line_number": 4,
+          "line_hash": "sha256:bac99dc524bed55de7126f3a2cf629f80fbf74f49e0149efbaa0d0afabd54e68",
+          "group_id": "openstack:count:status_200"
+        },
+        {
+          "id": "openstack:line:00000005:78916d26b4d394be",
+          "line_number": 5,
+          "line_hash": "sha256:78916d26b4d394be0c925e2536212af5ea5271156d3d5a6e7dba771bdfbf6869",
+          "group_id": "openstack:count:status_200"
+        }
+      ]
+    }
+  },
+  {
+    "id": "linux_v1_presence_invalid_user_0",
+    "question": "Does the log contain any line with 'Invalid user'?",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "test",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "No",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:b3e20bc1afe732ab1bf3ed1de4bf9c809e4194e02f7dea911d918e5342e8e173"
+    },
+    "numeric_claims": [
+      {
+        "value": 0,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Invalid user",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "linux:line:00000001:7c5641a6bf9d4b23",
+          "line_number": 1,
+          "line_hash": "sha256:7c5641a6bf9d4b23528e1acff86e81c35238cafa8bfdeed4cca35ed38ea47d37",
+          "group_id": "linux:presence:invalid_user"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hdfs_v1_presence_exception_0",
+    "question": "Does the log contain any line with 'Exception'?",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:7c967000980c086ed55fa6544ba4f05fe66d44622795e890c68caf8bbb635035"
+    },
+    "numeric_claims": [
+      {
+        "value": 80,
+        "query": {
+          "operator": "count_literal",
+          "literal": "Exception",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "hdfs:line:00000078:a3d59c11130eed42",
+          "line_number": 78,
+          "line_hash": "sha256:a3d59c11130eed42e6e5fb0d3d745dedf91ccb4598b3db0d9eedbd72cc83a95a",
+          "group_id": "hdfs:presence:exception"
+        },
+        {
+          "id": "hdfs:line:00000079:8e52085a9dcfa8ba",
+          "line_number": 79,
+          "line_hash": "sha256:8e52085a9dcfa8ba3b4526e16276c9d2e0aaf72f92c77eaa910fc0a7a36d5d71",
+          "group_id": "hdfs:presence:exception"
+        },
+        {
+          "id": "hdfs:line:00000081:ec2e4946af03f7b0",
+          "line_number": 81,
+          "line_hash": "sha256:ec2e4946af03f7b06d8b55682144f061674d6826b6592ea5699146e2f57e6d40",
+          "group_id": "hdfs:presence:exception"
+        },
+        {
+          "id": "hdfs:line:00000082:a15ca4ac09eb2ab4",
+          "line_number": 82,
+          "line_hash": "sha256:a15ca4ac09eb2ab416938e1d0d7ea33f651ec4ac823b9c7341288369bbdb831d",
+          "group_id": "hdfs:presence:exception"
+        },
+        {
+          "id": "hdfs:line:00000084:fefcd2d3b9e0e24a",
+          "line_number": 84,
+          "line_hash": "sha256:fefcd2d3b9e0e24acff02c7f87303e6d12e5fad365d05ea9968d9b5334f14c13",
+          "group_id": "hdfs:presence:exception"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openssh_v1_presence_possible_break_in_attempt_0",
+    "question": "Does the log contain any line with 'POSSIBLE BREAK-IN ATTEMPT'?",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:1e4912727fa88245113d41b16a0cd25ceadba7f931e1c406542885b91254264f"
+    },
+    "numeric_claims": [
+      {
+        "value": 85,
+        "query": {
+          "operator": "count_literal",
+          "literal": "POSSIBLE BREAK-IN ATTEMPT",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "openssh:line:00000001:67a67a97134aa89a",
+          "line_number": 1,
+          "line_hash": "sha256:67a67a97134aa89a05433857bfa69d0f4b50ffd6398392b6f4aa4d163774a8a5",
+          "group_id": "openssh:presence:possible_break_in_attempt"
+        },
+        {
+          "id": "openssh:line:00000015:aa479843f85439de",
+          "line_number": 15,
+          "line_hash": "sha256:aa479843f85439de91359282a2e0f84dc1d602ad669d3db855a88cfa94fc3bee",
+          "group_id": "openssh:presence:possible_break_in_attempt"
+        },
+        {
+          "id": "openssh:line:00000147:a4fdbd93eb077432",
+          "line_number": 147,
+          "line_hash": "sha256:a4fdbd93eb077432f064e56d657068a1d7b36c72632189a236732b8248f68a4a",
+          "group_id": "openssh:presence:possible_break_in_attempt"
+        },
+        {
+          "id": "openssh:line:00000152:7ce7db2e62cdf5b3",
+          "line_number": 152,
+          "line_hash": "sha256:7ce7db2e62cdf5b32b1e01fd635b9e8a37f9b19e870255fab73111a2c7c672d5",
+          "group_id": "openssh:presence:possible_break_in_attempt"
+        },
+        {
+          "id": "openssh:line:00000159:4798d7579d3309d9",
+          "line_number": 159,
+          "line_hash": "sha256:4798d7579d3309d973dbacc5990038805b256e956a4fd7340d2c65b0d785d45f",
+          "group_id": "openssh:presence:possible_break_in_attempt"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bgl_v1_presence_kerndtlb_0",
+    "question": "Does the log contain any line with 'KERNDTLB'?",
+    "routing_path": "sql",
+    "answer_type": "presence",
+    "task": "Aggregation",
+    "difficulty": "easy",
+    "phrasing_family": "how-many",
+    "split": "dev",
+    "review_status": "verified",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "Yes",
+    "gold_provenance": {
+      "method": "deterministic_aggregation",
+      "created_by": "datasetgen/layer1_deterministic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:2a819ea540909db682005c9cf948387a40729b5c2e9f19d430e29ce704825496"
+    },
+    "numeric_claims": [
+      {
+        "value": 60,
+        "query": {
+          "operator": "count_literal",
+          "literal": "KERNDTLB",
+          "case_sensitive": false
+        }
+      }
+    ],
+    "evidence": {
+      "refs": [
+        {
+          "id": "bgl:line:00000104:002cc18d4383e05b",
+          "line_number": 104,
+          "line_hash": "sha256:002cc18d4383e05b45b0eb41e5901b1f02bdedb5ce904c2754bcf6aa5f9dc190",
+          "group_id": "bgl:presence:kerndtlb"
+        },
+        {
+          "id": "bgl:line:00000105:21d5f7f1a8c1695e",
+          "line_number": 105,
+          "line_hash": "sha256:21d5f7f1a8c1695ea0b930ec980a2ca478298d1a60853775433f5b2a6e828451",
+          "group_id": "bgl:presence:kerndtlb"
+        },
+        {
+          "id": "bgl:line:00000106:c825edcefceec85a",
+          "line_number": 106,
+          "line_hash": "sha256:c825edcefceec85af77b3a55ee9b126057e51b9ac09298710dce426c9a796b15",
+          "group_id": "bgl:presence:kerndtlb"
+        },
+        {
+          "id": "bgl:line:00000107:f9ac051911526ff2",
+          "line_number": 107,
+          "line_hash": "sha256:f9ac051911526ff275aed85b980e62f3f0f398da2dcc4f3bd9bdcb66e7c26f1b",
+          "group_id": "bgl:presence:kerndtlb"
+        },
+        {
+          "id": "bgl:line:00000108:eb6a66f579785862",
+          "line_number": 108,
+          "line_hash": "sha256:eb6a66f5797858625a470895cdca14320f6907e94bfe2e0ecb84547b59047a98",
+          "group_id": "bgl:presence:kerndtlb"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bgl_v1_semantic_instruction_cache_parity_error_corrected_0",
+    "question": "Looking at these BGL log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The excerpt shows multiple instances of corrected instruction cache parity errors and double-hummer alignment exceptions occurring in rapid succession across different processors and time stamps on June 3 2005, indicating a pattern of hardware‑level memory or execution anomalies being logged by the RAS kernel. The final line also records a specific CE (correctable error) event with a masked address, confirming that correctable errors are being detected and reported in real time.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:2a819ea540909db682005c9cf948387a40729b5c2e9f19d430e29ce704825496",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:21e53ed88580c50316cc363999fd7da85ff7595682e2186e6ed796eb2f36ac3e"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "bgl:line:00000001:10c9ab95b65a37be",
+          "line_number": 1,
+          "line_hash": "sha256:10c9ab95b65a37be0ed65e2df284ce49e77a4553138f9e027a1f467235114d6e",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_0"
+        },
+        {
+          "id": "bgl:line:00000002:1e6cfc32f22cf677",
+          "line_number": 2,
+          "line_hash": "sha256:1e6cfc32f22cf6770f983099eed28fdaf97fb3335b6a30d0c11124a2b2c57f10",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_0"
+        },
+        {
+          "id": "bgl:line:00000003:02f06ade61925cae",
+          "line_number": 3,
+          "line_hash": "sha256:02f06ade61925cae7b8ae0355bd731e512e356f4d891f6243543f2ffcf2801b6",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_0"
+        },
+        {
+          "id": "bgl:line:00000004:ad5610f48b767ca4",
+          "line_number": 4,
+          "line_hash": "sha256:ad5610f48b767ca41a45b9a32df27db33475de2864cd7b3d6d067c175c316310",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_0"
+        },
+        {
+          "id": "bgl:line:00000005:d464d5a5c12a72cf",
+          "line_number": 5,
+          "line_hash": "sha256:d464d5a5c12a72cf3b0586ef97fe92d2f9f109029a13f2fc75f2a8c462af0618",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_0"
+        },
+        {
+          "id": "bgl:line:00000006:162da96aba3437c5",
+          "line_number": 6,
+          "line_hash": "sha256:162da96aba3437c51c642849a2bbb31ac2be144fb83612092d9a22756ec4b191",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_0"
+        },
+        {
+          "id": "bgl:line:00000007:6a4dc16d6cf0a104",
+          "line_number": 7,
+          "line_hash": "sha256:6a4dc16d6cf0a10416576160d48321ce8da7b8d24a559ec32d449216a0909048",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_0"
+        },
+        {
+          "id": "bgl:line:00000008:448644064815abcd",
+          "line_number": 8,
+          "line_hash": "sha256:448644064815abcd8c7055e21b3127752f22117da7f0351490a1a2cfc8faec34",
+          "group_id": "bgl:semantic:instruction_cache_parity_error_corrected_0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "zookeeper_v1_semantic_fastleaderelection_0",
+    "question": "Looking at these Zookeeper log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The log shows repeated connection failures and restarts of a quorum election process on server myid=1, indicating it is losing connections to peers and attempting to re-establish them. The warnings about SendWorker leaving threads and RecvWorker reporting broken connections suggest the server is experiencing instability in its communication channels with other Zookeeper ensemble members.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:e40e0af5ef9eb6e4097200f260b9d1f626b3676f861a432e87977242e75543d8",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:e53d86dcfb6aa95723ee264bb0cc1cd5129fbbf862328342bf82d04b14149545"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "zookeeper:line:00000001:358742b8fb60f84b",
+          "line_number": 1,
+          "line_hash": "sha256:358742b8fb60f84b49ae49c1ca7251be11470b8f6582ef4d6d35027cd283def6",
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
+        },
+        {
+          "id": "zookeeper:line:00000002:6bcad5a26f6501c1",
+          "line_number": 2,
+          "line_hash": "sha256:6bcad5a26f6501c15e9f0b0413a8e1341dbcb1d4f16929b1ac18fa1917166034",
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
+        },
+        {
+          "id": "zookeeper:line:00000003:5292653b1d18ddc2",
+          "line_number": 3,
+          "line_hash": "sha256:5292653b1d18ddc27654a158f0c121fed549d40a7645be397ec28b3a9635901c",
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
+        },
+        {
+          "id": "zookeeper:line:00000004:b8a0099521014b9d",
+          "line_number": 4,
+          "line_hash": "sha256:b8a0099521014b9d7796b2216ad0078a068198fc2df961891d2d93cf46f7c7aa",
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
+        },
+        {
+          "id": "zookeeper:line:00000005:2553253d714f7137",
+          "line_number": 5,
+          "line_hash": "sha256:2553253d714f713759e2b779f59135e203ee42db7c091ed042760aea4e57ddd9",
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
+        },
+        {
+          "id": "zookeeper:line:00000006:722fb7e701788cd1",
+          "line_number": 6,
+          "line_hash": "sha256:722fb7e701788cd1f8f98fa6ed7c458789820af0e8e10062d477e0082e812093",
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
+        },
+        {
+          "id": "zookeeper:line:00000007:b908f3ae9b6125da",
+          "line_number": 7,
+          "line_hash": "sha256:b908f3ae9b6125da35451ecb3d74f9e1cc5f8dc7dd1a33ebdbd6ecdc6986f30d",
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
+        },
+        {
+          "id": "zookeeper:line:00000008:6ea9854578da3504",
+          "line_number": 8,
+          "line_hash": "sha256:6ea9854578da35040fdeba955497143ce315b1d8c52f7de7444c7af70cf190d3",
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "openstack_v1_semantic_nova_osapi_compute_wsgi_server_0",
+    "question": "Looking at these OpenStack log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The log shows repeated successful API requests to list servers ending in status 200, followed by a compute node recording that instance **b9000564‑fe1a‑409b‑b8cc‑1e88b294cd1d** experienced a \"VM Started\" lifecycle event and then immediately a \"VM Paused\" event. This indicates the virtual machine was launched and then paused shortly thereafter.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:025a1bc64ff5b2ef4a4bda6c4ad5c5c5f18478b71cd1ad2b0676e01625629f2f",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:4920c335daf3e21261db8021d7964a3d70dfb83d016baefe5a55330eda3e8b24"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "openstack:line:00000001:5f4530e474d6d1a0",
+          "line_number": 1,
+          "line_hash": "sha256:5f4530e474d6d1a07291b942913aae8685926d3f0be97aeb6c050a8131adc438",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
+        },
+        {
+          "id": "openstack:line:00000002:3597904b1d73d9dc",
+          "line_number": 2,
+          "line_hash": "sha256:3597904b1d73d9dcb26a072874f0e0bef170d2cf210e615fe7b74999bfe6c0d8",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
+        },
+        {
+          "id": "openstack:line:00000003:d6e1306b669d798a",
+          "line_number": 3,
+          "line_hash": "sha256:d6e1306b669d798a96b4529b45b555e81f36a449b9ef10d40f4d53c84ee9a968",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
+        },
+        {
+          "id": "openstack:line:00000004:bac99dc524bed55d",
+          "line_number": 4,
+          "line_hash": "sha256:bac99dc524bed55de7126f3a2cf629f80fbf74f49e0149efbaa0d0afabd54e68",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
+        },
+        {
+          "id": "openstack:line:00000005:78916d26b4d394be",
+          "line_number": 5,
+          "line_hash": "sha256:78916d26b4d394be0c925e2536212af5ea5271156d3d5a6e7dba771bdfbf6869",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
+        },
+        {
+          "id": "openstack:line:00000006:6bd8ccf633b867a5",
+          "line_number": 6,
+          "line_hash": "sha256:6bd8ccf633b867a5160cf9b015c5d0b0a9b110fd874085314d1fc6ab0d96267a",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
+        },
+        {
+          "id": "openstack:line:00000007:b62b2e37d0ea5017",
+          "line_number": 7,
+          "line_hash": "sha256:b62b2e37d0ea5017697a5b0f7c006a41c9d4869551579e06a8ca957be067f19a",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
+        },
+        {
+          "id": "openstack:line:00000008:6bc48904cbd8b4dd",
+          "line_number": 8,
+          "line_hash": "sha256:6bc48904cbd8b4dd7d090abf5a32245ff2c79083b21c978476fa628531f81679",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mac_v1_semantic_thermal_pressure_0",
+    "question": "Looking at these Mac log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The system logged a thermal pressure state of 1 indicating elevated heat while memory pressure was normal and later recorded a wake event triggered by scan offload activity. These entries show normal power management transitions including sleep/wake cycles and network interface behavior without any critical errors or anomalies.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer2_semantic.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:d9ea495488728d8c989dc942fca3324a3cc7b19b0a6f409a5fd568ad547fd931",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:c9dc100ebd4bd1e49396b993b9b3ba8addbf2ffb77eb80fdc0835a99d264ce4a"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "mac:line:00000002:c863f1cb8f3f5182",
+          "line_number": 2,
+          "line_hash": "sha256:c863f1cb8f3f5182f44f4a7b3e86eff448297269a6151b82086add805dd59f01",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000003:77f3db5d24865cf8",
+          "line_number": 3,
+          "line_hash": "sha256:77f3db5d24865cf8e7b39c2ac93f1ccafa490f93012d95454e9477478b807cdf",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000004:f0637712b711582b",
+          "line_number": 4,
+          "line_hash": "sha256:f0637712b711582b3e4bdd76c56a71104dfcb9c8b7f47ee9c886cfbdb241ddea",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000005:94f85d28609f491a",
+          "line_number": 5,
+          "line_hash": "sha256:94f85d28609f491aafb2693cf7d7a1aa5106c837c0c7413b1a943847a0bf364e",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000006:b045a4374d6a692c",
+          "line_number": 6,
+          "line_hash": "sha256:b045a4374d6a692c11a7299af37771813989df9f37034644153701865cb64df0",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000007:59395d6da84765d1",
+          "line_number": 7,
+          "line_hash": "sha256:59395d6da84765d12ba74b6a2208bc19ef3c570e63f8c0d309768b5e77f9e4e1",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000008:9473ab57c2e84dd4",
+          "line_number": 8,
+          "line_hash": "sha256:9473ab57c2e84dd487078ba18fef529dc1212eaf8bb385330eb2857012569919",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000009:b3931e93076d24ac",
+          "line_number": 9,
+          "line_hash": "sha256:b3931e93076d24ac49144d0282843feb8f6d6496d9de62afa446a8153aeddff9",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "linux_v1_hard_brute_force_compare",
+    "question": "Compare the SSH authentication attempts coming from 150.183.249.110 and 207.243.167.114: contrast their volume and timing. Which source looks more anomalous, and what is your root-cause hypothesis?",
+    "routing_path": "semantic",
+    "answer_type": "synthesis",
+    "task": "RootCauseAnalysis",
+    "difficulty": "hard",
+    "phrasing_family": "hard-synthesis",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The logs show that the source IP 150.183.249.110 generated four authentication‑failure entries within a span of only two seconds (Jul 10 16:01:43–16:01:45), whereas 207.243.167.114 produced four failures over roughly eight minutes (Jul 26 07:02:27–07:02:45). This contrast in volume and timing makes the first source appear far more anomalous, as it exhibits a rapid burst of failed SSH attempts that could indicate an automated brute‑force or credential‑spraying campaign. The second source’s slower, spaced‑out pattern is consistent with manual or low‑intensity probing rather than a coordinated attack. A plausible root‑cause hypothesis is that the first IP belongs to a compromised botnet or scripted scanner attempting mass password guessing against the SSH service, while the second may be an isolated user or misconfigured client experiencing intermittent connectivity issues.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer3_hard.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:b3e20bc1afe732ab1bf3ed1de4bf9c809e4194e02f7dea911d918e5342e8e173",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:b069a4f14dd9656494f2a05af8a859977db153d59bd952b374dabe9e66e76bd7"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "linux:line:00001136:2bcf2d2d5c4a269c",
+          "line_number": 1136,
+          "line_hash": "sha256:2bcf2d2d5c4a269c1622637b86e445af25bb1338657ed8fa723e0ebe378cb7a7",
+          "group_id": "linux:hard:brute_force_compare:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001137:9c09887b031b4b1d",
+          "line_number": 1137,
+          "line_hash": "sha256:9c09887b031b4b1def2e59f933b85a34bb35b3d17fba8a5986a5efeb1960aeba",
+          "group_id": "linux:hard:brute_force_compare:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001138:458a26572494de62",
+          "line_number": 1138,
+          "line_hash": "sha256:458a26572494de62e67367116d0f728ab050037020b46f9a7a45713d6fe9b3ee",
+          "group_id": "linux:hard:brute_force_compare:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001139:d0207dfce0dd0973",
+          "line_number": 1139,
+          "line_hash": "sha256:d0207dfce0dd09738488d6dd6290daaeea1f62f36d99fc8fd579ca901903a714",
+          "group_id": "linux:hard:brute_force_compare:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001879:32a3098bff43b50d",
+          "line_number": 1879,
+          "line_hash": "sha256:32a3098bff43b50d3695cb6173da4d03c58c627b7eba14920da73262b59a808d",
+          "group_id": "linux:hard:brute_force_compare:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001880:407d3621ea268a79",
+          "line_number": 1880,
+          "line_hash": "sha256:407d3621ea268a79748192cbe90d37f14f3be93151c47179fd465ffb94bb09f2",
+          "group_id": "linux:hard:brute_force_compare:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001881:4030a2397f21eb57",
+          "line_number": 1881,
+          "line_hash": "sha256:4030a2397f21eb577048623dff1fa6b1fccfc491be7e87bf57bd267f8595b9e5",
+          "group_id": "linux:hard:brute_force_compare:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001882:b582c137666adaa2",
+          "line_number": 1882,
+          "line_hash": "sha256:b582c137666adaa2e1291e357b09b58282d0d7ce3f7aa715e30097efdc179e32",
+          "group_id": "linux:hard:brute_force_compare:207_243_167_114"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hdfs_v1_hard_block_lifecycle_compare",
+    "question": "Compare the lifecycle events recorded for block blk_-4411589101766563890 and block blk_-7029628814943626474. Correlate the sequence of events for each block and explain whether either one shows an unusual replication/termination pattern.",
+    "routing_path": "semantic",
+    "answer_type": "synthesis",
+    "task": "Correlation",
+    "difficulty": "hard",
+    "phrasing_family": "hard-synthesis",
+    "split": "dev",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The lifecycle of block blk_‑4411589101766563890 shows a clean termination after the DataNode’s PacketResponder announces that it is terminating for this block, followed by a successful receipt event from the same node at 08:11:11 050334. In contrast, block blk_‑7029628814943626474 exhibits an abnormal pattern where the DataNode receives the block (as recorded by PacketResponder) but immediately logs a warning about an exception while serving it to another client at 08:11:10 233954. This discrepancy indicates that the first block completed its replication normally, whereas the second encountered a failure during replication or transfer. The root‑cause hypothesis is that the second block suffered a network or service interruption on the destination DataNode (or client) causing an exception during block serving, leading to incomplete replication and termination of the packet responder.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "datasetgen/layer3_hard.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:7c967000980c086ed55fa6544ba4f05fe66d44622795e890c68caf8bbb635035",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:047de288bf204ff17eb6d4614999133aa92204d47528fa412c2c7049758e6d1e"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "hdfs:line:00001431:be2bfc729e9dc6d8",
+          "line_number": 1431,
+          "line_hash": "sha256:be2bfc729e9dc6d8ef734b4df78c35e2b109320d380112d4768e74d7c26c4dbc",
+          "group_id": "hdfs:hard:block_lifecycle_compare:blk_4411589101766563890"
+        },
+        {
+          "id": "hdfs:line:00001439:ed539abb8b238f7b",
+          "line_number": 1439,
+          "line_hash": "sha256:ed539abb8b238f7bb632022e5a10f58bc016ff6ec1f36af32d51df26aa51fcb2",
+          "group_id": "hdfs:hard:block_lifecycle_compare:blk_4411589101766563890"
+        },
+        {
+          "id": "hdfs:line:00000587:dafc742f56e900b4",
+          "line_number": 587,
+          "line_hash": "sha256:dafc742f56e900b419a4c917e139490000a171d886cb643c99b378b90031910c",
+          "group_id": "hdfs:hard:block_lifecycle_compare:blk_7029628814943626474"
+        },
+        {
+          "id": "hdfs:line:00001114:8d1fb499c27b0db2",
+          "line_number": 1114,
+          "line_hash": "sha256:8d1fb499c27b0db2f9b244fb189919616303128bc7125e5be25a206facf2547c",
+          "group_id": "hdfs:hard:block_lifecycle_compare:blk_7029628814943626474"
+        }
+      ]
+    }
+  }
+]

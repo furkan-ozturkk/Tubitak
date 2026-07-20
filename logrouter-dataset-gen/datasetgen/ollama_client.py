@@ -3,9 +3,9 @@
 ollama_client.py
 
 Shared client for the remote Ollama server (Section 5.5), used by
-layer2_semantic.py (gold draft) and layer3_hard.py (gold draft +
-groundedness check). Retry/backoff mirrors check_ollama.py. Concurrency is
-capped with a semaphore per scale_config.yaml's
+question_generators.py's medium tier (gold draft) and hard tier (gold draft +
+groundedness check). Retry/backoff mirrors main.py's check-ollama command.
+Concurrency is capped with a semaphore per scale_config.yaml's
 concurrency.max_parallel_model_calls (Section 3.2).
 
 Per the Scientific Integrity Rule (Section 5.5/6), the drafting model

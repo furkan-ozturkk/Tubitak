@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-validate_schema.py
+schema_validator.py
 
 Automated checker for the acceptance criteria defined in Sections 2 and 6.
 Performs three layers of validation:
@@ -9,16 +9,13 @@ Performs three layers of validation:
   2. CROSS-RECORD: id uniqueness, group_id<->split consistency, the rule that
      hard questions must span >=2 distinct group_ids, and the rule that
      deterministic intents need >=3 phrasing families (--strict).
-  3. EVIDENCE/GROUNDEDNESS (optional, when --corpus-dir is given): whether
+  3. EVIDENCE/GROUNDEDNESS (optional, when a corpus_dir is given): whether
      every line in evidence.refs can be re-read from the actual corpus file
      and its line_hash matches, and whether the numeric claims in
      numeric_claims can be recomputed from the corpus.
 
-Usage:
-  python3 validate_schema.py --questions dataset.json --corpus-dir /data/loghub
-  python3 validate_schema.py --questions "pilot/*.jsonl" --strict --report report.json
+Called by main.py's `validate` subcommand.
 """
-import argparse
 import glob
 import hashlib
 import json
@@ -33,8 +30,7 @@ except ImportError:  # pragma: no cover
     print("ERROR: the jsonschema library is not installed (see requirements.txt).", file=sys.stderr)
     sys.exit(3)
 
-HERE = Path(__file__).parent
-DEFAULT_SCHEMA = HERE / "question_schema.json"
+DEFAULT_SCHEMA = Path(__file__).parent / "question_schema.json"
 
 
 def load_questions(patterns):
@@ -247,26 +243,18 @@ def validate(questions, schema, corpus_index, strict):
     return errors, warnings, stats
 
 
-def main():
-    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--questions", nargs="+", required=True, help="JSON/JSONL file(s) or glob pattern(s)")
-    ap.add_argument("--schema", type=Path, default=DEFAULT_SCHEMA)
-    ap.add_argument("--corpus-dir", type=Path, default=None,
-                     help="fetch_corpus.py output; when given, runs evidence/groundedness validation")
-    ap.add_argument("--manifest", type=Path, default=None, help="corpus_manifest.json (for dataset name mapping)")
-    ap.add_argument("--strict", action="store_true",
-                     help="turn some warnings, such as phrasing diversity, into errors")
-    ap.add_argument("--report", type=Path, default=None, help="write the JSON summary report to this file")
-    args = ap.parse_args()
-
-    schema = json.load(open(args.schema, encoding="utf-8"))
-    questions = load_questions(args.questions)
+def run(questions_patterns, schema_path=DEFAULT_SCHEMA, corpus_dir=None, manifest=None,
+        strict=False, report_path=None):
+    """End-to-end entry point used by main.py: load, validate, print, optionally
+    write a JSON report. Returns 0 (passed) or 1 (failed), matching a process exit code."""
+    schema = json.load(open(schema_path, encoding="utf-8"))
+    questions = load_questions(questions_patterns)
     if not questions:
-        print("ERROR: no question records found (check the --questions pattern).", file=sys.stderr)
+        print("ERROR: no question records found (check the questions pattern).", file=sys.stderr)
         return 2
 
-    corpus_index = build_corpus_index(args.corpus_dir, args.manifest) if args.corpus_dir else {}
-    errors, warnings, stats = validate(questions, schema, corpus_index, args.strict)
+    corpus_index = build_corpus_index(corpus_dir, manifest) if corpus_dir else {}
+    errors, warnings, stats = validate(questions, schema, corpus_index, strict)
 
     print("=== STATS ===")
     for k, v in stats.items():
@@ -288,7 +276,7 @@ def main():
 
     passed = len(errors) == 0
 
-    if args.report:
+    if report_path:
         report = {
             "passed": passed,
             "stats": stats,
@@ -297,14 +285,10 @@ def main():
             "errors": errors,
             "warnings": warnings,
         }
-        args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
-        print(f"\nReport written: {args.report}")
+        report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"\nReport written: {report_path}")
 
     result_word = "PASSED" if passed else "FAILED"
     total_q = stats["total_questions"]
     print(f"\n{result_word}: {total_q} question(s), {len(errors)} error(s), {len(warnings)} warning(s).")
     return 0 if passed else 1
-
-
-if __name__ == "__main__":
-    sys.exit(main())

@@ -1,33 +1,28 @@
 {
   "passed": true,
   "stats": {
-    "total_questions": 116,
-    "unique_ids": 116,
-    "distinct_group_ids": 62,
+    "total_questions": 20,
+    "unique_ids": 20,
+    "distinct_group_ids": 20,
     "by_difficulty": {
-      "easy": 90,
-      "medium": 20,
-      "hard": 6
+      "easy": 20
     },
     "by_routing_path": {
-      "sql": 60,
-      "keyword": 30,
-      "semantic": 26
+      "sql": 20
     },
     "by_split": {
-      "dev": 94,
-      "test": 22
+      "dev": 16,
+      "test": 4
     },
     "by_review_status": {
-      "verified": 90,
-      "in_review": 26
+      "verified": 20
     },
-    "hard_question_count": 6
+    "hard_question_count": 0
   },
   "error_count": 0,
   "warning_count": 1,
   "errors": [],
   "warnings": [
-    "[/output/pilot/questions.json#112] id=openssh_v1_hard_attacker_compare: difficulty=hard but expected_answer has ~3 sentence(s) (Section 7.3 expects >=4)."
+    "20 group_id(s) do not meet the >=3 phrasing-family rule: {'linux:count:authentication_failure': {'how-many'}, 'linux:presence:invalid_user': {'how-many'}, 'apache:count:notice': {'how-many'}, 'apache:presence:mod_jk': {'how-many'}, 'windows:count:cbs': {'how-many'}, 'windows:presence:error': {'how-many'}, 'mac:count:kernel': {'how-many'}, 'mac:presence:thermal_pressure': {'how-many'}, 'hdfs:count:packetresponder': {'how-many'}, 'hdfs:presence:exception': {'how-many'}} ..."
   ]
 }

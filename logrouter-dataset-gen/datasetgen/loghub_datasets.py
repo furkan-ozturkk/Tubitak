@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-dataset_specs.py
+loghub_datasets.py
 
 Section 7.1: curated DatasetSpec/LiteralSpec per LogHub dataset. Candidate
 literals/regexes below were chosen by inspecting the real fetched
 *_2k.log content (not guessed); exact match counts are always recomputed
-at generation time by layer1_deterministic.py / layer3_hard.py, never
-hardcoded here. Any candidate with too few matches is pruned automatically
+at generation time by question_generators.py, never hardcoded here. Any
+candidate with too few matches is pruned automatically
 at runtime (Section 3.2: "a generous candidate list is safe").
 """
 from dataclasses import dataclass
