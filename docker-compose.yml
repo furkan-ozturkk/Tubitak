@@ -9,6 +9,11 @@
 #      host; it stays up (tail -f) so pipeline steps can be run with
 #      `docker compose exec datasetgen ...` (e.g. the Section 5.5 Ollama
 #      connectivity check).
+#   3) sql_verify is optional and not part of the generation pipeline: a
+#      Postgres instance that loads the same raw corpus (read-only, from
+#      loghub-corpus) so easy-tier answers in output/pilot/questions.json can
+#      be independently spot-checked with plain SQL instead of trusting the
+#      Python generator. See sql_verification/verify.sql for the queries.
 
 networks:
   datasetgen-net:
@@ -16,6 +21,7 @@ networks:
 
 volumes:
   loghub-corpus:
+  sql_verify_data:
 
 services:
   loghub:
@@ -45,3 +51,22 @@ services:
       - ./scale_config.yaml:/app/scale_config.yaml:ro
       - ./datasetgen:/app
     command: ["tail", "-f", "/dev/null"]
+
+  sql_verify:
+    image: postgres:16
+    container_name: sql_verify
+    restart: unless-stopped
+    depends_on:
+      loghub:
+        condition: service_healthy
+    environment:
+      POSTGRES_PASSWORD: verify
+      POSTGRES_DB: logs
+    ports:
+      - "5433:5432"
+    networks:
+      - datasetgen-net
+    volumes:
+      - sql_verify_data:/var/lib/postgresql/data
+      - loghub-corpus:/logs:ro
+      - ./sql_verification/init:/docker-entrypoint-initdb.d:ro

@@ -35,7 +35,7 @@ the LogRouter black-box evaluation question-answer dataset described in
 
 ```
 .
-├── docker-compose.yml       # two containers, one network, one external connection
+├── docker-compose.yml       # three containers, one network, one external connection
 ├── .env.example              # OLLAMA_BASE_URL
 ├── scale_config.yaml         # single configuration source
 ├── loghub/
@@ -43,6 +43,9 @@ the LogRouter black-box evaluation question-answer dataset described in
 │   ├── entrypoint.sh         # fetch once, then stay alive (no exit)
 │   ├── corpus_manifest.json  # pinned commit + 10 datasets
 │   └── fetch_corpus.py       # fetch + checksum + lock verification
+├── sql_verification/         # optional, not part of the pipeline (see below)
+│   ├── init/01_load.sql      # auto-loads the corpus into sql_verify on first start
+│   └── verify.sql            # the 20 official-output answers, as plain SQL
 ├── datasetgen/
 │   ├── Dockerfile
 │   ├── requirements.txt
@@ -94,6 +97,26 @@ docker compose exec datasetgen python3 main.py validate
 docker compose exec datasetgen python3 main.py review-export
 #  ... a human fills in the "decision" column (accept | edit | reject) ...
 docker compose exec datasetgen python3 main.py review-apply
+```
+
+### Independent SQL check (optional, `sql_verify` service)
+
+The pipeline itself never touches a database (see `datasetgen/question_generators.py` --
+easy-tier answers are computed with plain Python substring search over the raw
+`*_2k.log` files, nothing else). `sql_verify` is a separate, optional Postgres
+container for double-checking those answers with a completely different tool.
+It reads the same `loghub-corpus` volume `loghub`/`datasetgen` use (read-only,
+no duplicated data) and auto-loads it into a `raw_logs(dataset, line)` table
+the first time it starts (`sql_verification/init/01_load.sql`).
+
+```bash
+# Run the 20 official-output checks (COUNT/ILIKE queries matching
+# question_generators.py's matching logic exactly):
+docker compose exec -T sql_verify psql -U postgres -d logs < sql_verification/verify.sql
+
+# Or connect interactively:
+docker compose exec -it sql_verify psql -U postgres -d logs
+# from outside Docker: postgres://postgres:verify@localhost:5433/logs
 ```
 
 ## Scientific Integrity Rules (summary)
