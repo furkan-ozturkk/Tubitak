@@ -10,9 +10,11 @@ Performs three layers of validation:
      hard questions must span >=2 distinct group_ids, and the rule that
      deterministic intents need >=3 phrasing families (--strict).
   3. EVIDENCE/GROUNDEDNESS (optional, when a corpus_dir is given): whether
-     every line in evidence.refs can be re-read from the actual corpus file
-     and its line_hash matches, and whether the numeric claims in
-     numeric_claims can be recomputed from the corpus.
+     every line in evidence.refs can be re-read -- from loghub's Postgres
+     `lines` table via pg_client.py, not the raw corpus file -- and its
+     line_hash matches, and whether the numeric claims in numeric_claims can
+     be recomputed the same way. corpus_dir is still used for the overall
+     gold_provenance.corpus_sha256 check, which is a whole-file hash.
 
 Called by main.py's `validate` subcommand.
 """
@@ -29,6 +31,8 @@ try:
 except ImportError:  # pragma: no cover
     print("ERROR: the jsonschema library is not installed (see requirements.txt).", file=sys.stderr)
     sys.exit(3)
+
+import pg_client
 
 DEFAULT_SCHEMA = Path(__file__).parent / "question_schema.json"
 
@@ -77,17 +81,16 @@ def dataset_key_from_evidence(rec):
 
 
 def build_corpus_index(corpus_dir, manifest_path):
+    """Whole-file index used only for the gold_provenance.corpus_sha256 check
+    (Section 6) -- per-line evidence/numeric_claims checks go through
+    pg_client.py against loghub's Postgres `lines` table instead."""
     index = {}
     if not corpus_dir:
         return index
     for logfile in sorted(corpus_dir.glob("*.log")):
         key = logfile.stem.split("_2k")[0].lower()
         data = logfile.read_bytes()
-        text = data.decode("utf-8", errors="replace")
-        lines = text.split("\n")
-        if lines and lines[-1] == "":
-            lines = lines[:-1]
-        index[key] = {"path": logfile, "lines": lines, "sha256": sha256_bytes(data)}
+        index[key] = {"path": logfile, "sha256": sha256_bytes(data)}
     return index
 
 
@@ -172,13 +175,17 @@ def validate(questions, schema, corpus_index, strict):
             elif corpus:
                 for r in refs:
                     ln = r.get("line_number")
-                    if ln is None or ln < 1 or ln > len(corpus["lines"]):
+                    if ln is None or ln < 1:
+                        errors.append(f"{loc}: evidence line_number={ln} is invalid.")
+                        continue
+                    try:
+                        actual_line = pg_client.get_line(dkey, ln)
+                    except RuntimeError:
                         errors.append(
-                            f"{loc}: evidence line_number={ln} is out of range "
-                            f"(file has {len(corpus['lines'])} lines)."
+                            f"{loc}: evidence line_number={ln} not found in loghub's Postgres "
+                            f"lines table for dataset '{dkey}'."
                         )
                         continue
-                    actual_line = corpus["lines"][ln - 1]
                     actual_hash = sha256_line(actual_line)
                     if actual_hash != r.get("line_hash"):
                         errors.append(
@@ -198,27 +205,19 @@ def validate(questions, schema, corpus_index, strict):
                     op = q.get("operator")
                     case_sensitive = q.get("case_sensitive", False)
                     if op == "count_literal":
-                        literal = q.get("literal", "")
-                        needle = literal if case_sensitive else literal.lower()
-                        recomputed = 0
-                        for ln_ in corpus["lines"]:
-                            hay_line = ln_ if case_sensitive else ln_.lower()
-                            if needle in hay_line:
-                                recomputed += 1
+                        recomputed, _ = pg_client.count_literal(dkey, q.get("literal", ""), case_sensitive)
                     elif op == "count_regex":
-                        flags = 0 if case_sensitive else re.IGNORECASE
                         try:
-                            pat = re.compile(q.get("pattern", ""), flags)
-                        except re.error as e:
+                            recomputed, _ = pg_client.count_regex(dkey, q.get("pattern", ""), case_sensitive)
+                        except Exception as e:  # noqa: BLE001 - surfaces bad regex from Postgres
                             errors.append(f"{loc}: invalid regex '{q.get('pattern')}': {e}")
                             continue
-                        recomputed = sum(1 for ln_ in corpus["lines"] if pat.search(ln_))
                     else:
                         continue
                     claimed_value = nc.get("value")
                     if recomputed != claimed_value:
                         errors.append(
-                            f"{loc}: numeric_claims value could not be reproduced from the corpus "
+                            f"{loc}: numeric_claims value could not be reproduced from Postgres "
                             f"(claimed={claimed_value} recomputed={recomputed}, operator={op})."
                         )
 

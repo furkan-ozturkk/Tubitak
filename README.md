@@ -16,10 +16,11 @@ the LogRouter black-box evaluation question-answer dataset described in
 - [x] Question schema + automated validator (`question_schema.json`, `schema_validator.py`).
 - [x] Official output (`output/pilot/questions.json`) is a 20-question starting
       set: 1 count + 1 presence question per LogHub dataset (10 datasets x 2),
-      all `difficulty=easy`/`routing_path=sql`. These are computed directly
-      from the corpus with no model involved, so `review_status=verified` for
-      all 20 -- independently checkable against the raw `*_2k.log` files with
-      a plain SQL `COUNT`/`LIKE` query. 0 schema errors.
+      all `difficulty=easy`/`routing_path=sql`. No LLM is involved in
+      computing these -- both generation (`question_generators.py`) and
+      validation (`schema_validator.py`) run real SQL against loghub's own
+      Postgres `lines` table via `pg_client.py`, so `review_status=verified`
+      for all 20. 0 schema errors.
 - [x] The full first-pass pilot (116 questions across all three difficulty
       tiers) is kept at `output/pilot/questions_full_v1_116.json` and broken
       out per tier in `layer1.json`/`layer2.json`/`layer3.json`. Medium/hard
@@ -36,13 +37,13 @@ the LogRouter black-box evaluation question-answer dataset described in
 ```
 .
 ├── docker-compose.yml       # three containers, one network, one external connection
-├── .env.example              # OLLAMA_BASE_URL
+├── .env.example              # OLLAMA_BASE_URL, POSTGRES_DB/USER/PASSWORD
 ├── scale_config.yaml         # single configuration source
 ├── loghub/
-│   ├── Dockerfile
-│   ├── entrypoint.sh         # fetch once, then stay alive (no exit)
-│   ├── corpus_manifest.json  # pinned commit + 10 datasets
-│   └── fetch_corpus.py       # fetch + checksum + lock verification
+│   ├── Dockerfile             # pgvector/pgvector:pg16 + Python (fetch script deps)
+│   ├── entrypoint.sh          # start Postgres, enable pgvector, fetch, load, stay up
+│   ├── corpus_manifest.json   # pinned commit + 10 datasets
+│   └── fetch_corpus.py        # fetch + checksum + lock verification + load_into_postgres()
 ├── sql_verification/         # optional, not part of the pipeline (see below)
 │   ├── init/01_load.sql      # auto-loads the corpus into sql_verify on first start
 │   └── verify.sql            # the 20 official-output answers, as plain SQL
@@ -55,6 +56,7 @@ the LogRouter black-box evaluation question-answer dataset described in
 │   ├── question_generators.py # the three question tiers (Section 7): easy/medium/hard
 │   ├── loghub_datasets.py     # per-LogHub-dataset literals/hard-group specs (Section 7.1)
 │   ├── ollama_client.py       # shared remote-Ollama client (Section 5.5)
+│   ├── pg_client.py           # queries loghub's Postgres `lines` table (easy tier + validation)
 │   ├── corpus_utils.py        # corpus loading, hashing, dev/test split assignment
 │   ├── schema_validator.py    # schema + cross-record + evidence/groundedness validation
 │   ├── human_review.py        # human review worksheet export/apply (Section 7.3 step 5)
@@ -69,10 +71,11 @@ subfolders; opening the repo shows the real files immediately.
 ## Running it
 
 ```bash
-cp .env.example .env   # edit OLLAMA_BASE_URL if needed
+cp .env.example .env   # edit OLLAMA_BASE_URL if needed; set a real POSTGRES_PASSWORD
 docker compose up --build
-# loghub fetches the corpus, reports healthy, and keeps running;
-# datasetgen starts once loghub is healthy and stays up (tail -f).
+# loghub fetches the corpus, starts Postgres (+pgvector), loads the corpus
+# into it, reports healthy, and keeps running; datasetgen starts once loghub
+# is healthy and stays up (tail -f).
 ```
 
 Everything below is one subcommand of `main.py`, run inside the `datasetgen`
@@ -98,6 +101,18 @@ docker compose exec datasetgen python3 main.py review-export
 #  ... a human fills in the "decision" column (accept | edit | reject) ...
 docker compose exec datasetgen python3 main.py review-apply
 ```
+
+### How the corpus is queried
+
+`loghub` is both the corpus source and a Postgres (+pgvector) server: on
+startup it fetches the pinned LogHub files as before, then loads every line
+into a `lines(id, dataset, line_number, text)` table (`fetch_corpus.py`'s
+`load_into_postgres()`). `datasetgen`'s easy tier (`question_generators.py`'s
+`_count_matches`) and `schema_validator.py`'s evidence/numeric_claims checks
+query that table over `datasetgen-net` via `pg_client.py` -- real
+`SELECT ... WHERE strpos(...)`/`~*` SQL, not a file scan. Medium/hard
+generation is unaffected: it still reads the raw `*_2k.log` files directly
+(mounted read-only) for anchor matching and evidence windows.
 
 ### Independent SQL check (optional, `sql_verify` service)
 

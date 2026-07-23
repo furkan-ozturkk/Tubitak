@@ -17,13 +17,20 @@ This script:
   4. With --verify-only, only checks the checksum of files already on disk;
      makes no network calls.
 
+  5. With --load-postgres, after a successful fetch/verify pass, loads every
+     dataset's lines into a Postgres lines(id, dataset, line_number, text)
+     table (same server this container now runs) so datasetgen can query the
+     corpus with SQL instead of reading the raw files directly.
+
 Usage:
   python3 fetch_corpus.py --manifest corpus_manifest.json --output-dir /data/loghub
   python3 fetch_corpus.py --verify-only --output-dir /data/loghub
+  python3 fetch_corpus.py --output-dir /data/loghub --load-postgres
 """
 import argparse
 import hashlib
 import json
+import os
 import sys
 import time
 import urllib.error
@@ -75,6 +82,60 @@ def save_lock(path: Path, lock: dict) -> None:
         f.write("\n")
 
 
+def load_into_postgres(output_dir: Path, manifest: dict, pg_config: dict) -> None:
+    """Loads every fetched dataset's lines into Postgres (lines table), so
+    datasetgen's pg_client.py can run real SQL against the corpus instead of
+    reading the raw *_2k.log files directly."""
+    import psycopg2
+    from psycopg2.extras import execute_values
+
+    conn = psycopg2.connect(
+        host=pg_config["host"], port=pg_config["port"], dbname=pg_config["dbname"],
+        user=pg_config["user"], password=pg_config["password"],
+    )
+    try:
+        with conn:
+            with conn.cursor() as cur:
+                cur.execute("""
+                    CREATE TABLE IF NOT EXISTS lines (
+                        id BIGSERIAL PRIMARY KEY,
+                        dataset TEXT NOT NULL,
+                        line_number INTEGER NOT NULL,
+                        text TEXT NOT NULL
+                    );
+                """)
+                cur.execute("CREATE INDEX IF NOT EXISTS idx_lines_dataset ON lines(dataset);")
+
+                for ds in manifest["datasets"]:
+                    dataset_key = ds["name"].lower()
+                    local_path = output_dir / ds["local_filename"]
+                    data = local_path.read_bytes()
+                    text = data.decode("utf-8", errors="replace")
+                    file_lines = text.split("\n")
+                    if file_lines and file_lines[-1] == "":
+                        file_lines = file_lines[:-1]
+
+                    # Idempotent: replace this dataset's rows so re-running (container
+                    # restart) never duplicates lines.
+                    cur.execute("DELETE FROM lines WHERE dataset = %s", (dataset_key,))
+                    rows = [(dataset_key, i + 1, line) for i, line in enumerate(file_lines)]
+                    execute_values(
+                        cur, "INSERT INTO lines (dataset, line_number, text) VALUES %s", rows)
+                    print(f"  [postgres] loaded {len(rows)} lines for dataset={dataset_key}")
+    finally:
+        conn.close()
+
+
+def pg_config_from_env() -> dict:
+    return {
+        "host": os.environ.get("PGHOST", "localhost"),
+        "port": int(os.environ.get("PGPORT", "5432")),
+        "dbname": os.environ.get("POSTGRES_DB", "postgres"),
+        "user": os.environ.get("POSTGRES_USER", "postgres"),
+        "password": os.environ.get("POSTGRES_PASSWORD", ""),
+    }
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
@@ -85,6 +146,9 @@ def main() -> int:
                      help="Make no network calls; only compare files in output-dir against the lock.")
     ap.add_argument("--force-refetch", action="store_true",
                      help="Re-download even if the file is already on disk (lock is still verified).")
+    ap.add_argument("--load-postgres", action="store_true",
+                     help="After a successful fetch/verify pass, load all datasets into Postgres "
+                          "(connection read from PGHOST/PGPORT/POSTGRES_DB/POSTGRES_USER/POSTGRES_PASSWORD).")
     args = ap.parse_args()
 
     manifest = load_manifest(args.manifest)
@@ -170,6 +234,11 @@ def main() -> int:
         return 1
 
     print(f"Lock file: {lock_path}")
+
+    if args.load_postgres:
+        print("\n=== Loading into Postgres ===")
+        load_into_postgres(args.output_dir, manifest, pg_config_from_env())
+
     return 0
 
 

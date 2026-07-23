@@ -27,6 +27,7 @@ from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 
+import pg_client
 from corpus_utils import dataset_key, load_lines, sha256_bytes, sha256_line, split_for_group
 from loghub_datasets import DATASET_SPECS
 from ollama_client import OllamaClient
@@ -99,21 +100,21 @@ LOOKUP_PHRASINGS = {
 }
 
 
-def _count_matches(lines, literal, case_sensitive):
-    needle = literal if case_sensitive else literal.lower()
-    matched_indices = []
-    for i, line in enumerate(lines):
-        hay = line if case_sensitive else line.lower()
-        if needle in hay:
-            matched_indices.append(i)
-    return len(matched_indices), matched_indices
+def _count_matches(dkey, literal, case_sensitive):
+    """Queries loghub's Postgres `lines` table (pg_client.py) instead of scanning
+    an in-memory list. Returns (count, matched_indices), matched_indices being
+    0-based positions -- same contract callers already expect from the old
+    file-scanning version, so evidence citation (lines[i]) still works unchanged."""
+    count, line_numbers = pg_client.count_literal(dkey, literal, case_sensitive)
+    matched_indices = [ln - 1 for ln in line_numbers]
+    return count, matched_indices
 
 
 def _generate_count_or_presence(dataset_name, dkey, lines, literal_spec, kind, corpus_sha256,
                                  params: EasyTierParams):
     """kind: 'count' or 'presence'. Returns a list of records (one per phrasing) or None if pruned."""
     literal = literal_spec.literal
-    count, matched_indices = _count_matches(lines, literal, literal_spec.case_sensitive)
+    count, matched_indices = _count_matches(dkey, literal, literal_spec.case_sensitive)
 
     if kind == "count" and count < params.min_matches:
         print(f"  [prune] {dataset_name}: count literal '{literal}' has only {count} match(es) "
@@ -179,7 +180,7 @@ def _generate_count_or_presence(dataset_name, dkey, lines, literal_spec, kind, c
 
 def _generate_lookup(dataset_name, dkey, lines, lookup_spec, corpus_sha256):
     literal = lookup_spec.literal
-    count, matched_indices = _count_matches(lines, literal, lookup_spec.case_sensitive)
+    count, matched_indices = _count_matches(dkey, literal, lookup_spec.case_sensitive)
     if count < 1:
         print(f"  [prune] {dataset_name}: lookup literal '{literal}' has 0 matches, skipping",
               file=sys.stderr)
