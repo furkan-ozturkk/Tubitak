@@ -12,11 +12,9 @@
 #      raw files directly; only the easy-tier count/presence path and
 #      schema_validator's checks go through Postgres). It stays up (tail -f)
 #      so pipeline steps can be run with `docker compose exec datasetgen ...`.
-#   3) sql_verify is optional and not part of the generation pipeline: a
-#      Postgres instance that loads the same raw corpus (read-only, from
-#      loghub-corpus) so easy-tier answers in output/pilot/questions.json can
-#      be independently spot-checked with plain SQL instead of trusting the
-#      Python generator. See sql_verification/verify.sql for the queries.
+#   3) Manual SQL spot-checks of output/pilot/questions.json (see
+#      sql_verification/verify.sql) run directly against loghub's own
+#      Postgres -- there is no separate verification database.
 
 networks:
   datasetgen-net:
@@ -25,7 +23,6 @@ networks:
 volumes:
   loghub-corpus:
   loghub-pgdata:
-  sql_verify_data:
 
 services:
   loghub:
@@ -67,22 +64,3 @@ services:
       - ./scale_config.yaml:/app/scale_config.yaml:ro
       - ./datasetgen:/app
     command: ["tail", "-f", "/dev/null"]
-
-  sql_verify:
-    image: postgres:16
-    container_name: sql_verify
-    restart: unless-stopped
-    depends_on:
-      loghub:
-        condition: service_healthy
-    environment:
-      POSTGRES_PASSWORD: verify
-      POSTGRES_DB: logs
-    ports:
-      - "5433:5432"
-    networks:
-      - datasetgen-net
-    volumes:
-      - sql_verify_data:/var/lib/postgresql/data
-      - loghub-corpus:/logs:ro
-      - ./sql_verification/init:/docker-entrypoint-initdb.d:ro

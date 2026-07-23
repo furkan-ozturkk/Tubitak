@@ -36,7 +36,7 @@ the LogRouter black-box evaluation question-answer dataset described in
 
 ```
 .
-├── docker-compose.yml       # three containers, one network, one external connection
+├── docker-compose.yml       # two containers, one network, one external connection
 ├── .env.example              # OLLAMA_BASE_URL, POSTGRES_DB/USER/PASSWORD
 ├── scale_config.yaml         # single configuration source
 ├── loghub/
@@ -44,8 +44,7 @@ the LogRouter black-box evaluation question-answer dataset described in
 │   ├── entrypoint.sh          # start Postgres, enable pgvector, fetch, load, stay up
 │   ├── corpus_manifest.json   # pinned commit + 10 datasets
 │   └── fetch_corpus.py        # fetch + checksum + lock verification + load_into_postgres()
-├── sql_verification/         # optional, not part of the pipeline (see below)
-│   ├── init/01_load.sql      # auto-loads the corpus into sql_verify on first start
+├── sql_verification/         # optional manual spot-check (see below)
 │   └── verify.sql            # the 20 official-output answers, as plain SQL
 ├── datasetgen/
 │   ├── Dockerfile
@@ -114,24 +113,21 @@ query that table over `datasetgen-net` via `pg_client.py` -- real
 generation is unaffected: it still reads the raw `*_2k.log` files directly
 (mounted read-only) for anchor matching and evidence windows.
 
-### Independent SQL check (optional, `sql_verify` service)
+### Manual SQL spot-check (optional)
 
-The pipeline itself never touches a database (see `datasetgen/question_generators.py` --
-easy-tier answers are computed with plain Python substring search over the raw
-`*_2k.log` files, nothing else). `sql_verify` is a separate, optional Postgres
-container for double-checking those answers with a completely different tool.
-It reads the same `loghub-corpus` volume `loghub`/`datasetgen` use (read-only,
-no duplicated data) and auto-loads it into a `raw_logs(dataset, line)` table
-the first time it starts (`sql_verification/init/01_load.sql`).
+`output/pilot/questions.json`'s answers can be double-checked by hand, from
+the same `lines` table `pg_client.py` queries -- there's no separate
+verification database (there used to be a second `sql_verify` Postgres
+instance for this; it was redundant once loghub started serving the corpus
+from Postgres itself, so it was removed).
 
 ```bash
-# Run the 20 official-output checks (COUNT/ILIKE queries matching
-# question_generators.py's matching logic exactly):
-docker compose exec -T sql_verify psql -U postgres -d logs < sql_verification/verify.sql
+# Run the 20 official-output checks (ILIKE queries matching
+# question_generators.py's matching logic exactly; user/db match .env):
+docker compose exec -T loghub psql -U loghub -d loghub < sql_verification/verify.sql
 
 # Or connect interactively:
-docker compose exec -it sql_verify psql -U postgres -d logs
-# from outside Docker: postgres://postgres:verify@localhost:5433/logs
+docker compose exec -it loghub psql -U loghub -d loghub
 ```
 
 ## Scientific Integrity Rules (summary)
