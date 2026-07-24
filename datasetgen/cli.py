@@ -35,11 +35,14 @@ class CheckOllamaArgs:
 
 @dataclass(frozen=True)
 class GenerateArgs:
-    """`main.py generate` (Section 3.1): run all three tiers, write the merged dataset."""
+    """`main.py generate` (Section 3.1): by default writes the official
+    20-question stage-1 set (easy tier only, no model); --full runs all
+    three tiers (easy+medium+hard) instead."""
     config: Path = DEFAULT_CONFIG
     corpus_dir: Path = DEFAULT_CORPUS_DIR
     out: Path = DEFAULT_OUT
     review_dir: Path = DEFAULT_REVIEW_DIR
+    full: bool = False
 
 
 @dataclass(frozen=True)
@@ -89,6 +92,9 @@ def _add_generate_arguments(p):
     p.add_argument("--corpus-dir", type=Path, default=DEFAULT_CORPUS_DIR)
     p.add_argument("--out", type=Path, default=DEFAULT_OUT)
     p.add_argument("--review-dir", type=Path, default=DEFAULT_REVIEW_DIR)
+    p.add_argument("--full", action="store_true",
+                    help="run all three tiers (easy+medium+hard, needs Ollama) instead of "
+                         "the default 20-question easy-only stage-1 set")
 
 
 def _add_validate_arguments(p):

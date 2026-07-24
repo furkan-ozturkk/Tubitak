@@ -252,6 +252,28 @@ def generate_easy(corpus_dir: Path, params: EasyTierParams = EasyTierParams()):
     return all_records
 
 
+def generate_official_20(corpus_dir: Path, params: EasyTierParams = EasyTierParams()):
+    """The default `main.py generate` output (Section 3.1 stage 1): exactly
+    1 count + 1 presence question per LogHub dataset (first phrasing only,
+    no lookup), no model involved. Deliberately narrower than generate_easy()
+    (which produces the full easy tier with every phrasing) -- this is what
+    stays the official output/pilot/questions.json until medium/hard
+    questions get folded in via human review (see main.py's --full)."""
+    all_easy = generate_easy(corpus_dir, params)
+    by_id = {r["id"]: r for r in all_easy}
+
+    selected = []
+    for name, spec in DATASET_SPECS.items():
+        dkey = dataset_key(name)
+        count_id = next((rid for rid in by_id if rid.startswith(f"{dkey}_v1_count_") and rid.endswith("_0")), None)
+        presence_id = next((rid for rid in by_id if rid.startswith(f"{dkey}_v1_presence_") and rid.endswith("_0")), None)
+        if count_id:
+            selected.append(by_id[count_id])
+        if presence_id:
+            selected.append(by_id[presence_id])
+    return selected
+
+
 # --------------------------------------------------------------------------
 # Tier 2 (medium): single-event-family explanation/summary
 # --------------------------------------------------------------------------

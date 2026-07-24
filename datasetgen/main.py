@@ -97,9 +97,19 @@ def cmd_check_ollama(args: CheckOllamaArgs) -> int:
 
 
 # --------------------------------------------------------------------------
-# generate (Section 3.1): run the three tiers and merge them into one dataset
+# generate (Section 3.1): default = official 20-question stage-1 set (easy
+# tier only, no model); --full = all three tiers, merged into one dataset
 # --------------------------------------------------------------------------
 def cmd_generate(args: GenerateArgs) -> int:
+    if not args.full:
+        print("=== Official 20-question set (easy tier only, no model) ===")
+        records = question_generators.generate_official_20(args.corpus_dir)
+        args.out.parent.mkdir(parents=True, exist_ok=True)
+        args.out.write_text(json.dumps(records, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"\n=== SUMMARY ===\ntotal={len(records)} (official stage-1 set)")
+        print(f"Wrote dataset to {args.out}")
+        return 0
+
     config = ScaleConfig.load(args.config)
 
     print("=== Easy (deterministic) ===")
