@@ -1,37 +1,48 @@
-#!/usr/bin/env python3
-"""
-fetch_corpus.py
+"""Fetches and verifies the pinned LogHub corpus (Section 4.1).
 
-LogRouter Evaluation Dataset project - Section 4.1 Scientific Integrity Rule:
-Data is never downloaded by hand and dropped into an arbitrary folder. LogHub
-datasets are fetched from a single commit pinned in corpus_manifest.json.
+The Scientific Integrity Rule this implements: data is never downloaded by hand and
+dropped into a folder. Every dataset comes from the single commit pinned in
+``corpus_manifest.json``, and every file's SHA-256 is recorded in a lock file that
+later runs are checked against.
 
-This script:
-  1. For each dataset in corpus_manifest.json, fetches the *_2k.log file via
-     raw.githubusercontent.com from the pinned commit (with retry + backoff).
-  2. Computes the SHA-256 checksum of every downloaded file.
-  3. Creates corpus_manifest.lock.json if it does not exist yet (first run =
-     "locking"); if it exists, compares it byte-for-byte against the new
-     result. On mismatch it raises an ERROR and stops (prevents the corpus
-     from silently changing).
-  4. With --verify-only, only checks the checksum of files already on disk;
-     makes no network calls.
+What the lock can and cannot establish is the crux, and the earlier version
+overstated it. A lock written from whatever happened to be on disk proves nothing:
+if the volume already held files with the right names, a normal startup accepted
+them without a download and then blessed their digests as the truth. Two rules fix
+that.
 
-  5. With --load-postgres, after a successful fetch/verify pass, loads every
-     dataset's lines into a Postgres lines(id, dataset, line_number, text)
-     table (same server this container now runs) so datasetgen can query the
-     corpus with SQL instead of reading the raw files directly.
+``--verify-only`` never writes a lock. Without one there is nothing to verify
+against, so a missing lock is a hard error rather than an invitation to create one
+from the current contents.
+
+A file already on disk is only accepted when the lock already covers it. On a first
+run with no lock, every dataset is fetched from the pinned commit, which is the only
+source whose digests may become the lock's. ``--trust-existing`` exists for the case
+where a lock has to be established from an offline copy, and it says so in its name
+and in the lock's ``locked_from`` field rather than being the silent default.
+
+Digests belong in version control. ``--lock-file`` defaults into the output volume,
+where the lock is a runtime artefact; passing the repo's own
+``corpus_manifest.lock.json`` makes it a reviewed one.
+
+With ``--load-postgres``, a successful pass also loads every dataset into a
+``lines(dataset, line_number, text)`` table so datasetgen can query the corpus with
+SQL. The table carries a uniqueness constraint on ``(dataset, line_number)``, since
+a duplicated row would make every count computed from it wrong while every
+individual lookup still looked correct.
 
 Usage:
   python3 fetch_corpus.py --manifest corpus_manifest.json --output-dir /data/loghub
   python3 fetch_corpus.py --verify-only --output-dir /data/loghub
   python3 fetch_corpus.py --output-dir /data/loghub --load-postgres
 """
+
 import argparse
 import hashlib
 import json
 import os
 import sys
+import tempfile
 import time
 import urllib.error
 import urllib.request
@@ -40,93 +51,248 @@ from pathlib import Path
 DEFAULT_MANIFEST = Path(__file__).parent / "corpus_manifest.json"
 MAX_RETRIES = 5
 BACKOFF_BASE_SECONDS = 2.0
+MAX_DOWNLOAD_BYTES = 64 * 1024 * 1024
+MIN_PLAUSIBLE_LINES = 3
 
 
 def sha256_of_bytes(data: bytes) -> str:
+    """Returns the hex SHA-256 of a byte string.
+
+    Args:
+        data: Bytes to hash.
+
+    Returns:
+        The hex digest, without a prefix.
+    """
     return hashlib.sha256(data).hexdigest()
 
 
 def fetch_with_retry(url: str, max_retries: int = MAX_RETRIES) -> bytes:
+    """Downloads a URL, retrying with exponential backoff.
+
+    The response is read with an explicit cap rather than to completion. These files
+    are a few hundred kilobytes; anything approaching the cap means the URL is not
+    what the manifest thinks it is, and reading it into memory first would be the
+    wrong way to find out.
+
+    Args:
+        url: Raw file URL at the pinned commit.
+        max_retries: Attempts before giving up.
+
+    Returns:
+        The file's bytes.
+
+    Raises:
+        RuntimeError: If every attempt failed, or the response exceeded the cap.
+    """
     last_err = None
     for attempt in range(1, max_retries + 1):
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": "logrouter-datasetgen/fetch_corpus"})
-            with urllib.request.urlopen(req, timeout=30) as resp:
-                if resp.status != 200:
-                    raise urllib.error.HTTPError(url, resp.status, "non-200", resp.headers, None)
-                return resp.read()
-        except Exception as e:  # noqa: BLE001 - broad catch, needed for retry
-            last_err = e
+            request = urllib.request.Request(
+                url, headers={"User-Agent": "logrouter-datasetgen/fetch_corpus"}
+            )
+            with urllib.request.urlopen(request, timeout=30) as response:
+                if response.status != 200:
+                    raise urllib.error.HTTPError(
+                        url, response.status, "non-200", response.headers, None
+                    )
+                data = response.read(MAX_DOWNLOAD_BYTES + 1)
+                if len(data) > MAX_DOWNLOAD_BYTES:
+                    raise RuntimeError(
+                        f"response exceeded {MAX_DOWNLOAD_BYTES} bytes; "
+                        f"the manifest URL is probably wrong"
+                    )
+                return data
+        except Exception as error:
+            last_err = error
             if attempt < max_retries:
                 wait = BACKOFF_BASE_SECONDS * (2 ** (attempt - 1))
-                print(f"  [retry {attempt}/{max_retries}] {url} -> {e} ; waiting {wait:.1f}s", file=sys.stderr)
+                print(
+                    f"  [retry {attempt}/{max_retries}] {url} -> {error} ; "
+                    f"waiting {wait:.1f}s",
+                    file=sys.stderr,
+                )
                 time.sleep(wait)
     raise RuntimeError(f"Fetch failed (after {max_retries} attempts): {url} :: {last_err}")
 
 
 def load_manifest(path: Path) -> dict:
-    with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+    """Reads the pinned manifest.
+
+    Args:
+        path: ``corpus_manifest.json`` path.
+
+    Returns:
+        The parsed manifest.
+    """
+    with open(path, "r", encoding="utf-8") as handle:
+        return json.load(handle)
 
 
-def load_lock(path: Path) -> dict:
-    if path.exists():
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    return {"pinned_commit": None, "entries": {}}
+def load_lock(path: Path) -> dict | None:
+    """Reads the lock file if it exists.
+
+    Args:
+        path: Lock file path.
+
+    Returns:
+        The parsed lock, or ``None`` when no lock exists. ``None`` is returned rather
+        than an empty lock so callers must decide what a missing lock means; treating
+        it as an empty one is what allowed unverified files to be blessed.
+    """
+    if not path.exists():
+        return None
+    with open(path, "r", encoding="utf-8") as handle:
+        return json.load(handle)
 
 
 def save_lock(path: Path, lock: dict) -> None:
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(lock, f, ensure_ascii=False, indent=2, sort_keys=True)
-        f.write("\n")
+    """Writes the lock file atomically.
+
+    A lock truncated by a process killed mid-write would fail every later run's
+    comparison, and the obvious fix at that point looks like deleting it, which
+    discards the digests being protected.
+
+    Args:
+        path: Lock file path.
+        lock: Lock contents.
+    """
+    path.parent.mkdir(parents=True, exist_ok=True)
+    handle, temp_name = tempfile.mkstemp(dir=str(path.parent), prefix=".lock.", suffix=".tmp")
+    try:
+        with os.fdopen(handle, "w", encoding="utf-8") as temp_file:
+            json.dump(lock, temp_file, ensure_ascii=False, indent=2, sort_keys=True)
+            temp_file.write("\n")
+            temp_file.flush()
+            os.fsync(temp_file.fileno())
+        os.replace(temp_name, path)
+    except BaseException:
+        if os.path.exists(temp_name):
+            os.unlink(temp_name)
+        raise
+
+
+def resolve_local_path(output_dir: Path, local_filename: str) -> Path:
+    """Resolves a manifest filename inside the output directory.
+
+    The manifest is data, and a custom one could name ``../../etc/passwd`` or an
+    absolute path. Resolving and then checking containment keeps a manifest from
+    directing a write outside the corpus volume.
+
+    Args:
+        output_dir: Corpus directory.
+        local_filename: ``local_filename`` from a manifest entry.
+
+    Returns:
+        The resolved path inside ``output_dir``.
+
+    Raises:
+        ValueError: If the name escapes ``output_dir``.
+    """
+    base = output_dir.resolve()
+    candidate = (base / local_filename).resolve()
+    if candidate != base and base not in candidate.parents:
+        raise ValueError(
+            f"manifest local_filename '{local_filename}' resolves outside the output "
+            f"directory ({candidate}); refusing to write there"
+        )
+    return candidate
+
+
+def write_corpus_file(path: Path, data: bytes) -> None:
+    """Writes a corpus file atomically.
+
+    Args:
+        path: Destination file.
+        data: File contents.
+    """
+    path.parent.mkdir(parents=True, exist_ok=True)
+    handle, temp_name = tempfile.mkstemp(dir=str(path.parent), prefix=f".{path.name}.", suffix=".tmp")
+    try:
+        with os.fdopen(handle, "wb") as temp_file:
+            temp_file.write(data)
+            temp_file.flush()
+            os.fsync(temp_file.fileno())
+        os.replace(temp_name, path)
+    except BaseException:
+        if os.path.exists(temp_name):
+            os.unlink(temp_name)
+        raise
 
 
 def load_into_postgres(output_dir: Path, manifest: dict, pg_config: dict) -> None:
-    """Loads every fetched dataset's lines into Postgres (lines table), so
-    datasetgen's pg_client.py can run real SQL against the corpus instead of
-    reading the raw *_2k.log files directly."""
+    """Loads every fetched dataset's lines into the ``lines`` table.
+
+    Idempotent per dataset: the dataset's rows are deleted and reinserted inside one
+    transaction, so a container restart cannot leave a half-loaded or doubled corpus.
+    ``UNIQUE (dataset, line_number)`` makes a duplicate a failed insert rather than a
+    silently inflated count.
+
+    Args:
+        output_dir: Corpus directory.
+        manifest: The parsed manifest.
+        pg_config: Connection parameters.
+    """
     import psycopg2
     from psycopg2.extras import execute_values
 
-    conn = psycopg2.connect(
-        host=pg_config["host"], port=pg_config["port"], dbname=pg_config["dbname"],
-        user=pg_config["user"], password=pg_config["password"],
+    connection = psycopg2.connect(
+        host=pg_config["host"],
+        port=pg_config["port"],
+        dbname=pg_config["dbname"],
+        user=pg_config["user"],
+        password=pg_config["password"],
     )
     try:
-        with conn:
-            with conn.cursor() as cur:
-                cur.execute("""
+        with connection:
+            with connection.cursor() as cursor:
+                cursor.execute(
+                    """
                     CREATE TABLE IF NOT EXISTS lines (
                         id BIGSERIAL PRIMARY KEY,
                         dataset TEXT NOT NULL,
                         line_number INTEGER NOT NULL,
                         text TEXT NOT NULL
                     );
-                """)
-                cur.execute("CREATE INDEX IF NOT EXISTS idx_lines_dataset ON lines(dataset);")
+                    """
+                )
+                cursor.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_lines_dataset ON lines(dataset);"
+                )
+                cursor.execute(
+                    "CREATE UNIQUE INDEX IF NOT EXISTS uq_lines_dataset_line "
+                    "ON lines(dataset, line_number);"
+                )
 
-                for ds in manifest["datasets"]:
-                    dataset_key = ds["name"].lower()
-                    local_path = output_dir / ds["local_filename"]
-                    data = local_path.read_bytes()
-                    text = data.decode("utf-8", errors="replace")
+                for dataset in manifest["datasets"]:
+                    dataset_key = dataset["name"].lower()
+                    local_path = resolve_local_path(output_dir, dataset["local_filename"])
+                    text = local_path.read_bytes().decode("utf-8", errors="replace")
                     file_lines = text.split("\n")
                     if file_lines and file_lines[-1] == "":
                         file_lines = file_lines[:-1]
 
-                    # Idempotent: replace this dataset's rows so re-running (container
-                    # restart) never duplicates lines.
-                    cur.execute("DELETE FROM lines WHERE dataset = %s", (dataset_key,))
-                    rows = [(dataset_key, i + 1, line) for i, line in enumerate(file_lines)]
+                    cursor.execute("DELETE FROM lines WHERE dataset = %s", (dataset_key,))
+                    rows = [
+                        (dataset_key, index + 1, line)
+                        for index, line in enumerate(file_lines)
+                    ]
                     execute_values(
-                        cur, "INSERT INTO lines (dataset, line_number, text) VALUES %s", rows)
+                        cursor,
+                        "INSERT INTO lines (dataset, line_number, text) VALUES %s",
+                        rows,
+                    )
                     print(f"  [postgres] loaded {len(rows)} lines for dataset={dataset_key}")
     finally:
-        conn.close()
+        connection.close()
 
 
 def pg_config_from_env() -> dict:
+    """Reads Postgres connection parameters from the environment.
+
+    Returns:
+        Connection parameters for ``load_into_postgres``.
+    """
     return {
         "host": os.environ.get("PGHOST", "localhost"),
         "port": int(os.environ.get("PGPORT", "5432")),
@@ -136,20 +302,61 @@ def pg_config_from_env() -> dict:
     }
 
 
+def build_parser() -> argparse.ArgumentParser:
+    """Builds this script's argument parser.
+
+    Returns:
+        The parser.
+    """
+    parser = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
+    parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument(
+        "--lock-file",
+        type=Path,
+        default=None,
+        help="Default: <output-dir>/corpus_manifest.lock.json. Point this at a lock "
+        "committed to the repository to make the approved digests reviewable.",
+    )
+    parser.add_argument(
+        "--verify-only",
+        action="store_true",
+        help="Make no network calls and never write the lock; compare the files in "
+        "output-dir against an existing lock. Fails if there is no lock, because "
+        "there is then nothing to verify against.",
+    )
+    parser.add_argument(
+        "--force-refetch",
+        action="store_true",
+        help="Re-download even if the file is already on disk (the lock is still verified).",
+    )
+    parser.add_argument(
+        "--trust-existing",
+        action="store_true",
+        help="When no lock exists, allow files already in output-dir to establish it "
+        "instead of fetching from the pinned commit. Recorded in the lock's "
+        "locked_from field; without it a first run always downloads.",
+    )
+    parser.add_argument(
+        "--load-postgres",
+        action="store_true",
+        help="After a successful fetch/verify pass, load all datasets into Postgres "
+        "(connection read from PGHOST/PGPORT/POSTGRES_DB/POSTGRES_USER/POSTGRES_PASSWORD).",
+    )
+    return parser
+
+
 def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
-    ap.add_argument("--output-dir", type=Path, required=True)
-    ap.add_argument("--lock-file", type=Path, default=None,
-                     help="Default: <output-dir>/corpus_manifest.lock.json")
-    ap.add_argument("--verify-only", action="store_true",
-                     help="Make no network calls; only compare files in output-dir against the lock.")
-    ap.add_argument("--force-refetch", action="store_true",
-                     help="Re-download even if the file is already on disk (lock is still verified).")
-    ap.add_argument("--load-postgres", action="store_true",
-                     help="After a successful fetch/verify pass, load all datasets into Postgres "
-                          "(connection read from PGHOST/PGPORT/POSTGRES_DB/POSTGRES_USER/POSTGRES_PASSWORD).")
-    args = ap.parse_args()
+    """Fetches or verifies the corpus, then optionally loads it into Postgres.
+
+    Returns:
+        ``0`` success, ``1`` a dataset failed, ``2`` the run was refused before any
+        dataset was processed (missing lock in verify mode, or a commit that
+        disagrees with the lock).
+    """
+    args = build_parser().parse_args()
 
     manifest = load_manifest(args.manifest)
     source = manifest["source"]
@@ -159,81 +366,144 @@ def main() -> int:
     lock_path = args.lock_file or (args.output_dir / "corpus_manifest.lock.json")
     lock = load_lock(lock_path)
 
-    if lock["pinned_commit"] is not None and lock["pinned_commit"] != commit:
-        print(f"ERROR: pinned commit in lock file ({lock['pinned_commit']}) differs from manifest "
-              f"({commit}). The corpus must not change silently.", file=sys.stderr)
+    if lock is None:
+        if args.verify_only:
+            print(
+                f"ERROR: --verify-only needs an existing lock, and none was found at "
+                f"{lock_path}. Writing one now would record whatever is currently on "
+                f"disk as the approved corpus, which is what verification is meant to "
+                f"rule out. Run a normal fetch first.",
+                file=sys.stderr,
+            )
+            return 2
+        lock = {
+            "pinned_commit": commit,
+            "locked_from": "existing-files" if args.trust_existing else "pinned-commit",
+            "entries": {},
+        }
+        print(f"No lock at {lock_path}; establishing one from {lock['locked_from']}.")
+
+    if lock.get("pinned_commit") not in (None, commit):
+        print(
+            f"ERROR: pinned commit in lock file ({lock['pinned_commit']}) differs from "
+            f"manifest ({commit}). The corpus must not change silently.",
+            file=sys.stderr,
+        )
         return 2
     lock["pinned_commit"] = commit
+    lock.setdefault("locked_from", "pinned-commit")
+    lock.setdefault("entries", {})
 
-    ok, failed, quota_unmet = [], [], []
+    succeeded, failed, quota_unmet = [], [], []
 
-    for ds in manifest["datasets"]:
-        name = ds["name"]
-        local_path = args.output_dir / ds["local_filename"]
-        raw_url = source["raw_base_url"].format(owner=owner, repo=repo, pinned_commit=commit, raw_path=ds["raw_path"])
+    for dataset in manifest["datasets"]:
+        name = dataset["name"]
+        try:
+            local_path = resolve_local_path(args.output_dir, dataset["local_filename"])
+        except ValueError as error:
+            print(f"  ERROR: {error}", file=sys.stderr)
+            failed.append(name)
+            continue
+
+        raw_url = source["raw_base_url"].format(
+            owner=owner, repo=repo, pinned_commit=commit, raw_path=dataset["raw_path"]
+        )
+        locked_entry = lock["entries"].get(name)
 
         print(f"[{name}] target: {local_path.name}")
 
-        if args.verify_only or (local_path.exists() and not args.force_refetch):
+        may_read_from_disk = local_path.exists() and (
+            locked_entry is not None or args.trust_existing or args.verify_only
+        )
+
+        if args.verify_only:
             if not local_path.exists():
-                print(f"  ERROR: --verify-only requested but file is missing: {local_path}", file=sys.stderr)
+                print(
+                    f"  ERROR: --verify-only requested but file is missing: {local_path}",
+                    file=sys.stderr,
+                )
+                failed.append(name)
+                continue
+            if locked_entry is None:
+                print(
+                    f"  ERROR: the lock has no entry for {name}; it cannot be verified.",
+                    file=sys.stderr,
+                )
                 failed.append(name)
                 continue
             data = local_path.read_bytes()
-            source_desc = "read from disk (verify-only / already present)"
+            source_desc = "read from disk (verify-only)"
+        elif may_read_from_disk and not args.force_refetch:
+            data = local_path.read_bytes()
+            source_desc = "read from disk (already present)"
         else:
             try:
                 data = fetch_with_retry(raw_url)
-            except RuntimeError as e:
-                print(f"  ERROR: {e}", file=sys.stderr)
+            except RuntimeError as error:
+                print(f"  ERROR: {error}", file=sys.stderr)
                 failed.append(name)
                 continue
             source_desc = "freshly downloaded"
 
         digest = sha256_of_bytes(data)
-        line_count = data.count(b"\n") + (1 if data and not data.endswith(b"\n") else 0)
+        line_count = data.count(b"\n") + (
+            1 if data and not data.endswith(b"\n") else 0
+        )
 
-        if line_count < 3:
-            # The system reports this explicitly instead of erroring out (Section 3.2).
-            print(f"  WARNING: {name} has fewer lines than expected ({line_count}); marked as quota_unmet.")
+        if line_count < MIN_PLAUSIBLE_LINES:
+            print(
+                f"  WARNING: {name} has fewer lines than expected ({line_count}); "
+                f"marked as quota_unmet."
+            )
             quota_unmet.append(name)
 
-        prev = lock["entries"].get(name)
-        if prev is not None:
-            if prev["sha256"] != digest:
-                print(f"  ERROR: checksum mismatch! lock={prev['sha256']} new={digest}\n"
-                      f"  The corpus cannot have changed while the commit is pinned -- the fetch or "
-                      f"the lock file may be corrupted.",
-                      file=sys.stderr)
+        if locked_entry is not None:
+            if locked_entry["sha256"] != digest:
+                print(
+                    f"  ERROR: checksum mismatch! lock={locked_entry['sha256']} "
+                    f"new={digest}\n"
+                    f"  The corpus cannot have changed while the commit is pinned -- "
+                    f"the fetch or the lock file may be corrupted.",
+                    file=sys.stderr,
+                )
                 failed.append(name)
                 continue
-            print(f"  OK ({source_desc}): {line_count} lines, sha256={digest[:16]}... (matches lock)")
+            print(
+                f"  OK ({source_desc}): {line_count} lines, sha256={digest[:16]}... "
+                f"(matches lock)"
+            )
         else:
             lock["entries"][name] = {
-                "raw_path": ds["raw_path"],
-                "local_filename": ds["local_filename"],
+                "raw_path": dataset["raw_path"],
+                "local_filename": dataset["local_filename"],
                 "sha256": digest,
                 "line_count": line_count,
                 "byte_size": len(data),
             }
-            print(f"  OK ({source_desc}): {line_count} lines, sha256={digest[:16]}... (saved to lock)")
+            print(
+                f"  OK ({source_desc}): {line_count} lines, sha256={digest[:16]}... "
+                f"(saved to lock)"
+            )
 
-        if not local_path.exists() or args.force_refetch or not args.verify_only:
-            local_path.write_bytes(data)
+        if not args.verify_only and (
+            not local_path.exists() or source_desc == "freshly downloaded"
+        ):
+            write_corpus_file(local_path, data)
 
-        ok.append(name)
+        succeeded.append(name)
 
-    save_lock(lock_path, lock)
+    if not args.verify_only:
+        save_lock(lock_path, lock)
 
     print("\n=== SUMMARY ===")
-    print(f"Succeeded: {len(ok)}/{len(manifest['datasets'])} -> {ok}")
+    print(f"Succeeded: {len(succeeded)}/{len(manifest['datasets'])} -> {succeeded}")
     if quota_unmet:
         print(f"quota_unmet (suspicious line count): {quota_unmet}")
     if failed:
         print(f"FAILED: {failed}", file=sys.stderr)
         return 1
 
-    print(f"Lock file: {lock_path}")
+    print(f"Lock file: {lock_path} (locked_from={lock['locked_from']})")
 
     if args.load_postgres:
         print("\n=== Loading into Postgres ===")
