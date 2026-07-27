@@ -1,50 +1,107 @@
-#!/usr/bin/env python3
-"""
-loghub_datasets.py
+"""Curated per-dataset question specs (Section 7.1).
 
-Section 7.1: curated DatasetSpec/LiteralSpec per LogHub dataset. Candidate
-literals/regexes below were chosen by inspecting the real fetched
-*_2k.log content (not guessed); exact match counts are always recomputed
-at generation time by question_generators.py, never hardcoded here. Any
-candidate with too few matches is pruned automatically
-at runtime (Section 3.2: "a generous candidate list is safe").
+One ``DatasetSpec`` per LogHub dataset, declaring the literals the easy tier
+counts and looks up, the anchor the medium tier explains, and the grouping rules
+the hard tier correlates across.
+
+The literals and regexes were chosen by inspecting the real fetched ``*_2k.log``
+content, never guessed — but nothing here asserts how often they occur. Exact
+match counts are recomputed against Postgres at generation time, and any
+candidate with too few matches is pruned automatically, which is what makes a
+generous candidate list safe (Section 3.2): an over-optimistic literal costs a
+pruned question, never a wrong answer.
 """
+
 from dataclasses import dataclass
 
 
 @dataclass(frozen=True)
 class LiteralSpec:
+    """One literal the easy tier counts or tests for presence.
+
+    Attributes:
+        literal: Substring to search for.
+        case_sensitive: Whether matching is case sensitive. Left false for almost
+            every spec, because the questions are phrased in natural language and a
+            reader would not expect ``ERROR`` and ``Error`` to be different
+            questions.
+    """
+
     literal: str
     case_sensitive: bool = False
 
 
 @dataclass(frozen=True)
 class LookupSpec:
+    """One first-or-last line lookup for the easy tier.
+
+    Attributes:
+        literal: Substring the looked-up line must contain.
+        position: ``"first"`` or ``"last"`` matching line.
+        case_sensitive: Whether matching is case sensitive.
+    """
+
     literal: str
-    position: str  # "first" | "last"
+    position: str
     case_sensitive: bool = False
 
 
 @dataclass(frozen=True)
 class HardGroupSpec:
+    """Declarative spec for one hard-tier question template (Section 7.3).
+
+    Lines are grouped by ``extract_key_regex``'s named group ``key``. The
+    ``num_groups`` largest groups holding at least ``min_lines_per_group`` lines,
+    ranked by line count with the key name breaking ties for determinism, become the
+    evidence groups one hard question correlates across.
+
+    Attributes:
+        spec_id: Stable identifier, used in the question id and the groundedness
+            report filename.
+        task: Task label recorded on the record, e.g. ``RootCauseAnalysis``.
+        extract_key_regex: Regex with a named ``key`` group that identifies the
+            entity a line belongs to (a block id, container id, source address).
+        min_lines_per_group: Groups below this are discarded rather than padded; a
+            correlation question over two lines correlates nothing.
+        num_groups: How many groups the question needs. The schema requires at least
+            two, so a spec below that would build records that cannot validate.
+        evidence_lines_per_group: How many of a group's lines are cited and shown.
+        question_template: Question text with ``{key0}``, ``{key1}``, ... placeholders
+            filled from the selected group keys.
     """
-    Declarative spec for one hard-tier question template (Section 7.3).
-    Lines are grouped by extract_key_regex's named group "key"; the
-    num_groups largest groups (by line count, ties broken by key name for
-    determinism) with >= min_lines_per_group lines become the >=2 evidence
-    groups referenced by one hard question.
-    """
+
     spec_id: str
     task: str
     extract_key_regex: str
     min_lines_per_group: int
     num_groups: int
     evidence_lines_per_group: int
-    question_template: str  # uses {key0}, {key1}, ... placeholders
+    question_template: str
 
 
 @dataclass(frozen=True)
 class DatasetSpec:
+    """Everything the three tiers need to know about one LogHub dataset.
+
+    A tier contributes nothing for a dataset whose corresponding field is empty,
+    which is deliberate: not every log format carries an entity worth correlating,
+    and a fabricated anchor would produce a question about whatever happened to be
+    at the top of the file.
+
+    Attributes:
+        name: Dataset name as LogHub publishes it.
+        log_filename: The fetched ``*_2k.log`` file.
+        count_literals: Literals the easy tier counts.
+        presence_literals: Literals the easy tier tests for presence. Whether one
+            occurs in the 2k sample is not asserted here and is recomputed at
+            generation time; ``Linux``'s ``Invalid user`` and ``OpenStack``'s
+            ``ERROR`` currently yield the "No" answers, but that is a fact about the
+            corpus, not a property of the spec.
+        lookup_specs: First/last line lookups for the easy tier.
+        medium_anchor_literal: Anchor the medium tier builds evidence windows around.
+        hard_groups: Hard-tier question templates.
+    """
+
     name: str
     log_filename: str
     count_literals: tuple = ()
@@ -54,7 +111,7 @@ class DatasetSpec:
     hard_groups: tuple = ()
 
 
-DATASET_SPECS = {
+DATASET_SPECS: dict[str, "DatasetSpec"] = {
     "Linux": DatasetSpec(
         name="Linux",
         log_filename="Linux_2k.log",
@@ -62,7 +119,7 @@ DATASET_SPECS = {
             LiteralSpec("authentication failure"),
         ),
         presence_literals=(
-            LiteralSpec("Invalid user"),  # 0 hits in the 2k sample -> a "no" example
+            LiteralSpec("Invalid user"),
         ),
         lookup_specs=(
             LookupSpec("authentication failure", position="first"),
@@ -105,7 +162,7 @@ DATASET_SPECS = {
             LiteralSpec("CBS"),
         ),
         presence_literals=(
-            LiteralSpec("Error"),  # 0 hits -> a "no" example
+            LiteralSpec("Error"),
         ),
         lookup_specs=(
             LookupSpec("CSI", position="first"),
@@ -133,7 +190,7 @@ DATASET_SPECS = {
             LiteralSpec("PacketResponder"),
         ),
         presence_literals=(
-            LiteralSpec("Exception"),  # 0 hits -> a "no" example
+            LiteralSpec("Exception"),
         ),
         lookup_specs=(
             LookupSpec("addStoredBlock", position="first"),
@@ -278,7 +335,7 @@ DATASET_SPECS = {
             LiteralSpec("status: 200"),
         ),
         presence_literals=(
-            LiteralSpec("ERROR"),  # 0 hits -> a "no" example
+            LiteralSpec("ERROR"),
         ),
         lookup_specs=(
             LookupSpec("status: 200", position="first"),

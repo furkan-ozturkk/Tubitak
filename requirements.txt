@@ -1,0 +1,15 @@
+# datasetgen container dependencies (Section 5.3)
+# jsonschema: validate.py, checking records against config/question_schema.json
+# rfc3339-validator: makes jsonschema's FormatChecker actually enforce the schema's
+#   format: "date-time". Without it the format keyword is parsed and then ignored,
+#   and a gold_provenance.created_at of "not-a-date" validates cleanly -- which is
+#   why tests/test_validate_answers.py asserts that it does not.
+# psycopg2-binary: src/utils/helper_postgres.py and loghub/fetch_corpus.py
+#
+# There is no HTTP library and no YAML parser here on purpose. Every Ollama call
+# goes through urllib from the standard library, and configuration is Python
+# dataclasses plus config/args.py rather than a YAML file, so `requests` and
+# `PyYAML` were declared but never imported.
+jsonschema==4.23.0
+rfc3339-validator==0.1.4
+psycopg2-binary==2.9.9
