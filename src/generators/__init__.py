@@ -20,7 +20,7 @@ the easy tier certifies its own output; the other two hand theirs to a human
 (``src.utils.helper_review``).
 """
 
-from src.generators.easy_tier import build_easy_records, select_official_20
+from src.generators.easy_tier import build_easy_records, select_official_easy
 from src.generators.hard_tier import build_hard_records
 from src.generators.medium_tier import build_medium_records
 
@@ -28,5 +28,5 @@ __all__ = [
     "build_easy_records",
     "build_hard_records",
     "build_medium_records",
-    "select_official_20",
+    "select_official_easy",
 ]

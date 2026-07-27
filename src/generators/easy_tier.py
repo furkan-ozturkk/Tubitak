@@ -247,36 +247,33 @@ def build_easy_records(
     return records
 
 
-def select_official_20(
+def select_official_easy(
     easy_records: list[dict[str, Any]], dataset_keys: list[str]
 ) -> list[dict[str, Any]]:
-    """Narrows the full easy tier to the official 20-question stage-1 set.
+    """Picks one first-phrasing count question per dataset key, in order.
 
-    Exactly one count and one presence question per LogHub dataset, first
-    phrasing only, no lookups. Deliberately narrower than the full easy tier:
-    this is the set that stays the official output until human-reviewed
-    medium/hard questions are folded in, growing the 20 upward per the staged
-    scaling plan (Section 3.1).
+    Used to build the easy share of the mixed 7 easy + 7 medium + 6 hard
+    official set (``generate.py``'s ``select_official_mixed_set``), which
+    replaced the earlier all-easy 20-question set.
 
     Args:
         easy_records: Every easy-tier record produced this pass.
         dataset_keys: Dataset keys, in the order they should appear.
 
     Returns:
-        The selected records, ordered by dataset then count-before-presence.
+        One record per key that has a matching count question.
     """
     by_id = {r["id"]: r for r in easy_records}
     selected = []
     for key in dataset_keys:
-        for kind in ("count", "presence"):
-            match = next(
-                (
-                    rid
-                    for rid in by_id
-                    if rid.startswith(f"{key}_v1_{kind}_") and rid.endswith("_0")
-                ),
-                None,
-            )
-            if match:
-                selected.append(by_id[match])
+        match = next(
+            (
+                rid
+                for rid in by_id
+                if rid.startswith(f"{key}_v1_count_") and rid.endswith("_0")
+            ),
+            None,
+        )
+        if match:
+            selected.append(by_id[match])
     return selected
