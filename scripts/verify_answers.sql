@@ -1,17 +1,17 @@
--- verify.sql
+-- scripts/verify_answers.sql
 -- output/pilot/questions.json'daki 20 sorunun cevaplarini bagimsiz olarak
 -- SQL ile dogrulamak icin. Veri, loghub servisinin kendi Postgres'inde
 -- zaten yuklu (fetch_corpus.py::load_into_postgres, container her acilista
 -- calisir) -- ayri bir dogrulama veritabani yok.
 --
 -- Eslesme mantigi projedeki ile birebir ayni: case-insensitive substring
--- arama (bkz. datasetgen/question_generators.py::_count_matches /
--- datasetgen/pg_client.py).
+-- arama (bkz. src/generators/easy_tier.py::count_matches /
+-- src/utils/helper_postgres.py::count_literal).
 --
 -- Calistirma (POSTGRES_USER/POSTGRES_DB .env'deki degerlerle ayni olmali):
---   docker compose exec -T loghub psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" < sql_verification/verify.sql
+--   docker compose -f docker/compose.yml exec -T loghub psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" < scripts/verify_answers.sql
 -- ya da interaktif:
---   docker compose exec -it loghub psql -U loghub -d loghub
+--   docker compose -f docker/compose.yml exec -it loghub psql -U loghub -d loghub
 
 -- linux_v1_count_authentication_failure_0 -- beklenen: 490
 SELECT COUNT(*) FROM lines WHERE dataset='linux' AND text ILIKE '%authentication failure%';

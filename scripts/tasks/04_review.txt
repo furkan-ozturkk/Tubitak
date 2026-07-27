@@ -1,0 +1,9 @@
+# Stage 04 - Section 7.3 step 5: human review of model-drafted gold.
+# These two lines are NOT a pipeline. A human fills in the worksheet's `decision`
+# column (accept | edit | reject) between them, which is why run_all.sh stops
+# before this stage instead of running it.
+python3 main.py --command review-export
+
+#  ... a human edits /output/pilot/review/worksheet.csv ...
+
+python3 main.py --command review-apply

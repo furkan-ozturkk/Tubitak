@@ -1,0 +1,11 @@
+# Stage 02 - Section 3.1/7: write the question dataset.
+# The first line is the official stage-1 output: 1 count + 1 presence question
+# per LogHub dataset, no model involved. Every answer is computed by SQL and
+# re-checked by stage 03 from the same table.
+python3 main.py --command generate
+
+# The --full pass runs all three tiers and needs Ollama. Its medium/hard records
+# leave generation review_status=in_review, so it writes to its own file rather
+# than overwriting the official output; stage 04 is what folds reviewed records
+# back in.
+# python3 main.py --command generate --full --dataset /output/pilot/questions_full.json
