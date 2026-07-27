@@ -208,6 +208,13 @@ def resolve_local_path(output_dir: Path, local_filename: str) -> Path:
 def write_corpus_file(path: Path, data: bytes) -> None:
     """Writes a corpus file atomically.
 
+    ``tempfile.mkstemp`` always creates its file mode ``0600`` (owner-only), a
+    security default that survives ``os.replace``. This container's corpus is
+    read by a different container running as a different, non-root user
+    (``datasetgen``), so the mode is widened to world-readable before the
+    rename; otherwise every read of a freshly-fetched file fails with
+    ``PermissionError`` for anyone but the user that fetched it.
+
     Args:
         path: Destination file.
         data: File contents.
@@ -219,6 +226,7 @@ def write_corpus_file(path: Path, data: bytes) -> None:
             temp_file.write(data)
             temp_file.flush()
             os.fsync(temp_file.fileno())
+        os.chmod(temp_name, 0o644)
         os.replace(temp_name, path)
     except BaseException:
         if os.path.exists(temp_name):
