@@ -17,7 +17,7 @@
 #
 # What happens on `up`:
 #   1) loghub fetches the LogHub 2k files from the commit pinned in
-#      loghub/corpus_manifest.json into the shared 'loghub-corpus' volume AND
+#      src/corpus/corpus_manifest.json into the shared 'loghub-corpus' volume AND
 #      serves them from its own Postgres (+pgvector) server (a `lines` table), so
 #      datasetgen queries the corpus with real SQL. Readiness (HEALTHCHECK)
 #      requires both the fetch to be done and Postgres to accept connections.
@@ -27,9 +27,9 @@
 #      medium/hard generation reads the raw files directly and validate.py compares
 #      the loaded table against them. It stays up (tail -f) so pipeline steps can
 #      be run with `docker compose exec datasetgen ...`.
-#   3) Manual SQL spot-checks of output/pilot/questions.json
-#      (scripts/verify_answers.sql) run against loghub's own Postgres -- there is
-#      no separate verification database.
+#   3) Independent answer verification (`main.py --command verify-answers`) asks a
+#      model to write the SQL for each sql-routed question and runs it read-only
+#      against loghub's own Postgres -- there is no separate verification database.
 #
 # One-shot corpus checks, which need neither Postgres nor the datasetgen service:
 #   docker compose -f docker/compose.yml run --rm --no-deps loghub verify

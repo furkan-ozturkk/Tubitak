@@ -1,5 +1,11 @@
 """Fetches and verifies the pinned LogHub corpus (Section 4.1).
 
+Runs inside the loghub container, not the datasetgen one, and therefore imports
+nothing from the rest of ``src``. That container is a Postgres image with Python
+added for this one script; pulling the question-generation app into it would give
+the corpus fetcher a dependency set it has no use for and cannot install.
+``tests/test_corpus_isolation.py`` asserts the boundary rather than trusting it.
+
 The Scientific Integrity Rule this implements: data is never downloaded by hand and
 dropped into a folder. Every dataset comes from the single commit pinned in
 ``corpus_manifest.json``, and every file's SHA-256 is recorded in a lock file that

@@ -18,6 +18,7 @@ services:
       - ../main.py:/app/main.py:ro
       - ../generate.py:/app/generate.py:ro
       - ../validate.py:/app/validate.py:ro
+      - ../verify_answers.py:/app/verify_answers.py:ro
       - ../config:/app/config:ro
       - ../src:/app/src:ro
       - ../analysis:/app/analysis:ro

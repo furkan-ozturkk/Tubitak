@@ -259,6 +259,73 @@ class OllamaClient:
         return verdict, result
 
 
+    def write_sql(self, question: str, dataset_key: str) -> dict[str, Any]:
+        """Asks the model to write the SQL that answers one question.
+
+        The prompt carries the table shape, the dataset key and the question, and
+        nothing else. It does not carry the gold answer, the literal the generator
+        searched for, or the cited line numbers: a model shown the answer would be
+        asked to reproduce it rather than to derive it, and the check would confirm
+        only that it can copy.
+
+        Runs on ``sql_model``, which defaults to the groundedness model and is
+        therefore a different family from the model that drafts gold answers.
+
+        Args:
+            question: The question's natural-language text.
+            dataset_key: The ``lines.dataset`` value to restrict the query to.
+
+        Returns:
+            Mapping with ``sql`` (the extracted statement), ``text`` (the raw
+            completion) and ``model`` (the provenance block).
+        """
+        prompt = (
+            "You write PostgreSQL queries. The only table is:\n"
+            "  lines(id BIGSERIAL, dataset TEXT, line_number INTEGER, text TEXT)\n"
+            "One row per log line. `text` is the raw line. `line_number` is 1-based.\n\n"
+            f"Answer this question about dataset '{dataset_key}':\n{question}\n\n"
+            "Rules:\n"
+            f"- Restrict every query with dataset = '{dataset_key}'.\n"
+            "- Match text case-insensitively unless the question demands otherwise.\n"
+            "- Return exactly one row and one column: the answer itself.\n"
+            "- For a counting question return the count. For a yes/no question return "
+            "a boolean. For a question asking for a line, return that line's text.\n"
+            "- Output only the SQL statement. No prose, no markdown fence, no semicolon."
+        )
+        result = self._generate(self.config.sql_model, prompt)
+        return {
+            "sql": _extract_sql(result["text"]),
+            "text": result["text"],
+            "model": result["model"],
+        }
+
+
+def _extract_sql(completion: str) -> str:
+    """Pulls the SQL statement out of a completion.
+
+    Models wrap SQL in a markdown fence often enough that refusing fenced output
+    would fail the check for a formatting habit rather than for a wrong query.
+
+    Args:
+        completion: The raw model output.
+
+    Returns:
+        The statement, without fences or a trailing semicolon.
+    """
+    text = completion.strip()
+    if "```" in text:
+        parts = text.split("```")
+        for part in parts[1:]:
+            candidate = part
+            if candidate.lower().startswith("sql"):
+                candidate = candidate[3:]
+            candidate = candidate.strip()
+            if candidate:
+                text = candidate
+                break
+    return text.strip().rstrip(";").strip()
+
+
 def check_server(config: OllamaConfig) -> int:
     """Verifies connectivity, the required models, and the family separation.
 

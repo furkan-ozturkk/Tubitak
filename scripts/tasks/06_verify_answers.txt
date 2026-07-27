@@ -1,0 +1,12 @@
+# Stage 06 - independent answer verification. A model is shown each question and
+# the lines table shape, writes its own SQL, and the result is compared to the gold
+# answer. Nothing about the gold answer or the curated literal reaches the prompt,
+# so agreement means two independent derivations landed on the same value.
+#
+# Needs Ollama and Postgres. Not part of run_all.sh: it costs one model call per
+# record, and a disagreement needs a person to read the recorded SQL before anyone
+# decides which side was wrong.
+python3 main.py --command verify-answers
+
+# Cheaper smoke version, five records:
+# python3 main.py --command verify-answers --sql_limit 5

@@ -34,6 +34,10 @@ class OllamaConfig:
         max_parallel_calls: Semaphore width over the whole client (Section 3.2).
         max_retries: Attempts per call before giving up.
         backoff_base_seconds: Base of the exponential retry backoff.
+        sql_model: Model that writes the verification SQL for ``verify-answers``.
+            Defaults to ``groundedness_model``, which is already a different family
+            from the drafting model, so the query that checks an answer never comes
+            from the model that wrote it.
         temperature: Sampling temperature; 0.0 keeps drafts reproducible.
         require_models: Names ``check-ollama`` demands from the server. ``None``
             means "the two role models above", which is the honest default —
@@ -43,6 +47,7 @@ class OllamaConfig:
     base_url: str
     gold_draft_model: str = DEFAULT_GOLD_DRAFT_MODEL
     groundedness_model: str = DEFAULT_GROUNDEDNESS_MODEL
+    sql_model: str = DEFAULT_GROUNDEDNESS_MODEL
     max_parallel_calls: int = 4
     max_retries: int = 5
     backoff_base_seconds: float = 2.0
@@ -52,10 +57,13 @@ class OllamaConfig:
     @property
     def role_models(self) -> tuple[tuple[str, str], ...]:
         """Returns the ``(model_name, role)`` pairs a full generation run uses."""
-        return (
+        roles = [
             (self.gold_draft_model, "gold_draft"),
             (self.groundedness_model, "groundedness_check"),
-        )
+        ]
+        if self.sql_model not in (self.gold_draft_model, self.groundedness_model):
+            roles.append((self.sql_model, "sql_verification"))
+        return tuple(roles)
 
     @property
     def required_model_names(self) -> tuple[str, ...]:
@@ -94,6 +102,9 @@ def get_ollama_params(args: Any, scale_config: ScaleConfig | None = None) -> Oll
         base_url=args.base_url,
         gold_draft_model=args.gold_draft_model,
         groundedness_model=args.groundedness_model,
+        sql_model=(
+            args.groundedness_model if args.sql_model is None else args.sql_model
+        ),
         max_parallel_calls=max_parallel,
         max_retries=(
             OllamaConfig.max_retries if args.max_retries is None else args.max_retries

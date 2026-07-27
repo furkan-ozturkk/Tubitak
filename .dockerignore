@@ -9,8 +9,5 @@ __pycache__/
 # run time; a copy baked into the image would be a second, stale one.
 output/
 
-# The loghub service builds from ./loghub with its own context.
-loghub/
-
 # Unrelated sibling project that happens to live in this directory.
 GNN-Backdoor/

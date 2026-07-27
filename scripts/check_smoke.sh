@@ -40,7 +40,7 @@ check "analysis.analysis_tables" $PY -c "import analysis.analysis_tables"
 
 echo "=== CLI surface ==="
 check "--help"                   $PY main.py --help
-for command in check-ollama generate validate review-export review-apply; do
+for command in check-ollama generate validate verify-answers review-export review-apply; do
   check "--command $command parses" $PY -c "
 from config.args import args_parser
 args_parser(['--command', '$command'])
@@ -67,8 +67,8 @@ assert args.questions == ['/tmp/q.json'], args.questions
 assert str(args.review_out) == '/tmp/q.json', args.review_out
 "
 
-echo "=== no comment lines in python sources ==="
-check "python sources are docstring-only" $PY scripts/check_no_comments.py
+echo "=== unit tests ==="
+check "unittest discover" $PY -m unittest discover -s tests -t . -b
 
 echo "=================================================="
 if [ "$fails" -eq 0 ]; then

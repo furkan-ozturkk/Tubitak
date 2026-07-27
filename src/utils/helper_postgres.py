@@ -29,6 +29,7 @@ service: ``PGHOST``, ``PGPORT``, ``POSTGRES_DB``, ``POSTGRES_USER``,
 """
 
 import os
+import re
 from typing import Any
 
 CONNECT_TIMEOUT_SECONDS = 10
@@ -207,6 +208,96 @@ def get_line(dataset: str, line_number: int) -> str:
             f"line_number={line_number}"
         )
     return row[0]
+
+
+FORBIDDEN_SQL_KEYWORDS = (
+    "insert",
+    "update",
+    "delete",
+    "drop",
+    "alter",
+    "create",
+    "truncate",
+    "grant",
+    "revoke",
+    "copy",
+    "call",
+    "vacuum",
+    "reindex",
+    "set",
+    "pg_read_file",
+    "pg_read_binary_file",
+    "pg_ls_dir",
+    "pg_sleep",
+    "dblink",
+    "lo_import",
+    "lo_export",
+)
+
+_FORBIDDEN_SQL_PATTERN = re.compile(
+    r"\b(" + "|".join(FORBIDDEN_SQL_KEYWORDS) + r")\b", re.IGNORECASE
+)
+
+
+def assert_readonly_select(sql: str) -> None:
+    """Rejects anything that is not a single read-only query.
+
+    Model-written SQL is untrusted input, so this is the gate in front of it. Two
+    independent defences, because either alone is thin: this keyword and shape
+    check, and the READ ONLY transaction ``run_readonly_query`` opens, which
+    Postgres itself enforces. A keyword list can be evaded; a read-only transaction
+    cannot, and a read-only transaction still permits a thousand-second scan, which
+    is what the statement timeout is for.
+
+    Matching is on word boundaries, not substrings. A substring check reads ``set``
+    inside ``dataset = 'linux'`` and refuses the most ordinary query this project
+    issues, which is how a guard ends up switched off for being too noisy.
+
+    Args:
+        sql: The candidate query.
+
+    Raises:
+        ValueError: If the statement is not a lone SELECT or WITH, or mentions a
+            writing or filesystem construct.
+    """
+    stripped = sql.strip().rstrip(";").strip()
+    if not stripped:
+        raise ValueError("empty query")
+    if ";" in stripped:
+        raise ValueError("multiple statements are not allowed")
+    lowered = stripped.lower()
+    if not (lowered.startswith("select") or lowered.startswith("with")):
+        raise ValueError("only a single SELECT (or WITH ... SELECT) is allowed")
+    found = _FORBIDDEN_SQL_PATTERN.search(stripped)
+    if found:
+        raise ValueError(f"forbidden construct in query: {found.group(1).lower()!r}")
+
+
+def run_readonly_query(sql: str) -> list[tuple]:
+    """Runs an untrusted query inside a read-only transaction.
+
+    Args:
+        sql: The query, already passed through ``assert_readonly_select``.
+
+    Returns:
+        Every returned row.
+
+    Raises:
+        ValueError: If the query fails the read-only shape check.
+        Exception: Whatever the driver raised, after the rollback.
+    """
+    assert_readonly_select(sql)
+    connection = get_connection()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("SET TRANSACTION READ ONLY")
+            cursor.execute(sql)
+            rows = cursor.fetchall()
+    except Exception:
+        connection.rollback()
+        raise
+    connection.rollback()
+    return rows
 
 
 def fetch_all_lines(dataset: str) -> list[tuple[int, str]]:

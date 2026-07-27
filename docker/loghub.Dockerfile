@@ -1,5 +1,5 @@
 # loghub container - Section 5.2
-# Fetches the LogHub 2k sample files pinned in loghub/corpus_manifest.json into
+# Fetches the LogHub 2k sample files pinned in src/corpus/corpus_manifest.json into
 # the shared /data/loghub volume AND serves them from a PostgreSQL (+ pgvector)
 # database in the same container, so datasetgen can query the corpus with real
 # SQL instead of reading the raw files directly. Based on the official pgvector
@@ -16,7 +16,7 @@ RUN apt-get update \
 
 WORKDIR /app
 
-COPY loghub/corpus_manifest.json loghub/fetch_corpus.py ./
+COPY src/corpus/corpus_manifest.json src/corpus/fetch_corpus.py ./
 COPY docker/loghub-entrypoint.sh ./
 RUN chmod +x loghub-entrypoint.sh
 

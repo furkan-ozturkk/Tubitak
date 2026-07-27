@@ -47,7 +47,14 @@ DEFAULT_REVIEW_LOG = Path("/output/pilot/review/review_events.json")
 DEFAULT_REPORT = Path("/output/pilot/validation_report.json")
 DEFAULT_SCHEMA = Path(__file__).parent / "question_schema.json"
 
-COMMANDS = ("check-ollama", "generate", "validate", "review-export", "review-apply")
+COMMANDS = (
+    "check-ollama",
+    "generate",
+    "validate",
+    "verify-answers",
+    "review-export",
+    "review-apply",
+)
 
 
 def _resolve_paths(args: argparse.Namespace) -> None:
@@ -131,6 +138,7 @@ def _validate_tier_knobs(args: argparse.Namespace) -> None:
         "max_retries": args.max_retries,
         "max_parallel_model_calls": args.max_parallel_model_calls,
         "target_total_questions": args.target_total_questions,
+        "sql_limit": args.sql_limit,
     }
     for name, value in positive.items():
         if value is not None and value < 1:
@@ -166,8 +174,10 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
         choices=list(COMMANDS),
         help="Operation to run: check-ollama (connectivity + required models, Section 5.5/6), "
         "generate (write the question dataset, Section 3.1/7), validate (schema + cross-record "
-        "+ evidence checks, Sections 2/6), review-export (export in_review records to a CSV "
-        "worksheet), review-apply (apply a filled-in worksheet back onto the dataset)",
+        "+ evidence checks, Sections 2/6), verify-answers (independent check: a model writes "
+        "the SQL for each question and its result is compared to the gold answer), "
+        "review-export (export in_review records to a CSV worksheet), review-apply (apply a "
+        "filled-in worksheet back onto the dataset)",
     )
 
     parser.add_argument(
@@ -223,6 +233,20 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
         type=Path,
         default=DEFAULT_REPORT,
         help="JSON validation report written by the validate command",
+    )
+    parser.add_argument(
+        "--sql_report",
+        type=Path,
+        default=None,
+        help="[verify-answers] JSON report path (dataclass default "
+        "/output/pilot/sql_verification_report.json)",
+    )
+    parser.add_argument(
+        "--sql_limit",
+        type=int,
+        default=None,
+        help="[verify-answers] Check at most this many records; each costs one model call. "
+        "Omit to check every eligible record",
     )
     parser.add_argument(
         "--questions",
@@ -332,6 +356,14 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
         default="gpt-oss:20b",
         help="Model that runs the claim-by-claim groundedness check. Must differ from "
         "--gold_draft_model (Section 5.5/6)",
+    )
+    parser.add_argument(
+        "--sql_model",
+        type=str,
+        default=None,
+        help="[verify-answers] Model that writes the verification SQL. Omit to reuse "
+        "--groundedness_model, which is already a different family from the drafting model, "
+        "so the query checking an answer never comes from the model that wrote it",
     )
     parser.add_argument(
         "--require_models",
