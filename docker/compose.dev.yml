@@ -1,0 +1,25 @@
+# Development override: run the working tree instead of the built image.
+#
+#   docker compose -f docker/compose.yml -f docker/compose.dev.yml up --build
+#
+# Kept separate from compose.yml on purpose. Bind-mounting the working tree over
+# /app masks the sources baked into the image, so the code that runs is no longer
+# the code that was built -- fine while iterating, wrong for anything whose output
+# is meant to be reproducible. The base file stays reproducible and this override
+# is opt-in.
+#
+# The mounts are listed piece by piece rather than as a single `..:/app` because
+# /output is already its own mount, and .git and the unrelated GNN-Backdoor/
+# sibling have no business inside the container.
+
+services:
+  datasetgen:
+    volumes:
+      - ../main.py:/app/main.py:ro
+      - ../generate.py:/app/generate.py:ro
+      - ../validate.py:/app/validate.py:ro
+      - ../config:/app/config:ro
+      - ../src:/app/src:ro
+      - ../analysis:/app/analysis:ro
+      - ../scripts:/app/scripts:ro
+      - ../tests:/app/tests:ro

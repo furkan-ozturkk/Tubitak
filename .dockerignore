@@ -1,0 +1,16 @@
+# The datasetgen build context is the repo root, so everything that is not the
+# Python project is excluded here rather than shipped into the image.
+.git
+.env
+__pycache__/
+*.pyc
+
+# Generated datasets and reports. The container mounts ./output at /output at
+# run time; a copy baked into the image would be a second, stale one.
+output/
+
+# The loghub service builds from ./loghub with its own context.
+loghub/
+
+# Unrelated sibling project that happens to live in this directory.
+GNN-Backdoor/

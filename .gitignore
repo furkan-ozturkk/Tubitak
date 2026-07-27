@@ -1,8 +1,27 @@
+# Python
 __pycache__/
 *.pyc
+.venv/
+
+# Local secrets. docker/.env is copied from docker/.env.example and carries
+# POSTGRES_PASSWORD, so it is never committed.
 .env
+docker/.env
+
+# Written into the loghub volume on the first fetch. loghub/corpus_manifest.json
+# is the pinned source that belongs in the repo; the lock is a runtime artifact.
+corpus_manifest.lock.json
+
+# output/ is generated. Two directories are tracked deliberately -- the current
+# pilot dataset and the archived first-pass artifacts -- because they are the
+# project's results, not build output. Everything else a run writes (run_all.sh
+# logs, ad-hoc --dataset targets) stays local.
 output/*
 !output/.gitkeep
 !output/pilot/
 !output/pilot/**
-corpus_manifest.lock.json
+!output/archive/
+!output/archive/**
+
+# Unrelated sibling project that happens to live in this directory.
+GNN-Backdoor/

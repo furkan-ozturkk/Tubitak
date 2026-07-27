@@ -1,0 +1,99 @@
+# LogRouter Evaluation Dataset - Docker environment (Section 5)
+#
+# Run from the repo root:
+#   docker compose -f docker/compose.yml up --build
+#
+# Everything Docker needs lives in this directory -- both Dockerfiles, the
+# entrypoint, and .env.example -- so the repo root holds only the Python project.
+# Both services build with the repo root as their context (`context: ..`), which
+# is why the Dockerfiles COPY paths like `loghub/fetch_corpus.py`; the root
+# .dockerignore keeps everything that is not source out of that context.
+#
+# This file is the reproducible configuration: datasetgen runs the code baked into
+# its image, so `docker compose exec datasetgen ...` executes exactly what was
+# built. For live editing without a rebuild, add the dev override, which
+# bind-mounts the working tree over /app:
+#   docker compose -f docker/compose.yml -f docker/compose.dev.yml up --build
+#
+# What happens on `up`:
+#   1) loghub fetches the LogHub 2k files from the commit pinned in
+#      loghub/corpus_manifest.json into the shared 'loghub-corpus' volume AND
+#      serves them from its own Postgres (+pgvector) server (a `lines` table), so
+#      datasetgen queries the corpus with real SQL. Readiness (HEALTHCHECK)
+#      requires both the fetch to be done and Postgres to accept connections.
+#   2) datasetgen starts once loghub reports healthy; it reaches loghub's Postgres
+#      over datasetgen-net (POSTGRES_* env vars, not exposed to the host) via
+#      src/utils/helper_postgres.py. /data/loghub is mounted read-only too, because
+#      medium/hard generation reads the raw files directly and validate.py compares
+#      the loaded table against them. It stays up (tail -f) so pipeline steps can
+#      be run with `docker compose exec datasetgen ...`.
+#   3) Manual SQL spot-checks of output/pilot/questions.json
+#      (scripts/verify_answers.sql) run against loghub's own Postgres -- there is
+#      no separate verification database.
+#
+# One-shot corpus checks, which need neither Postgres nor the datasetgen service:
+#   docker compose -f docker/compose.yml run --rm --no-deps loghub verify
+#   docker compose -f docker/compose.yml run --rm --no-deps loghub fetch
+#
+# No container_name is set: it would block running two Compose projects from this
+# repo at once, and `docker compose exec <service>` addresses the service anyway.
+
+networks:
+  datasetgen-net:
+    driver: bridge
+
+volumes:
+  loghub-corpus:
+  loghub-pgdata:
+
+services:
+  loghub:
+    build:
+      context: ..
+      dockerfile: docker/loghub.Dockerfile
+    restart: unless-stopped
+    command: ["serve"]
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-loghub}
+      POSTGRES_USER: ${POSTGRES_USER:-loghub}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in docker/.env}
+    networks:
+      - datasetgen-net
+    expose:
+      - "5432"
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - loghub-corpus:/data/loghub
+      - loghub-pgdata:/var/lib/postgresql/data
+
+  datasetgen:
+    build:
+      context: ..
+      dockerfile: docker/datasetgen.Dockerfile
+    depends_on:
+      loghub:
+        condition: service_healthy
+    environment:
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://10.15.33.66:11435}
+      PGHOST: loghub
+      PGPORT: "5432"
+      POSTGRES_DB: ${POSTGRES_DB:-loghub}
+      POSTGRES_USER: ${POSTGRES_USER:-loghub}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in docker/.env}
+    networks:
+      - datasetgen-net
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import main"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    volumes:
+      - loghub-corpus:/data/loghub:ro
+      - ../output:/output
+    command: ["tail", "-f", "/dev/null"]
