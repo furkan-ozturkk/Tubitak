@@ -24,7 +24,7 @@ WORKDIR /app
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY main.py generate.py validate.py verify_answers.py ./
+COPY main.py ./
 COPY config/ ./config/
 COPY src/ ./src/
 COPY analysis/ ./analysis/
