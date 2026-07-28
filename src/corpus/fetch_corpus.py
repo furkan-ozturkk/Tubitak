@@ -119,7 +119,9 @@ def fetch_with_retry(url: str, max_retries: int = MAX_RETRIES) -> bytes:
                     file=sys.stderr,
                 )
                 time.sleep(wait)
-    raise RuntimeError(f"Fetch failed (after {max_retries} attempts): {url} :: {last_err}")
+    raise RuntimeError(
+        f"Fetch failed (after {max_retries} attempts): {url} :: {last_err}"
+    )
 
 
 def load_manifest(path: Path) -> dict:
@@ -164,7 +166,9 @@ def save_lock(path: Path, lock: dict) -> None:
         lock: Lock contents.
     """
     path.parent.mkdir(parents=True, exist_ok=True)
-    handle, temp_name = tempfile.mkstemp(dir=str(path.parent), prefix=".lock.", suffix=".tmp")
+    handle, temp_name = tempfile.mkstemp(
+        dir=str(path.parent), prefix=".lock.", suffix=".tmp"
+    )
     try:
         with os.fdopen(handle, "w", encoding="utf-8") as temp_file:
             json.dump(lock, temp_file, ensure_ascii=False, indent=2, sort_keys=True)
@@ -220,7 +224,9 @@ def write_corpus_file(path: Path, data: bytes) -> None:
         data: File contents.
     """
     path.parent.mkdir(parents=True, exist_ok=True)
-    handle, temp_name = tempfile.mkstemp(dir=str(path.parent), prefix=f".{path.name}.", suffix=".tmp")
+    handle, temp_name = tempfile.mkstemp(
+        dir=str(path.parent), prefix=f".{path.name}.", suffix=".tmp"
+    )
     try:
         with os.fdopen(handle, "wb") as temp_file:
             temp_file.write(data)
@@ -260,16 +266,14 @@ def load_into_postgres(output_dir: Path, manifest: dict, pg_config: dict) -> Non
     try:
         with connection:
             with connection.cursor() as cursor:
-                cursor.execute(
-                    """
+                cursor.execute("""
                     CREATE TABLE IF NOT EXISTS lines (
                         id BIGSERIAL PRIMARY KEY,
                         dataset TEXT NOT NULL,
                         line_number INTEGER NOT NULL,
                         text TEXT NOT NULL
                     );
-                    """
-                )
+                    """)
                 cursor.execute(
                     "CREATE INDEX IF NOT EXISTS idx_lines_dataset ON lines(dataset);"
                 )
@@ -280,13 +284,17 @@ def load_into_postgres(output_dir: Path, manifest: dict, pg_config: dict) -> Non
 
                 for dataset in manifest["datasets"]:
                     dataset_key = dataset["name"].lower()
-                    local_path = resolve_local_path(output_dir, dataset["local_filename"])
+                    local_path = resolve_local_path(
+                        output_dir, dataset["local_filename"]
+                    )
                     text = local_path.read_bytes().decode("utf-8", errors="replace")
                     file_lines = text.split("\n")
                     if file_lines and file_lines[-1] == "":
                         file_lines = file_lines[:-1]
 
-                    cursor.execute("DELETE FROM lines WHERE dataset = %s", (dataset_key,))
+                    cursor.execute(
+                        "DELETE FROM lines WHERE dataset = %s", (dataset_key,)
+                    )
                     rows = [
                         (dataset_key, index + 1, line)
                         for index, line in enumerate(file_lines)
@@ -296,7 +304,9 @@ def load_into_postgres(output_dir: Path, manifest: dict, pg_config: dict) -> Non
                         "INSERT INTO lines (dataset, line_number, text) VALUES %s",
                         rows,
                     )
-                    print(f"  [postgres] loaded {len(rows)} lines for dataset={dataset_key}")
+                    print(
+                        f"  [postgres] loaded {len(rows)} lines for dataset={dataset_key}"
+                    )
     finally:
         connection.close()
 
@@ -460,9 +470,7 @@ def main() -> int:
             source_desc = "freshly downloaded"
 
         digest = sha256_of_bytes(data)
-        line_count = data.count(b"\n") + (
-            1 if data and not data.endswith(b"\n") else 0
-        )
+        line_count = data.count(b"\n") + (1 if data and not data.endswith(b"\n") else 0)
 
         if line_count < MIN_PLAUSIBLE_LINES:
             print(

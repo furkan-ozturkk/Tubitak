@@ -57,7 +57,12 @@ except ImportError:
     )
     sys.exit(3)
 
-from src.data.corpus_loader import lines_from_bytes, sha256_bytes, sha256_file, sha256_line
+from src.data.corpus_loader import (
+    lines_from_bytes,
+    sha256_bytes,
+    sha256_file,
+    sha256_line,
+)
 from src.params.results_params import ValidationReport, ValidationStats
 from src.params.validation_params import ValidationConfig
 from src.utils import helper_postgres
@@ -422,7 +427,9 @@ def validate_records(
         if dataset_key:
             cited_datasets.add(dataset_key)
 
-    for index, expected_split in expected_splits(questions, config.test_fraction).items():
+    for index, expected_split in expected_splits(
+        questions, config.test_fraction
+    ).items():
         stored_split = questions[index].get("split")
         if stored_split != expected_split:
             errors.append(
@@ -489,7 +496,8 @@ def validate_records(
     stats = ValidationStats(
         total_questions=len(questions),
         unique_ids=len(seen_ids),
-        distinct_group_ids=len(group_phrasing) or len(
+        distinct_group_ids=len(group_phrasing)
+        or len(
             {
                 ref["group_id"]
                 for record in questions
@@ -538,7 +546,9 @@ def _check_manifest_coverage(manifest: Path, cited_datasets: set[str]) -> list[s
     ]
 
 
-def _input_digests(config: ValidationConfig, questions: list[dict[str, Any]]) -> dict[str, Any]:
+def _input_digests(
+    config: ValidationConfig, questions: list[dict[str, Any]]
+) -> dict[str, Any]:
     """Records the digests of everything this validation consumed.
 
     A report that names only paths cannot prove which bytes it certified, and this
@@ -556,7 +566,13 @@ def _input_digests(config: ValidationConfig, questions: list[dict[str, Any]]) ->
         digests["schema"] = sha256_file(Path(config.schema))
     except OSError:
         digests["schema"] = None
-    sources = sorted({record.get("_source_file") for record in questions if record.get("_source_file")})
+    sources = sorted(
+        {
+            record.get("_source_file")
+            for record in questions
+            if record.get("_source_file")
+        }
+    )
     digests["questions"] = {}
     for source in sources:
         try:

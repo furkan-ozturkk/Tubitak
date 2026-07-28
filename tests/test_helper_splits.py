@@ -45,7 +45,9 @@ class GroupIdsOfTest(unittest.TestCase):
 
 class SplitForComponentTest(unittest.TestCase):
     def test_is_deterministic(self):
-        self.assertEqual(split_for_component("hdfs:count:x"), split_for_component("hdfs:count:x"))
+        self.assertEqual(
+            split_for_component("hdfs:count:x"), split_for_component("hdfs:count:x")
+        )
 
     def test_zero_fraction_sends_everything_to_dev(self):
         for name in ("a", "b", "c", "d", "e"):

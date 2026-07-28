@@ -79,7 +79,9 @@ def _build_prompt(dataset_name: str, evidence_lines: list[str]) -> str:
     )
 
 
-def _pick_anchor_occurrences(match_indices: list[int], params: MediumTierParams) -> list[int]:
+def _pick_anchor_occurrences(
+    match_indices: list[int], params: MediumTierParams
+) -> list[int]:
     """Spreads the requested number of picks across the matches.
 
     Consecutive matches are usually one burst of the same event, so drafting from
@@ -140,12 +142,15 @@ def build_medium_records(
 
     slug = slugify(spec.medium_anchor_literal)
     records = []
-    for occurrence, start_idx in enumerate(_pick_anchor_occurrences(match_indices, params)):
+    for occurrence, start_idx in enumerate(
+        _pick_anchor_occurrences(match_indices, params)
+    ):
         window_indices = _evidence_window(view.lines, start_idx, params.window_size)
         evidence_lines = [view.lines[i] for i in window_indices]
         group_id = f"{view.key}:semantic:{slug}_{occurrence}"
         refs = [
-            evidence_ref(view.key, i + 1, view.lines[i], group_id) for i in window_indices
+            evidence_ref(view.key, i + 1, view.lines[i], group_id)
+            for i in window_indices
         ]
 
         draft = client.draft(_build_prompt(view.name, evidence_lines))

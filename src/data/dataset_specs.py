@@ -115,15 +115,9 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
     "Linux": DatasetSpec(
         name="Linux",
         log_filename="Linux_2k.log",
-        count_literals=(
-            LiteralSpec("authentication failure"),
-        ),
-        presence_literals=(
-            LiteralSpec("Invalid user"),
-        ),
-        lookup_specs=(
-            LookupSpec("authentication failure", position="first"),
-        ),
+        count_literals=(LiteralSpec("authentication failure"),),
+        presence_literals=(LiteralSpec("Invalid user"),),
+        lookup_specs=(LookupSpec("authentication failure", position="first"),),
         medium_anchor_literal="check pass; user unknown",
         hard_groups=(
             HardGroupSpec(
@@ -144,57 +138,33 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
     "Apache": DatasetSpec(
         name="Apache",
         log_filename="Apache_2k.log",
-        count_literals=(
-            LiteralSpec("[notice]"),
-        ),
-        presence_literals=(
-            LiteralSpec("mod_jk"),
-        ),
-        lookup_specs=(
-            LookupSpec("child workerEnv in error state", position="first"),
-        ),
+        count_literals=(LiteralSpec("[notice]"),),
+        presence_literals=(LiteralSpec("mod_jk"),),
+        lookup_specs=(LookupSpec("child workerEnv in error state", position="first"),),
         medium_anchor_literal="child workerEnv in error state",
     ),
     "Windows": DatasetSpec(
         name="Windows",
         log_filename="Windows_2k.log",
-        count_literals=(
-            LiteralSpec("CBS"),
-        ),
-        presence_literals=(
-            LiteralSpec("Error"),
-        ),
-        lookup_specs=(
-            LookupSpec("CSI", position="first"),
-        ),
+        count_literals=(LiteralSpec("CBS"),),
+        presence_literals=(LiteralSpec("Error"),),
+        lookup_specs=(LookupSpec("CSI", position="first"),),
         medium_anchor_literal="CSI",
     ),
     "Mac": DatasetSpec(
         name="Mac",
         log_filename="Mac_2k.log",
-        count_literals=(
-            LiteralSpec("kernel"),
-        ),
-        presence_literals=(
-            LiteralSpec("Thermal pressure"),
-        ),
-        lookup_specs=(
-            LookupSpec("IOThunderboltSwitch", position="first"),
-        ),
+        count_literals=(LiteralSpec("kernel"),),
+        presence_literals=(LiteralSpec("Thermal pressure"),),
+        lookup_specs=(LookupSpec("IOThunderboltSwitch", position="first"),),
         medium_anchor_literal="Thermal pressure",
     ),
     "HDFS": DatasetSpec(
         name="HDFS",
         log_filename="HDFS_2k.log",
-        count_literals=(
-            LiteralSpec("PacketResponder"),
-        ),
-        presence_literals=(
-            LiteralSpec("Exception"),
-        ),
-        lookup_specs=(
-            LookupSpec("addStoredBlock", position="first"),
-        ),
+        count_literals=(LiteralSpec("PacketResponder"),),
+        presence_literals=(LiteralSpec("Exception"),),
+        lookup_specs=(LookupSpec("addStoredBlock", position="first"),),
         medium_anchor_literal="addStoredBlock",
         hard_groups=(
             HardGroupSpec(
@@ -215,15 +185,9 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
     "OpenSSH": DatasetSpec(
         name="OpenSSH",
         log_filename="OpenSSH_2k.log",
-        count_literals=(
-            LiteralSpec("Failed password"),
-        ),
-        presence_literals=(
-            LiteralSpec("POSSIBLE BREAK-IN ATTEMPT"),
-        ),
-        lookup_specs=(
-            LookupSpec("POSSIBLE BREAK-IN ATTEMPT", position="first"),
-        ),
+        count_literals=(LiteralSpec("Failed password"),),
+        presence_literals=(LiteralSpec("POSSIBLE BREAK-IN ATTEMPT"),),
+        lookup_specs=(LookupSpec("POSSIBLE BREAK-IN ATTEMPT", position="first"),),
         medium_anchor_literal="POSSIBLE BREAK-IN ATTEMPT",
         hard_groups=(
             HardGroupSpec(
@@ -244,12 +208,8 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
     "BGL": DatasetSpec(
         name="BGL",
         log_filename="BGL_2k.log",
-        count_literals=(
-            LiteralSpec("double-hummer alignment exceptions"),
-        ),
-        presence_literals=(
-            LiteralSpec("KERNDTLB"),
-        ),
+        count_literals=(LiteralSpec("double-hummer alignment exceptions"),),
+        presence_literals=(LiteralSpec("KERNDTLB"),),
         lookup_specs=(
             LookupSpec("double-hummer alignment exceptions", position="first"),
         ),
@@ -273,15 +233,9 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
     "Hadoop": DatasetSpec(
         name="Hadoop",
         log_filename="Hadoop_2k.log",
-        count_literals=(
-            LiteralSpec("Container"),
-        ),
-        presence_literals=(
-            LiteralSpec("MRAppMaster"),
-        ),
-        lookup_specs=(
-            LookupSpec("MRAppMaster", position="first"),
-        ),
+        count_literals=(LiteralSpec("Container"),),
+        presence_literals=(LiteralSpec("MRAppMaster"),),
+        lookup_specs=(LookupSpec("MRAppMaster", position="first"),),
         medium_anchor_literal="MRAppMaster",
         hard_groups=(
             HardGroupSpec(
@@ -302,15 +256,9 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
     "Zookeeper": DatasetSpec(
         name="Zookeeper",
         log_filename="Zookeeper_2k.log",
-        count_literals=(
-            LiteralSpec("WARN"),
-        ),
-        presence_literals=(
-            LiteralSpec("Exception"),
-        ),
-        lookup_specs=(
-            LookupSpec("FastLeaderElection", position="first"),
-        ),
+        count_literals=(LiteralSpec("WARN"),),
+        presence_literals=(LiteralSpec("Exception"),),
+        lookup_specs=(LookupSpec("FastLeaderElection", position="first"),),
         medium_anchor_literal="FastLeaderElection",
         hard_groups=(
             HardGroupSpec(
@@ -331,15 +279,9 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
     "OpenStack": DatasetSpec(
         name="OpenStack",
         log_filename="OpenStack_2k.log",
-        count_literals=(
-            LiteralSpec("status: 200"),
-        ),
-        presence_literals=(
-            LiteralSpec("ERROR"),
-        ),
-        lookup_specs=(
-            LookupSpec("status: 200", position="first"),
-        ),
+        count_literals=(LiteralSpec("status: 200"),),
+        presence_literals=(LiteralSpec("ERROR"),),
+        lookup_specs=(LookupSpec("status: 200", position="first"),),
         medium_anchor_literal="nova.osapi_compute.wsgi.server",
     ),
 }

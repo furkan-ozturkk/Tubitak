@@ -76,7 +76,9 @@ class NoCommentsTest(unittest.TestCase):
         for path in python_files():
             for line_number, text in comments_in(path):
                 preview = text if len(text) <= 70 else text[:67] + "..."
-                offences.append(f"{path.relative_to(REPO_ROOT)}:{line_number}: {preview}")
+                offences.append(
+                    f"{path.relative_to(REPO_ROOT)}:{line_number}: {preview}"
+                )
         self.assertEqual(
             offences,
             [],

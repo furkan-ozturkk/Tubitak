@@ -114,7 +114,9 @@ class OllamaClient:
             Model names from ``/api/tags``.
         """
         payload = self._request("/api/tags")
-        self._model_cache = {model["name"]: model for model in payload.get("models", [])}
+        self._model_cache = {
+            model["name"]: model for model in payload.get("models", [])
+        }
         return set(self._model_cache)
 
     def model_details(self, model_name: str) -> dict[str, str]:
@@ -257,7 +259,6 @@ class OllamaClient:
         else:
             verdict = "partial"
         return verdict, result
-
 
     def write_sql(self, question: str, dataset_key: str) -> dict[str, Any]:
         """Asks the model to write the SQL that answers one question.

@@ -36,7 +36,9 @@ class PathResolutionTest(unittest.TestCase):
         self.assertNotEqual(args.dataset, DEFAULT_DATASET)
 
     def test_full_honours_an_explicit_dataset(self):
-        args = args_parser(["--command", "generate", "--full", "--dataset", "/tmp/x.json"])
+        args = args_parser(
+            ["--command", "generate", "--full", "--dataset", "/tmp/x.json"]
+        )
         self.assertEqual(args.dataset, Path("/tmp/x.json"))
 
     def test_default_pass_writes_the_official_output(self):

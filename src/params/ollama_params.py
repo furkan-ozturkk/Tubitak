@@ -73,7 +73,9 @@ class OllamaConfig:
         return tuple(name for name, _role in self.role_models)
 
 
-def get_ollama_params(args: Any, scale_config: ScaleConfig | None = None) -> OllamaConfig:
+def get_ollama_params(
+    args: Any, scale_config: ScaleConfig | None = None
+) -> OllamaConfig:
     """Constructs an OllamaConfig from parsed args, with scale_config as fallback.
 
     ``max_parallel_calls`` has two possible sources and a defined precedence:

@@ -82,7 +82,9 @@ def table_dataset(records: list[dict[str, Any]]) -> None:
     for record in records:
         key = dataset_key_from_evidence(record) or "?"
         tier = record.get("difficulty", "?")
-        row = per_dataset.setdefault(key, {"easy": 0, "medium": 0, "hard": 0, "total": 0})
+        row = per_dataset.setdefault(
+            key, {"easy": 0, "medium": 0, "hard": 0, "total": 0}
+        )
         row[tier] = row.get(tier, 0) + 1
         row["total"] += 1
 

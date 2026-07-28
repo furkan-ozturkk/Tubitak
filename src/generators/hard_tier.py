@@ -224,7 +224,9 @@ def build_hard_records(
             continue
 
         keys = [key for key, _ in selected]
-        group_ids = [f"{view.key}:hard:{hard_spec.spec_id}:{slugify(key)}" for key in keys]
+        group_ids = [
+            f"{view.key}:hard:{hard_spec.spec_id}:{slugify(key)}" for key in keys
+        ]
         all_refs: list[dict[str, Any]] = []
         evidence_blocks = []
         for (key, indices), group_id in zip(selected, group_ids):

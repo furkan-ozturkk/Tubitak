@@ -208,9 +208,7 @@ def _validate_worksheet(
 
         record = by_id.get(question_id)
         if record is None:
-            problems.append(
-                f"row {row_number}: id {question_id} is not in the dataset"
-            )
+            problems.append(f"row {row_number}: id {question_id} is not in the dataset")
             continue
 
         claimed_digest = (row.get("draft_sha256") or "").strip()
@@ -255,7 +253,9 @@ def apply_worksheet(config: ReviewApplyConfig) -> int:
 
     problems = _validate_worksheet(decisions, by_id)
     if problems:
-        print(f"REJECTED: worksheet has {len(problems)} problem(s); nothing was written.")
+        print(
+            f"REJECTED: worksheet has {len(problems)} problem(s); nothing was written."
+        )
         for problem in problems[:20]:
             print(f"  - {problem}")
         if len(problems) > 20:

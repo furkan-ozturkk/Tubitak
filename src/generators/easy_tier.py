@@ -33,7 +33,10 @@ COUNT_PHRASINGS = (
 PRESENCE_PHRASINGS = (
     ("how-many", "Does the log contain any line with '{literal}'?"),
     ("count-the", "Check whether the log has a line mentioning '{literal}'."),
-    ("imperative", "Tell me if there is at least one occurrence of '{literal}' in the log."),
+    (
+        "imperative",
+        "Tell me if there is at least one occurrence of '{literal}' in the log.",
+    ),
 )
 
 LOOKUP_PHRASINGS = {
@@ -50,7 +53,9 @@ LOOKUP_PHRASINGS = {
 }
 
 
-def count_matches(dataset_key: str, literal: str, case_sensitive: bool) -> tuple[int, list[int]]:
+def count_matches(
+    dataset_key: str, literal: str, case_sensitive: bool
+) -> tuple[int, list[int]]:
     """Counts a literal's matching lines via Postgres.
 
     Args:
@@ -98,7 +103,9 @@ def _build_count_or_presence(
         Three records, or ``None`` when the literal was pruned.
     """
     literal = literal_spec.literal
-    count, matched_indices = count_matches(view.key, literal, literal_spec.case_sensitive)
+    count, matched_indices = count_matches(
+        view.key, literal, literal_spec.case_sensitive
+    )
 
     if kind == "count" and count < params.min_matches:
         print(
@@ -114,7 +121,9 @@ def _build_count_or_presence(
     cited_indices = matched_indices[: params.max_cited_lines]
     if kind == "presence" and count == 0:
         cited_indices = [0]
-    refs = [evidence_ref(view.key, i + 1, view.lines[i], group_id) for i in cited_indices]
+    refs = [
+        evidence_ref(view.key, i + 1, view.lines[i], group_id) for i in cited_indices
+    ]
 
     if kind == "presence":
         answer_text = "Yes" if count > 0 else "No"
@@ -176,7 +185,9 @@ def _build_lookup(
         presence, a lookup with no match has no answer to give.
     """
     literal = lookup_spec.literal
-    count, matched_indices = count_matches(view.key, literal, lookup_spec.case_sensitive)
+    count, matched_indices = count_matches(
+        view.key, literal, lookup_spec.case_sensitive
+    )
     if count < 1:
         print(
             f"  [prune] {view.name}: lookup literal '{literal}' has 0 matches, skipping",
@@ -233,11 +244,15 @@ def build_easy_records(
     """
     records: list[dict[str, Any]] = []
     for literal_spec in spec.count_literals:
-        built = _build_count_or_presence(view, literal_spec, "count", config, config.easy)
+        built = _build_count_or_presence(
+            view, literal_spec, "count", config, config.easy
+        )
         if built:
             records.extend(built)
     for literal_spec in spec.presence_literals:
-        built = _build_count_or_presence(view, literal_spec, "presence", config, config.easy)
+        built = _build_count_or_presence(
+            view, literal_spec, "presence", config, config.easy
+        )
         if built:
             records.extend(built)
     for lookup_spec in spec.lookup_specs:

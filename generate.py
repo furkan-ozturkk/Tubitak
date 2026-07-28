@@ -54,10 +54,22 @@ from src.utils.helper_run import print_generation_summary, write_json
 from src.utils.helper_splits import resolve_splits
 
 _OFFICIAL_EASY_DATASETS = [
-    "linux", "apache", "windows", "mac", "hdfs", "openssh", "bgl",
+    "linux",
+    "apache",
+    "windows",
+    "mac",
+    "hdfs",
+    "openssh",
+    "bgl",
 ]
 _OFFICIAL_MEDIUM_DATASETS = [
-    "hadoop", "zookeeper", "openstack", "linux", "apache", "windows", "mac",
+    "hadoop",
+    "zookeeper",
+    "openstack",
+    "linux",
+    "apache",
+    "windows",
+    "mac",
 ]
 
 

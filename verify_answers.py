@@ -72,7 +72,10 @@ def compare(answer_type: str, expected_answer: str, value: Any) -> tuple[bool, s
 
     if answer_type == "count":
         try:
-            return str(int(value)) == expected_answer, f"query={int(value)} gold={expected_answer}"
+            return (
+                str(int(value)) == expected_answer,
+                f"query={int(value)} gold={expected_answer}",
+            )
         except (TypeError, ValueError):
             return False, f"query returned {value!r}, which is not a count"
 
@@ -83,7 +86,10 @@ def compare(answer_type: str, expected_answer: str, value: Any) -> tuple[bool, s
             try:
                 present = int(value) > 0
             except (TypeError, ValueError):
-                return False, f"query returned {value!r}, which is not a boolean or count"
+                return (
+                    False,
+                    f"query returned {value!r}, which is not a boolean or count",
+                )
         derived = "Yes" if present else "No"
         return derived == expected_answer, f"query={derived} gold={expected_answer}"
 
@@ -148,7 +154,9 @@ def verify_record(record: dict[str, Any], client: OllamaClient) -> dict[str, Any
         return entry
 
     value = _scalar(rows)
-    entry["result"] = value if isinstance(value, (int, float, str, bool, type(None))) else str(value)
+    entry["result"] = (
+        value if isinstance(value, (int, float, str, bool, type(None))) else str(value)
+    )
     agrees, detail = compare(
         record.get("answer_type", ""), record.get("expected_answer", ""), value
     )
@@ -211,7 +219,9 @@ def run_sql_verification(
         write_json(config.report, report)
 
         print(f"\n=== SQL VERIFICATION ===")
-        print(f"checked={len(entries)} agreed={agreed} disagreed={len(entries) - agreed}")
+        print(
+            f"checked={len(entries)} agreed={agreed} disagreed={len(entries) - agreed}"
+        )
         print(f"Report written: {config.report}")
         if agreed != len(entries):
             print(
