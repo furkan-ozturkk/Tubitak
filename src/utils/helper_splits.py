@@ -12,18 +12,27 @@ different values, so ``A`` can still land in both splits. That is a real defect 
 the first pilot output, where ``hadoop_..._000005`` hashed to test and
 ``hadoop_..._000003`` to dev while the hard question citing both was assigned test.
 
-So the split is assigned per *event set*, not per group or per record. Co-citation
-is an edge, connected components are the event sets, and the component's split is
-hashed from its lowest-sorted group id. Two consequences that matter:
+So the split is assigned per *event set*, not per group or per record. Two kinds
+of edge link groups into one event set: co-citation (one record cites both
+groups), and *line sharing* — two groups whose records cite the same corpus line
+describe the same underlying event even when no single record cites both. The
+second edge exists because the first pilot shipped nine corpus lines that were
+cited by a dev question through one group and by a test question through another
+(e.g. Linux lines 3–6 under both ``linux:count:authentication_failure`` and
+``linux:semantic:check_pass_user_unknown_0``), which is a leak the group graph
+alone cannot see. Connected components are the event sets, and the component's
+split is hashed from its lowest-sorted group id. Two consequences that matter:
 
 * Every record citing any group of a component gets that component's split, so a
-  component is never split across dev and test.
+  component is never split across dev and test — and neither is any cited line.
 * The assignment is a pure function of the record set, so ``validate.py`` recomputes
   it from the written file and reports any record whose stored split disagrees.
 
-A record citing one group is a single-node component whose id is that group id, so
-this reduces exactly to the previous per-group hash for the deterministic tiers —
-the official 20-question output's splits are unchanged by it.
+A record citing one group whose lines no other group cites is a single-node
+component whose id is that group id, so for fully disjoint evidence this reduces
+exactly to a per-group hash. Where evidence overlaps, components merge and stored
+splits from earlier passes are expected to move — that movement is the leak being
+closed, and ``validate.py`` reports it record by record.
 """
 
 import hashlib
@@ -43,6 +52,37 @@ def group_ids_of(record: dict[str, Any]) -> frozenset[str]:
     """
     refs = record.get("evidence", {}).get("refs", [])
     return frozenset(ref["group_id"] for ref in refs if ref.get("group_id"))
+
+
+def _line_edges(records: list[dict[str, Any]]) -> list[tuple[str, str]]:
+    """Returns one edge per pair of groups that cite the same corpus line.
+
+    A line is keyed by ``(dataset, line_number)``, with the dataset read off the
+    evidence ref's ``id`` prefix (``linux:line:...``) the same way
+    ``helper_records.dataset_key_from_evidence`` reads it. A ref without an id —
+    which only synthetic test records produce — contributes no edge, because
+    without a dataset the line number alone is meaningless across datasets.
+
+    Args:
+        records: The full record set.
+
+    Returns:
+        ``(group_a, group_b)`` pairs to union, one per newly shared line.
+    """
+    owner_of_line: dict[tuple[str, int], str] = {}
+    edges: list[tuple[str, str]] = []
+    for record in records:
+        for ref in record.get("evidence", {}).get("refs", []):
+            group_id = ref.get("group_id")
+            ref_id = ref.get("id", "")
+            line_number = ref.get("line_number")
+            if not group_id or ":" not in ref_id or not isinstance(line_number, int):
+                continue
+            line_key = (ref_id.split(":", 1)[0], line_number)
+            owner = owner_of_line.setdefault(line_key, group_id)
+            if owner != group_id:
+                edges.append((owner, group_id))
+    return edges
 
 
 def split_for_component(component_id: str, test_fraction: float = TEST_FRACTION) -> str:
@@ -65,14 +105,20 @@ def split_for_component(component_id: str, test_fraction: float = TEST_FRACTION)
     return "test" if bucket < test_fraction else "dev"
 
 
-def _components(group_sets: Iterable[frozenset[str]]) -> dict[str, str]:
-    """Groups co-cited evidence groups into connected components.
+def _components(
+    group_sets: Iterable[frozenset[str]],
+    extra_edges: Iterable[tuple[str, str]] = (),
+) -> dict[str, str]:
+    """Groups linked evidence groups into connected components.
 
-    Union-find over the co-citation graph, with each component named by its
-    lowest-sorted member so the name does not depend on record order.
+    Union-find over the co-citation graph plus any extra edges (line sharing),
+    with each component named by its lowest-sorted member so the name does not
+    depend on record order.
 
     Args:
         group_sets: One group-id set per record.
+        extra_edges: Additional ``(group, group)`` links to union, from
+            ``_line_edges``.
 
     Returns:
         Mapping from group id to its component id.
@@ -100,6 +146,9 @@ def _components(group_sets: Iterable[frozenset[str]]) -> dict[str, str]:
         for member in members[1:]:
             union(members[0], member)
 
+    for left, right in extra_edges:
+        union(left, right)
+
     roots: dict[str, str] = {}
     for group_id in parent:
         roots.setdefault(find(group_id), group_id)
@@ -124,7 +173,10 @@ def expected_splits(
         no component and is absent from the mapping.
     """
     group_sets = [group_ids_of(record) for record in records]
-    component_of = _components(group_set for group_set in group_sets if group_set)
+    component_of = _components(
+        (group_set for group_set in group_sets if group_set),
+        extra_edges=_line_edges(records),
+    )
 
     splits: dict[int, str] = {}
     for index, group_set in enumerate(group_sets):

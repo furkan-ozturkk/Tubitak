@@ -19,6 +19,10 @@ from src.utils.helper_splits import (
 def record(*group_ids: str) -> dict:
     """Builds a minimal record citing one line per group.
 
+    The refs deliberately carry no ``id``, so these synthetic records exercise
+    only the co-citation edges; ``lined_record`` below builds refs that also
+    participate in line-sharing edges.
+
     Args:
         *group_ids: Evidence group ids the record cites.
 
@@ -30,6 +34,31 @@ def record(*group_ids: str) -> dict:
             "refs": [
                 {"group_id": group_id, "line_number": index + 1}
                 for index, group_id in enumerate(group_ids)
+            ]
+        }
+    }
+
+
+def lined_record(group_id: str, dataset: str, *line_numbers: int) -> dict:
+    """Builds a record whose refs carry real-looking ids for line-edge tests.
+
+    Args:
+        group_id: The single evidence group the record cites.
+        dataset: Dataset key embedded in each ref id.
+        *line_numbers: The 1-based lines the record cites.
+
+    Returns:
+        A record with just the fields split assignment reads.
+    """
+    return {
+        "evidence": {
+            "refs": [
+                {
+                    "group_id": group_id,
+                    "line_number": line_number,
+                    "id": f"{dataset}:line:{line_number:08d}:deadbeefdeadbeef",
+                }
+                for line_number in line_numbers
             ]
         }
     }
@@ -90,6 +119,49 @@ class ExpectedSplitsTest(unittest.TestCase):
             set(expected_splits(forward).values()),
             set(expected_splits(backward).values()),
         )
+
+
+class LineSharingTest(unittest.TestCase):
+    def test_groups_sharing_a_line_share_a_split(self):
+        records = [
+            lined_record("linux:count:auth", "linux", 3, 4, 5),
+            lined_record("linux:semantic:auth_0", "linux", 5, 6, 7),
+        ]
+        splits = expected_splits(records)
+        self.assertEqual(splits[0], splits[1])
+
+    def test_line_sharing_is_transitive(self):
+        records = [
+            lined_record("g:a", "bgl", 1, 2),
+            lined_record("g:b", "bgl", 2, 3),
+            lined_record("g:c", "bgl", 3, 4),
+        ]
+        splits = expected_splits(records)
+        self.assertEqual(len(set(splits.values())), 1)
+
+    def test_same_line_number_in_different_datasets_does_not_link(self):
+        records = [
+            lined_record("linux:count:x", "linux", 1),
+            lined_record("mac:count:y", "mac", 1),
+        ]
+        splits = expected_splits(records)
+        self.assertEqual(splits[0], expected_splits([records[0]])[0])
+        self.assertEqual(splits[1], expected_splits([records[1]])[0])
+
+    def test_disjoint_lines_do_not_link(self):
+        records = [
+            lined_record("linux:count:x", "linux", 1, 2),
+            lined_record("linux:semantic:y", "linux", 10, 11),
+        ]
+        splits = expected_splits(records)
+        self.assertEqual(splits[0], split_for_component("linux:count:x"))
+        self.assertEqual(splits[1], split_for_component("linux:semantic:y"))
+
+    def test_refs_without_ids_never_line_link(self):
+        records = [record("a"), record("b")]
+        splits = expected_splits(records)
+        self.assertEqual(splits[0], split_for_component("a"))
+        self.assertEqual(splits[1], split_for_component("b"))
 
 
 class ResolveSplitsTest(unittest.TestCase):
