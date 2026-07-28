@@ -91,7 +91,8 @@ def compare(answer_type: str, expected_answer: str, value: Any) -> tuple[bool, s
                     f"query returned {value!r}, which is not a boolean or count",
                 )
         derived = "Yes" if present else "No"
-        return derived == expected_answer, f"query={derived} gold={expected_answer}"
+        agrees = expected_answer.startswith(derived)
+        return agrees, f"query={derived} gold={expected_answer}"
 
     if answer_type == "line_lookup":
         text = value if isinstance(value, str) else str(value)

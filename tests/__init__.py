@@ -4,7 +4,7 @@ Run with:
   python3 -m unittest discover -s tests -t .
 
 What is covered here is the reasoning a wrong answer would come from: split
-assignment, evidence-id construction, official-set selection, the CLI's own
+assignment, evidence-id construction, the CLI's own
 validations, and the validator's answer checks against a fake corpus repository.
 
 What is deliberately *not* covered here is the corpus-to-database equality that

@@ -26,7 +26,7 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
-import validate
+from src.commands import validate
 from src.data.corpus_loader import sha256_bytes, sha256_line
 from src.params.validation_params import ValidationConfig
 from src.utils.helper_splits import resolve_splits
@@ -186,7 +186,7 @@ def presence_record() -> dict:
     """Builds a valid presence record over the test corpus.
 
     Returns:
-        A record answering "No" to a literal the corpus does not contain.
+        A record answering "No (0 matching lines)" to an absent literal.
     """
     group_id = "linux:presence:invalid_user"
     return {
@@ -200,7 +200,7 @@ def presence_record() -> dict:
         "split": "dev",
         "review_status": "verified",
         "reviewers": ["faz1_pilot_script"],
-        "expected_answer": "No",
+        "expected_answer": "No (0 matching lines)",
         "gold_provenance": {
             "method": "deterministic_aggregation",
             "created_by": "src/generators/easy_tier.py@v1",

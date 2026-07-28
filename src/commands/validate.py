@@ -41,6 +41,7 @@ rather than passed over: a schema-only run that prints PASSED reads as a verifie
 dataset.
 """
 
+import importlib.util
 import json
 import re
 import sys
@@ -57,12 +58,23 @@ except ImportError:
     )
     sys.exit(3)
 
+if importlib.util.find_spec("rfc3339_validator") is None:
+    print(
+        "ERROR: the rfc3339-validator library is not installed (see requirements.txt). "
+        "Without it jsonschema parses the schema's format: 'date-time' and then "
+        "silently ignores it, so a gold_provenance.created_at of 'not-a-date' would "
+        "validate cleanly — a quieter failure than refusing to run.",
+        file=sys.stderr,
+    )
+    sys.exit(3)
+
 from src.data.corpus_loader import (
     lines_from_bytes,
     sha256_bytes,
     sha256_file,
     sha256_line,
 )
+from src.generators.easy_tier import presence_answer
 from src.params.results_params import ValidationReport, ValidationStats
 from src.params.validation_params import ValidationConfig
 from src.utils import helper_postgres
@@ -278,7 +290,7 @@ def _check_answer(
                     f"recomputed count {recomputed}."
                 )
             elif answer_type == "presence":
-                should_be = "Yes" if recomputed > 0 else "No"
+                should_be = presence_answer(recomputed)
                 if expected_answer != should_be:
                     errors.append(
                         f"{loc}: expected_answer '{expected_answer}' contradicts the "
@@ -487,9 +499,9 @@ def validate_records(
         extra = " ..." if len(thin_groups) > 10 else ""
         message = (
             f"{len(thin_groups)} group_id(s) do not meet the "
-            f">={MIN_PHRASING_FAMILIES} phrasing-family rule: {preview}{extra}. The "
-            f"official stage-1 set ships one phrasing per intent by design and is "
-            f"expected to fail --strict; a scaled run is not."
+            f">={MIN_PHRASING_FAMILIES} phrasing-family rule: {preview}{extra}. A "
+            f"full generation pass ships every phrasing, so this indicates a "
+            f"hand-narrowed or truncated file rather than a normal output."
         )
         (errors if config.strict else warnings).append(message)
 

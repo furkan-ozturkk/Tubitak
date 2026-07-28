@@ -80,28 +80,27 @@ def print_generation_summary(summary: GenerationSummary) -> None:
         summary: Counts and configuration from the pass.
     """
     print("\n=== SUMMARY ===")
-    if summary.official_set:
-        print(f"total={summary.total} (official stage-1 set)")
-    else:
-        total = summary.total
-        print(
-            f"easy={summary.easy} medium={summary.medium} hard={summary.hard} total={total}"
+    label = "pilot dataset" if summary.official_set else "--full scratch pass"
+    total = summary.total
+    print(
+        f"easy={summary.easy} medium={summary.medium} hard={summary.hard} "
+        f"total={total} ({label})"
+    )
+    if total and summary.difficulty_mix is not None:
+        realised = (
+            f"easy={summary.easy / total:.2f} "
+            f"medium={summary.medium / total:.2f} "
+            f"hard={summary.hard / total:.2f}"
         )
-        if total and summary.difficulty_mix is not None:
-            realised = (
-                f"easy={summary.easy / total:.2f} "
-                f"medium={summary.medium / total:.2f} "
-                f"hard={summary.hard / total:.2f}"
-            )
-            configured = (
-                f"easy={summary.difficulty_mix.easy:.2f} "
-                f"medium={summary.difficulty_mix.medium:.2f} "
-                f"hard={summary.difficulty_mix.hard:.2f}"
-            )
-            print(f"realised mix : {realised}")
-            print(f"target mix   : {configured} (reported, not enforced)")
-        if summary.target_total is not None:
-            print(f"target total : {summary.target_total} (reported, not enforced)")
+        configured = (
+            f"easy={summary.difficulty_mix.easy:.2f} "
+            f"medium={summary.difficulty_mix.medium:.2f} "
+            f"hard={summary.difficulty_mix.hard:.2f}"
+        )
+        print(f"realised mix : {realised}")
+        print(f"target mix   : {configured} (reported, not enforced)")
+    if summary.target_total is not None:
+        print(f"target total : {summary.target_total} (reported, not enforced)")
     print(f"Wrote dataset to {summary.out}")
 
 

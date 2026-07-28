@@ -16,7 +16,7 @@ if REPO_ROOT not in sys.path:
 
 from src.utils.helper_ollama import _extract_sql
 from src.utils.helper_postgres import assert_readonly_select
-from verify_answers import compare
+from src.commands.sql_verification import compare
 
 
 class CompareTest(unittest.TestCase):
@@ -29,13 +29,13 @@ class CompareTest(unittest.TestCase):
         self.assertFalse(agrees)
 
     def test_presence_boolean_true_maps_to_yes(self):
-        self.assertTrue(compare("presence", "Yes", True)[0])
-        self.assertFalse(compare("presence", "No", True)[0])
+        self.assertTrue(compare("presence", "Yes (3 matching lines)", True)[0])
+        self.assertFalse(compare("presence", "No (0 matching lines)", True)[0])
 
     def test_presence_count_maps_through_its_sign(self):
-        self.assertTrue(compare("presence", "Yes", 3)[0])
-        self.assertTrue(compare("presence", "No", 0)[0])
-        self.assertFalse(compare("presence", "Yes", 0)[0])
+        self.assertTrue(compare("presence", "Yes (3 matching lines)", 3)[0])
+        self.assertTrue(compare("presence", "No (0 matching lines)", 0)[0])
+        self.assertFalse(compare("presence", "Yes (3 matching lines)", 0)[0])
 
     def test_lookup_compares_text_ignoring_surrounding_space(self):
         self.assertTrue(compare("line_lookup", "a log line", "  a log line  ")[0])

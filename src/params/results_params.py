@@ -35,11 +35,12 @@ class GenerationSummary:
         medium: Medium-tier records produced.
         hard: Hard-tier records produced.
         out: Dataset file written.
-        official_set: True when this was the default 20-question stage-1 pass
-            rather than a ``--full`` three-tier pass.
-        target_total: ``run.target_total_questions`` from scale_config.yaml.
-        difficulty_mix: The configured mix, or ``None`` for an official-set pass
-            that never read the config.
+        official_set: True when this pass wrote the pilot dataset (the default
+            output path) rather than a ``--full`` pass's scratch file. Both run
+            the same three tiers at full width; the flag records which file the
+            run was aimed at.
+        target_total: The run's ``--target_total_questions`` reporting target.
+        difficulty_mix: The configured mix, recorded beside the realised counts.
     """
 
     easy: int = 0
