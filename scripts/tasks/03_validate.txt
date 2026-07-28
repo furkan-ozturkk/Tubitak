@@ -1,10 +1,2 @@
-# Stage 03 - Sections 2/6: schema + cross-record + evidence/groundedness checks.
-# Layer 3 recomputes every numeric claim and re-hashes every cited line against
-# loghub's `lines` table, which is what substantiates review_status=verified on
-# the easy tier.
 python3 main.py --command validate
-
-# --strict promotes the Section 2/7.4 phrasing-diversity finding to an error.
-# Expected to fail on the official 20-question set, which ships one phrasing per
-# intent by design.
-# python3 main.py --command validate --strict
+python3 main.py --command validate --strict

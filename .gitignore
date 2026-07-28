@@ -12,3 +12,4 @@ output/*
 !output/pilot/**
 !output/archive/
 !output/archive/**
+.DS_Store

@@ -1,5 +1,1 @@
-# Stage 05 - offline reporting. Reads a finished dataset only: no corpus volume,
-# no database, no Ollama. Safe to run on the host rather than in the container.
 python3 analysis/analysis_tables.py --questions output/pilot/questions.json --table all
-python3 analysis/analysis_tables.py --questions output/archive/v1_116/questions.json --table composition
-python3 analysis/analysis_tables.py --questions output/archive/v1_116/questions.json --table dataset

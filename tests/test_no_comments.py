@@ -16,6 +16,7 @@ comment, which is why this tokenises the source instead of matching lines.
 
 import io
 import os
+import subprocess
 import tokenize
 import unittest
 from pathlib import Path
@@ -26,11 +27,32 @@ ALLOWED_PREFIXES = ("#!", "# -*-", "# type:")
 
 
 def python_files() -> list[Path]:
-    """Collects every Python file in the repository.
+    """Collects the repository's own Python files.
+
+    Asks git for the tracked file list first, so a sibling repository unpacked
+    into the working tree — which happens whenever another project is being
+    compared against this one — cannot fail this project's convention on that
+    project's behalf. The directory walk remains as the fallback for an export
+    of the source that has no ``.git``.
 
     Returns:
         Python file paths, sorted, excluding vendored and generated directories.
     """
+    try:
+        result = subprocess.run(
+            ["git", "ls-files", "--cached", "--others", "--exclude-standard", "*.py"],
+            cwd=REPO_ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=10,
+        )
+        tracked = [REPO_ROOT / line for line in result.stdout.splitlines() if line]
+        if tracked:
+            return sorted(path for path in tracked if path.is_file())
+    except (OSError, subprocess.SubprocessError):
+        pass
+
     found: list[Path] = []
     for root, directories, filenames in os.walk(REPO_ROOT):
         directories[:] = [name for name in directories if name not in SKIP_DIRECTORIES]

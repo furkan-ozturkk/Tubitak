@@ -32,15 +32,14 @@ check_rejects () {
 
 echo "=== imports ($PY) ==="
 check "main.py"                  $PY -c "import main"
-check "generate.py"              $PY -c "import generate"
-check "validate.py"              $PY -c "import validate"
+check "src.commands"             $PY -c "import src.commands.generate, src.commands.validate, src.commands.sql_verification, src.commands.analyzer_export"
 check "src.generators"           $PY -c "import src.generators"
 check "src.params"               $PY -c "import src.params.results_params, src.params.scale_params"
 check "analysis.analysis_tables" $PY -c "import analysis.analysis_tables"
 
 echo "=== CLI surface ==="
 check "--help"                   $PY main.py --help
-for command in check-ollama generate validate verify-answers review-export review-apply; do
+for command in check-ollama generate validate verify-answers review-export review-apply export-analyzer; do
   check "--command $command parses" $PY -c "
 from config.args import args_parser
 args_parser(['--command', '$command'])

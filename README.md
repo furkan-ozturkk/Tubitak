@@ -6,7 +6,18 @@ Ten LogHub log datasets are fetched from a pinned commit and loaded into Postgre
 Questions are then generated over them in three difficulty tiers, each answerable by
 a different retrieval path — `sql` for aggregates, `keyword` for line lookup,
 `semantic` for explanation and synthesis — so a router can be scored on whether it
-picks the right one and returns the right answer.
+picks the right one and returns the right answer. Every pass runs all three tiers
+at full width: three phrasings per deterministic intent, lookups and presence
+checks included, so all routing paths are represented and `validate --strict`
+passes on a normal output.
+
+Line handling follows one contract shared with the consumer: corpus bytes are
+split with `str.splitlines()` (the LogHub 2k files use CRLF endings, and the
+`\r` never reaches a line's text, its hash, or an evidence id). The contract is
+implemented twice — `src/data/corpus_loader.py` and, mirror-image, in
+`src/corpus/fetch_corpus.py` — and `tests/test_line_contract.py` pins them to
+each other and to golden vectors. `export-analyzer` writes the finished dataset in
+the analyzer's dataset-keyed payload format.
 
 Every answer is either machine-derived and re-checkable, or model-drafted and marked
 as awaiting a human. Nothing in between. The project has no connection to
@@ -17,14 +28,13 @@ LogRouter's source code or infrastructure.
 ```text
 .
 ├── main.py                    # only entry point: reads args into every config dataclass, dispatches
-├── generate.py                # question generation, three tiers
-├── validate.py                # schema, cross-record, split, corpus and answer checks
-├── verify_answers.py          # independent check: a model writes the SQL, result vs gold
 ├── requirements.txt
 ├── config/
 │   ├── args.py                # every CLI parameter, declared exactly once
 │   └── question_schema.json   # the record contract
 ├── src/
+│   ├── commands/              # one module per --command: generate, validate,
+│   │                          #   sql_verification (verify-answers), analyzer_export
 │   ├── params/                # one dataclass per config concern + get_*_params(args)
 │   ├── corpus/                # pinned manifest + the fetcher (runs in the loghub container)
 │   ├── data/                  # corpus loading, hashing, per-dataset question specs
@@ -73,12 +83,14 @@ flags; `--help` lists every override.
 E="docker compose -f docker/compose.yml exec datasetgen python3 main.py"
 
 $E --command check-ollama      # connectivity, required models, model families
-$E --command generate          # write the dataset (20-question stage-1 set)
-$E --command generate --full   # all three tiers, needs Ollama, writes its own file
+$E --command generate          # full three-tier pilot pass (needs Ollama)
+$E --command generate --full   # identical pass, written to its own scratch file
 $E --command validate          # schema + cross-record + split + corpus + answer checks
+$E --command validate --strict # phrasing-diversity rule as an error; expected to PASS
 $E --command verify-answers    # a model writes the SQL; its result vs the gold answer
 $E --command review-export     # in_review records out to a CSV worksheet
 $E --command review-apply --reviewer <name>
+$E --command export-analyzer   # the dataset in the analyzer's evaluation payload format
 ```
 
 Corpus checks that need neither Postgres nor datasetgen:

@@ -1,11 +1,13 @@
 #!/bin/bash
-# End-to-end driver: generate -> validate -> offline tables.
+# End-to-end driver: check-ollama -> generate -> validate -> tables -> export.
 #
-# Stages 02, 03 and 05 only. Stage 01 (check-ollama) is skipped because the
-# default generate pass uses no model, and stage 04 (human review) is skipped
-# because a human has to fill in the worksheet between its two commands -- a
-# driver that ran both would apply an empty worksheet and report every record as
-# left_undecided.
+# Stages 01, 02, 03, 05 and 07. Stage 01 runs first because every generate pass
+# drafts medium/hard gold on the remote Ollama server -- failing on connectivity
+# in seconds beats failing mid-pass. Stage 04 (human review) is skipped because
+# a human has to fill in the worksheet between its two commands -- a driver that
+# ran both would apply an empty worksheet and report every record as
+# left_undecided. Stage 06 (verify-answers) stays manual for the same reason its
+# task file gives: a disagreement needs a person before anyone edits anything.
 #
 # Every command comes from scripts/tasks/*.txt so the driver and the documented
 # pipeline cannot drift apart. Commented lines in those files are alternatives,
@@ -13,7 +15,7 @@
 set -u
 cd "$(dirname "$0")/.."
 
-STAGES="02_generate 03_validate 05_analysis_offline"
+STAGES="01_check_ollama 02_generate 03_validate 05_analysis_offline 07_export_analyzer"
 LOGDIR=output/logs
 mkdir -p "$LOGDIR"
 STAMP=$(date +%Y%m%d_%H%M%S)
