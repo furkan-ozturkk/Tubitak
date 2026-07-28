@@ -5,6 +5,7 @@ __pycache__/
 .env
 docker/.env
 corpus_manifest.lock.json
+corpus_local/
 output/*
 !output/.gitkeep
 !output/pilot/
