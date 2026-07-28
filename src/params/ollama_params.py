@@ -39,6 +39,14 @@ class OllamaConfig:
             from the drafting model, so the query that checks an answer never comes
             from the model that wrote it.
         temperature: Sampling temperature; 0.0 keeps drafts reproducible.
+        seed: Sampling seed sent with every call. Temperature 0.0 alone is
+            greedy decoding, which most servers make deterministic in practice
+            but none guarantee across versions; pinning the seed removes the
+            remaining freedom, and Section 6's determinism claim stays scoped to
+            "same server, same weights" either way.
+        num_predict: Token cap per completion. Bounds a runaway draft — an
+            uncapped hard-tier answer has no natural stopping point — and makes
+            the cost of a scaled pass calculable in advance (Section 3.2).
         require_models: Names ``check-ollama`` demands from the server. ``None``
             means "the two role models above", which is the honest default —
             those are exactly the models a full run would need.
@@ -52,6 +60,8 @@ class OllamaConfig:
     max_retries: int = 5
     backoff_base_seconds: float = 2.0
     temperature: float = 0.0
+    seed: int = 7
+    num_predict: int = 512
     require_models: tuple[str, ...] | None = None
 
     @property
@@ -79,16 +89,16 @@ def get_ollama_params(
     """Constructs an OllamaConfig from parsed args, with scale_config as fallback.
 
     ``max_parallel_calls`` has two possible sources and a defined precedence:
-    an explicit ``--max_parallel_model_calls`` wins, otherwise
-    ``concurrency.max_parallel_model_calls`` from ``scale_config.yaml`` (the
-    single configuration source of Section 3.2), otherwise the dataclass
-    default. ``check-ollama`` passes no scale config at all — it makes one
-    request and never needs the semaphore — so the middle step is skipped there
-    rather than forcing that command to read a YAML file it has no use for.
+    an explicit ``--max_parallel_model_calls`` wins, otherwise the
+    ``ScaleConfig``'s value (the scaling knob of Section 3.2), otherwise the
+    dataclass default. ``main.py`` passes the scale config for every command,
+    so the semaphore a generate pass runs under is always the one the scaling
+    configuration names.
 
     Args:
         args: Parsed argument namespace.
-        scale_config: Loaded ``scale_config.yaml``, or ``None`` to skip it.
+        scale_config: The run's ``ScaleConfig``, or ``None`` when a caller has
+            no scaling context (direct library use).
 
     Returns:
         OllamaConfig populated from args and, where relevant, scale_config.
@@ -96,7 +106,7 @@ def get_ollama_params(
     if args.max_parallel_model_calls is not None:
         max_parallel = args.max_parallel_model_calls
     elif scale_config is not None:
-        max_parallel = scale_config.concurrency.max_parallel_model_calls
+        max_parallel = scale_config.max_parallel_model_calls
     else:
         max_parallel = OllamaConfig.max_parallel_calls
 
@@ -118,6 +128,10 @@ def get_ollama_params(
         ),
         temperature=(
             OllamaConfig.temperature if args.temperature is None else args.temperature
+        ),
+        seed=(OllamaConfig.seed if args.seed is None else args.seed),
+        num_predict=(
+            OllamaConfig.num_predict if args.num_predict is None else args.num_predict
         ),
         require_models=tuple(args.require_models) if args.require_models else None,
     )

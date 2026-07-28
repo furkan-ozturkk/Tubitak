@@ -3,10 +3,11 @@
 The only executable entry point in the project, and the only function in this file
 is ``main()``. Everything beside it is a library imported from here:
 
-  generate.py        →  generation (run_generation, generate_easy, generate_full, ...)
-  validate.py        →  validation  (run_validation, validate_records)
-  verify_answers.py  →  independent answer check by model-written SQL
-  src/utils/         →  connectivity check, review lifecycle, clients, helpers
+  src/commands/generate.py         →  generation (run_generation, generate_all_tiers, ...)
+  src/commands/validate.py         →  validation (run_validation, validate_records)
+  src/commands/sql_verification.py →  independent answer check by model-written SQL
+  src/commands/analyzer_export.py  →  dataset out in the analyzer payload format
+  src/utils/                       →  connectivity check, review lifecycle, clients
 
 ``main()`` does exactly two things, in this order. First it reads the parsed
 namespace once and distributes it into every ``src.params`` dataclass, one named
@@ -35,13 +36,16 @@ Usage examples, with the container-internal paths from docker/compose.yml:
   python3 main.py --command verify-answers --sql_limit 5
   python3 main.py --command review-export
   python3 main.py --command review-apply --reviewer ada
+  python3 main.py --command export-analyzer
 
 Run ``python3 main.py --help`` to see every parameter and override.
 """
 
 from config.args import args_parser
-from generate import run_generation
+from src.commands.analyzer_export import run_analyzer_export
+from src.commands.generate import run_generation
 from src.params.corpus_params import get_corpus_params
+from src.params.export_params import get_analyzer_export_params
 from src.params.generation_params import get_generation_params
 from src.params.ollama_params import get_ollama_params
 from src.params.results_params import build_config_snapshot
@@ -51,8 +55,8 @@ from src.params.sql_verification_params import get_sql_verification_params
 from src.params.validation_params import get_validation_params
 from src.utils.helper_ollama import check_server
 from src.utils.helper_review import apply_worksheet, export_worksheet
-from validate import run_validation
-from verify_answers import run_sql_verification
+from src.commands.validate import run_validation
+from src.commands.sql_verification import run_sql_verification
 
 
 def main() -> int:
@@ -73,11 +77,12 @@ def main() -> int:
     corpus_config = get_corpus_params(args)
     generation_config = get_generation_params(args)
     scale_config = get_scale_params(args)
-    ollama_config = get_ollama_params(args)
+    ollama_config = get_ollama_params(args, scale_config)
     validation_config = get_validation_params(args)
     sql_verification_config = get_sql_verification_params(args)
     review_export_config = get_review_export_params(args)
     review_apply_config = get_review_apply_params(args)
+    export_config = get_analyzer_export_params(args)
     config_snapshot = build_config_snapshot(args)
 
     if args.command == "check-ollama":
@@ -100,10 +105,13 @@ def main() -> int:
     elif args.command == "review-apply":
         return apply_worksheet(review_apply_config)
 
+    elif args.command == "export-analyzer":
+        return run_analyzer_export(export_config)
+
     else:
         raise ValueError(
             f"Unknown command: {args.command}. Choose check-ollama | generate | "
-            f"validate | verify-answers | review-export | review-apply"
+            f"validate | verify-answers | review-export | review-apply | export-analyzer"
         )
 
 

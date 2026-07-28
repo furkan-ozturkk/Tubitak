@@ -191,7 +191,11 @@ class OllamaClient:
             "prompt": prompt,
             "stream": False,
             "think": False,
-            "options": {"temperature": self.config.temperature},
+            "options": {
+                "temperature": self.config.temperature,
+                "seed": self.config.seed,
+                "num_predict": self.config.num_predict,
+            },
         }
         result = self._request("/api/generate", payload, method="POST")
         details = self.model_details(model)

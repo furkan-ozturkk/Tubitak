@@ -92,7 +92,8 @@ class GenerationConfig:
         out: Dataset file the merged records are written to.
         review_dir: Directory the hard tier writes per-question groundedness
             reports to.
-        full: Run all three tiers instead of the official 20-question stage-1 set.
+        full: Write the pass to its own scratch file instead of the pilot
+            dataset; the generated content is identical either way.
         reviewer: Value written into every record's ``reviewers[]``.
         created_at: Fixed ``gold_provenance.created_at`` timestamp.
         easy: Easy-tier knobs.

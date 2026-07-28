@@ -46,6 +46,9 @@ DEFAULT_WORKSHEET = Path("/output/pilot/review/worksheet.csv")
 DEFAULT_REVIEW_LOG = Path("/output/pilot/review/review_events.json")
 DEFAULT_REPORT = Path("/output/pilot/validation_report.json")
 DEFAULT_SCHEMA = Path(__file__).parent / "question_schema.json"
+DEFAULT_MANIFEST = (
+    Path(__file__).parent.parent / "src" / "corpus" / "corpus_manifest.json"
+)
 
 COMMANDS = (
     "check-ollama",
@@ -54,6 +57,7 @@ COMMANDS = (
     "verify-answers",
     "review-export",
     "review-apply",
+    "export-analyzer",
 )
 
 
@@ -62,10 +66,10 @@ def _resolve_paths(args: argparse.Namespace) -> None:
 
     ``--dataset`` moves to its own file under ``--full``, unless the operator named
     a path explicitly. A full pass produces medium and hard records that leave
-    generation ``review_status=in_review``, and the default target is the official
-    stage-1 output whose twenty records are all ``verified``: writing one over the
-    other would replace a verified dataset with drafts, in place, with no copy of
-    what it replaced. Passing ``--dataset`` is still honoured, so overwriting stays
+    generation ``review_status=in_review``, and the default target is the pilot
+    dataset, whose model-drafted records a human may since have reviewed: writing
+    one over the other would replace reviewed gold with fresh drafts, in place,
+    with no copy of what it replaced. Passing ``--dataset`` is still honoured, so overwriting stays
     possible but has to be asked for.
 
     ``--questions`` is validate's input pattern list. Left unset it must be the
@@ -139,6 +143,7 @@ def _validate_tier_knobs(args: argparse.Namespace) -> None:
         "max_parallel_model_calls": args.max_parallel_model_calls,
         "target_total_questions": args.target_total_questions,
         "sql_limit": args.sql_limit,
+        "num_predict": args.num_predict,
     }
     for name, value in positive.items():
         if value is not None and value < 1:
@@ -177,7 +182,8 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
         "+ evidence checks, Sections 2/6), verify-answers (independent check: a model writes "
         "the SQL for each question and its result is compared to the gold answer), "
         "review-export (export in_review records to a CSV worksheet), review-apply (apply a "
-        "filled-in worksheet back onto the dataset)",
+        "filled-in worksheet back onto the dataset), export-analyzer (write the dataset in the "
+        "LLM Log Analyzer evaluation payload format)",
     )
 
     parser.add_argument(
@@ -205,8 +211,10 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--manifest",
         type=Path,
-        default=None,
-        help="corpus_manifest.json path, recorded alongside the corpus index for provenance",
+        default=DEFAULT_MANIFEST,
+        help="corpus_manifest.json path. validate uses it to require every pinned dataset "
+        "to be represented; export-analyzer uses it to name each dataset's corpus file in the "
+        "exported payload",
     )
     parser.add_argument(
         "--review_dir",
@@ -262,12 +270,21 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
         help="[review-apply] Where the updated dataset is written. Omit to overwrite --dataset "
         "in place",
     )
+    parser.add_argument(
+        "--export_out",
+        type=Path,
+        default=None,
+        help="[export-analyzer] Where the analyzer-format payload is written (dataclass "
+        "default /output/pilot/questions_analyzer.json)",
+    )
 
     parser.add_argument(
         "--full",
         action="store_true",
-        help="[generate] Run all three tiers (easy+medium+hard, needs Ollama) instead of the "
-        "default 20-question easy-only stage-1 set",
+        help="[generate] Same full three-tier pass, but written to its own file "
+        f"({DEFAULT_FULL_DATASET} unless --dataset overrides it) so an experimental run "
+        "never overwrites a pilot dataset whose model-drafted records a human has since "
+        "reviewed",
     )
     parser.add_argument(
         "--min_matches",
@@ -396,6 +413,20 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
         default=None,
         help="Sampling temperature for every model call; 0.0 keeps drafts reproducible "
         "(dataclass default 0.0)",
+    )
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=None,
+        help="Sampling seed sent with every model call; pinned so greedy decoding stays "
+        "deterministic across server restarts (dataclass default 7)",
+    )
+    parser.add_argument(
+        "--num_predict",
+        type=int,
+        default=None,
+        help="Token cap per model completion, bounding runaway drafts (dataclass "
+        "default 512)",
     )
 
     parser.add_argument(
