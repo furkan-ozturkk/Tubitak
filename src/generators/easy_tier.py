@@ -10,7 +10,10 @@ Three intents, and each is emitted under three phrasings of the same question, t
 satisfy the Section 2/7.4 rule that a deterministic intent must be reachable
 through at least three phrasing families. All three share one ``group_id``, so
 they cannot be split across dev and test — a paraphrase of a test question
-sitting in dev would be a leak.
+sitting in dev would be a leak. Every phrasing ships: generation no longer
+narrows to a first-phrasing subset, because a dataset holding one phrasing per
+intent cannot measure paraphrase robustness and fails the acceptance criteria
+it was built against.
 """
 
 import sys
@@ -51,6 +54,28 @@ LOOKUP_PHRASINGS = {
         ("imperative", "Give me the last line where '{literal}' appears."),
     ),
 }
+
+
+def presence_answer(count: int) -> str:
+    """Renders a presence question's gold answer from its recomputed count.
+
+    The verdict token ("Yes"/"No") leads and the match count follows in
+    parentheses. The count is there because the record's ``numeric_claims``
+    declares it, and the evaluation contract shared with the consumer requires
+    a declared numeric value to appear in ``expected_answer`` — a "Yes" that
+    hides its count asserts a number the answer text never shows. Scorers that
+    only need the verdict read the leading token; ``validate.py`` and
+    ``verify_answers.py`` both compare on exactly this rendering.
+
+    Args:
+        count: The recomputed number of matching lines.
+
+    Returns:
+        The gold answer text.
+    """
+    verdict = "Yes" if count > 0 else "No"
+    plural = "" if count == 1 else "s"
+    return f"{verdict} ({count} matching line{plural})"
 
 
 def count_matches(
@@ -126,7 +151,7 @@ def _build_count_or_presence(
     ]
 
     if kind == "presence":
-        answer_text = "Yes" if count > 0 else "No"
+        answer_text = presence_answer(count)
         answer_type = "presence"
         phrasings = PRESENCE_PHRASINGS
     else:
@@ -260,35 +285,3 @@ def build_easy_records(
         if built:
             records.extend(built)
     return records
-
-
-def select_official_easy(
-    easy_records: list[dict[str, Any]], dataset_keys: list[str]
-) -> list[dict[str, Any]]:
-    """Picks one first-phrasing count question per dataset key, in order.
-
-    Used to build the easy share of the mixed 7 easy + 7 medium + 6 hard
-    official set (``generate.py``'s ``select_official_mixed_set``), which
-    replaced the earlier all-easy 20-question set.
-
-    Args:
-        easy_records: Every easy-tier record produced this pass.
-        dataset_keys: Dataset keys, in the order they should appear.
-
-    Returns:
-        One record per key that has a matching count question.
-    """
-    by_id = {r["id"]: r for r in easy_records}
-    selected = []
-    for key in dataset_keys:
-        match = next(
-            (
-                rid
-                for rid in by_id
-                if rid.startswith(f"{key}_v1_count_") and rid.endswith("_0")
-            ),
-            None,
-        )
-        if match:
-            selected.append(by_id[match])
-    return selected

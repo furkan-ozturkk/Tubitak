@@ -11,40 +11,34 @@ the minimum line count are discarded, and the survivors are ranked by size with 
 key name breaking ties. Nothing is sampled, so the same corpus yields the same
 groups on every run (Section 2).
 
-Each group's evidence carries a deterministic feature summary — total lines, the
-cited window, and the first and last cited line — because the questions ask about
-volume, timing and an observation window while the prompt shows only the first few
-lines of each group. Handing the model four lines per side and asking which source
-is more anomalous invites an answer about a volume it cannot see; the summary states
-the counts explicitly so the comparison rests on something recorded.
+Each group's evidence block is exactly the cited lines plus a header naming the
+group and how many sample lines follow — nothing else. An earlier revision put the
+group's *total* match count, first line and last line in that header, and the
+drafted "syntheses" duly answered by reading the header: "80 lines versus 23, so
+the first source is more anomalous" is arithmetic over a number the evidence does
+not show and a black-box system under evaluation could not retrieve. The gold has
+to be derivable from the cited lines alone, so the header now states nothing the
+lines do not, the prompt forbids claims about unseen totals, and the question
+templates ask about the patterns in the shown samples rather than about absolute
+volume.
 
-The drafted answer is split into sentences and each one is checked independently by
-``groundedness_model``, a different family from the drafting model (Section 5.5/6).
-The report is written per question and its verdict is always
-``needs_human_review``: a second model's agreement is evidence for the reviewer,
-never a substitute for them. Both models' provenance is recorded, and a claim is
-linked to the group ids it could have come from rather than to one arbitrary line —
-the check does not resolve which line supports a claim, and naming one would assert
-a precision it did not establish.
+The drafted answer goes through the shared claim-by-claim groundedness check
+(``src.utils.helper_groundedness``): every sentence is judged independently by
+``groundedness_model``, a different family from the drafting model (Section
+5.5/6), and the per-question report's verdict is always ``needs_human_review``.
 """
 
 import re
 import sys
 from collections import defaultdict
-from pathlib import Path
 from typing import Any
 
 from src.data.data_factory import CorpusView
 from src.data.dataset_specs import DatasetSpec, HardGroupSpec
+from src.utils.helper_groundedness import check_claims, write_report
 from src.params.generation_params import GenerationConfig
-from src.utils.helper_evidence import (
-    evidence_ref,
-    gold_provenance,
-    slugify,
-    split_sentences,
-)
+from src.utils.helper_evidence import evidence_ref, gold_provenance, slugify
 from src.utils.helper_ollama import OllamaClient
-from src.utils.helper_run import write_json
 
 CREATED_BY = "src/generators/hard_tier.py@v1"
 
@@ -92,9 +86,12 @@ def _build_evidence_block(
 ) -> tuple[list[dict[str, Any]], str]:
     """Builds one group's evidence refs and the text block shown to the model.
 
-    The block opens with the group's deterministic feature summary and then the
-    cited lines. Refs and shown lines are cut to the same set, so the prompt cannot
-    contain a line the record does not cite.
+    The block opens with a header naming the group and the number of sample lines
+    that follow, then the cited lines — and nothing more. The group's total match
+    count is deliberately absent: stating it hands the model a comparison the
+    evidence itself does not support, and the gold answer must rest only on lines
+    the record cites (see the module docstring). Refs and shown lines are cut to
+    the same set, so the prompt cannot contain a line the record does not cite.
 
     Args:
         view: The dataset's corpus.
@@ -108,11 +105,7 @@ def _build_evidence_block(
     """
     cited = indices[: hard_spec.evidence_lines_per_group]
     refs = [evidence_ref(view.key, i + 1, view.lines[i], group_id) for i in cited]
-    summary = (
-        f"[Group: {key}] total_matching_lines={len(indices)} "
-        f"shown={len(cited)} "
-        f"first_line={indices[0] + 1} last_line={indices[-1] + 1}"
-    )
+    summary = f"[Group: {key}] {len(cited)} sample lines:"
     body = "\n".join(view.lines[i] for i in cited)
     return refs, f"{summary}\n{body}"
 
@@ -138,52 +131,15 @@ def _build_prompt(
     """
     return (
         f"You are analyzing raw {dataset_name} log lines from {group_count} related event "
-        "groups. Each group starts with a header stating how many lines it has in total and "
-        "which of them are shown. Read ONLY the evidence below; do not speculate about "
-        "anything not shown, and when comparing volume use the stated totals rather than the "
-        f"number of lines displayed. Write an answer of at least {min_sentences} sentences "
-        "that correlates the groups, explicitly uses facts from every group, and proposes a "
-        "root-cause hypothesis.\n\n"
+        "groups. Each group is a header naming the group followed by its sample lines. "
+        "Read ONLY the evidence below. Do not speculate about anything not shown, and do "
+        "not claim totals, counts or frequencies beyond the sample lines you can see — "
+        "compare the groups by the timing, actors and event patterns visible in those "
+        f"lines. Write an answer of at least {min_sentences} sentences that correlates "
+        "the groups, explicitly uses facts from every group, and proposes a root-cause "
+        "hypothesis.\n\n"
         f"QUESTION: {question_text}\n\nEVIDENCE:\n{evidence_text}\n\nAnswer:"
     )
-
-
-def _run_groundedness_check(
-    client: OllamaClient,
-    answer_text: str,
-    evidence_text: str,
-    group_ids: list[str],
-) -> tuple[list[dict[str, Any]], dict[str, Any] | None]:
-    """Checks each sentence of the drafted answer against the evidence.
-
-    ``candidate_group_ids`` holds the groups a claim could have drawn on, not the
-    line that supports it. The check returns a verdict on the whole evidence block
-    and does not identify a supporting line, so an unsupported claim carries no
-    groups at all and a supported one carries every group it was shown.
-
-    Args:
-        client: Ollama client; the check always runs on ``groundedness_model``.
-        answer_text: The drafted gold answer.
-        evidence_text: The evidence the answer had to be derived from.
-        group_ids: The question's evidence group ids.
-
-    Returns:
-        Tuple ``(claims, reviewer_model)``, the second being the reviewing model's
-        provenance block, or ``None`` when the answer held no claims.
-    """
-    claims: list[dict[str, Any]] = []
-    reviewer_model: dict[str, Any] | None = None
-    for claim in split_sentences(answer_text):
-        verdict, result = client.groundedness_check(claim, evidence_text)
-        reviewer_model = result["model"]
-        claims.append(
-            {
-                "text": claim,
-                "supported": verdict,
-                "candidate_group_ids": [] if verdict == "no" else list(group_ids),
-            }
-        )
-    return claims, reviewer_model
 
 
 def build_hard_records(
@@ -251,19 +207,16 @@ def build_hard_records(
         answer_text = draft["text"]
 
         question_id = f"{view.key}_v1_hard_{hard_spec.spec_id}"
-        claims, reviewer_model = _run_groundedness_check(
+        claims, reviewer_model = check_claims(
             client, answer_text, evidence_text, group_ids
         )
-        write_json(
-            Path(config.review_dir) / f"{question_id}.json",
-            {
-                "question_id": question_id,
-                "group_ids": group_ids,
-                "draft_model": draft["model"],
-                "reviewer_model": reviewer_model,
-                "claims": claims,
-                "verdict": "needs_human_review",
-            },
+        write_report(
+            config.review_dir,
+            question_id,
+            group_ids,
+            draft["model"],
+            reviewer_model,
+            claims,
         )
 
         records.append(

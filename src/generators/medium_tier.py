@@ -5,6 +5,16 @@ generation as ``review_status=in_review``: the gold answer is a draft by
 ``gold_draft_model``, and only a human accept/edit through
 ``src.utils.helper_review`` can promote it to ``verified``.
 
+Every draft goes through the same claim-by-claim groundedness check as the hard
+tier (``src.utils.helper_groundedness``): each sentence is judged by
+``groundedness_model`` — a different family from the drafting model — and the
+per-question report lands in ``review_dir`` where the review worksheet
+summarises it and ``review-apply`` refuses an ``accept`` over an unsupported
+claim. The tier used to skip this check on the argument that a single-window
+explanation is low-risk; the hard tier's reports showed the drafting model
+over-reaching on exactly this kind of excerpt, so "low-risk" was an assumption
+doing a reviewer's job.
+
 Evidence is a contiguous window starting at an anchor occurrence, capped at
 ``MediumTierParams.window_size``, and the drafting prompt is explicit that
 nothing outside that window may be used. The cap is not a token-budget
@@ -17,11 +27,71 @@ from typing import Any
 
 from src.data.data_factory import CorpusView
 from src.data.dataset_specs import DatasetSpec
+from src.utils.helper_groundedness import check_claims, write_report
 from src.params.generation_params import GenerationConfig, MediumTierParams
 from src.utils.helper_evidence import evidence_ref, gold_provenance, slugify
 from src.utils.helper_ollama import OllamaClient
 
 CREATED_BY = "src/generators/medium_tier.py@v1"
+
+ORDINALS = (
+    "first",
+    "second",
+    "third",
+    "fourth",
+    "fifth",
+    "sixth",
+    "seventh",
+    "eighth",
+    "ninth",
+    "tenth",
+)
+
+
+def _ordinal(number: int) -> str:
+    """Returns the English ordinal for a 1-based number.
+
+    Args:
+        number: 1-based ordinal number.
+
+    Returns:
+        ``"first"`` through ``"tenth"`` as words, ``"41st"``-style beyond.
+    """
+    if 1 <= number <= len(ORDINALS):
+        return ORDINALS[number - 1]
+    if 10 <= number % 100 <= 13:
+        suffix = "th"
+    else:
+        suffix = {1: "st", 2: "nd", 3: "rd"}.get(number % 10, "th")
+    return f"{number}{suffix}"
+
+
+def _question_text(dataset_name: str, anchor: str, match_number: int) -> str:
+    """Renders one medium question's text.
+
+    The anchor literal and the match ordinal are part of the question on
+    purpose. The earlier phrasing — "Looking at these lines, what happened?" —
+    was deictic: it named no searchable event, so a system evaluated black-box
+    had nothing to retrieve by, and two occurrences from one dataset shared one
+    question string, which downstream integrity checks rightly flag as a
+    duplicate input. Naming the anchor makes the question self-contained; the
+    ordinal names which real occurrence of the anchor the window starts at
+    (picks are strided across the match list, so this is the match's true
+    position, not the pick's index).
+
+    Args:
+        dataset_name: Dataset the excerpt came from.
+        anchor: The curated anchor literal.
+        match_number: 1-based position of the window's anchor within every
+            match of the anchor in the file.
+
+    Returns:
+        The question text.
+    """
+    return (
+        f"In the {dataset_name} log, around the {_ordinal(match_number)} occurrence "
+        f"of '{anchor}': what happened and what does it mean?"
+    )
 
 
 def _find_matches(lines: list[str], literal: str) -> list[int]:
@@ -81,25 +151,27 @@ def _build_prompt(dataset_name: str, evidence_lines: list[str]) -> str:
 
 def _pick_anchor_occurrences(
     match_indices: list[int], params: MediumTierParams
-) -> list[int]:
+) -> list[tuple[int, int]]:
     """Spreads the requested number of picks across the matches.
 
     Consecutive matches are usually one burst of the same event, so drafting from
     the first N of them would produce N near-identical questions over overlapping
     windows. Striding across the match list instead gives each question its own
-    region of the file.
+    region of the file. Each pick carries its 1-based position within the match
+    list because the question text names that ordinal, and the pick's index would
+    be the wrong number: pick #2 under a stride of 40 is the 41st match.
 
     Args:
         match_indices: Every anchor match, ascending.
         params: Medium-tier knobs; ``questions_per_dataset`` is the target count.
 
     Returns:
-        Up to ``questions_per_dataset`` anchor indices.
+        Up to ``questions_per_dataset`` pairs of ``(match_number, line_index)``.
     """
     step = max(1, len(match_indices) // params.questions_per_dataset)
     picks = []
     for i in range(0, len(match_indices), step):
-        picks.append(match_indices[i])
+        picks.append((i + 1, match_indices[i]))
         if len(picks) >= params.questions_per_dataset:
             break
     return picks
@@ -142,7 +214,7 @@ def build_medium_records(
 
     slug = slugify(spec.medium_anchor_literal)
     records = []
-    for occurrence, start_idx in enumerate(
+    for occurrence, (match_number, start_idx) in enumerate(
         _pick_anchor_occurrences(match_indices, params)
     ):
         window_indices = _evidence_window(view.lines, start_idx, params.window_size)
@@ -155,11 +227,24 @@ def build_medium_records(
 
         draft = client.draft(_build_prompt(view.name, evidence_lines))
 
+        question_id = f"{view.key}_v1_semantic_{slug}_{occurrence}"
+        claims, reviewer_model = check_claims(
+            client, draft["text"], "\n".join(evidence_lines), [group_id]
+        )
+        write_report(
+            config.review_dir,
+            question_id,
+            [group_id],
+            draft["model"],
+            reviewer_model,
+            claims,
+        )
+
         records.append(
             {
-                "id": f"{view.key}_v1_semantic_{slug}_{occurrence}",
-                "question": (
-                    f"Looking at these {view.name} log lines, what happened and what does it mean?"
+                "id": question_id,
+                "question": _question_text(
+                    view.name, spec.medium_anchor_literal, match_number
                 ),
                 "routing_path": "semantic",
                 "answer_type": "explanation",
@@ -181,6 +266,6 @@ def build_medium_records(
         )
         print(
             f"  [{view.name}] drafted semantic question {occurrence} "
-            f"({len(evidence_lines)} evidence lines)"
+            f"({len(evidence_lines)} evidence lines, {len(claims)} claims checked)"
         )
     return records

@@ -10,6 +10,16 @@ match counts are recomputed against Postgres at generation time, and any
 candidate with too few matches is pruned automatically, which is what makes a
 generous candidate list safe (Section 3.2): an over-optimistic literal costs a
 pruned question, never a wrong answer.
+
+Two hard-tier curation decisions worth their history. ``HDFS`` carries no
+``hard_groups``: in the 2k sample no block id appears on more than two lines, so
+any block-vs-block "correlation" question would rest on two lines per side —
+measured, not assumed, and the reason the earlier ``block_lifecycle_compare``
+spec (``min_lines_per_group=2``) was retired rather than relaxed further.
+``BGL``'s spec keys groups by compute-node id, not by error-message text: an
+earlier revision grouped on the message literals themselves, which made the two
+"entities" two phrasings of the question and collided with the easy tier's count
+literal. The node ids give real entities with 30–60 matching lines each.
 """
 
 from dataclasses import dataclass
@@ -126,11 +136,12 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
                 extract_key_regex=r"rhost=(?P<key>[0-9A-Za-z\.\-]+)",
                 min_lines_per_group=5,
                 num_groups=2,
-                evidence_lines_per_group=4,
+                evidence_lines_per_group=6,
                 question_template=(
                     "Compare the SSH authentication attempts coming from {key0} and "
-                    "{key1}: contrast their volume and timing. Which source looks more "
-                    "anomalous, and what is your root-cause hypothesis?"
+                    "{key1}: contrast their timing and the accounts they target. "
+                    "Which source looks more anomalous, and what is your root-cause "
+                    "hypothesis?"
                 ),
             ),
         ),
@@ -166,21 +177,6 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
         presence_literals=(LiteralSpec("Exception"),),
         lookup_specs=(LookupSpec("addStoredBlock", position="first"),),
         medium_anchor_literal="addStoredBlock",
-        hard_groups=(
-            HardGroupSpec(
-                spec_id="block_lifecycle_compare",
-                task="Correlation",
-                extract_key_regex=r"(?P<key>blk_-?\d+)",
-                min_lines_per_group=2,
-                num_groups=2,
-                evidence_lines_per_group=4,
-                question_template=(
-                    "Compare the lifecycle events recorded for block {key0} and block "
-                    "{key1}. Correlate the sequence of events for each block and explain "
-                    "whether either one shows an unusual replication/termination pattern."
-                ),
-            ),
-        ),
     ),
     "OpenSSH": DatasetSpec(
         name="OpenSSH",
@@ -196,7 +192,7 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
                 extract_key_regex=r"from (?P<key>[0-9]{1,3}(?:\.[0-9]{1,3}){3})",
                 min_lines_per_group=5,
                 num_groups=2,
-                evidence_lines_per_group=4,
+                evidence_lines_per_group=6,
                 question_template=(
                     "Compare the attack patterns from source {key0} and source {key1} "
                     "(target accounts, request cadence, outcome). Which one is the more "
@@ -216,16 +212,19 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
         medium_anchor_literal="instruction cache parity error corrected",
         hard_groups=(
             HardGroupSpec(
-                spec_id="hardware_error_chain",
+                spec_id="node_error_compare",
                 task="RootCauseAnalysis",
-                extract_key_regex=r"(?P<key>double-hummer alignment exceptions|instruction cache parity error corrected)",
+                extract_key_regex=(
+                    r"(?P<key>R\d{2}-M\d-N[0-9A-F]+-[A-Z]:J\d{2}-U\d{2})"
+                ),
                 min_lines_per_group=5,
                 num_groups=2,
-                evidence_lines_per_group=4,
+                evidence_lines_per_group=6,
                 question_template=(
-                    "Correlate the occurrences of '{key0}' and '{key1}' across the "
-                    "observation window. Propose a root-cause hypothesis for why this "
-                    "supercomputer node is showing both error types."
+                    "Compare the RAS events logged for compute node {key0} and node "
+                    "{key1}. Correlate the error patterns each node shows and propose "
+                    "a root-cause hypothesis for the node whose behavior looks more "
+                    "anomalous."
                 ),
             ),
         ),
@@ -244,7 +243,7 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
                 extract_key_regex=r"(?P<key>container_[0-9_]+)",
                 min_lines_per_group=3,
                 num_groups=2,
-                evidence_lines_per_group=4,
+                evidence_lines_per_group=6,
                 question_template=(
                     "Correlate the task events logged for {key0} and {key1}. Do their "
                     "event sequences suggest a normal execution, or does one of them show "
@@ -267,7 +266,7 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
                 extract_key_regex=r"myid=(?P<key>\d+)",
                 min_lines_per_group=5,
                 num_groups=2,
-                evidence_lines_per_group=4,
+                evidence_lines_per_group=6,
                 question_template=(
                     "Compare the coordination activity logged for ensemble member myid={key0} "
                     "and myid={key1}. Correlate their event sequences and explain whether "
