@@ -47,6 +47,10 @@ class ReviewApplyConfig:
         reviewer: Identity appended to each decided record's ``reviewers`` list and
             recorded in every review event.
         event_log: Append-only JSON log of review decisions.
+        review_dir: Directory of per-question groundedness reports. Apply reads
+            them to refuse an ``accept`` on a record whose draft holds a claim
+            the groundedness model marked unsupported — such a record needs an
+            ``edit`` or a ``reject``, not a pass-through.
     """
 
     dataset: Path
@@ -54,6 +58,7 @@ class ReviewApplyConfig:
     out: Path
     reviewer: str = DEFAULT_REVIEWER
     event_log: Path = Path("/output/pilot/review/review_events.json")
+    review_dir: Path | None = None
 
 
 def get_review_export_params(args: Any) -> ReviewExportConfig:
@@ -90,4 +95,5 @@ def get_review_apply_params(args: Any) -> ReviewApplyConfig:
         event_log=(
             ReviewApplyConfig.event_log if args.review_log is None else args.review_log
         ),
+        review_dir=args.review_dir,
     )
