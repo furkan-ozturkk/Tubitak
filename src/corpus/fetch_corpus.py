@@ -61,6 +61,25 @@ MAX_DOWNLOAD_BYTES = 64 * 1024 * 1024
 MIN_PLAUSIBLE_LINES = 3
 
 
+def corpus_lines(data: bytes) -> list[str]:
+    """Splits corpus bytes into lines using the shared line contract.
+
+    Mirrors ``src.data.corpus_loader.lines_from_bytes`` without importing it —
+    this script runs in the loghub container, which has no ``src`` package.
+    The contract is ``str.splitlines()`` so that CRLF endings (which the LogHub
+    2k files use) never leak a ``\\r`` into a stored line, its hash, or the
+    evaluation harness that re-reads the same files. ``tests/test_line_contract.py``
+    asserts the two implementations stay identical.
+
+    Args:
+        data: Raw bytes of a ``*_2k.log`` file.
+
+    Returns:
+        The file's lines, without terminators. Index ``i`` is line ``i + 1``.
+    """
+    return data.decode("utf-8", errors="replace").splitlines()
+
+
 def sha256_of_bytes(data: bytes) -> str:
     """Returns the hex SHA-256 of a byte string.
 
@@ -287,10 +306,7 @@ def load_into_postgres(output_dir: Path, manifest: dict, pg_config: dict) -> Non
                     local_path = resolve_local_path(
                         output_dir, dataset["local_filename"]
                     )
-                    text = local_path.read_bytes().decode("utf-8", errors="replace")
-                    file_lines = text.split("\n")
-                    if file_lines and file_lines[-1] == "":
-                        file_lines = file_lines[:-1]
+                    file_lines = corpus_lines(local_path.read_bytes())
 
                     cursor.execute(
                         "DELETE FROM lines WHERE dataset = %s", (dataset_key,)
@@ -470,7 +486,7 @@ def main() -> int:
             source_desc = "freshly downloaded"
 
         digest = sha256_of_bytes(data)
-        line_count = data.count(b"\n") + (1 if data and not data.endswith(b"\n") else 0)
+        line_count = len(corpus_lines(data))
 
         if line_count < MIN_PLAUSIBLE_LINES:
             print(

@@ -16,7 +16,18 @@ from pathlib import Path
 
 
 def lines_from_bytes(data: bytes) -> list[str]:
-    """Splits corpus bytes into lines, dropping a single trailing newline.
+    """Splits corpus bytes into lines using the shared line contract.
+
+    The contract is ``str.splitlines()`` — the LogHub 2k files use CRLF line
+    endings, and ``splitlines()`` strips the ``\\r`` so a line's text and its
+    hash never depend on the file's terminator style. The consumer of this
+    dataset (the LLM Log Analyzer evaluation harness) reads the same files with
+    ``splitlines()``, so any other split here would make every ``line_hash``
+    and evidence ``id`` this project writes unverifiable on that side. The same
+    contract is mirrored, without an import, in
+    ``src/corpus/fetch_corpus.py::corpus_lines`` (that script runs in the
+    loghub container and may not import from ``src``), and
+    ``tests/test_line_contract.py`` asserts the two stay identical.
 
     Decoding is lossy on purpose. LogHub files carry raw bytes from real systems,
     and a decode error must not be able to stop a run over a file that already
@@ -28,11 +39,7 @@ def lines_from_bytes(data: bytes) -> list[str]:
     Returns:
         The file's lines, without terminators. Index ``i`` is line ``i + 1``.
     """
-    text = data.decode("utf-8", errors="replace")
-    lines = text.split("\n")
-    if lines and lines[-1] == "":
-        lines = lines[:-1]
-    return lines
+    return data.decode("utf-8", errors="replace").splitlines()
 
 
 def load_lines(log_path: Path) -> list[str]:
