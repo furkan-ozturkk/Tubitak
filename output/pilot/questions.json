@@ -7,7 +7,6 @@
     "task": "Aggregation",
     "difficulty": "easy",
     "phrasing_family": "how-many",
-    "split": "dev",
     "review_status": "verified",
     "reviewers": [
       "faz1_pilot_script"
@@ -62,48 +61,8 @@
           "group_id": "linux:count:authentication_failure"
         }
       ]
-    }
-  },
-  {
-    "id": "linux_v1_presence_invalid_user_0",
-    "question": "Does the log contain any line with 'Invalid user'?",
-    "routing_path": "sql",
-    "answer_type": "presence",
-    "task": "Aggregation",
-    "difficulty": "easy",
-    "phrasing_family": "how-many",
-    "split": "test",
-    "review_status": "verified",
-    "reviewers": [
-      "faz1_pilot_script"
-    ],
-    "expected_answer": "No",
-    "gold_provenance": {
-      "method": "deterministic_aggregation",
-      "created_by": "src/generators/easy_tier.py@v1",
-      "created_at": "2026-08-01T00:00:00Z",
-      "corpus_sha256": "sha256:b3e20bc1afe732ab1bf3ed1de4bf9c809e4194e02f7dea911d918e5342e8e173"
     },
-    "numeric_claims": [
-      {
-        "value": 0,
-        "query": {
-          "operator": "count_literal",
-          "literal": "Invalid user",
-          "case_sensitive": false
-        }
-      }
-    ],
-    "evidence": {
-      "refs": [
-        {
-          "id": "linux:line:00000001:7c5641a6bf9d4b23",
-          "line_number": 1,
-          "line_hash": "sha256:7c5641a6bf9d4b23528e1acff86e81c35238cafa8bfdeed4cca35ed38ea47d37",
-          "group_id": "linux:presence:invalid_user"
-        }
-      ]
-    }
+    "split": "dev"
   },
   {
     "id": "apache_v1_count_notice_0",
@@ -113,7 +72,6 @@
     "task": "Aggregation",
     "difficulty": "easy",
     "phrasing_family": "how-many",
-    "split": "dev",
     "review_status": "verified",
     "reviewers": [
       "faz1_pilot_script"
@@ -168,72 +126,8 @@
           "group_id": "apache:count:notice"
         }
       ]
-    }
-  },
-  {
-    "id": "apache_v1_presence_mod_jk_0",
-    "question": "Does the log contain any line with 'mod_jk'?",
-    "routing_path": "sql",
-    "answer_type": "presence",
-    "task": "Aggregation",
-    "difficulty": "easy",
-    "phrasing_family": "how-many",
-    "split": "dev",
-    "review_status": "verified",
-    "reviewers": [
-      "faz1_pilot_script"
-    ],
-    "expected_answer": "Yes",
-    "gold_provenance": {
-      "method": "deterministic_aggregation",
-      "created_by": "src/generators/easy_tier.py@v1",
-      "created_at": "2026-08-01T00:00:00Z",
-      "corpus_sha256": "sha256:c7efa3eb686e3a96bd2f8f4457b2a7887e9cf2f3649327f1b4e87af841363ce8"
     },
-    "numeric_claims": [
-      {
-        "value": 551,
-        "query": {
-          "operator": "count_literal",
-          "literal": "mod_jk",
-          "case_sensitive": false
-        }
-      }
-    ],
-    "evidence": {
-      "refs": [
-        {
-          "id": "apache:line:00000002:96e6755838d22b1f",
-          "line_number": 2,
-          "line_hash": "sha256:96e6755838d22b1f8f3979e2c18d9ae9ce994e12f66931bcbb2c7d38cdb8611d",
-          "group_id": "apache:presence:mod_jk"
-        },
-        {
-          "id": "apache:line:00000009:f4ac7f9bf686396b",
-          "line_number": 9,
-          "line_hash": "sha256:f4ac7f9bf686396b032a2d22a568490f44a893b7fac6c4017f83e9664c120d5e",
-          "group_id": "apache:presence:mod_jk"
-        },
-        {
-          "id": "apache:line:00000010:f4ac7f9bf686396b",
-          "line_number": 10,
-          "line_hash": "sha256:f4ac7f9bf686396b032a2d22a568490f44a893b7fac6c4017f83e9664c120d5e",
-          "group_id": "apache:presence:mod_jk"
-        },
-        {
-          "id": "apache:line:00000011:f4ac7f9bf686396b",
-          "line_number": 11,
-          "line_hash": "sha256:f4ac7f9bf686396b032a2d22a568490f44a893b7fac6c4017f83e9664c120d5e",
-          "group_id": "apache:presence:mod_jk"
-        },
-        {
-          "id": "apache:line:00000017:3a29718733c1c356",
-          "line_number": 17,
-          "line_hash": "sha256:3a29718733c1c356bbbc104f2e1d108f1a1f71067672b5a717a93b8429049262",
-          "group_id": "apache:presence:mod_jk"
-        }
-      ]
-    }
+    "split": "dev"
   },
   {
     "id": "windows_v1_count_cbs_0",
@@ -243,7 +137,6 @@
     "task": "Aggregation",
     "difficulty": "easy",
     "phrasing_family": "how-many",
-    "split": "dev",
     "review_status": "verified",
     "reviewers": [
       "faz1_pilot_script"
@@ -298,54 +191,8 @@
           "group_id": "windows:count:cbs"
         }
       ]
-    }
-  },
-  {
-    "id": "windows_v1_presence_error_0",
-    "question": "Does the log contain any line with 'Error'?",
-    "routing_path": "sql",
-    "answer_type": "presence",
-    "task": "Aggregation",
-    "difficulty": "easy",
-    "phrasing_family": "how-many",
-    "split": "dev",
-    "review_status": "verified",
-    "reviewers": [
-      "faz1_pilot_script"
-    ],
-    "expected_answer": "Yes",
-    "gold_provenance": {
-      "method": "deterministic_aggregation",
-      "created_by": "src/generators/easy_tier.py@v1",
-      "created_at": "2026-08-01T00:00:00Z",
-      "corpus_sha256": "sha256:372fb809464a6d6016e599e9272d7cf1e8b644f25c90c7f76f19c936362456d0"
     },
-    "numeric_claims": [
-      {
-        "value": 2,
-        "query": {
-          "operator": "count_literal",
-          "literal": "Error",
-          "case_sensitive": false
-        }
-      }
-    ],
-    "evidence": {
-      "refs": [
-        {
-          "id": "windows:line:00000936:89453ee3d5e61521",
-          "line_number": 936,
-          "line_hash": "sha256:89453ee3d5e615218678749add6c547d94e8add3ad0d451f56dd7e3f2d24af30",
-          "group_id": "windows:presence:error"
-        },
-        {
-          "id": "windows:line:00001103:91a6583e8256911d",
-          "line_number": 1103,
-          "line_hash": "sha256:91a6583e8256911d2db1152a64eeb066b2f6fd35b1e0df50521a8fc47560b760",
-          "group_id": "windows:presence:error"
-        }
-      ]
-    }
+    "split": "dev"
   },
   {
     "id": "mac_v1_count_kernel_0",
@@ -355,7 +202,6 @@
     "task": "Aggregation",
     "difficulty": "easy",
     "phrasing_family": "how-many",
-    "split": "dev",
     "review_status": "verified",
     "reviewers": [
       "faz1_pilot_script"
@@ -410,72 +256,8 @@
           "group_id": "mac:count:kernel"
         }
       ]
-    }
-  },
-  {
-    "id": "mac_v1_presence_thermal_pressure_0",
-    "question": "Does the log contain any line with 'Thermal pressure'?",
-    "routing_path": "sql",
-    "answer_type": "presence",
-    "task": "Aggregation",
-    "difficulty": "easy",
-    "phrasing_family": "how-many",
-    "split": "dev",
-    "review_status": "verified",
-    "reviewers": [
-      "faz1_pilot_script"
-    ],
-    "expected_answer": "Yes",
-    "gold_provenance": {
-      "method": "deterministic_aggregation",
-      "created_by": "src/generators/easy_tier.py@v1",
-      "created_at": "2026-08-01T00:00:00Z",
-      "corpus_sha256": "sha256:d9ea495488728d8c989dc942fca3324a3cc7b19b0a6f409a5fd568ad547fd931"
     },
-    "numeric_claims": [
-      {
-        "value": 39,
-        "query": {
-          "operator": "count_literal",
-          "literal": "Thermal pressure",
-          "case_sensitive": false
-        }
-      }
-    ],
-    "evidence": {
-      "refs": [
-        {
-          "id": "mac:line:00000002:c863f1cb8f3f5182",
-          "line_number": 2,
-          "line_hash": "sha256:c863f1cb8f3f5182f44f4a7b3e86eff448297269a6151b82086add805dd59f01",
-          "group_id": "mac:presence:thermal_pressure"
-        },
-        {
-          "id": "mac:line:00000034:c8b3cd27cc1aa33e",
-          "line_number": 34,
-          "line_hash": "sha256:c8b3cd27cc1aa33e7ec775d6355d9eb73a0a01529961cb72530dbdea8f79a3c8",
-          "group_id": "mac:presence:thermal_pressure"
-        },
-        {
-          "id": "mac:line:00000061:b3093c99aa6a5a23",
-          "line_number": 61,
-          "line_hash": "sha256:b3093c99aa6a5a236906bfd5d655166a6723d8e3c364b2a7d27b910c5645caef",
-          "group_id": "mac:presence:thermal_pressure"
-        },
-        {
-          "id": "mac:line:00000069:fac411173f0d311c",
-          "line_number": 69,
-          "line_hash": "sha256:fac411173f0d311ca3c218a07cf04aac9b932a31db505526903807d0985d8950",
-          "group_id": "mac:presence:thermal_pressure"
-        },
-        {
-          "id": "mac:line:00000158:21d424afbeb46cc6",
-          "line_number": 158,
-          "line_hash": "sha256:21d424afbeb46cc6c7c3460c95f65e33d827504bf66bd12ee682870659ef2501",
-          "group_id": "mac:presence:thermal_pressure"
-        }
-      ]
-    }
+    "split": "dev"
   },
   {
     "id": "hdfs_v1_count_packetresponder_0",
@@ -485,7 +267,6 @@
     "task": "Aggregation",
     "difficulty": "easy",
     "phrasing_family": "how-many",
-    "split": "dev",
     "review_status": "verified",
     "reviewers": [
       "faz1_pilot_script"
@@ -540,72 +321,8 @@
           "group_id": "hdfs:count:packetresponder"
         }
       ]
-    }
-  },
-  {
-    "id": "hdfs_v1_presence_exception_0",
-    "question": "Does the log contain any line with 'Exception'?",
-    "routing_path": "sql",
-    "answer_type": "presence",
-    "task": "Aggregation",
-    "difficulty": "easy",
-    "phrasing_family": "how-many",
-    "split": "dev",
-    "review_status": "verified",
-    "reviewers": [
-      "faz1_pilot_script"
-    ],
-    "expected_answer": "Yes",
-    "gold_provenance": {
-      "method": "deterministic_aggregation",
-      "created_by": "src/generators/easy_tier.py@v1",
-      "created_at": "2026-08-01T00:00:00Z",
-      "corpus_sha256": "sha256:7c967000980c086ed55fa6544ba4f05fe66d44622795e890c68caf8bbb635035"
     },
-    "numeric_claims": [
-      {
-        "value": 80,
-        "query": {
-          "operator": "count_literal",
-          "literal": "Exception",
-          "case_sensitive": false
-        }
-      }
-    ],
-    "evidence": {
-      "refs": [
-        {
-          "id": "hdfs:line:00000078:a3d59c11130eed42",
-          "line_number": 78,
-          "line_hash": "sha256:a3d59c11130eed42e6e5fb0d3d745dedf91ccb4598b3db0d9eedbd72cc83a95a",
-          "group_id": "hdfs:presence:exception"
-        },
-        {
-          "id": "hdfs:line:00000079:8e52085a9dcfa8ba",
-          "line_number": 79,
-          "line_hash": "sha256:8e52085a9dcfa8ba3b4526e16276c9d2e0aaf72f92c77eaa910fc0a7a36d5d71",
-          "group_id": "hdfs:presence:exception"
-        },
-        {
-          "id": "hdfs:line:00000081:ec2e4946af03f7b0",
-          "line_number": 81,
-          "line_hash": "sha256:ec2e4946af03f7b06d8b55682144f061674d6826b6592ea5699146e2f57e6d40",
-          "group_id": "hdfs:presence:exception"
-        },
-        {
-          "id": "hdfs:line:00000082:a15ca4ac09eb2ab4",
-          "line_number": 82,
-          "line_hash": "sha256:a15ca4ac09eb2ab416938e1d0d7ea33f651ec4ac823b9c7341288369bbdb831d",
-          "group_id": "hdfs:presence:exception"
-        },
-        {
-          "id": "hdfs:line:00000084:fefcd2d3b9e0e24a",
-          "line_number": 84,
-          "line_hash": "sha256:fefcd2d3b9e0e24acff02c7f87303e6d12e5fad365d05ea9968d9b5334f14c13",
-          "group_id": "hdfs:presence:exception"
-        }
-      ]
-    }
+    "split": "dev"
   },
   {
     "id": "openssh_v1_count_failed_password_0",
@@ -615,7 +332,6 @@
     "task": "Aggregation",
     "difficulty": "easy",
     "phrasing_family": "how-many",
-    "split": "dev",
     "review_status": "verified",
     "reviewers": [
       "faz1_pilot_script"
@@ -670,72 +386,8 @@
           "group_id": "openssh:count:failed_password"
         }
       ]
-    }
-  },
-  {
-    "id": "openssh_v1_presence_possible_break_in_attempt_0",
-    "question": "Does the log contain any line with 'POSSIBLE BREAK-IN ATTEMPT'?",
-    "routing_path": "sql",
-    "answer_type": "presence",
-    "task": "Aggregation",
-    "difficulty": "easy",
-    "phrasing_family": "how-many",
-    "split": "dev",
-    "review_status": "verified",
-    "reviewers": [
-      "faz1_pilot_script"
-    ],
-    "expected_answer": "Yes",
-    "gold_provenance": {
-      "method": "deterministic_aggregation",
-      "created_by": "src/generators/easy_tier.py@v1",
-      "created_at": "2026-08-01T00:00:00Z",
-      "corpus_sha256": "sha256:1e4912727fa88245113d41b16a0cd25ceadba7f931e1c406542885b91254264f"
     },
-    "numeric_claims": [
-      {
-        "value": 85,
-        "query": {
-          "operator": "count_literal",
-          "literal": "POSSIBLE BREAK-IN ATTEMPT",
-          "case_sensitive": false
-        }
-      }
-    ],
-    "evidence": {
-      "refs": [
-        {
-          "id": "openssh:line:00000001:67a67a97134aa89a",
-          "line_number": 1,
-          "line_hash": "sha256:67a67a97134aa89a05433857bfa69d0f4b50ffd6398392b6f4aa4d163774a8a5",
-          "group_id": "openssh:presence:possible_break_in_attempt"
-        },
-        {
-          "id": "openssh:line:00000015:aa479843f85439de",
-          "line_number": 15,
-          "line_hash": "sha256:aa479843f85439de91359282a2e0f84dc1d602ad669d3db855a88cfa94fc3bee",
-          "group_id": "openssh:presence:possible_break_in_attempt"
-        },
-        {
-          "id": "openssh:line:00000147:a4fdbd93eb077432",
-          "line_number": 147,
-          "line_hash": "sha256:a4fdbd93eb077432f064e56d657068a1d7b36c72632189a236732b8248f68a4a",
-          "group_id": "openssh:presence:possible_break_in_attempt"
-        },
-        {
-          "id": "openssh:line:00000152:7ce7db2e62cdf5b3",
-          "line_number": 152,
-          "line_hash": "sha256:7ce7db2e62cdf5b32b1e01fd635b9e8a37f9b19e870255fab73111a2c7c672d5",
-          "group_id": "openssh:presence:possible_break_in_attempt"
-        },
-        {
-          "id": "openssh:line:00000159:4798d7579d3309d9",
-          "line_number": 159,
-          "line_hash": "sha256:4798d7579d3309d973dbacc5990038805b256e956a4fd7340d2c65b0d785d45f",
-          "group_id": "openssh:presence:possible_break_in_attempt"
-        }
-      ]
-    }
+    "split": "dev"
   },
   {
     "id": "bgl_v1_count_double_hummer_alignment_exceptions_0",
@@ -745,7 +397,6 @@
     "task": "Aggregation",
     "difficulty": "easy",
     "phrasing_family": "how-many",
-    "split": "test",
     "review_status": "verified",
     "reviewers": [
       "faz1_pilot_script"
@@ -800,437 +451,1010 @@
           "group_id": "bgl:count:double_hummer_alignment_exceptions"
         }
       ]
-    }
+    },
+    "split": "test"
   },
   {
-    "id": "bgl_v1_presence_kerndtlb_0",
-    "question": "Does the log contain any line with 'KERNDTLB'?",
-    "routing_path": "sql",
-    "answer_type": "presence",
-    "task": "Aggregation",
-    "difficulty": "easy",
-    "phrasing_family": "how-many",
-    "split": "dev",
-    "review_status": "verified",
+    "id": "hadoop_v1_semantic_mrappmaster_0",
+    "question": "Looking at these Hadoop log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "review_status": "in_review",
     "reviewers": [
       "faz1_pilot_script"
     ],
-    "expected_answer": "Yes",
+    "expected_answer": "The excerpt shows that a MapReduce application master has been created and is initializing its execution environment in YARN, including registering token information for communication between the application master and resource manager, setting up output committers, and registering event dispatchers to handle job events within the Hadoop ecosystem. This indicates the early stage of launching a MapReduce job where core components are being configured before actual task processing begins.",
     "gold_provenance": {
-      "method": "deterministic_aggregation",
-      "created_by": "src/generators/easy_tier.py@v1",
+      "method": "independent_model_then_human",
+      "created_by": "src/generators/medium_tier.py@v1",
       "created_at": "2026-08-01T00:00:00Z",
-      "corpus_sha256": "sha256:2a819ea540909db682005c9cf948387a40729b5c2e9f19d430e29ce704825496"
-    },
-    "numeric_claims": [
-      {
-        "value": 60,
-        "query": {
-          "operator": "count_literal",
-          "literal": "KERNDTLB",
-          "case_sensitive": false
-        }
+      "corpus_sha256": "sha256:9ecaeb807d50d5fb5a20982ea66f1c8d32545259a51ce7456c1ab78db0509732",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:8ec84fee0c453912f3da1eb69ecc9719f87b74c80f6f41039cd7204808de3642"
       }
-    ],
-    "evidence": {
-      "refs": [
-        {
-          "id": "bgl:line:00000104:002cc18d4383e05b",
-          "line_number": 104,
-          "line_hash": "sha256:002cc18d4383e05b45b0eb41e5901b1f02bdedb5ce904c2754bcf6aa5f9dc190",
-          "group_id": "bgl:presence:kerndtlb"
-        },
-        {
-          "id": "bgl:line:00000105:21d5f7f1a8c1695e",
-          "line_number": 105,
-          "line_hash": "sha256:21d5f7f1a8c1695ea0b930ec980a2ca478298d1a60853775433f5b2a6e828451",
-          "group_id": "bgl:presence:kerndtlb"
-        },
-        {
-          "id": "bgl:line:00000106:c825edcefceec85a",
-          "line_number": 106,
-          "line_hash": "sha256:c825edcefceec85af77b3a55ee9b126057e51b9ac09298710dce426c9a796b15",
-          "group_id": "bgl:presence:kerndtlb"
-        },
-        {
-          "id": "bgl:line:00000107:f9ac051911526ff2",
-          "line_number": 107,
-          "line_hash": "sha256:f9ac051911526ff275aed85b980e62f3f0f398da2dcc4f3bd9bdcb66e7c26f1b",
-          "group_id": "bgl:presence:kerndtlb"
-        },
-        {
-          "id": "bgl:line:00000108:eb6a66f579785862",
-          "line_number": 108,
-          "line_hash": "sha256:eb6a66f5797858625a470895cdca14320f6907e94bfe2e0ecb84547b59047a98",
-          "group_id": "bgl:presence:kerndtlb"
-        }
-      ]
-    }
-  },
-  {
-    "id": "hadoop_v1_count_container_0",
-    "question": "How many log lines contain 'Container'?",
-    "routing_path": "sql",
-    "answer_type": "count",
-    "task": "Aggregation",
-    "difficulty": "easy",
-    "phrasing_family": "how-many",
-    "split": "test",
-    "review_status": "verified",
-    "reviewers": [
-      "faz1_pilot_script"
-    ],
-    "expected_answer": "547",
-    "gold_provenance": {
-      "method": "deterministic_aggregation",
-      "created_by": "src/generators/easy_tier.py@v1",
-      "created_at": "2026-08-01T00:00:00Z",
-      "corpus_sha256": "sha256:9ecaeb807d50d5fb5a20982ea66f1c8d32545259a51ce7456c1ab78db0509732"
     },
-    "numeric_claims": [
-      {
-        "value": 547,
-        "query": {
-          "operator": "count_literal",
-          "literal": "Container",
-          "case_sensitive": false
-        }
-      }
-    ],
-    "evidence": {
-      "refs": [
-        {
-          "id": "hadoop:line:00000013:495c2c597a19610d",
-          "line_number": 13,
-          "line_hash": "sha256:495c2c597a19610ddde55b439ec0b5e7be1db3891bd810c9605cccb0c1fd6af4",
-          "group_id": "hadoop:count:container"
-        },
-        {
-          "id": "hadoop:line:00000014:cba6d70e74f6c464",
-          "line_number": 14,
-          "line_hash": "sha256:cba6d70e74f6c46417564350abf7f2e754acb8d8fe208952e6234e99e04e3ec4",
-          "group_id": "hadoop:count:container"
-        },
-        {
-          "id": "hadoop:line:00000028:2092bd80c68550cb",
-          "line_number": 28,
-          "line_hash": "sha256:2092bd80c68550cb0a3623e21525de4abd6e9a1931016d74c471fbf025472c57",
-          "group_id": "hadoop:count:container"
-        },
-        {
-          "id": "hadoop:line:00000050:67178b4e63bb189b",
-          "line_number": 50,
-          "line_hash": "sha256:67178b4e63bb189bd221789baa4bc5efb52cb47c47c05b375c4c319be9684c07",
-          "group_id": "hadoop:count:container"
-        },
-        {
-          "id": "hadoop:line:00000051:6ba2802a6ae14231",
-          "line_number": 51,
-          "line_hash": "sha256:6ba2802a6ae142319ec3a5e2b30c748e10923323cd91816bdfb5d6d03c33094e",
-          "group_id": "hadoop:count:container"
-        }
-      ]
-    }
-  },
-  {
-    "id": "hadoop_v1_presence_mrappmaster_0",
-    "question": "Does the log contain any line with 'MRAppMaster'?",
-    "routing_path": "sql",
-    "answer_type": "presence",
-    "task": "Aggregation",
-    "difficulty": "easy",
-    "phrasing_family": "how-many",
-    "split": "dev",
-    "review_status": "verified",
-    "reviewers": [
-      "faz1_pilot_script"
-    ],
-    "expected_answer": "Yes",
-    "gold_provenance": {
-      "method": "deterministic_aggregation",
-      "created_by": "src/generators/easy_tier.py@v1",
-      "created_at": "2026-08-01T00:00:00Z",
-      "corpus_sha256": "sha256:9ecaeb807d50d5fb5a20982ea66f1c8d32545259a51ce7456c1ab78db0509732"
-    },
-    "numeric_claims": [
-      {
-        "value": 15,
-        "query": {
-          "operator": "count_literal",
-          "literal": "MRAppMaster",
-          "case_sensitive": false
-        }
-      }
-    ],
     "evidence": {
       "refs": [
         {
           "id": "hadoop:line:00000001:771550133c6d5a80",
           "line_number": 1,
           "line_hash": "sha256:771550133c6d5a80dcb1aea31ca9ab846c16aeca42fc41c55f946ed603479d9d",
-          "group_id": "hadoop:presence:mrappmaster"
+          "group_id": "hadoop:semantic:mrappmaster_0"
         },
         {
           "id": "hadoop:line:00000002:1882afc4e9ec9f51",
           "line_number": 2,
           "line_hash": "sha256:1882afc4e9ec9f51c4c6b234a30f105d6e372ae4201624a83db32b5512117655",
-          "group_id": "hadoop:presence:mrappmaster"
+          "group_id": "hadoop:semantic:mrappmaster_0"
         },
         {
           "id": "hadoop:line:00000003:31b8a512df598861",
           "line_number": 3,
           "line_hash": "sha256:31b8a512df5988617b3c0cffa101c81d62f37e3ca7539e20699a96c6a1f40e1a",
-          "group_id": "hadoop:presence:mrappmaster"
+          "group_id": "hadoop:semantic:mrappmaster_0"
         },
         {
           "id": "hadoop:line:00000004:ed4df0935843b821",
           "line_number": 4,
           "line_hash": "sha256:ed4df0935843b82158a8960a11a95411b537b281b8ab2ba83c2560e6545a29b7",
-          "group_id": "hadoop:presence:mrappmaster"
+          "group_id": "hadoop:semantic:mrappmaster_0"
         },
         {
           "id": "hadoop:line:00000005:c0a7c69da4de9df7",
           "line_number": 5,
           "line_hash": "sha256:c0a7c69da4de9df737116742b1940600748bb2f07444aaad7ce48bfca148370d",
-          "group_id": "hadoop:presence:mrappmaster"
+          "group_id": "hadoop:semantic:mrappmaster_0"
+        },
+        {
+          "id": "hadoop:line:00000006:a196822108128043",
+          "line_number": 6,
+          "line_hash": "sha256:a19682210812804338b33462cfb3c47d32e06a3433ed8c8d59b9a82ec5cd0479",
+          "group_id": "hadoop:semantic:mrappmaster_0"
+        },
+        {
+          "id": "hadoop:line:00000007:ef5b291df2a7570c",
+          "line_number": 7,
+          "line_hash": "sha256:ef5b291df2a7570c0bc7231c57d1b9a4e75e18e9aecab1d3c9440e5957ef4496",
+          "group_id": "hadoop:semantic:mrappmaster_0"
+        },
+        {
+          "id": "hadoop:line:00000008:7aabdc7a26337f06",
+          "line_number": 8,
+          "line_hash": "sha256:7aabdc7a26337f06f2ee619bfa8bac6d683f90648d26ef9ae2fbee18ef331fb2",
+          "group_id": "hadoop:semantic:mrappmaster_0"
         }
       ]
-    }
+    },
+    "split": "test"
   },
   {
-    "id": "zookeeper_v1_count_warn_0",
-    "question": "How many log lines contain 'WARN'?",
-    "routing_path": "sql",
-    "answer_type": "count",
-    "task": "Aggregation",
-    "difficulty": "easy",
-    "phrasing_family": "how-many",
-    "split": "test",
-    "review_status": "verified",
+    "id": "zookeeper_v1_semantic_fastleaderelection_0",
+    "question": "Looking at these Zookeeper log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "review_status": "in_review",
     "reviewers": [
       "faz1_pilot_script"
     ],
-    "expected_answer": "1318",
+    "expected_answer": "The log shows repeated connection failures and restarts of a quorum election process on server myid=1, indicating it is losing connections to other ensemble members and attempting to re-establish them. This suggests the node is experiencing network instability or partition issues within its Zookeeper quorum setup.",
     "gold_provenance": {
-      "method": "deterministic_aggregation",
-      "created_by": "src/generators/easy_tier.py@v1",
+      "method": "independent_model_then_human",
+      "created_by": "src/generators/medium_tier.py@v1",
       "created_at": "2026-08-01T00:00:00Z",
-      "corpus_sha256": "sha256:e40e0af5ef9eb6e4097200f260b9d1f626b3676f861a432e87977242e75543d8"
-    },
-    "numeric_claims": [
-      {
-        "value": 1318,
-        "query": {
-          "operator": "count_literal",
-          "literal": "WARN",
-          "case_sensitive": false
-        }
+      "corpus_sha256": "sha256:e40e0af5ef9eb6e4097200f260b9d1f626b3676f861a432e87977242e75543d8",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:e53d86dcfb6aa95723ee264bb0cc1cd5129fbbf862328342bf82d04b14149545"
       }
-    ],
+    },
     "evidence": {
       "refs": [
+        {
+          "id": "zookeeper:line:00000001:358742b8fb60f84b",
+          "line_number": 1,
+          "line_hash": "sha256:358742b8fb60f84b49ae49c1ca7251be11470b8f6582ef4d6d35027cd283def6",
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
+        },
+        {
+          "id": "zookeeper:line:00000002:6bcad5a26f6501c1",
+          "line_number": 2,
+          "line_hash": "sha256:6bcad5a26f6501c15e9f0b0413a8e1341dbcb1d4f16929b1ac18fa1917166034",
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
+        },
         {
           "id": "zookeeper:line:00000003:5292653b1d18ddc2",
           "line_number": 3,
           "line_hash": "sha256:5292653b1d18ddc27654a158f0c121fed549d40a7645be397ec28b3a9635901c",
-          "group_id": "zookeeper:count:warn"
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
         },
         {
           "id": "zookeeper:line:00000004:b8a0099521014b9d",
           "line_number": 4,
           "line_hash": "sha256:b8a0099521014b9d7796b2216ad0078a068198fc2df961891d2d93cf46f7c7aa",
-          "group_id": "zookeeper:count:warn"
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
         },
         {
           "id": "zookeeper:line:00000005:2553253d714f7137",
           "line_number": 5,
           "line_hash": "sha256:2553253d714f713759e2b779f59135e203ee42db7c091ed042760aea4e57ddd9",
-          "group_id": "zookeeper:count:warn"
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
         },
         {
           "id": "zookeeper:line:00000006:722fb7e701788cd1",
           "line_number": 6,
           "line_hash": "sha256:722fb7e701788cd1f8f98fa6ed7c458789820af0e8e10062d477e0082e812093",
-          "group_id": "zookeeper:count:warn"
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
+        },
+        {
+          "id": "zookeeper:line:00000007:b908f3ae9b6125da",
+          "line_number": 7,
+          "line_hash": "sha256:b908f3ae9b6125da35451ecb3d74f9e1cc5f8dc7dd1a33ebdbd6ecdc6986f30d",
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
         },
         {
           "id": "zookeeper:line:00000008:6ea9854578da3504",
           "line_number": 8,
           "line_hash": "sha256:6ea9854578da35040fdeba955497143ce315b1d8c52f7de7444c7af70cf190d3",
-          "group_id": "zookeeper:count:warn"
+          "group_id": "zookeeper:semantic:fastleaderelection_0"
         }
       ]
-    }
+    },
+    "split": "dev"
   },
   {
-    "id": "zookeeper_v1_presence_exception_0",
-    "question": "Does the log contain any line with 'Exception'?",
-    "routing_path": "sql",
-    "answer_type": "presence",
-    "task": "Aggregation",
-    "difficulty": "easy",
-    "phrasing_family": "how-many",
-    "split": "dev",
-    "review_status": "verified",
+    "id": "openstack_v1_semantic_nova_osapi_compute_wsgi_server_0",
+    "question": "Looking at these OpenStack log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "review_status": "in_review",
     "reviewers": [
       "faz1_pilot_script"
     ],
-    "expected_answer": "Yes",
+    "expected_answer": "The log shows repeated successful API requests to list servers ending in 200 status codes and a subsequent compute node event indicating that an instance was started and then paused within seconds of each other. This suggests a user or automated request triggered the creation of a virtual machine followed by an immediate pause action.",
     "gold_provenance": {
-      "method": "deterministic_aggregation",
-      "created_by": "src/generators/easy_tier.py@v1",
+      "method": "independent_model_then_human",
+      "created_by": "src/generators/medium_tier.py@v1",
       "created_at": "2026-08-01T00:00:00Z",
-      "corpus_sha256": "sha256:e40e0af5ef9eb6e4097200f260b9d1f626b3676f861a432e87977242e75543d8"
-    },
-    "numeric_claims": [
-      {
-        "value": 54,
-        "query": {
-          "operator": "count_literal",
-          "literal": "Exception",
-          "case_sensitive": false
-        }
+      "corpus_sha256": "sha256:025a1bc64ff5b2ef4a4bda6c4ad5c5c5f18478b71cd1ad2b0676e01625629f2f",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:4920c335daf3e21261db8021d7964a3d70dfb83d016baefe5a55330eda3e8b24"
       }
-    ],
-    "evidence": {
-      "refs": [
-        {
-          "id": "zookeeper:line:00000496:735006ccb0109385",
-          "line_number": 496,
-          "line_hash": "sha256:735006ccb01093857eb99b3300e1a1a09621b225b0adb885208bbe8e4a0622c8",
-          "group_id": "zookeeper:presence:exception"
-        },
-        {
-          "id": "zookeeper:line:00000506:e8603ec24653a8f8",
-          "line_number": 506,
-          "line_hash": "sha256:e8603ec24653a8f8406a4f5037dbc9f60c7084ef96a15ae02b7ae0ad724746ed",
-          "group_id": "zookeeper:presence:exception"
-        },
-        {
-          "id": "zookeeper:line:00000536:b922eede47f0e9f2",
-          "line_number": 536,
-          "line_hash": "sha256:b922eede47f0e9f282281d79d13a5d1dd380ae5a5a3ce06b0f98091061414130",
-          "group_id": "zookeeper:presence:exception"
-        },
-        {
-          "id": "zookeeper:line:00000538:6005a64b9970e9cd",
-          "line_number": 538,
-          "line_hash": "sha256:6005a64b9970e9cdeb4115ba3aeb70bd0e5638ce4fe0a5283f4d674ce16ee46f",
-          "group_id": "zookeeper:presence:exception"
-        },
-        {
-          "id": "zookeeper:line:00000546:e32c85e2dd84897f",
-          "line_number": 546,
-          "line_hash": "sha256:e32c85e2dd84897f211950b85bef195eafae0e80036490e82ac59d4718621830",
-          "group_id": "zookeeper:presence:exception"
-        }
-      ]
-    }
-  },
-  {
-    "id": "openstack_v1_count_status_200_0",
-    "question": "How many log lines contain 'status: 200'?",
-    "routing_path": "sql",
-    "answer_type": "count",
-    "task": "Aggregation",
-    "difficulty": "easy",
-    "phrasing_family": "how-many",
-    "split": "dev",
-    "review_status": "verified",
-    "reviewers": [
-      "faz1_pilot_script"
-    ],
-    "expected_answer": "933",
-    "gold_provenance": {
-      "method": "deterministic_aggregation",
-      "created_by": "src/generators/easy_tier.py@v1",
-      "created_at": "2026-08-01T00:00:00Z",
-      "corpus_sha256": "sha256:025a1bc64ff5b2ef4a4bda6c4ad5c5c5f18478b71cd1ad2b0676e01625629f2f"
     },
-    "numeric_claims": [
-      {
-        "value": 933,
-        "query": {
-          "operator": "count_literal",
-          "literal": "status: 200",
-          "case_sensitive": false
-        }
-      }
-    ],
     "evidence": {
       "refs": [
         {
           "id": "openstack:line:00000001:5f4530e474d6d1a0",
           "line_number": 1,
           "line_hash": "sha256:5f4530e474d6d1a07291b942913aae8685926d3f0be97aeb6c050a8131adc438",
-          "group_id": "openstack:count:status_200"
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
         },
         {
           "id": "openstack:line:00000002:3597904b1d73d9dc",
           "line_number": 2,
           "line_hash": "sha256:3597904b1d73d9dcb26a072874f0e0bef170d2cf210e615fe7b74999bfe6c0d8",
-          "group_id": "openstack:count:status_200"
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
         },
         {
           "id": "openstack:line:00000003:d6e1306b669d798a",
           "line_number": 3,
           "line_hash": "sha256:d6e1306b669d798a96b4529b45b555e81f36a449b9ef10d40f4d53c84ee9a968",
-          "group_id": "openstack:count:status_200"
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
         },
         {
           "id": "openstack:line:00000004:bac99dc524bed55d",
           "line_number": 4,
           "line_hash": "sha256:bac99dc524bed55de7126f3a2cf629f80fbf74f49e0149efbaa0d0afabd54e68",
-          "group_id": "openstack:count:status_200"
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
         },
         {
           "id": "openstack:line:00000005:78916d26b4d394be",
           "line_number": 5,
           "line_hash": "sha256:78916d26b4d394be0c925e2536212af5ea5271156d3d5a6e7dba771bdfbf6869",
-          "group_id": "openstack:count:status_200"
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
+        },
+        {
+          "id": "openstack:line:00000006:6bd8ccf633b867a5",
+          "line_number": 6,
+          "line_hash": "sha256:6bd8ccf633b867a5160cf9b015c5d0b0a9b110fd874085314d1fc6ab0d96267a",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
+        },
+        {
+          "id": "openstack:line:00000007:b62b2e37d0ea5017",
+          "line_number": 7,
+          "line_hash": "sha256:b62b2e37d0ea5017697a5b0f7c006a41c9d4869551579e06a8ca957be067f19a",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
+        },
+        {
+          "id": "openstack:line:00000008:6bc48904cbd8b4dd",
+          "line_number": 8,
+          "line_hash": "sha256:6bc48904cbd8b4dd7d090abf5a32245ff2c79083b21c978476fa628531f81679",
+          "group_id": "openstack:semantic:nova_osapi_compute_wsgi_server_0"
         }
       ]
-    }
+    },
+    "split": "dev"
   },
   {
-    "id": "openstack_v1_presence_error_0",
-    "question": "Does the log contain any line with 'ERROR'?",
-    "routing_path": "sql",
-    "answer_type": "presence",
-    "task": "Aggregation",
-    "difficulty": "easy",
-    "phrasing_family": "how-many",
-    "split": "dev",
-    "review_status": "verified",
+    "id": "linux_v1_semantic_check_pass_user_unknown_0",
+    "question": "Looking at these Linux log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "review_status": "in_review",
     "reviewers": [
       "faz1_pilot_script"
     ],
-    "expected_answer": "No",
+    "expected_answer": "The log shows multiple failed SSH authentication attempts for the root user from a remote host at IP address 218.188.2.4 and later from 220-135-151-1.hinet-ip.hinet.net, all rejected by the system's PAM module due to unknown or invalid credentials. These repeated failures indicate unauthorized login attempts targeting the root account over SSH.",
     "gold_provenance": {
-      "method": "deterministic_aggregation",
-      "created_by": "src/generators/easy_tier.py@v1",
+      "method": "independent_model_then_human",
+      "created_by": "src/generators/medium_tier.py@v1",
       "created_at": "2026-08-01T00:00:00Z",
-      "corpus_sha256": "sha256:025a1bc64ff5b2ef4a4bda6c4ad5c5c5f18478b71cd1ad2b0676e01625629f2f"
-    },
-    "numeric_claims": [
-      {
-        "value": 0,
-        "query": {
-          "operator": "count_literal",
-          "literal": "ERROR",
-          "case_sensitive": false
-        }
+      "corpus_sha256": "sha256:b3e20bc1afe732ab1bf3ed1de4bf9c809e4194e02f7dea911d918e5342e8e173",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:c5f12be53cc4decc7c56ec97a54e987d036eebda4583c008db05a1319e71afcb"
       }
-    ],
+    },
     "evidence": {
       "refs": [
         {
-          "id": "openstack:line:00000001:5f4530e474d6d1a0",
-          "line_number": 1,
-          "line_hash": "sha256:5f4530e474d6d1a07291b942913aae8685926d3f0be97aeb6c050a8131adc438",
-          "group_id": "openstack:presence:error"
+          "id": "linux:line:00000002:e2e3fcb4ede42046",
+          "line_number": 2,
+          "line_hash": "sha256:e2e3fcb4ede4204698bb8c2074469aeefac4baf646e56ebc263f25d6ac18061a",
+          "group_id": "linux:semantic:check_pass_user_unknown_0"
+        },
+        {
+          "id": "linux:line:00000003:f6a256ef53a802e8",
+          "line_number": 3,
+          "line_hash": "sha256:f6a256ef53a802e8b1db72276f975c7fa142b2b7505dce2b090f034b5e9aea73",
+          "group_id": "linux:semantic:check_pass_user_unknown_0"
+        },
+        {
+          "id": "linux:line:00000004:db1b1106960dd813",
+          "line_number": 4,
+          "line_hash": "sha256:db1b1106960dd813545aa0f2b88974a1e942217ef28cb213dcf92f88f89ac588",
+          "group_id": "linux:semantic:check_pass_user_unknown_0"
+        },
+        {
+          "id": "linux:line:00000005:6859041b6d08936e",
+          "line_number": 5,
+          "line_hash": "sha256:6859041b6d08936e758d4035ec58e0fb27da6f62b0ade849b41f027024019f82",
+          "group_id": "linux:semantic:check_pass_user_unknown_0"
+        },
+        {
+          "id": "linux:line:00000006:5722995c75571b00",
+          "line_number": 6,
+          "line_hash": "sha256:5722995c75571b00e6e83d8679d9b721a2113b5a47dac5e3eec992d9f189c8f6",
+          "group_id": "linux:semantic:check_pass_user_unknown_0"
+        },
+        {
+          "id": "linux:line:00000007:5e8d69994c472d89",
+          "line_number": 7,
+          "line_hash": "sha256:5e8d69994c472d8954d72f6368a6c2ddaacca85f735d4a4be28173638d653e61",
+          "group_id": "linux:semantic:check_pass_user_unknown_0"
+        },
+        {
+          "id": "linux:line:00000008:1299789a54a37961",
+          "line_number": 8,
+          "line_hash": "sha256:1299789a54a3796107e89b89a722d081e9e776415403ecf5d4b2c4e78f33756c",
+          "group_id": "linux:semantic:check_pass_user_unknown_0"
+        },
+        {
+          "id": "linux:line:00000009:2d4b274fd609f040",
+          "line_number": 9,
+          "line_hash": "sha256:2d4b274fd609f04065b1227364848a7d2f98b183d2dd3de60472c7a0e8553308",
+          "group_id": "linux:semantic:check_pass_user_unknown_0"
         }
       ]
-    }
+    },
+    "split": "test"
+  },
+  {
+    "id": "apache_v1_semantic_child_workerenv_in_error_state_0",
+    "question": "Looking at these Apache log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The logs show repeated errors indicating that the Apache module mod_jk is encountering a persistent issue where its worker process named \"workerEnv\" repeatedly enters an error state 6, suggesting a failure in initializing or maintaining communication with backend services despite successful configuration loading. This pattern indicates a critical problem with the Java bridge setup that requires investigation into the workers2.properties file and related service dependencies.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "src/generators/medium_tier.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:c7efa3eb686e3a96bd2f8f4457b2a7887e9cf2f3649327f1b4e87af841363ce8",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:2f3ee30b5f808a172a95382dff34b15a9fa16e7110cf9343f16348136040f4b2"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "apache:line:00000002:96e6755838d22b1f",
+          "line_number": 2,
+          "line_hash": "sha256:96e6755838d22b1f8f3979e2c18d9ae9ce994e12f66931bcbb2c7d38cdb8611d",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_0"
+        },
+        {
+          "id": "apache:line:00000003:a41ecadc57156e34",
+          "line_number": 3,
+          "line_hash": "sha256:a41ecadc57156e34212794444b9924ecbe5cb5fd6065ddfb3687875792266764",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_0"
+        },
+        {
+          "id": "apache:line:00000004:b001dc147abf0e2f",
+          "line_number": 4,
+          "line_hash": "sha256:b001dc147abf0e2f070b7b37eeb524d24db5e45be61ecf22afa5872dccf3b7d1",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_0"
+        },
+        {
+          "id": "apache:line:00000005:358a17f606fc3319",
+          "line_number": 5,
+          "line_hash": "sha256:358a17f606fc3319fc8538403b9c21f183a243571662254a739393a02a831378",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_0"
+        },
+        {
+          "id": "apache:line:00000006:f7f1570bed0d5be4",
+          "line_number": 6,
+          "line_hash": "sha256:f7f1570bed0d5be43ae2b635ce4206e9e5c62793937ae1440e2b615cf4cacceb",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_0"
+        },
+        {
+          "id": "apache:line:00000007:f7f1570bed0d5be4",
+          "line_number": 7,
+          "line_hash": "sha256:f7f1570bed0d5be43ae2b635ce4206e9e5c62793937ae1440e2b615cf4cacceb",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_0"
+        },
+        {
+          "id": "apache:line:00000008:f7f1570bed0d5be4",
+          "line_number": 8,
+          "line_hash": "sha256:f7f1570bed0d5be43ae2b635ce4206e9e5c62793937ae1440e2b615cf4cacceb",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_0"
+        },
+        {
+          "id": "apache:line:00000009:f4ac7f9bf686396b",
+          "line_number": 9,
+          "line_hash": "sha256:f4ac7f9bf686396b032a2d22a568490f44a893b7fac6c4017f83e9664c120d5e",
+          "group_id": "apache:semantic:child_workerenv_in_error_state_0"
+        }
+      ]
+    },
+    "split": "dev"
+  },
+  {
+    "id": "windows_v1_semantic_csi_0",
+    "question": "Looking at these Windows log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The excerpt shows that at approximately 4:30 AM on September 28 2016, the TrustedInstaller service was initialized and started successfully by the CBS subsystem, completing its initialization phase. This indicates normal operation of Windows Update/Component Store services beginning at that time.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "src/generators/medium_tier.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:372fb809464a6d6016e599e9272d7cf1e8b644f25c90c7f76f19c936362456d0",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:a277f2eecf432772d90c049e9cfea0ad9ff4cedd68a078ab02f8f496d3c7fc48"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "windows:line:00000002:635189722009a381",
+          "line_number": 2,
+          "line_hash": "sha256:635189722009a38143e1b1c9c5c7909f5852bb8a8e47bc18ca085302df425e1b",
+          "group_id": "windows:semantic:csi_0"
+        },
+        {
+          "id": "windows:line:00000003:2d397aa9b579613c",
+          "line_number": 3,
+          "line_hash": "sha256:2d397aa9b579613c44075f86dea0b49f8ea5ab30361f8e1c8e0e9b002964ec8a",
+          "group_id": "windows:semantic:csi_0"
+        },
+        {
+          "id": "windows:line:00000004:371206a8b387303b",
+          "line_number": 4,
+          "line_hash": "sha256:371206a8b387303b06546fb265a05e7b81b9513d3a682d3358744e0a639e5bef",
+          "group_id": "windows:semantic:csi_0"
+        },
+        {
+          "id": "windows:line:00000005:2b9ab40d82946345",
+          "line_number": 5,
+          "line_hash": "sha256:2b9ab40d829463453e9441a8a987c403e4dbf391d1051244ca803c837fe13a98",
+          "group_id": "windows:semantic:csi_0"
+        },
+        {
+          "id": "windows:line:00000006:eaa81cf82d072a7b",
+          "line_number": 6,
+          "line_hash": "sha256:eaa81cf82d072a7b0769e5cb4bde59600665a032c9871b039bc0ab899e04e379",
+          "group_id": "windows:semantic:csi_0"
+        },
+        {
+          "id": "windows:line:00000007:b200da3e375009ea",
+          "line_number": 7,
+          "line_hash": "sha256:b200da3e375009ea9500ec9e3bfcc4e5a65facb8401e0189508167304f80ae2d",
+          "group_id": "windows:semantic:csi_0"
+        },
+        {
+          "id": "windows:line:00000008:7bc4514822c6dd11",
+          "line_number": 8,
+          "line_hash": "sha256:7bc4514822c6dd11e639e5d57455a2f980ad6f3bf6194ad156ab90cda3fa4825",
+          "group_id": "windows:semantic:csi_0"
+        },
+        {
+          "id": "windows:line:00000009:d741ce11055963d0",
+          "line_number": 9,
+          "line_hash": "sha256:d741ce11055963d0bd7b63f6b14b555b06f4b08b0a5d6a1a3bfcf16fe320c21d",
+          "group_id": "windows:semantic:csi_0"
+        }
+      ]
+    },
+    "split": "dev"
+  },
+  {
+    "id": "mac_v1_semantic_thermal_pressure_0",
+    "question": "Looking at these Mac log lines, what happened and what does it mean?",
+    "routing_path": "semantic",
+    "answer_type": "explanation",
+    "task": "Summarization",
+    "difficulty": "medium",
+    "phrasing_family": "single-event-summary",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The system logged a thermal pressure state of 1 indicating elevated heat and memory pressure state of 0 meaning normal memory usage followed by multiple power management events including wake reason Wake on Scan offload which explains why the device woke from sleep. This suggests the Mac experienced a brief high-temperature condition that triggered specific network-related wake-up mechanisms during operation.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "src/generators/medium_tier.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:d9ea495488728d8c989dc942fca3324a3cc7b19b0a6f409a5fd568ad547fd931",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:c9dc100ebd4bd1e49396b993b9b3ba8addbf2ffb77eb80fdc0835a99d264ce4a"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "mac:line:00000002:c863f1cb8f3f5182",
+          "line_number": 2,
+          "line_hash": "sha256:c863f1cb8f3f5182f44f4a7b3e86eff448297269a6151b82086add805dd59f01",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000003:77f3db5d24865cf8",
+          "line_number": 3,
+          "line_hash": "sha256:77f3db5d24865cf8e7b39c2ac93f1ccafa490f93012d95454e9477478b807cdf",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000004:f0637712b711582b",
+          "line_number": 4,
+          "line_hash": "sha256:f0637712b711582b3e4bdd76c56a71104dfcb9c8b7f47ee9c886cfbdb241ddea",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000005:94f85d28609f491a",
+          "line_number": 5,
+          "line_hash": "sha256:94f85d28609f491aafb2693cf7d7a1aa5106c837c0c7413b1a943847a0bf364e",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000006:b045a4374d6a692c",
+          "line_number": 6,
+          "line_hash": "sha256:b045a4374d6a692c11a7299af37771813989df9f37034644153701865cb64df0",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000007:59395d6da84765d1",
+          "line_number": 7,
+          "line_hash": "sha256:59395d6da84765d12ba74b6a2208bc19ef3c570e63f8c0d309768b5e77f9e4e1",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000008:9473ab57c2e84dd4",
+          "line_number": 8,
+          "line_hash": "sha256:9473ab57c2e84dd487078ba18fef529dc1212eaf8bb385330eb2857012569919",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        },
+        {
+          "id": "mac:line:00000009:b3931e93076d24ac",
+          "line_number": 9,
+          "line_hash": "sha256:b3931e93076d24ac49144d0282843feb8f6d6496d9de62afa446a8153aeddff9",
+          "group_id": "mac:semantic:thermal_pressure_0"
+        }
+      ]
+    },
+    "split": "dev"
+  },
+  {
+    "id": "linux_v1_hard_brute_force_compare",
+    "question": "Compare the SSH authentication attempts coming from 150.183.249.110 and 207.243.167.114: contrast their volume and timing. Which source looks more anomalous, and what is your root-cause hypothesis?",
+    "routing_path": "semantic",
+    "answer_type": "synthesis",
+    "task": "RootCauseAnalysis",
+    "difficulty": "hard",
+    "phrasing_family": "hard-synthesis",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The evidence shows that the group for 150.183.249.110 contains a total of 80 matching log lines, whereas the group for 207.243.167.114 has only 23 total matching lines; this means the former generated roughly three‑and‑a‑half times more authentication attempts than the latter despite showing only four sample entries in each excerpt. Both groups display failures occurring within a narrow time window—multiple failures from 150.183.249.110 are spaced just seconds apart on Jul 10, while those from 207.243.167.114 are spread over about 18 minutes on Jul 26—yet the sheer volume of attempts recorded for 150.183.249.110 makes its activity far more anomalous in absolute terms. Consequently, the source IP 150.183.249.110 appears to be the more suspicious one because it accounts for a substantially larger share of the total failed SSH attempts across the entire log set. A plausible root‑cause hypothesis is that 150.183.249.110 is being used by an automated brute‑force script targeting the root account, possibly as part of a coordinated attack against the server’s weak credentials.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "src/generators/hard_tier.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:b3e20bc1afe732ab1bf3ed1de4bf9c809e4194e02f7dea911d918e5342e8e173",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:42fc3c2f7a5ecebadde8e5ea296f021e76879d4d7804105e9e4861d89b92c32c"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "linux:line:00001136:2bcf2d2d5c4a269c",
+          "line_number": 1136,
+          "line_hash": "sha256:2bcf2d2d5c4a269c1622637b86e445af25bb1338657ed8fa723e0ebe378cb7a7",
+          "group_id": "linux:hard:brute_force_compare:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001137:9c09887b031b4b1d",
+          "line_number": 1137,
+          "line_hash": "sha256:9c09887b031b4b1def2e59f933b85a34bb35b3d17fba8a5986a5efeb1960aeba",
+          "group_id": "linux:hard:brute_force_compare:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001138:458a26572494de62",
+          "line_number": 1138,
+          "line_hash": "sha256:458a26572494de62e67367116d0f728ab050037020b46f9a7a45713d6fe9b3ee",
+          "group_id": "linux:hard:brute_force_compare:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001139:d0207dfce0dd0973",
+          "line_number": 1139,
+          "line_hash": "sha256:d0207dfce0dd09738488d6dd6290daaeea1f62f36d99fc8fd579ca901903a714",
+          "group_id": "linux:hard:brute_force_compare:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001879:32a3098bff43b50d",
+          "line_number": 1879,
+          "line_hash": "sha256:32a3098bff43b50d3695cb6173da4d03c58c627b7eba14920da73262b59a808d",
+          "group_id": "linux:hard:brute_force_compare:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001880:407d3621ea268a79",
+          "line_number": 1880,
+          "line_hash": "sha256:407d3621ea268a79748192cbe90d37f14f3be93151c47179fd465ffb94bb09f2",
+          "group_id": "linux:hard:brute_force_compare:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001881:4030a2397f21eb57",
+          "line_number": 1881,
+          "line_hash": "sha256:4030a2397f21eb577048623dff1fa6b1fccfc491be7e87bf57bd267f8595b9e5",
+          "group_id": "linux:hard:brute_force_compare:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001882:b582c137666adaa2",
+          "line_number": 1882,
+          "line_hash": "sha256:b582c137666adaa2e1291e357b09b58282d0d7ce3f7aa715e30097efdc179e32",
+          "group_id": "linux:hard:brute_force_compare:207_243_167_114"
+        }
+      ]
+    },
+    "split": "dev"
+  },
+  {
+    "id": "hdfs_v1_hard_block_lifecycle_compare",
+    "question": "Compare the lifecycle events recorded for block blk_-4411589101766563890 and block blk_-7029628814943626474. Correlate the sequence of events for each block and explain whether either one shows an unusual replication/termination pattern.",
+    "routing_path": "semantic",
+    "answer_type": "synthesis",
+    "task": "Correlation",
+    "difficulty": "hard",
+    "phrasing_family": "hard-synthesis",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The two blocks each have exactly the number of log lines indicated by their respective totals (both = 2), and every line shown in Group blk_-4411589101766563890 is captured from first_line 1431 to last_line 1439, while Group blk_-7029628814943626474 spans first_line 587 to last_line 1114. In the first group the only event is a clean termination of the PacketResponder for that block, followed by a normal receipt acknowledgment from the same DataNode; in the second group the sequence begins with a successful receipt notice but ends abruptly with a warning about an exception while serving the block to another IP address. This contrast shows that blk_-4411589101766563890 experienced a normal, orderly shutdown of its replication responder, whereas blk_-7029628814943626474 exhibits an abnormal termination pattern involving a failure during data exchange with a remote client. The unusual pattern in the second block suggests that the DataNode encountered an error while transferring the block to /10.251.38.197, potentially due to network or permission issues, which could have caused the replication process to abort prematurely. Consequently, the root‑cause hypothesis is that a fault in the client‑side handshake for blk_-7029628814943626474 triggered an early termination of its replication lifecycle, unlike the orderly completion seen for blk_-4411589101766563890.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "src/generators/hard_tier.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:7c967000980c086ed55fa6544ba4f05fe66d44622795e890c68caf8bbb635035",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:3cd1adfe0af56cba2ec65f13c03c9486f92e5ff84c4ca318788f47cd1617bd4e"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "hdfs:line:00001431:be2bfc729e9dc6d8",
+          "line_number": 1431,
+          "line_hash": "sha256:be2bfc729e9dc6d8ef734b4df78c35e2b109320d380112d4768e74d7c26c4dbc",
+          "group_id": "hdfs:hard:block_lifecycle_compare:blk_4411589101766563890"
+        },
+        {
+          "id": "hdfs:line:00001439:ed539abb8b238f7b",
+          "line_number": 1439,
+          "line_hash": "sha256:ed539abb8b238f7bb632022e5a10f58bc016ff6ec1f36af32d51df26aa51fcb2",
+          "group_id": "hdfs:hard:block_lifecycle_compare:blk_4411589101766563890"
+        },
+        {
+          "id": "hdfs:line:00000587:dafc742f56e900b4",
+          "line_number": 587,
+          "line_hash": "sha256:dafc742f56e900b419a4c917e139490000a171d886cb643c99b378b90031910c",
+          "group_id": "hdfs:hard:block_lifecycle_compare:blk_7029628814943626474"
+        },
+        {
+          "id": "hdfs:line:00001114:8d1fb499c27b0db2",
+          "line_number": 1114,
+          "line_hash": "sha256:8d1fb499c27b0db2f9b244fb189919616303128bc7125e5be25a206facf2547c",
+          "group_id": "hdfs:hard:block_lifecycle_compare:blk_7029628814943626474"
+        }
+      ]
+    },
+    "split": "dev"
+  },
+  {
+    "id": "openssh_v1_hard_attacker_compare",
+    "question": "Compare the attack patterns from source 183.62.140.253 and source 187.141.143.180 (target accounts, request cadence, outcome). Which one is the more anomalous attacker, and what is your root-cause hypothesis?",
+    "routing_path": "semantic",
+    "answer_type": "synthesis",
+    "task": "RootCauseAnalysis",
+    "difficulty": "hard",
+    "phrasing_family": "hard-synthesis",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The evidence shows that source 183.62.140.253 generated a total of 580 log lines, whereas source 187.141.143.180 produced only 189 lines; this disparity indicates that the former attempted many more distinct credential checks before being terminated. In both groups the attacker repeatedly tried to authenticate as “invalid user” or “root,” received a “Received disconnect … Bye Bye [preauth]” message, and then moved on to another failed attempt, confirming a cadence of rapid, repeated login probes that ended in disconnection rather than successful access. Because the larger volume of attempts from 183.62.140.253 demonstrates a broader brute‑force sweep across many usernames, it is the more anomalous attacker when judged against its stated total_matching_lines. A plausible root‑cause hypothesis is that an automated script or botnet was scanning for exposed SSH services and exhaustively enumerating possible accounts from 183.62.140.253, while the smaller set from 187.141.143.180 may represent a more targeted, opportunistic test of default credentials on a different host.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "src/generators/hard_tier.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:1e4912727fa88245113d41b16a0cd25ceadba7f931e1c406542885b91254264f",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:8706ab59ed2dc717fb0cb1eadb94f568e7e208f3ed6f9810d1ae0a62f80dba39"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "openssh:line:00001020:1877b6d1be3217e2",
+          "line_number": 1020,
+          "line_hash": "sha256:1877b6d1be3217e2cab65fd0d7000584e7c6aa2b08ded5219b68258258cd5603",
+          "group_id": "openssh:hard:attacker_compare:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001024:79c29cb17432b055",
+          "line_number": 1024,
+          "line_hash": "sha256:79c29cb17432b0550d60a13debfaa8f7cb3da46519cd4fd03e2b47f6ada591b7",
+          "group_id": "openssh:hard:attacker_compare:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001025:3f5eacd7a31f1156",
+          "line_number": 1025,
+          "line_hash": "sha256:3f5eacd7a31f115638e90cf084a65c180fd1ad6b2c4c68e9fb4a930b305062c4",
+          "group_id": "openssh:hard:attacker_compare:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001026:b3cf34264c65c210",
+          "line_number": 1026,
+          "line_hash": "sha256:b3cf34264c65c2100b42438da69a5bc9f9423fc8bba1a9f11edeb6655538fdcb",
+          "group_id": "openssh:hard:attacker_compare:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00000519:bea478518acdb6be",
+          "line_number": 519,
+          "line_hash": "sha256:bea478518acdb6be10d71fd9b95c605c278e23d8bde63f155128b60d3dc9f4e4",
+          "group_id": "openssh:hard:attacker_compare:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000520:f0daf0ed48c1d4f3",
+          "line_number": 520,
+          "line_hash": "sha256:f0daf0ed48c1d4f3a67440d42720afade5993edda831ca6c1faa33bef1b25d57",
+          "group_id": "openssh:hard:attacker_compare:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000523:4046fd3058791217",
+          "line_number": 523,
+          "line_hash": "sha256:4046fd30587912179cdfa319b259d74d5576eec2b2bb6c57e9181c1807bdcb8d",
+          "group_id": "openssh:hard:attacker_compare:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000524:dc5d1924ba54f01f",
+          "line_number": 524,
+          "line_hash": "sha256:dc5d1924ba54f01f69496ab4754ec472b5f47bb96760d20a045a8f4048a1679e",
+          "group_id": "openssh:hard:attacker_compare:187_141_143_180"
+        }
+      ]
+    },
+    "split": "dev"
+  },
+  {
+    "id": "bgl_v1_hard_hardware_error_chain",
+    "question": "Correlate the occurrences of 'double-hummer alignment exceptions' and 'instruction cache parity error corrected' across the observation window. Propose a root-cause hypothesis for why this supercomputer node is showing both error types.",
+    "routing_path": "semantic",
+    "answer_type": "synthesis",
+    "task": "RootCauseAnalysis",
+    "difficulty": "hard",
+    "phrasing_family": "hard-synthesis",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The two event groups are linked by their shared time window and the fact that both sets of messages appear on the same node identifiers (e.g., R02‑M1‑N0‑C:J12‑U11) within overlapping ranges, indicating they originate from the same processing context. In Group double‑hummer alignment exceptions the total number of matching lines is 109 and the shown entries span from line 5 to line 1354, with one entry on June 22 (line 199680) representing a large burst of that error type. In Group instruction cache parity error corrected the total matching lines are 42 and the displayed lines run from 1 to 1999, showing four consecutive corrections recorded early on June 3. Because the node‑specific identifiers overlap and the timestamps cluster around the same dates, it is reasonable to infer that a hardware or firmware issue affecting the instruction cache also triggers double‑hummer alignment exceptions when the processor attempts to fetch misaligned instructions. This suggests that a common root cause—such as a timing glitch or voltage irregularity on the node’s memory bus—simultaneously corrupts instruction fetches (producing parity corrections) and causes alignment checks to fail, leading to both error types appearing together.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "src/generators/hard_tier.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:2a819ea540909db682005c9cf948387a40729b5c2e9f19d430e29ce704825496",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:3ae2ddac526846d42bbd759a459184dc7dad867ff60e149a014f1195472b94a1"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "bgl:line:00000005:d464d5a5c12a72cf",
+          "line_number": 5,
+          "line_hash": "sha256:d464d5a5c12a72cf3b0586ef97fe92d2f9f109029a13f2fc75f2a8c462af0618",
+          "group_id": "bgl:hard:hardware_error_chain:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000006:162da96aba3437c5",
+          "line_number": 6,
+          "line_hash": "sha256:162da96aba3437c51c642849a2bbb31ac2be144fb83612092d9a22756ec4b191",
+          "group_id": "bgl:hard:hardware_error_chain:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000007:6a4dc16d6cf0a104",
+          "line_number": 7,
+          "line_hash": "sha256:6a4dc16d6cf0a10416576160d48321ce8da7b8d24a559ec32d449216a0909048",
+          "group_id": "bgl:hard:hardware_error_chain:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000374:bc4b5fc11a88f41e",
+          "line_number": 374,
+          "line_hash": "sha256:bc4b5fc11a88f41e0d285a18250c4dbacf8e1ba35618a8537a5c3227dd080ecd",
+          "group_id": "bgl:hard:hardware_error_chain:double_hummer_alignment_exceptions"
+        },
+        {
+          "id": "bgl:line:00000001:10c9ab95b65a37be",
+          "line_number": 1,
+          "line_hash": "sha256:10c9ab95b65a37be0ed65e2df284ce49e77a4553138f9e027a1f467235114d6e",
+          "group_id": "bgl:hard:hardware_error_chain:instruction_cache_parity_error_corrected"
+        },
+        {
+          "id": "bgl:line:00000002:1e6cfc32f22cf677",
+          "line_number": 2,
+          "line_hash": "sha256:1e6cfc32f22cf6770f983099eed28fdaf97fb3335b6a30d0c11124a2b2c57f10",
+          "group_id": "bgl:hard:hardware_error_chain:instruction_cache_parity_error_corrected"
+        },
+        {
+          "id": "bgl:line:00000003:02f06ade61925cae",
+          "line_number": 3,
+          "line_hash": "sha256:02f06ade61925cae7b8ae0355bd731e512e356f4d891f6243543f2ffcf2801b6",
+          "group_id": "bgl:hard:hardware_error_chain:instruction_cache_parity_error_corrected"
+        },
+        {
+          "id": "bgl:line:00000004:ad5610f48b767ca4",
+          "line_number": 4,
+          "line_hash": "sha256:ad5610f48b767ca41a45b9a32df27db33475de2864cd7b3d6d067c175c316310",
+          "group_id": "bgl:hard:hardware_error_chain:instruction_cache_parity_error_corrected"
+        }
+      ]
+    },
+    "split": "dev"
+  },
+  {
+    "id": "hadoop_v1_hard_container_task_compare",
+    "question": "Correlate the task events logged for container_1445144423722_0020_01_000005 and container_1445144423722_0020_01_000003. Do their event sequences suggest a normal execution, or does one of them show signs of a task/container failure? Give your root-cause hypothesis.",
+    "routing_path": "semantic",
+    "answer_type": "synthesis",
+    "task": "Correlation",
+    "difficulty": "hard",
+    "phrasing_family": "hard-synthesis",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The two groups each contain exactly the number of lines indicated by their total_matching_lines fields—four lines for container container_1445144423722_0020_01_000005 and four lines for container container_1445144423722_0020_01_000003—so the displayed evidence fully represents each event set. In both cases the sequence begins with an “Assigned container … to attempt…” message, followed by a “Processing the event EventType: CONTAINER_REMOTE_LAUNCH” entry that records the task attempt being launched on a specific node manager, and then concludes with a “Processing the event EventType: CONTAINER_REMOTE_CLEANUP” line indicating that the container was cleaned up after the attempt. The only factual difference is the timestamp of the cleanup (18:04:50 for the former versus 18:06:28 for the latter), but both follow the identical pattern of launch → execution → cleanup without any error or failure markers appearing in the logs. Therefore, based on the evidence, neither container shows signs of abnormal termination; instead, each appears to have completed a normal lifecycle of allocation, launch, and subsequent removal from the resource manager’s view. A plausible root‑cause hypothesis is that these containers were part of routine speculative execution cleanup events triggered by the completion of their respective map tasks, rather than failures caused by application errors or resource exhaustion.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "src/generators/hard_tier.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:9ecaeb807d50d5fb5a20982ea66f1c8d32545259a51ce7456c1ab78db0509732",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:b95e3422c8552198084eb6705bc54353b8b5aeb831fc812850e98b99ca3ea3f4"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "hadoop:line:00000295:7f946d9511acdd22",
+          "line_number": 295,
+          "line_hash": "sha256:7f946d9511acdd22348a8c651709e2112a37dbb4b2b93a2826a5acd3cbf0f636",
+          "group_id": "hadoop:hard:container_task_compare:container_1445144423722_0020_01_000005"
+        },
+        {
+          "id": "hadoop:line:00000301:326b629fd2be9bd1",
+          "line_number": 301,
+          "line_hash": "sha256:326b629fd2be9bd12f837c28670332304f2a517b42427fef128e27dc7159f930",
+          "group_id": "hadoop:hard:container_task_compare:container_1445144423722_0020_01_000005"
+        },
+        {
+          "id": "hadoop:line:00000305:c12bf41603d8f537",
+          "line_number": 305,
+          "line_hash": "sha256:c12bf41603d8f53704bbd3067adc51906aa22a0ba1b23d8f0c85627407bbb0fa",
+          "group_id": "hadoop:hard:container_task_compare:container_1445144423722_0020_01_000005"
+        },
+        {
+          "id": "hadoop:line:00000800:8c3c749914ee72fc",
+          "line_number": 800,
+          "line_hash": "sha256:8c3c749914ee72fc01af523e4b5133e1a9f4d9885f68aebf65f7b279a70fd518",
+          "group_id": "hadoop:hard:container_task_compare:container_1445144423722_0020_01_000005"
+        },
+        {
+          "id": "hadoop:line:00000141:e36788c3c7b78146",
+          "line_number": 141,
+          "line_hash": "sha256:e36788c3c7b78146580f025c5a95c398677b8653ae2acb6dd131592ac1ca0fd2",
+          "group_id": "hadoop:hard:container_task_compare:container_1445144423722_0020_01_000003"
+        },
+        {
+          "id": "hadoop:line:00000147:87a36f2789b99a21",
+          "line_number": 147,
+          "line_hash": "sha256:87a36f2789b99a212d8afa0a6718b5e58df6d9612a2dbbec2bbdbd7f2e7199aa",
+          "group_id": "hadoop:hard:container_task_compare:container_1445144423722_0020_01_000003"
+        },
+        {
+          "id": "hadoop:line:00000151:c56d7436667ef330",
+          "line_number": 151,
+          "line_hash": "sha256:c56d7436667ef330f341aec04a8b145524250a069210d4ed4c774651f78673e5",
+          "group_id": "hadoop:hard:container_task_compare:container_1445144423722_0020_01_000003"
+        },
+        {
+          "id": "hadoop:line:00001057:4534730d13207e06",
+          "line_number": 1057,
+          "line_hash": "sha256:4534730d13207e06445ad5432cf202db81e1e2b7b204df5a74ba68add0a99d23",
+          "group_id": "hadoop:hard:container_task_compare:container_1445144423722_0020_01_000003"
+        }
+      ]
+    },
+    "split": "dev"
+  },
+  {
+    "id": "zookeeper_v1_hard_ensemble_member_compare",
+    "question": "Compare the coordination activity logged for ensemble member myid=1 and myid=2. Correlate their event sequences and explain whether either member's behavior looks anomalous for a Zookeeper ensemble.",
+    "routing_path": "semantic",
+    "answer_type": "synthesis",
+    "task": "Correlation",
+    "difficulty": "hard",
+    "phrasing_family": "hard-synthesis",
+    "review_status": "in_review",
+    "reviewers": [
+      "faz1_pilot_script"
+    ],
+    "expected_answer": "The logs show that myid=1 entered a LOOKING state at 23:43:23,613 Z and then experienced a warning about being unable to open a channel to server 2 (address /10.10.34.12:3888) shortly thereafter, indicating it was trying to communicate with the other peer but could not establish the connection; in contrast, myid=2 progressed from an initial LOOKING notification at 19:56:54,754 Z to a LEADING state announcement within its own election logic and later performed regular snapshotting operations without any reported connectivity failures. Because Group 1 reports a total of 139 matching lines while only four are displayed, the single warning about channel failure is just one fragment of a much larger coordination sequence that likely includes repeated election attempts and reconnection retries; Group 2, which contains only 13 total matching lines (four shown), shows a clean transition from LOOKING to LEADING followed by successful snapshotting events. Therefore, the behavior of myid=1 appears anomalous in that it exhibits a connectivity error that is not reflected in the limited excerpt of myid=2’s logs, suggesting that myid=1 may be experiencing network isolation or firewall issues that prevent it from maintaining quorum with its peers. The root‑cause hypothesis is that myid=1 lost connectivity to the server at 10.10.34.12:3888 (likely a peer or leader address) during election, causing repeated failed channel attempts and keeping it in LOOKING longer than expected, whereas myid=2 successfully completed its election and continued normal operation.",
+    "gold_provenance": {
+      "method": "independent_model_then_human",
+      "created_by": "src/generators/hard_tier.py@v1",
+      "created_at": "2026-08-01T00:00:00Z",
+      "corpus_sha256": "sha256:e40e0af5ef9eb6e4097200f260b9d1f626b3676f861a432e87977242e75543d8",
+      "model": {
+        "name": "nemotron-3-nano:30b",
+        "family": "nemotron_h_moe",
+        "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+        "prompt_sha256": "sha256:f1f4cc0a62f47da45e25bd32faf3dec6990dd833f0b82dbaafedb915f6decdcd"
+      }
+    },
+    "evidence": {
+      "refs": [
+        {
+          "id": "zookeeper:line:00000001:358742b8fb60f84b",
+          "line_number": 1,
+          "line_hash": "sha256:358742b8fb60f84b49ae49c1ca7251be11470b8f6582ef4d6d35027cd283def6",
+          "group_id": "zookeeper:hard:ensemble_member_compare:1"
+        },
+        {
+          "id": "zookeeper:line:00000540:f5704b25361c0523",
+          "line_number": 540,
+          "line_hash": "sha256:f5704b25361c0523c94e5a76e68e513dc99b7375bbccb2d9b3e6d0137f19ef96",
+          "group_id": "zookeeper:hard:ensemble_member_compare:1"
+        },
+        {
+          "id": "zookeeper:line:00000542:de533de47b491149",
+          "line_number": 542,
+          "line_hash": "sha256:de533de47b4911491bb936982a4a6207b80af2cf0033306334e5f1e7ba8c469e",
+          "group_id": "zookeeper:hard:ensemble_member_compare:1"
+        },
+        {
+          "id": "zookeeper:line:00000566:9ba8559737a5b76f",
+          "line_number": 566,
+          "line_hash": "sha256:9ba8559737a5b76fcd737b564f793d39746db200cc23aea40aacd26655a0b6bd",
+          "group_id": "zookeeper:hard:ensemble_member_compare:1"
+        },
+        {
+          "id": "zookeeper:line:00000754:7d2f18ffec0bf5cc",
+          "line_number": 754,
+          "line_hash": "sha256:7d2f18ffec0bf5cc5eb43ab6b8bc1e013b6105adfec46f13c4465c308f2a614d",
+          "group_id": "zookeeper:hard:ensemble_member_compare:2"
+        },
+        {
+          "id": "zookeeper:line:00001268:1c7744f9256caf15",
+          "line_number": 1268,
+          "line_hash": "sha256:1c7744f9256caf1506a36b750a926aa00bd1c9664d940b54767b760edef2d1b0",
+          "group_id": "zookeeper:hard:ensemble_member_compare:2"
+        },
+        {
+          "id": "zookeeper:line:00001350:53c251796758dd06",
+          "line_number": 1350,
+          "line_hash": "sha256:53c251796758dd06af44d045d130be7027b5b98b5406698ed476f32e56560e21",
+          "group_id": "zookeeper:hard:ensemble_member_compare:2"
+        },
+        {
+          "id": "zookeeper:line:00001379:85e3bfc34a210dbd",
+          "line_number": 1379,
+          "line_hash": "sha256:85e3bfc34a210dbd937675914ac1a6ce88e70c058db1c121c47d418828dc7a16",
+          "group_id": "zookeeper:hard:ensemble_member_compare:2"
+        }
+      ]
+    },
+    "split": "test"
   }
 ]

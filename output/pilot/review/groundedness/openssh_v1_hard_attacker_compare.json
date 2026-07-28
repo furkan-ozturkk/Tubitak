@@ -1,20 +1,53 @@
 {
   "question_id": "openssh_v1_hard_attacker_compare",
+  "group_ids": [
+    "openssh:hard:attacker_compare:183_62_140_253",
+    "openssh:hard:attacker_compare:187_141_143_180"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:8706ab59ed2dc717fb0cb1eadb94f568e7e208f3ed6f9810d1ae0a62f80dba39"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:7cfa3d1cc28cd4f165d05f0b258af61664cbd61ed2ecc54c70a57beff3ec01a5"
+  },
   "claims": [
     {
-      "text": "The evidence shows that source 183.62.140.253 generated three distinct invalid‑user attempts (zhangyan, dff) within a single minute before terminating the session with “Bye Bye,” whereas source 187.141.143.180 issued two repeated failed password attempts for the privileged account root over a six‑second interval and also ended each attempt with the same disconnect message.",
+      "text": "The evidence shows that source 183.62.140.253 generated a total of 580 log lines, whereas source 187.141.143.180 produced only 189 lines; this disparity indicates that the former attempted many more distinct credential checks before being terminated.",
       "supported": "partial",
-      "evidence_ref": "openssh:line:00001020:1877b6d1be3217e2"
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:183_62_140_253",
+        "openssh:hard:attacker_compare:187_141_143_180"
+      ]
     },
     {
-      "text": "Both groups share the identical pre‑authentication disconnection pattern, but only the second group targets a legitimate system account (root) and exhibits a tighter request cadence of exactly three seconds between failures, making its behavior more anomalous in terms of intent and timing.",
-      "supported": "partial",
-      "evidence_ref": "openssh:line:00001020:1877b6d1be3217e2"
+      "text": "In both groups the attacker repeatedly tried to authenticate as “invalid user” or “root,” received a “Received disconnect … Bye Bye [preauth]” message, and then moved on to another failed attempt, confirming a cadence of rapid, repeated login probes that ended in disconnection rather than successful access.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:183_62_140_253",
+        "openssh:hard:attacker_compare:187_141_143_180"
+      ]
     },
     {
-      "text": "The root‑cause hypothesis is that an automated brute‑force script is being used to probe for weak credentials, with the first source likely testing generic username lists while the second source is specifically attempting credential theft against high‑value accounts; the consistent “Bye Bye” termination indicates a coordinated disconnect after each failed attempt, suggesting a single attacker or shared tooling orchestrating both sources.",
-      "supported": "partial",
-      "evidence_ref": "openssh:line:00001020:1877b6d1be3217e2"
+      "text": "Because the larger volume of attempts from 183.62.140.253 demonstrates a broader brute‑force sweep across many usernames, it is the more anomalous attacker when judged against its stated total_matching_lines.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:183_62_140_253",
+        "openssh:hard:attacker_compare:187_141_143_180"
+      ]
+    },
+    {
+      "text": "A plausible root‑cause hypothesis is that an automated script or botnet was scanning for exposed SSH services and exhaustively enumerating possible accounts from 183.62.140.253, while the smaller set from 187.141.143.180 may represent a more targeted, opportunistic test of default credentials on a different host.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:183_62_140_253",
+        "openssh:hard:attacker_compare:187_141_143_180"
+      ]
     }
   ],
   "verdict": "needs_human_review"

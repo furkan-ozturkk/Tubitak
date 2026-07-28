@@ -3,26 +3,82 @@
   "stats": {
     "total_questions": 20,
     "unique_ids": 20,
-    "distinct_group_ids": 20,
+    "distinct_group_ids": 7,
     "by_difficulty": {
-      "easy": 20
+      "easy": 7,
+      "medium": 7,
+      "hard": 6
     },
     "by_routing_path": {
-      "sql": 20
+      "sql": 7,
+      "semantic": 13
     },
     "by_split": {
       "dev": 16,
       "test": 4
     },
     "by_review_status": {
-      "verified": 20
+      "verified": 7,
+      "in_review": 13
     },
-    "hard_question_count": 0
+    "hard_question_count": 6,
+    "datasets_covered": [
+      "apache",
+      "bgl",
+      "hadoop",
+      "hdfs",
+      "linux",
+      "mac",
+      "openssh",
+      "openstack",
+      "windows",
+      "zookeeper"
+    ]
   },
   "error_count": 0,
   "warning_count": 1,
   "errors": [],
   "warnings": [
-    "20 group_id(s) do not meet the >=3 phrasing-family rule: {'linux:count:authentication_failure': {'how-many'}, 'linux:presence:invalid_user': {'how-many'}, 'apache:count:notice': {'how-many'}, 'apache:presence:mod_jk': {'how-many'}, 'windows:count:cbs': {'how-many'}, 'windows:presence:error': {'how-many'}, 'mac:count:kernel': {'how-many'}, 'mac:presence:thermal_pressure': {'how-many'}, 'hdfs:count:packetresponder': {'how-many'}, 'hdfs:presence:exception': {'how-many'}} ..."
-  ]
+    "7 group_id(s) do not meet the >=3 phrasing-family rule: {'linux:count:authentication_failure': {'how-many'}, 'apache:count:notice': {'how-many'}, 'windows:count:cbs': {'how-many'}, 'mac:count:kernel': {'how-many'}, 'hdfs:count:packetresponder': {'how-many'}, 'openssh:count:failed_password': {'how-many'}, 'bgl:count:double_hummer_alignment_exceptions': {'how-many'}}. The official stage-1 set ships one phrasing per intent by design and is expected to fail --strict; a scaled run is not."
+  ],
+  "config_snapshot": {
+    "command": "validate",
+    "code_version": null,
+    "experiment_tag": null,
+    "dataset": "/output/pilot/questions.json",
+    "questions": [
+      "/output/pilot/questions.json"
+    ],
+    "corpus_dir": "/data/loghub",
+    "schema": "/app/config/question_schema.json",
+    "manifest": null,
+    "strict": false,
+    "full": false,
+    "gold_draft_model": "nemotron-3-nano:30b",
+    "groundedness_model": "gpt-oss:20b",
+    "test_fraction": null,
+    "min_matches": null,
+    "max_cited_lines": null,
+    "window_size": null,
+    "questions_per_dataset": null,
+    "min_sentences": null,
+    "input_digests": {
+      "schema": "sha256:eae81b6793e5c71be861b3c3470416f64717e1f4f9eca5c51b2ed4ce4723c11d",
+      "questions": {
+        "/output/pilot/questions.json": "sha256:df38b035dc8f2a4858ed861a3664d8faa650744aa0b5d6c78dd2d084289aad2b"
+      }
+    },
+    "corpus_digests": {
+      "apache": "sha256:c7efa3eb686e3a96bd2f8f4457b2a7887e9cf2f3649327f1b4e87af841363ce8",
+      "bgl": "sha256:2a819ea540909db682005c9cf948387a40729b5c2e9f19d430e29ce704825496",
+      "hadoop": "sha256:9ecaeb807d50d5fb5a20982ea66f1c8d32545259a51ce7456c1ab78db0509732",
+      "hdfs": "sha256:7c967000980c086ed55fa6544ba4f05fe66d44622795e890c68caf8bbb635035",
+      "linux": "sha256:b3e20bc1afe732ab1bf3ed1de4bf9c809e4194e02f7dea911d918e5342e8e173",
+      "mac": "sha256:d9ea495488728d8c989dc942fca3324a3cc7b19b0a6f409a5fd568ad547fd931",
+      "openssh": "sha256:1e4912727fa88245113d41b16a0cd25ceadba7f931e1c406542885b91254264f",
+      "openstack": "sha256:025a1bc64ff5b2ef4a4bda6c4ad5c5c5f18478b71cd1ad2b0676e01625629f2f",
+      "windows": "sha256:372fb809464a6d6016e599e9272d7cf1e8b644f25c90c7f76f19c936362456d0",
+      "zookeeper": "sha256:e40e0af5ef9eb6e4097200f260b9d1f626b3676f861a432e87977242e75543d8"
+    }
+  }
 }
