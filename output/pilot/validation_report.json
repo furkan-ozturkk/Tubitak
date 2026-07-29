@@ -1,27 +1,28 @@
 {
   "passed": true,
   "stats": {
-    "total_questions": 20,
-    "unique_ids": 20,
-    "distinct_group_ids": 7,
+    "total_questions": 90,
+    "unique_ids": 90,
+    "distinct_group_ids": 15,
     "by_difficulty": {
-      "easy": 7,
-      "medium": 7,
-      "hard": 6
+      "easy": 45,
+      "medium": 40,
+      "hard": 5
     },
     "by_routing_path": {
-      "sql": 7,
-      "semantic": 13
+      "sql": 30,
+      "keyword": 15,
+      "semantic": 45
     },
     "by_split": {
-      "dev": 16,
-      "test": 4
+      "dev": 79,
+      "test": 11
     },
     "by_review_status": {
-      "verified": 7,
-      "in_review": 13
+      "verified": 45,
+      "in_review": 45
     },
-    "hard_question_count": 6,
+    "hard_question_count": 5,
     "datasets_covered": [
       "apache",
       "bgl",
@@ -36,11 +37,9 @@
     ]
   },
   "error_count": 0,
-  "warning_count": 1,
+  "warning_count": 0,
   "errors": [],
-  "warnings": [
-    "7 group_id(s) do not meet the >=3 phrasing-family rule: {'linux:count:authentication_failure': {'how-many'}, 'apache:count:notice': {'how-many'}, 'windows:count:cbs': {'how-many'}, 'mac:count:kernel': {'how-many'}, 'hdfs:count:packetresponder': {'how-many'}, 'openssh:count:failed_password': {'how-many'}, 'bgl:count:double_hummer_alignment_exceptions': {'how-many'}}. The official stage-1 set ships one phrasing per intent by design and is expected to fail --strict; a scaled run is not."
-  ],
+  "warnings": [],
   "config_snapshot": {
     "command": "validate",
     "code_version": null,
@@ -51,8 +50,8 @@
     ],
     "corpus_dir": "/data/loghub",
     "schema": "/app/config/question_schema.json",
-    "manifest": null,
-    "strict": false,
+    "manifest": "/app/src/corpus/corpus_manifest.json",
+    "strict": true,
     "full": false,
     "gold_draft_model": "nemotron-3-nano:30b",
     "groundedness_model": "gpt-oss:20b",
@@ -65,7 +64,7 @@
     "input_digests": {
       "schema": "sha256:eae81b6793e5c71be861b3c3470416f64717e1f4f9eca5c51b2ed4ce4723c11d",
       "questions": {
-        "/output/pilot/questions.json": "sha256:df38b035dc8f2a4858ed861a3664d8faa650744aa0b5d6c78dd2d084289aad2b"
+        "/output/pilot/questions.json": "sha256:7597939649472ec7cc06580ca17ebe2a3f02323074811491c4719e128a6d902f"
       }
     },
     "corpus_digests": {

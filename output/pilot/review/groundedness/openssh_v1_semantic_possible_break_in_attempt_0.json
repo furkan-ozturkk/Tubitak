@@ -1,0 +1,28 @@
+{
+  "question_id": "openssh_v1_semantic_possible_break_in_attempt_0",
+  "group_ids": [
+    "openssh:semantic:possible_break_in_attempt_0"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:b786be0a5e61bb0b99b7eb350af57b53682e056401fcf88939405d290916bb0e"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:7004db16b02023dad2a7482a703616cf284361570a58394ba9aa5e035912003c"
+  },
+  "claims": [
+    {
+      "text": "The log shows multiple failed authentication attempts from IP 173.234.31.186 for a non‑existent user “webmaster”, including reverse‑DNS lookup failures and an explicit \"POSSIBLE BREAK-IN ATTEMPT!\" warning, indicating a brute‑force or unauthorized login attempt that was rejected by the SSH daemon.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "openssh:semantic:possible_break_in_attempt_0"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

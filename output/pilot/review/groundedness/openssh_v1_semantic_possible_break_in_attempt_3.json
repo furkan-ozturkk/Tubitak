@@ -1,0 +1,35 @@
+{
+  "question_id": "openssh_v1_semantic_possible_break_in_attempt_3",
+  "group_ids": [
+    "openssh:semantic:possible_break_in_attempt_3"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:a87cdfcd3bf365a0e963af6e1be65515218b0071aad80179a35dc84271067b5e"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:51f024d0a840437ed6290f08af40b9622230a64b8fffefcf9efa1e18c9e053ed"
+  },
+  "claims": [
+    {
+      "text": "The log shows repeated failed authentication attempts from IP 187.141.143.180 targeting the 'git' and 'ghost' usernames on port 22, with sshd rejecting each attempt as invalid or unauthorized before disconnecting the client.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:semantic:possible_break_in_attempt_3"
+      ]
+    },
+    {
+      "text": "The system flags these events as possible break-in attempts due to failed reverse DNS lookups and authentication failures from an unknown user.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:semantic:possible_break_in_attempt_3"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

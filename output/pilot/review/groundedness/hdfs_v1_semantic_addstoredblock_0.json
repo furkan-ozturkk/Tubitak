@@ -1,0 +1,35 @@
+{
+  "question_id": "hdfs_v1_semantic_addstoredblock_0",
+  "group_ids": [
+    "hdfs:semantic:addstoredblock_0"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:0b5f06850efc7beba86ea06344cb17c01af8623c249ca1fe19267f015795d9d4"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:1749ecb7fc446b5d236007ca25f58c7e221f014e544dc278c36b8ddb60c50534"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows NameNode updates to its block map indicating new blocks have been added by DataNodes at specific IP addresses and ports, confirming ongoing storage operations where blocks are being registered as stored on those DataNodes.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_0"
+      ]
+    },
+    {
+      "text": "It also includes termination notices for PacketResponder threads handling certain blocks and a receipt of a new block from another DataNode's IP address.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_0"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

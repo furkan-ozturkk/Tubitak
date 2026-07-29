@@ -1,0 +1,35 @@
+{
+  "question_id": "linux_v1_semantic_check_pass_user_unknown_0",
+  "group_ids": [
+    "linux:semantic:check_pass_user_unknown_0"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:d44bda13f996cc826758c76e085a932f6ff8569a08116ddc6b4394163f45671e"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:cec89ceff2c08f198352a346f39565e17c64fc71fc4911a8e1e037d2cdc09549"
+  },
+  "claims": [
+    {
+      "text": "The log shows multiple failed authentication attempts for the root account from a remote host at IP address 218.188.2.4 and later from 220-135-151-1.hinet-ip.hinet.net, all rejected by sshd's pam_unix module.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_0"
+      ]
+    },
+    {
+      "text": "Each entry records an authentication failure with the same user (root), UID 0, and euid 0, indicating repeated login attempts using incorrect credentials from these external sources.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_0"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

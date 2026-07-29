@@ -1,0 +1,35 @@
+{
+  "question_id": "apache_v1_semantic_child_workerenv_in_error_state_0",
+  "group_ids": [
+    "apache:semantic:child_workerenv_in_error_state_0"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:adf434b182b288dea690bc2fa970b06c2a46b44b9529c1c438848de654ba773b"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:833c92aa1e793cf16f2b438955cd5557b2e39a68aa61bd48f7c4712ba677663b"
+  },
+  "claims": [
+    {
+      "text": "The log shows repeated errors indicating that the Apache module mod_jk is encountering a persistent issue where its worker process named \"workerEnv\" repeatedly enters an error state 6, despite successful initialization of child processes and configuration loading.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "apache:semantic:child_workerenv_in_error_state_0"
+      ]
+    },
+    {
+      "text": "This suggests a problem with the worker's runtime environment or resource allocation as defined in workers2.properties.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "apache:semantic:child_workerenv_in_error_state_0"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

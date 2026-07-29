@@ -1,0 +1,35 @@
+{
+  "question_id": "openssh_v1_semantic_possible_break_in_attempt_1",
+  "group_ids": [
+    "openssh:semantic:possible_break_in_attempt_1"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:5e2e9951ec84ad8b6de34812d3af2e46f5496fbfb576ccb66d23cf13e8d7ffde"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:f3d26ebd4c954b40612ffe98f5e81de2f3f134408b3fee203187876ed456df97"
+  },
+  "claims": [
+    {
+      "text": "The log shows repeated failed authentication attempts by a remote host at IP address 187.141.143.180 targeting the root user over SSH, triggering OpenSSH's reverse mapping check which flagged it as a possible break-in attempt due to inability to resolve the hostname from the IP.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:semantic:possible_break_in_attempt_1"
+      ]
+    },
+    {
+      "text": "Each attempt resulted in authentication failure and subsequent disconnection by the client before any successful login could occur.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:semantic:possible_break_in_attempt_1"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

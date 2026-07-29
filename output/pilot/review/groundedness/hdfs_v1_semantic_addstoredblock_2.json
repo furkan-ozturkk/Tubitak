@@ -1,0 +1,35 @@
+{
+  "question_id": "hdfs_v1_semantic_addstoredblock_2",
+  "group_ids": [
+    "hdfs:semantic:addstoredblock_2"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:5fbc7ac6bb7e4f4e5bf2dac953e11f247d2b2051c5fb4e20fc9213cd27a00e4d"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:45b10029308b7c1cbe8ed17193b5ecbb809400fe27cec6776dd94393bc5aae46"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows repeated updates to the HDFS block map where new data blocks are being registered on various DataNode IP addresses and ports, indicating that these nodes have newly stored 67 MB blocks in the system.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_2"
+      ]
+    },
+    {
+      "text": "This reflects ongoing block replication or storage assignment as part of normal HDFS operation.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_2"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

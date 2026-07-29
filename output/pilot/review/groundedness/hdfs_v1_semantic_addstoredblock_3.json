@@ -1,0 +1,35 @@
+{
+  "question_id": "hdfs_v1_semantic_addstoredblock_3",
+  "group_ids": [
+    "hdfs:semantic:addstoredblock_3"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:07439295c13f2ab00ea1c71c212b8701e9f81225c7eb87bc4ec244738f0f6416"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:307f108676b1928a974d9f773bb1fd338c1dbd13e603031be9917cab123b1085"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows a DataNode receiving multiple blocks of size 67108864 bytes from various IP addresses and terminating some packet responses, indicating normal block transfer activity in HDFS.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_3"
+      ]
+    },
+    {
+      "text": "Additionally, the FSNamesystem logs an allocation of a new block for a temporary file path under /user/root/randtxt5/_temporary/.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_3"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

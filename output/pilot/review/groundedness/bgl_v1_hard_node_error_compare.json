@@ -1,0 +1,62 @@
+{
+  "question_id": "bgl_v1_hard_node_error_compare",
+  "group_ids": [
+    "bgl:hard:node_error_compare:r30_m0_n9_c_j16_u01",
+    "bgl:hard:node_error_compare:r02_m1_n0_c_j12_u11"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:8981af236e5eec73e04fdc57ed61ab9124502e507c58ec6a3fbd55562505868e"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:a5590130768a3f2f0c06b8f2cd554286038c8a0f2712b5f7bf3820d5d15e9982"
+  },
+  "claims": [
+    {
+      "text": "The two groups show distinct error signatures that can be directly observed in the sample lines, and a clear root‑cause hypothesis emerges when they are compared.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "bgl:hard:node_error_compare:r30_m0_n9_c_j16_u01",
+        "bgl:hard:node_error_compare:r02_m1_n0_c_j12_u11"
+      ]
+    },
+    {
+      "text": "In Group [R30-M0-N9-C:J16-U01] every line records **“KERNEL FATAL data TLB error interrupt”**, indicating repeated fatal faults in the data translation lookaside buffer of that compute node, and all six timestamps cluster within a narrow 2‑minute window on June 11.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "bgl:hard:node_error_compare:r30_m0_n9_c_j16_u01",
+        "bgl:hard:node_error_compare:r02_m1_n0_c_j12_u11"
+      ]
+    },
+    {
+      "text": "In Group [R02-M1-N0-C:J12-U11] each line records **“KERNEL INFO instruction cache parity error corrected”**, describing non‑fatal, informational parity errors in the instruction cache that are logged as routine events and span three days with no apparent clustering.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "bgl:hard:node_error_compare:r30_m0_n9_c_j16_u01",
+        "bgl:hard:node_error_compare:r02_m1_n0_c_j12_u11"
+      ]
+    },
+    {
+      "text": "The fatal TLB interrupts on R30‑M0‑N9‑C:J16‑U01 therefore represent a far more severe anomaly than the corrected cache parity messages seen on R02‑M1‑N0‑C:J12‑U11, suggesting that the former node is experiencing hardware degradation or a systemic memory subsystem fault.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "bgl:hard:node_error_compare:r30_m0_n9_c_j16_u01",
+        "bgl:hard:node_error_compare:r02_m1_n0_c_j12_u11"
+      ]
+    },
+    {
+      "text": "Root‑cause hypothesis: the compute node **R30-M0-N9-C:J16-U01** is likely suffering from a failing TLB or associated memory controller that repeatedly triggers fatal data‑TLB errors, whereas the other node’s corrected cache parity errors are benign and unrelated to this more serious fault.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "bgl:hard:node_error_compare:r30_m0_n9_c_j16_u01",
+        "bgl:hard:node_error_compare:r02_m1_n0_c_j12_u11"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

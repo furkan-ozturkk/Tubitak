@@ -1,0 +1,35 @@
+{
+  "question_id": "openstack_v1_semantic_nova_osapi_compute_wsgi_server_2",
+  "group_ids": [
+    "openstack:semantic:nova_osapi_compute_wsgi_server_2"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:f8467aa2372c57020bbc5eecb936490d3d65cf7460077b1301ce79abad5fbba3"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:462e9b1a0f00bcdaeb724f59436bd466c6e93795f416637edb8bfaa810dcd8fb"
+  },
+  "claims": [
+    {
+      "text": "The log shows repeated successful API requests to list servers (status 200) from a Nova‑API process at 00:07:26–00:07:31 on May 16 2017, followed by a separate entry indicating that a VM with instance ID 63a0d960‑70b6‑44c6‑b606‑491478a5cadf was stopped as a lifecycle event at 00:07:27.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_2"
+      ]
+    },
+    {
+      "text": "This suggests the API responded to client queries about server details and that one virtual machine underwent a stop operation during that timeframe.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_2"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

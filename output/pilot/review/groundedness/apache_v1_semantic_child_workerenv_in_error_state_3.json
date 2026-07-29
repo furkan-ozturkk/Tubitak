@@ -1,0 +1,28 @@
+{
+  "question_id": "apache_v1_semantic_child_workerenv_in_error_state_3",
+  "group_ids": [
+    "apache:semantic:child_workerenv_in_error_state_3"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:936c58a5778d0b10525bd578fd2557b6db87c345ea5ab8deea3218bf39f48a8b"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:bb1fd219eec5f4e751540c46a77a4bdeb7329a0df2da828b781626e6d18464ea"
+  },
+  "claims": [
+    {
+      "text": "The log shows repeated errors from mod_jk indicating workerEnv processes are failing with error states 6 and 7 at 10:59:29, followed by a successful initialization of child process 5579 in scoreboard slot 6 at 11:02:05.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "apache:semantic:child_workerenv_in_error_state_3"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

@@ -1,0 +1,28 @@
+{
+  "question_id": "hadoop_v1_semantic_mrappmaster_3",
+  "group_ids": [
+    "hadoop:semantic:mrappmaster_3"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:ba34f7500f671bd75ea0d2098b477fad9af4ba4c512a7d143e9d6df1fab748fa"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:9ac252e278a2e3d1559d1b3457e251f3a5450df4d52a1670dc542d64479b34f2"
+  },
+  "claims": [
+    {
+      "text": "The log shows that a MapReduce application master is initializing and registering several internal event dispatchers (speculator, container allocator, launcher) while also configuring its default file system to HDFS on msra-sa-41:9000; it further indicates that job history data will not be sent to the timeline server.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:semantic:mrappmaster_3"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

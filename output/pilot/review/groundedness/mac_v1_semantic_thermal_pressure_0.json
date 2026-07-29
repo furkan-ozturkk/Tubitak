@@ -1,0 +1,35 @@
+{
+  "question_id": "mac_v1_semantic_thermal_pressure_0",
+  "group_ids": [
+    "mac:semantic:thermal_pressure_0"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:868375e98c84c0b9423b385cc70d0d854cd6200f27a6c2526b061d1f81223c18"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:79b60b73bad70aa7f380e721e76e3726d359586b4ac86500f8c892e61554b0fe"
+  },
+  "claims": [
+    {
+      "text": "The system logged a thermal pressure state of 1 indicating elevated heat and memory pressure state of 0 meaning normal memory usage followed by an AirPort wireless interface power transition from enabled to disabled during sleep preparation with wake triggered by network scan offload activity.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "mac:semantic:thermal_pressure_0"
+      ]
+    },
+    {
+      "text": "This sequence shows the MacBook Pro entering low-power mode after detecting thermal conditions while maintaining network connectivity through background scanning.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "mac:semantic:thermal_pressure_0"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

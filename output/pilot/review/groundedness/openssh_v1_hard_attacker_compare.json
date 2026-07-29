@@ -8,25 +8,17 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:8706ab59ed2dc717fb0cb1eadb94f568e7e208f3ed6f9810d1ae0a62f80dba39"
+    "prompt_sha256": "sha256:76d1a10d9d10c404ff3dd827326e150d03605ea5fdc36bae32e93dfd44e374bd"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:7cfa3d1cc28cd4f165d05f0b258af61664cbd61ed2ecc54c70a57beff3ec01a5"
+    "prompt_sha256": "sha256:696c7ad4e173a557c67d1e9d99b001c676a4c993849012b682f5cd1542161932"
   },
   "claims": [
     {
-      "text": "The evidence shows that source 183.62.140.253 generated a total of 580 log lines, whereas source 187.141.143.180 produced only 189 lines; this disparity indicates that the former attempted many more distinct credential checks before being terminated.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:183_62_140_253",
-        "openssh:hard:attacker_compare:187_141_143_180"
-      ]
-    },
-    {
-      "text": "In both groups the attacker repeatedly tried to authenticate as “invalid user” or “root,” received a “Received disconnect … Bye Bye [preauth]” message, and then moved on to another failed attempt, confirming a cadence of rapid, repeated login probes that ended in disconnection rather than successful access.",
+      "text": "The two groups show distinct attacker behaviors that can be directly compared using the visible facts.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:183_62_140_253",
@@ -34,7 +26,7 @@
       ]
     },
     {
-      "text": "Because the larger volume of attempts from 183.62.140.253 demonstrates a broader brute‑force sweep across many usernames, it is the more anomalous attacker when judged against its stated total_matching_lines.",
+      "text": "In Group 1 (source 183.62.140.253) each request targets a different invalid username, uses separate source ports (33521 and 33902), and is followed by an immediate “Received disconnect … Bye Bye [preauth]” line that terminates the session before any successful authentication attempt occurs.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:183_62_140_253",
@@ -42,7 +34,23 @@
       ]
     },
     {
-      "text": "A plausible root‑cause hypothesis is that an automated script or botnet was scanning for exposed SSH services and exhaustively enumerating possible accounts from 183.62.140.253, while the smaller set from 187.141.143.180 may represent a more targeted, opportunistic test of default credentials on a different host.",
+      "text": "In Group 2 (source 187.141.143.180) every request attempts to log in as **root**, uses three distinct source ports (33314, 34508, 35685), and also ends with the same “Received disconnect … Bye Bye [preauth]” line after each failed password attempt.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:183_62_140_253",
+        "openssh:hard:attacker_compare:187_141_143_180"
+      ]
+    },
+    {
+      "text": "Both groups share the identical pre‑authentication disconnect pattern, but Group 2’s repeated targeting of a privileged account (root) combined with its higher request cadence (three attempts within 11 seconds) makes it more anomalous relative to typical brute‑force noise.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:183_62_140_253",
+        "openssh:hard:attacker_compare:187_141_143_180"
+      ]
+    },
+    {
+      "text": "Root‑cause hypothesis: the attacker in Group 2 is likely an automated script that systematically probes for default or weak credentials on administrative accounts, while the activity from Group 1 appears to be a less focused enumeration of random usernames, possibly part of a broader reconnaissance sweep.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:183_62_140_253",

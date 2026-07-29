@@ -8,17 +8,17 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:42fc3c2f7a5ecebadde8e5ea296f021e76879d4d7804105e9e4861d89b92c32c"
+    "prompt_sha256": "sha256:448d3568d4c24229b317ad7f45ecafb66431964cca8026849d749bccbb2e113f"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:ba81cd9d64fef6d166d0fed2426d5a1374ccfdd23d45524b91b70b263e4b1cb1"
+    "prompt_sha256": "sha256:c04877d42a77043a50f58045009f59a78e1563f115bf006d6d876b65832857ba"
   },
   "claims": [
     {
-      "text": "The evidence shows that the group for 150.183.249.110 contains a total of 80 matching log lines, whereas the group for 207.243.167.114 has only 23 total matching lines; this means the former generated roughly three‑and‑a‑half times more authentication attempts than the latter despite showing only four sample entries in each excerpt.",
+      "text": "The two groups show parallel patterns of repeated SSH authentication failures targeting the root account, but they differ in timing and source address.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:150_183_249_110",
@@ -26,7 +26,7 @@
       ]
     },
     {
-      "text": "Both groups display failures occurring within a narrow time window—multiple failures from 150.183.249.110 are spaced just seconds apart on Jul 10, while those from 207.243.167.114 are spread over about 18 minutes on Jul 26—yet the sheer volume of attempts recorded for 150.183.249.110 makes its activity far more anomalous in absolute terms.",
+      "text": "In Group 150.183.249.110 the failures occur within a six‑second window on July 10 at 16:01–16:01:47, whereas Group 207.243.167.114 spreads its attempts over an eight‑minute span from 07:02:27 to 07:02:55 on July 26.",
       "supported": "partial",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:150_183_249_110",
@@ -34,7 +34,7 @@
       ]
     },
     {
-      "text": "Consequently, the source IP 150.183.249.110 appears to be the more suspicious one because it accounts for a substantially larger share of the total failed SSH attempts across the entire log set.",
+      "text": "Both sets involve the same user (root) and identical log formats, yet the first source fires a burst of five failures in quick succession while the second spreads them out with longer intervals between each attempt.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:150_183_249_110",
@@ -42,8 +42,16 @@
       ]
     },
     {
-      "text": "A plausible root‑cause hypothesis is that 150.183.249.110 is being used by an automated brute‑force script targeting the root account, possibly as part of a coordinated attack against the server’s weak credentials.",
-      "supported": "yes",
+      "text": "This concentration of rapid failures from 150.183.249.110 is more anomalous because it suggests an automated brute‑force script rather than a human or intermittent scanner.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:150_183_249_110",
+        "linux:hard:brute_force_compare:207_243_167_114"
+      ]
+    },
+    {
+      "text": "A plausible root‑cause hypothesis is that 150.183.249.110 is being used by a compromised botnet or credential‑stuffing tool that is aggressively probing the SSH service for the default root login, while 207.243.167.114 may represent a less aggressive or differently configured scanning source.",
+      "supported": "partial",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:150_183_249_110",
         "linux:hard:brute_force_compare:207_243_167_114"

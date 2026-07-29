@@ -1,0 +1,42 @@
+{
+  "question_id": "openstack_v1_semantic_nova_osapi_compute_wsgi_server_3",
+  "group_ids": [
+    "openstack:semantic:nova_osapi_compute_wsgi_server_3"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:51f11e86880e454f0647c3b3161fdeddaffbeb096635c6d5c6a7eb76217f28bf"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:447e71b96d34ba115cd5df1206c8e323501ccb5ae5ee493fc53ebd3a794763c8"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows repeated successful API calls to retrieve server details via a GET request to /servers/detail, each returning HTTP status 200 and varying response times between approximately 0.24 and 0.43 seconds.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_3"
+      ]
+    },
+    {
+      "text": "These requests originate from the same source IP (10.11.10.1) and are processed by nova-api instances handling compute operations within OpenStack.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_3"
+      ]
+    },
+    {
+      "text": "The consistent success indicates normal operation of the Nova compute API endpoint under light request load at that moment.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_3"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

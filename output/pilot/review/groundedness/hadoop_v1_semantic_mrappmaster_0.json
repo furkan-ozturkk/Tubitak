@@ -1,0 +1,42 @@
+{
+  "question_id": "hadoop_v1_semantic_mrappmaster_0",
+  "group_ids": [
+    "hadoop:semantic:mrappmaster_0"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:81cfd6c84c88f53e6813eeccf2d1845d9c4f74702d30e005c67af87fdb9a64fd"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:7a345bda12e35def59ba802dbd2cd47c55228187cde561eecad6529b331f5700"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows that a MapReduce application master has been created and is initializing its execution environment in YARN, registering event handlers for job tracking.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:semantic:mrappmaster_0"
+      ]
+    },
+    {
+      "text": "It indicates the system is setting up output committer configuration and preparing to manage map-reduce jobs within the Hadoop ecosystem.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:semantic:mrappmaster_0"
+      ]
+    },
+    {
+      "text": "This reflects standard startup procedures for launching a new MapReduce job attempt in Hadoop 2.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:semantic:mrappmaster_0"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

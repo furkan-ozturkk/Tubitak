@@ -1,0 +1,42 @@
+{
+  "question_id": "zookeeper_v1_semantic_fastleaderelection_0",
+  "group_ids": [
+    "zookeeper:semantic:fastleaderelection_0"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:66187a2a1f85d92be0c314ba988ceacb4abab2ab387a9508c3df301adc3b1105"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:1b7e02896a09741e267c37536314c2709da9ca30e758dd6740806ad3b24a4d43"
+  },
+  "claims": [
+    {
+      "text": "The log shows repeated connection failures and restarts of a quorum election process on server myid=1, indicating it is losing connections to peers and attempting to re-establish them.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "zookeeper:semantic:fastleaderelection_0"
+      ]
+    },
+    {
+      "text": "The final lines confirm ongoing attempts to receive new connections after previous ones were broken.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "zookeeper:semantic:fastleaderelection_0"
+      ]
+    },
+    {
+      "text": "This suggests the Zookeeper ensemble is experiencing instability or network issues causing session interruptions.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "zookeeper:semantic:fastleaderelection_0"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

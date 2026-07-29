@@ -1,0 +1,42 @@
+{
+  "question_id": "windows_v1_semantic_csi_1",
+  "group_ids": [
+    "windows:semantic:csi_1"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:8a27b1c7450fe63355f2205d0113ba38e531fdd9c5982668d5552f98e37eabd5"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:c24688c4b9cf5d3033d31c72cc69d1905a73194bb1c407b73f8c97c9adabe2d2"
+  },
+  "claims": [
+    {
+      "text": "The log shows a Windows Update session failing due to an invalid manifest item, specifically because of unrecognized packageExtended attributes causing CBS errors.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "windows:semantic:csi_1"
+      ]
+    },
+    {
+      "text": "This indicates corruption or malformed update metadata preventing successful installation.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "windows:semantic:csi_1"
+      ]
+    },
+    {
+      "text": "The system is unable to process the update package as defined in its manifest file.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "windows:semantic:csi_1"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}
