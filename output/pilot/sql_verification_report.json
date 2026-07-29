@@ -2,8 +2,8 @@
   "dataset": "/output/pilot/questions.json",
   "sql_model": "gpt-oss:20b",
   "checked": 45,
-  "agreed": 41,
-  "disagreed": 4,
+  "agreed": 45,
+  "disagreed": 0,
   "entries": [
     {
       "id": "apache_v1_count_notice_0",
@@ -11,14 +11,14 @@
       "dataset": "apache",
       "expected_answer": "1405",
       "agrees": true,
-      "sql": "SELECT COUNT(*) FROM lines WHERE dataset = 'apache' AND text ILIKE '%[notice]%'",
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='apache' AND text ILIKE '%[notice]%'",
       "result": 1405,
       "detail": "query=1405 gold=1405",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:4ed711f125dd5bb8d64125621ae7f933dd9c565ba6341c5b878d03c9e25516c4"
+        "prompt_sha256": "sha256:47f8d561f1973eb40269500651e3355ff781026b027abd3325072ba0a4bd4019"
       }
     },
     {
@@ -34,7 +34,7 @@
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:eb3d9c107cec113d050b1a9be6103a5828f480f17d169d7c90905890a606ba84"
+        "prompt_sha256": "sha256:ac683143ca1345414c81b4bad7c65928fc25cd1429d78e0a0720fb93b062e337"
       }
     },
     {
@@ -42,15 +42,15 @@
       "answer_type": "count",
       "dataset": "apache",
       "expected_answer": "1405",
-      "agrees": false,
-      "sql": "",
-      "result": null,
-      "detail": "the query was refused: empty query",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='apache' AND text ILIKE '%[notice]%'",
+      "result": 1405,
+      "detail": "query=1405 gold=1405",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:a2dbc1c85ab85dd0245d7b7407f15f0136d5a278ca7043ad64b0672a8b66edf1"
+        "prompt_sha256": "sha256:bfb45d8f1b5c15798a0cd671a4baab35e685de620783079071ada5743ee151dc"
       }
     },
     {
@@ -59,14 +59,14 @@
       "dataset": "apache",
       "expected_answer": "Yes (551 matching lines)",
       "agrees": true,
-      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='apache' AND text ILIKE '%mod_jk%')",
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset = 'apache' AND text ILIKE '%mod_jk%')",
       "result": true,
       "detail": "query=Yes gold=Yes (551 matching lines)",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:02babd44e9498e4663aa04ee93103ed12a25dbd7b3365ddceab82926cbb1faa9"
+        "prompt_sha256": "sha256:7b61ea067e412c22ea5fd8fb9ec6f4727071d71128c7f7e37752e8e80aa8e3e7"
       }
     },
     {
@@ -75,14 +75,14 @@
       "dataset": "apache",
       "expected_answer": "Yes (551 matching lines)",
       "agrees": true,
-      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='apache' AND text ILIKE '%mod_jk%') AS answer",
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset = 'apache' AND text ILIKE '%mod_jk%')",
       "result": true,
       "detail": "query=Yes gold=Yes (551 matching lines)",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:9e4cc9754e12e987fd5ec997f4803a1abba8592e3d50dc0030e678453e256931"
+        "prompt_sha256": "sha256:006cc92f9192a63b9c72dd27ac0498126fc843d306df94839d52b438e271c9df"
       }
     },
     {
@@ -91,14 +91,14 @@
       "dataset": "apache",
       "expected_answer": "Yes (551 matching lines)",
       "agrees": true,
-      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='apache' AND text ILIKE '%mod_jk%') AS answer",
+      "sql": "SELECT EXISTS(SELECT 1 FROM lines WHERE dataset='apache' AND text ILIKE '%mod_jk%')",
       "result": true,
       "detail": "query=Yes gold=Yes (551 matching lines)",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:631b96971ec29afd07295e561dbb17210dcd7e0a3521c2be9c131335b8549b8f"
+        "prompt_sha256": "sha256:c51843be17c338ab1b674e24b377ca0f4219a54ac54f485a6c5e66dad6bc3ac0"
       }
     },
     {
@@ -114,7 +114,7 @@
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:defea720bb82fc43023642e1e4516e17309071565e6b6d224d64d715a56ea850"
+        "prompt_sha256": "sha256:6e6b9602eac5e92a0ee563ba723e9cac59a7ad48085226389ace082e2cfac7c8"
       }
     },
     {
@@ -130,7 +130,7 @@
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:06c214643e8c04a150fbedd186c62889073919db5c55d02190f0f10088241228"
+        "prompt_sha256": "sha256:3d31e75eb44a2c57720b96aec687a30e7b2f941fc02a974cd949b5e77b1a4c48"
       }
     },
     {
@@ -146,7 +146,7 @@
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:4a65c0582aa278912c5baeda10d8f080ff407bb369a33abdd7f654f5156f3a5c"
+        "prompt_sha256": "sha256:a0244c071243b4011fdf752a2762dd3c83b7578eff18a85f6735460ae4f11eb2"
       }
     },
     {
@@ -155,14 +155,14 @@
       "dataset": "windows",
       "expected_answer": "1973",
       "agrees": true,
-      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='windows' AND text ILIKE '%CBS%'",
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset = 'windows' AND text ILIKE '%CBS%'",
       "result": 1973,
       "detail": "query=1973 gold=1973",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:bc38571568f1a873361fb8975c52ccf9b506737520b532460662e13fc147c910"
+        "prompt_sha256": "sha256:41753046d1bbbd80a1b029bbaacd0125c694df7205f9338590dc616fabc347a8"
       }
     },
     {
@@ -178,7 +178,7 @@
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:faa3028dbd60323019baf3301a446f4d6a81e1ae4a1fe2d3bbfa2ecc31350fa9"
+        "prompt_sha256": "sha256:a204bf515b71db1f91df04fd830a950ffc6a57aac3eadedf2862007c1b92d55d"
       }
     },
     {
@@ -186,19 +186,51 @@
       "answer_type": "count",
       "dataset": "windows",
       "expected_answer": "1973",
-      "agrees": false,
-      "sql": "",
-      "result": null,
-      "detail": "the query was refused: empty query",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='windows' AND text ILIKE '%CBS%'",
+      "result": 1973,
+      "detail": "query=1973 gold=1973",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:f719fd708794d548a9557c87f2a4355987e57df0e42b20e9240c11d186efad16"
+        "prompt_sha256": "sha256:65abb3851ae44fb809c2711dc9bef26260859a9072f24b4d1e433877bc1dc44c"
       }
     },
     {
       "id": "windows_v1_presence_error_0",
+      "answer_type": "presence",
+      "dataset": "windows",
+      "expected_answer": "Yes (2 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='windows' AND text ILIKE '%Error%')",
+      "result": true,
+      "detail": "query=Yes gold=Yes (2 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:2e6f2a1ec3d6d70db9715d49316622bc52b9d4074c799613817131f287a95347"
+      }
+    },
+    {
+      "id": "windows_v1_presence_error_1",
+      "answer_type": "presence",
+      "dataset": "windows",
+      "expected_answer": "Yes (2 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='windows' AND text ILIKE '%Error%')",
+      "result": true,
+      "detail": "query=Yes gold=Yes (2 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:a4f1e6a5db8c5ed42a1e477e21c89e2da702d666601ce16ad9d26c74935d9b9f"
+      }
+    },
+    {
+      "id": "windows_v1_presence_error_2",
       "answer_type": "presence",
       "dataset": "windows",
       "expected_answer": "Yes (2 matching lines)",
@@ -210,39 +242,7 @@
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:59950b08b3a979947a16d66c49c3297d0df61e34f8c39348af6ef00af717a4e5"
-      }
-    },
-    {
-      "id": "windows_v1_presence_error_1",
-      "answer_type": "presence",
-      "dataset": "windows",
-      "expected_answer": "Yes (2 matching lines)",
-      "agrees": true,
-      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='windows' AND text ILIKE '%Error%') AS answer",
-      "result": true,
-      "detail": "query=Yes gold=Yes (2 matching lines)",
-      "model": {
-        "name": "gpt-oss:20b",
-        "family": "gptoss",
-        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:f84035e912e41df3479ac4157d6a93c668093ebb548d885d57373d04913aaf9d"
-      }
-    },
-    {
-      "id": "windows_v1_presence_error_2",
-      "answer_type": "presence",
-      "dataset": "windows",
-      "expected_answer": "Yes (2 matching lines)",
-      "agrees": true,
-      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='windows' AND text ILIKE '%Error%') AS answer",
-      "result": true,
-      "detail": "query=Yes gold=Yes (2 matching lines)",
-      "model": {
-        "name": "gpt-oss:20b",
-        "family": "gptoss",
-        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:c3b03fea4adb822f4a7a7e5eba359435d2b3974c5d434edf073e495ee12fb628"
+        "prompt_sha256": "sha256:c5f4f0679dede85aa220aba10a8ea12834aa032f592bbcd0bf6fd947c682b03f"
       }
     },
     {
@@ -258,7 +258,7 @@
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:880611880b8fd64e7f0f09043509c0b9bb3ceb56489d033d608314b3e6880650"
+        "prompt_sha256": "sha256:331e4a38bfa9d876a990344a5e8001fb40a2de8e88e81451d6ddae68dc59ab8f"
       }
     },
     {
@@ -274,7 +274,7 @@
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:74cbfddefedb1b49062dd9fffa3b7089f7fbda147e0f6a4230949980a9436159"
+        "prompt_sha256": "sha256:9467a09c47d499b7506bf7287d5ba05f1d882146b2e1206a39f59b55a06e9dc9"
       }
     },
     {
@@ -290,7 +290,7 @@
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:e13bef9d35b96c1bdbd346e75be3a8e67038b064f9f69d9b27b01f2b6d55cd24"
+        "prompt_sha256": "sha256:6e0a7c801564d2fd8836794f5eb7ea294f991ddf0140b97787b9f12c0bfd1393"
       }
     },
     {
@@ -299,14 +299,14 @@
       "dataset": "mac",
       "expected_answer": "775",
       "agrees": true,
-      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='mac' AND text ILIKE '%kernel%'",
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset = 'mac' AND text ILIKE '%kernel%'",
       "result": 775,
       "detail": "query=775 gold=775",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:f689c9fa52e567aaf00f8bc9a4d389c7cf71708d6aa2f6c3c2c453d21c398758"
+        "prompt_sha256": "sha256:9331704cc247e3064a8d6b56d3c2529e7ce6d18f6b12d524cc7b87f97a22f1af"
       }
     },
     {
@@ -322,7 +322,7 @@
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:a53413626502bef3a04b2ad6ca7f78a1e09d8844b4a0c61e8b5948b759997cce"
+        "prompt_sha256": "sha256:7948dedd079917f8fc5f43c15100b0fa1e1537101365b380bef45d89a26dd4f8"
       }
     },
     {
@@ -330,19 +330,51 @@
       "answer_type": "count",
       "dataset": "mac",
       "expected_answer": "775",
-      "agrees": false,
-      "sql": "",
-      "result": null,
-      "detail": "the query was refused: empty query",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='mac' AND text ILIKE '%kernel%'",
+      "result": 775,
+      "detail": "query=775 gold=775",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:617b832ea973d3bb210a76446141f2f2403d2426776f9d59e814e06a8672a816"
+        "prompt_sha256": "sha256:8b8548b1d78b2bae608903a71b9ae0081b361c81049c9d207305af22d5824eaf"
       }
     },
     {
       "id": "mac_v1_presence_thermal_pressure_0",
+      "answer_type": "presence",
+      "dataset": "mac",
+      "expected_answer": "Yes (39 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset = 'mac' AND text ILIKE '%Thermal pressure%')",
+      "result": true,
+      "detail": "query=Yes gold=Yes (39 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:6cde5b7d2b71162e51d5106058e1a2f2429b42d8a0eb9a3423585c135f26acae"
+      }
+    },
+    {
+      "id": "mac_v1_presence_thermal_pressure_1",
+      "answer_type": "presence",
+      "dataset": "mac",
+      "expected_answer": "Yes (39 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset = 'mac' AND text ILIKE '%Thermal pressure%')",
+      "result": true,
+      "detail": "query=Yes gold=Yes (39 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:21b2c0e23e17feb7d3329104e521c56521f2abf7da7f1ddb87cda1cbc548f167"
+      }
+    },
+    {
+      "id": "mac_v1_presence_thermal_pressure_2",
       "answer_type": "presence",
       "dataset": "mac",
       "expected_answer": "Yes (39 matching lines)",
@@ -354,39 +386,7 @@
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:8e39bc5feacfde6c8d8a144b00810cb003625377694110c393b7647de3c5ff2b"
-      }
-    },
-    {
-      "id": "mac_v1_presence_thermal_pressure_1",
-      "answer_type": "presence",
-      "dataset": "mac",
-      "expected_answer": "Yes (39 matching lines)",
-      "agrees": true,
-      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='mac' AND text ILIKE '%Thermal pressure%') AS answer",
-      "result": true,
-      "detail": "query=Yes gold=Yes (39 matching lines)",
-      "model": {
-        "name": "gpt-oss:20b",
-        "family": "gptoss",
-        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:6d69b9ccffe14f9eb8ca0594fda905f8fb4db30c0da1ae7f689e70624c28a195"
-      }
-    },
-    {
-      "id": "mac_v1_presence_thermal_pressure_2",
-      "answer_type": "presence",
-      "dataset": "mac",
-      "expected_answer": "Yes (39 matching lines)",
-      "agrees": true,
-      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='mac' AND text ILIKE '%Thermal pressure%') AS answer",
-      "result": true,
-      "detail": "query=Yes gold=Yes (39 matching lines)",
-      "model": {
-        "name": "gpt-oss:20b",
-        "family": "gptoss",
-        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:a992945f543984e2d6f7c4e1757f4b11a22f764d2092ce995f84742896bb20d1"
+        "prompt_sha256": "sha256:8880957b8aa00f2c41ae00f6c10b09cc1b1498f5f3a6712b9d162f0791032b93"
       }
     },
     {
@@ -395,14 +395,14 @@
       "dataset": "mac",
       "expected_answer": "Jul  1 09:00:55 calvisitor-10-105-160-95 kernel[0]: IOThunderboltSwitch<0>(0x0)::listenerCallback - Thunderbolt HPD packet for route = 0x0 port = 11 unplug = 0",
       "agrees": true,
-      "sql": "SELECT text FROM lines WHERE dataset='mac' AND text ILIKE '%IOThunderboltSwitch%' ORDER BY line_number LIMIT 1",
+      "sql": "SELECT text FROM lines WHERE dataset = 'mac' AND text ILIKE '%IOThunderboltSwitch%' ORDER BY line_number LIMIT 1",
       "result": "Jul  1 09:00:55 calvisitor-10-105-160-95 kernel[0]: IOThunderboltSwitch<0>(0x0)::listenerCallback - Thunderbolt HPD packet for route = 0x0 port = 11 unplug = 0",
       "detail": "query text matches gold",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:a2bcc6f0032b2732655740e5e0240fc420f52a1d78a107b3e4a9e292af86c8f7"
+        "prompt_sha256": "sha256:6938c96591b9a0c9c1a8bd54848bd46ac2ef48ecdfd4da92e9a85ef9f0357d72"
       }
     },
     {
@@ -418,7 +418,7 @@
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:b6ffdb1316d67628c3ad178d5aff82eab4acd818696ec6f3116b3944e5508d13"
+        "prompt_sha256": "sha256:c82e7b9df8fececc0bf4e886711e036e55c2606f1dbe14655ae60092ba45e14b"
       }
     },
     {
@@ -427,14 +427,14 @@
       "dataset": "mac",
       "expected_answer": "Jul  1 09:00:55 calvisitor-10-105-160-95 kernel[0]: IOThunderboltSwitch<0>(0x0)::listenerCallback - Thunderbolt HPD packet for route = 0x0 port = 11 unplug = 0",
       "agrees": true,
-      "sql": "SELECT text FROM lines WHERE dataset='mac' AND text ILIKE '%IOThunderboltSwitch%' ORDER BY line_number ASC LIMIT 1",
+      "sql": "SELECT text FROM lines WHERE dataset='mac' AND text ILIKE '%IOThunderboltSwitch%' ORDER BY line_number LIMIT 1",
       "result": "Jul  1 09:00:55 calvisitor-10-105-160-95 kernel[0]: IOThunderboltSwitch<0>(0x0)::listenerCallback - Thunderbolt HPD packet for route = 0x0 port = 11 unplug = 0",
       "detail": "query text matches gold",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:fa0490517a2f6a34606bc5e51bb1ae2f261d40d8e39f747d3ff944b12ae59430"
+        "prompt_sha256": "sha256:f74decb26fa13b48fc2a937833348842d691a363d8a4ce99857ee4017828f241"
       }
     },
     {
@@ -443,14 +443,14 @@
       "dataset": "hdfs",
       "expected_answer": "603",
       "agrees": true,
-      "sql": "SELECT COUNT(*) FROM lines WHERE dataset = 'hdfs' AND text ILIKE '%PacketResponder%'",
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='hdfs' AND text ILIKE '%PacketResponder%'",
       "result": 603,
       "detail": "query=603 gold=603",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:79b7af98ab67848e90141190f2db1d5a93a289ab8d45597cf884cef4b12c62a2"
+        "prompt_sha256": "sha256:94277c423f5097babde52c5f78effc959e0ebf3808fea2fb7367eb38896c8d15"
       }
     },
     {
@@ -466,7 +466,7 @@
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:4dd0c280f0eafa78aa523450e1bfc2338f76119773f76cfbecbf1aa9be35fc3b"
+        "prompt_sha256": "sha256:93b6987784d5f09582e933b48d5783348d9c4d4f34f252405568ea4262a4e05d"
       }
     },
     {
@@ -474,15 +474,15 @@
       "answer_type": "count",
       "dataset": "hdfs",
       "expected_answer": "603",
-      "agrees": false,
-      "sql": "SELECT SUM(regexp_count(text, 'PacketResponder', 'i')) FROM lines WHERE dataset='hdfs'",
-      "result": null,
-      "detail": "the query failed: invalid input syntax for type integer: \"i\"\nLINE 1: SELECT SUM(regexp_count(text, 'PacketResponder', 'i')) FROM ...\n                                                         ^\n",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='hdfs' AND text ILIKE '%PacketResponder%'",
+      "result": 603,
+      "detail": "query=603 gold=603",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:b1cd52524bd9164e5102a54de67a73fcc5f050f5adfae09c3b91af7733b20462"
+        "prompt_sha256": "sha256:e5e49d919a946b7a963aac9b82a1b281f651a9f9ba4fcbbb478e28b344ab922e"
       }
     },
     {
@@ -498,7 +498,7 @@
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:88ffad81759ff5f18829ccb64f18fea57adabf54d49f77e15909f1ab719d257e"
+        "prompt_sha256": "sha256:042fbf58a84921af26287b5598274923984e59fe8fe9d57a0ffaa34be0e9aaea"
       }
     },
     {
@@ -507,14 +507,14 @@
       "dataset": "hdfs",
       "expected_answer": "Yes (80 matching lines)",
       "agrees": true,
-      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='hdfs' AND text ILIKE '%Exception%') AS answer",
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='hdfs' AND text ILIKE '%Exception%')",
       "result": true,
       "detail": "query=Yes gold=Yes (80 matching lines)",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:ef2548b3b5e9c86aabf5bdab2fdcbf4c7459a87d454facb48754a7fcc66978b4"
+        "prompt_sha256": "sha256:2c3462756acfb2a38e8f73e43b5c5d385cc6faa2e8b833e6d4ee268e7347e53d"
       }
     },
     {
@@ -523,14 +523,14 @@
       "dataset": "hdfs",
       "expected_answer": "Yes (80 matching lines)",
       "agrees": true,
-      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='hdfs' AND text ILIKE '%Exception%') AS answer",
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='hdfs' AND text ILIKE '%Exception%')",
       "result": true,
       "detail": "query=Yes gold=Yes (80 matching lines)",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:44030ec7ba3aeae48c46f60a436f2b414d98ce146740a5231fcfde6e7933eb0a"
+        "prompt_sha256": "sha256:41dbc941132b6245a82851822e6fed967b2a0b8f3fe543f603729e9041cab28a"
       }
     },
     {
@@ -546,7 +546,7 @@
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:30bd34ac5a1c01054eb008b8d8d12e54bf2359d07d791cd538269ed4a9c4a014"
+        "prompt_sha256": "sha256:01ffef7a0c1afa0770eeadb86d7ded1ea45148a1ad36a2bdb0ab73fa44b9d694"
       }
     },
     {
@@ -562,7 +562,7 @@
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:ee31314b0e8a501abf4e0ba9fe92b99f6e6565983d76acb2d009df2ef92cd8c0"
+        "prompt_sha256": "sha256:f9f630b1f1615a47105f024cc38b48cfffd080a6d3b2650a28cf314310ba102b"
       }
     },
     {
@@ -571,14 +571,14 @@
       "dataset": "hdfs",
       "expected_answer": "081109 204005 35 INFO dfs.FSNamesystem: BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.73.220:50010 is added to blk_7128370237687728475 size 67108864",
       "agrees": true,
-      "sql": "SELECT text FROM lines WHERE dataset='hdfs' AND text ILIKE '%addStoredBlock%' ORDER BY line_number ASC LIMIT 1",
+      "sql": "SELECT text FROM lines WHERE dataset='hdfs' AND text ILIKE '%addStoredBlock%' ORDER BY line_number LIMIT 1",
       "result": "081109 204005 35 INFO dfs.FSNamesystem: BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.73.220:50010 is added to blk_7128370237687728475 size 67108864",
       "detail": "query text matches gold",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:00ce42921c3e9a8b8b3285d23142ec08cfc903b2fd092d7cbb759284c9c137d0"
+        "prompt_sha256": "sha256:b64623b08ac456df11c3bf2c11a947f5d9c22de528448206f83a6c99a24c71e1"
       }
     },
     {
@@ -587,14 +587,14 @@
       "dataset": "openstack",
       "expected_answer": "933",
       "agrees": true,
-      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='openstack' AND text ILIKE '%status: 200%'",
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset = 'openstack' AND text ILIKE '%status: 200%'",
       "result": 933,
       "detail": "query=933 gold=933",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:5b97e9e98a4f212d7d490d636c25384c607b554867f0702ef436231aafe7cf3d"
+        "prompt_sha256": "sha256:7a5e1692832fff97fe2b4673ecc705a3b08862f135e25b484f9d3e3e335ebd45"
       }
     },
     {
@@ -610,7 +610,7 @@
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:ef00b8cb751a0c9c0a12315a40928636bd871cad6af6765a881254481e4dd74b"
+        "prompt_sha256": "sha256:04c2da4074f933c06aee8d7553acbdb0bc7484bd907a0dd5a1e4a15b21582712"
       }
     },
     {
@@ -626,7 +626,7 @@
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:0ff7f95a53dc73d81349da53ed6e47111819e57eafad514c3c8b8b63936d0b1e"
+        "prompt_sha256": "sha256:cd2009ea1d9e5c57ffc8336a7147fbf18325d671ef143193765dd8b70091cc68"
       }
     },
     {
@@ -635,14 +635,14 @@
       "dataset": "openstack",
       "expected_answer": "No (0 matching lines)",
       "agrees": true,
-      "sql": "SELECT EXISTS(SELECT 1 FROM lines WHERE dataset='openstack' AND text ILIKE '%ERROR%')",
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='openstack' AND text ILIKE '%ERROR%')",
       "result": false,
       "detail": "query=No gold=No (0 matching lines)",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:9e0d264fd62c3f848957931160f05a1e03d38ebebd6d6eaf0bcafaf52fedd8cd"
+        "prompt_sha256": "sha256:422ff05e6aea030dd05a9faafee772dd7ec09cbef8f6e3c8ebb159854b619aa0"
       }
     },
     {
@@ -658,7 +658,7 @@
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:2070ae846e36b091cd7deba5318805c08fa88cb7316c8ac3c817a8a3583a0cec"
+        "prompt_sha256": "sha256:7fcb3878c9684ccf5f5631d76e4851f6518089c0bd7e50638b3aaa53231089b4"
       }
     },
     {
@@ -667,14 +667,14 @@
       "dataset": "openstack",
       "expected_answer": "No (0 matching lines)",
       "agrees": true,
-      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='openstack' AND text ILIKE '%ERROR%') AS has_error",
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='openstack' AND text ILIKE '%ERROR%')",
       "result": false,
       "detail": "query=No gold=No (0 matching lines)",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:0e69f31ebb480282fc643132f293b1ff7b366c995fe9726c78f6bea58e574e47"
+        "prompt_sha256": "sha256:f09bfe4649f9f2f8e9e1c88331473e32a1f50550adbe354f7e874c9e816f152c"
       }
     },
     {
@@ -683,14 +683,14 @@
       "dataset": "openstack",
       "expected_answer": "nova-api.log.1.2017-05-16_13:53:08 2017-05-16 00:00:00.008 25746 INFO nova.osapi_compute.wsgi.server [req-38101a0b-2096-447d-96ea-a692162415ae 113d3a99c3da401fbd62cc2caa5b96d2 54fadb412c4e40cdbaed9335e4c35a9e - - -] 10.11.10.1 \"GET /v2/54fadb412c4e40cdbaed9335e4c35a9e/servers/detail HTTP/1.1\" status: 200 len: 1893 time: 0.2477829",
       "agrees": true,
-      "sql": "SELECT text FROM lines WHERE dataset = 'openstack' AND text ILIKE '%status: 200%' ORDER BY line_number ASC LIMIT 1",
+      "sql": "SELECT text FROM lines WHERE dataset='openstack' AND text ILIKE '%status: 200%' ORDER BY line_number LIMIT 1",
       "result": "nova-api.log.1.2017-05-16_13:53:08 2017-05-16 00:00:00.008 25746 INFO nova.osapi_compute.wsgi.server [req-38101a0b-2096-447d-96ea-a692162415ae 113d3a99c3da401fbd62cc2caa5b96d2 54fadb412c4e40cdbaed9335e4c35a9e - - -] 10.11.10.1 \"GET /v2/54fadb412c4e40cdbaed9335e4c35a9e/servers/detail HTTP/1.1\" status: 200 len: 1893 time: 0.2477829",
       "detail": "query text matches gold",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:0c504404e3c9ea7cc7fe4727a51fbec75e15bd47fe5d9b07cca3414273e05da5"
+        "prompt_sha256": "sha256:fc98f3d6b1cdfd56c47920c12a66094f3b80170515dd011191d757c5ec9d76f4"
       }
     },
     {
@@ -706,7 +706,7 @@
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:28d181303d3fcb6bfa4e028e1b5cf2590ce6a61c6c382588b09759782f119e5a"
+        "prompt_sha256": "sha256:c75d1ce78dab56d0e453f6dc2827f5e98424e1aecd6f77e4a54e5acc1b734c14"
       }
     },
     {
@@ -715,14 +715,14 @@
       "dataset": "openstack",
       "expected_answer": "nova-api.log.1.2017-05-16_13:53:08 2017-05-16 00:00:00.008 25746 INFO nova.osapi_compute.wsgi.server [req-38101a0b-2096-447d-96ea-a692162415ae 113d3a99c3da401fbd62cc2caa5b96d2 54fadb412c4e40cdbaed9335e4c35a9e - - -] 10.11.10.1 \"GET /v2/54fadb412c4e40cdbaed9335e4c35a9e/servers/detail HTTP/1.1\" status: 200 len: 1893 time: 0.2477829",
       "agrees": true,
-      "sql": "SELECT text FROM lines WHERE dataset='openstack' AND text ILIKE '%status: 200%' ORDER BY line_number LIMIT 1",
+      "sql": "SELECT text FROM lines WHERE dataset = 'openstack' AND text ILIKE '%status: 200%' ORDER BY line_number LIMIT 1",
       "result": "nova-api.log.1.2017-05-16_13:53:08 2017-05-16 00:00:00.008 25746 INFO nova.osapi_compute.wsgi.server [req-38101a0b-2096-447d-96ea-a692162415ae 113d3a99c3da401fbd62cc2caa5b96d2 54fadb412c4e40cdbaed9335e4c35a9e - - -] 10.11.10.1 \"GET /v2/54fadb412c4e40cdbaed9335e4c35a9e/servers/detail HTTP/1.1\" status: 200 len: 1893 time: 0.2477829",
       "detail": "query text matches gold",
       "model": {
         "name": "gpt-oss:20b",
         "family": "gptoss",
         "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-        "prompt_sha256": "sha256:5ab099bdbd4df47f3eda4b6c435b5f715fd3565dbd8907439cbf8e8504c3aa72"
+        "prompt_sha256": "sha256:b21768c23396b84e1c061a7882849a6bd69adfe3350723c05b56c19872ae0ac5"
       }
     }
   ]
