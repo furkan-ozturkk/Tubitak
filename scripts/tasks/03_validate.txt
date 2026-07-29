@@ -1,2 +1,2 @@
-python3 main.py --command validate
-python3 main.py --command validate --strict
+--command validate
+--command validate --strict

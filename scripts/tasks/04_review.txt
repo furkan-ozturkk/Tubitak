@@ -1,3 +1,0 @@
-python3 main.py --command review-export
-# insan worksheet'i doldurur, sonra:
-# python3 main.py --command review-apply --reviewer <isim>

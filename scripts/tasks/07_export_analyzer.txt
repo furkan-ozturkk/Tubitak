@@ -1,1 +1,1 @@
-python3 main.py --command export-analyzer
+--command export-analyzer

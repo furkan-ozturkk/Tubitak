@@ -1,0 +1,729 @@
+{
+  "dataset": "/output/pilot/questions.json",
+  "sql_model": "gpt-oss:20b",
+  "checked": 45,
+  "agreed": 41,
+  "disagreed": 4,
+  "entries": [
+    {
+      "id": "apache_v1_count_notice_0",
+      "answer_type": "count",
+      "dataset": "apache",
+      "expected_answer": "1405",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset = 'apache' AND text ILIKE '%[notice]%'",
+      "result": 1405,
+      "detail": "query=1405 gold=1405",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:4ed711f125dd5bb8d64125621ae7f933dd9c565ba6341c5b878d03c9e25516c4"
+      }
+    },
+    {
+      "id": "apache_v1_count_notice_1",
+      "answer_type": "count",
+      "dataset": "apache",
+      "expected_answer": "1405",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='apache' AND text ILIKE '%[notice]%'",
+      "result": 1405,
+      "detail": "query=1405 gold=1405",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:eb3d9c107cec113d050b1a9be6103a5828f480f17d169d7c90905890a606ba84"
+      }
+    },
+    {
+      "id": "apache_v1_count_notice_2",
+      "answer_type": "count",
+      "dataset": "apache",
+      "expected_answer": "1405",
+      "agrees": false,
+      "sql": "",
+      "result": null,
+      "detail": "the query was refused: empty query",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:a2dbc1c85ab85dd0245d7b7407f15f0136d5a278ca7043ad64b0672a8b66edf1"
+      }
+    },
+    {
+      "id": "apache_v1_presence_mod_jk_0",
+      "answer_type": "presence",
+      "dataset": "apache",
+      "expected_answer": "Yes (551 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='apache' AND text ILIKE '%mod_jk%')",
+      "result": true,
+      "detail": "query=Yes gold=Yes (551 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:02babd44e9498e4663aa04ee93103ed12a25dbd7b3365ddceab82926cbb1faa9"
+      }
+    },
+    {
+      "id": "apache_v1_presence_mod_jk_1",
+      "answer_type": "presence",
+      "dataset": "apache",
+      "expected_answer": "Yes (551 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='apache' AND text ILIKE '%mod_jk%') AS answer",
+      "result": true,
+      "detail": "query=Yes gold=Yes (551 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:9e4cc9754e12e987fd5ec997f4803a1abba8592e3d50dc0030e678453e256931"
+      }
+    },
+    {
+      "id": "apache_v1_presence_mod_jk_2",
+      "answer_type": "presence",
+      "dataset": "apache",
+      "expected_answer": "Yes (551 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='apache' AND text ILIKE '%mod_jk%') AS answer",
+      "result": true,
+      "detail": "query=Yes gold=Yes (551 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:631b96971ec29afd07295e561dbb17210dcd7e0a3521c2be9c131335b8549b8f"
+      }
+    },
+    {
+      "id": "apache_v1_lookup_child_workerenv_in_error_state_first_0",
+      "answer_type": "line_lookup",
+      "dataset": "apache",
+      "expected_answer": "[Sun Dec 04 04:47:44 2005] [error] mod_jk child workerEnv in error state 6",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='apache' AND text ILIKE '%child workerEnv in error state%' ORDER BY line_number LIMIT 1",
+      "result": "[Sun Dec 04 04:47:44 2005] [error] mod_jk child workerEnv in error state 6",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:defea720bb82fc43023642e1e4516e17309071565e6b6d224d64d715a56ea850"
+      }
+    },
+    {
+      "id": "apache_v1_lookup_child_workerenv_in_error_state_first_1",
+      "answer_type": "line_lookup",
+      "dataset": "apache",
+      "expected_answer": "[Sun Dec 04 04:47:44 2005] [error] mod_jk child workerEnv in error state 6",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='apache' AND text ILIKE '%child workerEnv in error state%' ORDER BY line_number LIMIT 1",
+      "result": "[Sun Dec 04 04:47:44 2005] [error] mod_jk child workerEnv in error state 6",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:06c214643e8c04a150fbedd186c62889073919db5c55d02190f0f10088241228"
+      }
+    },
+    {
+      "id": "apache_v1_lookup_child_workerenv_in_error_state_first_2",
+      "answer_type": "line_lookup",
+      "dataset": "apache",
+      "expected_answer": "[Sun Dec 04 04:47:44 2005] [error] mod_jk child workerEnv in error state 6",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='apache' AND text ILIKE '%child workerEnv in error state%' ORDER BY line_number LIMIT 1",
+      "result": "[Sun Dec 04 04:47:44 2005] [error] mod_jk child workerEnv in error state 6",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:4a65c0582aa278912c5baeda10d8f080ff407bb369a33abdd7f654f5156f3a5c"
+      }
+    },
+    {
+      "id": "windows_v1_count_cbs_0",
+      "answer_type": "count",
+      "dataset": "windows",
+      "expected_answer": "1973",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='windows' AND text ILIKE '%CBS%'",
+      "result": 1973,
+      "detail": "query=1973 gold=1973",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:bc38571568f1a873361fb8975c52ccf9b506737520b532460662e13fc147c910"
+      }
+    },
+    {
+      "id": "windows_v1_count_cbs_1",
+      "answer_type": "count",
+      "dataset": "windows",
+      "expected_answer": "1973",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='windows' AND text ILIKE '%CBS%'",
+      "result": 1973,
+      "detail": "query=1973 gold=1973",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:faa3028dbd60323019baf3301a446f4d6a81e1ae4a1fe2d3bbfa2ecc31350fa9"
+      }
+    },
+    {
+      "id": "windows_v1_count_cbs_2",
+      "answer_type": "count",
+      "dataset": "windows",
+      "expected_answer": "1973",
+      "agrees": false,
+      "sql": "",
+      "result": null,
+      "detail": "the query was refused: empty query",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:f719fd708794d548a9557c87f2a4355987e57df0e42b20e9240c11d186efad16"
+      }
+    },
+    {
+      "id": "windows_v1_presence_error_0",
+      "answer_type": "presence",
+      "dataset": "windows",
+      "expected_answer": "Yes (2 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS(SELECT 1 FROM lines WHERE dataset='windows' AND text ILIKE '%Error%')",
+      "result": true,
+      "detail": "query=Yes gold=Yes (2 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:59950b08b3a979947a16d66c49c3297d0df61e34f8c39348af6ef00af717a4e5"
+      }
+    },
+    {
+      "id": "windows_v1_presence_error_1",
+      "answer_type": "presence",
+      "dataset": "windows",
+      "expected_answer": "Yes (2 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='windows' AND text ILIKE '%Error%') AS answer",
+      "result": true,
+      "detail": "query=Yes gold=Yes (2 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:f84035e912e41df3479ac4157d6a93c668093ebb548d885d57373d04913aaf9d"
+      }
+    },
+    {
+      "id": "windows_v1_presence_error_2",
+      "answer_type": "presence",
+      "dataset": "windows",
+      "expected_answer": "Yes (2 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='windows' AND text ILIKE '%Error%') AS answer",
+      "result": true,
+      "detail": "query=Yes gold=Yes (2 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:c3b03fea4adb822f4a7a7e5eba359435d2b3974c5d434edf073e495ee12fb628"
+      }
+    },
+    {
+      "id": "windows_v1_lookup_csi_first_0",
+      "answer_type": "line_lookup",
+      "dataset": "windows",
+      "expected_answer": "2016-09-28 04:30:31, Info                  CSI    00000001@2016/9/27:20:30:31.455 WcpInitialize (wcp.dll version 0.0.0.6) called (stack @0x7fed806eb5d @0x7fef9fb9b6d @0x7fef9f8358f @0xff83e97c @0xff83d799 @0xff83db2f)",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='windows' AND text ILIKE '%CSI%' ORDER BY line_number LIMIT 1",
+      "result": "2016-09-28 04:30:31, Info                  CSI    00000001@2016/9/27:20:30:31.455 WcpInitialize (wcp.dll version 0.0.0.6) called (stack @0x7fed806eb5d @0x7fef9fb9b6d @0x7fef9f8358f @0xff83e97c @0xff83d799 @0xff83db2f)",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:880611880b8fd64e7f0f09043509c0b9bb3ceb56489d033d608314b3e6880650"
+      }
+    },
+    {
+      "id": "windows_v1_lookup_csi_first_1",
+      "answer_type": "line_lookup",
+      "dataset": "windows",
+      "expected_answer": "2016-09-28 04:30:31, Info                  CSI    00000001@2016/9/27:20:30:31.455 WcpInitialize (wcp.dll version 0.0.0.6) called (stack @0x7fed806eb5d @0x7fef9fb9b6d @0x7fef9f8358f @0xff83e97c @0xff83d799 @0xff83db2f)",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='windows' AND text ILIKE '%CSI%' ORDER BY line_number LIMIT 1",
+      "result": "2016-09-28 04:30:31, Info                  CSI    00000001@2016/9/27:20:30:31.455 WcpInitialize (wcp.dll version 0.0.0.6) called (stack @0x7fed806eb5d @0x7fef9fb9b6d @0x7fef9f8358f @0xff83e97c @0xff83d799 @0xff83db2f)",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:74cbfddefedb1b49062dd9fffa3b7089f7fbda147e0f6a4230949980a9436159"
+      }
+    },
+    {
+      "id": "windows_v1_lookup_csi_first_2",
+      "answer_type": "line_lookup",
+      "dataset": "windows",
+      "expected_answer": "2016-09-28 04:30:31, Info                  CSI    00000001@2016/9/27:20:30:31.455 WcpInitialize (wcp.dll version 0.0.0.6) called (stack @0x7fed806eb5d @0x7fef9fb9b6d @0x7fef9f8358f @0xff83e97c @0xff83d799 @0xff83db2f)",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='windows' AND text ILIKE '%CSI%' ORDER BY line_number LIMIT 1",
+      "result": "2016-09-28 04:30:31, Info                  CSI    00000001@2016/9/27:20:30:31.455 WcpInitialize (wcp.dll version 0.0.0.6) called (stack @0x7fed806eb5d @0x7fef9fb9b6d @0x7fef9f8358f @0xff83e97c @0xff83d799 @0xff83db2f)",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:e13bef9d35b96c1bdbd346e75be3a8e67038b064f9f69d9b27b01f2b6d55cd24"
+      }
+    },
+    {
+      "id": "mac_v1_count_kernel_0",
+      "answer_type": "count",
+      "dataset": "mac",
+      "expected_answer": "775",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='mac' AND text ILIKE '%kernel%'",
+      "result": 775,
+      "detail": "query=775 gold=775",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:f689c9fa52e567aaf00f8bc9a4d389c7cf71708d6aa2f6c3c2c453d21c398758"
+      }
+    },
+    {
+      "id": "mac_v1_count_kernel_1",
+      "answer_type": "count",
+      "dataset": "mac",
+      "expected_answer": "775",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='mac' AND text ILIKE '%kernel%'",
+      "result": 775,
+      "detail": "query=775 gold=775",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:a53413626502bef3a04b2ad6ca7f78a1e09d8844b4a0c61e8b5948b759997cce"
+      }
+    },
+    {
+      "id": "mac_v1_count_kernel_2",
+      "answer_type": "count",
+      "dataset": "mac",
+      "expected_answer": "775",
+      "agrees": false,
+      "sql": "",
+      "result": null,
+      "detail": "the query was refused: empty query",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:617b832ea973d3bb210a76446141f2f2403d2426776f9d59e814e06a8672a816"
+      }
+    },
+    {
+      "id": "mac_v1_presence_thermal_pressure_0",
+      "answer_type": "presence",
+      "dataset": "mac",
+      "expected_answer": "Yes (39 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='mac' AND text ILIKE '%Thermal pressure%')",
+      "result": true,
+      "detail": "query=Yes gold=Yes (39 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:8e39bc5feacfde6c8d8a144b00810cb003625377694110c393b7647de3c5ff2b"
+      }
+    },
+    {
+      "id": "mac_v1_presence_thermal_pressure_1",
+      "answer_type": "presence",
+      "dataset": "mac",
+      "expected_answer": "Yes (39 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='mac' AND text ILIKE '%Thermal pressure%') AS answer",
+      "result": true,
+      "detail": "query=Yes gold=Yes (39 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:6d69b9ccffe14f9eb8ca0594fda905f8fb4db30c0da1ae7f689e70624c28a195"
+      }
+    },
+    {
+      "id": "mac_v1_presence_thermal_pressure_2",
+      "answer_type": "presence",
+      "dataset": "mac",
+      "expected_answer": "Yes (39 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='mac' AND text ILIKE '%Thermal pressure%') AS answer",
+      "result": true,
+      "detail": "query=Yes gold=Yes (39 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:a992945f543984e2d6f7c4e1757f4b11a22f764d2092ce995f84742896bb20d1"
+      }
+    },
+    {
+      "id": "mac_v1_lookup_iothunderboltswitch_first_0",
+      "answer_type": "line_lookup",
+      "dataset": "mac",
+      "expected_answer": "Jul  1 09:00:55 calvisitor-10-105-160-95 kernel[0]: IOThunderboltSwitch<0>(0x0)::listenerCallback - Thunderbolt HPD packet for route = 0x0 port = 11 unplug = 0",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='mac' AND text ILIKE '%IOThunderboltSwitch%' ORDER BY line_number LIMIT 1",
+      "result": "Jul  1 09:00:55 calvisitor-10-105-160-95 kernel[0]: IOThunderboltSwitch<0>(0x0)::listenerCallback - Thunderbolt HPD packet for route = 0x0 port = 11 unplug = 0",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:a2bcc6f0032b2732655740e5e0240fc420f52a1d78a107b3e4a9e292af86c8f7"
+      }
+    },
+    {
+      "id": "mac_v1_lookup_iothunderboltswitch_first_1",
+      "answer_type": "line_lookup",
+      "dataset": "mac",
+      "expected_answer": "Jul  1 09:00:55 calvisitor-10-105-160-95 kernel[0]: IOThunderboltSwitch<0>(0x0)::listenerCallback - Thunderbolt HPD packet for route = 0x0 port = 11 unplug = 0",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='mac' AND text ILIKE '%IOThunderboltSwitch%' ORDER BY line_number LIMIT 1",
+      "result": "Jul  1 09:00:55 calvisitor-10-105-160-95 kernel[0]: IOThunderboltSwitch<0>(0x0)::listenerCallback - Thunderbolt HPD packet for route = 0x0 port = 11 unplug = 0",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:b6ffdb1316d67628c3ad178d5aff82eab4acd818696ec6f3116b3944e5508d13"
+      }
+    },
+    {
+      "id": "mac_v1_lookup_iothunderboltswitch_first_2",
+      "answer_type": "line_lookup",
+      "dataset": "mac",
+      "expected_answer": "Jul  1 09:00:55 calvisitor-10-105-160-95 kernel[0]: IOThunderboltSwitch<0>(0x0)::listenerCallback - Thunderbolt HPD packet for route = 0x0 port = 11 unplug = 0",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='mac' AND text ILIKE '%IOThunderboltSwitch%' ORDER BY line_number ASC LIMIT 1",
+      "result": "Jul  1 09:00:55 calvisitor-10-105-160-95 kernel[0]: IOThunderboltSwitch<0>(0x0)::listenerCallback - Thunderbolt HPD packet for route = 0x0 port = 11 unplug = 0",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:fa0490517a2f6a34606bc5e51bb1ae2f261d40d8e39f747d3ff944b12ae59430"
+      }
+    },
+    {
+      "id": "hdfs_v1_count_packetresponder_0",
+      "answer_type": "count",
+      "dataset": "hdfs",
+      "expected_answer": "603",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset = 'hdfs' AND text ILIKE '%PacketResponder%'",
+      "result": 603,
+      "detail": "query=603 gold=603",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:79b7af98ab67848e90141190f2db1d5a93a289ab8d45597cf884cef4b12c62a2"
+      }
+    },
+    {
+      "id": "hdfs_v1_count_packetresponder_1",
+      "answer_type": "count",
+      "dataset": "hdfs",
+      "expected_answer": "603",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='hdfs' AND text ILIKE '%PacketResponder%'",
+      "result": 603,
+      "detail": "query=603 gold=603",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:4dd0c280f0eafa78aa523450e1bfc2338f76119773f76cfbecbf1aa9be35fc3b"
+      }
+    },
+    {
+      "id": "hdfs_v1_count_packetresponder_2",
+      "answer_type": "count",
+      "dataset": "hdfs",
+      "expected_answer": "603",
+      "agrees": false,
+      "sql": "SELECT SUM(regexp_count(text, 'PacketResponder', 'i')) FROM lines WHERE dataset='hdfs'",
+      "result": null,
+      "detail": "the query failed: invalid input syntax for type integer: \"i\"\nLINE 1: SELECT SUM(regexp_count(text, 'PacketResponder', 'i')) FROM ...\n                                                         ^\n",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:b1cd52524bd9164e5102a54de67a73fcc5f050f5adfae09c3b91af7733b20462"
+      }
+    },
+    {
+      "id": "hdfs_v1_presence_exception_0",
+      "answer_type": "presence",
+      "dataset": "hdfs",
+      "expected_answer": "Yes (80 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='hdfs' AND text ILIKE '%Exception%')",
+      "result": true,
+      "detail": "query=Yes gold=Yes (80 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:88ffad81759ff5f18829ccb64f18fea57adabf54d49f77e15909f1ab719d257e"
+      }
+    },
+    {
+      "id": "hdfs_v1_presence_exception_1",
+      "answer_type": "presence",
+      "dataset": "hdfs",
+      "expected_answer": "Yes (80 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='hdfs' AND text ILIKE '%Exception%') AS answer",
+      "result": true,
+      "detail": "query=Yes gold=Yes (80 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:ef2548b3b5e9c86aabf5bdab2fdcbf4c7459a87d454facb48754a7fcc66978b4"
+      }
+    },
+    {
+      "id": "hdfs_v1_presence_exception_2",
+      "answer_type": "presence",
+      "dataset": "hdfs",
+      "expected_answer": "Yes (80 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='hdfs' AND text ILIKE '%Exception%') AS answer",
+      "result": true,
+      "detail": "query=Yes gold=Yes (80 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:44030ec7ba3aeae48c46f60a436f2b414d98ce146740a5231fcfde6e7933eb0a"
+      }
+    },
+    {
+      "id": "hdfs_v1_lookup_addstoredblock_first_0",
+      "answer_type": "line_lookup",
+      "dataset": "hdfs",
+      "expected_answer": "081109 204005 35 INFO dfs.FSNamesystem: BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.73.220:50010 is added to blk_7128370237687728475 size 67108864",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='hdfs' AND text ILIKE '%addStoredBlock%' ORDER BY line_number LIMIT 1",
+      "result": "081109 204005 35 INFO dfs.FSNamesystem: BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.73.220:50010 is added to blk_7128370237687728475 size 67108864",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:30bd34ac5a1c01054eb008b8d8d12e54bf2359d07d791cd538269ed4a9c4a014"
+      }
+    },
+    {
+      "id": "hdfs_v1_lookup_addstoredblock_first_1",
+      "answer_type": "line_lookup",
+      "dataset": "hdfs",
+      "expected_answer": "081109 204005 35 INFO dfs.FSNamesystem: BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.73.220:50010 is added to blk_7128370237687728475 size 67108864",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='hdfs' AND text ILIKE '%addStoredBlock%' ORDER BY line_number LIMIT 1",
+      "result": "081109 204005 35 INFO dfs.FSNamesystem: BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.73.220:50010 is added to blk_7128370237687728475 size 67108864",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:ee31314b0e8a501abf4e0ba9fe92b99f6e6565983d76acb2d009df2ef92cd8c0"
+      }
+    },
+    {
+      "id": "hdfs_v1_lookup_addstoredblock_first_2",
+      "answer_type": "line_lookup",
+      "dataset": "hdfs",
+      "expected_answer": "081109 204005 35 INFO dfs.FSNamesystem: BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.73.220:50010 is added to blk_7128370237687728475 size 67108864",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='hdfs' AND text ILIKE '%addStoredBlock%' ORDER BY line_number ASC LIMIT 1",
+      "result": "081109 204005 35 INFO dfs.FSNamesystem: BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.73.220:50010 is added to blk_7128370237687728475 size 67108864",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:00ce42921c3e9a8b8b3285d23142ec08cfc903b2fd092d7cbb759284c9c137d0"
+      }
+    },
+    {
+      "id": "openstack_v1_count_status_200_0",
+      "answer_type": "count",
+      "dataset": "openstack",
+      "expected_answer": "933",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='openstack' AND text ILIKE '%status: 200%'",
+      "result": 933,
+      "detail": "query=933 gold=933",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:5b97e9e98a4f212d7d490d636c25384c607b554867f0702ef436231aafe7cf3d"
+      }
+    },
+    {
+      "id": "openstack_v1_count_status_200_1",
+      "answer_type": "count",
+      "dataset": "openstack",
+      "expected_answer": "933",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='openstack' AND text ILIKE '%status: 200%'",
+      "result": 933,
+      "detail": "query=933 gold=933",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:ef00b8cb751a0c9c0a12315a40928636bd871cad6af6765a881254481e4dd74b"
+      }
+    },
+    {
+      "id": "openstack_v1_count_status_200_2",
+      "answer_type": "count",
+      "dataset": "openstack",
+      "expected_answer": "933",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='openstack' AND text ILIKE '%status: 200%'",
+      "result": 933,
+      "detail": "query=933 gold=933",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:0ff7f95a53dc73d81349da53ed6e47111819e57eafad514c3c8b8b63936d0b1e"
+      }
+    },
+    {
+      "id": "openstack_v1_presence_error_0",
+      "answer_type": "presence",
+      "dataset": "openstack",
+      "expected_answer": "No (0 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS(SELECT 1 FROM lines WHERE dataset='openstack' AND text ILIKE '%ERROR%')",
+      "result": false,
+      "detail": "query=No gold=No (0 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:9e0d264fd62c3f848957931160f05a1e03d38ebebd6d6eaf0bcafaf52fedd8cd"
+      }
+    },
+    {
+      "id": "openstack_v1_presence_error_1",
+      "answer_type": "presence",
+      "dataset": "openstack",
+      "expected_answer": "No (0 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='openstack' AND text ILIKE '%ERROR%')",
+      "result": false,
+      "detail": "query=No gold=No (0 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:2070ae846e36b091cd7deba5318805c08fa88cb7316c8ac3c817a8a3583a0cec"
+      }
+    },
+    {
+      "id": "openstack_v1_presence_error_2",
+      "answer_type": "presence",
+      "dataset": "openstack",
+      "expected_answer": "No (0 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='openstack' AND text ILIKE '%ERROR%') AS has_error",
+      "result": false,
+      "detail": "query=No gold=No (0 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:0e69f31ebb480282fc643132f293b1ff7b366c995fe9726c78f6bea58e574e47"
+      }
+    },
+    {
+      "id": "openstack_v1_lookup_status_200_first_0",
+      "answer_type": "line_lookup",
+      "dataset": "openstack",
+      "expected_answer": "nova-api.log.1.2017-05-16_13:53:08 2017-05-16 00:00:00.008 25746 INFO nova.osapi_compute.wsgi.server [req-38101a0b-2096-447d-96ea-a692162415ae 113d3a99c3da401fbd62cc2caa5b96d2 54fadb412c4e40cdbaed9335e4c35a9e - - -] 10.11.10.1 \"GET /v2/54fadb412c4e40cdbaed9335e4c35a9e/servers/detail HTTP/1.1\" status: 200 len: 1893 time: 0.2477829",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset = 'openstack' AND text ILIKE '%status: 200%' ORDER BY line_number ASC LIMIT 1",
+      "result": "nova-api.log.1.2017-05-16_13:53:08 2017-05-16 00:00:00.008 25746 INFO nova.osapi_compute.wsgi.server [req-38101a0b-2096-447d-96ea-a692162415ae 113d3a99c3da401fbd62cc2caa5b96d2 54fadb412c4e40cdbaed9335e4c35a9e - - -] 10.11.10.1 \"GET /v2/54fadb412c4e40cdbaed9335e4c35a9e/servers/detail HTTP/1.1\" status: 200 len: 1893 time: 0.2477829",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:0c504404e3c9ea7cc7fe4727a51fbec75e15bd47fe5d9b07cca3414273e05da5"
+      }
+    },
+    {
+      "id": "openstack_v1_lookup_status_200_first_1",
+      "answer_type": "line_lookup",
+      "dataset": "openstack",
+      "expected_answer": "nova-api.log.1.2017-05-16_13:53:08 2017-05-16 00:00:00.008 25746 INFO nova.osapi_compute.wsgi.server [req-38101a0b-2096-447d-96ea-a692162415ae 113d3a99c3da401fbd62cc2caa5b96d2 54fadb412c4e40cdbaed9335e4c35a9e - - -] 10.11.10.1 \"GET /v2/54fadb412c4e40cdbaed9335e4c35a9e/servers/detail HTTP/1.1\" status: 200 len: 1893 time: 0.2477829",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='openstack' AND text ILIKE '%status: 200%' ORDER BY line_number LIMIT 1",
+      "result": "nova-api.log.1.2017-05-16_13:53:08 2017-05-16 00:00:00.008 25746 INFO nova.osapi_compute.wsgi.server [req-38101a0b-2096-447d-96ea-a692162415ae 113d3a99c3da401fbd62cc2caa5b96d2 54fadb412c4e40cdbaed9335e4c35a9e - - -] 10.11.10.1 \"GET /v2/54fadb412c4e40cdbaed9335e4c35a9e/servers/detail HTTP/1.1\" status: 200 len: 1893 time: 0.2477829",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:28d181303d3fcb6bfa4e028e1b5cf2590ce6a61c6c382588b09759782f119e5a"
+      }
+    },
+    {
+      "id": "openstack_v1_lookup_status_200_first_2",
+      "answer_type": "line_lookup",
+      "dataset": "openstack",
+      "expected_answer": "nova-api.log.1.2017-05-16_13:53:08 2017-05-16 00:00:00.008 25746 INFO nova.osapi_compute.wsgi.server [req-38101a0b-2096-447d-96ea-a692162415ae 113d3a99c3da401fbd62cc2caa5b96d2 54fadb412c4e40cdbaed9335e4c35a9e - - -] 10.11.10.1 \"GET /v2/54fadb412c4e40cdbaed9335e4c35a9e/servers/detail HTTP/1.1\" status: 200 len: 1893 time: 0.2477829",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='openstack' AND text ILIKE '%status: 200%' ORDER BY line_number LIMIT 1",
+      "result": "nova-api.log.1.2017-05-16_13:53:08 2017-05-16 00:00:00.008 25746 INFO nova.osapi_compute.wsgi.server [req-38101a0b-2096-447d-96ea-a692162415ae 113d3a99c3da401fbd62cc2caa5b96d2 54fadb412c4e40cdbaed9335e4c35a9e - - -] 10.11.10.1 \"GET /v2/54fadb412c4e40cdbaed9335e4c35a9e/servers/detail HTTP/1.1\" status: 200 len: 1893 time: 0.2477829",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:5ab099bdbd4df47f3eda4b6c435b5f715fd3565dbd8907439cbf8e8504c3aa72"
+      }
+    }
+  ]
+}

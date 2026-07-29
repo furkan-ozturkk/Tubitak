@@ -43,10 +43,10 @@ LogRouter's source code or infrastructure.
 ├── analysis/
 │   └── analysis_tables.py     # offline composition tables over a finished dataset
 ├── scripts/
-│   ├── run_all.sh             # generate -> validate -> tables
+│   ├── run_all.sh             # check-ollama -> generate -> validate -> verify-answers -> tables -> export
 │   ├── check_smoke.sh         # imports, CLI, validations, unit tests
 │   ├── check_status.sh        # what is in output/ right now
-│   └── tasks/                 # one file per pipeline stage
+│   └── tasks/                 # one file per pipeline stage, parameters only (run_all.sh owns the program)
 ├── docker/
 │   ├── compose.yml            # runs the built image
 │   ├── compose.dev.yml        # override: runs the working tree
