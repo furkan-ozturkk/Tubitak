@@ -1,0 +1,42 @@
+{
+  "question_id": "windows_v1_semantic_csi_9",
+  "group_ids": [
+    "windows:semantic:csi_9"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:ed0f0becea73accc671045489ec7009780d430d5d8ea40def25f6423ea12e080"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:31f89c10c7a98270b6e31c8923046ec183c113b5a17018997cb35b61c3c79f13"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows that the TrustedInstaller service has completed initialization and started successfully, including initializing its background tasks such as SQM cleanup and report upload.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "windows:semantic:csi_9"
+      ]
+    },
+    {
+      "text": "This indicates normal operation of Windows Update components at system startup.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "windows:semantic:csi_9"
+      ]
+    },
+    {
+      "text": "The timestamps confirm these events occurred simultaneously during a single boot cycle.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "windows:semantic:csi_9"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

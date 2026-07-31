@@ -1,8 +1,8 @@
 {
-  "question_id": "openssh_v1_hard_attacker_compare",
+  "question_id": "openssh_v1_hard_attacker_compare_0",
   "group_ids": [
-    "openssh:hard:attacker_compare:183_62_140_253",
-    "openssh:hard:attacker_compare:187_141_143_180"
+    "openssh:hard:attacker_compare:0:183_62_140_253",
+    "openssh:hard:attacker_compare:0:187_141_143_180"
   ],
   "draft_model": {
     "name": "nemotron-3-nano:30b",
@@ -21,40 +21,40 @@
       "text": "The two groups show distinct attacker behaviors that can be directly compared using the visible facts.",
       "supported": "yes",
       "candidate_group_ids": [
-        "openssh:hard:attacker_compare:183_62_140_253",
-        "openssh:hard:attacker_compare:187_141_143_180"
+        "openssh:hard:attacker_compare:0:183_62_140_253",
+        "openssh:hard:attacker_compare:0:187_141_143_180"
       ]
     },
     {
       "text": "In Group 1 (source 183.62.140.253) each request targets a different invalid username, uses separate source ports (33521 and 33902), and is followed by an immediate “Received disconnect … Bye Bye [preauth]” line that terminates the session before any successful authentication attempt occurs.",
       "supported": "yes",
       "candidate_group_ids": [
-        "openssh:hard:attacker_compare:183_62_140_253",
-        "openssh:hard:attacker_compare:187_141_143_180"
+        "openssh:hard:attacker_compare:0:183_62_140_253",
+        "openssh:hard:attacker_compare:0:187_141_143_180"
       ]
     },
     {
       "text": "In Group 2 (source 187.141.143.180) every request attempts to log in as **root**, uses three distinct source ports (33314, 34508, 35685), and also ends with the same “Received disconnect … Bye Bye [preauth]” line after each failed password attempt.",
       "supported": "yes",
       "candidate_group_ids": [
-        "openssh:hard:attacker_compare:183_62_140_253",
-        "openssh:hard:attacker_compare:187_141_143_180"
+        "openssh:hard:attacker_compare:0:183_62_140_253",
+        "openssh:hard:attacker_compare:0:187_141_143_180"
       ]
     },
     {
       "text": "Both groups share the identical pre‑authentication disconnect pattern, but Group 2’s repeated targeting of a privileged account (root) combined with its higher request cadence (three attempts within 11 seconds) makes it more anomalous relative to typical brute‑force noise.",
-      "supported": "yes",
+      "supported": "partial",
       "candidate_group_ids": [
-        "openssh:hard:attacker_compare:183_62_140_253",
-        "openssh:hard:attacker_compare:187_141_143_180"
+        "openssh:hard:attacker_compare:0:183_62_140_253",
+        "openssh:hard:attacker_compare:0:187_141_143_180"
       ]
     },
     {
       "text": "Root‑cause hypothesis: the attacker in Group 2 is likely an automated script that systematically probes for default or weak credentials on administrative accounts, while the activity from Group 1 appears to be a less focused enumeration of random usernames, possibly part of a broader reconnaissance sweep.",
       "supported": "yes",
       "candidate_group_ids": [
-        "openssh:hard:attacker_compare:183_62_140_253",
-        "openssh:hard:attacker_compare:187_141_143_180"
+        "openssh:hard:attacker_compare:0:183_62_140_253",
+        "openssh:hard:attacker_compare:0:187_141_143_180"
       ]
     }
   ],

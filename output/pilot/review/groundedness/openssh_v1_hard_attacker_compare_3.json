@@ -1,0 +1,70 @@
+{
+  "question_id": "openssh_v1_hard_attacker_compare_3",
+  "group_ids": [
+    "openssh:hard:attacker_compare:3:123_235_32_19",
+    "openssh:hard:attacker_compare:3:52_80_34_196"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:64b95ddba1305b4d22d9bc389b13d4f24b405a9887f4c72e0a92f04496d39a91"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:3b8bdb003dcea9af1d70042969959cd691af12ea3d33633223ada110a6aaaac1"
+  },
+  "claims": [
+    {
+      "text": "The two groups show parallel attack behavior but differ in timing and target specificity, revealing a coordinated pattern of credential‑spraying attempts that culminate in abrupt session termination.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:3:123_235_32_19",
+        "openssh:hard:attacker_compare:3:52_80_34_196"
+      ]
+    },
+    {
+      "text": "In the first group (source 123.235.32.19) every line records failed password attempts for the privileged account **root**, with three distinct source ports used within a six‑minute window, each followed by an immediate “Received disconnect … Bye Bye [preauth]” message that ends the connection before any successful login can occur.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:3:123_235_32_19",
+        "openssh:hard:attacker_compare:3:52_80_34_196"
+      ]
+    },
+    {
+      "text": "In the second group (source 52.80.34.196) the logs focus on **invalid user** names such as *test9* and *test*, also generating failed password attempts, but they are interspersed with a longer idle interval — two minutes separate the first cluster of attempts from the later ones at 07:55 and 07:56 — indicating a more staggered cadence.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:3:123_235_32_19",
+        "openssh:hard:attacker_compare:3:52_80_34_196"
+      ]
+    },
+    {
+      "text": "Both groups share the identical disconnect message “Received disconnect … Bye Bye [preauth]”, suggesting that the attacker’s script is programmed to abort the session as soon as authentication fails, regardless of whether the target account exists or is privileged.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:3:123_235_32_19",
+        "openssh:hard:attacker_compare:3:52_80_34_196"
+      ]
+    },
+    {
+      "text": "This consistent pre‑authentication termination points to an automated brute‑force tool that discards unsuccessful attempts instantly, making both sources part of the same malicious campaign; however, the 123.235.32.19 source exhibits a tighter, more aggressive burst of root‑focused attacks, rendering it the more anomalous attacker in terms of intensity and target choice.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:3:123_235_32_19",
+        "openssh:hard:attacker_compare:3:52_80_34_196"
+      ]
+    },
+    {
+      "text": "The root‑cause hypothesis is that a single adversary is leveraging a credential‑spraying script configured to probe multiple IP ranges, targeting default or high‑value accounts (root) on one host while also scanning for generic invalid usernames on another, with the uniform disconnect behavior indicating a shared exploit framework that aborts connections to evade detection and maintain stealth.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:3:123_235_32_19",
+        "openssh:hard:attacker_compare:3:52_80_34_196"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

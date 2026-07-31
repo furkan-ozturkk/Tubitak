@@ -1,0 +1,35 @@
+{
+  "question_id": "apache_v1_semantic_child_workerenv_in_error_state_7",
+  "group_ids": [
+    "apache:semantic:child_workerenv_in_error_state_7"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:4b57cb41dc00fcee5f18775c0e2559efabe197af66bc3c48fcc71e48bad204de"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:0436f2c95e925fbba9fb37e265713a08ec3d0039b984ed6c94bd3ff8e6996aa2"
+  },
+  "claims": [
+    {
+      "text": "The log shows Apache's mod_jk connector initializing child processes and successfully loading the workers configuration file at 10:21:13, indicating normal startup progress after a prior error state in one worker process.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "apache:semantic:child_workerenv_in_error_state_7"
+      ]
+    },
+    {
+      "text": "The repeated \"workerEnv.init() ok\" messages confirm successful initialization of the worker environment using /etc/httpd/conf/workers2.properties.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "apache:semantic:child_workerenv_in_error_state_7"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

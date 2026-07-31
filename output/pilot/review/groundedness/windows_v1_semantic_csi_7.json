@@ -1,0 +1,35 @@
+{
+  "question_id": "windows_v1_semantic_csi_7",
+  "group_ids": [
+    "windows:semantic:csi_7"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:a57de67275d04533834e0108a09deacab58dd2d725a0de80652cf689ddf4ba98"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:afa006bcab8b359c32c60493431d94cb37b49f143bd7d0f6780e897860bbc4d4"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows that Windows Update's background service (TrustedInstaller) completed a transaction and entered its final cleanup phase, ending the main loop after idle processing finished.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "windows:semantic:csi_7"
+      ]
+    },
+    {
+      "text": "This indicates normal termination of update operations without errors.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "windows:semantic:csi_7"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

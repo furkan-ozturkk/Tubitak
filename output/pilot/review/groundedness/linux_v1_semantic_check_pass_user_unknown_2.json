@@ -7,24 +7,24 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:2b280567847def08f8677262f08f5d4d9f876f7c0d24418364a73d8539863db2"
+    "prompt_sha256": "sha256:179830982a435d1cb4ebd59c5ae91f3a7991c5891f404d34ac6a068639db669f"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:0ce60638b9d2376bb0dcf8f42502ce82614d51aeceee9bf6d11a55b02cc10fcb"
+    "prompt_sha256": "sha256:7fa90a541ffaf2a67ba114724cd6294d92db5abfb72e0e45f6d18435ce357c7a"
   },
   "claims": [
     {
-      "text": "The log shows repeated failed SSH authentication attempts for root from external IPs (200.60.37.201 and 218.22.3.51) at 02:55 and 23:30, indicating brute-force attacks targeting the root account.",
+      "text": "The log shows multiple failed SSH authentication attempts from different source IPs associated with a Korean ISP, all using the same username \"unknown\" and failing at the password check stage before any successful login could occur.",
       "supported": "partial",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_2"
       ]
     },
     {
-      "text": "Additionally, logrotate encountered an abnormal exit at 04:05:30, suggesting a potential issue with log rotation configuration or process.",
+      "text": "These are repeated unsuccessful login attempts that were rejected by the system's authentication process.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_2"

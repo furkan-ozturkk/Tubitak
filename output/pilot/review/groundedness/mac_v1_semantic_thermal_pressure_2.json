@@ -7,24 +7,24 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:aae3e2bff7edd948b0a8f103e7e99f7bdf6665dbefa0c7d6e429de4b21f93adb"
+    "prompt_sha256": "sha256:2e0c9bcf5fc59dfb313303b164ec9bbee191c088a19a38b51f1bff7ded9a454d"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:b8d97e88ec59a6c02e0d39904c6924dd93f668f00fbcdbe6086e63deedbc70f8"
+    "prompt_sha256": "sha256:160c09f875df37e2a1588e4fac77154bc7b22cda5335ee306942baf446b8cc0f"
   },
   "claims": [
     {
-      "text": "The system experienced multiple sleep/wake cycles and Wi‑Fi power changes around 01:13–01:49 AM, while a background iCloud heartbeat task repeatedly ignored its scheduled start times because they were far in the future (206k–207k seconds).",
+      "text": "The excerpt shows a wake event from sleep at 18:35:12, followed by network and system logs indicating normal operation but also some warnings about journal record dropping and ignored scheduled tasks.",
       "supported": "partial",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_2"
       ]
     },
     {
-      "text": "These logs indicate normal power‑state transitions for the AirPort interface and an unrelated scheduling warning.",
+      "text": "The thermal and memory pressure states are both zero, meaning the system was not under high load or heat during this period.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_2"

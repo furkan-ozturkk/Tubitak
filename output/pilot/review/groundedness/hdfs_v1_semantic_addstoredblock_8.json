@@ -1,0 +1,35 @@
+{
+  "question_id": "hdfs_v1_semantic_addstoredblock_8",
+  "group_ids": [
+    "hdfs:semantic:addstoredblock_8"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:f4ecfb3208c0da3f324c6ce2d3fa2b120eedf1ad9847177c0da6900603716e5e"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:9d743622fc9144290558d1f3ca89e52b4d1da68f39c93d07a5378424a458b18d"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows NameNode operations adding stored blocks and allocating new blocks for files under /user/root/rand6/_temporary/, while DataNodes receive and acknowledge these blocks during normal HDFS block management.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_8"
+      ]
+    },
+    {
+      "text": "These log entries reflect routine block replication and storage updates within the Hadoop filesystem namespace.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_8"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

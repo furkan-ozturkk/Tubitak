@@ -1,8 +1,8 @@
 {
-  "question_id": "hadoop_v1_hard_container_task_compare",
+  "question_id": "hadoop_v1_hard_container_task_compare_0",
   "group_ids": [
-    "hadoop:hard:container_task_compare:container_1445144423722_0020_01_000005",
-    "hadoop:hard:container_task_compare:container_1445144423722_0020_01_000003"
+    "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000005",
+    "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000003"
   ],
   "draft_model": {
     "name": "nemotron-3-nano:30b",
@@ -21,40 +21,40 @@
       "text": "The two container logs show nearly identical patterns in the first three events – allocation, launch and a successful task‑attempt report – indicating that both containers were started normally.",
       "supported": "partial",
       "candidate_group_ids": [
-        "hadoop:hard:container_task_compare:container_1445144423722_0020_01_000005",
-        "hadoop:hard:container_task_compare:container_1445144423722_0020_01_000003"
+        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000005",
+        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000003"
       ]
     },
     {
       "text": "However, each sequence ends with a CONTAINER_REMOTE_CLEANUP event, which marks the termination of the container after its attempt has finished; this cleanup occurs without any preceding error or failure message in either log.",
-      "supported": "yes",
+      "supported": "partial",
       "candidate_group_ids": [
-        "hadoop:hard:container_task_compare:container_1445144423722_0020_01_000005",
-        "hadoop:hard:container_task_compare:container_1445144423722_0020_01_000003"
+        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000005",
+        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000003"
       ]
     },
     {
       "text": "The timing differs only slightly (the first container is cleaned up at 18:04:50 while the second at 18:06:28), but neither shows abnormal retries, aborts, or exception traces that would signal a task‑level fault.",
       "supported": "yes",
       "candidate_group_ids": [
-        "hadoop:hard:container_task_compare:container_1445144423722_0020_01_000005",
-        "hadoop:hard:container_task_compare:container_1445144423722_0020_01_000003"
+        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000005",
+        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000003"
       ]
     },
     {
       "text": "Consequently, the evidence suggests that both containers completed their assigned work and were cleanly removed by the system rather than crashing.",
       "supported": "partial",
       "candidate_group_ids": [
-        "hadoop:hard:container_task_compare:container_1445144423722_0020_01_000005",
-        "hadoop:hard:container_task_compare:container_1445144423722_0020_01_000003"
+        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000005",
+        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000003"
       ]
     },
     {
       "text": "A plausible root‑cause hypothesis is that the observed cleanup reflects normal container lifecycle management after successful map‑task completion, with no failure detected in either group.",
       "supported": "yes",
       "candidate_group_ids": [
-        "hadoop:hard:container_task_compare:container_1445144423722_0020_01_000005",
-        "hadoop:hard:container_task_compare:container_1445144423722_0020_01_000003"
+        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000005",
+        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000003"
       ]
     }
   ],

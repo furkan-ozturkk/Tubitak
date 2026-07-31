@@ -1,0 +1,28 @@
+{
+  "question_id": "apache_v1_semantic_child_workerenv_in_error_state_4",
+  "group_ids": [
+    "apache:semantic:child_workerenv_in_error_state_4"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:da846320e6212c5377bdaeab387318bae97c3c42756cca2b3f1ab04f5c7b9be5"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:5af9070a23900fc362da5022efc11bbaf5bc9d5392994cf5331eb19eb2a66f28"
+  },
+  "claims": [
+    {
+      "text": "The log shows repeated errors indicating that mod_jk child processes for workerEnv are failing to initialize properly, specifically reporting error states 6 and 9, which typically indicate connection or configuration issues between Apache and Tomcat via the JK connector; additionally, a directory index request from client 218.39.132.175 was forbidden by an access rule on /var/www/html/.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "apache:semantic:child_workerenv_in_error_state_4"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

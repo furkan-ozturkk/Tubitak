@@ -1,0 +1,28 @@
+{
+  "question_id": "openssh_v1_semantic_possible_break_in_attempt_9",
+  "group_ids": [
+    "openssh:semantic:possible_break_in_attempt_9"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:e1d67eb217d848ceaf9a34a5a9e8e85e8e26cea0394d0b60d111fe851f302bfd"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:e1e1783d93046f5a197376824fd439d5314db4cf9043e50473bc9729db9962b6"
+  },
+  "claims": [
+    {
+      "text": "The log shows repeated authentication failures and a reverse DNS lookup failure for IP 187.141.143.180, triggering OpenSSH's \"POSSIBLE BREAK-IN ATTEMPT\" warning, indicating an unauthorized login attempt from that source address.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:semantic:possible_break_in_attempt_9"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

@@ -1,0 +1,35 @@
+{
+  "question_id": "windows_v1_semantic_csi_6",
+  "group_ids": [
+    "windows:semantic:csi_6"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:e3d6073813cd4f1f352c953b49b88211c891b03fb8c9a4a479d9cf03162b35ba"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:005e168252ca7bc8efbb8d3275d63e9b1b32b0f1fcbc423b506c480c82f7d810"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows a Windows Component Store transaction being committed and finalized without cold patching, followed by cleanup of the transaction and termination of idle processing, indicating normal system operation during a CBS (Component Based Servicing) maintenance cycle.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "windows:semantic:csi_6"
+      ]
+    },
+    {
+      "text": "This suggests routine background servicing activity completed successfully on September 28, 2016.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "windows:semantic:csi_6"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

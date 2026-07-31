@@ -7,25 +7,25 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:5e2e9951ec84ad8b6de34812d3af2e46f5496fbfb576ccb66d23cf13e8d7ffde"
+    "prompt_sha256": "sha256:4c54318378c623dfb5d973fddf0c7c27311ac3d02cbbe5885880af8d94f45d11"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:f3d26ebd4c954b40612ffe98f5e81de2f3f134408b3fee203187876ed456df97"
+    "prompt_sha256": "sha256:0448ed0ee12183151cce37e472fbcc737bd667bf7f9e1ec615ec7fb00beaf89c"
   },
   "claims": [
     {
-      "text": "The log shows repeated failed authentication attempts by a remote host at IP address 187.141.143.180 targeting the root user over SSH, triggering OpenSSH's reverse mapping check which flagged it as a possible break-in attempt due to inability to resolve the hostname from the IP.",
+      "text": "The log shows repeated failed authentication attempts by a remote host at IP address 187.141.143.180 targeting the root user over SSH, triggering \"POSSIBLE BREAK-IN ATTEMPT\" warnings from the system's reverse mapping checks and PAM module.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_1"
       ]
     },
     {
-      "text": "Each attempt resulted in authentication failure and subsequent disconnection by the client before any successful login could occur.",
-      "supported": "yes",
+      "text": "The connection was ultimately terminated after multiple failed password attempts from that source port.",
+      "supported": "partial",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_1"
       ]

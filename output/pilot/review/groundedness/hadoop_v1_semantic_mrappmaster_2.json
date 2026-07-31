@@ -7,24 +7,24 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:97edfd1b1304c42542ddc8f5231d69e97f304469c97a35a51a3805ba5d2b1460"
+    "prompt_sha256": "sha256:f96c3fe2c69ce001678293b99b22b8324ce038384a96c44c8b30df638f90398b"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:9e17db3ad04ee867c2bcd403a28d366a4bb9de6f6a34bd0399ec9f9fd04ce358"
+    "prompt_sha256": "sha256:983ee6937b037f5fc0dc190a08b2ac15be0000ebe4635ac90d127fc18cb16a59"
   },
   "claims": [
     {
-      "text": "The excerpt shows that a Hadoop MapReduce application master is initializing and registering several internal event dispatcher classes for handling job control, task execution, speculation, container allocation, and launching, while also specifying an HDFS filesystem address as the default file system.",
+      "text": "The excerpt shows the Hadoop MapReduce application master registering several event dispatcher classes and configuring an output committer for file-based output during job initialization.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_2"
       ]
     },
     {
-      "text": "This indicates the start-up phase of a YARN MapReduce job where various service components are being registered to manage different aspects of application execution within the Hadoop cluster.",
+      "text": "This indicates the system is setting up internal event handling and output management as part of launching a new MapReduce job in YARN.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_2"

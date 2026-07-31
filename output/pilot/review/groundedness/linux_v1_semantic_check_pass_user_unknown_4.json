@@ -1,0 +1,35 @@
+{
+  "question_id": "linux_v1_semantic_check_pass_user_unknown_4",
+  "group_ids": [
+    "linux:semantic:check_pass_user_unknown_4"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:5cda3b6612fd72adcfdbac51390df8d4e436a97acfa819ca8b9d4f3d220a4cc8"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:ec53d4cdfe6ae4e68bcac03e27c30e834f17b3566f456b67a94ffd72c92f20fc"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows repeated authentication failures for SSH login attempts from IP address 65.166.159.14 to a system where all attempted usernames are reported as \"unknown\", indicating failed login attempts targeting non-existent accounts or incorrect credentials.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_4"
+      ]
+    },
+    {
+      "text": "These failures occur across multiple processes (pids 10047, 10049, 10051, 10053) at the same timestamp, suggesting a brute-force attack or misconfiguration causing repeated invalid authentication requests.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_4"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

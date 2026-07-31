@@ -7,31 +7,24 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:e9eb76685d6cbf27040709928692914cce921617f80ad07dafc3b79d9ccac7fa"
+    "prompt_sha256": "sha256:bad1445f7566d5ad41e2bca4de0a059fa73cc51b09410520fc41af6b9ab8dcef"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:6a0ccfd4da732c0697d2d2e3101bf9e255f1280eada935239d4258a7c311f3d2"
+    "prompt_sha256": "sha256:2abae0008b3cf7796912574e14088ec1c8a86d05043f4e12d184c3aaed841144"
   },
   "claims": [
     {
-      "text": "The log shows a successful server deletion request processed by nova-api and subsequent compute node activity checking image usage for that instance's base storage.",
+      "text": "The log shows repeated successful API requests to list servers (status 200) and a compute node checking that a base image file is in use on its local storage before proceeding.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_1"
       ]
     },
     {
-      "text": "Metadata service requests were also handled concurrently during this period.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_1"
-      ]
-    },
-    {
-      "text": "The 204 status confirms the delete operation completed without error.",
+      "text": "This indicates normal operation where the nova‑api service responded quickly to client queries while the compute service verified required image files were available locally.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_1"

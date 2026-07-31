@@ -1,0 +1,35 @@
+{
+  "question_id": "openstack_v1_semantic_nova_osapi_compute_wsgi_server_7",
+  "group_ids": [
+    "openstack:semantic:nova_osapi_compute_wsgi_server_7"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:4c561626bed6a7aa8b8c68f687a9564ab65815cfd37b09d57cc951098ecdde1d"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:e0144c8d0a347bb34a6700c373e06117cac402158a7eae6805f6d91703199d89"
+  },
+  "claims": [
+    {
+      "text": "The log shows repeated successful API calls to list servers returning status 200 and response length 1893, indicating normal operation of the Nova compute API endpoint.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_7"
+      ]
+    },
+    {
+      "text": "Immediately afterward a resource tracker logs that it audited resources on node cp‑1.slowvm1.tcloud-pg0.utah.cloudlab.us and reports 16 usable vCPUs with 1 currently allocated.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_7"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

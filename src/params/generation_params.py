@@ -74,9 +74,15 @@ class HardTierParams:
         min_sentences: Minimum sentences demanded of a hard gold answer. This is
             asked of the drafting model in the prompt; the validator re-checks
             it independently, because a prompt is a request, not a guarantee.
+        pairs_per_dataset: Non-overlapping group-sets drafted per hard_groups
+            spec. Qualifying groups are ranked largest-first and chunked into
+            sets of ``num_groups``, so raising this only ever adds sets drawn
+            from entities the corpus already has in sufficient volume — it
+            never lowers the per-group evidence bar.
     """
 
     min_sentences: int = 4
+    pairs_per_dataset: int = 1
 
 
 @dataclass(frozen=True)
@@ -133,6 +139,9 @@ def get_hard_tier_params(args: Any) -> HardTierParams:
     """Constructs HardTierParams from parsed command-line arguments."""
     return HardTierParams(
         min_sentences=_resolve(args.min_sentences, HardTierParams.min_sentences),
+        pairs_per_dataset=_resolve(
+            args.hard_pairs_per_dataset, HardTierParams.pairs_per_dataset
+        ),
     )
 
 

@@ -1,0 +1,46 @@
+{
+  "question_id": "openssh_v1_hard_attacker_compare_2",
+  "group_ids": [
+    "openssh:hard:attacker_compare:2:5_188_10_180",
+    "openssh:hard:attacker_compare:2:185_190_58_151"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:6c0b9b6dd294dcb964ddc524da10795f318bcbf5933f0604bfc739b61fd8b864"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:9da2ad12b0aed57079ce2db8e78bd121c653a47c82367028f0cd2d9df107e440"
+  },
+  "claims": [
+    {
+      "text": "The two groups show parallel attack behavior but differ in timing and target specificity, making the second source more anomalous.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:2:5_188_10_180",
+        "openssh:hard:attacker_compare:2:185_190_58_151"
+      ]
+    },
+    {
+      "text": "Group 5.188.10.180 exhibits a rapid succession of invalid‑user attempts within seconds (08:24:32–08:24:50) that include both generic “invalid user” probes and numeric usernames such as “0” and “1234,” while Group 185.190.58.151 spreads its attempts over a longer interval (09:07:23–09:08:40) and consistently targets human‑readable usernames like “admin.” Both groups record failed password attempts for those invalid users, but the first group’s cadence is tighter and includes an extra “Failed none” line indicating a different sshd handling of certain malformed requests.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:2:5_188_10_180",
+        "openssh:hard:attacker_compare:2:185_190_58_151"
+      ]
+    },
+    {
+      "text": "The root‑cause hypothesis is that the 5.188.10.180 source is operating an automated scanning script that iterates through a list of usernames, whereas the 185.190.58.151 source appears to be a more deliberate, manual reconnaissance effort focused on high‑value accounts such as “admin.” This distinction suggests that the former may be a low‑effort brute‑force probe while the latter could be an attacker manually selecting targets for credential‑guessing.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:2:5_188_10_180",
+        "openssh:hard:attacker_compare:2:185_190_58_151"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

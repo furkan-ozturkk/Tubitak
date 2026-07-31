@@ -25,10 +25,8 @@
     },
     {
       "text": "Each entry records an authentication failure with the same user (root), UID 0, and euid 0, indicating repeated login attempts using incorrect credentials from these external sources.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_0"
-      ]
+      "supported": "no",
+      "candidate_group_ids": []
     }
   ],
   "verdict": "needs_human_review"

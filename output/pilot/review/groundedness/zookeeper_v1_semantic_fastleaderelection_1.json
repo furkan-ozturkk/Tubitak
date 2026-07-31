@@ -7,24 +7,29 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:434bdc6886d6a004ae49a7da9c8439a0f613ee3e56c93d2e7b99aed452a5421a"
+    "prompt_sha256": "sha256:9214d0960076cf25254ac7bb793c47daee6f84749f3f43bfd0da469007dd871f"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:13b4a5dcabebff033a69a21a4e7aea0b926b74381441b08b8ca2e63a01edaa50"
+    "prompt_sha256": "sha256:7c5057840fb90978377ffe78ef0a11841fc97085da641e5bc98db70488eb3dcc"
   },
   "claims": [
     {
-      "text": "The log shows repeated warnings that Zookeeper cannot establish connections to peer nodes (addresses 10.10.34.12 and 10.10.34.13) on port 3888 during leader election, indicating network connectivity issues preventing the formation of a quorum.",
+      "text": "The log shows a Zookeeper server transitioning to LOOKING state and starting an election after receiving a leader notification from another node.",
+      "supported": "no",
+      "candidate_group_ids": []
+    },
+    {
+      "text": "It also records multiple client session establishments and closures on port 2181.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_1"
       ]
     },
     {
-      "text": "These failures occur at regular intervals consistent with election timeouts, suggesting peers are unreachable or unresponsive.",
+      "text": "The final WARN indicates an unexpected stream termination during processing of a client connection.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_1"

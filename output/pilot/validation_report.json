@@ -1,28 +1,28 @@
 {
   "passed": true,
   "stats": {
-    "total_questions": 90,
-    "unique_ids": 90,
-    "distinct_group_ids": 15,
+    "total_questions": 206,
+    "unique_ids": 206,
+    "distinct_group_ids": 30,
     "by_difficulty": {
-      "easy": 45,
-      "medium": 40,
-      "hard": 5
+      "easy": 90,
+      "medium": 100,
+      "hard": 16
     },
     "by_routing_path": {
-      "sql": 30,
-      "keyword": 15,
-      "semantic": 45
+      "sql": 60,
+      "keyword": 30,
+      "semantic": 116
     },
     "by_split": {
-      "dev": 79,
-      "test": 11
+      "dev": 155,
+      "test": 51
     },
     "by_review_status": {
-      "verified": 45,
-      "in_review": 45
+      "verified": 90,
+      "in_review": 116
     },
-    "hard_question_count": 5,
+    "hard_question_count": 16,
     "datasets_covered": [
       "apache",
       "bgl",
@@ -37,9 +37,12 @@
     ]
   },
   "error_count": 0,
-  "warning_count": 0,
+  "warning_count": 2,
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    "[/output/pilot/questions.json#195] id=openssh_v1_hard_attacker_compare_1: difficulty=hard but expected_answer has ~3 sentence(s) (Section 7.3 expects >=4).",
+    "[/output/pilot/questions.json#196] id=openssh_v1_hard_attacker_compare_2: difficulty=hard but expected_answer has ~3 sentence(s) (Section 7.3 expects >=4)."
+  ],
   "config_snapshot": {
     "command": "validate",
     "code_version": null,
@@ -64,7 +67,7 @@
     "input_digests": {
       "schema": "sha256:eae81b6793e5c71be861b3c3470416f64717e1f4f9eca5c51b2ed4ce4723c11d",
       "questions": {
-        "/output/pilot/questions.json": "sha256:7597939649472ec7cc06580ca17ebe2a3f02323074811491c4719e128a6d902f"
+        "/output/pilot/questions.json": "sha256:cbf632ff9a87a2af77d4680799621eb68183c811bb1db37b5c6e7b3a5dbd2596"
       }
     },
     "corpus_digests": {

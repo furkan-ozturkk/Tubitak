@@ -1,0 +1,35 @@
+{
+  "question_id": "apache_v1_semantic_child_workerenv_in_error_state_5",
+  "group_ids": [
+    "apache:semantic:child_workerenv_in_error_state_5"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:c49d5d5b45147137fe60400e88969f04458fe77246d3f6e470d259347aafe72b"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:7422967ad71224f71951a556f3964452fafbd1a9b6c3950d2fb976a31622c18e"
+  },
+  "claims": [
+    {
+      "text": "The log shows Apache's mod_jk connector initializing multiple Java worker processes (children) and assigning them to specific slots in a shared scoreboard, indicating normal operation of the JK load balancing module.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "apache:semantic:child_workerenv_in_error_state_5"
+      ]
+    },
+    {
+      "text": "The error message about child workerEnv being in error state 6 is not followed by any subsequent error or corrective action within this excerpt.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "apache:semantic:child_workerenv_in_error_state_5"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

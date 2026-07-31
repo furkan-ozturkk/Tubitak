@@ -1,0 +1,35 @@
+{
+  "question_id": "hadoop_v1_semantic_mrappmaster_4",
+  "group_ids": [
+    "hadoop:semantic:mrappmaster_4"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:02617c709c630cdc56a790c20d12a301e0e4bee6bb41cf4be0eef190f0a765ce"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:099081d8fdfa6f4f827632f75ef7cd82e893adc7e09e46c6fa7879414fa437ca"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows that during job initialization, Hadoop registers several internal event dispatcher classes within the MRAppMaster component to manage output committing, job and task events, commit events, and speculation handling in YARN's resource manager environment.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:semantic:mrappmaster_4"
+      ]
+    },
+    {
+      "text": "These registrations indicate the setup of event-driven coordination mechanisms for tracking and processing various stages of MapReduce job execution.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:semantic:mrappmaster_4"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

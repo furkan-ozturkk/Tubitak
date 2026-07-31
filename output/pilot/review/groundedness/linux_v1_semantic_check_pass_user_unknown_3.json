@@ -7,25 +7,18 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:ae84020a316365fb59bdc83c76d641b948bae06ee33298d2e8b2d9adcecbc808"
+    "prompt_sha256": "sha256:b55406e5c98ca71f2c80bca302dbe0cd911d3818619551d3115879e7d506ee64"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:1ae95b1f987af00096c36082d0c6e92b4b37f563c549eede74316fba2de5f2d1"
+    "prompt_sha256": "sha256:d20966d10f7928fc2443cea74e5c16493de916736e86bc50b3102067bf8268e2"
   },
   "claims": [
     {
-      "text": "The logs show repeated failed SSH login attempts from user unknown on host zummit.com to a system where the process ID ranges indicate multiple authentication failures occurring in quick succession at 04:15:43.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_3"
-      ]
-    },
-    {
-      "text": "This indicates an unauthorized access attempt targeting the root-equivalent UID (uid=0) via the sshd service, likely part of a brute-force attack using the username \"unknown\" from the external host zummit.com.",
-      "supported": "yes",
+      "text": "The log shows multiple failed authentication attempts via SSH from a remote host (adsl-70-242-75-179.dsl.ksc2mo.swbell.net) to the system's root user account at 01:30:59 on June 18, with each attempt recorded as \"user unknown\" and resulting in authentication failure despite the process running under UID 0 (root).",
+      "supported": "partial",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_3"
       ]

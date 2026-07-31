@@ -1,0 +1,35 @@
+{
+  "question_id": "hdfs_v1_semantic_addstoredblock_7",
+  "group_ids": [
+    "hdfs:semantic:addstoredblock_7"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:8db44f6eb8aa8688ef748b191fa19655ae4f9c887bf0946e64fc0c54337bd91e"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:8e301dbf8ce24a5fa515748ba3ed326c24caeca221e7615bf50f6c5ae2d33557"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows repeated additions to the block map where new data nodes at various IP addresses are registered as storing blocks of size 67108864 bytes, indicating that these nodes have just begun serving or storing new HDFS blocks.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_7"
+      ]
+    },
+    {
+      "text": "This reflects normal block replication and storage registration activity within the Hadoop Distributed File System.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_7"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

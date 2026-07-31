@@ -1,0 +1,35 @@
+{
+  "question_id": "hdfs_v1_semantic_addstoredblock_4",
+  "group_ids": [
+    "hdfs:semantic:addstoredblock_4"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:57a52daafe1ec822557291c358e2efcef115ae15a117a4f1c70d3931b3738b81"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:da8d51d8aed9012f8b745409f600e58e7322d8750419983a8d44a7d710a9ae24"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows repeated additions of new data blocks to the block map by different DataNode IP addresses and subsequent receipt or processing of those blocks, indicating ongoing block replication and storage updates within the HDFS cluster.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_4"
+      ]
+    },
+    {
+      "text": "These actions reflect normal operation where DataNodes report stored blocks to the NameNode and exchange block data with peers.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_4"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

@@ -1,0 +1,35 @@
+{
+  "question_id": "openstack_v1_semantic_nova_osapi_compute_wsgi_server_9",
+  "group_ids": [
+    "openstack:semantic:nova_osapi_compute_wsgi_server_9"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:ede979ef29c858c961f74a40b28c9b95bc412019e40619442ef7339bc1899ea7"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:28f220b6d07a6fddc9c20cbf36b882b5211db6f169958545d469403b9c443ab4"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows repeated successful API calls to list servers via the Nova compute API, each returning a 200 status and retrieving server details in under half a second.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_9"
+      ]
+    },
+    {
+      "text": "It also indicates that an image cache on a compute node is checking usage of a specific base image file referenced by instance storage.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_9"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

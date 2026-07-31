@@ -1,0 +1,35 @@
+{
+  "question_id": "openstack_v1_semantic_nova_osapi_compute_wsgi_server_5",
+  "group_ids": [
+    "openstack:semantic:nova_osapi_compute_wsgi_server_5"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:9817b31caeadf2ebec77b2506ebe20105b0c6b0edd400c0461667b37634f1d30"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:6a00ee71fa2f0415aaab01c3194cc21df3f67edc19761e82cab833a81b755fec"
+  },
+  "claims": [
+    {
+      "text": "The log shows a server creation request received by nova-api that was accepted (status 202) and then processed on the compute node where it attempted to claim resources for instance d54b44eb‑2d1a‑4aa2‑ba6b‑074d35f8f12c, finding sufficient free memory (≈95 GB) and unlimited disk capacity.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_5"
+      ]
+    },
+    {
+      "text": "This indicates that the compute service evaluated the request and determined it could satisfy the requested 2 GB RAM, 20 GB disk, and 1 vCPU allocation.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_5"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

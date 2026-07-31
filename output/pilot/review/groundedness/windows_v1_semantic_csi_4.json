@@ -1,0 +1,35 @@
+{
+  "question_id": "windows_v1_semantic_csi_4",
+  "group_ids": [
+    "windows:semantic:csi_4"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:9c0edef26c687645bf4cc4d61bb1a466fc5ffb5422b9969ed190b9c51888cf90"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:b30c9f839da54b5c916cde3848827c7f13382ecb79f3fe3c8e4ee4a5642930d4"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows a Component Store Service (CSI) transaction being committed and finalized during system operation, indicating normal background maintenance of Windows component store integrity.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "windows:semantic:csi_4"
+      ]
+    },
+    {
+      "text": "This process involves applying pending updates or repairs to the component store without requiring a full system restart, ensuring consistency for future software installations or updates.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "windows:semantic:csi_4"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

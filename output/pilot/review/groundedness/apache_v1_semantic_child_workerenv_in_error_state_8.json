@@ -1,0 +1,33 @@
+{
+  "question_id": "apache_v1_semantic_child_workerenv_in_error_state_8",
+  "group_ids": [
+    "apache:semantic:child_workerenv_in_error_state_8"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:90d9e1660befa245d400d395fb3788f5ad0097f43df4a454f272efff8b3d8d68"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:0025cec5194259b1812722b61e3a9a0cddf3011d2cb3250bcd928248422b109d"
+  },
+  "claims": [
+    {
+      "text": "The log shows repeated errors indicating that the mod_jk child process for workerEnv entered error state 6, followed by successful initialization of workerEnv using /etc/httpd/conf/workers2.properties at 13:16:29.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "apache:semantic:child_workerenv_in_error_state_8"
+      ]
+    },
+    {
+      "text": "This suggests a transient failure in the JK connector's child process management that was subsequently resolved after reinitialization.",
+      "supported": "no",
+      "candidate_group_ids": []
+    }
+  ],
+  "verdict": "needs_human_review"
+}

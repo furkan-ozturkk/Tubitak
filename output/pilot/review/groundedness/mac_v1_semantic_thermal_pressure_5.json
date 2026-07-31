@@ -1,0 +1,35 @@
+{
+  "question_id": "mac_v1_semantic_thermal_pressure_5",
+  "group_ids": [
+    "mac:semantic:thermal_pressure_5"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:3e1d844e7ea2df7228b8e38dac418263f8c9d3a40e345a9db3e5908267739428"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:cb6ec89776a7e51127e6ca2a659f42e6bcf485f44869ff3741242bbc946b1cc2"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows a thermal pressure state of 1 followed by an assertion failure in BezelServices related to driver address retrieval, indicating a hardware or firmware issue under load; this is later resolved as thermal and memory pressures drop to zero with hibernate operations completing successfully.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "mac:semantic:thermal_pressure_5"
+      ]
+    },
+    {
+      "text": "The repeated telemetry assertion failures suggest a persistent software component error tied to the earlier system instability.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "mac:semantic:thermal_pressure_5"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

@@ -1,0 +1,35 @@
+{
+  "question_id": "openstack_v1_semantic_nova_osapi_compute_wsgi_server_4",
+  "group_ids": [
+    "openstack:semantic:nova_osapi_compute_wsgi_server_4"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:76aa3a6993c697abe095afede8ed697583298590edfc10972310f590b7c3b6c2"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:1de82d344d273709c133d439443905b22296fda9299e2155ed9acee910f4737d"
+  },
+  "claims": [
+    {
+      "text": "The log shows an instance deletion operation completed in about 1 second, including network deallocation and file cleanup, but also records a warning about an unknown base image file path that could indicate a storage inconsistency.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_4"
+      ]
+    },
+    {
+      "text": "This suggests the system successfully terminated the VM while encountering a minor issue with its image cache.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_4"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

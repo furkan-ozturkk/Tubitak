@@ -1,0 +1,35 @@
+{
+  "question_id": "mac_v1_semantic_thermal_pressure_7",
+  "group_ids": [
+    "mac:semantic:thermal_pressure_7"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:1f3af8fda89dcfbd8f46ed1f9a629c229c57e6d4eb4a731c4d23461445758a2e"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:894af294c40fbdf6ae73f896b2d7d4a59f8c21db87342a6654d34260f7496144"
+  },
+  "claims": [
+    {
+      "text": "The system logged a thermal and memory pressure state of zero at 4:27 am, indicating normal resource conditions, followed by kernel events showing network activity, power changes related to sleep/wake cycles, and a delayed security alert that was ignored.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "mac:semantic:thermal_pressure_7"
+      ]
+    },
+    {
+      "text": "These entries collectively reflect routine monitoring and management of the device’s performance and power states.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "mac:semantic:thermal_pressure_7"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

@@ -1,0 +1,62 @@
+{
+  "question_id": "linux_v1_hard_brute_force_compare_1",
+  "group_ids": [
+    "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
+    "linux:hard:brute_force_compare:1:60_30_224_116"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:53e06f1b0c2427c5a5838063a6a518caec614400ca279cc465409afc326f426e"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:20d2a6f8e131a9b071d58b93936f1a91e3652657db1ab3856de32b2aede371ab"
+  },
+  "claims": [
+    {
+      "text": "The n219076184117.netvigator.com lines show six authentication failures clustered between 03:17 and 03:17 on June 22, with each failure occurring in a distinct second but all targeting the same root user from that single hostname.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
+        "linux:hard:brute_force_compare:1:60_30_224_116"
+      ]
+    },
+    {
+      "text": "In contrast, the 60.30.224.116 lines record six failures within a three‑second window on June 30 at 19:03, also aimed at the root account but originating from an IP address rather than a DNS name.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
+        "linux:hard:brute_force_compare:1:60_30_224_116"
+      ]
+    },
+    {
+      "text": "Both groups share the pattern of repeated failed attempts to log in as root via SSH using PAM’s unix module, yet the first group is spread over several minutes while the second is tightly packed into seconds.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
+        "linux:hard:brute_force_compare:1:60_30_224_116"
+      ]
+    },
+    {
+      "text": "The tighter clustering and the use of a raw IP address make 60.30.224.116 appear more anomalous because it suggests an automated or scripted scan rather than a single mis‑configured client.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
+        "linux:hard:brute_force_compare:1:60_30_224_116"
+      ]
+    },
+    {
+      "text": "A plausible root‑cause hypothesis is that an external scanner or compromised host is probing for weak SSH credentials, deliberately targeting the root account from multiple short‑lived connections to evade detection and exploit any lax password policies.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
+        "linux:hard:brute_force_compare:1:60_30_224_116"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

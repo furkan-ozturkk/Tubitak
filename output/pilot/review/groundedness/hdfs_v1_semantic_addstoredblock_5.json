@@ -1,0 +1,35 @@
+{
+  "question_id": "hdfs_v1_semantic_addstoredblock_5",
+  "group_ids": [
+    "hdfs:semantic:addstoredblock_5"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:9fa660db2856f63440a29286831e3c8dff56dc0a7aca1bfcd11d97b37c5a9894"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:292b9ece449ee035338d1875d62a7516366037ed702498a52e91547871a892bb"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows a DataNode receiving and processing multiple blocks of size 64 MB from various source IPs, while the NameNode updates its block map and allocates a new block for a user file path.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_5"
+      ]
+    },
+    {
+      "text": "This indicates normal block replication and storage operations occurring within the HDFS cluster.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_5"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

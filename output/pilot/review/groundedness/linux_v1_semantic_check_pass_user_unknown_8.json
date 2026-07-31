@@ -1,0 +1,35 @@
+{
+  "question_id": "linux_v1_semantic_check_pass_user_unknown_8",
+  "group_ids": [
+    "linux:semantic:check_pass_user_unknown_8"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:2164c72ff44024f6c53c4171b88388b1806112d0ecac61a147239d5fd92ef048"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:e5d27bbca4dfce28348932880313a9d2fcbaa915ed7e2c95563c7219e830c9ec"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows repeated failed SSH login attempts from a remote host named zummit.com targeting the root user on this system; each attempt is logged as an authentication failure by the sshd daemon using PAM's pam_unix module.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_8"
+      ]
+    },
+    {
+      "text": "This indicates a brute-force attack attempting to guess the root password over SSH, with all failures occurring at the same timestamp and involving the same source IP address.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_8"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

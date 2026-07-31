@@ -7,25 +7,25 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:0a982b97c893accefad8c419933d42a1302f01c6aaf1af7eed9b14e7f8076cc6"
+    "prompt_sha256": "sha256:4a25348ad3a57d6bde0beb1f365ef97b2a61a8e44cba3c5dc723738786545638"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:be018bc30a5e90087a3697e04d61e0cbecf192cd714dc2d381867ba6b5032132"
+    "prompt_sha256": "sha256:4f7f37c404b0d7c467933249bc5857c0e4525f1ffd7d3485f27da0758abf037b"
   },
   "claims": [
     {
-      "text": "The excerpt shows a series of DataNode operations where multiple blocks are being received and processed by the same node at regular intervals, indicating active block replication or storage updates within the HDFS cluster.",
+      "text": "The excerpt shows a DataNode receiving and processing blocks from client connections on various ports, indicating normal block replication activity within an HDFS cluster.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_1"
       ]
     },
     {
-      "text": "Each line records successful receipt of 64 MB blocks from various client IPs to the local DataNode on port 50010, confirming normal data transfer activity.",
-      "supported": "partial",
+      "text": "These log entries reflect routine operations where DataNodes acknowledge receipt of data blocks during client interactions, confirming ongoing storage and network functionality.",
+      "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_1"
       ]

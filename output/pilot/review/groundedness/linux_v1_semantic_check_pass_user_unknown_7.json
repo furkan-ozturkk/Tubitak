@@ -1,0 +1,35 @@
+{
+  "question_id": "linux_v1_semantic_check_pass_user_unknown_7",
+  "group_ids": [
+    "linux:semantic:check_pass_user_unknown_7"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:45842b3a8d66a96d7603f623610f8ada4b76dd3c1b38dca9d430ca30184a8454"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:7c2d538569285d46a714b6b40604cc3cadde62abce260a8dbba7342e215b3ffc"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows multiple failed SSH authentication attempts from a remote host at biblioteka.wsi.edu.pl targeting the root user (uid=0) on the system named combo, as indicated by repeated \"authentication failure\" messages with logname and euid both set to 0.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_7"
+      ]
+    },
+    {
+      "text": "These failures occur during PAM authentication checks where the username is reported as unknown, suggesting either incorrect credentials or an attempt to authenticate a non-existent account.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_7"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

@@ -1,8 +1,8 @@
 {
-  "question_id": "linux_v1_hard_brute_force_compare",
+  "question_id": "linux_v1_hard_brute_force_compare_0",
   "group_ids": [
-    "linux:hard:brute_force_compare:150_183_249_110",
-    "linux:hard:brute_force_compare:207_243_167_114"
+    "linux:hard:brute_force_compare:0:150_183_249_110",
+    "linux:hard:brute_force_compare:0:207_243_167_114"
   ],
   "draft_model": {
     "name": "nemotron-3-nano:30b",
@@ -21,40 +21,40 @@
       "text": "The two groups show parallel patterns of repeated SSH authentication failures targeting the root account, but they differ in timing and source address.",
       "supported": "yes",
       "candidate_group_ids": [
-        "linux:hard:brute_force_compare:150_183_249_110",
-        "linux:hard:brute_force_compare:207_243_167_114"
+        "linux:hard:brute_force_compare:0:150_183_249_110",
+        "linux:hard:brute_force_compare:0:207_243_167_114"
       ]
     },
     {
       "text": "In Group 150.183.249.110 the failures occur within a six‑second window on July 10 at 16:01–16:01:47, whereas Group 207.243.167.114 spreads its attempts over an eight‑minute span from 07:02:27 to 07:02:55 on July 26.",
       "supported": "partial",
       "candidate_group_ids": [
-        "linux:hard:brute_force_compare:150_183_249_110",
-        "linux:hard:brute_force_compare:207_243_167_114"
+        "linux:hard:brute_force_compare:0:150_183_249_110",
+        "linux:hard:brute_force_compare:0:207_243_167_114"
       ]
     },
     {
       "text": "Both sets involve the same user (root) and identical log formats, yet the first source fires a burst of five failures in quick succession while the second spreads them out with longer intervals between each attempt.",
       "supported": "yes",
       "candidate_group_ids": [
-        "linux:hard:brute_force_compare:150_183_249_110",
-        "linux:hard:brute_force_compare:207_243_167_114"
+        "linux:hard:brute_force_compare:0:150_183_249_110",
+        "linux:hard:brute_force_compare:0:207_243_167_114"
       ]
     },
     {
       "text": "This concentration of rapid failures from 150.183.249.110 is more anomalous because it suggests an automated brute‑force script rather than a human or intermittent scanner.",
       "supported": "partial",
       "candidate_group_ids": [
-        "linux:hard:brute_force_compare:150_183_249_110",
-        "linux:hard:brute_force_compare:207_243_167_114"
+        "linux:hard:brute_force_compare:0:150_183_249_110",
+        "linux:hard:brute_force_compare:0:207_243_167_114"
       ]
     },
     {
       "text": "A plausible root‑cause hypothesis is that 150.183.249.110 is being used by a compromised botnet or credential‑stuffing tool that is aggressively probing the SSH service for the default root login, while 207.243.167.114 may represent a less aggressive or differently configured scanning source.",
       "supported": "partial",
       "candidate_group_ids": [
-        "linux:hard:brute_force_compare:150_183_249_110",
-        "linux:hard:brute_force_compare:207_243_167_114"
+        "linux:hard:brute_force_compare:0:150_183_249_110",
+        "linux:hard:brute_force_compare:0:207_243_167_114"
       ]
     }
   ],

@@ -7,25 +7,25 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:af2e965fe69e134a2a237bbad1f03a31e62df059630aae686fb06e78f61be108"
+    "prompt_sha256": "sha256:802adb3dc12beee25f47e0b2f3daa1695a646c874691097d86b372e57df8d051"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:420a4c80fe505d4a08111eeab5ce29feb8a1e8e96813fc05fe02c2f04730af24"
+    "prompt_sha256": "sha256:947aa84b9a95b2346564d5185071d9e5e22db4aa3ff6cd6dba3a8c6acc94e853"
   },
   "claims": [
     {
-      "text": "The excerpt shows multiple kernel-level interrupts and errors occurring within seconds on June 26, 2005, including corrected parity errors, illegal instruction faults, privileged instruction violations, and data store interrupts caused by specific processor instructions like dcbf.",
-      "supported": "yes",
+      "text": "The excerpt shows repeated corrected instruction cache parity errors in the RAS kernel on June 14, 2005, indicating a persistent hardware issue affecting multiple timestamps and system components.",
+      "supported": "partial",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_3"
       ]
     },
     {
-      "text": "These indicate critical hardware or software faults in the system's execution environment, likely causing program termination or core dumps as noted in the log entries.",
-      "supported": "yes",
+      "text": "Later entries from June 15, 2005, show core generation events (e.g., \"generating core.1978\", \"generating core.2040\"), suggesting these errors escalated into system crashes or kernel panics due to uncorrectable memory or instruction faults.",
+      "supported": "partial",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_3"
       ]

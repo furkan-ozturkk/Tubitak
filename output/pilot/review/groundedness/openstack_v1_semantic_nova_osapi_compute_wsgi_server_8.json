@@ -1,0 +1,35 @@
+{
+  "question_id": "openstack_v1_semantic_nova_osapi_compute_wsgi_server_8",
+  "group_ids": [
+    "openstack:semantic:nova_osapi_compute_wsgi_server_8"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:1d2ffe6d92eac4fade0401e0b35a128f72694d0af7adf7b00841c8c38e8e14a5"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:ce9bf81ba330b5fe01f2d8ebfd7d01babb63a6a5fbb485b54d00a99195a5cf35"
+  },
+  "claims": [
+    {
+      "text": "The log shows a server detail request processed successfully by nova-api and then, shortly after, an instance lifecycle event indicating that a virtual machine was started on the compute node.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_8"
+      ]
+    },
+    {
+      "text": "This suggests a user action triggered a VM launch, which completed with the VM entering the running state.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_8"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

@@ -1,8 +1,8 @@
 {
-  "question_id": "zookeeper_v1_hard_ensemble_member_compare",
+  "question_id": "zookeeper_v1_hard_ensemble_member_compare_0",
   "group_ids": [
-    "zookeeper:hard:ensemble_member_compare:1",
-    "zookeeper:hard:ensemble_member_compare:2"
+    "zookeeper:hard:ensemble_member_compare:0:1",
+    "zookeeper:hard:ensemble_member_compare:0:2"
   ],
   "draft_model": {
     "name": "nemotron-3-nano:30b",
@@ -21,40 +21,40 @@
       "text": "The logs show that myid 1 repeatedly attempts to open channels to peers 2 and 3 but fails, while it spends a noticeable period in the LOOKING state before transitioning back to FOLLOWING.",
       "supported": "partial",
       "candidate_group_ids": [
-        "zookeeper:hard:ensemble_member_compare:1",
-        "zookeeper:hard:ensemble_member_compare:2"
+        "zookeeper:hard:ensemble_member_compare:0:1",
+        "zookeeper:hard:ensemble_member_compare:0:2"
       ]
     },
     {
       "text": "In contrast, myid 2 experiences only a single warning about being unable to connect to peer 3 and then moves from LOOKING directly to FOLLOWING without further retries.",
       "supported": "partial",
       "candidate_group_ids": [
-        "zookeeper:hard:ensemble_member_compare:1",
-        "zookeeper:hard:ensemble_member_compare:2"
+        "zookeeper:hard:ensemble_member_compare:0:1",
+        "zookeeper:hard:ensemble_member_compare:0:2"
       ]
     },
     {
       "text": "Both members exhibit similar failure patterns when contacting peer 3, but the frequency of connection‑failure warnings is markedly higher for myid 1 (three separate WARN entries) compared with myid 2’s single warning.",
       "supported": "partial",
       "candidate_group_ids": [
-        "zookeeper:hard:ensemble_member_compare:1",
-        "zookeeper:hard:ensemble_member_compare:2"
+        "zookeeper:hard:ensemble_member_compare:0:1",
+        "zookeeper:hard:ensemble_member_compare:0:2"
       ]
     },
     {
       "text": "This disparity suggests that myid 1 may be experiencing network or configuration issues that cause it to repeatedly lose connectivity during leader election, whereas myid 2’s behavior appears more typical of a follower that briefly enters LOOKING and then resumes normal FOLLOWING state.",
-      "supported": "partial",
+      "supported": "yes",
       "candidate_group_ids": [
-        "zookeeper:hard:ensemble_member_compare:1",
-        "zookeeper:hard:ensemble_member_compare:2"
+        "zookeeper:hard:ensemble_member_compare:0:1",
+        "zookeeper:hard:ensemble_member_compare:0:2"
       ]
     },
     {
       "text": "The root‑cause hypothesis is that the intermittent connectivity problem affecting peer 3 (or the underlying network path) disproportionately impacts myid 1, leading to repeated election retries and anomalous warning activity for that member.",
       "supported": "partial",
       "candidate_group_ids": [
-        "zookeeper:hard:ensemble_member_compare:1",
-        "zookeeper:hard:ensemble_member_compare:2"
+        "zookeeper:hard:ensemble_member_compare:0:1",
+        "zookeeper:hard:ensemble_member_compare:0:2"
       ]
     }
   ],

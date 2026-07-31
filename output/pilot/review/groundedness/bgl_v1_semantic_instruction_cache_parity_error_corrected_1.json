@@ -7,24 +7,24 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:d1d9199f1828c6f2187514d6b0b0da1f938c47b4728d1d3ba81091e9d23f9127"
+    "prompt_sha256": "sha256:49433e1a6e99bfe48c6b0b7fdfe0347b6997f529132a668236c64b9775ffb4f3"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:b68f94a0c384ea80725e4cba590bc1cd86bed381b1496063c1bd48d00f8d70ed"
+    "prompt_sha256": "sha256:061c220bcfa26d9ee558ea48feb6f5a7fe927b352b8a6f589cda6c176097ffcd"
   },
   "claims": [
     {
-      "text": "The excerpt shows multiple instances of kernel-level cache parity errors and core dumps occurring across different processors and memory nodes on June 6–7, 2005, indicating hardware faults in instruction cache parity detection and system stability issues within the BGL architecture.",
-      "supported": "yes",
+      "text": "The excerpt shows multiple instances of a kernel-level \"instruction cache parity error corrected\" event occurring at regular intervals between 10:33 and 11:11 on June 6, 2005, indicating recurring hardware-level corrections to CPU instruction cache parity errors.",
+      "supported": "partial",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_1"
       ]
     },
     {
-      "text": "These events collectively suggest critical low-level hardware failures requiring immediate attention to prevent further system degradation or crashes.",
+      "text": "These repeated RAS (Reliability, Availability, Serviceability) kernel messages suggest sustained transient hardware faults in the processor's instruction cache that were automatically corrected without system intervention.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_1"

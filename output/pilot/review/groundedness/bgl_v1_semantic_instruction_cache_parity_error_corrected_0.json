@@ -18,7 +18,7 @@
   "claims": [
     {
       "text": "The excerpt shows multiple instances of corrected instruction cache parity errors and double-hummer alignment exceptions logged by the RAS kernel, indicating hardware-level memory or execution anomalies being automatically corrected without system interruption.",
-      "supported": "partial",
+      "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_0"
       ]

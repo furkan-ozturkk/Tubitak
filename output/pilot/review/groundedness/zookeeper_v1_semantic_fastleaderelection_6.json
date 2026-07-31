@@ -1,0 +1,28 @@
+{
+  "question_id": "zookeeper_v1_semantic_fastleaderelection_6",
+  "group_ids": [
+    "zookeeper:semantic:fastleaderelection_6"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:81733de6e990221e6e17870173307e97d8e3ec9ca3f81bde05ee084cbfdf71be"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:c7c9be8b47cbb847c6c1d26cc55935d16e7f6c56d20a088f49ad836ba6d27167"
+  },
+  "claims": [
+    {
+      "text": "The log shows repeated warnings that Zookeeper cannot establish a connection to peer 2 at address /10.10.34.12:3888 during leader election, indicating network or connectivity problems preventing the election from completing; subsequent info messages about notification timeouts suggest the election process is repeatedly timing out due to this unresolved connectivity issue.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "zookeeper:semantic:fastleaderelection_6"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

@@ -1,0 +1,35 @@
+{
+  "question_id": "hadoop_v1_semantic_mrappmaster_7",
+  "group_ids": [
+    "hadoop:semantic:mrappmaster_7"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:d45f294cf3c669873cade1c35a59fb5ac28496bb4b21c0f466fa834fc3777e0e"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:dc365f2047657e97bda31f07a322e091be0ddf23a106baa0b584cf030d28b5cc"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows that a Hadoop MapReduce application master is initializing and registering several internal event dispatcher classes for handling task events, attempt events, commit events, speculation, container allocation, and container launching within YARN.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:semantic:mrappmaster_7"
+      ]
+    },
+    {
+      "text": "It also confirms the default file system configuration used by the job history utilities as HDFS at hdfs://msra-sa-41:9000.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:semantic:mrappmaster_7"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

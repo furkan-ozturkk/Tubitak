@@ -1,0 +1,35 @@
+{
+  "question_id": "bgl_v1_semantic_instruction_cache_parity_error_corrected_8",
+  "group_ids": [
+    "bgl:semantic:instruction_cache_parity_error_corrected_8"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:51a97fe66aa55d9eff283965b08f2d8cf71af003b53cef74897de7d8d14445bd"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:07fbd688487f27e75e20f555917e342b98f41812e6ded33b142007f814a40baa"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows multiple corrected parity errors in the instruction cache and DDR memory on different ranks and symbols, indicating hardware-level data integrity corrections occurring within the kernel.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "bgl:semantic:instruction_cache_parity_error_corrected_8"
+      ]
+    },
+    {
+      "text": "Additionally, two separate fatal application errors occur due to a missing or invalid program image with permission denied when attempting to load raptor.newcomp.r1.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "bgl:semantic:instruction_cache_parity_error_corrected_8"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

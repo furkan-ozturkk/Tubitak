@@ -7,24 +7,17 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:9e4e2a5b3fe57791c85c3bf3ef2f4a406fc143a6b9f03ba28c3563a7485f178a"
+    "prompt_sha256": "sha256:10a3686edff6d300c6e7594059c0a5ed542343923bf8e8e4b85f6c8a1db0aa48"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:3984b2461f971c4906afd9ff44662acd83527dd1c361af0775140b919342aac4"
+    "prompt_sha256": "sha256:fca71f1d71d7f640cf10ff0eaaa14bfcf08b21d1c1d63984f74169cafd0dcf6c"
   },
   "claims": [
     {
-      "text": "The log shows Apache's mod_jk connector initializing multiple worker processes (children) and encountering errors when trying to start or maintain a specific worker named \"workerEnv\", which fails in error states 10 and later 6 before eventually succeeding with new child processes.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "apache:semantic:child_workerenv_in_error_state_2"
-      ]
-    },
-    {
-      "text": "This indicates issues with the configuration or health of that particular worker process within the Tomcat integration setup.",
+      "text": "The log shows repeated errors indicating that the mod_jk workerEnv process is entering error states 6 and 8 before successfully initializing and finding child process 32626 in scoreboard slot 6 at 06:51:25, reflecting a temporary failure in Apache's JK connector setup.",
       "supported": "yes",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_2"

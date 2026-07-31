@@ -1,0 +1,35 @@
+{
+  "question_id": "apache_v1_semantic_child_workerenv_in_error_state_9",
+  "group_ids": [
+    "apache:semantic:child_workerenv_in_error_state_9"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:2267c4ca7f3272c14b2ac34cc37c6aabf88d944c0cbcf81c8916f939acf830f8"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:2f04e7a57951915393c0f679747c2a90f06cfe9b4e2cc1595036e324a0991190"
+  },
+  "claims": [
+    {
+      "text": "The log shows repeated errors indicating that the Apache JServ connector's worker environment failed to initialize properly, returning error states 7 and later 6, before eventually successfully initializing and spawning a child process (PID 6302) in scoreboard slot 8 at 15:55:31.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "apache:semantic:child_workerenv_in_error_state_9"
+      ]
+    },
+    {
+      "text": "This indicates an initial failure in the worker configuration that was resolved by successfully starting a new worker instance.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "apache:semantic:child_workerenv_in_error_state_9"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

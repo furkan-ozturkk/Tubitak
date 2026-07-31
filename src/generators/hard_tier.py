@@ -43,20 +43,29 @@ from src.utils.helper_ollama import OllamaClient
 CREATED_BY = "src/generators/hard_tier.py@v1"
 
 
-def _select_groups(
-    lines: list[str], hard_spec: HardGroupSpec
-) -> list[tuple[str, list[int]]] | None:
-    """Groups lines by the spec's key regex and picks the largest qualifying groups.
+def _select_group_sets(
+    lines: list[str], hard_spec: HardGroupSpec, max_sets: int
+) -> list[list[tuple[str, list[int]]]]:
+    """Groups lines by the spec's key regex and picks non-overlapping group sets.
+
+    Qualifying groups are ranked largest-first (key name breaking ties) and then
+    chunked into consecutive, non-overlapping sets of ``hard_spec.num_groups``
+    entities each: the first set gets the two largest groups, the second set the
+    next two, and so on. Chunking rather than resampling means no entity is ever
+    compared against itself twice, and the ranking means the richest-evidence
+    comparisons are always drafted first when ``max_sets`` caps the total below
+    what the corpus could support.
 
     Args:
         lines: The dataset's lines.
-        hard_spec: The hard-question spec, carrying the key regex, the minimum lines
-            per group and how many groups the question needs.
+        hard_spec: The hard-question spec, carrying the key regex, the minimum
+            lines per group and how many groups one question needs.
+        max_sets: Upper bound on how many sets to return.
 
     Returns:
-        ``(key, line_indices)`` pairs, largest first with the key name breaking ties,
-        or ``None`` when the corpus does not contain enough qualifying groups to
-        build the question at all.
+        Up to ``max_sets`` lists of ``(key, line_indices)`` pairs, each list of
+        length ``hard_spec.num_groups``; empty when the corpus does not contain
+        enough qualifying groups to build even one question.
     """
     pattern = re.compile(hard_spec.extract_key_regex)
     by_key = defaultdict(list)
@@ -70,11 +79,18 @@ def _select_groups(
         for key, indices in by_key.items()
         if len(indices) >= hard_spec.min_lines_per_group
     }
-    if len(qualifying) < hard_spec.num_groups:
-        return None
-
     ranked = sorted(qualifying.items(), key=lambda item: (-len(item[1]), item[0]))
-    return ranked[: hard_spec.num_groups]
+
+    sets = []
+    n = hard_spec.num_groups
+    for start in range(0, len(ranked), n):
+        chunk = ranked[start : start + n]
+        if len(chunk) < n:
+            break
+        sets.append(chunk)
+        if len(sets) >= max_sets:
+            break
+    return sets
 
 
 def _build_evidence_block(
@@ -170,8 +186,8 @@ def build_hard_records(
 
     records = []
     for hard_spec in spec.hard_groups:
-        selected = _select_groups(view.lines, hard_spec)
-        if selected is None:
+        sets = _select_group_sets(view.lines, hard_spec, params.pairs_per_dataset)
+        if not sets:
             print(
                 f"  [quota_unmet] {view.name}/{hard_spec.spec_id}: fewer than "
                 f"{hard_spec.num_groups} groups with >={hard_spec.min_lines_per_group} lines",
@@ -179,70 +195,74 @@ def build_hard_records(
             )
             continue
 
-        keys = [key for key, _ in selected]
-        group_ids = [
-            f"{view.key}:hard:{hard_spec.spec_id}:{slugify(key)}" for key in keys
-        ]
-        all_refs: list[dict[str, Any]] = []
-        evidence_blocks = []
-        for (key, indices), group_id in zip(selected, group_ids):
-            refs, block = _build_evidence_block(view, key, indices, hard_spec, group_id)
-            all_refs.extend(refs)
-            evidence_blocks.append(block)
-        evidence_text = "\n\n".join(evidence_blocks)
+        for occurrence, selected in enumerate(sets):
+            keys = [key for key, _ in selected]
+            group_ids = [
+                f"{view.key}:hard:{hard_spec.spec_id}:{occurrence}:{slugify(key)}"
+                for key in keys
+            ]
+            all_refs: list[dict[str, Any]] = []
+            evidence_blocks = []
+            for (key, indices), group_id in zip(selected, group_ids):
+                refs, block = _build_evidence_block(
+                    view, key, indices, hard_spec, group_id
+                )
+                all_refs.extend(refs)
+                evidence_blocks.append(block)
+            evidence_text = "\n\n".join(evidence_blocks)
 
-        question_text = hard_spec.question_template.format(
-            **{f"key{index}": key for index, key in enumerate(keys)}
-        )
-
-        draft = client.draft(
-            _build_prompt(
-                view.name,
-                len(keys),
-                question_text,
-                evidence_text,
-                params.min_sentences,
+            question_text = hard_spec.question_template.format(
+                **{f"key{index}": key for index, key in enumerate(keys)}
             )
-        )
-        answer_text = draft["text"]
 
-        question_id = f"{view.key}_v1_hard_{hard_spec.spec_id}"
-        claims, reviewer_model = check_claims(
-            client, answer_text, evidence_text, group_ids
-        )
-        write_report(
-            config.review_dir,
-            question_id,
-            group_ids,
-            draft["model"],
-            reviewer_model,
-            claims,
-        )
+            draft = client.draft(
+                _build_prompt(
+                    view.name,
+                    len(keys),
+                    question_text,
+                    evidence_text,
+                    params.min_sentences,
+                )
+            )
+            answer_text = draft["text"]
 
-        records.append(
-            {
-                "id": question_id,
-                "question": question_text,
-                "routing_path": "semantic",
-                "answer_type": "synthesis",
-                "task": hard_spec.task,
-                "difficulty": "hard",
-                "phrasing_family": "hard-synthesis",
-                "review_status": "in_review",
-                "reviewers": [config.reviewer],
-                "expected_answer": answer_text,
-                "gold_provenance": gold_provenance(
-                    method="independent_model_then_human",
-                    created_by=CREATED_BY,
-                    created_at=config.created_at,
-                    corpus_sha256=view.sha256,
-                    model=draft["model"],
-                ),
-                "evidence": {"refs": all_refs},
-            }
-        )
-        print(
-            f"  [{view.name}] drafted hard question '{hard_spec.spec_id}' "
-            f"({len(claims)} claims, groups={keys})"
-        )
+            question_id = f"{view.key}_v1_hard_{hard_spec.spec_id}_{occurrence}"
+            claims, reviewer_model = check_claims(
+                client, answer_text, evidence_text, group_ids
+            )
+            write_report(
+                config.review_dir,
+                question_id,
+                group_ids,
+                draft["model"],
+                reviewer_model,
+                claims,
+            )
+
+            records.append(
+                {
+                    "id": question_id,
+                    "question": question_text,
+                    "routing_path": "semantic",
+                    "answer_type": "synthesis",
+                    "task": hard_spec.task,
+                    "difficulty": "hard",
+                    "phrasing_family": "hard-synthesis",
+                    "review_status": "in_review",
+                    "reviewers": [config.reviewer],
+                    "expected_answer": answer_text,
+                    "gold_provenance": gold_provenance(
+                        method="independent_model_then_human",
+                        created_by=CREATED_BY,
+                        created_at=config.created_at,
+                        corpus_sha256=view.sha256,
+                        model=draft["model"],
+                    ),
+                    "evidence": {"refs": all_refs},
+                }
+            )
+            print(
+                f"  [{view.name}] drafted hard question '{hard_spec.spec_id}' #{occurrence} "
+                f"({len(claims)} claims, groups={keys})"
+            )
     return records

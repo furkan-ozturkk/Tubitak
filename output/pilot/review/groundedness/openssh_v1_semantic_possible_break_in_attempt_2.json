@@ -7,17 +7,24 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:735a332a2867a7ce84d4021a312244a54fc76d01e1a148aa2f81621c09660507"
+    "prompt_sha256": "sha256:2ad68421ef403dbdc8b9877780b54976b910346cc63e879732661ca883597b3a"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:1c7175ae4b963a60b57e6d3bfa64e94ff92ae4900cc6dd160b9c46a8348fd600"
+    "prompt_sha256": "sha256:7ff9d80d17c9f88de85a15c003672630b24b15f29bc522080e48d4569712d3b5"
   },
   "claims": [
     {
-      "text": "The log shows repeated failed authentication attempts by a remote host at IP address 187.141.143.180 targeting the root user over SSH, triggering \"POSSIBLE BREAK-IN ATTEMPT\" warnings from sshd's reverse mapping checks and resulting in disconnections; this indicates an unauthorized brute-force or targeted attack attempting to gain privileged access via password guessing.",
+      "text": "The log shows repeated failed authentication attempts by a remote host at IP address 187.141.143.180 targeting the root user over SSH, triggering OpenSSH's \"reverse mapping checking\" warning that indicates a possible break-in attempt due to inability to resolve the hostname from the IP address.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:semantic:possible_break_in_attempt_2"
+      ]
+    },
+    {
+      "text": "Each attempt results in authentication failure and disconnection before any successful login can occur.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_2"

@@ -7,32 +7,25 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:51f11e86880e454f0647c3b3161fdeddaffbeb096635c6d5c6a7eb76217f28bf"
+    "prompt_sha256": "sha256:9f72adc2cc9799451c809f4a3c1b29171efb4273454525979526d55c36dc162b"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:447e71b96d34ba115cd5df1206c8e323501ccb5ae5ee493fc53ebd3a794763c8"
+    "prompt_sha256": "sha256:65b2cd04c0c680bff35fbcbe5491ff52a3457bbf6235d1b7a57bc987c735e4f1"
   },
   "claims": [
     {
-      "text": "The excerpt shows repeated successful API calls to retrieve server details via a GET request to /servers/detail, each returning HTTP status 200 and varying response times between approximately 0.24 and 0.43 seconds.",
+      "text": "The log shows a successful API request to list servers and subsequent compute node activity checking an image file used by that instance.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_3"
       ]
     },
     {
-      "text": "These requests originate from the same source IP (10.11.10.1) and are processed by nova-api instances handling compute operations within OpenStack.",
+      "text": "This indicates normal operation where Nova's metadata service responded to client requests while a compute node verified the base disk image for the server being accessed.",
       "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_3"
-      ]
-    },
-    {
-      "text": "The consistent success indicates normal operation of the Nova compute API endpoint under light request load at that moment.",
-      "supported": "partial",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_3"
       ]

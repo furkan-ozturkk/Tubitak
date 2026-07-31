@@ -7,24 +7,24 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:b44f8f77055800b26df0a43df0b1a0d4e8150576d54a76cf013f9551e4e060b7"
+    "prompt_sha256": "sha256:176953cb2cc5f2772dfa23104c42d4f9986c2adf5f9d420dc8c7b9ec2b405dd7"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:35d69de0e3bf3c1aa398b5d4519e9054b1a3a7b12d68acd89c1fcd3120a2cabc"
+    "prompt_sha256": "sha256:fe4b6c766ca81effd0f3135a358be41ddb935b6d983ff1532e1cc512f37f065a"
   },
   "claims": [
     {
-      "text": "The excerpt shows that a MapReduce job is initializing its output committer and registering several event dispatcher classes within YARN's asynchronous event system to manage job, task, and commit events during execution.",
+      "text": "The excerpt shows the Hadoop MapReduce application master initializing and registering event dispatchers in YARN, indicating it is preparing to manage job execution within the cluster.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_1"
       ]
     },
     {
-      "text": "This indicates the framework is setting up internal mechanisms for coordinating job progress and committing results before actual processing begins.",
+      "text": "This reflects the standard startup sequence of an MRAppMaster coordinating map-reduce tasks via YARN's resource management system.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_1"

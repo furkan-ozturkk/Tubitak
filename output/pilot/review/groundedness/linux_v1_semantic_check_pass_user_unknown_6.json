@@ -1,0 +1,35 @@
+{
+  "question_id": "linux_v1_semantic_check_pass_user_unknown_6",
+  "group_ids": [
+    "linux:semantic:check_pass_user_unknown_6"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:db83405d08b69b224eb271a6c40f7950f6e5f6e9d8e1d9c778d67212a33c365b"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:a3bcfd0f83036da8a4d374cbd9b7a9565d275ee8238eae3c60f7ddae12a360dc"
+  },
+  "claims": [
+    {
+      "text": "The log shows multiple failed SSH authentication attempts from user unknown on tty=NODEVssh originating from rhost=massive.merukuru.org at 04:41:51, indicating repeated login failures likely due to incorrect credentials or unauthorized access attempts.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_6"
+      ]
+    },
+    {
+      "text": "Additionally, two FTP connection records show a successful connection attempt from IP 210.118.170.95 at 09:20:24, suggesting the system accepted an FTP session from that external host earlier in the day.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_6"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

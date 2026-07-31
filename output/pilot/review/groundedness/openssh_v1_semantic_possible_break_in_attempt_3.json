@@ -7,24 +7,24 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:a87cdfcd3bf365a0e963af6e1be65515218b0071aad80179a35dc84271067b5e"
+    "prompt_sha256": "sha256:03622fea3bbe6c22cb2621b627e46d9dcbd9faf8c6e62f70584b7563a024e2cf"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:51f024d0a840437ed6290f08af40b9622230a64b8fffefcf9efa1e18c9e053ed"
+    "prompt_sha256": "sha256:d82f79ab49b4b71e9299bbfa6b1b4bdf99cc0daa403fb956898e5949149cb5ea"
   },
   "claims": [
     {
-      "text": "The log shows repeated failed authentication attempts from IP 187.141.143.180 targeting the 'git' and 'ghost' usernames on port 22, with sshd rejecting each attempt as invalid or unauthorized before disconnecting the client.",
+      "text": "The log shows repeated failed authentication attempts by a remote host at IP address 187.141.143.180 targeting the root user over SSH, triggering OpenSSH's \"reverse mapping checking\" warning that indicates a possible break-in attempt due to inability to resolve the client's hostname.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_3"
       ]
     },
     {
-      "text": "The system flags these events as possible break-in attempts due to failed reverse DNS lookups and authentication failures from an unknown user.",
+      "text": "Each attempt results in an authentication failure and disconnection before any successful login can occur.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_3"

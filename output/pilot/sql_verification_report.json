@@ -1,10 +1,154 @@
 {
   "dataset": "/output/pilot/questions.json",
   "sql_model": "gpt-oss:20b",
-  "checked": 45,
-  "agreed": 45,
+  "checked": 90,
+  "agreed": 90,
   "disagreed": 0,
   "entries": [
+    {
+      "id": "linux_v1_count_authentication_failure_0",
+      "answer_type": "count",
+      "dataset": "linux",
+      "expected_answer": "490",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset = 'linux' AND text ILIKE '%authentication failure%'",
+      "result": 490,
+      "detail": "query=490 gold=490",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:c4dc86af83323ae4dc14c8f60b518abe26bdb99c605af2ed129770d2a453bef0"
+      }
+    },
+    {
+      "id": "linux_v1_count_authentication_failure_1",
+      "answer_type": "count",
+      "dataset": "linux",
+      "expected_answer": "490",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='linux' AND text ILIKE '%authentication failure%'",
+      "result": 490,
+      "detail": "query=490 gold=490",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:e4e75673ab948a7f26721bfbc548be0f970466307e77a5d92b9163e81327a16f"
+      }
+    },
+    {
+      "id": "linux_v1_count_authentication_failure_2",
+      "answer_type": "count",
+      "dataset": "linux",
+      "expected_answer": "490",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='linux' AND text ILIKE '%authentication failure%'",
+      "result": 490,
+      "detail": "query=490 gold=490",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:dd37696037680e967617aac81a66547b786051f71c98bd3ee179b793a5e7f8a3"
+      }
+    },
+    {
+      "id": "linux_v1_presence_invalid_user_0",
+      "answer_type": "presence",
+      "dataset": "linux",
+      "expected_answer": "No (0 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset = 'linux' AND text ILIKE '%Invalid user%')",
+      "result": false,
+      "detail": "query=No gold=No (0 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:e961be9796654ecd83eb9d2fa4927c547a3f74f79c6ee1341a4b351d53f331a2"
+      }
+    },
+    {
+      "id": "linux_v1_presence_invalid_user_1",
+      "answer_type": "presence",
+      "dataset": "linux",
+      "expected_answer": "No (0 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='linux' AND text ILIKE '%Invalid user%')",
+      "result": false,
+      "detail": "query=No gold=No (0 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:9262e8fcb8fa710e6e0791d4826afc7d79490e64ecb5446fcd34b1aa92bc4258"
+      }
+    },
+    {
+      "id": "linux_v1_presence_invalid_user_2",
+      "answer_type": "presence",
+      "dataset": "linux",
+      "expected_answer": "No (0 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='linux' AND text ILIKE '%Invalid user%')",
+      "result": false,
+      "detail": "query=No gold=No (0 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:37fcaacb86b562d63cecb0e3c6aa968405376b3013c89c1433dde2e6cb94b371"
+      }
+    },
+    {
+      "id": "linux_v1_lookup_authentication_failure_first_0",
+      "answer_type": "line_lookup",
+      "dataset": "linux",
+      "expected_answer": "Jun 14 15:16:01 combo sshd(pam_unix)[19939]: authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=218.188.2.4 ",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='linux' AND text ILIKE '%authentication failure%' ORDER BY line_number ASC LIMIT 1",
+      "result": "Jun 14 15:16:01 combo sshd(pam_unix)[19939]: authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=218.188.2.4 ",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:095578a9fd73528c6f4199848854eb5a76a1f8ae01c75535890478d18e74bc08"
+      }
+    },
+    {
+      "id": "linux_v1_lookup_authentication_failure_first_1",
+      "answer_type": "line_lookup",
+      "dataset": "linux",
+      "expected_answer": "Jun 14 15:16:01 combo sshd(pam_unix)[19939]: authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=218.188.2.4 ",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='linux' AND text ILIKE '%authentication failure%' ORDER BY line_number LIMIT 1",
+      "result": "Jun 14 15:16:01 combo sshd(pam_unix)[19939]: authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=218.188.2.4 ",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:3f3f774596c6c2eab559e37d9cb1adaa3aaa5092210665c53f54c48df8311d24"
+      }
+    },
+    {
+      "id": "linux_v1_lookup_authentication_failure_first_2",
+      "answer_type": "line_lookup",
+      "dataset": "linux",
+      "expected_answer": "Jun 14 15:16:01 combo sshd(pam_unix)[19939]: authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=218.188.2.4 ",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='linux' AND text ILIKE '%authentication failure%' ORDER BY line_number LIMIT 1",
+      "result": "Jun 14 15:16:01 combo sshd(pam_unix)[19939]: authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=218.188.2.4 ",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:8c297e44905240d4c1f911267c1ab4f2201b6a620bc1bcc93dd03f0583aa1405"
+      }
+    },
     {
       "id": "apache_v1_count_notice_0",
       "answer_type": "count",
@@ -91,7 +235,7 @@
       "dataset": "apache",
       "expected_answer": "Yes (551 matching lines)",
       "agrees": true,
-      "sql": "SELECT EXISTS(SELECT 1 FROM lines WHERE dataset='apache' AND text ILIKE '%mod_jk%')",
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='apache' AND text ILIKE '%mod_jk%')",
       "result": true,
       "detail": "query=Yes gold=Yes (551 matching lines)",
       "model": {
@@ -219,7 +363,7 @@
       "dataset": "windows",
       "expected_answer": "Yes (2 matching lines)",
       "agrees": true,
-      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='windows' AND text ILIKE '%Error%')",
+      "sql": "SELECT EXISTS(SELECT 1 FROM lines WHERE dataset='windows' AND text ILIKE '%Error%')",
       "result": true,
       "detail": "query=Yes gold=Yes (2 matching lines)",
       "model": {
@@ -235,7 +379,7 @@
       "dataset": "windows",
       "expected_answer": "Yes (2 matching lines)",
       "agrees": true,
-      "sql": "SELECT EXISTS(SELECT 1 FROM lines WHERE dataset='windows' AND text ILIKE '%Error%')",
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='windows' AND text ILIKE '%Error%')",
       "result": true,
       "detail": "query=Yes gold=Yes (2 matching lines)",
       "model": {
@@ -347,7 +491,7 @@
       "dataset": "mac",
       "expected_answer": "Yes (39 matching lines)",
       "agrees": true,
-      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset = 'mac' AND text ILIKE '%Thermal pressure%')",
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='mac' AND text ILIKE '%Thermal pressure%')",
       "result": true,
       "detail": "query=Yes gold=Yes (39 matching lines)",
       "model": {
@@ -582,12 +726,588 @@
       }
     },
     {
+      "id": "openssh_v1_count_failed_password_0",
+      "answer_type": "count",
+      "dataset": "openssh",
+      "expected_answer": "520",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='openssh' AND text ILIKE '%Failed password%'",
+      "result": 520,
+      "detail": "query=520 gold=520",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:9327b15af80ac71527d868d4440ed7fd5053798d33a80613faf97ef75e86bfc5"
+      }
+    },
+    {
+      "id": "openssh_v1_count_failed_password_1",
+      "answer_type": "count",
+      "dataset": "openssh",
+      "expected_answer": "520",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='openssh' AND text ILIKE '%Failed password%'",
+      "result": 520,
+      "detail": "query=520 gold=520",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:38110d8776aa4d330cf884d2e67d4749ab94c9cd24b9831fbb27cd9912be23bd"
+      }
+    },
+    {
+      "id": "openssh_v1_count_failed_password_2",
+      "answer_type": "count",
+      "dataset": "openssh",
+      "expected_answer": "520",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset = 'openssh' AND text ILIKE '%Failed password%'",
+      "result": 520,
+      "detail": "query=520 gold=520",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:abc6dc54659bd0b3c4544ac781efa071aff066641b8329ced0a517986f214a68"
+      }
+    },
+    {
+      "id": "openssh_v1_presence_possible_break_in_attempt_0",
+      "answer_type": "presence",
+      "dataset": "openssh",
+      "expected_answer": "Yes (85 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS(SELECT 1 FROM lines WHERE dataset='openssh' AND text ILIKE '%POSSIBLE BREAK-IN ATTEMPT%')",
+      "result": true,
+      "detail": "query=Yes gold=Yes (85 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:77232a34045b0710401340b6012b450f31b8ea28decfa09b65948004f4bf5295"
+      }
+    },
+    {
+      "id": "openssh_v1_presence_possible_break_in_attempt_1",
+      "answer_type": "presence",
+      "dataset": "openssh",
+      "expected_answer": "Yes (85 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='openssh' AND text ILIKE '%POSSIBLE BREAK-IN ATTEMPT%')",
+      "result": true,
+      "detail": "query=Yes gold=Yes (85 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:0e1ebb5eb1f75e4944b35fafb9f2496b45cbe9f27687f47a39473f4299566689"
+      }
+    },
+    {
+      "id": "openssh_v1_presence_possible_break_in_attempt_2",
+      "answer_type": "presence",
+      "dataset": "openssh",
+      "expected_answer": "Yes (85 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='openssh' AND text ILIKE '%POSSIBLE BREAK-IN ATTEMPT%')",
+      "result": true,
+      "detail": "query=Yes gold=Yes (85 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:741c33b477dc6c7cbb37710e62afdc5c7e771e78f3f410453d082ea80d7a7e94"
+      }
+    },
+    {
+      "id": "openssh_v1_lookup_possible_break_in_attempt_first_0",
+      "answer_type": "line_lookup",
+      "dataset": "openssh",
+      "expected_answer": "Dec 10 06:55:46 LabSZ sshd[24200]: reverse mapping checking getaddrinfo for ns.marryaldkfaczcz.com [173.234.31.186] failed - POSSIBLE BREAK-IN ATTEMPT!",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='openssh' AND text ILIKE '%POSSIBLE BREAK-IN ATTEMPT%' ORDER BY line_number LIMIT 1",
+      "result": "Dec 10 06:55:46 LabSZ sshd[24200]: reverse mapping checking getaddrinfo for ns.marryaldkfaczcz.com [173.234.31.186] failed - POSSIBLE BREAK-IN ATTEMPT!",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:06d61f85b9b37f11ea0506485e9224f79dc8a34c11c9d9d60a339669adabbbc3"
+      }
+    },
+    {
+      "id": "openssh_v1_lookup_possible_break_in_attempt_first_1",
+      "answer_type": "line_lookup",
+      "dataset": "openssh",
+      "expected_answer": "Dec 10 06:55:46 LabSZ sshd[24200]: reverse mapping checking getaddrinfo for ns.marryaldkfaczcz.com [173.234.31.186] failed - POSSIBLE BREAK-IN ATTEMPT!",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='openssh' AND text ILIKE '%POSSIBLE BREAK-IN ATTEMPT%' ORDER BY line_number LIMIT 1",
+      "result": "Dec 10 06:55:46 LabSZ sshd[24200]: reverse mapping checking getaddrinfo for ns.marryaldkfaczcz.com [173.234.31.186] failed - POSSIBLE BREAK-IN ATTEMPT!",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:67ced9b9269aa331eded02ad9b674595a819bd990a4164f449abe64730f6757b"
+      }
+    },
+    {
+      "id": "openssh_v1_lookup_possible_break_in_attempt_first_2",
+      "answer_type": "line_lookup",
+      "dataset": "openssh",
+      "expected_answer": "Dec 10 06:55:46 LabSZ sshd[24200]: reverse mapping checking getaddrinfo for ns.marryaldkfaczcz.com [173.234.31.186] failed - POSSIBLE BREAK-IN ATTEMPT!",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset = 'openssh' AND text ILIKE '%POSSIBLE BREAK-IN ATTEMPT%' ORDER BY line_number LIMIT 1",
+      "result": "Dec 10 06:55:46 LabSZ sshd[24200]: reverse mapping checking getaddrinfo for ns.marryaldkfaczcz.com [173.234.31.186] failed - POSSIBLE BREAK-IN ATTEMPT!",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:586ee8c046aa5fb82f4e5726c997c8dd2c2ac0b4c5f327d542127ec46f967cf7"
+      }
+    },
+    {
+      "id": "bgl_v1_count_double_hummer_alignment_exceptions_0",
+      "answer_type": "count",
+      "dataset": "bgl",
+      "expected_answer": "109",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='bgl' AND text ILIKE '%double-hummer alignment exceptions%'",
+      "result": 109,
+      "detail": "query=109 gold=109",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:55353ca6460002873275e3237f3adad7ce6efc15389a1a29e00297516f373bfa"
+      }
+    },
+    {
+      "id": "bgl_v1_count_double_hummer_alignment_exceptions_1",
+      "answer_type": "count",
+      "dataset": "bgl",
+      "expected_answer": "109",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='bgl' AND text ILIKE '%double-hummer alignment exceptions%'",
+      "result": 109,
+      "detail": "query=109 gold=109",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:7267426f8b0d92a18f9b586e3b82e34a1c5701e950c676939af45aaf552f978c"
+      }
+    },
+    {
+      "id": "bgl_v1_count_double_hummer_alignment_exceptions_2",
+      "answer_type": "count",
+      "dataset": "bgl",
+      "expected_answer": "109",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='bgl' AND text ILIKE '%double-hummer alignment exceptions%'",
+      "result": 109,
+      "detail": "query=109 gold=109",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:99a617579425ac6ba473abd409394652a2e05b3026224adf370b306a99601c34"
+      }
+    },
+    {
+      "id": "bgl_v1_presence_kerndtlb_0",
+      "answer_type": "presence",
+      "dataset": "bgl",
+      "expected_answer": "Yes (60 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='bgl' AND text ILIKE '%KERNDTLB%')",
+      "result": true,
+      "detail": "query=Yes gold=Yes (60 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:90389f2e72dfd69c24f02f113f6e57aa8ccb3b31dc442946a85772da9d994f0b"
+      }
+    },
+    {
+      "id": "bgl_v1_presence_kerndtlb_1",
+      "answer_type": "presence",
+      "dataset": "bgl",
+      "expected_answer": "Yes (60 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='bgl' AND text ILIKE '%KERNDTLB%')",
+      "result": true,
+      "detail": "query=Yes gold=Yes (60 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:aefe83d5ed7721a0168b63dd85db3ca19d5cb0c4108bcf5ea96667686e72034c"
+      }
+    },
+    {
+      "id": "bgl_v1_presence_kerndtlb_2",
+      "answer_type": "presence",
+      "dataset": "bgl",
+      "expected_answer": "Yes (60 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='bgl' AND text ILIKE '%KERNDTLB%')",
+      "result": true,
+      "detail": "query=Yes gold=Yes (60 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:2dc89e3a24e474ea2d4e9f8ee41c283c321a474e2f84093eceb6fe4f8d413f11"
+      }
+    },
+    {
+      "id": "bgl_v1_lookup_double_hummer_alignment_exceptions_first_0",
+      "answer_type": "line_lookup",
+      "dataset": "bgl",
+      "expected_answer": "- 1117842440 2005.06.03 R23-M0-NE-C:J05-U01 2005-06-03-16.47.20.730545 R23-M0-NE-C:J05-U01 RAS KERNEL INFO 63543 double-hummer alignment exceptions",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='bgl' AND text ILIKE '%double-hummer alignment exceptions%' ORDER BY line_number LIMIT 1",
+      "result": "- 1117842440 2005.06.03 R23-M0-NE-C:J05-U01 2005-06-03-16.47.20.730545 R23-M0-NE-C:J05-U01 RAS KERNEL INFO 63543 double-hummer alignment exceptions",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:c25ffe69c42fd2955ea5d49adf7c4fe41b90230b97241277a2823b8036c4d14d"
+      }
+    },
+    {
+      "id": "bgl_v1_lookup_double_hummer_alignment_exceptions_first_1",
+      "answer_type": "line_lookup",
+      "dataset": "bgl",
+      "expected_answer": "- 1117842440 2005.06.03 R23-M0-NE-C:J05-U01 2005-06-03-16.47.20.730545 R23-M0-NE-C:J05-U01 RAS KERNEL INFO 63543 double-hummer alignment exceptions",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='bgl' AND text ILIKE '%double-hummer alignment exceptions%' ORDER BY line_number LIMIT 1",
+      "result": "- 1117842440 2005.06.03 R23-M0-NE-C:J05-U01 2005-06-03-16.47.20.730545 R23-M0-NE-C:J05-U01 RAS KERNEL INFO 63543 double-hummer alignment exceptions",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:4224daf4c790f7f4f6c012fbc9f5b2e75bb3f9168add9d8afae7dfb10f49ad76"
+      }
+    },
+    {
+      "id": "bgl_v1_lookup_double_hummer_alignment_exceptions_first_2",
+      "answer_type": "line_lookup",
+      "dataset": "bgl",
+      "expected_answer": "- 1117842440 2005.06.03 R23-M0-NE-C:J05-U01 2005-06-03-16.47.20.730545 R23-M0-NE-C:J05-U01 RAS KERNEL INFO 63543 double-hummer alignment exceptions",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='bgl' AND text ILIKE '%double-hummer alignment exceptions%' ORDER BY line_number LIMIT 1",
+      "result": "- 1117842440 2005.06.03 R23-M0-NE-C:J05-U01 2005-06-03-16.47.20.730545 R23-M0-NE-C:J05-U01 RAS KERNEL INFO 63543 double-hummer alignment exceptions",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:758a8d87bc8caadb3cf9fb2029a8083fc65bdd636766b4d032f88148f3f57b27"
+      }
+    },
+    {
+      "id": "hadoop_v1_count_container_0",
+      "answer_type": "count",
+      "dataset": "hadoop",
+      "expected_answer": "547",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='hadoop' AND text ILIKE '%Container%'",
+      "result": 547,
+      "detail": "query=547 gold=547",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:4077b0008f4631ed3b24b561b2434f34d919ec4daaf58e6f10a51735f10ef24e"
+      }
+    },
+    {
+      "id": "hadoop_v1_count_container_1",
+      "answer_type": "count",
+      "dataset": "hadoop",
+      "expected_answer": "547",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='hadoop' AND text ILIKE '%Container%'",
+      "result": 547,
+      "detail": "query=547 gold=547",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:e98dd9fca6f242573455cf38fc5cf6d420387e4a2213043a260d70547073dcc1"
+      }
+    },
+    {
+      "id": "hadoop_v1_count_container_2",
+      "answer_type": "count",
+      "dataset": "hadoop",
+      "expected_answer": "547",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset = 'hadoop' AND text ILIKE '%Container%'",
+      "result": 547,
+      "detail": "query=547 gold=547",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:89fece9c3d56bc34d08e792bae4d38e8a905f8d18431a4302869ed688ea5e1fb"
+      }
+    },
+    {
+      "id": "hadoop_v1_presence_mrappmaster_0",
+      "answer_type": "presence",
+      "dataset": "hadoop",
+      "expected_answer": "Yes (15 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='hadoop' AND text ILIKE '%MRAppMaster%')",
+      "result": true,
+      "detail": "query=Yes gold=Yes (15 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:e0940247d3be9a0195f9d1e86025f1c352590ca096d8f0ad12c4c82df9c3d4d6"
+      }
+    },
+    {
+      "id": "hadoop_v1_presence_mrappmaster_1",
+      "answer_type": "presence",
+      "dataset": "hadoop",
+      "expected_answer": "Yes (15 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS(SELECT 1 FROM lines WHERE dataset='hadoop' AND text ILIKE '%MRAppMaster%')",
+      "result": true,
+      "detail": "query=Yes gold=Yes (15 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:bfa0309657f6ad19ee4f52245e3922385b1306eebb947222cdad540cf2ca391c"
+      }
+    },
+    {
+      "id": "hadoop_v1_presence_mrappmaster_2",
+      "answer_type": "presence",
+      "dataset": "hadoop",
+      "expected_answer": "Yes (15 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='hadoop' AND text ILIKE '%MRAppMaster%')",
+      "result": true,
+      "detail": "query=Yes gold=Yes (15 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:cb8f8139dc8c87e7a1a078bb952cd835833d0bb3802e30aef02dc0eac7389dbf"
+      }
+    },
+    {
+      "id": "hadoop_v1_lookup_mrappmaster_first_0",
+      "answer_type": "line_lookup",
+      "dataset": "hadoop",
+      "expected_answer": "2015-10-18 18:01:47,978 INFO [main] org.apache.hadoop.mapreduce.v2.app.MRAppMaster: Created MRAppMaster for application appattempt_1445144423722_0020_000001",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='hadoop' AND text ILIKE '%MRAppMaster%' ORDER BY line_number LIMIT 1",
+      "result": "2015-10-18 18:01:47,978 INFO [main] org.apache.hadoop.mapreduce.v2.app.MRAppMaster: Created MRAppMaster for application appattempt_1445144423722_0020_000001",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:b4f6ee089e1e6b6bbf094791481f53298afaf8a97fe21000443f2029d6efbf6f"
+      }
+    },
+    {
+      "id": "hadoop_v1_lookup_mrappmaster_first_1",
+      "answer_type": "line_lookup",
+      "dataset": "hadoop",
+      "expected_answer": "2015-10-18 18:01:47,978 INFO [main] org.apache.hadoop.mapreduce.v2.app.MRAppMaster: Created MRAppMaster for application appattempt_1445144423722_0020_000001",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='hadoop' AND text ILIKE '%MRAppMaster%' ORDER BY line_number LIMIT 1",
+      "result": "2015-10-18 18:01:47,978 INFO [main] org.apache.hadoop.mapreduce.v2.app.MRAppMaster: Created MRAppMaster for application appattempt_1445144423722_0020_000001",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:5919c4799293634ef5c3e8ac7885797326cd254bea670da1292a3be68268d98c"
+      }
+    },
+    {
+      "id": "hadoop_v1_lookup_mrappmaster_first_2",
+      "answer_type": "line_lookup",
+      "dataset": "hadoop",
+      "expected_answer": "2015-10-18 18:01:47,978 INFO [main] org.apache.hadoop.mapreduce.v2.app.MRAppMaster: Created MRAppMaster for application appattempt_1445144423722_0020_000001",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='hadoop' AND text ILIKE '%MRAppMaster%' ORDER BY line_number LIMIT 1",
+      "result": "2015-10-18 18:01:47,978 INFO [main] org.apache.hadoop.mapreduce.v2.app.MRAppMaster: Created MRAppMaster for application appattempt_1445144423722_0020_000001",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:c44bbff529aadde8b3bc43fc0a39f91f3b9cb660e4e0805dbe108a5fec82057a"
+      }
+    },
+    {
+      "id": "zookeeper_v1_count_warn_0",
+      "answer_type": "count",
+      "dataset": "zookeeper",
+      "expected_answer": "1318",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='zookeeper' AND text ILIKE '%WARN%'",
+      "result": 1318,
+      "detail": "query=1318 gold=1318",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:165515df06e46be83d57f0ea3a045d4b7ab84207bac7232f1050e80f6d69f04a"
+      }
+    },
+    {
+      "id": "zookeeper_v1_count_warn_1",
+      "answer_type": "count",
+      "dataset": "zookeeper",
+      "expected_answer": "1318",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='zookeeper' AND text ILIKE '%WARN%'",
+      "result": 1318,
+      "detail": "query=1318 gold=1318",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:1640601f1841bd47a4572de8eda5d1f3403a65f30008d6b7268dde3732b7a301"
+      }
+    },
+    {
+      "id": "zookeeper_v1_count_warn_2",
+      "answer_type": "count",
+      "dataset": "zookeeper",
+      "expected_answer": "1318",
+      "agrees": true,
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='zookeeper' AND text ILIKE '%WARN%'",
+      "result": 1318,
+      "detail": "query=1318 gold=1318",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:4436809613b2c4d324160a1939e7bb47e3a9d056d9f9ec806df1ba7d2e76fe80"
+      }
+    },
+    {
+      "id": "zookeeper_v1_presence_exception_0",
+      "answer_type": "presence",
+      "dataset": "zookeeper",
+      "expected_answer": "Yes (54 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset = 'zookeeper' AND text ILIKE '%Exception%')",
+      "result": true,
+      "detail": "query=Yes gold=Yes (54 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:21b623288a3a5b1d7e4743cd4ce260b4607be1b649fafaaf83a9bfe6709f08c5"
+      }
+    },
+    {
+      "id": "zookeeper_v1_presence_exception_1",
+      "answer_type": "presence",
+      "dataset": "zookeeper",
+      "expected_answer": "Yes (54 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset = 'zookeeper' AND text ILIKE '%Exception%')",
+      "result": true,
+      "detail": "query=Yes gold=Yes (54 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:b6b410bff524f3870c8ae91e067d9b2195f7d7cd3ef2e1f3cf7c7400fb6293b1"
+      }
+    },
+    {
+      "id": "zookeeper_v1_presence_exception_2",
+      "answer_type": "presence",
+      "dataset": "zookeeper",
+      "expected_answer": "Yes (54 matching lines)",
+      "agrees": true,
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='zookeeper' AND text ILIKE '%Exception%')",
+      "result": true,
+      "detail": "query=Yes gold=Yes (54 matching lines)",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:a702e350a04d926e1b115d1814bc4bc1ec21f7913c3de2cc8afc506bb0520fb9"
+      }
+    },
+    {
+      "id": "zookeeper_v1_lookup_fastleaderelection_first_0",
+      "answer_type": "line_lookup",
+      "dataset": "zookeeper",
+      "expected_answer": "2015-07-29 17:41:44,747 - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@774] - Notification time out: 3200",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='zookeeper' AND text ILIKE '%FastLeaderElection%' ORDER BY line_number LIMIT 1",
+      "result": "2015-07-29 17:41:44,747 - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@774] - Notification time out: 3200",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:0100912430d3eb999a12ed61e1d33f793d4786851ffb943ad38f45ca30da9f9d"
+      }
+    },
+    {
+      "id": "zookeeper_v1_lookup_fastleaderelection_first_1",
+      "answer_type": "line_lookup",
+      "dataset": "zookeeper",
+      "expected_answer": "2015-07-29 17:41:44,747 - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@774] - Notification time out: 3200",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset='zookeeper' AND text ILIKE '%FastLeaderElection%' ORDER BY line_number LIMIT 1",
+      "result": "2015-07-29 17:41:44,747 - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@774] - Notification time out: 3200",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:9804b7aa3fa65dfff7147395441ef56b2cf23575ed1bce3805bcffdc19b42346"
+      }
+    },
+    {
+      "id": "zookeeper_v1_lookup_fastleaderelection_first_2",
+      "answer_type": "line_lookup",
+      "dataset": "zookeeper",
+      "expected_answer": "2015-07-29 17:41:44,747 - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@774] - Notification time out: 3200",
+      "agrees": true,
+      "sql": "SELECT text FROM lines WHERE dataset = 'zookeeper' AND text ILIKE '%FastLeaderElection%' ORDER BY line_number LIMIT 1",
+      "result": "2015-07-29 17:41:44,747 - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@774] - Notification time out: 3200",
+      "detail": "query text matches gold",
+      "model": {
+        "name": "gpt-oss:20b",
+        "family": "gptoss",
+        "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "prompt_sha256": "sha256:762c0f635499bd88c94b873ddf80cb00e3c9bbc7276d0abfbede49003e32019a"
+      }
+    },
+    {
       "id": "openstack_v1_count_status_200_0",
       "answer_type": "count",
       "dataset": "openstack",
       "expected_answer": "933",
       "agrees": true,
-      "sql": "SELECT COUNT(*) FROM lines WHERE dataset = 'openstack' AND text ILIKE '%status: 200%'",
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='openstack' AND text ILIKE '%status: 200%'",
       "result": 933,
       "detail": "query=933 gold=933",
       "model": {
@@ -699,7 +1419,7 @@
       "dataset": "openstack",
       "expected_answer": "nova-api.log.1.2017-05-16_13:53:08 2017-05-16 00:00:00.008 25746 INFO nova.osapi_compute.wsgi.server [req-38101a0b-2096-447d-96ea-a692162415ae 113d3a99c3da401fbd62cc2caa5b96d2 54fadb412c4e40cdbaed9335e4c35a9e - - -] 10.11.10.1 \"GET /v2/54fadb412c4e40cdbaed9335e4c35a9e/servers/detail HTTP/1.1\" status: 200 len: 1893 time: 0.2477829",
       "agrees": true,
-      "sql": "SELECT text FROM lines WHERE dataset='openstack' AND text ILIKE '%status: 200%' ORDER BY line_number LIMIT 1",
+      "sql": "SELECT text FROM lines WHERE dataset = 'openstack' AND text ILIKE '%status: 200%' ORDER BY line_number LIMIT 1",
       "result": "nova-api.log.1.2017-05-16_13:53:08 2017-05-16 00:00:00.008 25746 INFO nova.osapi_compute.wsgi.server [req-38101a0b-2096-447d-96ea-a692162415ae 113d3a99c3da401fbd62cc2caa5b96d2 54fadb412c4e40cdbaed9335e4c35a9e - - -] 10.11.10.1 \"GET /v2/54fadb412c4e40cdbaed9335e4c35a9e/servers/detail HTTP/1.1\" status: 200 len: 1893 time: 0.2477829",
       "detail": "query text matches gold",
       "model": {

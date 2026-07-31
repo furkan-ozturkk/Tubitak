@@ -1,0 +1,35 @@
+{
+  "question_id": "hdfs_v1_semantic_addstoredblock_6",
+  "group_ids": [
+    "hdfs:semantic:addstoredblock_6"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:df78c13fe27d3c13f9561f6b91961ee4e8ee71c1a71eb0bdb20fc8e1b67269cf"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:d785205e10877f60351cb11fe6b539a8c2a3b5a7e4a56ac1e4339b4fa5b74b16"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows NameNode operations updating block mappings and marking blocks as invalid on specific DataNodes, indicating ongoing storage management activities such as adding new blocks to valid storage and removing or invalidating existing blocks from particular nodes.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_6"
+      ]
+    },
+    {
+      "text": "These actions reflect routine block placement updates and cleanup processes within the HDFS system.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_6"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

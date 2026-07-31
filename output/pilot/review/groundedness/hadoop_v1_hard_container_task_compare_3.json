@@ -1,0 +1,54 @@
+{
+  "question_id": "hadoop_v1_hard_container_task_compare_3",
+  "group_ids": [
+    "hadoop:hard:container_task_compare:3:container_1445144423722_0020_01_000008",
+    "hadoop:hard:container_task_compare:3:container_1445144423722_0020_01_000009"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:c6f0ac7f1c99379c9810a800f92ede63dd6b9859cf574d231bb2dcfef964e864"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:53973ec9123cbb62ef106106cf5180e0f9951ed3f57ab8f07ce35ab3c0a4284a"
+  },
+  "claims": [
+    {
+      "text": "The two container attempts are launched only one minute apart and share the same node (MSRA‑SA‑41) but belong to different task indices, indicating they were scheduled sequentially rather than concurrently.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "hadoop:hard:container_task_compare:3:container_1445144423722_0020_01_000008",
+        "hadoop:hard:container_task_compare:3:container_1445144423722_0020_01_000009"
+      ]
+    },
+    {
+      "text": "Both groups show the allocator assigning a new container, the launcher processing a CONTAINER_REMOTE_LAUNCH event, and the async dispatcher confirming that the attempt is running on the assigned node, which are all normal steps in a healthy MapReduce execution.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:hard:container_task_compare:3:container_1445144423722_0020_01_000008",
+        "hadoop:hard:container_task_compare:3:container_1445144423722_0020_01_000009"
+      ]
+    },
+    {
+      "text": "Because no error messages or abnormal state changes appear in any of the six sample lines, there is no evidence within these logs to suggest a failure for either container_1445144423722_0020_01_000008 or container_1445144423722_0020_01_000009.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:hard:container_task_compare:3:container_1445144423722_0020_01_000008",
+        "hadoop:hard:container_task_compare:3:container_1445144423722_0020_01_000009"
+      ]
+    },
+    {
+      "text": "A plausible root‑cause hypothesis is that the observed pattern reflects a normal, orderly progression of task attempts on the same mapper slot, with no failure detected in the captured evidence.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:hard:container_task_compare:3:container_1445144423722_0020_01_000008",
+        "hadoop:hard:container_task_compare:3:container_1445144423722_0020_01_000009"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

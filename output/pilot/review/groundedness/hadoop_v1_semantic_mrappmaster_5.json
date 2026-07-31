@@ -1,0 +1,35 @@
+{
+  "question_id": "hadoop_v1_semantic_mrappmaster_5",
+  "group_ids": [
+    "hadoop:semantic:mrappmaster_5"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:9003329606843c78cf953d15e556037bac3e578cdd1a1da7a45808743c2c8cf5"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:07b8aaf59f64e316d5340ab978c3f33ae1ee67627203d0265ea0b5c2fd88a1bc"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows that a MapReduce job's Application Master is initializing and registering several internal event dispatchers for handling output committing, job history events, task attempts, speculation, and container allocation within YARN.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:semantic:mrappmaster_5"
+      ]
+    },
+    {
+      "text": "These registrations indicate the framework is setting up its core event-handling infrastructure to manage job execution and resource management during the MapReduce processing lifecycle.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:semantic:mrappmaster_5"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

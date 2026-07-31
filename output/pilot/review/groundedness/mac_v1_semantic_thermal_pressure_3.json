@@ -7,18 +7,25 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:3379037bd9a8ff8da11156da80eba1d8f5630d87d0ad158e56e32ccbd2e7981f"
+    "prompt_sha256": "sha256:ea5e05ce17b5b1e67259c29fec71151269476255bdacc26207cc827fbf5987de"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:2900fa27ea4380e04d6bf568865d2978acc79ee998dd19a278397de65707edcc"
+    "prompt_sha256": "sha256:8321d30eec27bedc5070ca9b14399d67782e82f45f430cbf343ac40b71c47339"
   },
   "claims": [
     {
-      "text": "The excerpt shows a series of system wake events and network-related activity occurring between 22:02 and 22:57 on July 4th, including thermal/memory pressure states, kernel-level wake calls from AppleCamIn, Bluetooth LE scanner activation, Thunderbolt wake completion, Safari safe browsing scheduler warnings, DNS connection attempts, and a network reachability failure with no server response.",
-      "supported": "partial",
+      "text": "The excerpt shows a thermal pressure state of 1 and memory pressure state of 0 at 01:06:48, indicating moderate system load without excessive resource strain.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "mac:semantic:thermal_pressure_3"
+      ]
+    },
+    {
+      "text": "It also reveals repeated ARPT kernel messages related to Wi-Fi keepalive intervals and a sleep cause code 5 later in the log.",
+      "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_3"
       ]

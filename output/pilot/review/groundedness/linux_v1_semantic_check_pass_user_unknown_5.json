@@ -1,0 +1,35 @@
+{
+  "question_id": "linux_v1_semantic_check_pass_user_unknown_5",
+  "group_ids": [
+    "linux:semantic:check_pass_user_unknown_5"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:fc486eb36357af167a128cc9b4c5c4affd311ce12807ed406241e1d917cb6e44"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:a5d82e790c335ddb4d277241672e77995ffbef5f0b74f016c1615579bbe859fd"
+  },
+  "claims": [
+    {
+      "text": "The log shows repeated failed SSH authentication attempts from a remote host IP 216‑69‑169‑168.ip.secureserver.net for user “unknown” at 04:30:55–56, followed by successful FTP connections from another source address 210.245.165.136 at 13:16:30.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_5"
+      ]
+    },
+    {
+      "text": "This indicates a brute‑force login attempt on the SSH service and an incoming FTP session from that IP later in the day.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_5"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

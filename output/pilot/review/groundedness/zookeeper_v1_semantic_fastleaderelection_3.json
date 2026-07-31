@@ -7,24 +7,24 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:ee83b7e1ecc734d234c73cb63214c2e66f0422963cbd1bf45256383a5afd1287"
+    "prompt_sha256": "sha256:2be6ce6d0fcc517e535b43a1899abb6483a49ab3e6c2bbcfa80a850d0b4d98ad"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:62f28962133ec03f72d199cc1e36ff95e5b541edc353065ff8de15f167c1cd20"
+    "prompt_sha256": "sha256:59bfb6063bd73e547ed722221cf1540cf7adb345ceb4b98d3079e4106767c669"
   },
   "claims": [
     {
-      "text": "The log shows repeated warnings that Zookeeper cannot establish connections to peer nodes (addresses 10.10.34.13 and 10.10.34.12) on port 3888 during leader election, indicating network connectivity issues preventing the formation of a quorum.",
+      "text": "The log shows repeated warnings that Zookeeper cannot establish connections to peer nodes (specifically at addresses 10.10.34.12:3888 and 10.10.34.13:3888) during leader election, indicating network connectivity issues preventing the formation of a quorum.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_3"
       ]
     },
     {
-      "text": "These connection failures are accompanied by periodic notifications about election timeouts, suggesting ongoing attempts to elect or maintain a leader despite the unreachable peers.",
+      "text": "This is reinforced by multiple \"Cannot open channel\" warnings at regular intervals and an INFO-level notification timeout occurring without successful leader election.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_3"

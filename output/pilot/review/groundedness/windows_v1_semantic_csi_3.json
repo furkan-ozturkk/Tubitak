@@ -7,24 +7,24 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:285f5efb28c5861fd30124fd7d52bdf733a9fd9391e98f84833f0d34bf376e3d"
+    "prompt_sha256": "sha256:54fb98a8f7d4aeee4e65a5f7516f73821ef9e28482517e952eb5a110f38712c7"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:ab35674de39d7d6ca1f8372de6c1c2f0bede4967f8f6ff9065fb48a786b38dbf"
+    "prompt_sha256": "sha256:e6c20289b10a2f9f04dea18c3a8b06f44fc02ffb9a51421ef2f0334f0d36505d"
   },
   "claims": [
     {
-      "text": "The excerpt shows that Windows is loading offline registry hives from a shadow copy volume during system startup processing and completing successfully.",
+      "text": "The log shows a Windows Update session was initialized and completed successfully without requiring startup processing, but it encountered an unrecognized package attribute causing a manifest validation warning.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_3"
       ]
     },
     {
-      "text": "This indicates normal operation of the Component Store (CBS) service as part of Windows component management.",
+      "text": "This indicates normal update agent operation with a minor integrity check issue that did not prevent the update process from finishing.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_3"

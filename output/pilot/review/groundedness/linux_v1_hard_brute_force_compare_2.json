@@ -1,0 +1,64 @@
+{
+  "question_id": "linux_v1_hard_brute_force_compare_2",
+  "group_ids": [
+    "linux:hard:brute_force_compare:2:195_129_24_210",
+    "linux:hard:brute_force_compare:2:218_188_2_4"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:6b65f1279957bcc76f511e307a481f47bdafffc4a08914ec449d5ac58553f1c4"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:aea3f8ecf83fdab367709b99877702b79e506d7eed709323e73af47cad5af9e4"
+  },
+  "claims": [
+    {
+      "text": "The two groups show parallel patterns of repeated SSH authentication failures targeting the root account, but they differ markedly in timing and source behavior.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:2:195_129_24_210",
+        "linux:hard:brute_force_compare:2:218_188_2_4"
+      ]
+    },
+    {
+      "text": "In Group 1 (195.129.24.210) all six attempts occur within a narrow window on June 30 – July 1, with timestamps clustered at 20:16 and 10:56, indicating bursts of activity spaced only minutes apart.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:2:195_129_24_210",
+        "linux:hard:brute_force_compare:2:218_188_2_4"
+      ]
+    },
+    {
+      "text": "In Group 2 (218.188.2.4) the six attempts are spread over three days—June 14 and June 15—with gaps of several hours between each cluster, suggesting a more intermittent probing pattern.",
+      "supported": "no",
+      "candidate_group_ids": []
+    },
+    {
+      "text": "Both sources attempt to authenticate as root via PAM‑unix failures, yet Group 1’s rapid succession of identical failures points to an automated script or brute‑force tool launched from that IP, whereas Group 2’s staggered attempts could be manual testing or a less coordinated source.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:2:195_129_24_210",
+        "linux:hard:brute_force_compare:2:218_188_2_4"
+      ]
+    },
+    {
+      "text": "Consequently, the 195.129.24.210 address appears more anomalous because its high frequency and tight timing deviate sharply from normal login rhythms.",
+      "supported": "no",
+      "candidate_group_ids": []
+    },
+    {
+      "text": "A plausible root‑cause hypothesis is that an external attacker (or compromised botnet) is conducting a targeted brute‑force campaign against the root account, using scripted password attempts from 195.129.24.210 while the other IP may represent unrelated background noise or a separate, less aggressive attempt.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:2:195_129_24_210",
+        "linux:hard:brute_force_compare:2:218_188_2_4"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

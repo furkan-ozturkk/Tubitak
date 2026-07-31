@@ -139,6 +139,7 @@ def _validate_tier_knobs(args: argparse.Namespace) -> None:
         "window_size": args.window_size,
         "questions_per_dataset": args.questions_per_dataset,
         "min_sentences": args.min_sentences,
+        "hard_pairs_per_dataset": args.hard_pairs_per_dataset,
         "max_retries": args.max_retries,
         "max_parallel_model_calls": args.max_parallel_model_calls,
         "target_total_questions": args.target_total_questions,
@@ -320,6 +321,13 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
         default=None,
         help="[generate/hard] Minimum sentences demanded of a hard gold answer; Section 7.3 "
         "expects >=4 (dataclass default 4)",
+    )
+    parser.add_argument(
+        "--hard_pairs_per_dataset",
+        type=int,
+        default=None,
+        help="[generate/hard] Non-overlapping group-sets drafted per hard_groups spec "
+        "(dataclass default 1)",
     )
     parser.add_argument(
         "--test_fraction",

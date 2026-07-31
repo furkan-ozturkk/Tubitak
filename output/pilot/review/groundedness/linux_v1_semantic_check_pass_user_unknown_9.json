@@ -1,0 +1,35 @@
+{
+  "question_id": "linux_v1_semantic_check_pass_user_unknown_9",
+  "group_ids": [
+    "linux:semantic:check_pass_user_unknown_9"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:5d974a8c7477b232c1da125602bc9e61a6936b29db3fc7bc2880fe291a4b827d"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:d7ea79d77f193f0924cca71a27b787b2ef0661f5655b6a8c7d2d14687bfeef6f"
+  },
+  "claims": [
+    {
+      "text": "The log shows repeated failed SSH authentication attempts from user unknown on tty=NODEVssh originating from rhost=c9063558.virtua.com.br at 14:18:58 and 14:18:59, followed by multiple FTP connections from IP 202.82.200.188 at 16:33:52.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_9"
+      ]
+    },
+    {
+      "text": "This indicates a failed SSH login attempt possibly part of an automated scan or brute-force effort targeting the system via SSH, with subsequent FTP connection attempts from the same source IP shortly after.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_9"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

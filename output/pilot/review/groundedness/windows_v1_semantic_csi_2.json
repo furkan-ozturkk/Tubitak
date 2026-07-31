@@ -7,24 +7,24 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:a57de67275d04533834e0108a09deacab58dd2d725a0de80652cf689ddf4ba98"
+    "prompt_sha256": "sha256:fffa9e2b1b0d6d7ca78e475e4580b99760f1d146e8ff5cc8e035a38809d85e91"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:afa006bcab8b359c32c60493431d94cb37b49f143bd7d0f6780e897860bbc4d4"
+    "prompt_sha256": "sha256:c392659528c3e64bb2c69bebed65f10d55bc122e1acb3f982051e02e00ef0f10"
   },
   "claims": [
     {
-      "text": "The excerpt shows that Windows Update's background service (TrustedInstaller) completed a transaction and entered its final cleanup phase, ending the main loop after idle processing finished.",
+      "text": "The excerpt shows that the Windows Update session was successfully initialized and started processing without requiring startup actions, indicating normal operation of the update service.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_2"
       ]
     },
     {
-      "text": "This indicates normal termination of update operations without errors.",
+      "text": "This suggests the system's component store and update mechanism were functioning correctly at that time.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_2"

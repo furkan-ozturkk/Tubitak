@@ -7,17 +7,24 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:ba34f7500f671bd75ea0d2098b477fad9af4ba4c512a7d143e9d6df1fab748fa"
+    "prompt_sha256": "sha256:b44f8f77055800b26df0a43df0b1a0d4e8150576d54a76cf013f9551e4e060b7"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:9ac252e278a2e3d1559d1b3457e251f3a5450df4d52a1670dc542d64479b34f2"
+    "prompt_sha256": "sha256:35d69de0e3bf3c1aa398b5d4519e9054b1a3a7b12d68acd89c1fcd3120a2cabc"
   },
   "claims": [
     {
-      "text": "The log shows that a MapReduce application master is initializing and registering several internal event dispatchers (speculator, container allocator, launcher) while also configuring its default file system to HDFS on msra-sa-41:9000; it further indicates that job history data will not be sent to the timeline server.",
+      "text": "The excerpt shows that a MapReduce job is initializing its output committer and registering several event dispatcher classes within YARN's asynchronous event system to manage job, task, and commit events during execution.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:semantic:mrappmaster_3"
+      ]
+    },
+    {
+      "text": "This indicates the framework is setting up internal mechanisms for coordinating job progress and committing results before actual processing begins.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_3"

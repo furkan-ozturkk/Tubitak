@@ -1,0 +1,62 @@
+{
+  "question_id": "bgl_v1_hard_node_error_compare_1",
+  "group_ids": [
+    "bgl:hard:node_error_compare:1:r16_m1_n2_c_j17_u01",
+    "bgl:hard:node_error_compare:1:r37_m1_nc_c_j02_u11"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:1677e277d8d4e48270737965166fb423181136e7fcd5d4510478d0ffc3c3ef6f"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:9596db26dd0a3e424c114f1a01f0daa73245eedae925348a1c6ad72b586dec1b"
+  },
+  "claims": [
+    {
+      "text": "The R16‑M1‑N2‑C:J17‑U01 node shows a series of RAS kernel messages that reference “sym X, at 0x… mask Y” with varying masks (0x05, 0x02, 0x0e, 0x40, 0x80) and timestamps spread across several weeks in June 2005; these entries are all logged as INFO‑level kernel events that appear to be sporadic hardware‑symptom reports rather than repeated cache errors.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "bgl:hard:node_error_compare:1:r16_m1_n2_c_j17_u01",
+        "bgl:hard:node_error_compare:1:r37_m1_nc_c_j02_u11"
+      ]
+    },
+    {
+      "text": "In contrast, the R37‑M1‑NC‑C:J02‑U11 node logs six consecutive RAS KERNEL INFO lines on a single day (December 26 2005) each stating “instruction cache parity error corrected,” indicating a persistent and identical software‑level fault that repeats across multiple timestamps within minutes.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "bgl:hard:node_error_compare:1:r16_m1_n2_c_j17_u01",
+        "bgl:hard:node_error_compare:1:r37_m1_nc_c_j02_u11"
+      ]
+    },
+    {
+      "text": "Because the R37 node’s pattern is both temporally clustered and consistently tied to instruction‑cache parity corrections, it exhibits a more anomalous behavior compared with the dispersed kernel‑symmetry events of the R16 node.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "bgl:hard:node_error_compare:1:r16_m1_n2_c_j17_u01",
+        "bgl:hard:node_error_compare:1:r37_m1_nc_c_j02_u11"
+      ]
+    },
+    {
+      "text": "The root‑cause hypothesis therefore attributes the R37 node’s repeated cache‑parity corrections to a hardware defect or firmware bug in its instruction cache subsystem that is actively correcting errors, whereas the R16 node’s isolated kernel messages likely stem from unrelated low‑level RAS reporting and do not suggest an immediate systemic failure.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "bgl:hard:node_error_compare:1:r16_m1_n2_c_j17_u01",
+        "bgl:hard:node_error_compare:1:r37_m1_nc_c_j02_u11"
+      ]
+    },
+    {
+      "text": "This divergence points to a localized cache‑hardware issue on the R37 compute node as the probable cause of its anomalous error pattern.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "bgl:hard:node_error_compare:1:r16_m1_n2_c_j17_u01",
+        "bgl:hard:node_error_compare:1:r37_m1_nc_c_j02_u11"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

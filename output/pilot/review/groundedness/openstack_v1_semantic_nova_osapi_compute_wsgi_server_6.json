@@ -1,0 +1,35 @@
+{
+  "question_id": "openstack_v1_semantic_nova_osapi_compute_wsgi_server_6",
+  "group_ids": [
+    "openstack:semantic:nova_osapi_compute_wsgi_server_6"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:88d3a6db95555460192b9ac9e3a004e272e9186f6b6808cdded2ad2066cb9395"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:84baeab044753c12e86a2c39b4f7df4d0e9490a2635f557d4abe2bf290a0ff1d"
+  },
+  "claims": [
+    {
+      "text": "The log shows repeated successful API calls to retrieve server details via GET requests to /v2/{tenant_id}/servers/detail, each returning HTTP 200 status and a response length of 1893 bytes with processing times ranging from approximately 0.25 to 0.28 seconds.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_6"
+      ]
+    },
+    {
+      "text": "These entries indicate normal operation of the Nova compute API service handling concurrent server listing requests.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_6"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

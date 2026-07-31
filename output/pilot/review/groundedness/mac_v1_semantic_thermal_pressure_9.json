@@ -1,0 +1,28 @@
+{
+  "question_id": "mac_v1_semantic_thermal_pressure_9",
+  "group_ids": [
+    "mac:semantic:thermal_pressure_9"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:3379037bd9a8ff8da11156da80eba1d8f5630d87d0ad158e56e32ccbd2e7981f"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:2900fa27ea4380e04d6bf568865d2978acc79ee998dd19a278397de65707edcc"
+  },
+  "claims": [
+    {
+      "text": "The excerpt shows a series of system wake events and network-related activity occurring between 22:02 and 22:57 on July 4th, including thermal/memory pressure states, kernel-level wake calls from AppleCamIn, Bluetooth LE scanner activation, Thunderbolt wake completion, Safari safe browsing scheduler warnings, DNS connection attempts, and a network reachability failure with no server response.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "mac:semantic:thermal_pressure_9"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

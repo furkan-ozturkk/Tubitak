@@ -1,0 +1,35 @@
+{
+  "question_id": "zookeeper_v1_semantic_fastleaderelection_5",
+  "group_ids": [
+    "zookeeper:semantic:fastleaderelection_5"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:076660baa9084092fb015ecb08dc6f23efe2a4172c3e9d5f0ccc8135edf383ab"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:b8c9fb2295e2bb60f80795f7609ed1e79992a53dc34f348d6e02fb060c079375"
+  },
+  "claims": [
+    {
+      "text": "The log shows repeated warnings that Zookeeper cannot establish connections to peer nodes (addresses 10.10.34.12 and 10.10.34.13) on port 3888 during leader election, indicating those peers are unreachable or failing to communicate for quorum formation.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "zookeeper:semantic:fastleaderelection_5"
+      ]
+    },
+    {
+      "text": "This suggests the cluster is experiencing connectivity issues with specific follower nodes, potentially preventing a stable leader election despite ongoing timeout notifications.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "zookeeper:semantic:fastleaderelection_5"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

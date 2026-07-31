@@ -7,18 +7,18 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:3ee6817b44615f700fc16586a2e3c489a4938a6799e9a1fe456873f0e672ff58"
+    "prompt_sha256": "sha256:f772fbce03b7718dbbaeed3fb68600bbab41a6c80dc7fbd5d0f46dd363c8500c"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:ed111e2e613f5e34f3d32f17dbf4315c7ac1d47c039997ea8f10ce6f731d2d62"
+    "prompt_sha256": "sha256:57138abc55a9f51e1afcd236fd43fa704aabe643ec6f1d5a23d4d6f9d447ca0f"
   },
   "claims": [
     {
-      "text": "The log shows multiple failed authentication attempts via SSH from a remote host (adsl-70-242-75-179.dsl.ksc2mo.swbell.net) to the system's root user account at 01:30:59 on June 18, with each attempt recorded as \"user unknown\" and resulting in authentication failure despite the process running under UID 0 (root).",
-      "supported": "partial",
+      "text": "The log shows repeated authentication failures for SSH login attempts from external hosts (rhost=218.188.2.4 and rhost=061092085098.ctinets.com), where the system is trying to authenticate a user that does not exist in the local password database (\"user unknown\"), resulting in failed login attempts for the root-equivalent account (uid=0, euid=0).",
+      "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_1"
       ]

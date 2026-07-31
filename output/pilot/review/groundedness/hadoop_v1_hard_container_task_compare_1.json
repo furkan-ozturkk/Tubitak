@@ -1,0 +1,70 @@
+{
+  "question_id": "hadoop_v1_hard_container_task_compare_1",
+  "group_ids": [
+    "hadoop:hard:container_task_compare:1:container_1445144423722_0020_01_000004",
+    "hadoop:hard:container_task_compare:1:container_1445144423722_0020_01_000002"
+  ],
+  "draft_model": {
+    "name": "nemotron-3-nano:30b",
+    "family": "nemotron_h_moe",
+    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
+    "prompt_sha256": "sha256:e653c0280b2d9392d4a5799b2c0d386a4b799b75101b59e8c3455d9a06980408"
+  },
+  "reviewer_model": {
+    "name": "gpt-oss:20b",
+    "family": "gptoss",
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "prompt_sha256": "sha256:66a4ad63d4eeb4fde7c2438a415bf2b660fdb93a53b01fa0eececa9d30fb17b0"
+  },
+  "claims": [
+    {
+      "text": "The two container logs show a nearly identical launch sequence, but the timing and cleanup events differ enough to indicate that one of them experienced an abnormal termination.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "hadoop:hard:container_task_compare:1:container_1445144423722_0020_01_000004",
+        "hadoop:hard:container_task_compare:1:container_1445144423722_0020_01_000002"
+      ]
+    },
+    {
+      "text": "In group container_1445144423722_0020_01_000004 we see a CONTAINER_REMOTE_CLEANUP event recorded at 18:06:26, which follows the task attempt launch by about four minutes and signals that the container was later removed from the node.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:hard:container_task_compare:1:container_1445144423722_0020_01_000004",
+        "hadoop:hard:container_task_compare:1:container_1445144423722_0020_01_000002"
+      ]
+    },
+    {
+      "text": "By contrast, group container_1445144423722_0020_01_000002 contains only a CONTAINER_REMOTE_LAUNCH entry at 18:01:57 and no subsequent cleanup record within the observed sample.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "hadoop:hard:container_task_compare:1:container_1445144423722_0020_01_000004",
+        "hadoop:hard:container_task_compare:1:container_1445144423722_0020_01_000002"
+      ]
+    },
+    {
+      "text": "This pattern suggests that container 000004 completed its task attempt normally but was later cleaned up, whereas container 000002 appears to have been left in a pending or failed state without any explicit termination event captured.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "hadoop:hard:container_task_compare:1:container_1445144423722_0020_01_000004",
+        "hadoop:hard:container_task_compare:1:container_1445144423722_0020_01_000002"
+      ]
+    },
+    {
+      "text": "The most plausible root‑cause hypothesis is that the cleanup of container 000004 reflects a successful job‑level cleanup after task completion, while the absence of any cleanup for container 000002 points to an unrecovered failure or timeout that prevented the normal cleanup path from being logged.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "hadoop:hard:container_task_compare:1:container_1445144423722_0020_01_000004",
+        "hadoop:hard:container_task_compare:1:container_1445144423722_0020_01_000002"
+      ]
+    },
+    {
+      "text": "Consequently, the evidence leans toward container_1445144423722_0020_01_000002 experiencing a task/container failure, likely due to an abnormal termination that halted the regular cleanup process.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "hadoop:hard:container_task_compare:1:container_1445144423722_0020_01_000004",
+        "hadoop:hard:container_task_compare:1:container_1445144423722_0020_01_000002"
+      ]
+    }
+  ],
+  "verdict": "needs_human_review"
+}

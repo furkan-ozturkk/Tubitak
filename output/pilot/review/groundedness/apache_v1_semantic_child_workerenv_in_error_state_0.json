@@ -25,7 +25,7 @@
     },
     {
       "text": "This suggests a problem with the worker's runtime environment or resource allocation as defined in workers2.properties.",
-      "supported": "yes",
+      "supported": "partial",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_0"
       ]
