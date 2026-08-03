@@ -13,12 +13,19 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:2900fa27ea4380e04d6bf568865d2978acc79ee998dd19a278397de65707edcc"
+    "prompt_sha256": "sha256:dd2256fd563deef875717addbcf44e222df8499376dc8c7fc033e0de6a2792c2"
   },
   "claims": [
     {
-      "text": "The excerpt shows a series of system wake events and network-related activity occurring between 22:02 and 22:57 on July 4th, including thermal/memory pressure states, kernel-level wake calls from AppleCamIn, Bluetooth LE scanner activation, Thunderbolt wake completion, Safari safe browsing scheduler warnings, DNS connection attempts, and a network reachability failure with no server response.",
-      "supported": "partial",
+      "text": "The system logged multiple wake events and Bluetooth activation around 22:29–22:43, followed by a Safari safe browsing update warning about an unexpected delay and a network connectivity failure with no server response.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "mac:semantic:thermal_pressure_9"
+      ]
+    },
+    {
+      "text": "These indicate normal wake activity but also a delayed background task and a failed network connection attempt.",
+      "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_9"
       ]

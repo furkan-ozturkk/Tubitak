@@ -13,7 +13,7 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:59bfb6063bd73e547ed722221cf1540cf7adb345ceb4b98d3079e4106767c669"
+    "prompt_sha256": "sha256:48b25a56f8c7b51d69d3959e031ab3e4deb1918b90306002d4875e477ebb2d25"
   },
   "claims": [
     {
@@ -24,7 +24,7 @@
       ]
     },
     {
-      "text": "This is reinforced by multiple \"Cannot open channel\" warnings at regular intervals and an INFO-level notification timeout occurring without successful leader election.",
+      "text": "This is reinforced by multiple \"Cannot open channel\" warnings at regular intervals and an INFO-level notification timeout occurring without successful leader election resolution.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_3"

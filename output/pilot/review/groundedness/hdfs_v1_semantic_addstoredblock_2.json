@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:c0997b9a49f649a8e64f6c6317780ecf53a3f8bcc20e25fc6b77db04b53d30a6"
+    "prompt_sha256": "sha256:4b64bd92540488f8600bcdc991f30a136ce07bc00733c99fc057f73abc6437cf"
   },
   "claims": [
     {
-      "text": "The excerpt shows a series of block-related operations in an HDFS system where DataNodes receive and acknowledge blocks from clients or other nodes, including updates to the NameNode's block map indicating new stored blocks on specific DataNode IP addresses.",
+      "text": "The excerpt shows a series of block-related operations in an HDFS system where DataNodes receive and acknowledge blocks from clients or other nodes, including updates to the NameNode's block map indicating new stored blocks on specific DataNode IP addresses and ports.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_2"
       ]
     },
     {
-      "text": "These events reflect normal block replication and storage processes occurring within the distributed file system.",
+      "text": "These events collectively indicate normal block replication and storage processes occurring within the distributed file system.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_2"

@@ -13,19 +13,19 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:a5d82e790c335ddb4d277241672e77995ffbef5f0b74f016c1615579bbe859fd"
+    "prompt_sha256": "sha256:bbcd4597afc3fcaee308964c210bed51b1abecf7bd66860cd9618d548a7004d5"
   },
   "claims": [
     {
-      "text": "The log shows repeated failed SSH authentication attempts from a remote host IP 216‑69‑169‑168.ip.secureserver.net for user “unknown” at 04:30:55–56, followed by successful FTP connections from another source address 210.245.165.136 at 13:16:30.",
-      "supported": "partial",
+      "text": "The log shows repeated failed SSH authentication attempts from a remote host IP 216‑69‑169‑168 at 04:30:55–56, each indicating an unknown user and authentication failure for root (uid=0).",
+      "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_5"
       ]
     },
     {
-      "text": "This indicates a brute‑force login attempt on the SSH service and an incoming FTP session from that IP later in the day.",
-      "supported": "partial",
+      "text": "It also records two FTP connection entries from the same source address 210.245.165.136 at 13:16:30.",
+      "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_5"
       ]

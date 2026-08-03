@@ -17,8 +17,8 @@
   },
   "claims": [
     {
-      "text": "The excerpt shows repeated RAS kernel messages indicating corrected instruction cache parity errors on multiple occasions between December 26, 2005 and January 3, 2006, reflecting hardware-level error detection and correction in the system's memory subsystem.",
-      "supported": "yes",
+      "text": "The excerpt shows repeated RAS kernel messages indicating corrected instruction cache parity errors on multiple occasions between December 26, 2005 and January 3, 2006, reflecting hardware-level memory integrity corrections occurring across different system components and time periods.",
+      "supported": "partial",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_9"
       ]

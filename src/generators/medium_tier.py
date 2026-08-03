@@ -66,7 +66,38 @@ def _ordinal(number: int) -> str:
     return f"{number}{suffix}"
 
 
-def _question_text(dataset_name: str, anchor: str, match_number: int) -> str:
+QUESTION_PHRASINGS = (
+    (
+        "explain",
+        "In the {dataset} log, around the {ordinal} occurrence of '{anchor}': "
+        "what happened and what does it mean?",
+    ),
+    (
+        "describe",
+        "Describe what is happening in the {dataset} log around the {ordinal} "
+        "occurrence of '{anchor}'.",
+    ),
+    (
+        "summarize",
+        "Summarize the event shown in the {dataset} log near the {ordinal} "
+        "occurrence of '{anchor}'.",
+    ),
+    (
+        "interpret",
+        "Looking at the {dataset} log around the {ordinal} occurrence of "
+        "'{anchor}', what took place and what is its significance?",
+    ),
+    (
+        "walk-through",
+        "Walk me through what the {dataset} log shows around the {ordinal} "
+        "occurrence of '{anchor}', and explain what it means.",
+    ),
+)
+
+
+def _question_text(
+    dataset_name: str, anchor: str, match_number: int, occurrence: int
+) -> tuple[str, str]:
     """Renders one medium question's text.
 
     The anchor literal and the match ordinal are part of the question on
@@ -79,19 +110,25 @@ def _question_text(dataset_name: str, anchor: str, match_number: int) -> str:
     (picks are strided across the match list, so this is the match's true
     position, not the pick's index).
 
+    ``occurrence`` cycles through ``QUESTION_PHRASINGS`` so that a dataset's
+    several medium questions are not all asked in identical words — the same
+    reasoning the easy tier's three phrasing families rest on, applied here
+    even though ``validate.py`` does not enforce it on the semantic path.
+
     Args:
         dataset_name: Dataset the excerpt came from.
         anchor: The curated anchor literal.
         match_number: 1-based position of the window's anchor within every
             match of the anchor in the file.
+        occurrence: 0-based index of this question among the dataset's medium
+            picks, used to select the phrasing.
 
     Returns:
-        The question text.
+        Tuple ``(phrasing_family, question_text)``.
     """
-    return (
-        f"In the {dataset_name} log, around the {_ordinal(match_number)} occurrence "
-        f"of '{anchor}': what happened and what does it mean?"
-    )
+    family, template = QUESTION_PHRASINGS[occurrence % len(QUESTION_PHRASINGS)]
+    text = template.format(dataset=dataset_name, ordinal=_ordinal(match_number), anchor=anchor)
+    return family, text
 
 
 def _find_matches(lines: list[str], literal: str) -> list[int]:
@@ -240,17 +277,18 @@ def build_medium_records(
             claims,
         )
 
+        phrasing_family, question_text = _question_text(
+            view.name, spec.medium_anchor_literal, match_number, occurrence
+        )
         records.append(
             {
                 "id": question_id,
-                "question": _question_text(
-                    view.name, spec.medium_anchor_literal, match_number
-                ),
+                "question": question_text,
                 "routing_path": "semantic",
                 "answer_type": "explanation",
                 "task": "Summarization",
                 "difficulty": "medium",
-                "phrasing_family": "single-event-summary",
+                "phrasing_family": phrasing_family,
                 "review_status": "in_review",
                 "reviewers": [config.reviewer],
                 "expected_answer": draft["text"],

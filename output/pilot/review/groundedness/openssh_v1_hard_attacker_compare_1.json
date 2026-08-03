@@ -8,17 +8,49 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:3a309dcd222b83d30107b74fcb03c74f44c042789f1289fe86bb45ef7f1e0b2c"
+    "prompt_sha256": "sha256:aa277e772c7a6dcee6ba6d14c86a0456bfc78ea24d3004717530c4cc06482d2d"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:90ceb75bf35d344672228bf27582577630f98dd88a472bf1b08fa4094832ba73"
+    "prompt_sha256": "sha256:7315722fd3387886a63461a44afcdf7848a1657a00ae1b5e3e2625a9aadf4b76"
   },
   "claims": [
     {
-      "text": "The evidence shows that source 103.99.0.122 repeatedly attempts authentication for non‑existent accounts such as “admin” and “support,” each attempt followed by a disconnect indicating the client gave up when no further methods were available, while source 112.95.230.3 consistently targets the privileged “root” account with multiple failed password attempts that are immediately terminated by an explicit “Bye Bye” disconnect.",
+      "text": "The two groups show distinct attack patterns in target accounts, request cadence, and outcome when examined strictly through the provided log lines.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:1:103_99_0_122",
+        "openssh:hard:attacker_compare:1:112_95_230_3"
+      ]
+    },
+    {
+      "text": "Group 103.99.0.122 targets non‑existent usernames such as “admin” and “support,” repeatedly attempts failed password authentication for each of those invalid users, and ends with a pre‑authentication disconnect indicating that no further authentication methods are available; the cadence is spaced by roughly two seconds between each attempt.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:1:103_99_0_122",
+        "openssh:hard:attacker_compare:1:112_95_230_3"
+      ]
+    },
+    {
+      "text": "In contrast, Group 112.95.230.3 focuses exclusively on the privileged account “root,” issues three consecutive failed password attempts for root within a few seconds, and terminates each session with an immediate disconnect message of “Bye Bye” during pre‑authentication.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:1:103_99_0_122",
+        "openssh:hard:attacker_compare:1:112_95_230_3"
+      ]
+    },
+    {
+      "text": "Both groups involve repeated failed logins from a single source IP, but the first group’s behavior is more anomalous because it repeatedly probes multiple distinct invalid usernames rather than persisting on a single high‑privilege account, and its pattern includes longer intervals between attempts that suggest a slower, more exploratory scanning approach.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:1:103_99_0_122",
+        "openssh:hard:attacker_compare:1:112_95_230_3"
+      ]
+    },
+    {
+      "text": "The second group appears less anomalous as it follows a typical brute‑force script aimed at root with rapid successive attempts and an abrupt termination signal.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:1:103_99_0_122",
@@ -26,16 +58,8 @@
       ]
     },
     {
-      "text": "Both groups exhibit a rapid request cadence and pre‑authentication termination, but the 103.99.0.122 traffic is more anomalous because it mixes invalid usernames across different system accounts rather than focusing on a single high‑value target, suggesting an automated credential‑enumeration scan that is less purposeful yet more irregular in its pattern.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:1:103_99_0_122",
-        "openssh:hard:attacker_compare:1:112_95_230_3"
-      ]
-    },
-    {
-      "text": "This contrast points to root‑cause hypothesis that the former represents opportunistic brute‑force probing of generic accounts, whereas the latter reflects a more focused attack aiming at administrative access, likely driven by differing attacker objectives or tooling.",
-      "supported": "partial",
+      "text": "Therefore, the attacker behind 103.99.0.122 exhibits a more irregular and potentially reconnaissance‑oriented pattern compared to the straightforward credential‑guessing observed from 112.95.230.3.",
+      "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:1:103_99_0_122",
         "openssh:hard:attacker_compare:1:112_95_230_3"

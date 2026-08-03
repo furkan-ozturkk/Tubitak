@@ -13,18 +13,25 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:afa006bcab8b359c32c60493431d94cb37b49f143bd7d0f6780e897860bbc4d4"
+    "prompt_sha256": "sha256:5d59f80741ec7a941b54b34f7c25c5b8d12491983cae4c7ffa1dffe45e813325"
   },
   "claims": [
     {
-      "text": "The excerpt shows that Windows Update's background service (TrustedInstaller) completed a transaction and entered its final cleanup phase, ending the main loop after idle processing finished.",
+      "text": "The excerpt shows that Windows Update's background service (TrustedInstaller) completed a transaction and entered its final cleanup phase before shutting down normally.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_7"
       ]
     },
     {
-      "text": "This indicates normal termination of update operations without errors.",
+      "text": "The \"Reboot mark refs: 0\" indicates no pending reboot is required after this operation.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "windows:semantic:csi_7"
+      ]
+    },
+    {
+      "text": "This marks the end of an update installation cycle without triggering a system restart.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_7"

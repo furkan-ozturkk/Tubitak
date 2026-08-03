@@ -13,25 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:7a345bda12e35def59ba802dbd2cd47c55228187cde561eecad6529b331f5700"
+    "prompt_sha256": "sha256:14df29af7b443974ba46c3b41213c788e37f27fdf98fb2a71e2c0ed43e4866a6"
   },
   "claims": [
     {
-      "text": "The excerpt shows that a MapReduce application master has been created and is initializing its execution environment in YARN, registering event handlers for job tracking.",
+      "text": "The excerpt shows the Hadoop MapReduce application master initializing and registering YARN event handlers as it starts processing an application attempt.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_0"
       ]
     },
     {
-      "text": "It indicates the system is setting up output committer configuration and preparing to manage map-reduce jobs within the Hadoop ecosystem.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_0"
-      ]
-    },
-    {
-      "text": "This reflects standard startup procedures for launching a new MapReduce job attempt in Hadoop 2.",
+      "text": "It indicates that the system is setting up job history tracking and output committer configuration during the early stage of application execution.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_0"

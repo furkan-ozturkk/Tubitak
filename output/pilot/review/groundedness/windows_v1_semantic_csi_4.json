@@ -13,19 +13,19 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:b30c9f839da54b5c916cde3848827c7f13382ecb79f3fe3c8e4ee4a5642930d4"
+    "prompt_sha256": "sha256:1f5f9835ef3b2e058ed6c86192597cf9bffbc4abed8f153de586d0e0affdef4e"
   },
   "claims": [
     {
-      "text": "The excerpt shows a Component Store Service (CSI) transaction being committed and finalized during system operation, indicating normal background maintenance of Windows component store integrity.",
+      "text": "The excerpt shows a Windows Component Store (CBS) transaction being committed and finalized by the CSI subsystem during system maintenance, indicating normal operation of the component deployment engine without errors or scavenge activity.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_4"
       ]
     },
     {
-      "text": "This process involves applying pending updates or repairs to the component store without requiring a full system restart, ensuring consistency for future software installations or updates.",
-      "supported": "partial",
+      "text": "This reflects routine background processing to update or repair system components using the Component Based Servicing (CBS) service.",
+      "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_4"
       ]

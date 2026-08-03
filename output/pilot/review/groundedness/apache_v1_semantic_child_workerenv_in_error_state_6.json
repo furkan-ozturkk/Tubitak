@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:6e82e6d49345766f278ea21df1176d7aa9e8322d487f10f70d3668a48511676e"
+    "prompt_sha256": "sha256:d2eb94ae90c20e97de84d7684915433b68c48e7bf09ef58e664a27a916c39862"
   },
   "claims": [
     {
-      "text": "The log shows repeated errors indicating that the mod_jk workerEnv process is failing to initialize properly and entering error states 9, 7, and 8 before successfully initializing at state 0; this suggests a problem with the Apache JServ connector configuration or connectivity between Apache and Tomcat.",
+      "text": "The log shows repeated errors indicating that the mod_jk workerEnv process is failing to initialize properly and entering error states 7, 8, and 9 before eventually successfully initializing at state 0 as evidenced by the jk2_init() notice finding a child process in slot 8.",
       "supported": "partial",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_6"
       ]
     },
     {
-      "text": "The final notice confirms that the jk2_init function successfully found child process 4820 in scoreboard slot 8, indicating recovery after retries.",
+      "text": "This indicates an issue with the Apache JServ connector configuration or connectivity that was resolved when the worker started successfully.",
       "supported": "yes",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_6"

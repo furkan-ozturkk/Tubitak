@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:d7ea79d77f193f0924cca71a27b787b2ef0661f5655b6a8c7d2d14687bfeef6f"
+    "prompt_sha256": "sha256:6ea5e92f330a5b238a77d199ae0249eb8f42477d065743a289dc59f03538b0d4"
   },
   "claims": [
     {
-      "text": "The log shows repeated failed SSH authentication attempts from user unknown on tty=NODEVssh originating from rhost=c9063558.virtua.com.br at 14:18:58 and 14:18:59, followed by multiple FTP connections from IP 202.82.200.188 at 16:33:52.",
-      "supported": "partial",
+      "text": "The log shows repeated failed SSH authentication attempts from a remote host (c9063558.virtua.com.br) using PAM's pam_unix module, indicating unsuccessful login attempts by an unknown user on the system.",
+      "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_9"
       ]
     },
     {
-      "text": "This indicates a failed SSH login attempt possibly part of an automated scan or brute-force effort targeting the system via SSH, with subsequent FTP connection attempts from the same source IP shortly after.",
+      "text": "Additionally, multiple FTP connections are recorded from IP 202.82.200.188 at the same timestamp, suggesting concurrent access attempts to both SSH and FTP services.",
       "supported": "partial",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_9"

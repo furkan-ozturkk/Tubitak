@@ -13,7 +13,7 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:1f49036fbddb61208f7e190e6d9e08034e5678f22a64bd5c993f29b93028570c"
+    "prompt_sha256": "sha256:f1a0172cd98fffbedfbb264f5b48990cebfdcf06519d14039462adb1a644e2e8"
   },
   "claims": [
     {
@@ -24,8 +24,8 @@
       ]
     },
     {
-      "text": "This is followed by periodic notifications that the election timeout has been reached again after 60 seconds without successful communication.",
-      "supported": "partial",
+      "text": "This is followed by periodic notifications that the election timeout has expired after 60 seconds without successful communication.",
+      "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_7"
       ]

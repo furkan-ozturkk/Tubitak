@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:ec53d4cdfe6ae4e68bcac03e27c30e834f17b3566f456b67a94ffd72c92f20fc"
+    "prompt_sha256": "sha256:190c6a921c9865a8a150bc220b8eab951e94521f0245dfe4d1aa53ca177a6b3f"
   },
   "claims": [
     {
-      "text": "The excerpt shows repeated authentication failures for SSH login attempts from IP address 65.166.159.14 to a system where all attempted usernames are reported as \"unknown\", indicating failed login attempts targeting non-existent accounts or incorrect credentials.",
+      "text": "The excerpt shows repeated authentication failures for a user that is not recognized by the system, originating from remote IP address 65.166.159.14 and targeting SSH access with root privileges (uid=0 euid=0).",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_4"
       ]
     },
     {
-      "text": "These failures occur across multiple processes (pids 10047, 10049, 10051, 10053) at the same timestamp, suggesting a brute-force attack or misconfiguration causing repeated invalid authentication requests.",
+      "text": "Each failure occurs during password verification attempts where the username is reported as \"unknown\" by pam_unix.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_4"

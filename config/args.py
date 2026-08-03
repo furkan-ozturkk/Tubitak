@@ -35,12 +35,13 @@ default is meant to win (see ``src.params.generation_params._resolve``).
 """
 
 import argparse
+import datetime
 import os
 from pathlib import Path
 
 DEFAULT_CORPUS_DIR = Path("/data/loghub")
 DEFAULT_DATASET = Path("/output/pilot/questions.json")
-DEFAULT_FULL_DATASET = Path("/output/pilot/questions_full.json")
+FULL_DATASET_PATTERN = "/output/pilot/questions_full_{date}.json"
 DEFAULT_REVIEW_DIR = Path("/output/pilot/review/groundedness")
 DEFAULT_WORKSHEET = Path("/output/pilot/review/worksheet.csv")
 DEFAULT_REVIEW_LOG = Path("/output/pilot/review/review_events.json")
@@ -61,16 +62,34 @@ COMMANDS = (
 )
 
 
+def _default_full_dataset() -> Path:
+    """Returns today's dated scratch path for a ``--full`` generation pass.
+
+    Every ``--full`` run used to land on the same fixed ``questions_full.json``,
+    so a second experimental pass silently overwrote the first with no trace of
+    what it replaced — the reason ad-hoc, hand-named backups kept accumulating
+    next to it. Stamping today's date into the default path instead means
+    successive full passes on different days keep their own file; two passes on
+    the same day still share one (the date, not a full timestamp, is what was
+    asked for), which is still a strict improvement over one name forever.
+
+    Returns:
+        ``/output/pilot/questions_full_<YYYY-MM-DD>.json`` for today.
+    """
+    return Path(FULL_DATASET_PATTERN.format(date=datetime.date.today().isoformat()))
+
+
 def _resolve_paths(args: argparse.Namespace) -> None:
     """Fills in the flags whose correct default is another flag's resolved value.
 
-    ``--dataset`` moves to its own file under ``--full``, unless the operator named
-    a path explicitly. A full pass produces medium and hard records that leave
-    generation ``review_status=in_review``, and the default target is the pilot
-    dataset, whose model-drafted records a human may since have reviewed: writing
-    one over the other would replace reviewed gold with fresh drafts, in place,
-    with no copy of what it replaced. Passing ``--dataset`` is still honoured, so overwriting stays
-    possible but has to be asked for.
+    ``--dataset`` moves to its own dated file under ``--full``, unless the
+    operator named a path explicitly. A full pass produces medium and hard
+    records that leave generation ``review_status=in_review``, and the default
+    target is the pilot dataset, whose model-drafted records a human may since
+    have reviewed: writing one over the other would replace reviewed gold with
+    fresh drafts, in place, with no copy of what it replaced. Passing
+    ``--dataset`` is still honoured, so overwriting stays possible but has to be
+    asked for.
 
     ``--questions`` is validate's input pattern list. Left unset it must be the
     dataset this invocation resolved, otherwise a validate run would certify a stale
@@ -84,7 +103,7 @@ def _resolve_paths(args: argparse.Namespace) -> None:
         args: Parsed namespace; the three fields are set in place when omitted.
     """
     if args.full and args.dataset == DEFAULT_DATASET:
-        args.dataset = DEFAULT_FULL_DATASET
+        args.dataset = _default_full_dataset()
     if args.questions is None:
         args.questions = [str(args.dataset)]
     if args.review_out is None:
@@ -193,8 +212,9 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
         default=DEFAULT_DATASET,
         help="The question dataset file: written by generate, read by review-export, read and "
         "rewritten by review-apply, and the default input of validate. Under --full the default "
-        f"moves to {DEFAULT_FULL_DATASET} so a three-tier draft pass never overwrites the "
-        "official stage-1 output unless this flag says so explicitly",
+        f"moves to a dated scratch file ({FULL_DATASET_PATTERN.format(date='YYYY-MM-DD')}) so a "
+        "three-tier draft pass never overwrites the official stage-1 output unless this flag "
+        "says so explicitly",
     )
     parser.add_argument(
         "--corpus_dir",
@@ -282,10 +302,11 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--full",
         action="store_true",
-        help="[generate] Same full three-tier pass, but written to its own file "
-        f"({DEFAULT_FULL_DATASET} unless --dataset overrides it) so an experimental run "
-        "never overwrites a pilot dataset whose model-drafted records a human has since "
-        "reviewed",
+        help="[generate] Same full three-tier pass, but written to its own dated scratch file "
+        f"({FULL_DATASET_PATTERN.format(date='YYYY-MM-DD')} unless --dataset overrides it) so "
+        "an experimental run never overwrites a pilot dataset whose model-drafted records a "
+        "human has since reviewed, and successive full passes on different days do not "
+        "overwrite each other either",
     )
     parser.add_argument(
         "--min_matches",

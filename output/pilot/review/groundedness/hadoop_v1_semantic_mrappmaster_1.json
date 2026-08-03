@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:fe4b6c766ca81effd0f3135a358be41ddb935b6d983ff1532e1cc512f37f065a"
+    "prompt_sha256": "sha256:d28e84d5c1f7934c810fd506e61fba7f99010bb1d195829cf650c45b32e3f76b"
   },
   "claims": [
     {
-      "text": "The excerpt shows the Hadoop MapReduce application master initializing and registering event dispatchers in YARN, indicating it is preparing to manage job execution within the cluster.",
+      "text": "The excerpt shows an MRAppMaster initializing a Hadoop MapReduce job in YARN, registering event dispatchers for job and task events as part of its startup sequence.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_1"
       ]
     },
     {
-      "text": "This reflects the standard startup sequence of an MRAppMaster coordinating map-reduce tasks via YARN's resource management system.",
+      "text": "It indicates the application master is setting up its environment to coordinate map-reduce tasks within the YARN cluster.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_1"

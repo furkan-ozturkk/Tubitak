@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:21705230afd4d8d6812b2062fdd9b32a5187d3ba15acc7e26e728237c430ff2d"
+    "prompt_sha256": "sha256:d531620d6399f2ae03727b2f66799532abe3fc9f0c05fe9e1e815841d1bcbf9f"
   },
   "claims": [
     {
-      "text": "The log shows a series of API requests to list servers and create an external network event for instance 95960536, followed by a compute node reporting that the VM associated with that instance was resumed as part of processing the event.",
+      "text": "The log shows a series of API requests to list servers and create an external network event for instance 95960536, followed by a compute node reporting that the VM associated with that instance was resumed as part of its lifecycle.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_2"
       ]
     },
     {
-      "text": "This indicates the OpenStack services successfully triggered and completed actions to resume the virtual machine after the event was created.",
+      "text": "This indicates the OpenStack services processed a request to trigger an external event on the instance and then successfully resumed the virtual machine.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_2"

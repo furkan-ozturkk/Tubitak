@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:28f220b6d07a6fddc9c20cbf36b882b5211db6f169958545d469403b9c443ab4"
+    "prompt_sha256": "sha256:0989ee3bc2f3b1c44ed85c080ca4e9a0bafb31f33374eaa6f2ecdd214dfbcfdb"
   },
   "claims": [
     {
-      "text": "The excerpt shows repeated successful API calls to list servers via the Nova compute API, each returning a 200 status and retrieving server details in under half a second.",
+      "text": "The log shows repeated successful API calls to list servers (status 200) from a Nova‑API process at 10.11.10.1, each taking roughly 0.25–0.44 seconds.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_9"
       ]
     },
     {
-      "text": "It also indicates that an image cache on a compute node is checking usage of a specific base image file referenced by instance storage.",
+      "text": "Immediately after these requests, the compute node’s image cache checks an image and reports that it is already in use locally (one copy on this node, none elsewhere).",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_9"

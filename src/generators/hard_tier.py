@@ -42,6 +42,14 @@ from src.utils.helper_ollama import OllamaClient
 
 CREATED_BY = "src/generators/hard_tier.py@v1"
 
+HARD_PHRASING_FAMILIES = (
+    "compare",
+    "how-differ",
+    "contrast",
+    "both-appear",
+    "examine-versus",
+)
+
 
 def _select_group_sets(
     lines: list[str], hard_spec: HardGroupSpec, max_sets: int
@@ -211,9 +219,14 @@ def build_hard_records(
                 evidence_blocks.append(block)
             evidence_text = "\n\n".join(evidence_blocks)
 
-            question_text = hard_spec.question_template.format(
+            templates = hard_spec.question_templates
+            phrasing_index = occurrence % len(templates)
+            question_text = templates[phrasing_index].format(
                 **{f"key{index}": key for index, key in enumerate(keys)}
             )
+            phrasing_family = HARD_PHRASING_FAMILIES[
+                phrasing_index % len(HARD_PHRASING_FAMILIES)
+            ]
 
             draft = client.draft(
                 _build_prompt(
@@ -247,7 +260,7 @@ def build_hard_records(
                     "answer_type": "synthesis",
                     "task": hard_spec.task,
                     "difficulty": "hard",
-                    "phrasing_family": "hard-synthesis",
+                    "phrasing_family": phrasing_family,
                     "review_status": "in_review",
                     "reviewers": [config.reviewer],
                     "expected_answer": answer_text,

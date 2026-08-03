@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:099081d8fdfa6f4f827632f75ef7cd82e893adc7e09e46c6fa7879414fa437ca"
+    "prompt_sha256": "sha256:319aa7229fec4a5be8ede654754e4b79bc181d7c393135e4fa056deaa9096ec8"
   },
   "claims": [
     {
-      "text": "The excerpt shows that during job initialization, Hadoop registers several internal event dispatcher classes within the MRAppMaster component to manage output committing, job and task events, commit events, and speculation handling in YARN's resource manager environment.",
+      "text": "The excerpt shows that during job initialization, Hadoop’s Application Master registers several internal event dispatcher classes for handling job completion, task events, commit operations, and speculation, indicating the framework is setting up its event dispatching system before processing begins.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_4"
       ]
     },
     {
-      "text": "These registrations indicate the setup of event-driven coordination mechanisms for tracking and processing various stages of MapReduce job execution.",
+      "text": "This registration step prepares the system to manage various lifecycle events throughout the MapReduce job execution.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_4"

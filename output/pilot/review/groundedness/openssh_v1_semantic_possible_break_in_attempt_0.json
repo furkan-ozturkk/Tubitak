@@ -13,12 +13,19 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:7004db16b02023dad2a7482a703616cf284361570a58394ba9aa5e035912003c"
+    "prompt_sha256": "sha256:0459e96b0e49f29325fc3ccb23fcb108201233fd67d8c9f3d19027cf214bc01a"
   },
   "claims": [
     {
-      "text": "The log shows multiple failed authentication attempts from IP 173.234.31.186 for a non‑existent user “webmaster”, including reverse‑DNS lookup failures and an explicit \"POSSIBLE BREAK-IN ATTEMPT!\" warning, indicating a brute‑force or unauthorized login attempt that was rejected by the SSH daemon.",
+      "text": "The log shows multiple failed authentication attempts from IP 173.234.31.186 for a non‑existent user “webmaster”, including reverse‑DNS lookup failures and an explicit \"POSSIBLE BREAK-IN ATTEMPT\" warning, indicating a brute‑force or unauthorized login attempt targeting the SSH service.",
       "supported": "partial",
+      "candidate_group_ids": [
+        "openssh:semantic:possible_break_in_attempt_0"
+      ]
+    },
+    {
+      "text": "The subsequent connection closure confirms the attacker was rejected before gaining access.",
+      "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_0"
       ]

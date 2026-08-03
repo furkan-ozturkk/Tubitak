@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:1de82d344d273709c133d439443905b22296fda9299e2155ed9acee910f4737d"
+    "prompt_sha256": "sha256:57c12a941e7b7b72f8e76a898f5d031a28d652328288d729a61ad3eecb0c4fe1"
   },
   "claims": [
     {
-      "text": "The log shows an instance deletion operation completed in about 1 second, including network deallocation and file cleanup, but also records a warning about an unknown base image file path that could indicate a storage inconsistency.",
+      "text": "The log shows an instance deletion operation completed in about 1.5 seconds, including network deallocation and hypervisor destruction, but a warning indicates that the base image file for the instance could not be found after cleanup.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_4"
       ]
     },
     {
-      "text": "This suggests the system successfully terminated the VM while encountering a minor issue with its image cache.",
+      "text": "This suggests the instance was successfully terminated while its associated storage references were removed, though a minor inconsistency remains in the image cache.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_4"

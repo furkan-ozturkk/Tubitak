@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:1749ecb7fc446b5d236007ca25f58c7e221f014e544dc278c36b8ddb60c50534"
+    "prompt_sha256": "sha256:d08c64251ce5919674afd3cab5b00ef069e78f7dcf3c3e45c145b00e3dcb0062"
   },
   "claims": [
     {
-      "text": "The excerpt shows NameNode updates to its block map indicating new blocks have been added by DataNodes at specific IP addresses and ports, confirming ongoing storage operations where blocks are being registered as stored on those DataNodes.",
-      "supported": "yes",
+      "text": "The excerpt shows NameNode updates to its block map indicating new blocks have been stored on DataNodes at 10.251.73.220:50010, 10.251.43.115:50010, 10.251.203.80:50010 and 10.250.11.85:50010 with size 67108864 bytes each, while DataNode packet responders terminate connections for various blocks including one being received from 10.251.42.84.",
+      "supported": "partial",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_0"
       ]
     },
     {
-      "text": "It also includes termination notices for PacketResponder threads handling certain blocks and a receipt of a new block from another DataNode's IP address.",
+      "text": "This reflects normal block replication and storage operations within the HDFS cluster.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_0"

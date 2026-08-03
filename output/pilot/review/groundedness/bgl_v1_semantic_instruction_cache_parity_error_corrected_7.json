@@ -13,19 +13,19 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:aae15d669ad702bb1934a0b90fb373647b56d1f0c0089a1d359f5319a22a9134"
+    "prompt_sha256": "sha256:f2f2f29fdb83733f7eeec34ce02ded6095d646ef8b6348c2d0e124a844bef651"
   },
   "claims": [
     {
-      "text": "The excerpt shows multiple instances of corrected instruction cache parity errors and kernel-level \"double‑hummer\" alignment exceptions occurring across different R/M/N/C/J identifiers on June 21–22, 2005, indicating recurring hardware alignment faults in the system’s memory subsystem.",
-      "supported": "yes",
+      "text": "The excerpt shows repeated kernel-level cache parity errors and fatal application failures involving \"double-hummer alignment exceptions\" and a missing runtime image file, indicating hardware or firmware issues causing instruction cache corrections and critical software loading errors on specific system components (R02-M1-N0-C:J12-U11, R22-M0-N4-I:J18-U11).",
+      "supported": "partial",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_7"
       ]
     },
     {
-      "text": "Additionally, a fatal error reports that ./runtime_malloc failed to load due to an invalid or missing program image.",
-      "supported": "partial",
+      "text": "These events reflect recurring low-level hardware faults in the RAS (Reliability, Availability, Serviceability) subsystem, particularly involving alignment exceptions and corrupted program images.",
+      "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_7"
       ]

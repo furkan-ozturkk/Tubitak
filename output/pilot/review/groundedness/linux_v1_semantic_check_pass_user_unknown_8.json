@@ -13,22 +13,20 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:e5d27bbca4dfce28348932880313a9d2fcbaa915ed7e2c95563c7219e830c9ec"
+    "prompt_sha256": "sha256:c16e4bf409cbcc5affa0c9796c4834af8abc8b8ba9fe76db6ab2ce7b0e977346"
   },
   "claims": [
     {
-      "text": "The excerpt shows repeated failed SSH login attempts from a remote host named zummit.com targeting the root user on this system; each attempt is logged as an authentication failure by the sshd daemon using PAM's pam_unix module.",
-      "supported": "partial",
+      "text": "The excerpt shows multiple failed SSH login attempts from host zummit.com at 04:15:43 on July 2nd, each logged as authentication failures by pam_unix for user unknown with uid=0 and euid=0.",
+      "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_8"
       ]
     },
     {
-      "text": "This indicates a brute-force attack attempting to guess the root password over SSH, with all failures occurring at the same timestamp and involving the same source IP address.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_8"
-      ]
+      "text": "This indicates repeated unsuccessful login attempts targeting a privileged account (root) from the remote IP zummit.com.",
+      "supported": "no",
+      "candidate_group_ids": []
     }
   ],
   "verdict": "needs_human_review"

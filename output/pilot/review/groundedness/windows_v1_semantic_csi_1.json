@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:3f1ad20e869a558081512fe78aadadbef85826a348a7771ca8a5fa0058aa8474"
+    "prompt_sha256": "sha256:792fc6710b0ae1a859f6db478231834c3c72fc4a94bb49588c6b4cad3d09f9f6"
   },
   "claims": [
     {
-      "text": "The excerpt shows that during TrustedInstaller initialization, the system attempted to start an online SQM (Software Quality Monitoring) upload but failed because it could not begin uploading files matching C:\\Windows\\servicing\\sqm\\*_std.sqm, returning a failure status.",
+      "text": "The excerpt shows that during TrustedInstaller initialization, the system attempted to start an online SQM upload but failed because it could not begin uploading files matching C:\\Windows\\servicing\\sqm\\*_std.sqm, returning error 0x80004005 (E_FAIL).",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_1"
       ]
     },
     {
-      "text": "This indicates a problem with initiating the scheduled quality monitoring data upload process.",
+      "text": "This indicates a failure in initiating the scheduled quality metrics report upload process.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_1"

@@ -8,17 +8,25 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:6b65f1279957bcc76f511e307a481f47bdafffc4a08914ec449d5ac58553f1c4"
+    "prompt_sha256": "sha256:6ef2ab0f1f758288bcbf506bc61cab7135e5c97fa94e8bbe1e881a0cf03fe218"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:aea3f8ecf83fdab367709b99877702b79e506d7eed709323e73af47cad5af9e4"
+    "prompt_sha256": "sha256:b152a5de5866dc87af221ae02b8b27231969b67b8f7a561f4ff9421611d9115a"
   },
   "claims": [
     {
-      "text": "The two groups show parallel patterns of repeated SSH authentication failures targeting the root account, but they differ markedly in timing and source behavior.",
+      "text": "The logs from 195.129.24.210 show repeated authentication failures at distinct timestamps—June 30 at 20:16, June 30 at 20:16 again, and July 1 at 10:56—indicating a persistent source that tried multiple times over several days.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:2:195_129_24_210",
+        "linux:hard:brute_force_compare:2:218_188_2_4"
+      ]
+    },
+    {
+      "text": "In contrast, the entries from 218.188.2.4 are clustered tightly on June 14‑15 with only three separate dates but many rapid failures within seconds of each other, suggesting an automated script or brute‑force attempt rather than a single intermittent source.",
       "supported": "partial",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:2:195_129_24_210",
@@ -26,7 +34,7 @@
       ]
     },
     {
-      "text": "In Group 1 (195.129.24.210) all six attempts occur within a narrow window on June 30 – July 1, with timestamps clustered at 20:16 and 10:56, indicating bursts of activity spaced only minutes apart.",
+      "text": "Both groups involve root authentication attempts over SSH and use the same “NODEVssh” pseudo‑tty, yet the 218.188.2.4 traffic exhibits a higher frequency of failures in a short window, which is more characteristic of malicious scanning or credential‑stuffing behavior.",
       "supported": "partial",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:2:195_129_24_210",
@@ -34,12 +42,7 @@
       ]
     },
     {
-      "text": "In Group 2 (218.188.2.4) the six attempts are spread over three days—June 14 and June 15—with gaps of several hours between each cluster, suggesting a more intermittent probing pattern.",
-      "supported": "no",
-      "candidate_group_ids": []
-    },
-    {
-      "text": "Both sources attempt to authenticate as root via PAM‑unix failures, yet Group 1’s rapid succession of identical failures points to an automated script or brute‑force tool launched from that IP, whereas Group 2’s staggered attempts could be manual testing or a less coordinated source.",
+      "text": "Therefore, based on the evidence, the IP 218.188.2.4 displays more suspicious activity because its concentration of rapid authentication failures points to an automated attack, whereas 195.129.24.210’s pattern appears as sporadic, possibly manual attempts.",
       "supported": "partial",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:2:195_129_24_210",
@@ -47,12 +50,7 @@
       ]
     },
     {
-      "text": "Consequently, the 195.129.24.210 address appears more anomalous because its high frequency and tight timing deviate sharply from normal login rhythms.",
-      "supported": "no",
-      "candidate_group_ids": []
-    },
-    {
-      "text": "A plausible root‑cause hypothesis is that an external attacker (or compromised botnet) is conducting a targeted brute‑force campaign against the root account, using scripted password attempts from 195.129.24.210 while the other IP may represent unrelated background noise or a separate, less aggressive attempt.",
+      "text": "This difference supports a root‑cause hypothesis that the former is likely part of a coordinated brute‑force campaign targeting SSH, while the latter may stem from a misconfigured or intermittently active service.",
       "supported": "partial",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:2:195_129_24_210",

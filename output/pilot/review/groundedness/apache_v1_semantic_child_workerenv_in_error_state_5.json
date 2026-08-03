@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:7422967ad71224f71951a556f3964452fafbd1a9b6c3950d2fb976a31622c18e"
+    "prompt_sha256": "sha256:90f983464a5e07adff1ee87a7831dc7b51b83b0ceec6e5cb6508837e821ce175"
   },
   "claims": [
     {
-      "text": "The log shows Apache's mod_jk connector initializing multiple Java worker processes (children) and assigning them to specific slots in a shared scoreboard, indicating normal operation of the JK load balancing module.",
-      "supported": "yes",
+      "text": "The log shows Apache's mod_jk connector initializing multiple Tomcat worker processes (children) and assigning them to specific slots in a shared scoreboard, indicating normal operation of the JK load balancing module.",
+      "supported": "partial",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_5"
       ]
     },
     {
-      "text": "The error message about child workerEnv being in error state 6 is not followed by any subsequent error or corrective action within this excerpt.",
+      "text": "The error message about child workerEnv being in error state 6 precedes successful initialization notices for new children placed into available scoreboard slots.",
       "supported": "yes",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_5"

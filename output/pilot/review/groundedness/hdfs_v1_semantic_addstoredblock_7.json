@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:8e301dbf8ce24a5fa515748ba3ed326c24caeca221e7615bf50f6c5ae2d33557"
+    "prompt_sha256": "sha256:8074199530fb4c988fcd76399880d02eab59727bfc0ba51d326bbe2684683bdb"
   },
   "claims": [
     {
-      "text": "The excerpt shows repeated additions to the block map where new data nodes at various IP addresses are registered as storing blocks of size 67108864 bytes, indicating that these nodes have just begun serving or storing new HDFS blocks.",
+      "text": "The excerpt shows repeated additions to the block map where new data nodes at various IP addresses are registered as storage locations for large 64 MB blocks, indicating that these nodes have successfully reported and stored new blocks in HDFS.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_7"
       ]
     },
     {
-      "text": "This reflects normal block replication and storage registration activity within the Hadoop Distributed File System.",
+      "text": "This reflects normal block replication activity as the system incorporates additional DataNode capacity into its namespace metadata.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_7"

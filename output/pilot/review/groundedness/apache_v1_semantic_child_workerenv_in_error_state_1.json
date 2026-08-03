@@ -13,7 +13,7 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:c96bef5c9387f4702f714837e311686d6ccb77f3adb8f1e5507794942aaed43d"
+    "prompt_sha256": "sha256:d20e565a64604c12dc7146bbe3dc704439f67d00a4d3aa30eace168825d0d8b9"
   },
   "claims": [
     {
@@ -24,8 +24,8 @@
       ]
     },
     {
-      "text": "This suggests that although the system recovered and initialized successfully, there was a temporary failure in the mod_jk worker configuration or connection handling just before recovery.",
-      "supported": "yes",
+      "text": "This suggests that although the worker was initially failing with repeated error states, it eventually recovered or was reinitialized successfully after a brief period.",
+      "supported": "partial",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_1"
       ]

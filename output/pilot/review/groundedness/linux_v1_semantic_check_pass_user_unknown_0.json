@@ -13,7 +13,7 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:cec89ceff2c08f198352a346f39565e17c64fc71fc4911a8e1e037d2cdc09549"
+    "prompt_sha256": "sha256:1d819cac35c94aca65e0712bdbf2c9b95fd5d3796f1fe620eaca2e58537ce180"
   },
   "claims": [
     {
@@ -24,9 +24,11 @@
       ]
     },
     {
-      "text": "Each entry records an authentication failure with the same user (root), UID 0, and euid 0, indicating repeated login attempts using incorrect credentials from these external sources.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "text": "Each entry records an authentication failure with the same user (root), UID 0, and euid 0, indicating repeated login attempts that were denied.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_0"
+      ]
     }
   ],
   "verdict": "needs_human_review"

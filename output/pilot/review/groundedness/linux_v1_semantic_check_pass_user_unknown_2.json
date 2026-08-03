@@ -13,18 +13,16 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:7fa90a541ffaf2a67ba114724cd6294d92db5abfb72e0e45f6d18435ce357c7a"
+    "prompt_sha256": "sha256:c724de4116c09d192f1f15ccb955f3b176754e2b99b08c4045f2641bcdd004a5"
   },
   "claims": [
     {
-      "text": "The log shows multiple failed SSH authentication attempts from different source IPs associated with a Korean ISP, all using the same username \"unknown\" and failing at the password check stage before any successful login could occur.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_2"
-      ]
+      "text": "The log shows multiple failed SSH authentication attempts from different source IPs associated with a Korean ISP, all targeting the root user on an unknown tty device.",
+      "supported": "no",
+      "candidate_group_ids": []
     },
     {
-      "text": "These are repeated unsuccessful login attempts that were rejected by the system's authentication process.",
+      "text": "Each failure is recorded by pam_unix as \"user unknown\" and \"authentication failure\", indicating unsuccessful login attempts to the system's SSH service.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_2"

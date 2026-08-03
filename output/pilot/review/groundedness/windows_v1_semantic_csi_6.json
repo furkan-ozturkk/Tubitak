@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:005e168252ca7bc8efbb8d3275d63e9b1b32b0f1fcbc423b506c480c82f7d810"
+    "prompt_sha256": "sha256:d835663f9b5b83d41c2ca81c6f02b59951e8ab0681c7fc1ca4285500542d2207"
   },
   "claims": [
     {
-      "text": "The excerpt shows a Windows Component Store transaction being committed and finalized without cold patching, followed by cleanup of the transaction and termination of idle processing, indicating normal system operation during a CBS (Component Based Servicing) maintenance cycle.",
+      "text": "The excerpt shows a Windows Component Store transaction being committed and finalized without cold patching, followed by cleanup of the transaction and termination of idle processing threads.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_6"
       ]
     },
     {
-      "text": "This suggests routine background servicing activity completed successfully on September 28, 2016.",
+      "text": "This indicates normal operation of the system file integrity maintenance process during routine maintenance.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_6"

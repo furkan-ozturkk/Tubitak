@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:b8d97e88ec59a6c02e0d39904c6924dd93f668f00fbcdbe6086e63deedbc70f8"
+    "prompt_sha256": "sha256:7f904414376079be1813a7e04edd03be9a87083f355ec5019d2e2ea26dae8740"
   },
   "claims": [
     {
-      "text": "The system experienced multiple sleep/wake cycles and Wi‑Fi power changes around 01:13–01:49 AM, while a background iCloud heartbeat task repeatedly ignored its scheduled start times because they were far in the future (206k–207k seconds).",
+      "text": "The system experienced multiple sleep/wake cycles and Wi-Fi power state changes around 1:00–1:49 AM, including a brief wake event where the network interface remained active for offloading before returning to sleep.",
       "supported": "partial",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_6"
       ]
     },
     {
-      "text": "These logs indicate normal power‑state transitions for the AirPort interface and an unrelated scheduling warning.",
+      "text": "The iCloud heartbeat task was repeatedly ignored due to invalid future timestamps.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_6"

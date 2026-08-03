@@ -14,11 +14,11 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:696c7ad4e173a557c67d1e9d99b001c676a4c993849012b682f5cd1542161932"
+    "prompt_sha256": "sha256:fd80c7eda6ad98f3a9a683c70f130fba2427219f8192e4d28d04441e6c9a5f62"
   },
   "claims": [
     {
-      "text": "The two groups show distinct attacker behaviors that can be directly compared using the visible facts.",
+      "text": "The two groups show distinct attacker behaviors that can be directly compared using only the visible facts.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:0:183_62_140_253",
@@ -26,7 +26,7 @@
       ]
     },
     {
-      "text": "In Group 1 (source 183.62.140.253) each request targets a different invalid username, uses separate source ports (33521 and 33902), and is followed by an immediate “Received disconnect … Bye Bye [preauth]” line that terminates the session before any successful authentication attempt occurs.",
+      "text": "In Group 1 (source 183.62.140.253) each request targets a different invalid username, uses separate source ports (33521 and 33902), and ends with an immediate “Received disconnect … Bye Bye [preauth]” after the failed password attempt; this pattern repeats only twice within the sample window.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:0:183_62_140_253",
@@ -34,15 +34,7 @@
       ]
     },
     {
-      "text": "In Group 2 (source 187.141.143.180) every request attempts to log in as **root**, uses three distinct source ports (33314, 34508, 35685), and also ends with the same “Received disconnect … Bye Bye [preauth]” line after each failed password attempt.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:0:183_62_140_253",
-        "openssh:hard:attacker_compare:0:187_141_143_180"
-      ]
-    },
-    {
-      "text": "Both groups share the identical pre‑authentication disconnect pattern, but Group 2’s repeated targeting of a privileged account (root) combined with its higher request cadence (three attempts within 11 seconds) makes it more anomalous relative to typical brute‑force noise.",
+      "text": "In Group 2 (source 187.141.143.180) every request attempts to authenticate as the same privileged user “root”, uses three distinct source ports (33314, 34508, 35685), and also terminates with a pre‑authentication disconnect after each failed password; however it contains six lines spanning roughly one minute.",
       "supported": "partial",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:0:183_62_140_253",
@@ -50,7 +42,15 @@
       ]
     },
     {
-      "text": "Root‑cause hypothesis: the attacker in Group 2 is likely an automated script that systematically probes for default or weak credentials on administrative accounts, while the activity from Group 1 appears to be a less focused enumeration of random usernames, possibly part of a broader reconnaissance sweep.",
+      "text": "The more anomalous attacker is the one in Group 2 because its consistent targeting of a high‑privilege account across multiple rapid attempts demonstrates a focused brute‑force strategy, whereas Group 1’s activity appears scattered and exploratory with no repeated credential focus.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:0:183_62_140_253",
+        "openssh:hard:attacker_compare:0:187_141_143_180"
+      ]
+    },
+    {
+      "text": "Root‑cause hypothesis: both sources are likely compromised client machines running automated SSH‑brute‑force tools that have been misconfigured or deliberately scripted to probe for weak credentials; the differing patterns reflect variations in the attackers’ objectives — one may be testing a broad list of usernames, while the other is concentrating on high‑value accounts such as “root” to gain privileged access.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:0:183_62_140_253",

@@ -13,18 +13,25 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:e0144c8d0a347bb34a6700c373e06117cac402158a7eae6805f6d91703199d89"
+    "prompt_sha256": "sha256:b4064937759590c78a78c8740fde2c2e09633e4e62c311fa96dc74c94af47fe3"
   },
   "claims": [
     {
-      "text": "The log shows repeated successful API calls to list servers returning status 200 and response length 1893, indicating normal operation of the Nova compute API endpoint.",
+      "text": "The log shows repeated successful API calls to list servers with a 200 status and response size of 1893 bytes, each taking roughly 0.26 seconds.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_7"
       ]
     },
     {
-      "text": "Immediately afterward a resource tracker logs that it audited resources on node cp‑1.slowvm1.tcloud-pg0.utah.cloudlab.us and reports 16 usable vCPUs with 1 currently allocated.",
+      "text": "Immediately after these requests, the compute node performed resource tracking, reporting that it has 16 usable vCPUs but only 1 is currently allocated.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_7"
+      ]
+    },
+    {
+      "text": "This indicates normal operation where the API responded quickly to a server list request and then assessed available compute resources on the host.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_7"

@@ -14,11 +14,19 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:c04877d42a77043a50f58045009f59a78e1563f115bf006d6d876b65832857ba"
+    "prompt_sha256": "sha256:5025fd3b089401405d5e24516da6d7cd29c50224a2b768b956a95ad3275dd5fe"
   },
   "claims": [
     {
-      "text": "The two groups show parallel patterns of repeated SSH authentication failures targeting the root account, but they differ in timing and source address.",
+      "text": "The two groups show parallel patterns of repeated SSH authentication failures targeting the root account, but they differ in timing and source behavior that reveal distinct operational contexts.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:0:150_183_249_110",
+        "linux:hard:brute_force_compare:0:207_243_167_114"
+      ]
+    },
+    {
+      "text": "In Group 150.183.249.110 the timestamps are tightly clustered within a single minute (16:01:43‑16:01:47), indicating an automated script or brute‑force tool launching many attempts in rapid succession from that IP address, whereas Group 207.243.167.114 spreads its failures over nearly a minute with gaps of up to 8 seconds (07:02:27‑07:02:55), suggesting intermittent manual or loosely timed probing rather than a single burst.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:0:150_183_249_110",
@@ -26,7 +34,7 @@
       ]
     },
     {
-      "text": "In Group 150.183.249.110 the failures occur within a six‑second window on July 10 at 16:01–16:01:47, whereas Group 207.243.167.114 spreads its attempts over an eight‑minute span from 07:02:27 to 07:02:55 on July 26.",
+      "text": "Both sets target the same privileged account, yet the first source exhibits a higher frequency of attempts in a compressed window and originates from an IP that appears to be part of a coordinated attack sequence, making it more anomalous compared with the second source’s comparatively slower, spaced‑out pattern.",
       "supported": "partial",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:0:150_183_249_110",
@@ -34,28 +42,9 @@
       ]
     },
     {
-      "text": "Both sets involve the same user (root) and identical log formats, yet the first source fires a burst of five failures in quick succession while the second spreads them out with longer intervals between each attempt.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:0:150_183_249_110",
-        "linux:hard:brute_force_compare:0:207_243_167_114"
-      ]
-    },
-    {
-      "text": "This concentration of rapid failures from 150.183.249.110 is more anomalous because it suggests an automated brute‑force script rather than a human or intermittent scanner.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:0:150_183_249_110",
-        "linux:hard:brute_force_compare:0:207_243_167_114"
-      ]
-    },
-    {
-      "text": "A plausible root‑cause hypothesis is that 150.183.249.110 is being used by a compromised botnet or credential‑stuffing tool that is aggressively probing the SSH service for the default root login, while 207.243.167.114 may represent a less aggressive or differently configured scanning source.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:0:150_183_249_110",
-        "linux:hard:brute_force_compare:0:207_243_167_114"
-      ]
+      "text": "This contrast points toward a root‑cause hypothesis that the 150.183.249.110 address is being used by a scripted credential‑stuffing campaign aimed at exhaustively testing passwords for root, while the 207.243.167.114 activity may represent opportunistic or less systematic attempts possibly from a different attacker or a misconfigured service.",
+      "supported": "no",
+      "candidate_group_ids": []
     }
   ],
   "verdict": "needs_human_review"

@@ -13,19 +13,19 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:894af294c40fbdf6ae73f896b2d7d4a59f8c21db87342a6654d34260f7496144"
+    "prompt_sha256": "sha256:4e1e5eca857a2ae285d32016b3f41c7109bd21424ec8222e7f23a6189b85d2f2"
   },
   "claims": [
     {
-      "text": "The system logged a thermal and memory pressure state of zero at 4:27 am, indicating normal resource conditions, followed by kernel events showing network activity, power changes related to sleep/wake cycles, and a delayed security alert that was ignored.",
-      "supported": "partial",
+      "text": "The system logged a thermal and memory pressure state of zero at 4:27 am, indicating normal resource conditions.",
+      "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_7"
       ]
     },
     {
-      "text": "These entries collectively reflect routine monitoring and management of the device’s performance and power states.",
-      "supported": "yes",
+      "text": "Subsequent kernel messages show network activity related to mDNS, power changes for the AirPort interface including sleep and wake events, and a security alert scheduler warning about an incorrect start time.",
+      "supported": "partial",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_7"
       ]

@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:160c09f875df37e2a1588e4fac77154bc7b22cda5335ee306942baf446b8cc0f"
+    "prompt_sha256": "sha256:796395d099baf83bedd36f0f53bc7b49035a3f2001d8f9a00414b8e3deae020d"
   },
   "claims": [
     {
-      "text": "The excerpt shows a wake event from sleep at 18:35:12, followed by network and system logs indicating normal operation but also some warnings about journal record dropping and ignored scheduled tasks.",
-      "supported": "partial",
+      "text": "The excerpt shows a wake event from sleep followed by network and system activity including MDNS address assignment on interface wl0 at 18:35:57.",
+      "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_2"
       ]
     },
     {
-      "text": "The thermal and memory pressure states are both zero, meaning the system was not under high load or heat during this period.",
+      "text": "The thermal and memory pressure states are both zero indicating normal resource levels during this transition.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_2"

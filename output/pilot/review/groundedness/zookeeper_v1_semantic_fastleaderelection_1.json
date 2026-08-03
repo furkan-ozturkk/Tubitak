@@ -13,23 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:7c5057840fb90978377ffe78ef0a11841fc97085da641e5bc98db70488eb3dcc"
+    "prompt_sha256": "sha256:024bab9afff89720eda5668e74da01082ee9f65315194093802216350a961c66"
   },
   "claims": [
     {
-      "text": "The log shows a Zookeeper server transitioning to LOOKING state and starting an election after receiving a leader notification from another node.",
-      "supported": "no",
-      "candidate_group_ids": []
-    },
-    {
-      "text": "It also records multiple client session establishments and closures on port 2181.",
+      "text": "The log shows a Zookeeper server transitioning from LOOKING to FOLLOWING state and accepting new client connections on port 2181, indicating it has elected a new leader in the cluster.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_1"
       ]
     },
     {
-      "text": "The final WARN indicates an unexpected stream termination during processing of a client connection.",
+      "text": "A subsequent warning about \"caught end of stream exception\" suggests an abnormal termination of a client connection after this election.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_1"

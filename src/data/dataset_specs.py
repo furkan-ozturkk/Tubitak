@@ -76,8 +76,12 @@ class HardGroupSpec:
         num_groups: How many groups the question needs. The schema requires at least
             two, so a spec below that would build records that cannot validate.
         evidence_lines_per_group: How many of a group's lines are cited and shown.
-        question_template: Question text with ``{key0}``, ``{key1}``, ... placeholders
-            filled from the selected group keys.
+        question_templates: Question phrasings, each with ``{key0}``, ``{key1}``, ...
+            placeholders filled from the selected group keys. A dataset drafting
+            several group-sets from the same spec cycles through these so the
+            questions are not all asked in identical words — the same reasoning
+            the easy tier's phrasing families rest on, applied here even though
+            ``validate.py`` does not enforce it on the semantic path.
     """
 
     spec_id: str
@@ -86,7 +90,7 @@ class HardGroupSpec:
     min_lines_per_group: int
     num_groups: int
     evidence_lines_per_group: int
-    question_template: str
+    question_templates: tuple
 
 
 @dataclass(frozen=True)
@@ -137,11 +141,24 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
                 min_lines_per_group=5,
                 num_groups=2,
                 evidence_lines_per_group=6,
-                question_template=(
+                question_templates=(
                     "Compare the SSH authentication attempts coming from {key0} and "
                     "{key1}: contrast their timing and the accounts they target. "
                     "Which source looks more anomalous, and what is your root-cause "
-                    "hypothesis?"
+                    "hypothesis?",
+                    "How do the login attempts from {key0} differ from those from "
+                    "{key1}? Contrast their timing and target accounts, and say "
+                    "which source looks more anomalous with your root-cause "
+                    "hypothesis.",
+                    "Contrast the authentication activity originating from {key0} "
+                    "and {key1}. Which one shows more suspicious behavior, and why "
+                    "do you think so?",
+                    "{key0} and {key1} both appear as sources of failed logins in "
+                    "this log. Compare their attack patterns and propose a "
+                    "root-cause hypothesis for the more anomalous one.",
+                    "Looking at the authentication attempts from {key0} versus "
+                    "{key1}, which source's behavior looks more like an attack, "
+                    "and what's your reasoning?",
                 ),
             ),
         ),
@@ -193,10 +210,22 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
                 min_lines_per_group=5,
                 num_groups=2,
                 evidence_lines_per_group=6,
-                question_template=(
+                question_templates=(
                     "Compare the attack patterns from source {key0} and source {key1} "
                     "(target accounts, request cadence, outcome). Which one is the more "
-                    "anomalous attacker, and what is your root-cause hypothesis?"
+                    "anomalous attacker, and what is your root-cause hypothesis?",
+                    "How do the attack patterns from {key0} and {key1} differ in "
+                    "terms of target accounts, request cadence, and outcome? Which "
+                    "attacker looks more anomalous?",
+                    "Contrast the intrusion attempts coming from {key0} and {key1}. "
+                    "Which source behaves more suspiciously, and what is your "
+                    "hypothesis for why?",
+                    "{key0} and {key1} both show up as attacking sources in this "
+                    "log. Compare their behavior and identify which one is the "
+                    "more anomalous attacker.",
+                    "Examine the break-in attempts from {key0} versus {key1}: how "
+                    "do their targets and timing compare, and which looks like the "
+                    "more serious threat?",
                 ),
             ),
         ),
@@ -220,11 +249,22 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
                 min_lines_per_group=5,
                 num_groups=2,
                 evidence_lines_per_group=6,
-                question_template=(
+                question_templates=(
                     "Compare the RAS events logged for compute node {key0} and node "
                     "{key1}. Correlate the error patterns each node shows and propose "
                     "a root-cause hypothesis for the node whose behavior looks more "
-                    "anomalous."
+                    "anomalous.",
+                    "How do the RAS events for compute node {key0} compare to those "
+                    "for node {key1}? Correlate their error patterns and say which "
+                    "node looks more anomalous.",
+                    "Contrast the hardware/error activity on nodes {key0} and "
+                    "{key1}. Which node's behavior is more concerning, and what is "
+                    "your root-cause hypothesis?",
+                    "Nodes {key0} and {key1} both show RAS events in this log. "
+                    "Compare their error patterns and identify the more anomalous "
+                    "node.",
+                    "Looking at the events logged for {key0} versus {key1}, which "
+                    "compute node shows a more troubling pattern, and why?",
                 ),
             ),
         ),
@@ -244,10 +284,21 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
                 min_lines_per_group=3,
                 num_groups=2,
                 evidence_lines_per_group=6,
-                question_template=(
+                question_templates=(
                     "Correlate the task events logged for {key0} and {key1}. Do their "
                     "event sequences suggest a normal execution, or does one of them show "
-                    "signs of a task/container failure? Give your root-cause hypothesis."
+                    "signs of a task/container failure? Give your root-cause hypothesis.",
+                    "How do the task event sequences for {key0} and {key1} compare? "
+                    "Does either show signs of failure, and what's your root-cause "
+                    "hypothesis?",
+                    "Contrast the execution logs for containers {key0} and {key1}. "
+                    "Which one, if either, shows signs of a task failure?",
+                    "{key0} and {key1} both appear in this Hadoop log's task "
+                    "events. Compare their sequences and say whether one shows "
+                    "failure signs.",
+                    "Examine the events for container {key0} versus {key1}: do "
+                    "both reflect normal execution, or does one suggest a "
+                    "problem? Explain your reasoning.",
                 ),
             ),
         ),
@@ -267,10 +318,20 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
                 min_lines_per_group=5,
                 num_groups=2,
                 evidence_lines_per_group=6,
-                question_template=(
+                question_templates=(
                     "Compare the coordination activity logged for ensemble member myid={key0} "
                     "and myid={key1}. Correlate their event sequences and explain whether "
-                    "either member's behavior looks anomalous for a Zookeeper ensemble."
+                    "either member's behavior looks anomalous for a Zookeeper ensemble.",
+                    "How does the coordination activity for ensemble member "
+                    "myid={key0} compare to myid={key1}? Does either look "
+                    "anomalous for a Zookeeper ensemble?",
+                    "Contrast the events logged for Zookeeper members myid={key0} "
+                    "and myid={key1}. Which, if either, shows unusual behavior?",
+                    "Members myid={key0} and myid={key1} both appear in this "
+                    "ensemble's logs. Compare their activity and flag anything "
+                    "anomalous.",
+                    "Looking at the log events for myid={key0} versus myid={key1}, "
+                    "does either ensemble member's behavior stand out as unusual?",
                 ),
             ),
         ),

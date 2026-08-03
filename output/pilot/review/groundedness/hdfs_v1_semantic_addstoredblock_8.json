@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:9d743622fc9144290558d1f3ca89e52b4d1da68f39c93d07a5378424a458b18d"
+    "prompt_sha256": "sha256:d7c662f95cd439c40ee0057c26d075f86ccf127688ce3016d39e4af69a4bc6e8"
   },
   "claims": [
     {
-      "text": "The excerpt shows NameNode operations adding stored blocks and allocating new blocks for files under /user/root/rand6/_temporary/, while DataNodes receive and acknowledge these blocks during normal HDFS block management.",
-      "supported": "yes",
+      "text": "The excerpt shows NameNode operations adding stored blocks and allocating new blocks for files under /user/root/rand6/_temporary/, while DataNodes receive and acknowledge these blocks, confirming successful storage and replication of 64 MB data chunks across the cluster.",
+      "supported": "partial",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_8"
       ]
     },
     {
-      "text": "These log entries reflect routine block replication and storage updates within the Hadoop filesystem namespace.",
+      "text": "This indicates normal block-level activity as tasks read, write, and verify data in HDFS.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_8"

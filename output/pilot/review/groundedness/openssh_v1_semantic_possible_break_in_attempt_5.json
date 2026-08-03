@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:948d25e29e99bf725de85e6587890d199a85182fd3ed581fa9a8d391daf9a8d0"
+    "prompt_sha256": "sha256:f271309080e7525ff513357612fec50728f11ab994577022ec9da4e0938d6284"
   },
   "claims": [
     {
-      "text": "The log shows repeated failed authentication attempts by a remote host at IP address 187.141.143.180 targeting the root user over SSH, triggering OpenSSH's \"POSSIBLE BREAK-IN ATTEMPT\" warning due to reverse DNS lookup failures and subsequent disconnections.",
+      "text": "The log shows repeated failed authentication attempts by a remote host at IP address 187.141.143.180 targeting the root user over SSH, triggering OpenSSH's \"reverse mapping checking\" warning that indicates a possible break-in attempt.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_5"
       ]
     },
     {
-      "text": "This indicates an automated or manual brute-force attack attempting unauthorized access to the server via the root account from that source IP.",
+      "text": "Each attempt results in an authentication failure and disconnection before any successful login can occur.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_5"

@@ -13,19 +13,12 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:c966acac072bbaf06f1b0c63e0f0599d1e5e21e2dbc4687110b90d09ae3f9175"
+    "prompt_sha256": "sha256:0717ecf804a234d3a842987bca06cdf0e131ce244bafd33d51d9b3872510a5c0"
   },
   "claims": [
     {
-      "text": "The log shows repeated authentication failures for an unknown user \"oracle\" from IP 187.141.143.180, including reverse DNS lookup failures flagged as possible break-in attempts and a disconnect after failed password attempts.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:semantic:possible_break_in_attempt_7"
-      ]
-    },
-    {
-      "text": "This indicates a brute-force or automated attack targeting SSH access using invalid credentials.",
-      "supported": "yes",
+      "text": "The log shows repeated authentication failures and a reverse DNS lookup failure for IP 187.141.143.180, triggering sshd's \"POSSIBLE BREAK-IN ATTEMPT\" warning indicating a potential brute-force attack attempt against the 'oracle' user from that source.",
+      "supported": "partial",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_7"
       ]

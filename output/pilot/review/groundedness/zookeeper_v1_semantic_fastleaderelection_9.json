@@ -13,11 +13,11 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:ebb5ca488821d0e1b49bac2eb3f6faf6e76276e7c13c7fff9e20de2cb3bfc9f1"
+    "prompt_sha256": "sha256:32a1ac998d0791dd03f60626987c79a2c0defed88e1e04a41028b34bca7f0b5d"
   },
   "claims": [
     {
-      "text": "The log shows a Zookeeper server (myid=3) repeatedly reporting it is in LOOKING state while attempting to elect a leader, indicating an ongoing election process triggered by loss of connectivity or leader failure; subsequent warnings about broken connections and worker thread exits confirm that the server lost contact with its peers and terminated its communication threads.",
+      "text": "The log shows a Zookeeper server (myid=3) repeatedly reporting it is in LOOKING state while attempting to elect a leader, indicating an ongoing election process triggered by loss of connectivity or leader failure; subsequent warnings about broken connections and worker threads leaving confirm that the server lost contact with its peers and is terminating its communication attempts.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_9"

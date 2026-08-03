@@ -13,22 +13,20 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:79b60b73bad70aa7f380e721e76e3726d359586b4ac86500f8c892e61554b0fe"
+    "prompt_sha256": "sha256:3d84bc5549a3f779d6101a99e0d8e9968d6cfa87692fde516ea6a6a974d2e3c9"
   },
   "claims": [
     {
-      "text": "The system logged a thermal pressure state of 1 indicating elevated heat and memory pressure state of 0 meaning normal memory usage followed by an AirPort wireless interface power transition from enabled to disabled during sleep preparation with wake triggered by network scan offload activity.",
-      "supported": "partial",
+      "text": "The system logged a thermal pressure state of 1 and memory pressure state of 0 at 09:01 am, indicating low thermal stress but normal memory load.",
+      "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_0"
       ]
     },
     {
-      "text": "This sequence shows the MacBook Pro entering low-power mode after detecting thermal conditions while maintaining network connectivity through background scanning.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_0"
-      ]
+      "text": "Shortly after, the Wi‑Fi interface entered sleep mode (Wake Reason: Wake on Scan offload) while remaining externally connected, as shown by the ARPT wake reason entry.",
+      "supported": "no",
+      "candidate_group_ids": []
     }
   ],
   "verdict": "needs_human_review"

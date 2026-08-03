@@ -13,22 +13,20 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:1b497f1f3faad551b7337e47e47132bf0370279638973bd003d8b8772f441421"
+    "prompt_sha256": "sha256:49e6c2d9c3e298068e72ff5bd0739ececaa7b60cd78d7d2c5f19c879323309b4"
   },
   "claims": [
     {
-      "text": "The excerpt shows multiple DataNode operations where blocks are being received from client connections and added to the NameNode's block map, indicating normal block storage activity on the HDFS data nodes.",
+      "text": "The excerpt shows repeated DataNode operations where blocks are being received from client connections and added to the NameNode's block map, indicating normal block storage activity on the HDFS data nodes.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_9"
       ]
     },
     {
-      "text": "These logs reflect routine block reception and acknowledgment events within the distributed file system.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hdfs:semantic:addstoredblock_9"
-      ]
+      "text": "Each line records a block transfer between a client IP address and port to a DataNode's 50010 port, followed by confirmation that the block is now stored in the system's block map.",
+      "supported": "no",
+      "candidate_group_ids": []
     }
   ],
   "verdict": "needs_human_review"

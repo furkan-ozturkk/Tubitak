@@ -13,19 +13,19 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:cb6ec89776a7e51127e6ca2a659f42e6bcf485f44869ff3741242bbc946b1cc2"
+    "prompt_sha256": "sha256:f0c23c5c63c839397f4f333bfe173c3c64e93ea5412beea6ea30c7f3fc175033"
   },
   "claims": [
     {
-      "text": "The excerpt shows a thermal pressure state of 1 followed by an assertion failure in BezelServices related to driver address retrieval, indicating a hardware or firmware issue under load; this is later resolved as thermal and memory pressures drop to zero with hibernate operations completing successfully.",
+      "text": "The excerpt shows a thermal pressure state of 1 followed by an assertion failure in BezelServices related to driver address retrieval, indicating a hardware or firmware issue under load; this is later followed by kernel messages about hibernate preparation and memory cleanup, suggesting the system attempted to manage thermal conditions before entering low-power states.",
       "supported": "partial",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_5"
       ]
     },
     {
-      "text": "The repeated telemetry assertion failures suggest a persistent software component error tied to the earlier system instability.",
-      "supported": "partial",
+      "text": "The repeated telemetry assertion failures point to potential instability in background services during these transitions.",
+      "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_5"
       ]

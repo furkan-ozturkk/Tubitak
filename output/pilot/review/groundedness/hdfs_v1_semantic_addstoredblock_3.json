@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:f0aeb555f059196d638d650193cab5c2cdff8b4df22e5bf347e9942f378edc84"
+    "prompt_sha256": "sha256:4e293fafa7b09c5798c3930c53cb228a6179674eb267c91f339db5c54cd3b83a"
   },
   "claims": [
     {
-      "text": "The excerpt shows a DataNode receiving and processing multiple blocks from various client IPs, including adding stored blocks to its block map and responding to packet requests for large 64MB blocks.",
-      "supported": "partial",
+      "text": "The excerpt shows a series of DataNode operations where blocks are being received from various client IPs and acknowledged by the NameNode, indicating normal block replication and storage updates within the HDFS cluster.",
+      "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_3"
       ]
     },
     {
-      "text": "These actions indicate normal data node operations involving block replication, storage updates, and handling of incoming read/write requests within the HDFS system.",
+      "text": "These log entries reflect routine data node activity involving block reception, acknowledgment, and termination of packet responders for stored blocks.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_3"

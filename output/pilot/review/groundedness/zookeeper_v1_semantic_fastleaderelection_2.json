@@ -13,7 +13,7 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:3881e14c180e30f6702767e77b7618af431be8edad4e81286b375cb5e11ba786"
+    "prompt_sha256": "sha256:329ca5ca061357efc9ca0d34f338c60c64f18253c0f7d487abf4414a86b7b9e9"
   },
   "claims": [
     {
@@ -24,8 +24,8 @@
       ]
     },
     {
-      "text": "These connection failures are causing repeated election timeouts despite periodic notifications being logged.",
-      "supported": "partial",
+      "text": "These connection failures are causing repeated election timeouts despite ongoing notifications.",
+      "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_2"
       ]

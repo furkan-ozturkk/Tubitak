@@ -13,18 +13,11 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:bd5a0fbb4a5214045f5de0aa010982201b9615efea8212be7b5a1ce9b444ee05"
+    "prompt_sha256": "sha256:caf04b4bd5b0357dc5db92ca2b36c6f9909fdeae3a3fe20a33e7e584c304e8b5"
   },
   "claims": [
     {
-      "text": "The system logged a thermal pressure state of 1 indicating elevated heat conditions and a memory pressure state of 0 showing normal memory usage at that moment.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_8"
-      ]
-    },
-    {
-      "text": "Additionally locationd reported its icon should now be in an inactive state reflecting a change in location services status.",
+      "text": "The system logged a thermal pressure state of 1 indicating elevated heat while memory pressure was normal; Safari's safe browsing update was scheduled to run after a delay of 1769 seconds and was ignored; an unrecognized attribute value in AddressBookSourceSync suggests a data format issue; the AirPort_Brcm43xx driver disabled wireless functionality; Thunderbolt power state transition completed rapidly; WebKit encountered an unexpected preroll completion notification; location services icon was set to inactive.",
       "supported": "partial",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_8"

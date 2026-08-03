@@ -13,7 +13,7 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:53d76ee9fa9e3fd11b88fd94b0381f1d24b65be707d01b456aacf3a49dec5a8e"
+    "prompt_sha256": "sha256:fc1da34694a57a21d57a3e1f192ba9fc58424d4b921e8e269e4639a2db3b16ba"
   },
   "claims": [
     {
@@ -24,8 +24,8 @@
       ]
     },
     {
-      "text": "This indicates that the job history service is being set up within a MapReduce job running on YARN.",
-      "supported": "partial",
+      "text": "This indicates that the job history service is being set up within a MapReduce application running on YARN.",
+      "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_8"
       ]

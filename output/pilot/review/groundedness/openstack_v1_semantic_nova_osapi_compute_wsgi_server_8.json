@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:ce9bf81ba330b5fe01f2d8ebfd7d01babb63a6a5fbb485b54d00a99195a5cf35"
+    "prompt_sha256": "sha256:44257f59909477745fe32d1ea3bf8bbbaf673a34c2fc294c6a911249fdc35330"
   },
   "claims": [
     {
-      "text": "The log shows a server detail request processed successfully by nova-api and then, shortly after, an instance lifecycle event indicating that a virtual machine was started on the compute node.",
+      "text": "The log shows a server detail request processed successfully by nova-api and then, shortly after, an instance identified as d96a117b-0193-4549-bdcc-63b917273d1d was started on the compute node.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_8"
       ]
     },
     {
-      "text": "This suggests a user action triggered a VM launch, which completed with the VM entering the running state.",
+      "text": "This indicates that a VM lifecycle event—specifically the start of that instance—was recorded by nova-compute after the API request completed.",
       "supported": "partial",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_8"

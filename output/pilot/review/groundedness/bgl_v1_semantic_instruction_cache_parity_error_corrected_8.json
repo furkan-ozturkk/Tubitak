@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:07fbd688487f27e75e20f555917e342b98f41812e6ded33b142007f814a40baa"
+    "prompt_sha256": "sha256:6cfab12b06dbd3df431e61c6e549fc4ac3aeedc38887b87b52ca5fd7877890dc"
   },
   "claims": [
     {
-      "text": "The excerpt shows multiple corrected parity errors in the instruction cache and DDR memory on different ranks and symbols, indicating hardware-level data integrity corrections occurring within the kernel.",
+      "text": "The excerpt shows multiple corrected parity errors in the instruction cache and DDR memory on various ranks and symbols, indicating hardware-level error detection and correction events within the RAS kernel logs.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_8"
       ]
     },
     {
-      "text": "Additionally, two separate fatal application errors occur due to a missing or invalid program image with permission denied when attempting to load raptor.newcomp.r1.",
+      "text": "Additionally, two fatal application errors occur due to permission issues when attempting to load a specific program image file.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_8"

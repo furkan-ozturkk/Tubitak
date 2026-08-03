@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:9e17db3ad04ee867c2bcd403a28d366a4bb9de6f6a34bd0399ec9f9fd04ce358"
+    "prompt_sha256": "sha256:fcfb4010c3ca3b654b1a541b3c0c58644770ee67a35a4b84d0d36a6b581273eb"
   },
   "claims": [
     {
-      "text": "The excerpt shows that a Hadoop MapReduce application master is initializing and registering several internal event dispatcher classes for handling job control, task execution, speculation, container allocation, and launching, while also specifying an HDFS filesystem address as the default file system.",
+      "text": "The excerpt shows that a Hadoop MapReduce application master is initializing and registering multiple internal event dispatcher classes for handling job control, task execution, speculation, container allocation, launching, and commit events within YARN.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_6"
       ]
     },
     {
-      "text": "This indicates the start-up phase of a YARN MapReduce job where various service components are being registered to manage different aspects of application execution within the Hadoop cluster.",
+      "text": "It also indicates the default file system configuration used by the JobHistoryUtils component as hdfs://msra-sa-41:9000.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_6"

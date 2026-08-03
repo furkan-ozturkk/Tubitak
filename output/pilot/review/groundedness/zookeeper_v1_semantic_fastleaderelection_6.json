@@ -13,11 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:c7c9be8b47cbb847c6c1d26cc55935d16e7f6c56d20a088f49ad836ba6d27167"
+    "prompt_sha256": "sha256:0ccccd7058f7abe289ea432d93c70c3bbcef451568b9431a60edb759ca5d80b7"
   },
   "claims": [
     {
-      "text": "The log shows repeated warnings that Zookeeper cannot establish a connection to peer 2 at address /10.10.34.12:3888 during leader election, indicating network or connectivity problems preventing the election from completing; subsequent info messages about notification timeouts suggest the election process is repeatedly timing out due to this unresolved connectivity issue.",
+      "text": "The log shows repeated warnings that Zookeeper cannot establish a connection to peer 2 at address /10.10.34.12:3888 during leader election, indicating network or firewall issues preventing the server from communicating with its quorum peers.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "zookeeper:semantic:fastleaderelection_6"
+      ]
+    },
+    {
+      "text": "These failures cause repeated election timeouts but no successful leader change is reported in the excerpt.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_6"

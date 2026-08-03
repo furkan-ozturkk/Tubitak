@@ -13,7 +13,7 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:8321d30eec27bedc5070ca9b14399d67782e82f45f430cbf343ac40b71c47339"
+    "prompt_sha256": "sha256:fe0ead1aebfa41b5907bc4918da1b75833c986ce9c3d768c98d4a0cbc054063c"
   },
   "claims": [
     {
@@ -24,7 +24,7 @@
       ]
     },
     {
-      "text": "It also reveals repeated ARPT kernel messages related to Wi-Fi keepalive intervals and a sleep cause code 5 later in the log.",
+      "text": "It also records multiple network-related events including Bluetooth scanning stopping, sandbox restrictions on mDNSResponder, and ARPT keepalive messages from the wireless interface wl0, suggesting normal background network activity with no critical errors or unusual conditions.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_3"

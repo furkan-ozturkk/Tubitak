@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:c392659528c3e64bb2c69bebed65f10d55bc122e1acb3f982051e02e00ef0f10"
+    "prompt_sha256": "sha256:0ba82bc3041d87d6e8f1166462d632f770f728323583a040d0a5580fcc006a0b"
   },
   "claims": [
     {
-      "text": "The excerpt shows that the Windows Update session was successfully initialized and started processing without requiring startup actions, indicating normal operation of the update service.",
+      "text": "The excerpt shows that a Windows Update session was successfully initialized and started processing without requiring additional startup tasks, indicating normal operation of the update service.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_2"
       ]
     },
     {
-      "text": "This suggests the system's component store and update mechanism were functioning correctly at that time.",
+      "text": "This suggests the system's component store and update agent are functioning as expected during routine maintenance.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_2"

@@ -13,25 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:31f89c10c7a98270b6e31c8923046ec183c113b5a17018997cb35b61c3c79f13"
+    "prompt_sha256": "sha256:5e0d68f38a4b361e4cb44b1e7618b125b9ccfbd681d47cd4fc03e95ab7403538"
   },
   "claims": [
     {
-      "text": "The excerpt shows that the TrustedInstaller service has completed initialization and started successfully, including initializing its background tasks such as SQM cleanup and report upload.",
+      "text": "The excerpt shows that the TrustedInstaller service has completed its initialization and is now running successfully, having started its main loop after initializing components such as WcpInitialize in wcp.dll and performing cleanup tasks like SQM report file removal and upload requests.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_9"
       ]
     },
     {
-      "text": "This indicates normal operation of Windows Update components at system startup.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_9"
-      ]
-    },
-    {
-      "text": "The timestamps confirm these events occurred simultaneously during a single boot cycle.",
+      "text": "This indicates a normal boot sequence for Windows Component Based Servicing (CBS) where the system's update/installation service is ready to operate.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_9"

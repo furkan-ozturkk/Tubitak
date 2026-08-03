@@ -13,11 +13,11 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:57138abc55a9f51e1afcd236fd43fa704aabe643ec6f1d5a23d4d6f9d447ca0f"
+    "prompt_sha256": "sha256:67097b937f810bc63e12212dd813d34f4197a349ef7e03a6bf328a567633d5d5"
   },
   "claims": [
     {
-      "text": "The log shows repeated authentication failures for SSH login attempts from external hosts (rhost=218.188.2.4 and rhost=061092085098.ctinets.com), where the system is trying to authenticate a user that does not exist in the local password database (\"user unknown\"), resulting in failed login attempts for the root-equivalent account (uid=0, euid=0).",
+      "text": "The log shows repeated failed authentication attempts via SSH from external hosts (rhost=218.188.2.4 and rhost=061092085098.ctinets.com) where the system is trying to authenticate a user that does not exist (\"user unknown\"), resulting in \"authentication failure\" messages for each attempt.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_1"

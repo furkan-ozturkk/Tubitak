@@ -13,22 +13,20 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:97c260259c2c0e3b886dc5f956fe4f57390ea0f0e675aff35c00503e95b6d0d6"
+    "prompt_sha256": "sha256:39a7e667ff036814f3ca1920572967ed64c01f1305782eccaa973be7db6f59ab"
   },
   "claims": [
     {
-      "text": "The excerpt shows a Windows system log where the TrustedInstaller service completed its finalization phase and then restarted initialization shortly after midnight on September 29, 2016, loading the servicing stack DLL version 6.1.7601.23505.",
+      "text": "The excerpt shows a Windows system shutting down after completing TrustedInstaller finalization and before restarting its initialization at midnight, indicating normal termination of servicing processes.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_8"
       ]
     },
     {
-      "text": "This indicates that the system was performing routine servicing operations, likely related to Windows Update or component repair tasks.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_8"
-      ]
+      "text": "The log confirms that the Servicing Stack was loaded successfully just prior to this shutdown cycle.",
+      "supported": "no",
+      "candidate_group_ids": []
     }
   ],
   "verdict": "needs_human_review"

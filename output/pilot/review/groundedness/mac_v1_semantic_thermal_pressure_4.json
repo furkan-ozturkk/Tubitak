@@ -13,11 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:526f1778f0862cc36d6154dacc45320630ae3387225802468ce154d637f2ee58"
+    "prompt_sha256": "sha256:d85c3c10b666f0ffe061e60c5dd34c67f3d0c5df7dc6e4319cbf2cef7e769419"
   },
   "claims": [
     {
-      "text": "The excerpt shows a thermal and power management event where the system logged zero thermal and memory pressure at 06:46, followed by a Thunderbolt hot-plug detection indicating an unplugged device at 06:57, then a wake-up trigger from AppleCamIn at 07:09, and finally a Wi-Fi power save event disabling wireless functionality at 07:21.",
+      "text": "The excerpt shows a Thunderbolt hot-plug event where a device was connected and disconnected without triggering a wake, followed by repeated network access denials for mDNSResponder in a sandboxed process.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "mac:semantic:thermal_pressure_4"
+      ]
+    },
+    {
+      "text": "Thermal and memory pressure states remained at zero throughout the observed period.",
       "supported": "partial",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_4"

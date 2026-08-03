@@ -13,18 +13,25 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:65b2cd04c0c680bff35fbcbe5491ff52a3457bbf6235d1b7a57bc987c735e4f1"
+    "prompt_sha256": "sha256:e79ed9d87ea56bde34426cf3c25a76de2faa67f7b3a777344d47b985171fc842"
   },
   "claims": [
     {
-      "text": "The log shows a successful API request to list servers and subsequent compute node activity checking an image file used by that instance.",
+      "text": "The log shows a successful API request to list servers and subsequent compute node activity checking an image file's usage status.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_3"
       ]
     },
     {
-      "text": "This indicates normal operation where Nova's metadata service responded to client requests while a compute node verified the base disk image for the server being accessed.",
+      "text": "The metadata service responded successfully to requests for meta_data.json and vendor_data.json.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_3"
+      ]
+    },
+    {
+      "text": "A compute node is verifying that the base image for instance storage is in use locally with no other nodes sharing it.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_3"

@@ -8,17 +8,17 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:53e06f1b0c2427c5a5838063a6a518caec614400ca279cc465409afc326f426e"
+    "prompt_sha256": "sha256:c7333ebda708804538712bb83abeeb054df1a5ad48f37ae95208601e03648667"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:20d2a6f8e131a9b071d58b93936f1a91e3652657db1ab3856de32b2aede371ab"
+    "prompt_sha256": "sha256:b1dff689eb73d91ba957f13a08aaab1ba9b34847160a5a327d3f6f3a43ef449e"
   },
   "claims": [
     {
-      "text": "The n219076184117.netvigator.com lines show six authentication failures clustered between 03:17 and 03:17 on June 22, with each failure occurring in a distinct second but all targeting the same root user from that single hostname.",
+      "text": "The login attempts from **n219076184117.netvigator.com** are clustered within a narrow time window of just over two minutes (from 03:17:26 to 03:17:45), showing repeated authentication failures for the same target account *root* from a single hostname.",
       "supported": "partial",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
@@ -26,7 +26,7 @@
       ]
     },
     {
-      "text": "In contrast, the 60.30.224.116 lines record six failures within a three‑second window on June 30 at 19:03, also aimed at the root account but originating from an IP address rather than a DNS name.",
+      "text": "In contrast, the attempts from **60.30.224.116** occur almost simultaneously at 19:03:00‑03:03 and span only about three seconds (from 19:03:00 to 19:03:03), also targeting *root* but with a burst of six failures in that short interval.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
@@ -34,7 +34,15 @@
       ]
     },
     {
-      "text": "Both groups share the pattern of repeated failed attempts to log in as root via SSH using PAM’s unix module, yet the first group is spread over several minutes while the second is tightly packed into seconds.",
+      "text": "Both groups share the same failure pattern, yet the IP address group exhibits a tighter concentration of events and includes multiple distinct process IDs within those few seconds, suggesting an automated script or brute‑force tool rather than manual probing.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
+        "linux:hard:brute_force_compare:1:60_30_224_116"
+      ]
+    },
+    {
+      "text": "The hostname group’s slightly longer spacing and repeated identical timestamps imply a slower, perhaps misconfigured client repeatedly trying the same credential set.",
       "supported": "partial",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
@@ -42,16 +50,8 @@
       ]
     },
     {
-      "text": "The tighter clustering and the use of a raw IP address make 60.30.224.116 appear more anomalous because it suggests an automated or scripted scan rather than a single mis‑configured client.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
-        "linux:hard:brute_force_compare:1:60_30_224_116"
-      ]
-    },
-    {
-      "text": "A plausible root‑cause hypothesis is that an external scanner or compromised host is probing for weak SSH credentials, deliberately targeting the root account from multiple short‑lived connections to evade detection and exploit any lax password policies.",
-      "supported": "yes",
+      "text": "Based on this evidence, the IP source (60.30.224.116) appears more anomalous because its condensed timing and high volume of concurrent failures are characteristic of a coordinated attack, leading to the root‑cause hypothesis that an external script is attempting mass password guessing against the *root* account from that address.",
+      "supported": "partial",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
         "linux:hard:brute_force_compare:1:60_30_224_116"

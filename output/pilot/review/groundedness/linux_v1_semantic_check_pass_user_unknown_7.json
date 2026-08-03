@@ -13,22 +13,20 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:7c2d538569285d46a714b6b40604cc3cadde62abce260a8dbba7342e215b3ffc"
+    "prompt_sha256": "sha256:98901d243250cd0dfe8d1819da2cac168723f2b188f8f78ab5742296f2c0c284"
   },
   "claims": [
     {
-      "text": "The excerpt shows multiple failed SSH authentication attempts from a remote host at biblioteka.wsi.edu.pl targeting the root user (uid=0) on the system named combo, as indicated by repeated \"authentication failure\" messages with logname and euid both set to 0.",
-      "supported": "partial",
+      "text": "The excerpt shows multiple failed SSH authentication attempts from a remote host (biblioteka.wsi.edu.pl) to the local system at user ID 0 (root), each logged as \"user unknown\" and marked as authentication failures by the pam_unix module.",
+      "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_7"
       ]
     },
     {
-      "text": "These failures occur during PAM authentication checks where the username is reported as unknown, suggesting either incorrect credentials or an attempt to authenticate a non-existent account.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_7"
-      ]
+      "text": "This indicates repeated unsuccessful login attempts targeting the root account over SSH, likely constituting a brute-force attack attempting to gain unauthorized administrative access.",
+      "supported": "no",
+      "candidate_group_ids": []
     }
   ],
   "verdict": "needs_human_review"

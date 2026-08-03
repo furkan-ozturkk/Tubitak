@@ -13,7 +13,7 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:dc365f2047657e97bda31f07a322e091be0ddf23a106baa0b584cf030d28b5cc"
+    "prompt_sha256": "sha256:0ea0e43d018e011fa7aec7ce4678b9d6723835592c5ce597c2643ed81cc21421"
   },
   "claims": [
     {
@@ -24,7 +24,7 @@
       ]
     },
     {
-      "text": "It also confirms the default file system configuration used by the job history utilities as HDFS at hdfs://msra-sa-41:9000.",
+      "text": "It also confirms the default file system configuration used by JobHistoryUtils as HDFS at hdfs://msra-sa-41:9000.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_7"

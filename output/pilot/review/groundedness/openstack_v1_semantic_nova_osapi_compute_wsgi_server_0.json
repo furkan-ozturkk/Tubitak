@@ -13,22 +13,20 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:9eb06e31e0f5194cd2c5199dcf8fb8e0d8aff38cc9b3f742df4f83e7a387ec94"
+    "prompt_sha256": "sha256:47c6f5b65adf83ee4ab6380c875edf111f3594fe8cf9027ab4a06f316de113f8"
   },
   "claims": [
     {
-      "text": "The log shows repeated successful API calls to list servers returning status 200, followed by a compute node recording that instance b9000564-fe1a-409b-b8cc-1e88b294cd1d started and then paused.",
+      "text": "The log shows repeated successful API requests to list servers ending in status 200, followed by a compute node recording that instance **b9000564‑fe1a‑409b‑b8cc‑1e88b294cd1d** was started and then paused.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_0"
       ]
     },
     {
-      "text": "This indicates the OpenStack Compute service processed a request to retrieve server details and subsequently initiated lifecycle events for a virtual machine, starting it and later pausing it.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_0"
-      ]
+      "text": "This indicates the API responded to client queries while the virtual machine underwent lifecycle events of start and pause.",
+      "supported": "no",
+      "candidate_group_ids": []
     }
   ],
   "verdict": "needs_human_review"

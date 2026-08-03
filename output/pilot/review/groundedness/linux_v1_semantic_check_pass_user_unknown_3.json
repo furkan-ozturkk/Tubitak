@@ -13,12 +13,12 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:d20966d10f7928fc2443cea74e5c16493de916736e86bc50b3102067bf8268e2"
+    "prompt_sha256": "sha256:2f9dd5930f7ce25fcfd1ac45b9d3cd639ff84c46665932a18c54f396e618b27c"
   },
   "claims": [
     {
-      "text": "The log shows multiple failed authentication attempts via SSH from a remote host (adsl-70-242-75-179.dsl.ksc2mo.swbell.net) to the system's root user account at 01:30:59 on June 18, with each attempt recorded as \"user unknown\" and resulting in authentication failure despite the process running under UID 0 (root).",
-      "supported": "partial",
+      "text": "The log shows multiple failed authentication attempts via SSH from a remote host (adsl-70-242-75-179.dsl.ksc2mo.swbell.net) to the system's root user account at 01:30:59 on June 18, with each attempt recorded as \"user unknown\" and resulting in authentication failure.",
+      "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_3"
       ]

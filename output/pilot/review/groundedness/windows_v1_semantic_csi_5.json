@@ -13,27 +13,22 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:3baacee6ce1a42e615d373a13bc45acddaac3cbaf9acb71ac936181f14a22969"
+    "prompt_sha256": "sha256:c9f295454d18570934af755df29c805f32723b5139ef1056dd2ddc2db2f79149"
   },
   "claims": [
     {
-      "text": "The log shows a Component Store Service (CBS) scavenge operation completed successfully and all pending transactions were committed without errors.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "windows:semantic:csi_5"
-      ]
-    },
-    {
-      "text": "This indicates normal system integrity maintenance activity where Windows cleaned up temporary transaction state after applying updates or repairs.",
+      "text": "The log shows a Windows Component Store Service (CBS) scavenge operation completed successfully during a transaction commit, indicating normal cleanup of pending component updates without errors or rollbacks.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_5"
       ]
     },
     {
-      "text": "The \"disposition: 0X1\" confirms the scavenge finished cleanly, meaning no corruption was detected in the component store.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "text": "This reflects routine maintenance activity where the system finalized a pending update installation step by clearing temporary state.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "windows:semantic:csi_5"
+      ]
     }
   ],
   "verdict": "needs_human_review"

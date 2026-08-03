@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:37a86ac0ad8cd949edc31fad710799a49b8a266b0786d77dc1f724c938115ffa"
+    "prompt_sha256": "sha256:866aa7cd6c29fe683e2495b4fe81c368ad887434ebbf866bdc18f0e19a90ceb1"
   },
   "claims": [
     {
-      "text": "The log shows a thermal pressure state of 1 indicating elevated heat while memory pressure remains low and later indicates an AirPort wireless interface was enabled after a channel change on en0.",
+      "text": "The log shows a thermal pressure state of 1 indicating elevated heat while memory pressure remains low and later indicates a channel change to Wi‑Fi channel 1 after network activity.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_1"
       ]
     },
     {
-      "text": "This suggests the system experienced increased thermal load during network activity but maintained normal memory conditions.",
+      "text": "This suggests the system experienced increased temperature under load but did not face memory pressure issues.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_1"

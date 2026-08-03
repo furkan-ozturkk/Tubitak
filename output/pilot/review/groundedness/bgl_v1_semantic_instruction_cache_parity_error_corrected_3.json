@@ -13,19 +13,19 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:947aa84b9a95b2346564d5185071d9e5e22db4aa3ff6cd6dba3a8c6acc94e853"
+    "prompt_sha256": "sha256:a443bf7402840c1270e6c137fe51c36fa053d307161a61eb0540466d978cc126"
   },
   "claims": [
     {
-      "text": "The excerpt shows repeated corrected instruction cache parity errors in the RAS kernel on June 14, 2005, indicating a persistent hardware issue affecting multiple timestamps and system components.",
-      "supported": "partial",
+      "text": "The excerpt shows repeated corrected instruction cache parity errors in the RAS kernel logs on June 14, 2005, indicating a hardware-level issue affecting the processor's instruction cache that was being corrected by the system without software intervention.",
+      "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_3"
       ]
     },
     {
-      "text": "Later entries from June 15, 2005, show core generation events (e.g., \"generating core.1978\", \"generating core.2040\"), suggesting these errors escalated into system crashes or kernel panics due to uncorrectable memory or instruction faults.",
-      "supported": "partial",
+      "text": "This pattern of recurring corrections suggests persistent hardware instability or degradation in the affected systems' memory subsystems.",
+      "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_3"
       ]

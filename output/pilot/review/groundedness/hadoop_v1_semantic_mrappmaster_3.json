@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:35d69de0e3bf3c1aa398b5d4519e9054b1a3a7b12d68acd89c1fcd3120a2cabc"
+    "prompt_sha256": "sha256:3fcb2824669ccc9ab517e28c8a2e194d24ef5f6f5c1842c53b6d8784991491b7"
   },
   "claims": [
     {
-      "text": "The excerpt shows that a MapReduce job is initializing its output committer and registering several event dispatcher classes within YARN's asynchronous event system to manage job, task, and commit events during execution.",
+      "text": "The excerpt shows that a MapReduce job's Application Master is initializing and registering event dispatchers for job control, task management, and commit events within YARN, indicating the setup phase of a Hadoop job execution.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_3"
       ]
     },
     {
-      "text": "This indicates the framework is setting up internal mechanisms for coordinating job progress and committing results before actual processing begins.",
+      "text": "This confirms the system is preparing to coordinate map-reduce tasks through its distributed resource manager.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_3"

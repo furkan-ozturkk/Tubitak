@@ -13,11 +13,11 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:fca71f1d71d7f640cf10ff0eaaa14bfcf08b21d1c1d63984f74169cafd0dcf6c"
+    "prompt_sha256": "sha256:f41b80a681059656fc745cf4d31333674fc5c5661c876d48f800e46467d06963"
   },
   "claims": [
     {
-      "text": "The log shows repeated errors indicating that the mod_jk workerEnv process is entering error states 6 and 8 before successfully initializing and finding child process 32626 in scoreboard slot 6 at 06:51:25, reflecting a temporary failure in Apache's JK connector setup.",
+      "text": "The log shows repeated errors indicating that the mod_jk workerEnv process is entering error states 6 and 8 before successfully initializing and finding child process 32626 in scoreboard slot 6 at 06:51:25, suggesting a temporary failure in the JK connector's worker environment setup.",
       "supported": "yes",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_2"

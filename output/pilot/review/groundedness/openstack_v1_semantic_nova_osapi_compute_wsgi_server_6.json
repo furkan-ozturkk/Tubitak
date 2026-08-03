@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:84baeab044753c12e86a2c39b4f7df4d0e9490a2635f557d4abe2bf290a0ff1d"
+    "prompt_sha256": "sha256:00e23042d4bc383a9a8711a1f2fc1201e02625e267a7f98b1bf4b14194dcb2f6"
   },
   "claims": [
     {
-      "text": "The log shows repeated successful API calls to retrieve server details via GET requests to /v2/{tenant_id}/servers/detail, each returning HTTP 200 status and a response length of 1893 bytes with processing times ranging from approximately 0.25 to 0.28 seconds.",
+      "text": "The log shows repeated successful API calls to retrieve server details via a GET request to /servers/detail, each returning HTTP status 200 and varying response times around 0.25–0.28 seconds.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_6"
       ]
     },
     {
-      "text": "These entries indicate normal operation of the Nova compute API service handling concurrent server listing requests.",
+      "text": "This indicates normal operation of the Nova compute API handling multiple requests from the same client IP within a short timeframe.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_6"

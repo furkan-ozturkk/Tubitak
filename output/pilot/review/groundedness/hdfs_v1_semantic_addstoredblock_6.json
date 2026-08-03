@@ -13,18 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:d785205e10877f60351cb11fe6b539a8c2a3b5a7e4a56ac1e4339b4fa5b74b16"
+    "prompt_sha256": "sha256:6151ca7681636be46373b25cf0c643fc914b8bd42abd1ef20b84375604a4b17d"
   },
   "claims": [
     {
-      "text": "The excerpt shows NameNode operations updating block mappings and marking blocks as invalid on specific DataNodes, indicating ongoing storage management activities such as adding new blocks to valid storage and removing or invalidating existing blocks from particular nodes.",
+      "text": "The excerpt shows NameNode operations updating block mappings and marking blocks as invalid on specific DataNodes, indicating ongoing storage management activities within the HDFS cluster.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_6"
       ]
     },
     {
-      "text": "These actions reflect routine block placement updates and cleanup processes within the HDFS system.",
+      "text": "These logs reflect routine block addition and deletion events handled by the NameNode in response to DataNode communications.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_6"

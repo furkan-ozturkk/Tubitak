@@ -13,11 +13,18 @@
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:63c84bbd6ca9a3a5295e8a791bea4ba94c4624b7dbb4b53356e380e24de3f2d1"
+    "prompt_sha256": "sha256:4a6cc383947b8ffc0bb79d1c5cb3a2031eebc292019ee68de1f7d468ee633d8b"
   },
   "claims": [
     {
-      "text": "The log shows repeated authentication failures and a reverse DNS lookup failure for IP 187.141.143.180, triggering OpenSSH's \"POSSIBLE BREAK-IN ATTEMPT\" warning, indicating an unauthorized login attempt using the invalid username 'ghost' from that source address.",
+      "text": "The log shows repeated authentication failures for an unknown user \"ghost\" from IP 187.141.143.180, triggering sshd's reverse mapping check which flagged it as a possible break-in attempt due to failed getaddrinfo resolution.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:semantic:possible_break_in_attempt_8"
+      ]
+    },
+    {
+      "text": "The session was terminated with a disconnect message after multiple failed password attempts.",
       "supported": "partial",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_8"
