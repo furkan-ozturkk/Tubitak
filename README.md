@@ -50,8 +50,12 @@ LogRouter's source code or infrastructure.
 ├── docker/
 │   ├── compose.yml            # runs the built image
 │   ├── compose.dev.yml        # override: runs the working tree
-│   ├── datasetgen.Dockerfile  loghub.Dockerfile      loghub-entrypoint.sh
-│   └── .env.example
+│   ├── .env.example
+│   ├── datasetgen/
+│   │   └── Dockerfile
+│   └── loghub/
+│       ├── Dockerfile
+│       └── entrypoint.sh
 ├── tests/
 └── output/
     ├── pilot/                 # the live dataset and its reports

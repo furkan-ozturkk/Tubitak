@@ -17,12 +17,12 @@ RUN apt-get update \
 WORKDIR /app
 
 COPY src/corpus/corpus_manifest.json src/corpus/fetch_corpus.py ./
-COPY docker/loghub-entrypoint.sh ./
-RUN chmod +x loghub-entrypoint.sh
+COPY docker/loghub/entrypoint.sh ./
+RUN chmod +x entrypoint.sh
 
 # Ready only once both the corpus has been fetched (.ready marker) and Postgres
 # itself is accepting connections.
 HEALTHCHECK --interval=5s --timeout=3s --start-period=10s --retries=60 \
     CMD test -f /data/loghub/.ready && pg_isready -U "${POSTGRES_USER:-postgres}" -d "${POSTGRES_DB:-postgres}" || exit 1
 
-ENTRYPOINT ["./loghub-entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]

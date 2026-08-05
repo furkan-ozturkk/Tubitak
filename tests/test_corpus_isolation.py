@@ -68,7 +68,7 @@ class CorpusIsolationTest(unittest.TestCase):
         )
 
     def test_dockerfile_copies_the_moved_paths(self):
-        dockerfile = (REPO_ROOT / "docker" / "loghub.Dockerfile").read_text(
+        dockerfile = (REPO_ROOT / "docker" / "loghub" / "Dockerfile").read_text(
             encoding="utf-8"
         )
         self.assertIn("src/corpus/fetch_corpus.py", dockerfile)

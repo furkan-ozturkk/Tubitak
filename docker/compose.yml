@@ -3,11 +3,12 @@
 # Run from the repo root:
 #   docker compose -f docker/compose.yml up --build
 #
-# Everything Docker needs lives in this directory -- both Dockerfiles, the
-# entrypoint, and .env.example -- so the repo root holds only the Python project.
-# Both services build with the repo root as their context (`context: ..`), which
-# is why the Dockerfiles COPY paths like `loghub/fetch_corpus.py`; the root
-# .dockerignore keeps everything that is not source out of that context.
+# Everything Docker needs lives in this directory -- each service's Dockerfile in
+# its own subfolder (loghub/, datasetgen/), the entrypoint, and .env.example -- so
+# the repo root holds only the Python project. Both services build with the repo
+# root as their context (`context: ..`), which is why the Dockerfiles COPY paths
+# like `src/corpus/fetch_corpus.py`; the root .dockerignore keeps everything that
+# is not source out of that context.
 #
 # This file is the reproducible configuration: datasetgen runs the code baked into
 # its image, so `docker compose exec datasetgen ...` executes exactly what was
@@ -50,7 +51,7 @@ services:
   loghub:
     build:
       context: ..
-      dockerfile: docker/loghub.Dockerfile
+      dockerfile: docker/loghub/Dockerfile
     restart: unless-stopped
     command: ["serve"]
     environment:
@@ -70,7 +71,7 @@ services:
   datasetgen:
     build:
       context: ..
-      dockerfile: docker/datasetgen.Dockerfile
+      dockerfile: docker/datasetgen/Dockerfile
     depends_on:
       loghub:
         condition: service_healthy
