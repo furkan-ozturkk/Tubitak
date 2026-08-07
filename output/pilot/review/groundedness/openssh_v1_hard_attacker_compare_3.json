@@ -8,46 +8,17 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:e9240d0cf77328b8a57fd48e2283365fea6ea71c364f9dc0e14390f84d429b45"
+    "prompt_sha256": "sha256:709d2660084a23cdc2dfdcae221c4ac392ff574d4b6df41334d81d76543216cf"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:ab541e625687eb250343f4425d8ea4f70a952e046f6499ed5bb873d2f6018cc0"
+    "prompt_sha256": "sha256:43f4e1f8c03e6a4b681c71a56de7a7e5c1dc45e0a25ae701c54efadeaf8167de"
   },
   "claims": [
     {
-      "text": "The two groups show parallel attack patterns but differ in timing and user targeting, revealing distinct stages of the same adversary’s campaign.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:3:123_235_32_19",
-        "openssh:hard:attacker_compare:3:52_80_34_196"
-      ]
-    },
-    {
-      "text": "In Group 1 (123.235.32.19) every line records a failed password attempt for **root** from the same source port range within seconds of each other, followed by an immediate “Bye Bye” disconnect, indicating rapid brute‑force attempts against the privileged account and swift termination after failure.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:3:123_235_32_19",
-        "openssh:hard:attacker_compare:3:52_80_34_196"
-      ]
-    },
-    {
-      "text": "In Group 2 (52.80.34.196) the log shows a sequence that begins with an **invalid user** probe (“test9”), then moves to a failed password for that same invalid user, again ending with a disconnect; later it repeats the pattern with another username (“test”) at a much later time (≈ 50 minutes after the first attempt).",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:3:123_235_32_19",
-        "openssh:hard:attacker_compare:3:52_80_34_196"
-      ]
-    },
-    {
-      "text": "This staggered timing and shift from root to generic usernames suggest the attacker is moving through reconnaissance phases—first targeting high‑value accounts, then expanding to less obvious credentials.",
-      "supported": "no",
-      "candidate_group_ids": []
-    },
-    {
-      "text": "The more anomalous source is **123.235.32.19**, because its activity is tightly clustered in a short window with repeated attempts on the most privileged account and immediate disconnections, whereas 52.80.34.196 exhibits spaced‑out, multi‑step behavior that aligns more closely with typical scanning or credential‑testing phases rather than an aggressive burst.",
+      "text": "The evidence shows that both IP addresses generate repeated failed authentication attempts against the same SSH service, but they differ in how those attempts are structured and when they occur.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:3:123_235_32_19",
@@ -55,9 +26,36 @@
       ]
     },
     {
-      "text": "Consequently, the root cause hypothesis is that a single attacker is conducting a staged brute‑force operation: first launching a high‑intensity, root‑focused attack from 123.235.32.19, then retreating and later returning with a slower, broader credential‑guessing effort from 52.80.34.196.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "text": "In Group [123.235.32.19] every line records a successful‑looking “Failed password for root” attempt followed immediately by a disconnect message, and this pattern repeats across many distinct source ports within a short burst that spans roughly 7 minutes (from 07:32 to 07:34).",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:3:123_235_32_19",
+        "openssh:hard:attacker_compare:3:52_80_34_196"
+      ]
+    },
+    {
+      "text": "In Group [52.80.34.196] the log contains three separate clusters of activity—around 07:07, 07:55‑07:56, and then a series of later attempts at 08:44, 09:32‑09:32, and finally at 10:21‑10:21—each cluster consisting of an “Invalid user” line, a corresponding failed password attempt on the same port, and a disconnect, with gaps of many minutes to hours between clusters.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:3:123_235_32_19",
+        "openssh:hard:attacker_compare:3:52_80_34_196"
+      ]
+    },
+    {
+      "text": "Because the first group exhibits a continuous, high‑frequency burst of root‑level attacks that never progresses beyond failed attempts before being terminated by a disconnect, it demonstrates a more concentrated and aggressive probing behavior than the second group’s dispersed, lower‑frequency pattern of invalid‑user attacks.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:3:123_235_32_19",
+        "openssh:hard:attacker_compare:3:52_80_34_196"
+      ]
+    },
+    {
+      "text": "**Root‑cause hypothesis:** The 123.235.32.19 source is likely an automated brute‑force scanner targeting the root account with many simultaneous connection attempts, whereas 52.80.34.196 appears to be a less focused attacker or script that intermittently probes for weak usernames; consequently, 123.235.32.19 is the more anomalous and potentially dangerous attacker.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:3:123_235_32_19",
+        "openssh:hard:attacker_compare:3:52_80_34_196"
+      ]
     }
   ],
   "verdict": "needs_human_review"

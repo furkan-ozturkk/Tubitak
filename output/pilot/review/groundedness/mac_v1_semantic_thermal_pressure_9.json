@@ -25,7 +25,7 @@
     },
     {
       "text": "These indicate normal wake activity but also a delayed background task and a failed network connection attempt.",
-      "supported": "yes",
+      "supported": "partial",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_9"
       ]

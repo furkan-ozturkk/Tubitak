@@ -18,7 +18,7 @@
   "claims": [
     {
       "text": "The log shows repeated authentication failures and a reverse DNS lookup failure for IP 187.141.143.180, triggering sshd's \"POSSIBLE BREAK-IN ATTEMPT\" warning indicating a potential brute-force attack attempt against the 'oracle' user from that source.",
-      "supported": "partial",
+      "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_7"
       ]

@@ -8,17 +8,17 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:6ef2ab0f1f758288bcbf506bc61cab7135e5c97fa94e8bbe1e881a0cf03fe218"
+    "prompt_sha256": "sha256:33cbb08b3724e13361651f1baf30f6ef8db82803baed16c21d82486d8f4bfda2"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:b152a5de5866dc87af221ae02b8b27231969b67b8f7a561f4ff9421611d9115a"
+    "prompt_sha256": "sha256:8acf7362f8cdd1f250cc87616a71e76a2f5568a20fce02fccb14c4198392bcde"
   },
   "claims": [
     {
-      "text": "The logs from 195.129.24.210 show repeated authentication failures at distinct timestamps—June 30 at 20:16, June 30 at 20:16 again, and July 1 at 10:56—indicating a persistent source that tried multiple times over several days.",
+      "text": "The logs from 195.129.24.210 show a prolonged series of authentication failures that span multiple days, with repeated attempts clustered around two distinct time windows (June 30 and July 1) and each failure is logged as “authentication failure; logname= uid=0 euid=0 … user=root” indicating an explicit attempt to compromise the root account.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:2:195_129_24_210",
@@ -26,7 +26,15 @@
       ]
     },
     {
-      "text": "In contrast, the entries from 218.188.2.4 are clustered tightly on June 14‑15 with only three separate dates but many rapid failures within seconds of each other, suggesting an automated script or brute‑force attempt rather than a single intermittent source.",
+      "text": "In contrast, the entries from 218.188.2.4 are confined to a single day (June 14‑15) and consist of only 14 failures that occur within a narrow burst of minutes, after which no further attempts appear in the captured evidence.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:2:195_129_24_210",
+        "linux:hard:brute_force_compare:2:218_188_2_4"
+      ]
+    },
+    {
+      "text": "Because the first source exhibits repeated, multi‑day bursts targeting root with no intervening successful logins or remediation actions, it demonstrates more sustained suspicious behavior than the shorter, isolated burst from 218.188.2.4.",
       "supported": "partial",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:2:195_129_24_210",
@@ -34,23 +42,15 @@
       ]
     },
     {
-      "text": "Both groups involve root authentication attempts over SSH and use the same “NODEVssh” pseudo‑tty, yet the 218.188.2.4 traffic exhibits a higher frequency of failures in a short window, which is more characteristic of malicious scanning or credential‑stuffing behavior.",
-      "supported": "partial",
+      "text": "The pattern of continuous failures without any corrective response suggests an ongoing brute‑force or credential‑stuffing campaign aimed at gaining privileged access.",
+      "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:2:195_129_24_210",
         "linux:hard:brute_force_compare:2:218_188_2_4"
       ]
     },
     {
-      "text": "Therefore, based on the evidence, the IP 218.188.2.4 displays more suspicious activity because its concentration of rapid authentication failures points to an automated attack, whereas 195.129.24.210’s pattern appears as sporadic, possibly manual attempts.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:2:195_129_24_210",
-        "linux:hard:brute_force_compare:2:218_188_2_4"
-      ]
-    },
-    {
-      "text": "This difference supports a root‑cause hypothesis that the former is likely part of a coordinated brute‑force campaign targeting SSH, while the latter may stem from a misconfigured or intermittently active service.",
+      "text": "Therefore, 195.129.24.210 is the more suspicious source, likely representing a persistent attacker probing for root‑level entry.",
       "supported": "partial",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:2:195_129_24_210",

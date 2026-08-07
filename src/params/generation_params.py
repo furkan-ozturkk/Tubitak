@@ -79,10 +79,20 @@ class HardTierParams:
             sets of ``num_groups``, so raising this only ever adds sets drawn
             from entities the corpus already has in sufficient volume — it
             never lowers the per-group evidence bar.
+        evidence_lines_per_side: A group's first and last this-many lines are
+            cited (all of it, unsplit, when the group has ``<= 2x`` this many
+            lines). Citing only a group's first few lines understated a burst
+            that actually ran for minutes; citing literally every line of a
+            group with hundreds of matches measurably degraded the drafted
+            answer (the model lost track of which lines belonged to which
+            group). First-N-plus-last-N is the version that both keeps the
+            group's true start and end in evidence and drafts a correct
+            answer.
     """
 
     min_sentences: int = 4
     pairs_per_dataset: int = 1
+    evidence_lines_per_side: int = 15
 
 
 @dataclass(frozen=True)
@@ -141,6 +151,9 @@ def get_hard_tier_params(args: Any) -> HardTierParams:
         min_sentences=_resolve(args.min_sentences, HardTierParams.min_sentences),
         pairs_per_dataset=_resolve(
             args.hard_pairs_per_dataset, HardTierParams.pairs_per_dataset
+        ),
+        evidence_lines_per_side=_resolve(
+            args.hard_evidence_per_side, HardTierParams.evidence_lines_per_side
         ),
     )
 

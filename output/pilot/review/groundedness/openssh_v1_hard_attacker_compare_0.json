@@ -8,17 +8,17 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:76d1a10d9d10c404ff3dd827326e150d03605ea5fdc36bae32e93dfd44e374bd"
+    "prompt_sha256": "sha256:7a4dc6caa4d613fa988ea6a330d09b79b54e92f547610add775d626cff160076"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:fd80c7eda6ad98f3a9a683c70f130fba2427219f8192e4d28d04441e6c9a5f62"
+    "prompt_sha256": "sha256:9d0ee9f0d743d7001ab46d516f4971576321e0cdc1288ed8ca849282b29276c8"
   },
   "claims": [
     {
-      "text": "The two groups show distinct attacker behaviors that can be directly compared using only the visible facts.",
+      "text": "The two groups show identical attack mechanics: each source repeatedly attempts SSH logins with a short, tightly‑spaced burst of failed root or invalid‑user passwords followed by an immediate “Received disconnect … Bye Bye” message that terminates the session.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:0:183_62_140_253",
@@ -26,15 +26,7 @@
       ]
     },
     {
-      "text": "In Group 1 (source 183.62.140.253) each request targets a different invalid username, uses separate source ports (33521 and 33902), and ends with an immediate “Received disconnect … Bye Bye [preauth]” after the failed password attempt; this pattern repeats only twice within the sample window.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:0:183_62_140_253",
-        "openssh:hard:attacker_compare:0:187_141_143_180"
-      ]
-    },
-    {
-      "text": "In Group 2 (source 187.141.143.180) every request attempts to authenticate as the same privileged user “root”, uses three distinct source ports (33314, 34508, 35685), and also terminates with a pre‑authentication disconnect after each failed password; however it contains six lines spanning roughly one minute.",
+      "text": "In Group 183.62.140.253 the cadence is roughly one attempt every 2–3 seconds from 10:54 to 11:04, targeting first a non‑existent user (zhangyan), then several distinct invalid usernames (dff) and finally dozens of root attempts before the pattern repeats at 11:04; this demonstrates a sustained brute‑force sweep that lasts over ten minutes.",
       "supported": "partial",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:0:183_62_140_253",
@@ -42,7 +34,15 @@
       ]
     },
     {
-      "text": "The more anomalous attacker is the one in Group 2 because its consistent targeting of a high‑privilege account across multiple rapid attempts demonstrates a focused brute‑force strategy, whereas Group 1’s activity appears scattered and exploratory with no repeated credential focus.",
+      "text": "Group 187.141.143.180 exhibits an almost identical timing profile—six failed root attempts within the first minute, then a second wave of three invalid‑user attempts at 09:19 – 09:20—but it compresses the entire activity into a tighter nine‑minute window and ends shortly after the final disconnect.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:0:183_62_140_253",
+        "openssh:hard:attacker_compare:0:187_141_143_180"
+      ]
+    },
+    {
+      "text": "Both sources therefore share the same root‑cause hypothesis: they are part of an automated, credential‑stuffing campaign that uses scripted password‑guessing against SSH, deliberately aborts each connection with a “Bye Bye” signal to avoid detection, and cycles through many source IPs (or rotates payloads) while maintaining a consistent low‑and‑slow burst pattern.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:0:183_62_140_253",
@@ -50,8 +50,8 @@
       ]
     },
     {
-      "text": "Root‑cause hypothesis: both sources are likely compromised client machines running automated SSH‑brute‑force tools that have been misconfigured or deliberately scripted to probe for weak credentials; the differing patterns reflect variations in the attackers’ objectives — one may be testing a broad list of usernames, while the other is concentrating on high‑value accounts such as “root” to gain privileged access.",
-      "supported": "yes",
+      "text": "The more anomalous attacker is 183.62.140.253 because its activity persists longer, includes an initial probe of a non‑existent user before moving to root, and shows a higher volume of repeated failed attempts across a broader time span, indicating a more aggressive and less constrained brute‑force effort compared with the shorter, tightly clustered bursts seen from 187.141.143.180.",
+      "supported": "partial",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:0:183_62_140_253",
         "openssh:hard:attacker_compare:0:187_141_143_180"

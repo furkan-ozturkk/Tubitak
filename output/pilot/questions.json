@@ -9685,7 +9685,7 @@
         }
       ]
     },
-    "split": "dev"
+    "split": "test"
   },
   {
     "id": "bgl_v1_semantic_instruction_cache_parity_error_corrected_4",
@@ -9764,7 +9764,7 @@
         }
       ]
     },
-    "split": "dev"
+    "split": "test"
   },
   {
     "id": "bgl_v1_semantic_instruction_cache_parity_error_corrected_5",
@@ -9843,7 +9843,7 @@
         }
       ]
     },
-    "split": "dev"
+    "split": "test"
   },
   {
     "id": "bgl_v1_semantic_instruction_cache_parity_error_corrected_6",
@@ -9922,7 +9922,7 @@
         }
       ]
     },
-    "split": "dev"
+    "split": "test"
   },
   {
     "id": "bgl_v1_semantic_instruction_cache_parity_error_corrected_7",
@@ -11575,7 +11575,7 @@
         }
       ]
     },
-    "split": "dev"
+    "split": "test"
   },
   {
     "id": "zookeeper_v1_semantic_fastleaderelection_8",
@@ -12537,7 +12537,7 @@
     "reviewers": [
       "faz1_pilot_script"
     ],
-    "expected_answer": "The two groups show parallel patterns of repeated SSH authentication failures targeting the root account, but they differ in timing and source behavior that reveal distinct operational contexts. In Group 150.183.249.110 the timestamps are tightly clustered within a single minute (16:01:43‑16:01:47), indicating an automated script or brute‑force tool launching many attempts in rapid succession from that IP address, whereas Group 207.243.167.114 spreads its failures over nearly a minute with gaps of up to 8 seconds (07:02:27‑07:02:55), suggesting intermittent manual or loosely timed probing rather than a single burst. Both sets target the same privileged account, yet the first source exhibits a higher frequency of attempts in a compressed window and originates from an IP that appears to be part of a coordinated attack sequence, making it more anomalous compared with the second source’s comparatively slower, spaced‑out pattern. This contrast points toward a root‑cause hypothesis that the 150.183.249.110 address is being used by a scripted credential‑stuffing campaign aimed at exhaustively testing passwords for root, while the 207.243.167.114 activity may represent opportunistic or less systematic attempts possibly from a different attacker or a misconfigured service.",
+    "expected_answer": "The two groups show parallel bursts of failed root‑login attempts from distinct external IPs, but the timing patterns differ enough to highlight one as more anomalous.  \nIn Group 150.183.249.110 the failures are recorded at 16:01 – 16:03 on July 10, with many attempts clustered within a few seconds (e.g., four failures in the same second) and then a sparse continuation up to 16:03:18; this tight clustering of repeated failures from the same source suggests an automated brute‑force script.  \nIn Group 207.243.167.114 the failures occur at 07:02 – 07:04 on July 26, spaced roughly every 8–15 seconds with no more than two attempts in any single second and a relatively even distribution across the three‑minute window; this steadier pacing is less typical of an aggressive credential‑guessing tool.  \nBecause Group 150.183.249.110 exhibits a higher frequency of failures within short intervals, multiple attempts targeting the same root account in rapid succession, and repeated authentication failures without any intervening success or corrective delay, it appears more anomalous than the slower, more evenly spaced pattern seen from 207.243.167.114.  \nThe root‑cause hypothesis is that an external attacker (or compromised host) at IP 150.183.249.110 is conducting a brute‑force SSH login campaign against the server, repeatedly attempting to authenticate as root over a condensed timeframe, likely exploiting weak credentials or unpatched services to gain unauthorized access.",
     "gold_provenance": {
       "method": "independent_model_then_human",
       "created_by": "src/generators/hard_tier.py@v1",
@@ -12547,7 +12547,7 @@
         "name": "nemotron-3-nano:30b",
         "family": "nemotron_h_moe",
         "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-        "prompt_sha256": "sha256:448d3568d4c24229b317ad7f45ecafb66431964cca8026849d749bccbb2e113f"
+        "prompt_sha256": "sha256:41e437ae9db0a41b643bb779a91cb1481f8b9dbe88d113af00e066be3852cb2e"
       }
     },
     "evidence": {
@@ -12589,6 +12589,150 @@
           "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
         },
         {
+          "id": "linux:line:00001142:4e0d753cf28ae257",
+          "line_number": 1142,
+          "line_hash": "sha256:4e0d753cf28ae2573a42a3cef4e6d7417acc75498e40fae47feea37495eb8b5f",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001143:d5319d418f7454f1",
+          "line_number": 1143,
+          "line_hash": "sha256:d5319d418f7454f13326784398450b2ffade256d236e7bcb4abcf58238411b78",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001144:e242a8d2700a8581",
+          "line_number": 1144,
+          "line_hash": "sha256:e242a8d2700a85811c6a553c04b61c4153dc2313be32e55740cdfac4915ad327",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001145:d16782589d964360",
+          "line_number": 1145,
+          "line_hash": "sha256:d16782589d964360072dbd04bc6a118faa8c635f133e55b81de57223b77c3c5d",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001146:06f107765ff4ebe3",
+          "line_number": 1146,
+          "line_hash": "sha256:06f107765ff4ebe36cd0b073a0eaa36fe978d70809a5244672f50bdcb939ba7c",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001147:fbb5cc77258b9438",
+          "line_number": 1147,
+          "line_hash": "sha256:fbb5cc77258b943831da18e42438beecb11609cd46c52e363104f0e3161d93f0",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001148:549a2b321e9ec6ba",
+          "line_number": 1148,
+          "line_hash": "sha256:549a2b321e9ec6bad80ff6bdd4092b05ada3b52f1cc6434c6680123f4e6af1f8",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001149:79119fb401841c0a",
+          "line_number": 1149,
+          "line_hash": "sha256:79119fb401841c0ae62fec955bde7d3e9d311fae00202a2c6a1f68c0f5cad8de",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001150:4a87aaf0b3b7962e",
+          "line_number": 1150,
+          "line_hash": "sha256:4a87aaf0b3b7962ec081dc6e29454b2abadf02e568a2744bb611fa4ae33dc065",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001201:4dda3c33fb68c3a8",
+          "line_number": 1201,
+          "line_hash": "sha256:4dda3c33fb68c3a87d07d68eb0814b04c0e5a17b0ac7f20e31b91f47a61a64e0",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001202:7be948baf706dd55",
+          "line_number": 1202,
+          "line_hash": "sha256:7be948baf706dd555084f635a504325a2f5c571dc2d731a336f10e606e09caf9",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001203:c5db09885a4a73a4",
+          "line_number": 1203,
+          "line_hash": "sha256:c5db09885a4a73a4451148621cc0b42911ee27fd34424e2690ed91cab6dade91",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001204:efb4b96946cdc5c7",
+          "line_number": 1204,
+          "line_hash": "sha256:efb4b96946cdc5c7d0ac676586c57834f72d9c47d7cd5d1ffb8ee47ca5e14a5b",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001205:88199c0140a20381",
+          "line_number": 1205,
+          "line_hash": "sha256:88199c0140a203817b14b10f705f1b89508ed592eac9d323d8e9dfffefe2c8e8",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001206:45ce3fe72bde49e6",
+          "line_number": 1206,
+          "line_hash": "sha256:45ce3fe72bde49e619f9fff2f0ab17c6cce8e45ca4389c26dca22a1aa0c7b782",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001207:011348ba3bfccbe3",
+          "line_number": 1207,
+          "line_hash": "sha256:011348ba3bfccbe378badb9bfc9bb0cfb75f764bbb96c7ece5dc2a9b8a556cea",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001208:b9fbf3482374a22a",
+          "line_number": 1208,
+          "line_hash": "sha256:b9fbf3482374a22a429240fdc256ff9db9c729fcb9b9b7201c2b10c964f4ea0d",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001209:1b69fed2c960a9d4",
+          "line_number": 1209,
+          "line_hash": "sha256:1b69fed2c960a9d458c3f41c15cb11cd44e3d44d62c370211f10b9adcfd7f355",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001210:16bba20554f07489",
+          "line_number": 1210,
+          "line_hash": "sha256:16bba20554f074898d3bb8cc4af144179978d77b1258bb666b934f294e031d70",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001211:156a6dc9471e5b91",
+          "line_number": 1211,
+          "line_hash": "sha256:156a6dc9471e5b91de272dd09a493b64411a1a05f90e3456c48a80e1268eb211",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001212:df8a9955ae18b7be",
+          "line_number": 1212,
+          "line_hash": "sha256:df8a9955ae18b7be949ecb3087e4b23e84adda3c0de45f885cbe346169404d2a",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001213:c9ceeab2bffcf9f9",
+          "line_number": 1213,
+          "line_hash": "sha256:c9ceeab2bffcf9f9c28e74381ae04295c1878f4e9b821417df52d1a8241945b1",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001214:01019f0f5b38563e",
+          "line_number": 1214,
+          "line_hash": "sha256:01019f0f5b38563eb1996bc6aaf759012c7107626763e8d9699da5fd2a2a5fb5",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
+          "id": "linux:line:00001215:0d2e3a6547e47690",
+          "line_number": 1215,
+          "line_hash": "sha256:0d2e3a6547e476904c9f8b9b529a8cb31f5697558400619e060a5a4169f0bfbc",
+          "group_id": "linux:hard:brute_force_compare:0:150_183_249_110"
+        },
+        {
           "id": "linux:line:00001879:b8a65d3201d9af7a",
           "line_number": 1879,
           "line_hash": "sha256:b8a65d3201d9af7a2329531e16daeb44e6f0ceb028ff9b871023111f8a98fff1",
@@ -12623,6 +12767,108 @@
           "line_number": 1884,
           "line_hash": "sha256:361f8fd24dcc7a3fcee7fb5bcc6c4410e6a752869d7476b2546e5a6929732c5e",
           "group_id": "linux:hard:brute_force_compare:0:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001885:030f60bedc9375db",
+          "line_number": 1885,
+          "line_hash": "sha256:030f60bedc9375dbd57cb0256bb672cc01e0ecd3e370056e9016da7b84ff60f0",
+          "group_id": "linux:hard:brute_force_compare:0:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001886:755e1d69c50077db",
+          "line_number": 1886,
+          "line_hash": "sha256:755e1d69c50077db13b96ef875820c0a68cb3d4f85d5a9637b59d27cb10c84bd",
+          "group_id": "linux:hard:brute_force_compare:0:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001887:c7a75d411ba910e9",
+          "line_number": 1887,
+          "line_hash": "sha256:c7a75d411ba910e92be5393f0b5d61bf36942ce5ff2dca39ca8bd1e4ced86389",
+          "group_id": "linux:hard:brute_force_compare:0:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001888:dd490c7d8de7a187",
+          "line_number": 1888,
+          "line_hash": "sha256:dd490c7d8de7a187ae3dc291ac4a059df2579bdab66db47aea2881c126deb0c6",
+          "group_id": "linux:hard:brute_force_compare:0:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001889:69aa6f5d50261c00",
+          "line_number": 1889,
+          "line_hash": "sha256:69aa6f5d50261c00673e70f6a0b4135865b2fab984ba3a3943dd1bdd794508ee",
+          "group_id": "linux:hard:brute_force_compare:0:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001890:5f7423df24c01bfb",
+          "line_number": 1890,
+          "line_hash": "sha256:5f7423df24c01bfb5fdadc9dc361c747a61551bdb1bb8d0c255724140ee19285",
+          "group_id": "linux:hard:brute_force_compare:0:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001891:272e51c78809f123",
+          "line_number": 1891,
+          "line_hash": "sha256:272e51c78809f123939ea6ef47aca7edb070f85ba949cfda508c0d9bca55ff27",
+          "group_id": "linux:hard:brute_force_compare:0:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001892:b0f1e5e6826da3a7",
+          "line_number": 1892,
+          "line_hash": "sha256:b0f1e5e6826da3a72e8d08ea5e1f94fa1c89eccbc1cd95c5c5860938c15462b6",
+          "group_id": "linux:hard:brute_force_compare:0:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001893:414e41c70d4eb384",
+          "line_number": 1893,
+          "line_hash": "sha256:414e41c70d4eb38436277dcce2e745b0889b6702aac3f4292a897119fee53a13",
+          "group_id": "linux:hard:brute_force_compare:0:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001894:e91743175af88b07",
+          "line_number": 1894,
+          "line_hash": "sha256:e91743175af88b0716e61cc2eb38d3544f897ae2ab81d0d4a37a8990020a86f7",
+          "group_id": "linux:hard:brute_force_compare:0:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001895:2b9982d0d84e7d30",
+          "line_number": 1895,
+          "line_hash": "sha256:2b9982d0d84e7d3025a478192307c731fc5474bd6e206a876b8ad7b95eab5ae3",
+          "group_id": "linux:hard:brute_force_compare:0:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001896:d7072590ba6ea6f0",
+          "line_number": 1896,
+          "line_hash": "sha256:d7072590ba6ea6f0c2e6b73bbdcea386a2a4a3cc5d0a551b50b9c351773111ef",
+          "group_id": "linux:hard:brute_force_compare:0:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001897:c5705a64b8e7f072",
+          "line_number": 1897,
+          "line_hash": "sha256:c5705a64b8e7f072e5f69cefd976288b2235bd6c6c0676f139dd3f669fab6f3b",
+          "group_id": "linux:hard:brute_force_compare:0:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001898:7f2a3569939066dc",
+          "line_number": 1898,
+          "line_hash": "sha256:7f2a3569939066dc77d4ea6aa7617e313c7aa8be89e8ac07eb3d7c445b896e73",
+          "group_id": "linux:hard:brute_force_compare:0:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001899:a976d0fd33845b73",
+          "line_number": 1899,
+          "line_hash": "sha256:a976d0fd33845b7337bf9da449cda7ba175557848f96eec73c0d4a3bf6598de8",
+          "group_id": "linux:hard:brute_force_compare:0:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001900:2358c02890630cd0",
+          "line_number": 1900,
+          "line_hash": "sha256:2358c02890630cd049596b3832a6340f81a9fec38ee1b1bda47285533054cc87",
+          "group_id": "linux:hard:brute_force_compare:0:207_243_167_114"
+        },
+        {
+          "id": "linux:line:00001901:202036e0dbf7599c",
+          "line_number": 1901,
+          "line_hash": "sha256:202036e0dbf7599cd3f463db4ab498604395e5585cd4b4c8c4c8b74a10b6b5f5",
+          "group_id": "linux:hard:brute_force_compare:0:207_243_167_114"
         }
       ]
     },
@@ -12640,7 +12886,7 @@
     "reviewers": [
       "faz1_pilot_script"
     ],
-    "expected_answer": "The login attempts from **n219076184117.netvigator.com** are clustered within a narrow time window of just over two minutes (from 03:17:26 to 03:17:45), showing repeated authentication failures for the same target account *root* from a single hostname. In contrast, the attempts from **60.30.224.116** occur almost simultaneously at 19:03:00‑03:03 and span only about three seconds (from 19:03:00 to 19:03:03), also targeting *root* but with a burst of six failures in that short interval. Both groups share the same failure pattern, yet the IP address group exhibits a tighter concentration of events and includes multiple distinct process IDs within those few seconds, suggesting an automated script or brute‑force tool rather than manual probing. The hostname group’s slightly longer spacing and repeated identical timestamps imply a slower, perhaps misconfigured client repeatedly trying the same credential set. Based on this evidence, the IP source (60.30.224.116) appears more anomalous because its condensed timing and high volume of concurrent failures are characteristic of a coordinated attack, leading to the root‑cause hypothesis that an external script is attempting mass password guessing against the *root* account from that address.",
+    "expected_answer": "The two groups both record repeated `authentication failure` messages from the same SSH daemon, but they differ in source and timing pattern; the first group originates from a fully‑qualified hostname `n219076184117.netvigator.com` with failures clustered between 03:17 and 03:22 on June 22, while the second group comes from an IP address `60.30.224.116` and shows a burst of failures at 19:03 on June 30 followed by another cluster around 00:21 on July 1. In both cases the target account is consistently `root`, indicating an attempt to gain privileged access, yet the hostname‑based source exhibits many more individual failure entries (over 30 timestamps) within a tight six‑minute window, whereas the IP‑based source shows only about 20 failures spread over two distinct night‑time intervals. This concentration of rapid, repeated root login attempts from `n219076184117.netvigator.com` suggests an automated brute‑force or credential‑stuffing script targeting that host, making it the more anomalous source. The root‑cause hypothesis is that a compromised botnet or malicious scanner is systematically trying default or weak credentials on SSH services reachable via `n219076184117.netvigator.com`, and the lack of any successful login or corrective action after these failures points to an ongoing, unmitigated attack.",
     "gold_provenance": {
       "method": "independent_model_then_human",
       "created_by": "src/generators/hard_tier.py@v1",
@@ -12650,7 +12896,7 @@
         "name": "nemotron-3-nano:30b",
         "family": "nemotron_h_moe",
         "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-        "prompt_sha256": "sha256:c7333ebda708804538712bb83abeeb054df1a5ad48f37ae95208601e03648667"
+        "prompt_sha256": "sha256:8feeb7ba7cc8a5a38843aeaf73044e63da65d8aaba861ff504229286122de819"
       }
     },
     "evidence": {
@@ -12692,6 +12938,108 @@
           "group_id": "linux:hard:brute_force_compare:1:n219076184117_netvigator_com"
         },
         {
+          "id": "linux:line:00000205:65c65aec0ff06392",
+          "line_number": 205,
+          "line_hash": "sha256:65c65aec0ff06392b0d57c450aff7f2f36e81d2b8116a211c36be5774c5dcfcd",
+          "group_id": "linux:hard:brute_force_compare:1:n219076184117_netvigator_com"
+        },
+        {
+          "id": "linux:line:00000206:d122ec9a6f58f21c",
+          "line_number": 206,
+          "line_hash": "sha256:d122ec9a6f58f21c650c2a96452247931ccddbd6ccbe2144efdf9b750c88ae2f",
+          "group_id": "linux:hard:brute_force_compare:1:n219076184117_netvigator_com"
+        },
+        {
+          "id": "linux:line:00000207:eb09e045cf556f3b",
+          "line_number": 207,
+          "line_hash": "sha256:eb09e045cf556f3bfdd2b90b622f21971b55b1897fb8ee7132cbda577f665eef",
+          "group_id": "linux:hard:brute_force_compare:1:n219076184117_netvigator_com"
+        },
+        {
+          "id": "linux:line:00000208:4a2951a63a24f933",
+          "line_number": 208,
+          "line_hash": "sha256:4a2951a63a24f93390dd6c4ed58515c4bb3d5b33f8ea3d87ec4ee9619e354e49",
+          "group_id": "linux:hard:brute_force_compare:1:n219076184117_netvigator_com"
+        },
+        {
+          "id": "linux:line:00000209:5d3fdca4cd70d3f1",
+          "line_number": 209,
+          "line_hash": "sha256:5d3fdca4cd70d3f18f33147ae541cd0ed9f10dc5a31e0ebc42edf79229f0a49b",
+          "group_id": "linux:hard:brute_force_compare:1:n219076184117_netvigator_com"
+        },
+        {
+          "id": "linux:line:00000210:dea51d8300ec27fc",
+          "line_number": 210,
+          "line_hash": "sha256:dea51d8300ec27fc64a6d246a935f20a1a9ddcabec6cc73d07d50e9debb1a2a7",
+          "group_id": "linux:hard:brute_force_compare:1:n219076184117_netvigator_com"
+        },
+        {
+          "id": "linux:line:00000211:8abb19bdfa28e583",
+          "line_number": 211,
+          "line_hash": "sha256:8abb19bdfa28e58325915f9cc6bc1d28aab47bf2a233fc61815959ecb1b94b4b",
+          "group_id": "linux:hard:brute_force_compare:1:n219076184117_netvigator_com"
+        },
+        {
+          "id": "linux:line:00000212:4aaccd7534c2c547",
+          "line_number": 212,
+          "line_hash": "sha256:4aaccd7534c2c547b8ea85b5631543e96ee34f62794b8088e4d90084d33217fc",
+          "group_id": "linux:hard:brute_force_compare:1:n219076184117_netvigator_com"
+        },
+        {
+          "id": "linux:line:00000213:f8e7ba5b70a4a239",
+          "line_number": 213,
+          "line_hash": "sha256:f8e7ba5b70a4a239852fa28471e01ac7518419488a02a83583107984b50e97a7",
+          "group_id": "linux:hard:brute_force_compare:1:n219076184117_netvigator_com"
+        },
+        {
+          "id": "linux:line:00000214:d835d7e6bfeee405",
+          "line_number": 214,
+          "line_hash": "sha256:d835d7e6bfeee405243f36e8dcb2b2127e4a8ae486f90c95be7a502f0e5dd193",
+          "group_id": "linux:hard:brute_force_compare:1:n219076184117_netvigator_com"
+        },
+        {
+          "id": "linux:line:00000215:3e260d9593511c9f",
+          "line_number": 215,
+          "line_hash": "sha256:3e260d9593511c9fa1b3d3525b682e8cfddcfa690d9c91917e7c621bd55cf7c9",
+          "group_id": "linux:hard:brute_force_compare:1:n219076184117_netvigator_com"
+        },
+        {
+          "id": "linux:line:00000216:a63bc223c0a514af",
+          "line_number": 216,
+          "line_hash": "sha256:a63bc223c0a514af3cf3d7943ff20eb4b7b6f4f4183cc23b9e20009562fa8222",
+          "group_id": "linux:hard:brute_force_compare:1:n219076184117_netvigator_com"
+        },
+        {
+          "id": "linux:line:00000217:feee5d2e4b60cf21",
+          "line_number": 217,
+          "line_hash": "sha256:feee5d2e4b60cf21c1e82a1ee357059aff2917f49bcf3a6468c5bdd640b42412",
+          "group_id": "linux:hard:brute_force_compare:1:n219076184117_netvigator_com"
+        },
+        {
+          "id": "linux:line:00000218:708b1db9e5cc01d1",
+          "line_number": 218,
+          "line_hash": "sha256:708b1db9e5cc01d1c46343f6b8e2d68c2538d7b510cfe5e1397a008133e398d3",
+          "group_id": "linux:hard:brute_force_compare:1:n219076184117_netvigator_com"
+        },
+        {
+          "id": "linux:line:00000219:e48ddc7a424aad91",
+          "line_number": 219,
+          "line_hash": "sha256:e48ddc7a424aad910cbbf5a28a60e4e1080424dc7bf44f475277d5c5b8cc24fe",
+          "group_id": "linux:hard:brute_force_compare:1:n219076184117_netvigator_com"
+        },
+        {
+          "id": "linux:line:00000220:d8eadb117fdc1964",
+          "line_number": 220,
+          "line_hash": "sha256:d8eadb117fdc1964c63faa4fdae62e48716711213093129aca1dcf7848e54940",
+          "group_id": "linux:hard:brute_force_compare:1:n219076184117_netvigator_com"
+        },
+        {
+          "id": "linux:line:00000221:e8a2fb9db259a8dd",
+          "line_number": 221,
+          "line_hash": "sha256:e8a2fb9db259a8dd81006ab191d993da98855d103614b203580b276df389bcbc",
+          "group_id": "linux:hard:brute_force_compare:1:n219076184117_netvigator_com"
+        },
+        {
           "id": "linux:line:00000524:77b06bca86628761",
           "line_number": 524,
           "line_hash": "sha256:77b06bca86628761797ac8eb7111c6e6708100286793c37e4b3eb8fade70387f",
@@ -12726,6 +13074,90 @@
           "line_number": 529,
           "line_hash": "sha256:e6caf76553a330be66fc6821c536b2cad5d8c3d341a7f20bc6a19355683a271f",
           "group_id": "linux:hard:brute_force_compare:1:60_30_224_116"
+        },
+        {
+          "id": "linux:line:00000530:8e0bed9ce7b2c903",
+          "line_number": 530,
+          "line_hash": "sha256:8e0bed9ce7b2c90305c9b847c64babd52c7bdd976c5aa32d0ddf4bbaa01cd543",
+          "group_id": "linux:hard:brute_force_compare:1:60_30_224_116"
+        },
+        {
+          "id": "linux:line:00000531:cb2fec04e993f56a",
+          "line_number": 531,
+          "line_hash": "sha256:cb2fec04e993f56a2f31ea1ac64f07bef59eedf753d1a852691ef7a597845f80",
+          "group_id": "linux:hard:brute_force_compare:1:60_30_224_116"
+        },
+        {
+          "id": "linux:line:00000532:20ada8f1c7f0e4e2",
+          "line_number": 532,
+          "line_hash": "sha256:20ada8f1c7f0e4e2f6141e698f3dee948fe79838ea59f59d028a205acf408a89",
+          "group_id": "linux:hard:brute_force_compare:1:60_30_224_116"
+        },
+        {
+          "id": "linux:line:00000533:0ed0f82021108086",
+          "line_number": 533,
+          "line_hash": "sha256:0ed0f8202110808698650c866fc5b3eb4bac21587e480cb3413b14f5ded4c8a0",
+          "group_id": "linux:hard:brute_force_compare:1:60_30_224_116"
+        },
+        {
+          "id": "linux:line:00000605:a14518c4a283e069",
+          "line_number": 605,
+          "line_hash": "sha256:a14518c4a283e069e29424a18bfe8bd71a6890419d8d81b121631d17763ab96f",
+          "group_id": "linux:hard:brute_force_compare:1:60_30_224_116"
+        },
+        {
+          "id": "linux:line:00000606:43621378726afce7",
+          "line_number": 606,
+          "line_hash": "sha256:43621378726afce7dbd45ef48b16690ec25160915bdea2cf8dec600c00a99f8c",
+          "group_id": "linux:hard:brute_force_compare:1:60_30_224_116"
+        },
+        {
+          "id": "linux:line:00000607:757f17f0a6851f2a",
+          "line_number": 607,
+          "line_hash": "sha256:757f17f0a6851f2afe7dc1092bea3c2c56b36fc8f8f7cdfe260d787f9a38ebea",
+          "group_id": "linux:hard:brute_force_compare:1:60_30_224_116"
+        },
+        {
+          "id": "linux:line:00000608:3444ff4cd386ea68",
+          "line_number": 608,
+          "line_hash": "sha256:3444ff4cd386ea68b897d5302238bfdf995a946baf0b2f250f1a6c597f883a27",
+          "group_id": "linux:hard:brute_force_compare:1:60_30_224_116"
+        },
+        {
+          "id": "linux:line:00000609:d0dbb2fb575e964a",
+          "line_number": 609,
+          "line_hash": "sha256:d0dbb2fb575e964a88415ff836763a753da5f2b83978ffbcc9b29ee0da6c7749",
+          "group_id": "linux:hard:brute_force_compare:1:60_30_224_116"
+        },
+        {
+          "id": "linux:line:00000610:71fe24b5af5d5ad3",
+          "line_number": 610,
+          "line_hash": "sha256:71fe24b5af5d5ad3b8b58d70af702cac56ecfd754bde3ba965cd0fdafbfb9edb",
+          "group_id": "linux:hard:brute_force_compare:1:60_30_224_116"
+        },
+        {
+          "id": "linux:line:00000611:5f0e73b89f94a463",
+          "line_number": 611,
+          "line_hash": "sha256:5f0e73b89f94a4634b67ac93c4b877cba4d1e744a3fbc6cd414490811001f40f",
+          "group_id": "linux:hard:brute_force_compare:1:60_30_224_116"
+        },
+        {
+          "id": "linux:line:00000612:99b38f14854d835d",
+          "line_number": 612,
+          "line_hash": "sha256:99b38f14854d835d1d44543fa4e41a13ff6126be86daaaff020299b978f2e802",
+          "group_id": "linux:hard:brute_force_compare:1:60_30_224_116"
+        },
+        {
+          "id": "linux:line:00000613:5b975a0461e447a5",
+          "line_number": 613,
+          "line_hash": "sha256:5b975a0461e447a53059b9357ed0e2953de4e1d0c82d392dd3363ad413e6a7c4",
+          "group_id": "linux:hard:brute_force_compare:1:60_30_224_116"
+        },
+        {
+          "id": "linux:line:00000614:a50a3f500f9d7b50",
+          "line_number": 614,
+          "line_hash": "sha256:a50a3f500f9d7b50d5c1a9529688f2f3c344e19f3daa255dc3ba2eed76ab9c2f",
+          "group_id": "linux:hard:brute_force_compare:1:60_30_224_116"
         }
       ]
     },
@@ -12743,7 +13175,7 @@
     "reviewers": [
       "faz1_pilot_script"
     ],
-    "expected_answer": "The logs from 195.129.24.210 show repeated authentication failures at distinct timestamps—June 30 at 20:16, June 30 at 20:16 again, and July 1 at 10:56—indicating a persistent source that tried multiple times over several days. In contrast, the entries from 218.188.2.4 are clustered tightly on June 14‑15 with only three separate dates but many rapid failures within seconds of each other, suggesting an automated script or brute‑force attempt rather than a single intermittent source. Both groups involve root authentication attempts over SSH and use the same “NODEVssh” pseudo‑tty, yet the 218.188.2.4 traffic exhibits a higher frequency of failures in a short window, which is more characteristic of malicious scanning or credential‑stuffing behavior. Therefore, based on the evidence, the IP 218.188.2.4 displays more suspicious activity because its concentration of rapid authentication failures points to an automated attack, whereas 195.129.24.210’s pattern appears as sporadic, possibly manual attempts. This difference supports a root‑cause hypothesis that the former is likely part of a coordinated brute‑force campaign targeting SSH, while the latter may stem from a misconfigured or intermittently active service.",
+    "expected_answer": "The logs from 195.129.24.210 show a prolonged series of authentication failures that span multiple days, with repeated attempts clustered around two distinct time windows (June 30 and July 1) and each failure is logged as “authentication failure; logname= uid=0 euid=0 … user=root” indicating an explicit attempt to compromise the root account. In contrast, the entries from 218.188.2.4 are confined to a single day (June 14‑15) and consist of only 14 failures that occur within a narrow burst of minutes, after which no further attempts appear in the captured evidence. Because the first source exhibits repeated, multi‑day bursts targeting root with no intervening successful logins or remediation actions, it demonstrates more sustained suspicious behavior than the shorter, isolated burst from 218.188.2.4. The pattern of continuous failures without any corrective response suggests an ongoing brute‑force or credential‑stuffing campaign aimed at gaining privileged access. Therefore, 195.129.24.210 is the more suspicious source, likely representing a persistent attacker probing for root‑level entry.",
     "gold_provenance": {
       "method": "independent_model_then_human",
       "created_by": "src/generators/hard_tier.py@v1",
@@ -12753,7 +13185,7 @@
         "name": "nemotron-3-nano:30b",
         "family": "nemotron_h_moe",
         "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-        "prompt_sha256": "sha256:6ef2ab0f1f758288bcbf506bc61cab7135e5c97fa94e8bbe1e881a0cf03fe218"
+        "prompt_sha256": "sha256:33cbb08b3724e13361651f1baf30f6ef8db82803baed16c21d82486d8f4bfda2"
       }
     },
     "evidence": {
@@ -12795,6 +13227,60 @@
           "group_id": "linux:hard:brute_force_compare:2:195_129_24_210"
         },
         {
+          "id": "linux:line:00000660:dd05b8bbde1b6ba3",
+          "line_number": 660,
+          "line_hash": "sha256:dd05b8bbde1b6ba3b2cf91392634b0d402954bc889a8b77b76e65c1989076d8c",
+          "group_id": "linux:hard:brute_force_compare:2:195_129_24_210"
+        },
+        {
+          "id": "linux:line:00000661:73f3433ea53ddf99",
+          "line_number": 661,
+          "line_hash": "sha256:73f3433ea53ddf99335776e12e9a79607c1c64560c6e046b1ec53b5e2572e65e",
+          "group_id": "linux:hard:brute_force_compare:2:195_129_24_210"
+        },
+        {
+          "id": "linux:line:00000662:89cd4d908754fe79",
+          "line_number": 662,
+          "line_hash": "sha256:89cd4d908754fe7926509bf93ffd68092e43be5d9e15ff8f8a4287753cb728f6",
+          "group_id": "linux:hard:brute_force_compare:2:195_129_24_210"
+        },
+        {
+          "id": "linux:line:00000663:1f185b4086d59165",
+          "line_number": 663,
+          "line_hash": "sha256:1f185b4086d591657bc6bb1aa21b77f81644e54adb878d5c525c0bba811c9e57",
+          "group_id": "linux:hard:brute_force_compare:2:195_129_24_210"
+        },
+        {
+          "id": "linux:line:00000664:8eb79d3a28d8a875",
+          "line_number": 664,
+          "line_hash": "sha256:8eb79d3a28d8a875bd56b98ae916a4da0c7e91c120e0b5562da2a302cbbeb83b",
+          "group_id": "linux:hard:brute_force_compare:2:195_129_24_210"
+        },
+        {
+          "id": "linux:line:00000665:4ea922f78754adb7",
+          "line_number": 665,
+          "line_hash": "sha256:4ea922f78754adb740a6e9823df3e78638e64969ef67a9467ad8babaa965a749",
+          "group_id": "linux:hard:brute_force_compare:2:195_129_24_210"
+        },
+        {
+          "id": "linux:line:00000666:1894c0dfd0cd6841",
+          "line_number": 666,
+          "line_hash": "sha256:1894c0dfd0cd68416f6ebf3d091a633eeacde77e427d3da6fab0043744ae29ad",
+          "group_id": "linux:hard:brute_force_compare:2:195_129_24_210"
+        },
+        {
+          "id": "linux:line:00000667:03c01759cdbd96ac",
+          "line_number": 667,
+          "line_hash": "sha256:03c01759cdbd96aceee3ed087702b0a08cc96c917532e4a938e2f5553ceac81f",
+          "group_id": "linux:hard:brute_force_compare:2:195_129_24_210"
+        },
+        {
+          "id": "linux:line:00000668:c5d1b8a0aabc789a",
+          "line_number": 668,
+          "line_hash": "sha256:c5d1b8a0aabc789a0ae525e31ef6803e20e8c8086fec1bb32b2f7a7d7ccd3573",
+          "group_id": "linux:hard:brute_force_compare:2:195_129_24_210"
+        },
+        {
           "id": "linux:line:00000001:6ca259e27d191d8d",
           "line_number": 1,
           "line_hash": "sha256:6ca259e27d191d8d292e29a6d7de0fd5227d915549978e3bd6cfd1bda6c00bfc",
@@ -12829,6 +13315,54 @@
           "line_number": 26,
           "line_hash": "sha256:93dce78703b23dcf7f7c985297ee918a1f75190032c9c856155ad8fc90ab0f02",
           "group_id": "linux:hard:brute_force_compare:2:218_188_2_4"
+        },
+        {
+          "id": "linux:line:00000028:ab8f68b3c85b7c87",
+          "line_number": 28,
+          "line_hash": "sha256:ab8f68b3c85b7c87a8d1c66a94548855e8890f33d9bec06635909f7122fa7091",
+          "group_id": "linux:hard:brute_force_compare:2:218_188_2_4"
+        },
+        {
+          "id": "linux:line:00000032:065a708fd01a9476",
+          "line_number": 32,
+          "line_hash": "sha256:065a708fd01a94761e5dbd8a995da4043b2c4f87de93d5dd5b03ce55478e3dfd",
+          "group_id": "linux:hard:brute_force_compare:2:218_188_2_4"
+        },
+        {
+          "id": "linux:line:00000034:40fff28297ec37d9",
+          "line_number": 34,
+          "line_hash": "sha256:40fff28297ec37d98f8d411de04db6c0e23fa4b7564ca1de0148723a8f1212ea",
+          "group_id": "linux:hard:brute_force_compare:2:218_188_2_4"
+        },
+        {
+          "id": "linux:line:00000035:a7cc557e24b2be82",
+          "line_number": 35,
+          "line_hash": "sha256:a7cc557e24b2be82097b0e787f05207d1a2cd188635e40e879277140a879e159",
+          "group_id": "linux:hard:brute_force_compare:2:218_188_2_4"
+        },
+        {
+          "id": "linux:line:00000036:d69d51ba9b1a4e50",
+          "line_number": 36,
+          "line_hash": "sha256:d69d51ba9b1a4e500766da13e01c180d53991720556e28a7568ca27ae3c620f2",
+          "group_id": "linux:hard:brute_force_compare:2:218_188_2_4"
+        },
+        {
+          "id": "linux:line:00000038:5d9f012262749f04",
+          "line_number": 38,
+          "line_hash": "sha256:5d9f012262749f04e7668ef5b9bf8aa9731a5fb01176bbb4e41f4cad8822b505",
+          "group_id": "linux:hard:brute_force_compare:2:218_188_2_4"
+        },
+        {
+          "id": "linux:line:00000040:bfab095e890110ec",
+          "line_number": 40,
+          "line_hash": "sha256:bfab095e890110ec76bc3e5c5a55138854d926ae5cc2c2bc04b8bfe66374ab26",
+          "group_id": "linux:hard:brute_force_compare:2:218_188_2_4"
+        },
+        {
+          "id": "linux:line:00000042:cc5c9a68730e479c",
+          "line_number": 42,
+          "line_hash": "sha256:cc5c9a68730e479c19aaaa75f8bebf58b3f723c7b414af036e36efaf5723ffab",
+          "group_id": "linux:hard:brute_force_compare:2:218_188_2_4"
         }
       ]
     },
@@ -12846,7 +13380,7 @@
     "reviewers": [
       "faz1_pilot_script"
     ],
-    "expected_answer": "The two groups show identical event patterns—repeated authentication failures for the root account from a single source IP or hostname, with no successful logins recorded and only failed attempts logged. In both cases the failure messages include “authentication failure; … rhost=… user=root,” indicating that each source is attempting to authenticate as root over SSH using password‑based checks. The 220.117.241.87 group’s timestamps cluster tightly between 19:15 and 19:16 on July 4, while the h64-187-1-131.gtconnect.net group’s events are spaced evenly from 12:11 to 12:12 on June 29, but both exhibit a rapid succession of failures without any intervening success. This suggests that each source is part of an automated brute‑force or credential‑spraying campaign targeting the root account, yet the more anomalous pattern—multiple distinct timestamps within a short window from a single IP address—points to a coordinated scripted attack rather than a sporadic manual attempt. Therefore, the root cause likely involves an external botnet or compromised scanner that is systematically probing for weak credentials on the SSH service, with the 220.117.241.87 source representing the more anomalous actor due to its concentrated burst of failures in a brief timeframe.",
+    "expected_answer": "The two groups both record repeated failed root‑login attempts from a single source, but they differ in timing and network context. In the 220.117.241.87 group the failures occur over a continuous 63‑second window (from 19:15:48 to 19:16:01) with many attempts clustered within seconds, indicating an automated script that is rapidly probing for success. In contrast, the h64-187-1-131.gtconnect.net group shows failures spread across a longer 52‑second interval (from 12:11:53 to 12:12:10) with fewer attempts per second and no obvious clustering, suggesting a more intermittent or human‑driven probing effort. Both sets target the same service (sshd) and use identical authentication‑failure messages, but the burst density of 220.117.241.87 is far higher, making it the more anomalous pattern. This disparity points to a compromised botnet or brute‑force tool that is being run from a single IP address with high request rates, while the other source likely represents a less coordinated attack or a misconfigured scanner. The root‑cause hypothesis is therefore that an automated credential‑stuffing malware operating from 220.117.241.87 is responsible for the anomalous surge of failed logins.",
     "gold_provenance": {
       "method": "independent_model_then_human",
       "created_by": "src/generators/hard_tier.py@v1",
@@ -12856,7 +13390,7 @@
         "name": "nemotron-3-nano:30b",
         "family": "nemotron_h_moe",
         "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-        "prompt_sha256": "sha256:d5567d9b75a75d8edcf86a687b886be1a694635ea156b6c482a5d5cecdebd9ef"
+        "prompt_sha256": "sha256:43bec6786589e90e5c973a3a39d0aa8d7e0d4eb78fd74ae476994ea110cd1216"
       }
     },
     "evidence": {
@@ -12898,6 +13432,48 @@
           "group_id": "linux:hard:brute_force_compare:3:220_117_241_87"
         },
         {
+          "id": "linux:line:00000801:84804996b2704b33",
+          "line_number": 801,
+          "line_hash": "sha256:84804996b2704b33e60b47d95f13bcb9b93250553dec9d75095af549458c8cc7",
+          "group_id": "linux:hard:brute_force_compare:3:220_117_241_87"
+        },
+        {
+          "id": "linux:line:00000802:9ce3e27cf1f30468",
+          "line_number": 802,
+          "line_hash": "sha256:9ce3e27cf1f30468cc14b8098f28f8ebfe1f375ea3caa71fd7f8681be6c3f580",
+          "group_id": "linux:hard:brute_force_compare:3:220_117_241_87"
+        },
+        {
+          "id": "linux:line:00000803:b22773ded7e5b318",
+          "line_number": 803,
+          "line_hash": "sha256:b22773ded7e5b318d58dc9ff80731dd15ef7d5ea4bde087b6c97100da631d56a",
+          "group_id": "linux:hard:brute_force_compare:3:220_117_241_87"
+        },
+        {
+          "id": "linux:line:00000804:0ef443cd4f647eeb",
+          "line_number": 804,
+          "line_hash": "sha256:0ef443cd4f647eebfa2c44b5ee4b21232495b2a7ea72a59b42613418cf626c83",
+          "group_id": "linux:hard:brute_force_compare:3:220_117_241_87"
+        },
+        {
+          "id": "linux:line:00000805:4e8b3753e57657d2",
+          "line_number": 805,
+          "line_hash": "sha256:4e8b3753e57657d2f6f65d2ea532aa82cdf60cafa95648dc86d6a800f24ad2d3",
+          "group_id": "linux:hard:brute_force_compare:3:220_117_241_87"
+        },
+        {
+          "id": "linux:line:00000806:97890ae3e0ac4814",
+          "line_number": 806,
+          "line_hash": "sha256:97890ae3e0ac4814755881b38aae6fbaadbe1df66bcf61e4e91093fa64529f42",
+          "group_id": "linux:hard:brute_force_compare:3:220_117_241_87"
+        },
+        {
+          "id": "linux:line:00000807:62100ee61f399ddb",
+          "line_number": 807,
+          "line_hash": "sha256:62100ee61f399ddbe61924bd9cca0c057223a84f2d7252cb9ca7c7dfc0721230",
+          "group_id": "linux:hard:brute_force_compare:3:220_117_241_87"
+        },
+        {
           "id": "linux:line:00000483:01c13d46e4fc8cd2",
           "line_number": 483,
           "line_hash": "sha256:01c13d46e4fc8cd2a56e9cc68c52b8aa8e1655963f371041aa632d2f0418176c",
@@ -12932,6 +13508,48 @@
           "line_number": 488,
           "line_hash": "sha256:be999c8c50f33b1bb268039a7356b9cf6006da74e39b15e1f9a0824a763a621c",
           "group_id": "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
+        },
+        {
+          "id": "linux:line:00000489:603ca65ac736f6c2",
+          "line_number": 489,
+          "line_hash": "sha256:603ca65ac736f6c21425fc3da4c557125e482b55fe5230463a9f813664e326d0",
+          "group_id": "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
+        },
+        {
+          "id": "linux:line:00000490:f8f2af347f82b643",
+          "line_number": 490,
+          "line_hash": "sha256:f8f2af347f82b6432cd853cfd5f14905c225fb3ea838e3b37bd485e90dd8a484",
+          "group_id": "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
+        },
+        {
+          "id": "linux:line:00000491:0859799915110c28",
+          "line_number": 491,
+          "line_hash": "sha256:0859799915110c28ac4c80a366813491110dd3a6b19dc414eb61e6ec33787ba9",
+          "group_id": "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
+        },
+        {
+          "id": "linux:line:00000492:2012c02cfa48f6be",
+          "line_number": 492,
+          "line_hash": "sha256:2012c02cfa48f6bef20bace4225e82807fe5aca0d4a697f21b9845780005c341",
+          "group_id": "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
+        },
+        {
+          "id": "linux:line:00000493:4728d19a3dfb94a4",
+          "line_number": 493,
+          "line_hash": "sha256:4728d19a3dfb94a4d1a5b08c05382a0553c2f7034ad441234ba00f63834b3807",
+          "group_id": "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
+        },
+        {
+          "id": "linux:line:00000494:2f1be5cf984b8db1",
+          "line_number": 494,
+          "line_hash": "sha256:2f1be5cf984b8db1dcb18bc63f71ba791e52296bee7453e0aa172eed99bd8b9c",
+          "group_id": "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
+        },
+        {
+          "id": "linux:line:00000495:164ba5425914de46",
+          "line_number": 495,
+          "line_hash": "sha256:164ba5425914de46fe67275e4fa5de2cd5aadb94a1444548405204c4c462335f",
+          "group_id": "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
         }
       ]
     },
@@ -12949,7 +13567,7 @@
     "reviewers": [
       "faz1_pilot_script"
     ],
-    "expected_answer": "The two groups show distinct attacker behaviors that can be directly compared using only the visible facts.  \nIn Group 1 (source 183.62.140.253) each request targets a different invalid username, uses separate source ports (33521 and 33902), and ends with an immediate “Received disconnect … Bye Bye [preauth]” after the failed password attempt; this pattern repeats only twice within the sample window.  \nIn Group 2 (source 187.141.143.180) every request attempts to authenticate as the same privileged user “root”, uses three distinct source ports (33314, 34508, 35685), and also terminates with a pre‑authentication disconnect after each failed password; however it contains six lines spanning roughly one minute.  \nThe more anomalous attacker is the one in Group 2 because its consistent targeting of a high‑privilege account across multiple rapid attempts demonstrates a focused brute‑force strategy, whereas Group 1’s activity appears scattered and exploratory with no repeated credential focus.  \nRoot‑cause hypothesis: both sources are likely compromised client machines running automated SSH‑brute‑force tools that have been misconfigured or deliberately scripted to probe for weak credentials; the differing patterns reflect variations in the attackers’ objectives — one may be testing a broad list of usernames, while the other is concentrating on high‑value accounts such as “root” to gain privileged access.",
+    "expected_answer": "The two groups show identical attack mechanics: each source repeatedly attempts SSH logins with a short, tightly‑spaced burst of failed root or invalid‑user passwords followed by an immediate “Received disconnect … Bye Bye” message that terminates the session.  \n\nIn Group 183.62.140.253 the cadence is roughly one attempt every 2–3 seconds from 10:54 to 11:04, targeting first a non‑existent user (zhangyan), then several distinct invalid usernames (dff) and finally dozens of root attempts before the pattern repeats at 11:04; this demonstrates a sustained brute‑force sweep that lasts over ten minutes.  \n\nGroup 187.141.143.180 exhibits an almost identical timing profile—six failed root attempts within the first minute, then a second wave of three invalid‑user attempts at 09:19 – 09:20—but it compresses the entire activity into a tighter nine‑minute window and ends shortly after the final disconnect.  \n\nBoth sources therefore share the same root‑cause hypothesis: they are part of an automated, credential‑stuffing campaign that uses scripted password‑guessing against SSH, deliberately aborts each connection with a “Bye Bye” signal to avoid detection, and cycles through many source IPs (or rotates payloads) while maintaining a consistent low‑and‑slow burst pattern.  \n\nThe more anomalous attacker is 183.62.140.253 because its activity persists longer, includes an initial probe of a non‑existent user before moving to root, and shows a higher volume of repeated failed attempts across a broader time span, indicating a more aggressive and less constrained brute‑force effort compared with the shorter, tightly clustered bursts seen from 187.141.143.180.",
     "gold_provenance": {
       "method": "independent_model_then_human",
       "created_by": "src/generators/hard_tier.py@v1",
@@ -12959,7 +13577,7 @@
         "name": "nemotron-3-nano:30b",
         "family": "nemotron_h_moe",
         "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-        "prompt_sha256": "sha256:76d1a10d9d10c404ff3dd827326e150d03605ea5fdc36bae32e93dfd44e374bd"
+        "prompt_sha256": "sha256:7a4dc6caa4d613fa988ea6a330d09b79b54e92f547610add775d626cff160076"
       }
     },
     "evidence": {
@@ -13001,6 +13619,150 @@
           "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
         },
         {
+          "id": "openssh:line:00001033:eb1686ad15172a0c",
+          "line_number": 1033,
+          "line_hash": "sha256:eb1686ad15172a0cbbece1ec58239bc36d4c7b2614335b6a84075ec4f8352067",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001034:106335877deeeefe",
+          "line_number": 1034,
+          "line_hash": "sha256:106335877deeeefedc595aa442c12b2e73df02cd94264d3a80ce6a4344719abd",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001036:dbeaabad9d59f98b",
+          "line_number": 1036,
+          "line_hash": "sha256:dbeaabad9d59f98b60303c424357a20081d3297bcdcf22cb3f062d10b1026547",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001037:85d28c1f8080a6e9",
+          "line_number": 1037,
+          "line_hash": "sha256:85d28c1f8080a6e9538b7b536a47138382832a95a3b7569a5bf337c606b433f4",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001039:c90a42e0f2d81e3e",
+          "line_number": 1039,
+          "line_hash": "sha256:c90a42e0f2d81e3e2619c3d29fae30c5986684bd1d6078af847126e3dbb7ce8e",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001040:bb5b120d8ff3b8c8",
+          "line_number": 1040,
+          "line_hash": "sha256:bb5b120d8ff3b8c876457bdcfba6bfa1c3d5455be4e25cff018a06a3eb83a277",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001042:0885c2a8926af433",
+          "line_number": 1042,
+          "line_hash": "sha256:0885c2a8926af433865749f86670aea676bda14f6c916b73244072db047dcccf",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001043:4db98750acf590f7",
+          "line_number": 1043,
+          "line_hash": "sha256:4db98750acf590f7b42fe1b1edd99714707a5db8f41d07de91d9116a0a39a01a",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001045:3072695b478bbe82",
+          "line_number": 1045,
+          "line_hash": "sha256:3072695b478bbe82e95f2c8fff18b3d6e377e167d5c5f725225c9ff44f33c917",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001953:94701da75ac4c9cb",
+          "line_number": 1953,
+          "line_hash": "sha256:94701da75ac4c9cb2d324c02fab12bc36b9c7fec995eed745a28f1759bfefa72",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001957:ce7cc405bc9f1e7c",
+          "line_number": 1957,
+          "line_hash": "sha256:ce7cc405bc9f1e7c0d6302fd7aecf361753ed26389990d87a2010124142fa202",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001958:837206cbd32da52a",
+          "line_number": 1958,
+          "line_hash": "sha256:837206cbd32da52a61e04522ea6b854d6ef4f0b279b1123f6495f9029d1c26ba",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001964:6e112a16a628d5df",
+          "line_number": 1964,
+          "line_hash": "sha256:6e112a16a628d5df7a97be8325475d69404487afdf0e09f516a87a0c755adc32",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001965:87730fd37c928b34",
+          "line_number": 1965,
+          "line_hash": "sha256:87730fd37c928b345c5fbc4582fc8569b3cfaf918489ac115ece52e76d6dba32",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001973:96b09769b78123d2",
+          "line_number": 1973,
+          "line_hash": "sha256:96b09769b78123d2eca5003b3c2b023cd7ee851df9963002e7c71645ad24a3ff",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001974:92ebb8228a6b2d6f",
+          "line_number": 1974,
+          "line_hash": "sha256:92ebb8228a6b2d6f3188c1e25f81bdddb0a3bb6be4114fa94c591a3a18d3e993",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001978:b6e6805c79f22637",
+          "line_number": 1978,
+          "line_hash": "sha256:b6e6805c79f22637b1e7267f9ec9e7097b26dcffc38e5696e29fbf2b1c3b44a6",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001979:2eb5b144f420cbd0",
+          "line_number": 1979,
+          "line_hash": "sha256:2eb5b144f420cbd0bd7abb7530f90a292b169c22afbc6876eeb1be4507881df8",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001985:22e9aa4f5005c4fc",
+          "line_number": 1985,
+          "line_hash": "sha256:22e9aa4f5005c4fc77bf32f66abe1f3c5181d32d535be55b4b94407da9b7d1ed",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001986:21f285e6cef98e65",
+          "line_number": 1986,
+          "line_hash": "sha256:21f285e6cef98e65d1be1532e825eb109cc65fac0130be430a43597ebe2a1f29",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001990:b3f6d272ce73fc93",
+          "line_number": 1990,
+          "line_hash": "sha256:b3f6d272ce73fc93ac45b858d7c02a73bcdd6f78c43a51bee0021d638a0b6fff",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001991:3bb75b7a9c4d3727",
+          "line_number": 1991,
+          "line_hash": "sha256:3bb75b7a9c4d37278a464b583c3b736176734d4c754c0358a019fe93c331be45",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001997:4ac1a193a7db8607",
+          "line_number": 1997,
+          "line_hash": "sha256:4ac1a193a7db860714a39c9960782b5adf1774e8727c8433f2643c8a33dbad71",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
+          "id": "openssh:line:00001998:3d567a348cde04e8",
+          "line_number": 1998,
+          "line_hash": "sha256:3d567a348cde04e81b493beb0424b971967a1c637c16bf764b0f614f6e71f36f",
+          "group_id": "openssh:hard:attacker_compare:0:183_62_140_253"
+        },
+        {
           "id": "openssh:line:00000519:9ea4e1a29fda00dc",
           "line_number": 519,
           "line_hash": "sha256:9ea4e1a29fda00dc46d78ebb58bbbb75d6e8d80b7ba2fa57dae9cdac77a2d04a",
@@ -13035,6 +13797,150 @@
           "line_number": 533,
           "line_hash": "sha256:68818d19024791b90131dc867c1470b483c705e052b01972cbe75f774ddd9380",
           "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000537:798aa9ea50e5d9b1",
+          "line_number": 537,
+          "line_hash": "sha256:798aa9ea50e5d9b11604956b6c5d688ade773bb77548d55dcb191a6d0115dba4",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000538:b48a5e8433149fa7",
+          "line_number": 538,
+          "line_hash": "sha256:b48a5e8433149fa7f975e4fff325135ec8fce83cb2146c423e46de6986535035",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000541:1bc0945e89a5cff7",
+          "line_number": 541,
+          "line_hash": "sha256:1bc0945e89a5cff78dacf30ac3263ba9ecea51de3170c2c07e5bfbe78b73b475",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000542:933063739f94b3a3",
+          "line_number": 542,
+          "line_hash": "sha256:933063739f94b3a3c3fb6eb1f78c442ce781d6dd899e1e6ab83877777f608a57",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000545:1b7744c6588e4a88",
+          "line_number": 545,
+          "line_hash": "sha256:1b7744c6588e4a88e59099f425238757b5ef17ff5216d8d630e0f81447065e6a",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000546:bb6c49123f848bb2",
+          "line_number": 546,
+          "line_hash": "sha256:bb6c49123f848bb200d96eda33deef4ef2afc8147e4428361e7bc032d7eadebc",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000549:b1cefcf65ad21527",
+          "line_number": 549,
+          "line_hash": "sha256:b1cefcf65ad21527dc5d973484ea05b98838ac828447c12cd6cfa5089e683c75",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000550:78d05de8f053d9dd",
+          "line_number": 550,
+          "line_hash": "sha256:78d05de8f053d9dd23049cce150f217de168d2ed7e73d8c161555a135709a932",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000554:4a65bb2fe981dd56",
+          "line_number": 554,
+          "line_hash": "sha256:4a65bb2fe981dd562dd8025bc6ca27b88739ea43eeddaceb5126ce1087ab2347",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000913:07198cf467868e2b",
+          "line_number": 913,
+          "line_hash": "sha256:07198cf467868e2b7d41f0684702aaac879de2264798943d697a88127b40539e",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000917:407d9c4e78a47471",
+          "line_number": 917,
+          "line_hash": "sha256:407d9c4e78a47471ebf67d6a0ded0f120098878bdf9b30fda344dacf8ee4a5b9",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000918:f122061700790851",
+          "line_number": 918,
+          "line_hash": "sha256:f1220617007908516f370a6f72fd21b777a835b78df6636143e929bb5491f312",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000920:8b8ec2d7edb9df0d",
+          "line_number": 920,
+          "line_hash": "sha256:8b8ec2d7edb9df0dc8bf3ad638117b71e2050e6a691ae8a791b0fe2fee8cef69",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000924:9a9e16e9f681b073",
+          "line_number": 924,
+          "line_hash": "sha256:9a9e16e9f681b073db889943b04834640767e493c905cb5fe97b73e4ff98fb3e",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000925:c6fd1fcef7613cde",
+          "line_number": 925,
+          "line_hash": "sha256:c6fd1fcef7613cde5bd59becdb08b50de4c6a939dbf4531d0fbd9ca39e33fafe",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000927:1a691df90e870967",
+          "line_number": 927,
+          "line_hash": "sha256:1a691df90e8709671b722d7c33b0586245a8c1c7b025e0a3d01ef054de5e6749",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000931:698df32ea3c84551",
+          "line_number": 931,
+          "line_hash": "sha256:698df32ea3c845515e828df430e67b76f068c6998eb2f25b7959d7fa8e7e28b1",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000932:151ad9f07c8edc25",
+          "line_number": 932,
+          "line_hash": "sha256:151ad9f07c8edc2576b990076e4eecc344eeb9adbaa30977280c857cf81f5a3b",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000934:6c21a752225a6756",
+          "line_number": 934,
+          "line_hash": "sha256:6c21a752225a67568a04a54b7e16bcca9118009150fe1e39c2bc1c6c8d9fdc69",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000938:e1f0369671281aed",
+          "line_number": 938,
+          "line_hash": "sha256:e1f0369671281aed169824e83ddd0f562a5624f3b32378380e2e9c6c563201f8",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000939:b275e6096de27e8e",
+          "line_number": 939,
+          "line_hash": "sha256:b275e6096de27e8e053b022814bcb2e7e2a15b95d8567a428024a7b7e79e3aa0",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000941:fe4d9cf08c22a860",
+          "line_number": 941,
+          "line_hash": "sha256:fe4d9cf08c22a86048ebfe09208b2ba305b171a2f5fa67835c8e06c07c660447",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000945:917659fcf3b226ee",
+          "line_number": 945,
+          "line_hash": "sha256:917659fcf3b226ee4ba6dc673cb10488a539816ed8e456b7842501bf2d6f7a31",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
+        },
+        {
+          "id": "openssh:line:00000946:5b717cb3a4fdca6f",
+          "line_number": 946,
+          "line_hash": "sha256:5b717cb3a4fdca6fb158c5d731ad9ce789731e5dae292322e4b2ee579ad7e6a0",
+          "group_id": "openssh:hard:attacker_compare:0:187_141_143_180"
         }
       ]
     },
@@ -13052,7 +13958,7 @@
     "reviewers": [
       "faz1_pilot_script"
     ],
-    "expected_answer": "The two groups show distinct attack patterns in target accounts, request cadence, and outcome when examined strictly through the provided log lines. Group 103.99.0.122 targets non‑existent usernames such as “admin” and “support,” repeatedly attempts failed password authentication for each of those invalid users, and ends with a pre‑authentication disconnect indicating that no further authentication methods are available; the cadence is spaced by roughly two seconds between each attempt. In contrast, Group 112.95.230.3 focuses exclusively on the privileged account “root,” issues three consecutive failed password attempts for root within a few seconds, and terminates each session with an immediate disconnect message of “Bye Bye” during pre‑authentication. Both groups involve repeated failed logins from a single source IP, but the first group’s behavior is more anomalous because it repeatedly probes multiple distinct invalid usernames rather than persisting on a single high‑privilege account, and its pattern includes longer intervals between attempts that suggest a slower, more exploratory scanning approach. The second group appears less anomalous as it follows a typical brute‑force script aimed at root with rapid successive attempts and an abrupt termination signal. Therefore, the attacker behind 103.99.0.122 exhibits a more irregular and potentially reconnaissance‑oriented pattern compared to the straightforward credential‑guessing observed from 112.95.230.3.",
+    "expected_answer": "The two groups show distinct attack patterns in target accounts, request cadence and outcome despite both originating from single source IPs. Group 103.99.0.122 repeatedly attempts authentication against a wide variety of usernames—including “admin,” “support,” “user,” “cisco,” “test,” “guest” and even numeric identifiers like “1234”—and each failed attempt is followed by the same pre‑authentication disconnect message indicating that no further authentication methods are available. This cadence is punctuated by occasional attempts to log in as “root” interspersed among many low‑privilege guesses, and the activity persists over a four‑hour window with bursts of three to five failed attempts per minute before each disconnection. In contrast, Group 112.95.230.3 focuses almost exclusively on repeated root login attempts, sending dozens of “Failed password for root” messages in rapid succession (often every few seconds) and immediately terminating the session with the concise “Bye Bye” disconnect notice; no other usernames appear in its log excerpt. The outcome differs as well: the first group’s bursts end with a generic authentication‑method‑exhausted error, suggesting the attacker is probing for any valid credential, whereas the second group’s relentless root attempts culminate only in disconnection after each failure, indicating a brute‑force effort aimed specifically at gaining super‑user access. Because Group 103.99.0.122 exhibits a broader target set and irregular timing that mixes low‑privilege guesses with occasional privileged attempts, it appears more anomalous compared to the highly focused root‑only barrage of 112.95.230.3. The most plausible root‑cause hypothesis is that two separate compromised scanners or bots are operating against the same host: one (103.99.0.122) is running a generic credential‑spraying tool that cycles through many usernames and aborts when authentication methods run out, while the other (112.95.230.3) is employing an automated root‑login brute‑force script that relentlessly hammers the SSH service for administrative access; both may be coordinated or simply share the same compromised source infrastructure but differ in intent and technique.",
     "gold_provenance": {
       "method": "independent_model_then_human",
       "created_by": "src/generators/hard_tier.py@v1",
@@ -13062,7 +13968,7 @@
         "name": "nemotron-3-nano:30b",
         "family": "nemotron_h_moe",
         "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-        "prompt_sha256": "sha256:aa277e772c7a6dcee6ba6d14c86a0456bfc78ea24d3004717530c4cc06482d2d"
+        "prompt_sha256": "sha256:7e03e9ad8f7a509ce88a51ab91a5ada45779664b97d24857376704ad369d4af8"
       }
     },
     "evidence": {
@@ -13104,6 +14010,150 @@
           "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
         },
         {
+          "id": "openssh:line:00000355:b5842c4d83187e79",
+          "line_number": 355,
+          "line_hash": "sha256:b5842c4d83187e79b55cc3326003684fe0aba08be027ceba56ed631f683aaf82",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00000360:98cbee07ae083069",
+          "line_number": 360,
+          "line_hash": "sha256:98cbee07ae0830699b628e4c27554e1b413e24dd5dd24aa2b8d84374d815fecc",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00000361:37e1a456217a2a9a",
+          "line_number": 361,
+          "line_hash": "sha256:37e1a456217a2a9a21042428371a38231c502c28dd849b7c48dd007e56e977cc",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00000363:1ae00847bd2e5a8d",
+          "line_number": 363,
+          "line_hash": "sha256:1ae00847bd2e5a8d4ebd87c10cbaae60656d817b11a778cb786fb9bd5ecd5450",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00000364:86d786213b013332",
+          "line_number": 364,
+          "line_hash": "sha256:86d786213b013332b907b4405d8397a37180a0520b58e60ccd08577468873858",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00000365:a0942b2455f22544",
+          "line_number": 365,
+          "line_hash": "sha256:a0942b2455f225443928a0d38e7e3079f26992b9837e0e1a65ebaf96441e60b5",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00000370:53a50bf59cb2bae0",
+          "line_number": 370,
+          "line_hash": "sha256:53a50bf59cb2bae0ddcbb23948bc9b075d8b8ead0511bf56641aa7837f8c4c5a",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00000371:657b6d1f79c6e7ba",
+          "line_number": 371,
+          "line_hash": "sha256:657b6d1f79c6e7ba514c84eb35485a529b867fce256bc0c2038247190c5ef7cc",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00000374:138912849f1022d5",
+          "line_number": 374,
+          "line_hash": "sha256:138912849f1022d55521d45a3443eebfdc381183acaecd30e2567836464a6533",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00001944:9061ccc4e2a6e961",
+          "line_number": 1944,
+          "line_hash": "sha256:9061ccc4e2a6e96178f66bb65fdad411998e1cf95317757e5ddea34c1b5fb26f",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00001948:ddfc0abbb9699af1",
+          "line_number": 1948,
+          "line_hash": "sha256:ddfc0abbb9699af13d0426a4446a234eb4ade281996b7248c9a19afdaeef12ae",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00001954:07f7d722e3d1198e",
+          "line_number": 1954,
+          "line_hash": "sha256:07f7d722e3d1198ef8eaacc98e349344b4077e2f91fbb5260b2405e71f60eb81",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00001956:d71079d49c5cdd8c",
+          "line_number": 1956,
+          "line_hash": "sha256:d71079d49c5cdd8cc26eaabc70b0833ab1a945eaee24a468ceca29126999e7a5",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00001960:1be34825847adfd4",
+          "line_number": 1960,
+          "line_hash": "sha256:1be34825847adfd4392081db49e29358a597c9ff32383096bd77a88b940a1d06",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00001966:92030b8684484e8b",
+          "line_number": 1966,
+          "line_hash": "sha256:92030b8684484e8b6f6d82f2e5ee59234a582f4730b9eb21b6f99b1b7e171245",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00001968:38ea783e0962b30d",
+          "line_number": 1968,
+          "line_hash": "sha256:38ea783e0962b30df4221eeade1964a30272ada2699eb916a104447f4f2ade41",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00001969:a2bdd2dc65b9ef6d",
+          "line_number": 1969,
+          "line_hash": "sha256:a2bdd2dc65b9ef6d2c08fc8f7117a3bb1251b38ce67fad322cfd24e903cb4d08",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00001976:cb30515c232817cd",
+          "line_number": 1976,
+          "line_hash": "sha256:cb30515c232817cda40fda5f4da07500e4fdfa244819289a3270324864c43995",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00001977:b6afd65a33816432",
+          "line_number": 1977,
+          "line_hash": "sha256:b6afd65a338164322ad9c362b9392b814b4c56a8172ce4f522fbc9034a779377",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00001981:e4d15f24dc584544",
+          "line_number": 1981,
+          "line_hash": "sha256:e4d15f24dc5845442bb7275830898afb70658c6d742d8c921bad9faab79ae7bc",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00001987:126c41ccb3ffa80f",
+          "line_number": 1987,
+          "line_hash": "sha256:126c41ccb3ffa80f665ab1b64beb86a749785c48a7b165a826188e6c00ffe353",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00001989:24118e06e8b13f6d",
+          "line_number": 1989,
+          "line_hash": "sha256:24118e06e8b13f6d8e71d34dfb5f84f1d90c6b70a906c13844f7ebcc72843016",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00001993:e0a18cf191c281a4",
+          "line_number": 1993,
+          "line_hash": "sha256:e0a18cf191c281a4e8e092c0d3567e89de6c4ff7f1e366a651b72c4f740174a6",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
+          "id": "openssh:line:00002000:932e463c638238a8",
+          "line_number": 2000,
+          "line_hash": "sha256:932e463c638238a84e1c7cd35b13f201db3953d4d219963bd7982ab4fd12a61c",
+          "group_id": "openssh:hard:attacker_compare:1:103_99_0_122"
+        },
+        {
           "id": "openssh:line:00000035:9a5c042238026172",
           "line_number": 35,
           "line_hash": "sha256:9a5c0422380261726c0b6bda1655c1fce80ee35a55ef13de639f461f32bcb1d4",
@@ -13138,6 +14188,150 @@
           "line_number": 42,
           "line_hash": "sha256:5566d99383760112bc99c198b3e9ac83569ee756a5e1a5c85ed393dcbf8cb9b5",
           "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000044:d3c03c6e22892941",
+          "line_number": 44,
+          "line_hash": "sha256:d3c03c6e228929414a04cc5075e69ed2e8801c16e426b840d3b617d39045e8f7",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000045:b761d013c8c922e6",
+          "line_number": 45,
+          "line_hash": "sha256:b761d013c8c922e69d6576440f344e5cdbf370d6fc29612ab63fe88e18c62e77",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000047:f923f27aaad5baba",
+          "line_number": 47,
+          "line_hash": "sha256:f923f27aaad5baba8c4ada5b81802d225fdd80ca9da73a346750e6e0d36e7d05",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000048:5242b1327020cf87",
+          "line_number": 48,
+          "line_hash": "sha256:5242b1327020cf87ff7f77f41e28a1089a9f4f15bae983eab1cb6a407f13178a",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000049:95de82d6b244ead6",
+          "line_number": 49,
+          "line_hash": "sha256:95de82d6b244ead6f4a31dc6fd11f5289352c603e8a981b758d0c650ea35fe98",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000053:59e9bdec416d8f4b",
+          "line_number": 53,
+          "line_hash": "sha256:59e9bdec416d8f4b02801e765349c5b8678319a7ccd451c32b2832913db05cc5",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000054:0ce907e3be479cfc",
+          "line_number": 54,
+          "line_hash": "sha256:0ce907e3be479cfc2be6316a0d3dbc4a67e649ace729fe6b36b799b1a93a95e0",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000056:c32aa8b2ddc6b00b",
+          "line_number": 56,
+          "line_hash": "sha256:c32aa8b2ddc6b00b4a03a373c2d246a57ecb31723dadcb61154627b0ff6b27da",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000057:f982e9240cfecf25",
+          "line_number": 57,
+          "line_hash": "sha256:f982e9240cfecf2566eb4b4bc83e9458297f9822a8a95c95bf2f9fc2636dc931",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000096:81d7254635b76e7a",
+          "line_number": 96,
+          "line_hash": "sha256:81d7254635b76e7ae5fd12074f11bcfaab39f5ae07ac9ed3f312d12842fb364b",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000098:e0f548fe617a5393",
+          "line_number": 98,
+          "line_hash": "sha256:e0f548fe617a53939f6acf4bd4505115fcd5691bd7d3cde121f3918ac731e1bd",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000099:fe97129f0e64cc24",
+          "line_number": 99,
+          "line_hash": "sha256:fe97129f0e64cc249d0c192e527e6c9dd67c9c39bab96a977612ce2567945a2e",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000101:82dbd1348974ff94",
+          "line_number": 101,
+          "line_hash": "sha256:82dbd1348974ff945b8c6ea6efdcf88ec7c2bef7bc36c442d22ead1d4f658484",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000102:a9b6ca0722e0d5d7",
+          "line_number": 102,
+          "line_hash": "sha256:a9b6ca0722e0d5d764400f174023b9e2af3a702d9469be05030ab739d7671841",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000104:3722e23efc9c3a1f",
+          "line_number": 104,
+          "line_hash": "sha256:3722e23efc9c3a1f8b1e54ed4bf56c6f2df4b86040f89bf1efdeb4b406eda6b4",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000105:3a855dfaba88756b",
+          "line_number": 105,
+          "line_hash": "sha256:3a855dfaba88756bafaeba05843e48bac0e57d54985844a0902e8684bfddb6b5",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000107:c49fea22a04696a7",
+          "line_number": 107,
+          "line_hash": "sha256:c49fea22a04696a782671351834274f7d7edc6259591761372322d889c2d5fcd",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000108:10ccd69a832c557a",
+          "line_number": 108,
+          "line_hash": "sha256:10ccd69a832c557aa8d5ebf8e360515914f9f843ff894e486fecedb1c081b08c",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000110:285b8a0ef51e0d8a",
+          "line_number": 110,
+          "line_hash": "sha256:285b8a0ef51e0d8a3fefdf7201d5740dca7a18ea0d1d89628081cdd1f304e926",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000111:d1ab266844db2413",
+          "line_number": 111,
+          "line_hash": "sha256:d1ab266844db2413814c3d22046bafc6b857eca96ed33303bd9e823cadf1fe67",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000113:0c14798cb337272a",
+          "line_number": 113,
+          "line_hash": "sha256:0c14798cb337272a8d1dd125ba3b2651be4b1f676740a0d553e11c904ca58466",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000114:bcda068929e1afab",
+          "line_number": 114,
+          "line_hash": "sha256:bcda068929e1afab623819cfa58d38677f7ff3bd478c9592e0fa38933a116012",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000116:bcc0fffc18288eb1",
+          "line_number": 116,
+          "line_hash": "sha256:bcc0fffc18288eb155d6370b88df08fdd01aefa27d693a68e1f1c7475969dfa7",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
+        },
+        {
+          "id": "openssh:line:00000117:29c8bd8dd7a9d7f8",
+          "line_number": 117,
+          "line_hash": "sha256:29c8bd8dd7a9d7f811e7e5640ae3dcd89a6a0e3374eefead8989a13d1a494c84",
+          "group_id": "openssh:hard:attacker_compare:1:112_95_230_3"
         }
       ]
     },
@@ -13155,7 +14349,7 @@
     "reviewers": [
       "faz1_pilot_script"
     ],
-    "expected_answer": "The two groups show parallel intrusion attempts that begin with an “Invalid user” line followed by a failed authentication attempt, but the timing and payload differ in ways that reveal distinct attacker behavior. In the first group (5.188.10.180) all six lines are tightly clustered within 24 seconds, each subsequent log entry increments the process ID sequentially and repeats the same pattern of “Invalid user” → “Failed password for invalid user” with only the numeric username changing from 0 to 1234; this rapid succession suggests an automated script that is cycling through a list of dummy usernames in a single burst. In contrast, the second group (185.190.58.151) spreads its activity over roughly 67 seconds, with pauses between each username probe and a clear progression from “Invalid user 0” to “Invalid user 123” to “Invalid user admin,” indicating that the attacker is manually testing different credentials rather than running a blind brute‑force loop. The first source therefore behaves more suspiciously because its high frequency, identical error messages, and lack of any successful login attempt point to an automated scanning tool probing for weak accounts, whereas the second source’s slower pace and varied usernames imply a more cautious, possibly human‑driven reconnaissance effort. My hypothesis is that both IPs belong to the same adversary who first deployed a fast‑moving scanner from 5.188.10.180 to locate vulnerable SSH services, then switched to a slower, credential‑specific attack from 185.190.58.151 to target accounts that appeared promising after the initial scan revealed open ports. This shift in tactics explains why the first group’s logs are densely packed and repetitive while the second group’s entries show increasing specificity and longer intervals between attempts.",
+    "expected_answer": "Both groups show a pattern of repeated failed SSH login attempts using the same usernames (admin, guest, default) and identical failure messages (“Failed password for invalid user …”), indicating automated credential‑guessing rather than legitimate access.  \nThe 5.188.10.180 source exhibits a longer continuous burst—starting at 08:24 and persisting with new usernames and fresh port numbers until 09:13, after which it ends with “Did not receive identification string,” suggesting the scanner kept probing for over an hour before giving up.  \nIn contrast, 185.190.58.151 initiates its burst later (at 09:07) and completes a similar series of attempts within roughly an hour, ending also with “Did not receive identification string,” but it does so with fewer distinct usernames and a more compact timeline.  \nBecause the longer, uninterrupted activity from 5.188.10.180 involves many repeated login cycles without any successful entry or corrective action, it demonstrates a higher level of persistence and thus behaves more suspiciously; the hypothesis is that this IP belongs to an external brute‑force scanner attempting exhaustive password guessing against the SSH service.",
     "gold_provenance": {
       "method": "independent_model_then_human",
       "created_by": "src/generators/hard_tier.py@v1",
@@ -13165,7 +14359,7 @@
         "name": "nemotron-3-nano:30b",
         "family": "nemotron_h_moe",
         "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-        "prompt_sha256": "sha256:a44d10b49df765bf780f8b15b921a5d0bf5b3b1249e095da44ad7a6c14cc490c"
+        "prompt_sha256": "sha256:8bd6589b2d2c69f60158ea9d427c89ebdbba9e7b28d299284e44c4785a995062"
       }
     },
     "evidence": {
@@ -13207,6 +14401,150 @@
           "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
         },
         {
+          "id": "openssh:line:00000202:2d890580b5fe44d7",
+          "line_number": 202,
+          "line_hash": "sha256:2d890580b5fe44d778369b08c745a60aa9da0382162a40d25f4f58e827caf6f3",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000204:b5bf14138ebbc67c",
+          "line_number": 204,
+          "line_hash": "sha256:b5bf14138ebbc67cae370094483b57bfed74ff3a6fe3ec25637fbad35d75807a",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000206:5b4320b2908a9213",
+          "line_number": 206,
+          "line_hash": "sha256:5b4320b2908a9213e9a95e3e3d603d1a18d592b4f84887a4a7bd7cf2986b7c3b",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000208:86cb8da4344c16c9",
+          "line_number": 208,
+          "line_hash": "sha256:86cb8da4344c16c927a45e74d9ee8062c0f6c0d415398ca5ea32343d332dc97d",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000212:9c0c1cf3af0f166e",
+          "line_number": 212,
+          "line_hash": "sha256:9c0c1cf3af0f166e96b51ba88e9ebe21182319c2aea7847df71c6bee6b2af8af",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000214:e8225abf774127bd",
+          "line_number": 214,
+          "line_hash": "sha256:e8225abf774127bd6cc65d8457c271451639a0fe4e7e26a2dfe70a1c52affcb6",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000216:8547eee5eff2d902",
+          "line_number": 216,
+          "line_hash": "sha256:8547eee5eff2d9023c66bbe71fb6a931488aae00c9e8d9d43061dd8e208b6810",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000218:50bf0bfb01290960",
+          "line_number": 218,
+          "line_hash": "sha256:50bf0bfb0129096014e95ee89b294dc578fa1d961999a1321f420b0c53b5bf02",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000220:5adc568412f838d1",
+          "line_number": 220,
+          "line_hash": "sha256:5adc568412f838d137b6fb0e19d52243110372ef8dce522732963cdaaff92af8",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000224:9c82b6246b2f3a33",
+          "line_number": 224,
+          "line_hash": "sha256:9c82b6246b2f3a33b9bd00e46cb9780b908a7cb075b74c664990055c5cfdbd91",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000228:9e642756aadc3dc0",
+          "line_number": 228,
+          "line_hash": "sha256:9e642756aadc3dc034707ca1b44577dfffda4bd0d6f3f4ecb6a3b854f21499ff",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000230:ceb84772ed50ca67",
+          "line_number": 230,
+          "line_hash": "sha256:ceb84772ed50ca679e0b52307315dca198efdccd562a4b814193b95d34ce5f68",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000232:9b07ada737f32cba",
+          "line_number": 232,
+          "line_hash": "sha256:9b07ada737f32cba1123b153f3c8710972fb536ffe9b3c84dc5628343935e86d",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000234:266aeaab6d986d27",
+          "line_number": 234,
+          "line_hash": "sha256:266aeaab6d986d27fba053c179e29aa6ecf81fda3fba7dcc522690cf3e808b9e",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000236:a68399f9bbd835e3",
+          "line_number": 236,
+          "line_hash": "sha256:a68399f9bbd835e3a71e20d3b3476eb4cb542deba685410083090c6864cab4c3",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000240:242de9b867470e4a",
+          "line_number": 240,
+          "line_hash": "sha256:242de9b867470e4aee62fa4a91c57bf27aff72aec57604a4668c51cd6e38cae5",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000244:ea65c59a0b2cf12f",
+          "line_number": 244,
+          "line_hash": "sha256:ea65c59a0b2cf12f8a0507812511ddc739325d89c3c570c4522ef4a86a46bd30",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000246:ef5c259f91005f68",
+          "line_number": 246,
+          "line_hash": "sha256:ef5c259f91005f685f738d13349075f9e366348eeba2a6f4d5c1d43ba98849e7",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000250:684c7629c0f01b7d",
+          "line_number": 250,
+          "line_hash": "sha256:684c7629c0f01b7d2ac4abdf5b53cdaa1c7bf68a724b6088614ffa678aed74ab",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000252:ab6cf06049ce5c8d",
+          "line_number": 252,
+          "line_hash": "sha256:ab6cf06049ce5c8d23653695ce392fbe61029776d9c95fe115a14464d67b6224",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000256:b137dfca83cf93e8",
+          "line_number": 256,
+          "line_hash": "sha256:b137dfca83cf93e80488797119102c428ad5c227018c68ff305f8090da69b516",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000258:1100917a2672ac21",
+          "line_number": 258,
+          "line_hash": "sha256:1100917a2672ac21de4435645375f1f6e5258bab5eca457fa5a638af6238d8f0",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000262:e4beb404f13e15b0",
+          "line_number": 262,
+          "line_hash": "sha256:e4beb404f13e15b07f3bbe23805aff95fd387b98ebac6a5d2bc77be79abe11bd",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
+          "id": "openssh:line:00000265:f9b21f63918cef55",
+          "line_number": 265,
+          "line_hash": "sha256:f9b21f63918cef558f0e7dc8e032b13effaa7f2ba6f8e8a79534967582e886bb",
+          "group_id": "openssh:hard:attacker_compare:2:5_188_10_180"
+        },
+        {
           "id": "openssh:line:00000296:7990299afb687ba4",
           "line_number": 296,
           "line_hash": "sha256:7990299afb687ba40644a36fc0188bb1f451df9749909308879f606e7372d63b",
@@ -13241,6 +14579,126 @@
           "line_number": 310,
           "line_hash": "sha256:d9e88d52f933076f7b8df77d5d40522440c391b94fe12fe2bbf15795a757e372",
           "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
+        },
+        {
+          "id": "openssh:line:00000312:ab2bc9447f6f5499",
+          "line_number": 312,
+          "line_hash": "sha256:ab2bc9447f6f5499b12fa2bc058aa25ad098931d7e7bb83308ed62ea0f3ed634",
+          "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
+        },
+        {
+          "id": "openssh:line:00000314:8cbe232e1b9b5608",
+          "line_number": 314,
+          "line_hash": "sha256:8cbe232e1b9b5608e3944e011fe3b173aba624574637fd1d41b957459672187a",
+          "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
+        },
+        {
+          "id": "openssh:line:00000317:62dcdd43b983f5a3",
+          "line_number": 317,
+          "line_hash": "sha256:62dcdd43b983f5a343a2e97e70c666bcdf74f65cadd2c03112b581d7f94896a8",
+          "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
+        },
+        {
+          "id": "openssh:line:00000321:769786552ece2767",
+          "line_number": 321,
+          "line_hash": "sha256:769786552ece27673040d2e2029e7694c0ccfafb0f78cc552b0e9e5c00cec249",
+          "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
+        },
+        {
+          "id": "openssh:line:00000323:d0a5ecea04868f6a",
+          "line_number": 323,
+          "line_hash": "sha256:d0a5ecea04868f6a6391ba44f7c6eb489e3ee924d416e3989b78da689482c721",
+          "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
+        },
+        {
+          "id": "openssh:line:00000325:6cbcbf9a33165138",
+          "line_number": 325,
+          "line_hash": "sha256:6cbcbf9a33165138c69642c017da8645184bd7f0b5a8cfb7e963b0c4ec90a0d4",
+          "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
+        },
+        {
+          "id": "openssh:line:00000327:536ce3a9475e6429",
+          "line_number": 327,
+          "line_hash": "sha256:536ce3a9475e6429b1772329e5bb545052c117c591ab20f2f1eb30673f888044",
+          "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
+        },
+        {
+          "id": "openssh:line:00000329:14044a5a08723953",
+          "line_number": 329,
+          "line_hash": "sha256:14044a5a08723953f4fa2d8ecd785500f835a70899bd2b02531215560ba14af5",
+          "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
+        },
+        {
+          "id": "openssh:line:00000333:6c99e9894c7f3489",
+          "line_number": 333,
+          "line_hash": "sha256:6c99e9894c7f3489722808f7cb4b30034bd1e851e29a5afa9146ca90ff7566c7",
+          "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
+        },
+        {
+          "id": "openssh:line:00000337:c270c3116cc3c5b9",
+          "line_number": 337,
+          "line_hash": "sha256:c270c3116cc3c5b95ec5b1557cc6476f17e4db452241d190a48a15dca8cb685b",
+          "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
+        },
+        {
+          "id": "openssh:line:00000339:ad91987dfa02f069",
+          "line_number": 339,
+          "line_hash": "sha256:ad91987dfa02f069c048774195798493d633617c791a191f1edcf4a5e6c174ca",
+          "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
+        },
+        {
+          "id": "openssh:line:00000341:17ccd6ce44ddafb1",
+          "line_number": 341,
+          "line_hash": "sha256:17ccd6ce44ddafb113af59b6d99cfa3132a223b0dc54f7a78d750373f65122da",
+          "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
+        },
+        {
+          "id": "openssh:line:00000359:01a653869486c283",
+          "line_number": 359,
+          "line_hash": "sha256:01a653869486c283f185654b565e6f188d3e793afc7763e324797f4457f5cccd",
+          "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
+        },
+        {
+          "id": "openssh:line:00000372:d68151b7acfd20dd",
+          "line_number": 372,
+          "line_hash": "sha256:d68151b7acfd20dd658054d954d084fcb9576ec1976515aa5e12520ba5785026",
+          "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
+        },
+        {
+          "id": "openssh:line:00000437:ccd7cbe97d4a959a",
+          "line_number": 437,
+          "line_hash": "sha256:ccd7cbe97d4a959a634005e74562462e72cc165e9c1a60c300079c7123e3b5cf",
+          "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
+        },
+        {
+          "id": "openssh:line:00000443:2d179b5ce73dada9",
+          "line_number": 443,
+          "line_hash": "sha256:2d179b5ce73dada9e3fe6090fafbd3935c8ca7a4bee046c0802734760e95247e",
+          "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
+        },
+        {
+          "id": "openssh:line:00000464:be17c9da71cfaa25",
+          "line_number": 464,
+          "line_hash": "sha256:be17c9da71cfaa250308782fc1ed87c002eadb37c0c49caa900a64f2366e3933",
+          "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
+        },
+        {
+          "id": "openssh:line:00000525:e4ca68d10d4227fc",
+          "line_number": 525,
+          "line_hash": "sha256:e4ca68d10d4227fce84c5aaee60a7ee4a542a2f21f267c3c6b8a2da359d7d602",
+          "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
+        },
+        {
+          "id": "openssh:line:00000531:3e64af6330eac030",
+          "line_number": 531,
+          "line_hash": "sha256:3e64af6330eac0302914cc18d4c7f0bde54348517ff041df3c8524361f5b50c5",
+          "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
+        },
+        {
+          "id": "openssh:line:00000551:e1ae679528ba4dc4",
+          "line_number": 551,
+          "line_hash": "sha256:e1ae679528ba4dc4f44e23a5ba641cc1a01878f1d7e91f32ea333dff437c1930",
+          "group_id": "openssh:hard:attacker_compare:2:185_190_58_151"
         }
       ]
     },
@@ -13258,7 +14716,7 @@
     "reviewers": [
       "faz1_pilot_script"
     ],
-    "expected_answer": "The two groups show parallel attack patterns but differ in timing and user targeting, revealing distinct stages of the same adversary’s campaign. In Group 1 (123.235.32.19) every line records a failed password attempt for **root** from the same source port range within seconds of each other, followed by an immediate “Bye Bye” disconnect, indicating rapid brute‑force attempts against the privileged account and swift termination after failure. In Group 2 (52.80.34.196) the log shows a sequence that begins with an **invalid user** probe (“test9”), then moves to a failed password for that same invalid user, again ending with a disconnect; later it repeats the pattern with another username (“test”) at a much later time (≈ 50 minutes after the first attempt). This staggered timing and shift from root to generic usernames suggest the attacker is moving through reconnaissance phases—first targeting high‑value accounts, then expanding to less obvious credentials. The more anomalous source is **123.235.32.19**, because its activity is tightly clustered in a short window with repeated attempts on the most privileged account and immediate disconnections, whereas 52.80.34.196 exhibits spaced‑out, multi‑step behavior that aligns more closely with typical scanning or credential‑testing phases rather than an aggressive burst. Consequently, the root cause hypothesis is that a single attacker is conducting a staged brute‑force operation: first launching a high‑intensity, root‑focused attack from 123.235.32.19, then retreating and later returning with a slower, broader credential‑guessing effort from 52.80.34.196.",
+    "expected_answer": "The evidence shows that both IP addresses generate repeated failed authentication attempts against the same SSH service, but they differ in how those attempts are structured and when they occur.  \nIn Group [123.235.32.19] every line records a successful‑looking “Failed password for root” attempt followed immediately by a disconnect message, and this pattern repeats across many distinct source ports within a short burst that spans roughly 7 minutes (from 07:32 to 07:34).  \nIn Group [52.80.34.196] the log contains three separate clusters of activity—around 07:07, 07:55‑07:56, and then a series of later attempts at 08:44, 09:32‑09:32, and finally at 10:21‑10:21—each cluster consisting of an “Invalid user” line, a corresponding failed password attempt on the same port, and a disconnect, with gaps of many minutes to hours between clusters.  \nBecause the first group exhibits a continuous, high‑frequency burst of root‑level attacks that never progresses beyond failed attempts before being terminated by a disconnect, it demonstrates a more concentrated and aggressive probing behavior than the second group’s dispersed, lower‑frequency pattern of invalid‑user attacks.  \n\n**Root‑cause hypothesis:** The 123.235.32.19 source is likely an automated brute‑force scanner targeting the root account with many simultaneous connection attempts, whereas 52.80.34.196 appears to be a less focused attacker or script that intermittently probes for weak usernames; consequently, 123.235.32.19 is the more anomalous and potentially dangerous attacker.",
     "gold_provenance": {
       "method": "independent_model_then_human",
       "created_by": "src/generators/hard_tier.py@v1",
@@ -13268,7 +14726,7 @@
         "name": "nemotron-3-nano:30b",
         "family": "nemotron_h_moe",
         "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-        "prompt_sha256": "sha256:e9240d0cf77328b8a57fd48e2283365fea6ea71c364f9dc0e14390f84d429b45"
+        "prompt_sha256": "sha256:709d2660084a23cdc2dfdcae221c4ac392ff574d4b6df41334d81d76543216cf"
       }
     },
     "evidence": {
@@ -13310,6 +14768,60 @@
           "group_id": "openssh:hard:attacker_compare:3:123_235_32_19"
         },
         {
+          "id": "openssh:line:00000128:c419728192dee6c5",
+          "line_number": 128,
+          "line_hash": "sha256:c419728192dee6c5f90070e89dca393ab33c5c1b9e564112db69d2ffd8d9c726",
+          "group_id": "openssh:hard:attacker_compare:3:123_235_32_19"
+        },
+        {
+          "id": "openssh:line:00000129:edcd800eb5db03d3",
+          "line_number": 129,
+          "line_hash": "sha256:edcd800eb5db03d33f35b5fa174e719d6130edd1fcb625dedd472ac7dee6bf02",
+          "group_id": "openssh:hard:attacker_compare:3:123_235_32_19"
+        },
+        {
+          "id": "openssh:line:00000131:a8200385e1bf14fb",
+          "line_number": 131,
+          "line_hash": "sha256:a8200385e1bf14fbfbb87506616584e5058c8515316cae927e8cfa65aad2ea06",
+          "group_id": "openssh:hard:attacker_compare:3:123_235_32_19"
+        },
+        {
+          "id": "openssh:line:00000132:6e41be841e904fe0",
+          "line_number": 132,
+          "line_hash": "sha256:6e41be841e904fe098b05b9fa8fe3555621d2daac9e1ebda02ecb7d3a97ffa68",
+          "group_id": "openssh:hard:attacker_compare:3:123_235_32_19"
+        },
+        {
+          "id": "openssh:line:00000134:36bd0c976c840447",
+          "line_number": 134,
+          "line_hash": "sha256:36bd0c976c840447fe4af105bff7dc37f204297c73f396e1a18beb566fae75cb",
+          "group_id": "openssh:hard:attacker_compare:3:123_235_32_19"
+        },
+        {
+          "id": "openssh:line:00000135:7ee695de8ddf794d",
+          "line_number": 135,
+          "line_hash": "sha256:7ee695de8ddf794d6d50d0747a65b33e653689d10a0218b24d54f772a55ac0dc",
+          "group_id": "openssh:hard:attacker_compare:3:123_235_32_19"
+        },
+        {
+          "id": "openssh:line:00000137:c11c2258202154df",
+          "line_number": 137,
+          "line_hash": "sha256:c11c2258202154df882d8e98771b20a4aecafb582b05f0ae0e46458b0b4f8675",
+          "group_id": "openssh:hard:attacker_compare:3:123_235_32_19"
+        },
+        {
+          "id": "openssh:line:00000138:db826d719522bc14",
+          "line_number": 138,
+          "line_hash": "sha256:db826d719522bc14221dc2b8bc138f5ef08c323f4dff2654085eaa9ff14cc6e2",
+          "group_id": "openssh:hard:attacker_compare:3:123_235_32_19"
+        },
+        {
+          "id": "openssh:line:00000139:701862ac0a22b85e",
+          "line_number": 139,
+          "line_hash": "sha256:701862ac0a22b85ed34c8343090756b482a33144cbac4674873da6cd1e00e63c",
+          "group_id": "openssh:hard:attacker_compare:3:123_235_32_19"
+        },
+        {
           "id": "openssh:line:00000009:86b159391129250c",
           "line_number": 9,
           "line_hash": "sha256:86b159391129250c7b7ed860d36e9f055d22041a702f47be883a23db12b85a83",
@@ -13344,6 +14856,60 @@
           "line_number": 169,
           "line_hash": "sha256:a21d7d59f8361db5fa6b1763d8c95fdf22854c089ce89be7130030243b4255d4",
           "group_id": "openssh:hard:attacker_compare:3:52_80_34_196"
+        },
+        {
+          "id": "openssh:line:00000289:90415a5e71d5f09e",
+          "line_number": 289,
+          "line_hash": "sha256:90415a5e71d5f09e837cac7907b58b7811bcb0d62df7c589dc2a2472883c6060",
+          "group_id": "openssh:hard:attacker_compare:3:52_80_34_196"
+        },
+        {
+          "id": "openssh:line:00000293:e4a9ed54baf08a67",
+          "line_number": 293,
+          "line_hash": "sha256:e4a9ed54baf08a67ca767872e5e7e1a9c557be076b173dc4381706a001a25f77",
+          "group_id": "openssh:hard:attacker_compare:3:52_80_34_196"
+        },
+        {
+          "id": "openssh:line:00000294:b32ee4aa8ef7478e",
+          "line_number": 294,
+          "line_hash": "sha256:b32ee4aa8ef7478eb7e3243110a941de55065833f7d95cea6727aaeb97ce4188",
+          "group_id": "openssh:hard:attacker_compare:3:52_80_34_196"
+        },
+        {
+          "id": "openssh:line:00000958:43904b3bdc4e4f68",
+          "line_number": 958,
+          "line_hash": "sha256:43904b3bdc4e4f6807c7ebee70c3a5dbfc5a5d23afdf9e2cbf01aca1569150ed",
+          "group_id": "openssh:hard:attacker_compare:3:52_80_34_196"
+        },
+        {
+          "id": "openssh:line:00000962:84772e8b9a5e4e04",
+          "line_number": 962,
+          "line_hash": "sha256:84772e8b9a5e4e0461b524f2223d394214ec511e92879e64e16b307364d4ac79",
+          "group_id": "openssh:hard:attacker_compare:3:52_80_34_196"
+        },
+        {
+          "id": "openssh:line:00000963:106fe6cf888b73cc",
+          "line_number": 963,
+          "line_hash": "sha256:106fe6cf888b73cc0a64a8925af6d15298d0ac39a7d89197aed970062bbbe9e4",
+          "group_id": "openssh:hard:attacker_compare:3:52_80_34_196"
+        },
+        {
+          "id": "openssh:line:00001005:5e4940c920c15527",
+          "line_number": 1005,
+          "line_hash": "sha256:5e4940c920c15527768d8be72d4f1db7e01d7bd80d200c1a977ff8f97bfbca68",
+          "group_id": "openssh:hard:attacker_compare:3:52_80_34_196"
+        },
+        {
+          "id": "openssh:line:00001009:f6d85e35ae79c83b",
+          "line_number": 1009,
+          "line_hash": "sha256:f6d85e35ae79c83b62aa56f5acd63d6a569cb07054449bb3d8e825ce3bab25fa",
+          "group_id": "openssh:hard:attacker_compare:3:52_80_34_196"
+        },
+        {
+          "id": "openssh:line:00001010:31aeb27e869d9ccd",
+          "line_number": 1010,
+          "line_hash": "sha256:31aeb27e869d9ccd1154fafc21e67a2d226de125df30ba7d628e35a14320f09b",
+          "group_id": "openssh:hard:attacker_compare:3:52_80_34_196"
         }
       ]
     },
@@ -13361,7 +14927,7 @@
     "reviewers": [
       "faz1_pilot_script"
     ],
-    "expected_answer": "The six lines from the first group all record identical “RAS KERNEL FATAL data TLB error interrupt” messages on node **R30‑M0‑N9‑C:J16‑U01**, with timestamps spaced only a few seconds apart and no other event types shown.  \nIn contrast, the second group contains six lines from node **R02‑M1‑N0‑C:J12‑U11** that each report “RAS KERNEL INFO instruction cache parity error corrected” events occurring over a three‑day span and separated by minutes rather than seconds.  \nBoth groups involve RAS kernel messages, but the first group’s fatal TLB errors are far more severe in severity and occur in rapid succession on a single node, while the second group only shows informational cache‑parity corrections spread out over time.  \nBecause the pattern of repeated fatal TLB interrupts is unique to R30‑M0‑N9‑C:J16‑U01 and lacks any mitigating INFO messages, it stands out as the more anomalous behavior.  \nThe root‑cause hypothesis therefore points to a hardware fault in the memory management unit or TLB of node **R30‑M0‑N9‑C:J16‑U01**, likely triggered by a physical defect or timing issue that forces repeated fatal data‑TLB errors.",
+    "expected_answer": "The two groups show distinct error signatures that can be directly linked to the hardware components they report on; in Group R30‑M0‑N9‑C:J16‑U01 every line records a **KERNEL FATAL data TLB error interrupt**, indicating repeated fatal failures of the Translation Lookaside Buffer for data accesses, while Group R02‑M1‑N0‑C:J12‑U11 contains only **KERNEL INFO instruction cache parity error corrected** messages that note non‑fatal parity problems in the instruction cache and are logged far less frequently.  The fatal TLB errors appear in a tight, continuous burst spanning from 17:32 to 23:26 on June 11 2005 with timestamps only seconds apart, suggesting an ongoing hardware fault that is not being cleared by software, whereas the instruction‑cache parity events are spaced days apart and never escalate to a fatal condition.  Because the R30 node exhibits a sustained pattern of fatal TLB interrupts without any intervening corrective messages, its behavior is more anomalous and points to a deeper memory‑coherency or processor‑internal fault.  The root‑cause hypothesis is that a defective data‑TLB entry or a hardware defect in the TLB replacement logic on R30‑M0‑N9‑C:J16‑U01 is causing repeated fatal errors, leading to system instability and requiring either microcode update or replacement of the compute node.",
     "gold_provenance": {
       "method": "independent_model_then_human",
       "created_by": "src/generators/hard_tier.py@v1",
@@ -13371,7 +14937,7 @@
         "name": "nemotron-3-nano:30b",
         "family": "nemotron_h_moe",
         "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-        "prompt_sha256": "sha256:8981af236e5eec73e04fdc57ed61ab9124502e507c58ec6a3fbd55562505868e"
+        "prompt_sha256": "sha256:2f9e6a68199938b73294945ab2edc851b80e5959e81e45140d28cdef7e05a68e"
       }
     },
     "evidence": {
@@ -13413,6 +14979,150 @@
           "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
         },
         {
+          "id": "bgl:line:00000110:321d16b8bb27c968",
+          "line_number": 110,
+          "line_hash": "sha256:321d16b8bb27c9684bcff4df776b5b94179cb5c57204230b2da2cdecdc244315",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000111:e3dfbc793c9e0c95",
+          "line_number": 111,
+          "line_hash": "sha256:e3dfbc793c9e0c9502cd24a42d3a6b5638af5b1698f75e6b9fae11b0abe9832d",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000112:62c20a0565aa467e",
+          "line_number": 112,
+          "line_hash": "sha256:62c20a0565aa467e9336addf76d0ad5ca9d936fde1fc500282b6615610e6449f",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000113:c6b40282d1e931f2",
+          "line_number": 113,
+          "line_hash": "sha256:c6b40282d1e931f2123df8e534fad9013b48364f63f71b300f9e2b1b3911296c",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000114:45ba0da9e0d245f2",
+          "line_number": 114,
+          "line_hash": "sha256:45ba0da9e0d245f2b7a2f7b4390dd00e147f91637deb97b58cdc2982af8bbc7d",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000115:37abb944442b7695",
+          "line_number": 115,
+          "line_hash": "sha256:37abb944442b76951131504d2295a70ca443ec6ba63110b493c4c89b3bcae144",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000116:e90b515df3d45d1f",
+          "line_number": 116,
+          "line_hash": "sha256:e90b515df3d45d1f478c27160f7db4cc265b44e91d14f8ecc450fb671d88ea07",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000117:92b02e49d7f3a245",
+          "line_number": 117,
+          "line_hash": "sha256:92b02e49d7f3a245ca7ce4097d6419499c74cccb3db6ae95a627cf9090832926",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000118:f51635cde8aece09",
+          "line_number": 118,
+          "line_hash": "sha256:f51635cde8aece0942c2d512bdeb482b1ff46abe81dd3ac881c67f20133c4b9b",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000149:88639625a0387234",
+          "line_number": 149,
+          "line_hash": "sha256:88639625a0387234218cef219b4c4f50382230af6c6e64cfb85229ffe0537e46",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000150:5edf50d87113bc71",
+          "line_number": 150,
+          "line_hash": "sha256:5edf50d87113bc714cd63db52b999488ac70f6c6685e9557cd754de96c29e4a3",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000151:8b806fb9fb00eba8",
+          "line_number": 151,
+          "line_hash": "sha256:8b806fb9fb00eba852675ff9674b7ec67b714e3be1da49bbef63480317da992f",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000152:4ca0937035b8fa83",
+          "line_number": 152,
+          "line_hash": "sha256:4ca0937035b8fa83e09929ee62afdeef1fe42df71ab0f3de9e78eeda05502a7a",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000153:ce8d60f2750670b0",
+          "line_number": 153,
+          "line_hash": "sha256:ce8d60f2750670b0a6f75bd941a1d21fde1997746733eebc0fa12730cd91f44e",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000154:1ee80c6d3985ee2a",
+          "line_number": 154,
+          "line_hash": "sha256:1ee80c6d3985ee2afb9b4591a0b71b05b1e586a1a04d00cb49ea6ab2998ecd24",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000155:31c528c7bb4bf965",
+          "line_number": 155,
+          "line_hash": "sha256:31c528c7bb4bf9654ff750c060e42745d68d31e04abcaba89f83deab1a009940",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000156:990c134b7e8c7328",
+          "line_number": 156,
+          "line_hash": "sha256:990c134b7e8c7328ab1757f3f6bb5fb2b39467ca5462162e95d8400043421359",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000157:32d59ea832223bbb",
+          "line_number": 157,
+          "line_hash": "sha256:32d59ea832223bbb2a9a3026d9ac38f5c851ff8fa8120e6047938eaefd230b78",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000158:865bd905f5fce91e",
+          "line_number": 158,
+          "line_hash": "sha256:865bd905f5fce91e06cd7fd1bfc35b1454732e41fa107953fadd87ad8acaa1b6",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000159:85c2ca6ca0160b95",
+          "line_number": 159,
+          "line_hash": "sha256:85c2ca6ca0160b954bd5ff051ff3685383fe171823352cb55f570c8feda5af06",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000160:a19086b0b60ca3aa",
+          "line_number": 160,
+          "line_hash": "sha256:a19086b0b60ca3aa70657ef55a4abb2c473b7266f4d83a29a1e8d5be194cb526",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000161:72eb50802f71f5f8",
+          "line_number": 161,
+          "line_hash": "sha256:72eb50802f71f5f80e6d8d101828db7817bc461821b59714a0dd722f2e7b3218",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000162:a965bbed996bfec7",
+          "line_number": 162,
+          "line_hash": "sha256:a965bbed996bfec78add32c8065bdbfe177a6700820ea3ee9f71c25f6a86bffe",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
+          "id": "bgl:line:00000163:5839c66f6e969eb9",
+          "line_number": 163,
+          "line_hash": "sha256:5839c66f6e969eb9450a51c8b9b5256dc9ca4dcecf0e546de5d0387dbd21e328",
+          "group_id": "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01"
+        },
+        {
           "id": "bgl:line:00000001:188cf3cec43cd174",
           "line_number": 1,
           "line_hash": "sha256:188cf3cec43cd174ce3b4bc37000ec66dbb2bcd88c10315606b608a2b79d5a63",
@@ -13447,6 +15157,150 @@
           "line_number": 60,
           "line_hash": "sha256:9a1843ed4c4e8534e243bb187661fa378ccc332e0713668f72cde29e33bb1c57",
           "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000061:98c19f023ccd19f5",
+          "line_number": 61,
+          "line_hash": "sha256:98c19f023ccd19f5cf384f719c471a001e812011701b0f64f38b0ea1f4674ba4",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000062:e60c49de564f1a07",
+          "line_number": 62,
+          "line_hash": "sha256:e60c49de564f1a07e2c2de1e42065659fb456a4bed696d111c517a96f803ffe3",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000063:c610ba1d989afff1",
+          "line_number": 63,
+          "line_hash": "sha256:c610ba1d989afff1fa8ca7b9bdb035baa99212f201be15d8277fb6bc15bbf78d",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000064:ec1603bab7f4426f",
+          "line_number": 64,
+          "line_hash": "sha256:ec1603bab7f4426fac277c15e6cac5286d6ba3c7b43107c9f28ab9137b52771f",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000065:e3ccdb616c2cf33d",
+          "line_number": 65,
+          "line_hash": "sha256:e3ccdb616c2cf33d8e8cc3d5305cc88e38befc7a9fd5b9f3014bd31ce33cf249",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000066:c68acdd94368e909",
+          "line_number": 66,
+          "line_hash": "sha256:c68acdd94368e909bc10dffd01d75dfd1d674e9327f44c86d770cb0e172d72c9",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000317:f460a30252a30f27",
+          "line_number": 317,
+          "line_hash": "sha256:f460a30252a30f275627b8a787d2712f9dbb96b349f736ff7e22b2622da57616",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000318:e0b476092e2dd1be",
+          "line_number": 318,
+          "line_hash": "sha256:e0b476092e2dd1be393022187c7c4bc3e1ed0c1a41efdcd9f9e506897edf9535",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000319:bd6b5e560d54546f",
+          "line_number": 319,
+          "line_hash": "sha256:bd6b5e560d54546ff0c725dee456e30b6418f3038b404afb2ae0ec98abee8010",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000320:dca1e68e3166e10e",
+          "line_number": 320,
+          "line_hash": "sha256:dca1e68e3166e10ea3f34f82b24390afd58d74302c6fa74275decdd25d42f606",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000321:84133022735e6713",
+          "line_number": 321,
+          "line_hash": "sha256:84133022735e6713f3235e235950e5c3998a4a01285138e66bd1575415c25937",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000322:f01e2143b0a287ef",
+          "line_number": 322,
+          "line_hash": "sha256:f01e2143b0a287eff379f9f24d98aebdde47fee7b6cfa90263715c2f50c397cc",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000326:dac066cec705b904",
+          "line_number": 326,
+          "line_hash": "sha256:dac066cec705b904410ec7fef933c27ac065860325e655c3efee08dbd19bf6f8",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000327:937889a73e29b66e",
+          "line_number": 327,
+          "line_hash": "sha256:937889a73e29b66e3f2112119bf1d368cbd2cbc2a667cc67f32362e7014628c6",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000328:fbe5966a3587f703",
+          "line_number": 328,
+          "line_hash": "sha256:fbe5966a3587f70374cc018f562bb9260e42db82d81c0bf7ab3769c6544cbfb8",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000329:6c1695d41e5a69d5",
+          "line_number": 329,
+          "line_hash": "sha256:6c1695d41e5a69d5e08b4509be3dcc1fadea27f5782051259b190372d36667d4",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000330:c6788561d3eea334",
+          "line_number": 330,
+          "line_hash": "sha256:c6788561d3eea3349480613d0289346c8e2d0534e5ce6e095af5ea7cf53cbc9a",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000331:2eec2e45b0697627",
+          "line_number": 331,
+          "line_hash": "sha256:2eec2e45b0697627d9e889689b97c404aaba387057da3e2201adda0aba28223b",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000332:ded4ccd58a39b566",
+          "line_number": 332,
+          "line_hash": "sha256:ded4ccd58a39b566a121eabe90914439fcc1ae8aaf897a7a12c8c6ba4b6ad2a6",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000334:8b24cb4eb0adcd82",
+          "line_number": 334,
+          "line_hash": "sha256:8b24cb4eb0adcd82b250a9d05884c0f72ab168c569d56fa317a06c613ca6c2df",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000347:ec8c1ed752ca156f",
+          "line_number": 347,
+          "line_hash": "sha256:ec8c1ed752ca156f644bcf439f13a47cbc19aa9146a3b9375f96183340cc70c1",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000371:1d7fc34aef8310c5",
+          "line_number": 371,
+          "line_hash": "sha256:1d7fc34aef8310c569ce05cfe2c3d4671be3bf744d995f48e19f8b56aa6f0d1d",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000373:6357d9f3a29f18ab",
+          "line_number": 373,
+          "line_hash": "sha256:6357d9f3a29f18abb1147076b8a204c5f389d235edebd102716cdd994ae00e32",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
+        },
+        {
+          "id": "bgl:line:00000431:1ed9ec37acfdeb85",
+          "line_number": 431,
+          "line_hash": "sha256:1ed9ec37acfdeb85194974b37379838283ec8e00889c859cf2890d8e880178b0",
+          "group_id": "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
         }
       ]
     },
@@ -13464,7 +15318,7 @@
     "reviewers": [
       "faz1_pilot_script"
     ],
-    "expected_answer": "The two groups show distinct error signatures that can be directly compared from the sample lines provided.  \nIn Group R16‑M1‑N2‑C:J17‑U01 each line records a “RAS KERNEL INFO CE sym X, at 0x… mask Y” entry, indicating corrected ECC (CE) errors on specific memory addresses with varying masks.  \nIn Group R37‑M1‑NC‑C:J02‑U11 every line reports “RAS KERNEL INFO instruction cache parity error corrected,” describing a recurring parity fault in the instruction cache of that node.  \nBoth groups involve RAS (Reliability, Availability, Serviceability) kernel information events, but the R16 node’s errors are tied to memory‑address‑specific CE corrections while the R37 node’s errors consistently involve instruction‑cache parity.  \nBecause the R37 node exhibits a single, repeated error type across six consecutive timestamps whereas the R16 node shows varied addresses and masks, the R37 node appears more anomalous in its pattern of recurring cache‑parity faults.  \nRoot‑cause hypothesis: the R37 compute node likely suffers from a hardware defect or firmware issue affecting its instruction cache parity checking, leading to repeated corrected errors, whereas the R16 node’s errors are isolated memory ECC corrections without an evident systemic anomaly.",
+    "expected_answer": "The two groups show distinct error patterns that can be directly linked to the hardware they monitor; in the first group, all nine lines are RAS KERNEL INFO messages reporting “CE sym … at 0x… mask …” which indicates correctable single‑bit errors occurring on different memory addresses across a span of more than two weeks. In contrast, every line of the second group is also a RAS KERNEL INFO entry but it consistently reports “instruction cache parity error corrected,” a symptom that points to a recurring fault in the instruction‑cache subsystem rather than isolated memory bits. The timestamps for R16‑M1‑N2‑C:J17‑U01 are spread from early June through late June 2005, showing a prolonged series of sporadic correctable errors, whereas the eight entries for R37‑M1‑NC‑C:J02‑U11 cluster within a single day (December 26–27 2005) and repeat the same error text multiple times. Because the second node’s logs contain repeated identical messages over a short window, they suggest an unaddressed hardware defect that is actively generating parity errors without any corrective action recorded elsewhere in the evidence. Therefore, based solely on the provided facts, R37‑M1‑NC‑C:J02‑U11 appears more anomalous due to its concentrated, repetitive error pattern and the implication of a persistent instruction‑cache issue.",
     "gold_provenance": {
       "method": "independent_model_then_human",
       "created_by": "src/generators/hard_tier.py@v1",
@@ -13474,7 +15328,7 @@
         "name": "nemotron-3-nano:30b",
         "family": "nemotron_h_moe",
         "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-        "prompt_sha256": "sha256:a23e3ec09d47d457a290de1a20ddaaa5e4ead645e74f125fe2bd92ddf490a4b3"
+        "prompt_sha256": "sha256:a62ea03f7c7eb0da2009ea5024a9a50d3462f5094340fa43a19c4e1fa8ee773f"
       }
     },
     "evidence": {
@@ -13516,6 +15370,24 @@
           "group_id": "bgl:hard:node_error_compare:1:r16_m1_n2_c_j17_u01"
         },
         {
+          "id": "bgl:line:00000457:074c049e3b2890b3",
+          "line_number": 457,
+          "line_hash": "sha256:074c049e3b2890b3cef7edda6ff12656ec14bcff115cb4424936dc656f0d3b44",
+          "group_id": "bgl:hard:node_error_compare:1:r16_m1_n2_c_j17_u01"
+        },
+        {
+          "id": "bgl:line:00000496:2f0b3ddb9a5b8757",
+          "line_number": 496,
+          "line_hash": "sha256:2f0b3ddb9a5b87577a44bb65111f1ca355c1c842d82efa49eefae2b546685622",
+          "group_id": "bgl:hard:node_error_compare:1:r16_m1_n2_c_j17_u01"
+        },
+        {
+          "id": "bgl:line:00000498:516778557308ebc0",
+          "line_number": 498,
+          "line_hash": "sha256:516778557308ebc03fd416b17c4a69f52617d70d9780717fe7fee4b118dda4e7",
+          "group_id": "bgl:hard:node_error_compare:1:r16_m1_n2_c_j17_u01"
+        },
+        {
           "id": "bgl:line:00001992:71ad49191f64b343",
           "line_number": 1992,
           "line_hash": "sha256:71ad49191f64b343fb7fb38a9a93a71a3bb65bd99da1d658ec0a19319c1c819a",
@@ -13550,6 +15422,18 @@
           "line_number": 1997,
           "line_hash": "sha256:c96092059124eca5bb8fcbe697e69ae81583730092c54d11636daaaa3ce5c5d1",
           "group_id": "bgl:hard:node_error_compare:1:r37_m1_nc_c_j02_u11"
+        },
+        {
+          "id": "bgl:line:00001998:25bbb07a8e203ac1",
+          "line_number": 1998,
+          "line_hash": "sha256:25bbb07a8e203ac163cc910fa22f365a7aa65b74b138233c9d69b21b7bac0352",
+          "group_id": "bgl:hard:node_error_compare:1:r37_m1_nc_c_j02_u11"
+        },
+        {
+          "id": "bgl:line:00001999:a51ee7d2fec539e2",
+          "line_number": 1999,
+          "line_hash": "sha256:a51ee7d2fec539e28dd2b3f4ba2656a7729518c35ad33419e9842907bae5233b",
+          "group_id": "bgl:hard:node_error_compare:1:r37_m1_nc_c_j02_u11"
         }
       ]
     },
@@ -13567,7 +15451,7 @@
     "reviewers": [
       "faz1_pilot_script"
     ],
-    "expected_answer": "The two groups show distinct hardware‑error patterns on their respective nodes, but both are dominated by recurring kernel‑level machine‑check messages that point to a low‑level hardware fault rather than an isolated software glitch. In the R26‑M0‑N0‑I:J18‑U11 group every sample records “DCR read timeout” with the same machine‑check identifier (mc=e08x, iar 0x00000000, lr 0xc00045a4), indicating a persistent failure in reading data from the DCR (debug control register) that is likely tied to a defective memory controller or CPU core. In contrast, the R02‑M0‑N4‑C:J04‑U11 group exhibits repeated “data cache search parity error detected” messages, which signal intermittent parity problems within the processor’s data cache and suggest occasional but recoverable errors in cache operation. Because the R26 node’s logs contain a higher concentration of identical, severe machine‑check timeouts that span several minutes without any intervening corrective actions, its behavior is more concerning as it may indicate an imminent hardware failure that could lead to system instability or data loss. The root‑cause hypothesis is that both nodes are experiencing underlying silicon defects—most likely a faulty memory controller or cache subsystem in the R26 node and a marginal parity circuit in the R02 node—that manifest as recurring kernel‑level machine‑check events, with the R26 node’s timeout pattern representing a more acute degradation.",
+    "expected_answer": "The two groups both record recurring hardware‑error messages, but they describe different types of faults on distinct nodes; the first group shows repeated “MACHINE CHECK DCR read timeout” events on node **R26-M0-N0-I:J18-U11**, while the second group logs multiple “data cache search parity error detected. attempting to correct” messages on node **R02-M0-N4-C:J04-U11**. Because the R26‑M0‑N0‑I:J18‑U11 node experiences a series of machine‑check timeouts spaced only minutes apart, it indicates that the processor is repeatedly encountering uncorrectable memory or bus errors and cannot recover without intervention. In contrast, the R02‑M0‑N4‑C:J04‑U11 node exhibits periodic parity‑error corrections that are handled automatically by the hardware, suggesting a less severe but still problematic cache issue. The more concerning behavior is therefore the sustained machine‑check timeouts on **R26-M0-N0-I:J18-U11**, which points to a root‑cause hypothesis of failing memory subsystem or interconnect hardware (e.g., defective DIMM, faulty memory controller, or bus errors) that is causing repeated read‑timeout conditions. This hypothesis explains the pattern of escalating error timestamps and the lack of corrective action in the logs.",
     "gold_provenance": {
       "method": "independent_model_then_human",
       "created_by": "src/generators/hard_tier.py@v1",
@@ -13577,7 +15461,7 @@
         "name": "nemotron-3-nano:30b",
         "family": "nemotron_h_moe",
         "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-        "prompt_sha256": "sha256:cf49701ac4ad410ad98705d50f62edc7274c8a01bd362cca6748e492634c7268"
+        "prompt_sha256": "sha256:6dd4645efa698ab43edbe8b69a96dfa00cb833bc08c1e764b455b9c3ebd2e1ef"
       }
     },
     "evidence": {
@@ -13616,6 +15500,12 @@
           "id": "bgl:line:00001775:0ff43640c5f7d113",
           "line_number": 1775,
           "line_hash": "sha256:0ff43640c5f7d113029a3a6b736fb187731562cd4dde2b5e7465445627953a45",
+          "group_id": "bgl:hard:node_error_compare:2:r26_m0_n0_i_j18_u11"
+        },
+        {
+          "id": "bgl:line:00001776:c90c8686969775ef",
+          "line_number": 1776,
+          "line_hash": "sha256:c90c8686969775ef2496692d041a098a65364d91ad777bd9d1078accdb1e24ec",
           "group_id": "bgl:hard:node_error_compare:2:r26_m0_n0_i_j18_u11"
         },
         {
@@ -13670,7 +15560,7 @@
     "reviewers": [
       "faz1_pilot_script"
     ],
-    "expected_answer": "The two container logs show nearly identical patterns of allocation, launch and cleanup events that are spaced only a few minutes apart. In both cases the RMContainerAllocator first assigns a container to a map‑task attempt (attempt …_m_000003_0 for the 5th container and …_m_000001_0 for the 3rd), then the ContainerLauncher processes a CONTAINER_REMOTE_LAUNCH event, followed by an AsyncDispatcher log that records the task attempt using its assigned NM. After roughly two minutes each container is reported as completed in the RM allocator’s “Received completed container” line, and finally both containers trigger a CONTAINER_REMOTE_CLEANUP event from the launcher. The timing of the cleanup (around 18:04 for the first container and around 18:06 for the second) is consistent with normal termination rather than an abrupt failure, indicating that each task completed its work and was cleanly shut down. Because no error‑level messages or abnormal state transitions are visible in either group, the evidence points to a normal execution flow for both containers. A plausible root‑cause hypothesis is that these two tasks were part of the same map phase and finished successfully before any downstream failures could be recorded.",
+    "expected_answer": "The two container logs show a clear failure pattern in container_1445144423722_0020_01_000003, while the other container proceeds to completion. In group [Group: container_1445144423722_0020_01_000003] the task attempt starts at 18:01:58 and is followed only by a cleanup event at 18:06:28, indicating that the container was terminated without any successful map or reduce output; this abrupt termination occurs after a five‑minute idle period with no further processing events. In contrast, group [Group: container_1445144423722_0020_01_000005] records the full lifecycle of its task attempt—launch, execution on a node manager, and finally a cleanup event at 18:04:50 followed by an explicit “completed container” notification from the ResourceManager at 18:04:52—showing that the container finished normally. The root‑cause hypothesis is that container_1445144423722_0020_01_000003 experienced an abnormal termination, likely due to a node‑manager failure or resource starvation on its assigned NM (MININT-FNANLI5), causing the container to be killed and cleaned up without completing its task. This abnormal termination explains why only four log lines are present for that group, whereas the other group contains the full sequence of allocation, launch, execution, cleanup, and completion events.",
     "gold_provenance": {
       "method": "independent_model_then_human",
       "created_by": "src/generators/hard_tier.py@v1",
@@ -13680,7 +15570,7 @@
         "name": "nemotron-3-nano:30b",
         "family": "nemotron_h_moe",
         "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-        "prompt_sha256": "sha256:f655773d5b017ff11e4ab983bed855c439fbfdb1bf3f1aa7f0c24e2207cccce8"
+        "prompt_sha256": "sha256:2a8632aa40e1c52ddf5a14547a7d6b722dbe0c6c59f538ec837d06f4f52672b9"
       }
     },
     "evidence": {
@@ -13755,7 +15645,7 @@
     "reviewers": [
       "faz1_pilot_script"
     ],
-    "expected_answer": "The two container groups share the same job and task attempt prefix, indicating they belong to the same MapReduce job running at 18:01‑18:02 on 2015‑10‑18.  \nIn group container_1445144423722_0020_01_000004 the task attempt is launched at 18:02:00, runs for about four minutes, and then receives a CONTAINER_REMOTE_CLEANUP event at 18:06:26, showing that the container was terminated after its execution.  \nIn group container_1445144423722_0020_01_000002 the task attempt is launched a few seconds earlier at 18:01:56, but no cleanup event appears in the sample lines, leaving its final state unknown.  \nBecause the only observable difference is that one container was explicitly cleaned up while the other shows no termination signal, the most plausible root‑cause hypothesis is that the first task experienced an abnormal exit or resource reclamation (e.g., container preemption or failure) whereas the second completed normally but its cleanup event lies outside the provided excerpt.",
+    "expected_answer": "The two container groups show a clear temporal and operational relationship, with container container_1445144423722_0020_01_000002 being assigned at 18:01:56 and its task attempt launched at 18:01:57, while container container_1445144423722_0020_01_000004 is assigned later at 18:02:00 and its launch occurs at 18:02:01; both containers are subsequently cleaned up, but the cleanup event for container 000004 appears only after a four‑minute interval (ending at 18:06:26), indicating that the first container’s lifecycle was shorter and likely completed successfully before the second one was terminated. Neither group contains any error or failure messages—only informational logs about allocation, launch, task attempt usage, and cleanup—so there is no explicit failure indicator in the evidence; however, the pattern of a rapid CONTAINER_REMOTE_LAUNCH followed by an immediate CONTAINER_REMOTE_CLEANUP for each container suggests that each task completed its assigned work without lingering issues. The root‑cause hypothesis is that these containers represent two successive attempts of the same map task (attempt 0 and attempt 2) where the first attempt finished cleanly, was removed from the NM, and a second, later attempt was launched to replace it, possibly due to speculative execution or a prior container failure that triggered Hadoop’s retry mechanism.",
     "gold_provenance": {
       "method": "independent_model_then_human",
       "created_by": "src/generators/hard_tier.py@v1",
@@ -13765,7 +15655,7 @@
         "name": "nemotron-3-nano:30b",
         "family": "nemotron_h_moe",
         "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-        "prompt_sha256": "sha256:d2a0154c94e809a3b220233984231e192b41d1493ccfb8d8033ed633d433b4ff"
+        "prompt_sha256": "sha256:fda649d3e99fccde69c89d02d11ad1403ed6875c5268d8bdfd547cf107c214f7"
       }
     },
     "evidence": {
@@ -13828,7 +15718,7 @@
     "reviewers": [
       "faz1_pilot_script"
     ],
-    "expected_answer": "Both container 1445144423722_0020_01_000006 and container 1445144423722_0020_01_000007 are assigned to different task attempts (attempt …_m_000004_0 versus …_m_000005_0) and each shows the same sequence of events: allocation by the RMContainerAllocator, a CONTAINER_REMOTE_LAUNCH event processed by ContainerLauncher, and an AsyncDispatcher log confirming that the task attempt is running on NM MSRA‑SA‑41.fareast.corp.microsoft.com. The only factual difference visible in the evidence is the numeric suffix of the allocated container (06 vs 07) and the corresponding attempt index (000004_0 versus 000005_0), but neither group contains any indication of an error, abort, or failure message. Consequently, based solely on the provided lines, there is no explicit evidence that either container exhibits a task‑failure condition; however, if a failure were to occur it would most likely be reflected in a missing or abnormal event after these steps rather than in the logs shown. Therefore, from the observable data alone we cannot definitively label one of them as failing, but the pattern suggests that any failure would have to manifest downstream of the CONTAINER_REMOTE_LAUNCH and AsyncDispatcher messages captured here.",
+    "expected_answer": "Both container 1445144423722_0020_01_000006 and container 1445144423722_0020_01_000007 are logged as being assigned by the RMContainerAllocator, then processed by ContainerLauncher with a CONTAINER_REMOTE_LAUNCH event for their respective task attempts (attempt_1445144423722_0020_m_000004_0 and attempt_1445144423722_0020_m_000005_0), and finally reported by the AsyncDispatcher as using containerId [container_1445144423722_0020_01_000006 on NM: [MSRA-SA-41.fareast.corp.microsoft.com:7109]] and similarly for the second container. The only factual difference is that the first group mentions taskAttempt attempt_1445144423722_0020_m_000004_0 while the second mentions attempt_1445144423722_0020_m_000005_0, but neither group contains any indication of a failure such as an error code, abnormal termination message, or retry‑triggering event. Consequently, based solely on the provided evidence there is no explicit sign of task failure in either container; however, if a failure were to be inferred from missing subsequent progress logs (which are not shown), it would have to be attributed to the later attempt attempt_1445144423722_0020_m_000005_0 because its timestamp is slightly later and no further activity is recorded. The root‑cause hypothesis therefore points to a possible stall or timeout during container launch for the second task attempt, perhaps due to insufficient resource allocation or network latency on NM MSRA-SA-41.",
     "gold_provenance": {
       "method": "independent_model_then_human",
       "created_by": "src/generators/hard_tier.py@v1",
@@ -13838,7 +15728,7 @@
         "name": "nemotron-3-nano:30b",
         "family": "nemotron_h_moe",
         "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-        "prompt_sha256": "sha256:748e92214a99b361ced32bd5a13e1e4df5967b1c21356d3d066d5e8641871055"
+        "prompt_sha256": "sha256:393221315208a6bbbbcd4578d6ce6d97091c990a5fec4e92bc8e7910bf30c915"
       }
     },
     "evidence": {
@@ -13895,7 +15785,7 @@
     "reviewers": [
       "faz1_pilot_script"
     ],
-    "expected_answer": "The two container attempts share the same job and map task index but differ in their attempt numbers, indicating they are sequential retries of distinct tasks. Both groups show identical event patterns—container assignment by the RMContainerAllocator followed by a CONTAINER_REMOTE_LAUNCH processed by ContainerLauncher and reported as successfully using an NM on MSRA-SA-41.fareast.corp.microsoft.com:7109—without any error or failure markers. The timing gap of roughly 8 seconds between the last lines suggests these are independent task launches rather than a single failing attempt, and no subsequent error events appear in the provided samples to indicate failure for either container. This pattern points to a root-cause hypothesis that the failures stem from transient resource contention or NM instability causing retries, not from inherent issues with the containers themselves.",
+    "expected_answer": "The two container attempts are both recorded as successfully allocated and launched by the ResourceManager allocator and ContainerLauncher, with identical INFO‑level messages describing assignment to their respective taskAttempts and placement on the same NM host. Neither group contains any error or failure indicator such as a “FAILED” status, abnormal exit code, or retry event; instead each ends after the normal launch sequence without further activity. Because both sequences are complete and lack any sign of interruption, neither container shows explicit failure symptoms in the provided log excerpt. However, the later timestamp (18:04:05) for container_1445144423722_0020_01_000009 suggests it started after its predecessor, which could indicate a delayed or stalled launch if subsequent processing steps are missing. This temporal gap combined with the identical successful allocation pattern raises the hypothesis that container_1445144423722_0020_01_000009 may be experiencing resource contention or scheduling delays on the NM, potentially leading to a timeout in later stages.",
     "gold_provenance": {
       "method": "independent_model_then_human",
       "created_by": "src/generators/hard_tier.py@v1",
@@ -13905,7 +15795,7 @@
         "name": "nemotron-3-nano:30b",
         "family": "nemotron_h_moe",
         "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-        "prompt_sha256": "sha256:dfc40fcbab5bcd3f0d00b1052c26e649f8b69eba5edd9de02b7069d5a8af7a37"
+        "prompt_sha256": "sha256:e54ac6ecc61c865cff3999099caccfbf04842be4be3542d4f24c691bf2e2cc0d"
       }
     },
     "evidence": {
@@ -13962,7 +15852,7 @@
     "reviewers": [
       "faz1_pilot_script"
     ],
-    "expected_answer": "The logs show that myid 1 repeatedly reports “Cannot open channel to 2” and later also fails to connect to server 3, while remaining in the LOOKING state before issuing a WARN about those failed connections; this pattern indicates it is unable to establish quorum with its peers. In contrast, myid 2’s only connectivity warning mentions a failure to reach server 3, but it quickly transitions from LOOKING to FOLLOWING after a brief period of leader election activity and proceeds to perform regular snapshot operations without further connection errors. Both members experience occasional channel‑opening failures toward the same outlier (server 3), yet myid 1’s persistent inability to reach server 2 and its repeated warnings suggest it is stuck in an election loop, whereas myid 2 successfully re‑joins the ensemble as a follower after a normal leader election. The shared symptom of failing to contact server 3 points to a network or host‑level issue affecting that specific peer, but the divergent handling of the failure—myid 1’s repeated warnings versus myid 2’s clean transition—makes myid 1 the anomalous member in this ensemble. Root‑cause hypothesis: a misconfiguration or intermittent network partition is preventing myid 1 from forming a quorum with server 2, causing it to stay in election mode and generate continual connection errors, while myid 2’s connectivity problem is limited to server 3 and does not disrupt its eventual integration into the cluster.",
+    "expected_answer": "The logs show that myid = 1 repeatedly experiences “Cannot open channel to 2” and “Cannot open channel to 3” warnings while trying to establish election connections, indicating it cannot reach the other two members of the ensemble. In contrast, myid = 2 only shows a single warning about failing to connect to member 3; all other entries describe normal leader‑election notifications, state transitions (LOOKING → FOLLOWING), and successful snapshotting operations. The persistent inability of myid = 1 to open channels to both peers suggests that its network path or configuration is broken, whereas myid = 2’s occasional channel failure does not prevent it from participating in elections and eventually becoming a follower. This asymmetry points to a root‑cause hypothesis that the host running myid = 1 suffers from a mis‑configured firewall or network interface that blocks outbound election traffic to peers 2 and 3, causing repeated election timeouts and preventing stable leader election for that member.",
     "gold_provenance": {
       "method": "independent_model_then_human",
       "created_by": "src/generators/hard_tier.py@v1",
@@ -13972,7 +15862,7 @@
         "name": "nemotron-3-nano:30b",
         "family": "nemotron_h_moe",
         "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-        "prompt_sha256": "sha256:e4a7f77ebc628f59e2257d45a2c109145a5312eb77bed7dcbf8958a326add0bd"
+        "prompt_sha256": "sha256:60b7032e4a306d993310da6e87291c135ae9367b2bf85f44f8b1f1649f5b1509"
       }
     },
     "evidence": {
@@ -14014,6 +15904,150 @@
           "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
         },
         {
+          "id": "zookeeper:line:00000569:fa97a3fe5efd94bf",
+          "line_number": 569,
+          "line_hash": "sha256:fa97a3fe5efd94bfd40a1f10ceaca8a3a450e1ca7d42d348a91159325882231a",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000571:83158be37389bb00",
+          "line_number": 571,
+          "line_hash": "sha256:83158be37389bb00e73392267e69917715d7bfe120a4a48d67b1617ad47c3332",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000582:a8e4f04430f64f7c",
+          "line_number": 582,
+          "line_hash": "sha256:a8e4f04430f64f7c2e740bc608c562809afc6c6ff1cfa9cd04513154f2e30151",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000583:b0a18e7e0bc46557",
+          "line_number": 583,
+          "line_hash": "sha256:b0a18e7e0bc465578fc420b571dc79c87c01cbb70e1db8dbc8c9104006ea4c85",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000584:3c4398ce7f9bd250",
+          "line_number": 584,
+          "line_hash": "sha256:3c4398ce7f9bd250b631f5078ecf4d779aae0b07a901029f810554ccd364c645",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000585:a338eb045f193e20",
+          "line_number": 585,
+          "line_hash": "sha256:a338eb045f193e2007173b2cd7bae776e042ca18184d56eb0d56c2acaa7368fc",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000586:85ce10909041d607",
+          "line_number": 586,
+          "line_hash": "sha256:85ce10909041d6077a709a77e74d7b371522d67540ebfc87cefc20ab1005e773",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000587:16eb1e03a5ba3d14",
+          "line_number": 587,
+          "line_hash": "sha256:16eb1e03a5ba3d14b54c001aa56031da9d2ad69127b955d5429f42cf661a9a4d",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000588:14e0235b29d6e05c",
+          "line_number": 588,
+          "line_hash": "sha256:14e0235b29d6e05ce78b589a3d0975596dcad91ff7871818732f8cdd15ad6ce2",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000738:96ac7da656dafbdf",
+          "line_number": 738,
+          "line_hash": "sha256:96ac7da656dafbdffc33f9c8abfc5ec595a991e3ef302092526a7d50493f0ba3",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000739:f702b0558470cca7",
+          "line_number": 739,
+          "line_hash": "sha256:f702b0558470cca7d9fab1b0bf5a537f344f8d7b26e8512d087c458bba1a0efa",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000740:8237ce28bfcfe4c4",
+          "line_number": 740,
+          "line_hash": "sha256:8237ce28bfcfe4c41351ac35e70a0cdcf3f3d0e1f21ea96268b86865f8e34b1a",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000741:c96496780fefc270",
+          "line_number": 741,
+          "line_hash": "sha256:c96496780fefc27075cdc7942bf8d6cce2f3152ee88abeb4c4327b744326d20a",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000742:d4b9cab31627a201",
+          "line_number": 742,
+          "line_hash": "sha256:d4b9cab31627a2011aab21138b9cec88485e9716a551dec69ba1c5a06a8c8437",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000743:c196a446fca6b031",
+          "line_number": 743,
+          "line_hash": "sha256:c196a446fca6b031a361ee162ac57cde718fca512292a3dee6d242879b8e9e61",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000744:c986ff4b3428a99b",
+          "line_number": 744,
+          "line_hash": "sha256:c986ff4b3428a99be90a1f8c41c82b3066bc553e782d3cd98496fe9a570a9f26",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000745:b9d8fbb01cd55f45",
+          "line_number": 745,
+          "line_hash": "sha256:b9d8fbb01cd55f4532c41e363c932a6db14d6d264efae1c9ef6ffcb7351e925a",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000746:9ef68811fc6a184c",
+          "line_number": 746,
+          "line_hash": "sha256:9ef68811fc6a184c2e3eace6d1fc366a19b036f393cede2c20b873390315c6d5",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000747:632c7f4fbfdb7b19",
+          "line_number": 747,
+          "line_hash": "sha256:632c7f4fbfdb7b19682178e802f970e79ddff74126fc0d4b40b8bb6e7aa4a4ec",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000748:cf21889df91861bc",
+          "line_number": 748,
+          "line_hash": "sha256:cf21889df91861bc7ce50947ad9c02c8dafce78f7866d9ea9498c23810a065c2",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000749:f56186b228574681",
+          "line_number": 749,
+          "line_hash": "sha256:f56186b228574681327259b2962a160f27962f577269781a9559a64a5ada40ac",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000750:860a88d5160a96fa",
+          "line_number": 750,
+          "line_hash": "sha256:860a88d5160a96fafd23a43bb9e3bbe5ea81ea61cbc387eb25a14795399990fa",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000751:ec0bff5f5203dbf1",
+          "line_number": 751,
+          "line_hash": "sha256:ec0bff5f5203dbf114b7aa7c2119c006beb66d7206518f3b72132853e0bf402b",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
+          "id": "zookeeper:line:00000753:bb63ba8cd407d76e",
+          "line_number": 753,
+          "line_hash": "sha256:bb63ba8cd407d76eca8fbc332cab269957577945bcfa91f050074426e84e3347",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:1"
+        },
+        {
           "id": "zookeeper:line:00000754:a103438f35a42f39",
           "line_number": 754,
           "line_hash": "sha256:a103438f35a42f398961c8eebc41c76272a71c7eed5f3fb687d9d93a2cf9a844",
@@ -14047,6 +16081,48 @@
           "id": "zookeeper:line:00001410:27db26ade82fe1a9",
           "line_number": 1410,
           "line_hash": "sha256:27db26ade82fe1a9abf73b6861c761bc16739f80a808b6186a0746b093e2d635",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:2"
+        },
+        {
+          "id": "zookeeper:line:00001418:f59be95e4eae4094",
+          "line_number": 1418,
+          "line_hash": "sha256:f59be95e4eae40942da7765d868f94c6dace70f6b74153d0d4de27e16ba706c2",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:2"
+        },
+        {
+          "id": "zookeeper:line:00001420:7361bfa8c98b9f00",
+          "line_number": 1420,
+          "line_hash": "sha256:7361bfa8c98b9f00cf25bd451fc2f8289408b9f58bf8c53b12ceb4052b123caf",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:2"
+        },
+        {
+          "id": "zookeeper:line:00001428:3937c9d2d46b74a4",
+          "line_number": 1428,
+          "line_hash": "sha256:3937c9d2d46b74a430b4315e06c8ccb41ea1c91775defebf8358a67b0452d75f",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:2"
+        },
+        {
+          "id": "zookeeper:line:00001434:9e4bb4fa67612502",
+          "line_number": 1434,
+          "line_hash": "sha256:9e4bb4fa676125022038b06dc681f1e0092e47f5f1432b386fbf66c8d5e0d2ba",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:2"
+        },
+        {
+          "id": "zookeeper:line:00001435:6d8d6fcd6e470c06",
+          "line_number": 1435,
+          "line_hash": "sha256:6d8d6fcd6e470c061a0bbe206a8f8372be5d4d89a1809d95d115ca284b13a361",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:2"
+        },
+        {
+          "id": "zookeeper:line:00001460:c6b981af3faef78a",
+          "line_number": 1460,
+          "line_hash": "sha256:c6b981af3faef78a6de32391e50f2d99575cf5690a600d648790a1d730292645",
+          "group_id": "zookeeper:hard:ensemble_member_compare:0:2"
+        },
+        {
+          "id": "zookeeper:line:00001461:54041020a37bf54a",
+          "line_number": 1461,
+          "line_hash": "sha256:54041020a37bf54a865aeb6cd43a4ad306c4a825f048833319187c03e508c4db",
           "group_id": "zookeeper:hard:ensemble_member_compare:0:2"
         }
       ]

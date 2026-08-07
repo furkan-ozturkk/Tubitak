@@ -47,6 +47,12 @@ class OllamaConfig:
         num_predict: Token cap per completion. Bounds a runaway draft — an
             uncapped hard-tier answer has no natural stopping point — and makes
             the cost of a scaled pass calculable in advance (Section 3.2).
+        num_ctx: Context window requested per call. Left unset, Ollama falls
+            back to its own default (typically 2-4k tokens) regardless of what
+            the model itself supports, which silently truncates a long prompt
+            rather than erroring — the hard tier's evidence blocks can run to
+            tens of thousands of tokens now that a group's lines are cited in
+            full, so this must be requested explicitly rather than assumed.
         require_models: Names ``check-ollama`` demands from the server. ``None``
             means "the two role models above", which is the honest default —
             those are exactly the models a full run would need.
@@ -62,6 +68,7 @@ class OllamaConfig:
     temperature: float = 0.0
     seed: int = 7
     num_predict: int = 512
+    num_ctx: int = 32768
     require_models: tuple[str, ...] | None = None
 
     @property
@@ -133,5 +140,6 @@ def get_ollama_params(
         num_predict=(
             OllamaConfig.num_predict if args.num_predict is None else args.num_predict
         ),
+        num_ctx=(OllamaConfig.num_ctx if args.num_ctx is None else args.num_ctx),
         require_models=tuple(args.require_models) if args.require_models else None,
     )

@@ -25,7 +25,7 @@
     },
     {
       "text": "The connection is ultimately terminated after multiple failed password attempts from that source IP on different ports.",
-      "supported": "partial",
+      "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_1"
       ]

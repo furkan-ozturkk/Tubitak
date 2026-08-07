@@ -18,7 +18,7 @@
   "claims": [
     {
       "text": "The system logged a thermal pressure state of 1 indicating elevated heat while memory pressure was normal; Safari's safe browsing update was scheduled to run after a delay of 1769 seconds and was ignored; an unrecognized attribute value in AddressBookSourceSync suggests a data format issue; the AirPort_Brcm43xx driver disabled wireless functionality; Thunderbolt power state transition completed rapidly; WebKit encountered an unexpected preroll completion notification; location services icon was set to inactive.",
-      "supported": "partial",
+      "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_8"
       ]

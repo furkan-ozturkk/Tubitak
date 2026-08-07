@@ -15,8 +15,8 @@
       "semantic": 116
     },
     "by_split": {
-      "dev": 155,
-      "test": 51
+      "dev": 150,
+      "test": 56
     },
     "by_review_status": {
       "verified": 90,
@@ -37,9 +37,11 @@
     ]
   },
   "error_count": 0,
-  "warning_count": 0,
+  "warning_count": 1,
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    "[/output/pilot/questions.json#202] id=hadoop_v1_hard_container_task_compare_1: difficulty=hard but expected_answer has ~3 sentence(s) (Section 7.3 expects >=4)."
+  ],
   "config_snapshot": {
     "command": "validate",
     "code_version": null,
@@ -64,7 +66,7 @@
     "input_digests": {
       "schema": "sha256:eae81b6793e5c71be861b3c3470416f64717e1f4f9eca5c51b2ed4ce4723c11d",
       "questions": {
-        "/output/pilot/questions.json": "sha256:19b97715f0e7dce2961db389c25f2760dc3cd0c27b7e344d87ff9c84dacf5f36"
+        "/output/pilot/questions.json": "sha256:7cef20f3d53a38c867d9ff2c1e3a907834188d44216cc2a5b1d7406c912dd0f6"
       }
     },
     "corpus_digests": {

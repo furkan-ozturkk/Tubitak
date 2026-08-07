@@ -25,7 +25,7 @@
     },
     {
       "text": "This indicates normal startup progression where the JK connector is setting up its communication channels between Apache and Tomcat instances.",
-      "supported": "yes",
+      "supported": "partial",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_7"
       ]

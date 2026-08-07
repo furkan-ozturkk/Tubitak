@@ -11,7 +11,7 @@
       "dataset": "linux",
       "expected_answer": "490",
       "agrees": true,
-      "sql": "SELECT COUNT(*) FROM lines WHERE dataset = 'linux' AND text ILIKE '%authentication failure%'",
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='linux' AND text ILIKE '%authentication failure%'",
       "result": 490,
       "detail": "query=490 gold=490",
       "model": {
@@ -107,7 +107,7 @@
       "dataset": "linux",
       "expected_answer": "Jun 14 15:16:01 combo sshd(pam_unix)[19939]: authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=218.188.2.4 ",
       "agrees": true,
-      "sql": "SELECT text FROM lines WHERE dataset='linux' AND text ILIKE '%authentication failure%' ORDER BY line_number LIMIT 1",
+      "sql": "SELECT text FROM lines WHERE dataset = 'linux' AND text ILIKE '%authentication failure%' ORDER BY line_number LIMIT 1",
       "result": "Jun 14 15:16:01 combo sshd(pam_unix)[19939]: authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=218.188.2.4 ",
       "detail": "query text matches gold",
       "model": {
@@ -139,7 +139,7 @@
       "dataset": "linux",
       "expected_answer": "Jun 14 15:16:01 combo sshd(pam_unix)[19939]: authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=218.188.2.4 ",
       "agrees": true,
-      "sql": "SELECT text FROM lines WHERE dataset='linux' AND text ILIKE '%authentication failure%' ORDER BY line_number LIMIT 1",
+      "sql": "SELECT text FROM lines WHERE dataset = 'linux' AND text ILIKE '%authentication failure%' ORDER BY line_number LIMIT 1",
       "result": "Jun 14 15:16:01 combo sshd(pam_unix)[19939]: authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=218.188.2.4 ",
       "detail": "query text matches gold",
       "model": {
@@ -235,7 +235,7 @@
       "dataset": "apache",
       "expected_answer": "Yes (551 matching lines)",
       "agrees": true,
-      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset = 'apache' AND text ILIKE '%mod_jk%') AS answer",
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='apache' AND text ILIKE '%mod_jk%')",
       "result": true,
       "detail": "query=Yes gold=Yes (551 matching lines)",
       "model": {
@@ -251,7 +251,7 @@
       "dataset": "apache",
       "expected_answer": "[Sun Dec 04 04:47:44 2005] [error] mod_jk child workerEnv in error state 6",
       "agrees": true,
-      "sql": "SELECT text\nFROM lines\nWHERE dataset = 'apache' AND text ILIKE '%child workerEnv in error state%'\nORDER BY line_number\nLIMIT 1",
+      "sql": "SELECT text FROM lines WHERE dataset='apache' AND text ILIKE '%child workerEnv in error state%' ORDER BY line_number LIMIT 1",
       "result": "[Sun Dec 04 04:47:44 2005] [error] mod_jk child workerEnv in error state 6",
       "detail": "query text matches gold",
       "model": {
@@ -443,7 +443,7 @@
       "dataset": "mac",
       "expected_answer": "775",
       "agrees": true,
-      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='mac' AND text ILIKE '%kernel%'",
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset = 'mac' AND text ILIKE '%kernel%'",
       "result": 775,
       "detail": "query=775 gold=775",
       "model": {
@@ -491,7 +491,7 @@
       "dataset": "mac",
       "expected_answer": "Yes (39 matching lines)",
       "agrees": true,
-      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset = 'mac' AND text ILIKE '%Thermal pressure%')",
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='mac' AND text ILIKE '%Thermal pressure%')",
       "result": true,
       "detail": "query=Yes gold=Yes (39 matching lines)",
       "model": {
@@ -539,7 +539,7 @@
       "dataset": "mac",
       "expected_answer": "Jul  1 09:00:55 calvisitor-10-105-160-95 kernel[0]: IOThunderboltSwitch<0>(0x0)::listenerCallback - Thunderbolt HPD packet for route = 0x0 port = 11 unplug = 0",
       "agrees": true,
-      "sql": "SELECT text FROM lines WHERE dataset='mac' AND text ILIKE '%IOThunderboltSwitch%' ORDER BY line_number ASC LIMIT 1",
+      "sql": "SELECT text FROM lines WHERE dataset = 'mac' AND text ILIKE '%IOThunderboltSwitch%' ORDER BY line_number LIMIT 1",
       "result": "Jul  1 09:00:55 calvisitor-10-105-160-95 kernel[0]: IOThunderboltSwitch<0>(0x0)::listenerCallback - Thunderbolt HPD packet for route = 0x0 port = 11 unplug = 0",
       "detail": "query text matches gold",
       "model": {
@@ -571,7 +571,7 @@
       "dataset": "mac",
       "expected_answer": "Jul  1 09:00:55 calvisitor-10-105-160-95 kernel[0]: IOThunderboltSwitch<0>(0x0)::listenerCallback - Thunderbolt HPD packet for route = 0x0 port = 11 unplug = 0",
       "agrees": true,
-      "sql": "SELECT text FROM lines WHERE dataset = 'mac' AND text ILIKE '%IOThunderboltSwitch%' ORDER BY line_number LIMIT 1",
+      "sql": "SELECT text FROM lines WHERE dataset='mac' AND text ILIKE '%IOThunderboltSwitch%' ORDER BY line_number LIMIT 1",
       "result": "Jul  1 09:00:55 calvisitor-10-105-160-95 kernel[0]: IOThunderboltSwitch<0>(0x0)::listenerCallback - Thunderbolt HPD packet for route = 0x0 port = 11 unplug = 0",
       "detail": "query text matches gold",
       "model": {
@@ -667,7 +667,7 @@
       "dataset": "hdfs",
       "expected_answer": "Yes (80 matching lines)",
       "agrees": true,
-      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='hdfs' AND text ILIKE '%Exception%')",
+      "sql": "SELECT EXISTS(SELECT 1 FROM lines WHERE dataset='hdfs' AND text ILIKE '%Exception%')",
       "result": true,
       "detail": "query=Yes gold=Yes (80 matching lines)",
       "model": {
@@ -923,7 +923,7 @@
       "dataset": "bgl",
       "expected_answer": "Yes (60 matching lines)",
       "agrees": true,
-      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='bgl' AND text ILIKE '%KERNDTLB%')",
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset = 'bgl' AND text ILIKE '%KERNDTLB%')",
       "result": true,
       "detail": "query=Yes gold=Yes (60 matching lines)",
       "model": {
@@ -1067,7 +1067,7 @@
       "dataset": "hadoop",
       "expected_answer": "Yes (15 matching lines)",
       "agrees": true,
-      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset = 'hadoop' AND text ILIKE '%MRAppMaster%')",
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='hadoop' AND text ILIKE '%MRAppMaster%')",
       "result": true,
       "detail": "query=Yes gold=Yes (15 matching lines)",
       "model": {
@@ -1115,7 +1115,7 @@
       "dataset": "hadoop",
       "expected_answer": "2015-10-18 18:01:47,978 INFO [main] org.apache.hadoop.mapreduce.v2.app.MRAppMaster: Created MRAppMaster for application appattempt_1445144423722_0020_000001",
       "agrees": true,
-      "sql": "SELECT text FROM lines WHERE dataset='hadoop' AND text ILIKE '%MRAppMaster%' ORDER BY line_number LIMIT 1",
+      "sql": "SELECT text FROM lines WHERE dataset = 'hadoop' AND text ILIKE '%MRAppMaster%' ORDER BY line_number LIMIT 1",
       "result": "2015-10-18 18:01:47,978 INFO [main] org.apache.hadoop.mapreduce.v2.app.MRAppMaster: Created MRAppMaster for application appattempt_1445144423722_0020_000001",
       "detail": "query text matches gold",
       "model": {
@@ -1163,7 +1163,7 @@
       "dataset": "zookeeper",
       "expected_answer": "1318",
       "agrees": true,
-      "sql": "SELECT COUNT(*) FROM lines WHERE dataset='zookeeper' AND text ILIKE '%WARN%'",
+      "sql": "SELECT COUNT(*) FROM lines WHERE dataset = 'zookeeper' AND text ILIKE '%WARN%'",
       "result": 1318,
       "detail": "query=1318 gold=1318",
       "model": {
@@ -1243,7 +1243,7 @@
       "dataset": "zookeeper",
       "expected_answer": "Yes (54 matching lines)",
       "agrees": true,
-      "sql": "SELECT EXISTS(SELECT 1 FROM lines WHERE dataset='zookeeper' AND text ILIKE '%Exception%')",
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='zookeeper' AND text ILIKE '%Exception%')",
       "result": true,
       "detail": "query=Yes gold=Yes (54 matching lines)",
       "model": {
@@ -1259,7 +1259,7 @@
       "dataset": "zookeeper",
       "expected_answer": "2015-07-29 17:41:44,747 - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@774] - Notification time out: 3200",
       "agrees": true,
-      "sql": "SELECT text FROM lines WHERE dataset='zookeeper' AND text ILIKE '%FastLeaderElection%' ORDER BY line_number LIMIT 1",
+      "sql": "SELECT text FROM lines WHERE dataset = 'zookeeper' AND text ILIKE '%FastLeaderElection%' ORDER BY line_number LIMIT 1",
       "result": "2015-07-29 17:41:44,747 - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@774] - Notification time out: 3200",
       "detail": "query text matches gold",
       "model": {
@@ -1275,7 +1275,7 @@
       "dataset": "zookeeper",
       "expected_answer": "2015-07-29 17:41:44,747 - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@774] - Notification time out: 3200",
       "agrees": true,
-      "sql": "SELECT text FROM lines WHERE dataset='zookeeper' AND text ILIKE '%FastLeaderElection%' ORDER BY line_number LIMIT 1",
+      "sql": "SELECT text FROM lines WHERE dataset = 'zookeeper' AND text ILIKE '%FastLeaderElection%' ORDER BY line_number ASC LIMIT 1",
       "result": "2015-07-29 17:41:44,747 - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@774] - Notification time out: 3200",
       "detail": "query text matches gold",
       "model": {
@@ -1387,7 +1387,7 @@
       "dataset": "openstack",
       "expected_answer": "No (0 matching lines)",
       "agrees": true,
-      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='openstack' AND text ILIKE '%ERROR%') AS has_error",
+      "sql": "SELECT EXISTS (SELECT 1 FROM lines WHERE dataset='openstack' AND text ILIKE '%ERROR%')",
       "result": false,
       "detail": "query=No gold=No (0 matching lines)",
       "model": {

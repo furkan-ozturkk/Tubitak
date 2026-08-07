@@ -105,32 +105,51 @@ def _build_evidence_block(
     view: CorpusView,
     key: str,
     indices: list[int],
-    hard_spec: HardGroupSpec,
+    per_side: int,
     group_id: str,
 ) -> tuple[list[dict[str, Any]], str]:
     """Builds one group's evidence refs and the text block shown to the model.
 
-    The block opens with a header naming the group and the number of sample lines
-    that follow, then the cited lines — and nothing more. The group's total match
-    count is deliberately absent: stating it hands the model a comparison the
-    evidence itself does not support, and the gold answer must rest only on lines
-    the record cites (see the module docstring). Refs and shown lines are cut to
-    the same set, so the prompt cannot contain a line the record does not cite.
+    Cites the group's first and last ``per_side`` lines (all of it, unsplit,
+    when the group is small enough that the two halves would overlap). A
+    fixed-size cut of only a group's first few lines understated a burst that
+    actually ran for minutes: the record's evidence has to carry the group's
+    true start and end, not just its opening. Citing literally every line of
+    a group with hundreds of matches was tried next — with ``num_ctx`` raised
+    so the prompt would not be silently truncated, the request succeeded, but
+    a wall of hundreds of near-identical lines measurably degraded the draft:
+    it lost track of which lines belonged to which group and answered a
+    different question than the one asked. First-N-plus-last-N is the
+    version that actually drafts a correct answer: the group's true start and
+    end are always in evidence via the timestamps on the boundary lines, and
+    needs no explicit gap marker or line count for the model to read — stating
+    the omitted count would hand it a number to compare group sizes by
+    instead of reading what the lines describe (see the module docstring and
+    the prompt below). Refs are cut to the same lines the text shows, so the
+    prompt can never contain a line the record does not cite.
 
     Args:
         view: The dataset's corpus.
         key: The group key (a block id, container id, source address, ...).
         indices: Every line index in the group.
-        hard_spec: Spec carrying ``evidence_lines_per_group``.
+        per_side: How many of the group's first and last lines to cite.
         group_id: The group's evidence identifier.
 
     Returns:
         Tuple ``(refs, text_block)``.
     """
-    cited = indices[: hard_spec.evidence_lines_per_group]
+    if len(indices) <= 2 * per_side:
+        cited = indices
+    else:
+        cited = indices[:per_side] + indices[-per_side:]
     refs = [evidence_ref(view.key, i + 1, view.lines[i], group_id) for i in cited]
-    summary = f"[Group: {key}] {len(cited)} sample lines:"
-    body = "\n".join(view.lines[i] for i in cited)
+    summary = f"[Group: {key}] {len(cited)} line(s):"
+    if len(cited) < len(indices):
+        head = "\n".join(view.lines[i] for i in cited[:per_side])
+        tail = "\n".join(view.lines[i] for i in cited[per_side:])
+        body = f"{head}\n  ... (more lines follow between these) ...\n{tail}"
+    else:
+        body = "\n".join(view.lines[i] for i in cited)
     return refs, f"{summary}\n{body}"
 
 
@@ -155,13 +174,14 @@ def _build_prompt(
     """
     return (
         f"You are analyzing raw {dataset_name} log lines from {group_count} related event "
-        "groups. Each group is a header naming the group followed by its sample lines. "
-        "Read ONLY the evidence below. Do not speculate about anything not shown, and do "
-        "not claim totals, counts or frequencies beyond the sample lines you can see — "
-        "compare the groups by the timing, actors and event patterns visible in those "
-        f"lines. Write an answer of at least {min_sentences} sentences that correlates "
-        "the groups, explicitly uses facts from every group, and proposes a root-cause "
-        "hypothesis.\n\n"
+        "groups. Each group is a header naming the group followed by every line in it. "
+        "Read ONLY the evidence below. Do not speculate about anything not shown. Groups "
+        "may hold very different numbers of lines -- that difference is not itself a sign "
+        "of anomaly, so do not compare groups by which one has more lines; compare them by "
+        "the timing, actors and event pattern the lines actually describe (e.g. how long a "
+        "burst of activity spans, or whether errors recur without any corrective action). "
+        f"Write an answer of at least {min_sentences} sentences that correlates the groups, "
+        "explicitly uses facts from every group, and proposes a root-cause hypothesis.\n\n"
         f"QUESTION: {question_text}\n\nEVIDENCE:\n{evidence_text}\n\nAnswer:"
     )
 
@@ -213,7 +233,7 @@ def build_hard_records(
             evidence_blocks = []
             for (key, indices), group_id in zip(selected, group_ids):
                 refs, block = _build_evidence_block(
-                    view, key, indices, hard_spec, group_id
+                    view, key, indices, params.evidence_lines_per_side, group_id
                 )
                 all_refs.extend(refs)
                 evidence_blocks.append(block)

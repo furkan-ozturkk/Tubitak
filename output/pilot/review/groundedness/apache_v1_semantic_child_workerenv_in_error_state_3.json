@@ -18,7 +18,7 @@
   "claims": [
     {
       "text": "The log shows repeated errors indicating that the Apache module mod_jk is encountering its workerEnv process in error states 6 and 7, suggesting misconfiguration or failure to properly initialize child processes for handling requests via AJP.",
-      "supported": "yes",
+      "supported": "partial",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_3"
       ]

@@ -18,17 +18,15 @@
   "claims": [
     {
       "text": "The log shows a Windows Component Store Service (CBS) scavenge operation completed successfully during a transaction commit, indicating normal cleanup of pending component updates without errors or rollbacks.",
-      "supported": "yes",
+      "supported": "partial",
       "candidate_group_ids": [
         "windows:semantic:csi_5"
       ]
     },
     {
       "text": "This reflects routine maintenance activity where the system finalized a pending update installation step by clearing temporary state.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "windows:semantic:csi_5"
-      ]
+      "supported": "no",
+      "candidate_group_ids": []
     }
   ],
   "verdict": "needs_human_review"

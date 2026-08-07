@@ -25,7 +25,7 @@
     },
     {
       "text": "This suggests a recurring failure in the JK connector's ability to manage or communicate with backend application servers, likely due to misconfiguration or resource problems that prevent proper operation even after setup appears correct.",
-      "supported": "partial",
+      "supported": "yes",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_0"
       ]

@@ -75,7 +75,6 @@ class HardGroupSpec:
             correlation question over two lines correlates nothing.
         num_groups: How many groups the question needs. The schema requires at least
             two, so a spec below that would build records that cannot validate.
-        evidence_lines_per_group: How many of a group's lines are cited and shown.
         question_templates: Question phrasings, each with ``{key0}``, ``{key1}``, ...
             placeholders filled from the selected group keys. A dataset drafting
             several group-sets from the same spec cycles through these so the
@@ -89,7 +88,6 @@ class HardGroupSpec:
     extract_key_regex: str
     min_lines_per_group: int
     num_groups: int
-    evidence_lines_per_group: int
     question_templates: tuple
 
 
@@ -140,7 +138,6 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
                 extract_key_regex=r"rhost=(?P<key>[0-9A-Za-z\.\-]+)",
                 min_lines_per_group=5,
                 num_groups=2,
-                evidence_lines_per_group=6,
                 question_templates=(
                     "Compare the SSH authentication attempts coming from {key0} and "
                     "{key1}: contrast their timing and the accounts they target. "
@@ -209,7 +206,6 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
                 extract_key_regex=r"from (?P<key>[0-9]{1,3}(?:\.[0-9]{1,3}){3})",
                 min_lines_per_group=5,
                 num_groups=2,
-                evidence_lines_per_group=6,
                 question_templates=(
                     "Compare the attack patterns from source {key0} and source {key1} "
                     "(target accounts, request cadence, outcome). Which one is the more "
@@ -248,7 +244,6 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
                 ),
                 min_lines_per_group=5,
                 num_groups=2,
-                evidence_lines_per_group=6,
                 question_templates=(
                     "Compare the RAS events logged for compute node {key0} and node "
                     "{key1}. Correlate the error patterns each node shows and propose "
@@ -283,7 +278,6 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
                 extract_key_regex=r"(?P<key>container_[0-9_]+)",
                 min_lines_per_group=3,
                 num_groups=2,
-                evidence_lines_per_group=6,
                 question_templates=(
                     "Correlate the task events logged for {key0} and {key1}. Do their "
                     "event sequences suggest a normal execution, or does one of them show "
@@ -317,7 +311,6 @@ DATASET_SPECS: dict[str, "DatasetSpec"] = {
                 extract_key_regex=r"myid=(?P<key>\d+)",
                 min_lines_per_group=5,
                 num_groups=2,
-                evidence_lines_per_group=6,
                 question_templates=(
                     "Compare the coordination activity logged for ensemble member myid={key0} "
                     "and myid={key1}. Correlate their event sequences and explain whether "

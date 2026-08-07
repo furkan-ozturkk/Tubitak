@@ -25,8 +25,10 @@
     },
     {
       "text": "Shortly after, the Wi‑Fi interface entered sleep mode (Wake Reason: Wake on Scan offload) while remaining externally connected, as shown by the ARPT wake reason entry.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "supported": "partial",
+      "candidate_group_ids": [
+        "mac:semantic:thermal_pressure_0"
+      ]
     }
   ],
   "verdict": "needs_human_review"

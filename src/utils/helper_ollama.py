@@ -90,7 +90,7 @@ class OllamaClient:
                             "Content-Type": "application/json",
                         },
                     )
-                    with urllib.request.urlopen(request, timeout=180) as response:
+                    with urllib.request.urlopen(request, timeout=1800) as response:
                         return json.loads(response.read().decode("utf-8"))
                 except Exception as error:
                     last_err = error
@@ -195,6 +195,7 @@ class OllamaClient:
                 "temperature": self.config.temperature,
                 "seed": self.config.seed,
                 "num_predict": self.config.num_predict,
+                "num_ctx": self.config.num_ctx,
             },
         }
         result = self._request("/api/generate", payload, method="POST")

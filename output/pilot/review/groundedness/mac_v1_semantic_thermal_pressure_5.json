@@ -18,7 +18,7 @@
   "claims": [
     {
       "text": "The excerpt shows a thermal pressure state of 1 followed by an assertion failure in BezelServices related to driver address retrieval, indicating a hardware or firmware issue under load; this is later followed by kernel messages about hibernate preparation and memory cleanup, suggesting the system attempted to manage thermal conditions before entering low-power states.",
-      "supported": "partial",
+      "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_5"
       ]

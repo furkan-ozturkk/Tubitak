@@ -18,7 +18,7 @@
   "claims": [
     {
       "text": "The log shows a series of API requests to list servers and create an external network event for instance 95960536, followed by a compute node reporting that the VM associated with that instance was resumed as part of its lifecycle.",
-      "supported": "yes",
+      "supported": "partial",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_2"
       ]

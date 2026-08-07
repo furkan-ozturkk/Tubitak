@@ -8,17 +8,17 @@
     "name": "nemotron-3-nano:30b",
     "family": "nemotron_h_moe",
     "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:d5567d9b75a75d8edcf86a687b886be1a694635ea156b6c482a5d5cecdebd9ef"
+    "prompt_sha256": "sha256:43bec6786589e90e5c973a3a39d0aa8d7e0d4eb78fd74ae476994ea110cd1216"
   },
   "reviewer_model": {
     "name": "gpt-oss:20b",
     "family": "gptoss",
     "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:bbf0ae4652b234d4b4f31ff772e46912d4c0fba808216ad643d04fa5ec469472"
+    "prompt_sha256": "sha256:68fa53604859c0448c6877bfc67a7bcfab38aed5d4d5435f908ef543485dd212"
   },
   "claims": [
     {
-      "text": "The two groups show identical event patterns—repeated authentication failures for the root account from a single source IP or hostname, with no successful logins recorded and only failed attempts logged.",
+      "text": "The two groups both record repeated failed root‑login attempts from a single source, but they differ in timing and network context.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:3:220_117_241_87",
@@ -26,31 +26,33 @@
       ]
     },
     {
-      "text": "In both cases the failure messages include “authentication failure; … rhost=… user=root,” indicating that each source is attempting to authenticate as root over SSH using password‑based checks.",
-      "supported": "yes",
+      "text": "In the 220.117.241.87 group the failures occur over a continuous 63‑second window (from 19:15:48 to 19:16:01) with many attempts clustered within seconds, indicating an automated script that is rapidly probing for success.",
+      "supported": "no",
+      "candidate_group_ids": []
+    },
+    {
+      "text": "In contrast, the h64-187-1-131.gtconnect.net group shows failures spread across a longer 52‑second interval (from 12:11:53 to 12:12:10) with fewer attempts per second and no obvious clustering, suggesting a more intermittent or human‑driven probing effort.",
+      "supported": "partial",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:3:220_117_241_87",
         "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
       ]
     },
     {
-      "text": "The 220.117.241.87 group’s timestamps cluster tightly between 19:15 and 19:16 on July 4, while the h64-187-1-131.gtconnect.net group’s events are spaced evenly from 12:11 to 12:12 on June 29, but both exhibit a rapid succession of failures without any intervening success.",
-      "supported": "yes",
+      "text": "Both sets target the same service (sshd) and use identical authentication‑failure messages, but the burst density of 220.117.241.87 is far higher, making it the more anomalous pattern.",
+      "supported": "partial",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:3:220_117_241_87",
         "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
       ]
     },
     {
-      "text": "This suggests that each source is part of an automated brute‑force or credential‑spraying campaign targeting the root account, yet the more anomalous pattern—multiple distinct timestamps within a short window from a single IP address—points to a coordinated scripted attack rather than a sporadic manual attempt.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:3:220_117_241_87",
-        "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
-      ]
+      "text": "This disparity points to a compromised botnet or brute‑force tool that is being run from a single IP address with high request rates, while the other source likely represents a less coordinated attack or a misconfigured scanner.",
+      "supported": "no",
+      "candidate_group_ids": []
     },
     {
-      "text": "Therefore, the root cause likely involves an external botnet or compromised scanner that is systematically probing for weak credentials on the SSH service, with the 220.117.241.87 source representing the more anomalous actor due to its concentrated burst of failures in a brief timeframe.",
+      "text": "The root‑cause hypothesis is therefore that an automated credential‑stuffing malware operating from 220.117.241.87 is responsible for the anomalous surge of failed logins.",
       "supported": "partial",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:3:220_117_241_87",

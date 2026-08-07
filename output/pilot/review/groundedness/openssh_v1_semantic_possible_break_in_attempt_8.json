@@ -18,7 +18,7 @@
   "claims": [
     {
       "text": "The log shows repeated authentication failures for an unknown user \"ghost\" from IP 187.141.143.180, triggering sshd's reverse mapping check which flagged it as a possible break-in attempt due to failed getaddrinfo resolution.",
-      "supported": "yes",
+      "supported": "partial",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_8"
       ]

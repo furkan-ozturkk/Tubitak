@@ -159,11 +159,13 @@ def _validate_tier_knobs(args: argparse.Namespace) -> None:
         "questions_per_dataset": args.questions_per_dataset,
         "min_sentences": args.min_sentences,
         "hard_pairs_per_dataset": args.hard_pairs_per_dataset,
+        "hard_evidence_per_side": args.hard_evidence_per_side,
         "max_retries": args.max_retries,
         "max_parallel_model_calls": args.max_parallel_model_calls,
         "target_total_questions": args.target_total_questions,
         "sql_limit": args.sql_limit,
         "num_predict": args.num_predict,
+        "num_ctx": args.num_ctx,
     }
     for name, value in positive.items():
         if value is not None and value < 1:
@@ -351,6 +353,13 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
         "(dataclass default 1)",
     )
     parser.add_argument(
+        "--hard_evidence_per_side",
+        type=int,
+        default=None,
+        help="[generate/hard] A group's first and last this-many lines are cited (all of "
+        "it when the group has <= 2x this many) (dataclass default 15)",
+    )
+    parser.add_argument(
         "--test_fraction",
         type=float,
         default=None,
@@ -456,6 +465,14 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
         default=None,
         help="Token cap per model completion, bounding runaway drafts (dataclass "
         "default 512)",
+    )
+    parser.add_argument(
+        "--num_ctx",
+        type=int,
+        default=None,
+        help="Context window requested per model call; left to Ollama's own default "
+        "this silently truncates a long prompt instead of erroring (dataclass "
+        "default 32768)",
     )
 
     parser.add_argument(
