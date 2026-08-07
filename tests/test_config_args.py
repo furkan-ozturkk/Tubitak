@@ -14,7 +14,7 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
-from config.args import DEFAULT_DATASET, _default_full_dataset, args_parser
+from config.args import _default_dataset, _default_full_dataset, args_parser
 
 
 class PathResolutionTest(unittest.TestCase):
@@ -33,7 +33,7 @@ class PathResolutionTest(unittest.TestCase):
     def test_full_moves_off_the_official_output(self):
         args = args_parser(["--command", "generate", "--full"])
         self.assertEqual(args.dataset, _default_full_dataset())
-        self.assertNotEqual(args.dataset, DEFAULT_DATASET)
+        self.assertNotEqual(args.dataset, _default_dataset())
 
     def test_full_honours_an_explicit_dataset(self):
         args = args_parser(
@@ -43,7 +43,7 @@ class PathResolutionTest(unittest.TestCase):
 
     def test_default_pass_writes_the_official_output(self):
         args = args_parser(["--command", "generate"])
-        self.assertEqual(args.dataset, DEFAULT_DATASET)
+        self.assertEqual(args.dataset, _default_dataset())
 
 
 class ModelSeparationTest(unittest.TestCase):

@@ -40,15 +40,15 @@
   "warning_count": 1,
   "errors": [],
   "warnings": [
-    "[/output/pilot/questions.json#202] id=hadoop_v1_hard_container_task_compare_1: difficulty=hard but expected_answer has ~3 sentence(s) (Section 7.3 expects >=4)."
+    "[/output/pilot/questions_2026-08-07.json#202] id=hadoop_v1_hard_container_task_compare_1: difficulty=hard but expected_answer has ~3 sentence(s) (Section 7.3 expects >=4)."
   ],
   "config_snapshot": {
     "command": "validate",
     "code_version": null,
     "experiment_tag": null,
-    "dataset": "/output/pilot/questions.json",
+    "dataset": "/output/pilot/questions_2026-08-07.json",
     "questions": [
-      "/output/pilot/questions.json"
+      "/output/pilot/questions_2026-08-07.json"
     ],
     "corpus_dir": "/data/loghub",
     "schema": "/app/config/question_schema.json",
@@ -66,7 +66,7 @@
     "input_digests": {
       "schema": "sha256:eae81b6793e5c71be861b3c3470416f64717e1f4f9eca5c51b2ed4ce4723c11d",
       "questions": {
-        "/output/pilot/questions.json": "sha256:7cef20f3d53a38c867d9ff2c1e3a907834188d44216cc2a5b1d7406c912dd0f6"
+        "/output/pilot/questions_2026-08-07.json": "sha256:7cef20f3d53a38c867d9ff2c1e3a907834188d44216cc2a5b1d7406c912dd0f6"
       }
     },
     "corpus_digests": {

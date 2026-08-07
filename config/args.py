@@ -40,7 +40,7 @@ import os
 from pathlib import Path
 
 DEFAULT_CORPUS_DIR = Path("/data/loghub")
-DEFAULT_DATASET = Path("/output/pilot/questions.json")
+DATASET_PATTERN = "/output/pilot/questions_{date}.json"
 FULL_DATASET_PATTERN = "/output/pilot/questions_full_{date}.json"
 DEFAULT_REVIEW_DIR = Path("/output/pilot/review/groundedness")
 DEFAULT_WORKSHEET = Path("/output/pilot/review/worksheet.csv")
@@ -60,6 +60,25 @@ COMMANDS = (
     "review-apply",
     "export-analyzer",
 )
+
+
+def _default_dataset() -> Path:
+    """Returns today's dated path for the official dataset.
+
+    The official output used to be one fixed ``questions.json``, so every
+    write silently replaced whatever a human had already reviewed with no
+    trace of what it overwrote and no way to tell, from the filename alone,
+    when a given set of answers was produced. Stamping today's date into the
+    default the same way ``--full`` already does closes both gaps: distinct
+    days keep distinct files, and a run's date is legible from its path
+    rather than only from ``gold_provenance.created_at`` inside it. Two
+    generate passes on the same day still share one file — the date, not a
+    full timestamp, is what was asked for.
+
+    Returns:
+        ``/output/pilot/questions_<YYYY-MM-DD>.json`` for today.
+    """
+    return Path(DATASET_PATTERN.format(date=datetime.date.today().isoformat()))
 
 
 def _default_full_dataset() -> Path:
@@ -102,7 +121,7 @@ def _resolve_paths(args: argparse.Namespace) -> None:
     Args:
         args: Parsed namespace; the three fields are set in place when omitted.
     """
-    if args.full and args.dataset == DEFAULT_DATASET:
+    if args.full and args.dataset == _default_dataset():
         args.dataset = _default_full_dataset()
     if args.questions is None:
         args.questions = [str(args.dataset)]
@@ -211,12 +230,14 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--dataset",
         type=Path,
-        default=DEFAULT_DATASET,
+        default=_default_dataset(),
         help="The question dataset file: written by generate, read by review-export, read and "
-        "rewritten by review-apply, and the default input of validate. Under --full the default "
-        f"moves to a dated scratch file ({FULL_DATASET_PATTERN.format(date='YYYY-MM-DD')}) so a "
-        "three-tier draft pass never overwrites the official stage-1 output unless this flag "
-        "says so explicitly",
+        f"rewritten by review-apply, and the default input of validate. Defaults to today's "
+        f"dated path ({DATASET_PATTERN.format(date='YYYY-MM-DD')}) so distinct days never "
+        "overwrite each other; pass this explicitly to operate on a different day's file. "
+        "Under --full the default moves instead to a dated scratch file "
+        f"({FULL_DATASET_PATTERN.format(date='YYYY-MM-DD')}) so an experimental pass never "
+        "overwrites the same day's official output unless this flag says so explicitly",
     )
     parser.add_argument(
         "--corpus_dir",

@@ -7,12 +7,13 @@ many records there are.
 
 Usage:
   python3 analysis/analysis_tables.py
-  python3 analysis/analysis_tables.py --questions output/pilot/questions.json
+  python3 analysis/analysis_tables.py --questions output/pilot/questions_2026-08-07.json
   python3 analysis/analysis_tables.py --table dataset
-  python3 analysis/analysis_tables.py --questions 'output/pilot/*.json' --table all
+  python3 analysis/analysis_tables.py --questions 'output/pilot/questions_*.json' --table all
 """
 
 import argparse
+import datetime
 import json
 import os
 import sys
@@ -30,8 +31,22 @@ from src.utils.helper_records import (
     load_questions,
 )
 
-DEFAULT_QUESTIONS = "output/pilot/questions.json"
+DATASET_PATTERN = "output/pilot/questions_{date}.json"
 TABLES = ("composition", "dataset", "provenance", "all")
+
+
+def _default_questions() -> str:
+    """Returns today's dated path for the official dataset.
+
+    Matches ``config.args._default_dataset``: the official output is dated
+    per day rather than living at one fixed ``questions.json``, so this
+    module's own default has to be computed the same way rather than point at
+    a name ``generate`` no longer writes.
+
+    Returns:
+        ``output/pilot/questions_<YYYY-MM-DD>.json`` for today.
+    """
+    return DATASET_PATTERN.format(date=datetime.date.today().isoformat())
 
 
 def _print_counts(title: str, counts: dict[str, int], total: int) -> None:
@@ -169,7 +184,7 @@ def main() -> int:
     parser.add_argument(
         "--questions",
         nargs="+",
-        default=[DEFAULT_QUESTIONS],
+        default=[_default_questions()],
         help="JSON/JSONL file(s) or glob pattern(s) to report on",
     )
     parser.add_argument(

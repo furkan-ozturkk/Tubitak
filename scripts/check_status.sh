@@ -2,10 +2,10 @@
 # Quick human-readable snapshot of what is currently in output/.
 # Reads finished files only -- safe to run on the host, no container needed.
 #
-# Usage: scripts/check_status.sh [questions.json path]
+# Usage: scripts/check_status.sh [questions file path]
 cd "$(dirname "$0")/.."
 
-Q=${1:-output/pilot/questions.json}
+Q=${1:-output/pilot/questions_$(date +%Y-%m-%d).json}
 R=$(dirname "$Q")/validation_report.json
 
 echo "=================================================="
