@@ -4,34 +4,34 @@
     "hdfs:semantic:addstoredblock_7"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:253d1a967a3cec58d4c43f3f1cc0df5e4ce79eefc7323110da064dbd1466e995"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:10b3260087f7059d107ca9e13d801e43664a6a7c36ece3fb815d93476f17fc11"
+    "prompt_sha256": "sha256:3d14c0b54bc677c26477d6cb124adb1c6c67cddc2952561ab05ff471d5dec881"
   },
   "claims": [
     {
-      "text": "The HDFS system is receiving and storing blocks from various sources.",
+      "text": "This excerpt shows a series of events related to HDFS block storage and transfer, including the addition of nodes to block maps and the reception of blocks by DataNodes.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_7"
       ]
     },
     {
-      "text": "The blocks are being added to the block map, indicating that they are being successfully stored on the DataNodes.",
+      "text": "The events involve multiple blocks and nodes, with each block having a unique ID and being associated with a specific node and size.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_7"
       ]
     },
     {
-      "text": "This suggests that the HDFS system is functioning normally and data is being replicated across the cluster.",
+      "text": "The log lines indicate that the blocks are being stored, received, or transferred between different nodes, with sizes consistently reported as 67108864.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_7"

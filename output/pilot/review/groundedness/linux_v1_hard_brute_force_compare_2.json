@@ -5,20 +5,20 @@
     "linux:hard:brute_force_compare:2:218_188_2_4"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:b13f448ca1f530bb99dd05299d9909eaacfa16f59c1521c1be27c9d5197b44a4"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:0a48ffdbb55afeb997d26eed4017b73172b625e383e03c70b135d053631b95d0"
+    "prompt_sha256": "sha256:8f55c40dc2edeb18adee8bf48a6750553c313a68a077d7cc5c0d3ade5a8b88bf"
   },
   "claims": [
     {
-      "text": "The authentication activity originating from 195.129.24.210 and 218.188.2.4 both show repeated authentication failures, but the pattern of these failures differs between the two groups.",
+      "text": "The authentication activity originating from 195.129.24.210 and 218.188.2.4 shows distinct patterns.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:2:195_129_24_210",
@@ -26,7 +26,7 @@
       ]
     },
     {
-      "text": "The group from 195.129.24.210 shows a burst of activity on two separate days, with 11 consecutive authentication failures occurring on July 1, and 4 failures on June 30, all within a short period of time.",
+      "text": "The group from 195.129.24.210 contains 15 lines of authentication failures, all of which are attempts to access the root user account, with a notable burst of activity on Jul 1 10:56, where 9 authentication failures occur within a 3-second window, and two earlier failures on Jun 30 20:16.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:2:195_129_24_210",
@@ -34,7 +34,7 @@
       ]
     },
     {
-      "text": "In contrast, the group from 218.188.2.4 shows a single burst of activity on June 15, with 12 consecutive authentication failures occurring within a short period of time.",
+      "text": "In contrast, the group from 218.188.2.4 contains 14 lines of authentication failures, also targeting the root user, but spread out over two days, Jun 14 and Jun 15, with a cluster of 10 failures on Jun 15 12:12, all within the same second, and two additional failures a minute later.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:2:195_129_24_210",
@@ -42,7 +42,7 @@
       ]
     },
     {
-      "text": "However, the group from 195.129.24.210 shows a more prolonged period of repeated failures, with two distinct bursts of activity separated by a day, whereas the group from 218.188.2.4 shows a single, shorter burst of activity.",
+      "text": "The intensity and recurrence of authentication attempts from 195.129.24.210, particularly the concentrated burst on Jul 1, suggest more suspicious behavior compared to 218.188.2.4, which, although showing a cluster of attempts, does not exhibit the same level of persistence over time as seen with 195.129.24.210.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:2:195_129_24_210",
@@ -50,12 +50,9 @@
       ]
     },
     {
-      "text": "These repeated failures without a corrective action in between suggest that the authentication activity from 195.129.24.210 may be more suspicious than that from 218.188.2.4.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:2:195_129_24_210",
-        "linux:hard:brute_force_compare:2:218_188_2_4"
-      ]
+      "text": "The root cause of the suspicious behavior is that these repeated authentication failures from 195.129.24.210 recur without any corrective action in between, indicating a potential ongoing threat.",
+      "supported": "no",
+      "candidate_group_ids": []
     }
   ],
   "verdict": "needs_human_review"

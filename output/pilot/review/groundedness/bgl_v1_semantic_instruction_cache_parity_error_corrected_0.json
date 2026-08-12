@@ -4,27 +4,34 @@
     "bgl:semantic:instruction_cache_parity_error_corrected_0"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:91c749721bf11f4f5cded567a48fb8fb1b1253fafdd09bcd718898463b397f7d"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:6241a3e4735c37e6158d272f4acd074f0f4eabae81aecf19023a2c3a0225cbbd"
+    "prompt_sha256": "sha256:48e8b02124c2a1679b757bde2d5c91be0bdf555843e0a236e2eb31be79288304"
   },
   "claims": [
     {
-      "text": "This excerpt shows a series of parity errors and double-hummer alignment exceptions in the system, indicating hardware or software issues that are being corrected by the RAS (Reliability, Availability, and Serviceability) kernel.",
+      "text": "This excerpt shows a series of log events from different system components, including instruction cache parity errors corrected on R02-M1-N0-C:J12-U11 and double-hummer alignment exceptions on R23-M0-NE-C:J05-U01, R24-M0-N1-C:J13-U11, and R21-M1-N6-C:J08-U11.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_0"
       ]
     },
     {
-      "text": "The errors occurred in different nodes (N0, N1, N6, etc.) and were reported at various times, suggesting a recurring problem.",
+      "text": "These events indicate various hardware or system issues that were detected and reported by the RAS KERNEL.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "bgl:semantic:instruction_cache_parity_error_corrected_0"
+      ]
+    },
+    {
+      "text": "A separate event on R16-M1-N2-C:J17-U01 reports a correctable error, specified as CE sym 2, at a specific memory address.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_0"

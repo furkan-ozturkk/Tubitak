@@ -4,27 +4,34 @@
     "linux:semantic:check_pass_user_unknown_0"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:cc5924569577c1b728c18366b622edb768bf730d82897b254afa7971e28c3ec4"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:e02e26bbc2381499fdbd8590afc5b43750d47576964667e634c8d4f49af116cb"
+    "prompt_sha256": "sha256:6b994469fce4297d8619fd0ecb20e8bc87c42d791edaf7448f8e4a4bb5c98e91"
   },
   "claims": [
     {
-      "text": "Multiple authentication failures occurred on the ssh service, with the user 'root' attempting to log in from the IP address 220-135-151-1.hinet-ip.hinet.net, but the user is unknown or does not exist.",
+      "text": "This excerpt shows a series of authentication failures for SSH connections to the combo system.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_0"
       ]
     },
     {
-      "text": "This indicates that the user 'root' is trying to gain unauthorized access to the system.",
+      "text": "On June 14, there was one attempt from IP address 218.188.2.4 with an unknown user, and on June 15, there were multiple attempts from 220-135-151-1.hinet-ip.hinet.net to log in as the root user, all of which failed.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_0"
+      ]
+    },
+    {
+      "text": "These repeated attempts from the same IP address on June 15 may indicate a brute-force login attempt.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_0"

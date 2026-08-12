@@ -4,34 +4,34 @@
     "hadoop:semantic:mrappmaster_7"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:8f1008178e8378af77400330cb3dbab62ecffa81f3501417043f399e160aa5dc"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:257c48d0cd4472dc10eea7d38c1fb4e989f6be077b59caa3dfcd6c4f796280d0"
+    "prompt_sha256": "sha256:efc1d864477fa1cf2b09da2599ce5cfb355900a4284785ee6afeb29e42b2d8ff"
   },
   "claims": [
     {
-      "text": "The Hadoop system is registering event handlers for various event types, such as task, attempt, commit, and container allocation.",
+      "text": "This excerpt shows the registration of various event types and handlers by the AsyncDispatcher in the Hadoop YARN system.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_7"
       ]
     },
     {
-      "text": "This indicates that the system is initializing and preparing for event handling and processing.",
+      "text": "The registrations occur for different classes, such as TaskEventType, TaskAttemptEventType, and ContainerAllocator$EventType, among others, and are all performed by the main thread.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_7"
       ]
     },
     {
-      "text": "The default file system is also being set to hdfs://msra-sa-41:9000.",
+      "text": "These registrations indicate the initialization of the event handling system in Hadoop YARN.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_7"

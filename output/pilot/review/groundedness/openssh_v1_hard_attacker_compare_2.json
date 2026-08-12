@@ -5,20 +5,20 @@
     "openssh:hard:attacker_compare:2:185_190_58_151"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:0f92bc475d70f5536eddb2c5f693eca68cae137100586e8ed04117fdc74c1eae"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:8f56d4102e08978653070216d5ccfdd9bd4fd3ce2ba9ec9e1f0e32c7ba6c9cce"
+    "prompt_sha256": "sha256:47865883a366f6c8a5bc2af98aba22834a7de4c66d2efb2575ba1e275b45955e"
   },
   "claims": [
     {
-      "text": "The intrusion attempts coming from 5.188.10.180 and 185.190.58.151 both exhibit suspicious behavior, but the pattern of their attempts differs.",
+      "text": "The intrusion attempts coming from 5.188.10.180 and 185.190.58.151 exhibit distinct patterns, with the former displaying a more rapid succession of attempts.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:2:5_188_10_180",
@@ -26,12 +26,7 @@
       ]
     },
     {
-      "text": "The IP address 5.188.10.180 shows a prolonged and intense burst of activity, with a single user, 'admin', being targeted for over 10 minutes, resulting in 11 failed password attempts.",
-      "supported": "no",
-      "candidate_group_ids": []
-    },
-    {
-      "text": "This prolonged and repetitive pattern of attacks suggests a sustained effort to gain unauthorized access to the system.",
+      "text": "The 5.188.10.180 IP address produces 30 lines of log entries within a span of approximately 1 minute and 18 seconds, indicating a high-frequency burst of activity.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:2:5_188_10_180",
@@ -39,7 +34,7 @@
       ]
     },
     {
-      "text": "In contrast, the IP address 185.190.58.151 also shows a pattern of repeated attempts, but with a wider range of users being targeted, including '0', '123', 'admin', and 'api'.",
+      "text": "In contrast, the 185.190.58.151 IP address generates 26 lines of log entries over a period of roughly 6 minutes, demonstrating a more spaced-out and prolonged series of attempts.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:2:5_188_10_180",
@@ -47,7 +42,7 @@
       ]
     },
     {
-      "text": "However, the frequency and duration of these attempts are not as prolonged as those seen with 5.188.10.180.",
+      "text": "Both sources attempt to access the system using various usernames, including \"admin\", \"0\", \"123\", and \"1234\", with the 5.188.10.180 IP address also trying \"default\", \"ftp\", and \"guest\".",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:2:5_188_10_180",
@@ -55,7 +50,15 @@
       ]
     },
     {
-      "text": "The most suspicious behavior is exhibited by 5.188.10.180, which shows a clear and sustained pattern of repeated attempts to gain unauthorized access to the system, with no apparent corrective action taken in between.",
+      "text": "The 185.190.58.151 IP address, on the other hand, also attempts to access the system using the username \"api\".",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:2:5_188_10_180",
+        "openssh:hard:attacker_compare:2:185_190_58_151"
+      ]
+    },
+    {
+      "text": "The repetition of failed password attempts for the \"admin\" user from both IP addresses, without any intervening successful logins or changes in behavior, suggests that these errors recur without a corrective action in between.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:2:5_188_10_180",

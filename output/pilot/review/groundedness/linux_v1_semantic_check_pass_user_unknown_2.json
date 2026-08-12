@@ -4,28 +4,33 @@
     "linux:semantic:check_pass_user_unknown_2"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:4803db2ae6c565f031ea26b4c6139c596abd95177ae691448af87551dab1bfdf"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:d6cfa9e40850481f412eb676ca1dd0a77c9647b380c3899851cc8120458f2494"
+    "prompt_sha256": "sha256:1bb16ade809c7327c83a44b8407b83e0c7ac223bbb738b718cd0c215c74a1bf3"
   },
   "claims": [
     {
-      "text": "Multiple failed SSH authentication attempts were made from two different IP addresses (061092085098.ctinets.com and d211-116-254-214.rev.krline.net) within a short period of time, indicating potential brute-force login attempts.",
+      "text": "This excerpt shows a series of authentication failures on the \"combo\" system, with multiple attempts to log in via SSH from different remote hosts.",
+      "supported": "no",
+      "candidate_group_ids": []
+    },
+    {
+      "text": "The failures occurred at two different times, with one attempt from 061092085098.ctinets.com at 14:53:36 and multiple attempts from d211-116-254-214.rev.krline.net at 20:05:31.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_2"
       ]
     },
     {
-      "text": "The fact that the user is unknown and the authentication failed suggests that the attempts were likely automated or malicious.",
-      "supported": "partial",
+      "text": "Each attempt resulted in an \"authentication failure\" due to an unknown user, as indicated by \"user unknown\" and \"authentication failure\" messages in the logs.",
+      "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_2"
       ]

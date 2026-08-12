@@ -4,27 +4,34 @@
     "mac:semantic:thermal_pressure_8"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:366bdb0e5abd0b31a928e8f31fb7d2bd48d1658952d1d6ea8ece9c134721ce1f"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:53c5979c82b82c40c5d32129f2db67d0ac5603a5393a6c9573d1d2ed73ec0c07"
+    "prompt_sha256": "sha256:9564a61eb0a8862c4799b3425d878c3e090b37131a15aea7271cf9103f56c56d"
   },
   "claims": [
     {
-      "text": "This excerpt shows a series of system events and conditions, including thermal and memory pressure, an ignored Safe Browsing update, an unrecognized attribute value in Address Book, AirPort and Thunderbolt power management, a button report, a WebKit preroll-complete notification, and a location icon state change.",
+      "text": "This excerpt shows various system events and conditions on a Mac system, including thermal and memory pressure states, job scheduling, and network interface power management.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_8"
       ]
     },
     {
-      "text": "These events indicate normal system activity and background processes running on the Mac.",
+      "text": "The events are reported by different system components, such as the kernel, CDScheduler, and various applications, and occur at different times.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "mac:semantic:thermal_pressure_8"
+      ]
+    },
+    {
+      "text": "These log lines indicate normal system activity, with some events being ignored or completed, and others reporting status changes or unexpected notifications.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_8"

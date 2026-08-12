@@ -4,34 +4,34 @@
     "openstack:semantic:nova_osapi_compute_wsgi_server_4"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:1c0535da9d399e1fe967b53e2f91097d982d753a3e2731d14a708bf38bae04aa"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:164025bf9291c67612aa10e2700f4414255e6f2923bc7796ecee879a4341b2ce"
+    "prompt_sha256": "sha256:d96b5f78a44fec5eaa868c60ff79d61bb46e1e4ae0f3ddb5e98e7a6a37792907"
   },
   "claims": [
     {
-      "text": "An instance with ID 43204226-2f87-4da7-b7ee-4d20cc66e846 was deleted on a hypervisor, taking 1.01 seconds to destroy and 0.46 seconds to deallocate its network.",
+      "text": "This excerpt shows the deletion of an instance with ID 43204226-2f87-4da7-b7ee-4d20cc66e846, which involved deleting instance files and deallocating network resources.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_4"
       ]
     },
     {
-      "text": "This instance deletion was likely initiated by a request to the OpenStack API, as evidenced by the API log entries showing GET requests for server details.",
+      "text": "The instance deletion process took a total of 1.01 seconds to complete on the hypervisor and an additional 0.46 seconds to deallocate the network.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_4"
       ]
     },
     {
-      "text": "The deletion process was completed successfully, with no errors reported in the compute log.",
+      "text": "The logs also record various API requests and responses, including GET requests to retrieve server details and metadata, which were successfully processed with a status of 200.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_4"

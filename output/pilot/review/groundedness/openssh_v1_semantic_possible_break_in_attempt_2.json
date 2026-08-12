@@ -4,34 +4,34 @@
     "openssh:semantic:possible_break_in_attempt_2"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:03742108341a5c35266437b197c05d930ac33f1e5a7f680d630246178d383dfe"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:05c1bdaff98da13f21a41d499f3a58e26a98817116a85e4f093fcfb49829f9ac"
+    "prompt_sha256": "sha256:4797613ddcfc12686fd6619bc5bd0cb7a9b9ef74bddbbbf50a739f17fe220892"
   },
   "claims": [
     {
-      "text": "There was a failed login attempt to the root account from the IP address 187.141.143.180, which triggered a possible break-in attempt warning.",
+      "text": "This excerpt shows two separate attempts to connect to the system via SSH from the IP address 187.141.143.180, with both attempts resulting in authentication failures due to incorrect passwords for the root user.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_2"
       ]
     },
     {
-      "text": "The login attempt was made through SSH and failed due to an incorrect password.",
+      "text": "The system logs these attempts as possible break-in attempts, also noting the failure of reverse mapping checks for the associated domain name.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_2"
       ]
     },
     {
-      "text": "The IP address 187.141.143.180 made two consecutive failed login attempts, which may indicate a brute-force attack.",
+      "text": "Each attempt is followed by a disconnect message from the same IP address.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_2"

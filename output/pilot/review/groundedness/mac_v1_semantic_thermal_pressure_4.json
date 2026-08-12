@@ -4,34 +4,34 @@
     "mac:semantic:thermal_pressure_4"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:b39b67bbffa9a7b587ff47037deada0bebab6063ab2e94832855416bc1e94cee"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:17f360e585ce9cb382c0aeb787026140b1b04ad4d27bdb9dbcd97d8f6060dbca"
+    "prompt_sha256": "sha256:cfd375aa5c740ad74b78546055c19b2b166ee2c3b6dafc957052a105ab209c3c"
   },
   "claims": [
     {
-      "text": "The excerpt shows a series of system events and conditions, including low thermal and memory pressure, a Thunderbolt device being unplugged, a network connection being denied, and the AirPort being disabled.",
+      "text": "This excerpt shows various system events and conditions on the authorMacBook-Pro, including thermal and memory pressure states, IPv6 address assignments, and Thunderbolt HPD packet notifications.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_4"
       ]
     },
     {
-      "text": "The system appears to be in a stable state with no critical issues reported.",
+      "text": "It also indicates that the system woke up and that there were denied network-outbound attempts by the com.apple.Addres process.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_4"
       ]
     },
     {
-      "text": "The events are likely routine system operations rather than indicative of a problem.",
+      "text": "The events are logged by different system components, such as the kernel, com.apple.CDScheduler, and sandboxd, over a period of approximately 35 minutes.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_4"

@@ -4,34 +4,34 @@
     "openssh:semantic:possible_break_in_attempt_8"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:deb782f80a59ddfc785fa1a7816cdf624f93995a497b142bab87897b3af40fb5"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:dec045cab07301701912d8dac67e34279a4db127fc485b654595e66fe7296348"
+    "prompt_sha256": "sha256:1f365d2711b44ee5d657f2d031e90064bcf055039aec9a6b3c914a370836cf33"
   },
   "claims": [
     {
-      "text": "An unauthorized user, identified as 'ghost', attempted to log in from IP address 187.141.143.180, but was denied access due to invalid credentials.",
+      "text": "This excerpt shows a failed SSH login attempt from the IP address 187.141.143.180, where an invalid user named \"ghost\" attempted to authenticate.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_8"
       ]
     },
     {
-      "text": "The attempt was likely a break-in attempt as indicated by the OpenSSH log.",
+      "text": "The login attempt failed due to the user being unknown, resulting in an authentication failure.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_8"
       ]
     },
     {
-      "text": "The user was disconnected after a failed password attempt.",
+      "text": "The session was subsequently disconnected, but another similar login attempt with the same warning of a possible break-in attempt occurred shortly after.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_8"

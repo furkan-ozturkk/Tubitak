@@ -4,34 +4,34 @@
     "hdfs:semantic:addstoredblock_5"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:4eb4839514bffa2fa0c3bd56a2bb70fe2207e4913402b982a508dc1f4324df21"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:4faa0bc20fdcf5c52f97590d9b3177d3737869421bd587ac8ba5c74340918352"
+    "prompt_sha256": "sha256:d970499b287eb27627db0c5973e4b9a60961d6fa88cd49304a7cab172900185e"
   },
   "claims": [
     {
-      "text": "The HDFS system is receiving blocks from various nodes and adding them to its block map.",
+      "text": "This excerpt shows a series of events related to HDFS block management, including the addition of a node to a block map, the reception of blocks by DataNodes, and the termination of PacketResponders for specific blocks.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_5"
       ]
     },
     {
-      "text": "This indicates that the HDFS system is actively replicating data across its nodes to ensure data availability and redundancy.",
+      "text": "The events indicate that data is being written to or replicated across the HDFS cluster, with various nodes receiving blocks of size 67108864.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_5"
       ]
     },
     {
-      "text": "The blocks are being received from different nodes, suggesting a distributed data replication process.",
+      "text": "The FSNamesystem also allocates a new block, blk_3376391218693716925, for a file in the /user/root/randtxt3 directory.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_5"

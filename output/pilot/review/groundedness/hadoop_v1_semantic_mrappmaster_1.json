@@ -4,34 +4,34 @@
     "hadoop:semantic:mrappmaster_1"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:b40d23bd0d7ae10758fd0ff0097f19395d28ce8bcf8fa45022a23a47a1fbb238"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:05144728ed5bca95ffcf25425c781ff459b5344a732dd77bd276dc768ff166af"
+    "prompt_sha256": "sha256:c037891833100af05bcd74f3ba769f4386d653538ea3cb7394afad226a427cd1"
   },
   "claims": [
     {
-      "text": "A Hadoop MapReduce application with application ID 20 and attempt ID 1 is being executed, and the application is using the FileOutputCommitter for output.",
+      "text": "This excerpt shows the initialization of a Hadoop MapReduce application, specifically the MRAppMaster, which is executing with a YARN_AM_RM_TOKEN.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_1"
       ]
     },
     {
-      "text": "The application is also registering event handlers for job and task events.",
+      "text": "The log lines indicate the configuration and setup of various components, including the OutputCommitter and event dispatchers.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_1"
       ]
     },
     {
-      "text": "This indicates the application is initializing and preparing to run.",
+      "text": "The application is using the FileOutputCommitter and registering event handlers for job, task, and job history events.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_1"

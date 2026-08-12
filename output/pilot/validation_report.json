@@ -44,16 +44,16 @@
     "command": "validate",
     "code_version": null,
     "experiment_tag": null,
-    "dataset": "/output/pilot/questions_2026-08-11.json",
+    "dataset": "/output/pilot/questions_2026-08-12.json",
     "questions": [
-      "/output/pilot/questions_2026-08-11.json"
+      "/output/pilot/questions_2026-08-12.json"
     ],
     "corpus_dir": "/data/loghub",
     "schema": "/app/config/question_schema.json",
     "manifest": "/app/src/corpus/corpus_manifest.json",
     "strict": false,
     "full": false,
-    "gold_draft_model": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "gold_draft_model": "casperhansen/llama-3.3-70b-instruct-awq",
     "groundedness_model": "Qwen/Qwen3-32B-AWQ",
     "test_fraction": null,
     "min_matches": null,
@@ -64,7 +64,7 @@
     "input_digests": {
       "schema": "sha256:7e59893c0a829d4600e6bede4d3e872c6c09e8800d02f14ed63d6cc6d64a2f0b",
       "questions": {
-        "/output/pilot/questions_2026-08-11.json": "sha256:ff0e607dfdbf2c4131031df878f01afa992d30d5549fe9f9bcba7238f88fa649"
+        "/output/pilot/questions_2026-08-12.json": "sha256:20bf3fa8876b18ae6c0ab70440a5c2bf3c8ed9552903f6b072ff880cea33b1ae"
       }
     },
     "corpus_digests": {

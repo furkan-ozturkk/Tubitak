@@ -4,26 +4,35 @@
     "bgl:semantic:instruction_cache_parity_error_corrected_3"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:7e8b410f7e280ed79ae3d0b14a2765dae68c655aacb69c0193cc5c1294eaa9db"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:762953be6d15ba8fecb1f12c2854720f2ee6ae3d46b1618002e181d039e19850"
+    "prompt_sha256": "sha256:52f24bf7daf243a603be1a4389fc8c57d26f8b642b36fe1c02e68a57e5e27c04"
   },
   "claims": [
     {
-      "text": "This excerpt shows a series of instruction cache parity errors corrected on a system over a period of time, with the errors occurring on different nodes (N0 and N1) on different days.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "text": "This excerpt shows a series of instruction cache parity error corrections occurring on R02-M1-N0-C:J12-U11 between 21:31 and 22:23 on 2005-06-14.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "bgl:semantic:instruction_cache_parity_error_corrected_3"
+      ]
     },
     {
-      "text": "The errors are corrected by the RAS (Reliability, Availability, and Serviceability) kernel, indicating that the system is able to recover from these errors.",
+      "text": "The same type of error is not shown to occur on this component after 22:23, but two different components, R21-M1-N1-C:J07-U11 and R25-M1-N1-C:J15-U11, are shown to be generating core files at 06:57 on 2005-06-15.",
       "supported": "yes",
+      "candidate_group_ids": [
+        "bgl:semantic:instruction_cache_parity_error_corrected_3"
+      ]
+    },
+    {
+      "text": "These events indicate hardware or system issues, with the first series suggesting recurring cache errors and the latter two indicating potential system crashes or failures.",
+      "supported": "partial",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_3"
       ]

@@ -4,34 +4,34 @@
     "hdfs:semantic:addstoredblock_9"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:a6d474f722fe255e707b95e299e6a6eeca8f8f0d99c1ad40058c1234b1e3dd38"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:6e2dfbc9962946789a64e0f539dc75f147ea15e8e98846df328ba91537cfae35"
+    "prompt_sha256": "sha256:d14cf1fba0dd906e44535f8faf84dddbd742126c4249ffbaef1aeb52e2427406"
   },
   "claims": [
     {
-      "text": "The HDFS system is receiving blocks from various nodes and adding them to its block map.",
+      "text": "This excerpt shows a series of events related to HDFS block management, including the addition of nodes to block maps and the reception of blocks by DataNodes.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_9"
       ]
     },
     {
-      "text": "This indicates that the system is actively replicating data across different nodes to ensure data redundancy and availability.",
+      "text": "The events involve multiple blocks and nodes, with each line describing a specific action such as adding a node to a block map or receiving a block from a source address.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_9"
       ]
     },
     {
-      "text": "The blocks are being received from different source addresses and added to the block map with their respective sizes.",
+      "text": "The reception of blocks and updates to block maps indicate that data is being written or replicated across the HDFS cluster.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_9"

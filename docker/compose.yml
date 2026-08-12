@@ -76,7 +76,7 @@ services:
       loghub:
         condition: service_healthy
     environment:
-      GOLD_DRAFT_BASE_URL: ${GOLD_DRAFT_BASE_URL:-http://furkan.ozturk_vllm:8003}
+      GOLD_DRAFT_BASE_URL: ${GOLD_DRAFT_BASE_URL:-http://furkan.ozturk_vllm:8004}
       GROUNDEDNESS_BASE_URL: ${GROUNDEDNESS_BASE_URL:-http://furkan.ozturk_vllm:8001}
       PGHOST: loghub
       PGPORT: "5432"

@@ -4,27 +4,34 @@
     "hadoop:semantic:mrappmaster_5"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:23473c91e77e25a5ee40ea6c83f1c373075177577874a943353276398dc6287d"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:1a0d8b0bcc09d9d17bc40d0302b8c405bfb3471d8d592565a8fc44821e477fbb"
+    "prompt_sha256": "sha256:3b0f8c18df7acaf7dcc964952db9a2ca6135951c1c9c552d6e14e21ef273faf8"
   },
   "claims": [
     {
-      "text": "The event shown in this excerpt is the registration of various event types with the AsyncDispatcher in the Hadoop system.",
+      "text": "This excerpt shows the registration of various event handlers by the AsyncDispatcher in the Hadoop system.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_5"
       ]
     },
     {
-      "text": "This registration allows the system to handle different types of events, such as job history events, task events, and container allocation events, in a centralized manner.",
+      "text": "The registrations occur for different event types, including job history, job, task, task attempt, commit, speculate, and container allocation events, and are all handled by the MRAppMaster.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:semantic:mrappmaster_5"
+      ]
+    },
+    {
+      "text": "These registrations indicate the setup of event handling mechanisms within the Hadoop application.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_5"

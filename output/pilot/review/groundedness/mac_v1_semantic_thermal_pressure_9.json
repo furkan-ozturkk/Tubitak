@@ -4,36 +4,38 @@
     "mac:semantic:thermal_pressure_9"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:2018c9093ba97735c1bb64c9c9a6255babf9687ec908bf1cc102ddb89c598c67"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:a63c7c08e5202793d71f8c3f6491fe8add4c25b1fef1b10e6533d6ab4dc61ecb"
+    "prompt_sha256": "sha256:0d925b4c077b093c7160b3a4aafb137667f2a539485a59e2448ef958d7c81ab7"
   },
   "claims": [
     {
-      "text": "The system experienced a series of wake calls, including a thermal pressure state and AppleCamIn system wake calls, which may indicate system activity or power management events.",
+      "text": "This excerpt shows a series of system log events on a Mac device, including changes in thermal and memory pressure states, system wake calls, and various application and service activities.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_9"
       ]
     },
     {
-      "text": "The system also experienced a brief network connectivity issue and a failed connection attempt to a server.",
+      "text": "The events indicate normal system operations, such as the Bluetooth Low Energy scanner being powered on and various services like Safari and Address Book performing routine tasks.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_9"
       ]
     },
     {
-      "text": "The AddressBook.InternetAccountsBridge successfully connected to a server after two attempts.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "text": "The log lines also show some deferred or ignored tasks, like the Safari Safe Browsing update being postponed for 978 seconds and a failed connection attempt by the Address Book service.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "mac:semantic:thermal_pressure_9"
+      ]
     }
   ],
   "verdict": "needs_human_review"

@@ -4,27 +4,34 @@
     "openssh:semantic:possible_break_in_attempt_6"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:3d8fd75542232c58e440115c0f9409a740bde2444075fe86b0edf83a8c7625d5"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:b2a6c28506455ffbbfe57e82906852b32256de0fb7c2890a23bc7def7d04e434"
+    "prompt_sha256": "sha256:8338afed04420840f6c72afcaca08aa50cd7e3f22d6fca4dde55c42f9f96feba"
   },
   "claims": [
     {
-      "text": "There was a failed login attempt to the root account from the IP address 187.141.143.180, which triggered a possible break-in attempt warning.",
+      "text": "This excerpt shows two separate attempts to connect to the system via SSH from the same IP address, 187.141.143.180, with both attempts resulting in authentication failures due to incorrect passwords for the root user.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_6"
       ]
     },
     {
-      "text": "The login attempt was made using SSH protocol version 2 and was unsuccessful, as indicated by the \"Failed password\" and \"Received disconnect\" messages.",
+      "text": "The system logs these attempts as possible break-in attempts, indicating potential security threats.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:semantic:possible_break_in_attempt_6"
+      ]
+    },
+    {
+      "text": "Each attempt is followed by a disconnect message, suggesting that the connection was terminated after the failed login.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_6"

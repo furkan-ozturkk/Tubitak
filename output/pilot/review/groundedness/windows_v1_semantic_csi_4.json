@@ -4,34 +4,34 @@
     "windows:semantic:csi_4"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:168826a8c3d9832b6a8980d27cd9b5c2a1c9db96796bd8a5da6b0f6f0814ebe4"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:4db354011921a3024d8a2c4415294ac52af99440d5a69a2674e51416e11f7ab0"
+    "prompt_sha256": "sha256:415dfe15bf6aeae9754183ed3293ff9a1b3a13f09fc0ced73bdbd7edb4d8aa0d"
   },
   "claims": [
     {
-      "text": "The Windows system is performing a CSI (Component-Based Servicing) transaction for deployment engine {d16d444c-56d8-11d5-882d-0080c847b195} with flags 00000002.",
+      "text": "This excerpt shows a CSI (Component-Based Servicing) transaction being initialized and committed, indicating a system operation related to the deployment engine.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_4"
       ]
     },
     {
-      "text": "This transaction is a scavenge operation, which involves checking the store for coherency and applying any necessary changes.",
+      "text": "The transaction involves performing one operation and creating an NT transaction, with no issues or errors reported in the provided log lines.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_4"
       ]
     },
     {
-      "text": "The operation was successful, with no issues reported.",
+      "text": "The \"scavenge\" process is begun but quickly skipped as the store coherency cookie matches the last scavenge cookie, suggesting that no changes were needed.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_4"

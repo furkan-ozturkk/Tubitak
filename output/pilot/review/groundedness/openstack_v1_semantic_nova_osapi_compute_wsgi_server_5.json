@@ -4,34 +4,34 @@
     "openstack:semantic:nova_osapi_compute_wsgi_server_5"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:e6760e5d95a16fd45e32763727d59f1141ee5a24e3fb515840bc83e891e7a875"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:537873710ed077a9495f5b699257ab266f5594590094edf3070865b068007b98"
+    "prompt_sha256": "sha256:75dd78817ca685a745710547107575e25d169a3c60189de873306f82d890db1f"
   },
   "claims": [
     {
-      "text": "A request to create a new server was made to the Nova API, and the server was successfully claimed by the compute node.",
+      "text": "This excerpt shows a series of API requests and compute claims related to creating a new server instance with ID d54b44eb-2d1a-4aa2-ba6b-074d35f8f12c.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_5"
       ]
     },
     {
-      "text": "The compute node has sufficient free memory and disk space to accommodate the requested server.",
+      "text": "The nova-api logs indicate that a POST request to create a server was successful, followed by two GET requests to retrieve server details, both of which returned a 200 status.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_5"
       ]
     },
     {
-      "text": "The server is being created on the compute node with a memory limit of 96258 MB and an unlimited disk limit.",
+      "text": "The nova-compute logs then show the compute service attempting to claim resources for the new instance, checking memory and disk availability to determine if the instance can be created.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_5"

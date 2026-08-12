@@ -4,27 +4,34 @@
     "zookeeper:semantic:fastleaderelection_1"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:8d526e487d2e53108389d6e44a38d227975822cc544b0fc67bd0e788c2505628"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:3df8c06ec8eddcd442f9011b08c0f4259a7fe4a9cc94dd6eeca46d9baf415b07"
+    "prompt_sha256": "sha256:ccb99b0fc8b58df6006a4f61710f759dbae200f28e58bf51935c83dd60625464"
   },
   "claims": [
     {
-      "text": "This excerpt shows a series of client connections and disconnections to a ZooKeeper server, with multiple clients establishing and closing sessions over a period of time.",
+      "text": "This excerpt shows a series of events related to client connections to a ZooKeeper server, including the establishment of new sessions and the closure of existing ones.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_1"
       ]
     },
     {
-      "text": "The server appears to be handling multiple client connections concurrently, with some clients disconnecting due to an end-of-stream exception.",
+      "text": "The events indicate that multiple clients from different IP addresses are connecting to the server, with each connection being assigned a unique session ID and a negotiated timeout of 10000.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "zookeeper:semantic:fastleaderelection_1"
+      ]
+    },
+    {
+      "text": "The excerpt also mentions a closed socket connection and an end of stream exception, indicating some disruption or error in the communication with one of the clients.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_1"

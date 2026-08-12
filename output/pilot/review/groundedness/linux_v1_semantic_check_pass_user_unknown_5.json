@@ -4,20 +4,34 @@
     "linux:semantic:check_pass_user_unknown_5"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:4cf4aa39778ffafed2d3013a37bbb375fbde588b733994ece237677382c10b8a"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:75330cb572f113a24458ea28e6eef9afdbac197317100558ea37ea5570e57ee4"
+    "prompt_sha256": "sha256:ec87d61eac6d7061dc867849c4d7a703ae46a205b04f5eb3a42d157b64f0b5b6"
   },
   "claims": [
     {
-      "text": "Multiple failed SSH authentication attempts were made from the IP address ip-216-69-169-168.ip.secureserver.net, and a new FTP connection was established from a different IP address 210.245.165.136.",
+      "text": "This excerpt shows a series of failed SSH login attempts from the same IP address, ip-216-69-169-168.ip.secureserver.net, with the user being unknown, indicating potential unauthorized access attempts.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_5"
+      ]
+    },
+    {
+      "text": "Later, it shows two FTP connections from a different IP address, 210.245.165.136, which were successfully established.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_5"
+      ]
+    },
+    {
+      "text": "These events suggest potential security issues, including brute-force login attempts and incoming FTP connections from external sources.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_5"

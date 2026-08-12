@@ -4,27 +4,34 @@
     "linux:semantic:check_pass_user_unknown_8"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:1517772e5ab0405f95049a994987d4e851ef06807abcdf7fc8df1813180a57f1"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:8a22d9da2a1543ed66c5c610266148ec74fbbd0c1e08d322db9e6824b0716910"
+    "prompt_sha256": "sha256:dd50a4577deef6717015221a67ee9d2d30474a34e026aedc3b992c5b74b835b2"
   },
   "claims": [
     {
-      "text": "Multiple SSH authentication attempts were made from the host \"zummit.com\" but failed due to the user being unknown.",
+      "text": "This excerpt shows a series of authentication failures that occurred on the \"combo\" system, all within the same second.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_8"
       ]
     },
     {
-      "text": "This indicates that the system is being targeted by an unauthorized access attempt.",
+      "text": "The failures were due to unknown users attempting to log in from the host \"zummit.com\" via SSH, with each attempt being recorded by a different process of the sshd daemon.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_8"
+      ]
+    },
+    {
+      "text": "Each attempt resulted in an \"authentication failure\" with a \"user unknown\" error.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_8"

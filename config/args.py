@@ -415,13 +415,13 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--gold_draft_base_url",
         type=str,
-        default=os.environ.get("GOLD_DRAFT_BASE_URL", "http://furkan.ozturk_vllm:8003"),
+        default=os.environ.get("GOLD_DRAFT_BASE_URL", "http://furkan.ozturk_vllm:8004"),
         help="Local vLLM server that drafts medium/hard gold answers (Section 5.5)",
     )
     parser.add_argument(
         "--gold_draft_model",
         type=str,
-        default="hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+        default="casperhansen/llama-3.3-70b-instruct-awq",
         help="Model id --gold_draft_base_url was started with. Must differ from "
         "--groundedness_model (Section 5.5/6)",
     )

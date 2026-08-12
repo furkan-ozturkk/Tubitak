@@ -4,34 +4,34 @@
     "hdfs:semantic:addstoredblock_4"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:bba62e260d7ac34ca52614611f6ed42b53e836409545b768cd9d0265012fcb02"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:d77af0006b801c96db22f213ca30a703379b2af326cba2d2615c564c964c255d"
+    "prompt_sha256": "sha256:e4552b6725d157bc27964ea98b3ecd178578ccae6f2ca0dc70f9907960abb4ca"
   },
   "claims": [
     {
-      "text": "The HDFS system is receiving and storing blocks from various nodes, with some blocks being verified and others being received from specific addresses.",
+      "text": "This excerpt shows various events related to HDFS block management, including the addition of nodes to block maps, the reception and verification of blocks, and the termination of packet responders.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_4"
       ]
     },
     {
-      "text": "The blockMap is being updated to reflect these changes, indicating that the blocks are being successfully added to the system.",
+      "text": "The events involve multiple blocks and nodes, with each line describing a specific action related to a particular block or node.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_4"
       ]
     },
     {
-      "text": "This suggests that the HDFS system is actively storing and managing data from multiple nodes.",
+      "text": "The log lines indicate normal operational activities, such as block updates, receptions, and verifications, without suggesting any errors or anomalies.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_4"

@@ -4,34 +4,34 @@
     "mac:semantic:thermal_pressure_3"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:20bec150d4d72302d7a9dbc5b0fab350815867eb002f3e1be7eee2aef29b9196"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:5e2ae0c58dce38b7f8f3cc2764c60c22bdeb1a02a194d2465b553d83594f82eb"
+    "prompt_sha256": "sha256:c9914c2ba08453005886e5972d821e391b992fb0c14d19e411a2aaaab7ca16b9"
   },
   "claims": [
     {
-      "text": "The system log excerpt shows a series of events and conditions, including thermal and memory pressure states, network activity, Bluetooth scanning, and a denied network request.",
+      "text": "This excerpt shows various system events and conditions on the authorMacBook-Pro, including thermal and memory pressure states, network keepalive setups, and a change in sleep cause.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_3"
       ]
     },
     {
-      "text": "The system also appears to be adjusting its network keepalive interval and has set a wake time.",
+      "text": "The events are logged by different system processes, such as the kernel, com.apple.CDScheduler, and ntpd, and occur over a period of approximately 1 hour.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_3"
       ]
     },
     {
-      "text": "The system had previously gone to sleep, with a sleep cause of unknown reason (code 5).",
+      "text": "The logs also mention specific actions like BTLE scanning being stopped and a network outbound connection being denied.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_3"

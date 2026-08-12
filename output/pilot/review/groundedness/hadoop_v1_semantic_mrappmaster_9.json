@@ -4,34 +4,34 @@
     "hadoop:semantic:mrappmaster_9"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:e5c67b2e5d448525ca1cd0e1e495444dd0a225558806590a76a8f36aa837c0ce"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:53bbfa0debc81ed0c102a8ad5fd0946f2a3da3055f9ad12eb30ccfb915d5ee01"
+    "prompt_sha256": "sha256:686b23a750299ceac132ce4444575c6039cf8d75878a71d9111b93f156f9d474"
   },
   "claims": [
     {
-      "text": "The Hadoop system is initializing its components, registering event handlers and dispatchers, and setting default file systems.",
+      "text": "This excerpt shows a series of registration and initialization events for various Hadoop YARN components, including event dispatchers and job history utilities.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_9"
       ]
     },
     {
-      "text": "The default file system is set to hdfs://msra-sa-41:9000.",
+      "text": "The lines indicate that these components are being set up and configured, with multiple references to the default file system and the registration of different event types.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_9"
       ]
     },
     {
-      "text": "Job history data emission to the timeline server is not enabled.",
+      "text": "The excerpt also notes that emitting job history data to the timeline server is not enabled.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_9"

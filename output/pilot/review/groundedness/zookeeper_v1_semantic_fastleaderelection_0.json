@@ -4,34 +4,34 @@
     "zookeeper:semantic:fastleaderelection_0"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:255193e713f9e55954d2142fefa0cf950777e42169dbfa1805f8f8c3872bd37b"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:c5595f03b6f1b6d854934b5453811fcfd9d5ff7f487a73a35f09b872943dd697"
+    "prompt_sha256": "sha256:30421fc0096f7e9c44eb7e7c52206fefbfa13ef80c7e482595ada01050397100"
   },
   "claims": [
     {
-      "text": "The ZooKeeper system is experiencing a connection issue with a worker thread, specifically SendWorker with id 188978561024, which is leaving the thread and being interrupted while waiting for a message on a queue.",
+      "text": "This excerpt shows a series of events related to connections and communication in a Zookeeper system, including a received connection request and subsequent warnings about send and receive workers leaving threads or encountering errors.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_0"
       ]
     },
     {
-      "text": "This is causing a connection break, and the system is attempting to reconnect by receiving new connection requests.",
+      "text": "A connection broken error is reported for id 188978561024, with my id = 1, on two occasions.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_0"
       ]
     },
     {
-      "text": "The system is also experiencing a notification time out, but this is not directly related to the connection issue.",
+      "text": "The excerpt also indicates that new connection requests are still being received, such as from /10.10.34.13:57707, despite the errors and warnings.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_0"

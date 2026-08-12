@@ -4,27 +4,34 @@
     "openstack:semantic:nova_osapi_compute_wsgi_server_8"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:7bc2b5a0656404d51a1a45f0a8adffb33582dc8a01517bcb201485c9035a45a8"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:44c676da560be6c3c9123ea50e3e78e7dd1537cf26c382cab2b64ca1eea9a7a2"
+    "prompt_sha256": "sha256:56feab27fe5a5e06670833e0c7d593498ea811a29b15ba133616d8e26c180f75"
   },
   "claims": [
     {
-      "text": "This excerpt shows a series of API requests to retrieve server details and a compute node starting an instance.",
+      "text": "This excerpt shows a series of API requests to retrieve server details, all of which return a status of 200, indicating successful requests.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_8"
       ]
     },
     {
-      "text": "The requests are all successful, returning a status of 200, and the instance is successfully started on the compute node.",
+      "text": "Additionally, it shows the nova-compute service checking the status of an image and reporting on its usage, as well as starting a VM instance with the id d96a117b-0193-4549-bdcc-63b917273d1d.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_8"
+      ]
+    },
+    {
+      "text": "The requests and compute operations appear to be unrelated, with different request ids and no explicit connection between them.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_8"

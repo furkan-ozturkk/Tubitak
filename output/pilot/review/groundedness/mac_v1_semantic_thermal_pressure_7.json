@@ -4,34 +4,34 @@
     "mac:semantic:thermal_pressure_7"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:a66adee82c54ea6bb24e7972347ec935b4ae62a4d5dc64cf99295baf8e4426a8"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:d4f2835764aef32d2b6933d9e88fa31c4cbe38084f6a8f0ef5c572176450a077"
+    "prompt_sha256": "sha256:530bae1c673cff0fba9698d407e171b253db41c4a6bd0cba1a9dc9114b611d39"
   },
   "claims": [
     {
-      "text": "The system experienced a wake-up event, transitioning from a sleep state to a full wake state, and the network interface was enabled.",
+      "text": "The excerpt shows a series of system log events on a Mac device, including thermal and memory pressure states, network activity, and system sleep and wake events.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_7"
       ]
     },
     {
-      "text": "The system log also shows a scheduled security alert job being ignored due to an upcoming start time.",
+      "text": "A process named com.apple.Addres was denied network-outbound access, and the system underwent a full wake from sleep.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_7"
       ]
     },
     {
-      "text": "The system's memory and thermal pressure states were normal at the time of the wake-up event.",
+      "text": "The log also includes messages from various processes, such as com.apple.cts and QQ, indicating scheduled job evaluations and other activities.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_7"

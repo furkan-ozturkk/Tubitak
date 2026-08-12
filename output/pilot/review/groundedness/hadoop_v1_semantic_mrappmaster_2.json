@@ -4,34 +4,34 @@
     "hadoop:semantic:mrappmaster_2"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:fb10dab826917b1a29fad2fa190a1c592f9076a7e8fdb6a7d2263a3a522ca33d"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:cb3f967ce13f4428d11f0c215a2035810e3e6307d284d681928993455a09084f"
+    "prompt_sha256": "sha256:a25aff75322aaf69d10c00560a7d154fee81c21831e9293d4822f9034e4c9509"
   },
   "claims": [
     {
-      "text": "This excerpt shows the initialization of a YARN application master, specifically the configuration of the output committer and the registration of event handlers.",
+      "text": "This excerpt shows the initialization of a YARN application, specifically a MapReduce application master, with an application ID of 20 and attempt ID of 1.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_2"
       ]
     },
     {
-      "text": "The application master is configured to use the FileOutputCommitter, which is responsible for managing the output of the application.",
+      "text": "The logs indicate the configuration and registration of various event handlers and output committers, such as the FileOutputCommitter.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_2"
       ]
     },
     {
-      "text": "The event handlers are registered to handle various events related to the application, such as job and task attempts.",
+      "text": "The event handlers are registered for different event types, including job, task, and task attempt events, which suggests that the application is preparing to manage and execute a MapReduce job.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_2"

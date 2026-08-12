@@ -4,34 +4,34 @@
     "hdfs:semantic:addstoredblock_6"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:cc361443d369e25e01f5a3b956d56ecf62329783010438c56c0d804f16c81221"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:b1a24bddce8bde3fbe7a4df34d98469c89a2df0782003ced6a4e8a1ea3a5822e"
+    "prompt_sha256": "sha256:ed51c3617d8df2abd40c8ddbc04a0185efd69a9441319c8ca20853c699d6f8c4"
   },
   "claims": [
     {
-      "text": "The HDFS system is experiencing block and DataNode issues, with multiple blocks being added and removed from the system, and DataNode PacketResponders terminating.",
+      "text": "This excerpt shows various events related to HDFS block management, including the addition of nodes to a block map, the termination of packet responders for specific blocks, and the reception of a block from a source node.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_6"
       ]
     },
     {
-      "text": "This indicates that the HDFS system is experiencing instability and potential data loss due to the dynamic addition and removal of blocks and DataNodes.",
-      "supported": "partial",
+      "text": "The events indicate changes to the block storage and retrieval process, such as updating the block map and handling block transfers.",
+      "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_6"
       ]
     },
     {
-      "text": "The system is also receiving and terminating blocks, suggesting that data is being transferred but not always successfully stored.",
+      "text": "The addition of blocks to an invalidSet for specific nodes suggests that some blocks may be marked as invalid or corrupted on those nodes.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_6"

@@ -4,27 +4,34 @@
     "linux:semantic:check_pass_user_unknown_3"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:efbd583274e9696d0ead90adcaee9f5e446521a0ea4549eb92bfdeafe212844f"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:91d5d28a3bb5e8d03dbcc1db30adfd61b506decc45f298ec5e0f66a220901d36"
+    "prompt_sha256": "sha256:fb6bf08157735e1572d457a0c8e15a835303344dba9608bd2e638a6ba084d151"
   },
   "claims": [
     {
-      "text": "Multiple SSH authentication failures occurred at 01:30:59 on June 18, with the same IP address (adsl-70-242-75-179.dsl.ksc2mo.swbell.net) attempting to log in as an unknown user, likely due to incorrect credentials.",
+      "text": "This excerpt shows a series of authentication failures that occurred on the same host, combo, from the same remote host, adsl-70-242-75-179.dsl.ksc2mo.swbell.net.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_3"
       ]
     },
     {
-      "text": "The authentication failures were detected by the pam_unix module of the sshd service.",
+      "text": "The failures all occurred at the same time, 01:30:59, and were attempts to log in with unknown usernames.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_3"
+      ]
+    },
+    {
+      "text": "Each failure is associated with a different process ID, indicating that they were separate attempts.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_3"

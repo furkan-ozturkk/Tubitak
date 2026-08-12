@@ -4,25 +4,34 @@
     "linux:semantic:check_pass_user_unknown_6"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:5403a43ef40ed27c33e8cac6cc7a3d7b364fa59fca1ea70ec2c4515d5c1d0f7c"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:a296f1bb1e27b180cb221210286ef18b58873855f19b7b2ec1c2e9efd6ba4225"
+    "prompt_sha256": "sha256:857370d9fcc66a3c1fd1f4e5da00729fe6ae18695f3b958e9486de3dfd566868"
   },
   "claims": [
     {
-      "text": "Two SSH connections and three FTP connections were attempted from the IP address 210.118.170.95, but all of them failed due to authentication failures, with the user unknown.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "text": "This excerpt shows a series of authentication failures due to unknown users attempting to connect via SSH from the host massive.merukuru.org.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_6"
+      ]
     },
     {
-      "text": "The SSH connections were made from the same IP address at the same time, suggesting a possible brute-force attack.",
+      "text": "The failures occurred at the same time, 04:41:51, and were recorded by different processes of sshd.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_6"
+      ]
+    },
+    {
+      "text": "Later, at 09:20:24, the system logged connections from the IP address 210.118.170.95 via FTP.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_6"

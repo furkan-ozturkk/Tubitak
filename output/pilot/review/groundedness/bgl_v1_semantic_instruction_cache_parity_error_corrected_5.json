@@ -4,27 +4,34 @@
     "bgl:semantic:instruction_cache_parity_error_corrected_5"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:d8a5e7a881d0cc0f6877b00fc61c0fbe734c914639d8486756bff8f2819346ae"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:42223e9cdef00958ae3e36a9c5e0a4d946306b3ea9ff517bf71351f3240eea25"
+    "prompt_sha256": "sha256:d7bc2bc33a1c62c35394f071244457af972b19da450cbd867aaba3d501759d1d"
   },
   "claims": [
     {
-      "text": "This excerpt shows a series of instruction cache parity errors being corrected by the RAS (Reliability, Availability, and Serviceability) system in a BGL system over a period of time.",
+      "text": "This excerpt shows a series of log lines indicating instruction cache parity errors that were corrected on two different systems, R02-M1-N0-C:J12-U11 and R02-M1-N1-C:J12-U01.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_5"
       ]
     },
     {
-      "text": "The errors occurred on multiple nodes (N0, N1, N9) and were corrected by the RAS system, indicating that the system is able to detect and recover from these errors.",
+      "text": "The errors on R02-M1-N0-C:J12-U11 occurred over a period of several hours on June 15, with another error occurring on a similar system, R02-M1-N1-C:J12-U01, the following day.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "bgl:semantic:instruction_cache_parity_error_corrected_5"
+      ]
+    },
+    {
+      "text": "A separate log line from a different system, R34-M1-N9-C:J07-U11, indicates a different event, generating core.16218, with no explicit connection to the cache parity errors.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_5"

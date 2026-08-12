@@ -4,34 +4,34 @@
     "openssh:semantic:possible_break_in_attempt_0"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:6df0e8a589be183cdafa6be441b86f3a4c36db55919d42d0c4fe5b3141d09611"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:7752bf5748e3b98d1164deaa37204b2090650f312eb3fdf33c0171c6e929fd7f"
+    "prompt_sha256": "sha256:af712f60d3e6a7ce1eafe1e48cf3af1d65fedca300e8df7cbd44bd5bee8db4d6"
   },
   "claims": [
     {
-      "text": "This excerpt shows an attempted SSH login with an invalid username, which was likely a break-in attempt.",
+      "text": "This excerpt shows a possible break-in attempt on the LabSZ system via SSH, where an invalid user \"webmaster\" from IP address 173.234.31.186 attempted to authenticate but failed due to an invalid username and password.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_0"
       ]
     },
     {
-      "text": "The login attempt was made from IP address 173.234.31.186, but the username \"webmaster\" was not recognized, and the password authentication failed.",
+      "text": "The connection was subsequently closed by the remote host.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_0"
       ]
     },
     {
-      "text": "The connection was then closed by the remote host.",
+      "text": "A separate connection from IP address 212.47.254.145 was also closed, but the details of this event are not provided in the preceding lines.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_0"

@@ -4,27 +4,34 @@
     "bgl:semantic:instruction_cache_parity_error_corrected_8"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:5de1937a0d9efc992655a5bfc8ade1348e4503d7120c3cf984fe6fe02afab10f"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:d5f942811bda9e0c770ec35c5d34d8e5094b304e22cc7d565393d4f822a254b3"
+    "prompt_sha256": "sha256:306d136b05e86b7bf016b02ccbfffd5551fca82210d7dc966a04f2df18cd06b8"
   },
   "claims": [
     {
-      "text": "This excerpt shows a series of system log events, including parity errors in the instruction cache and DDR errors, as well as fatal application errors due to permission denied issues.",
+      "text": "This excerpt shows various error and warning events recorded in a BGL system log, including corrected cache parity errors, detected and corrected DDR errors, and fatal application errors due to invalid or missing program images.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_8"
       ]
     },
     {
-      "text": "The parity errors and DDR errors suggest hardware issues, while the fatal application errors indicate software problems.",
+      "text": "These events occurred on different nodes and at different times, with some nodes experiencing repeated errors.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "bgl:semantic:instruction_cache_parity_error_corrected_8"
+      ]
+    },
+    {
+      "text": "The logs also include technical details such as memory addresses and error codes, which could be used for further diagnosis and troubleshooting.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_8"

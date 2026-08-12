@@ -4,34 +4,34 @@
     "mac:semantic:thermal_pressure_0"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:88abcff85a4dc1702c9634816be0c7a31c34110c5f534670ed349ec3db05e4f0"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:3975d451b4e2954668a7bab5b28cf9f76a9b3e1a44a3a88fa3010fd1230315bd"
+    "prompt_sha256": "sha256:bd3f548cf6f4581d923814e2d0aa863f5053e09a857615e97ea24395912d797f"
   },
   "claims": [
     {
-      "text": "This excerpt shows a series of system events and conditions, including thermal and memory pressure, a network interface being enabled and disabled, frequent transitions on an interface, and a device going to sleep.",
+      "text": "This excerpt shows a series of system log events on two devices, calvisitor-10-105-160-95 and authorMacBook-Pro, occurring over a period of a few minutes.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_0"
       ]
     },
     {
-      "text": "The device is also experiencing network activity, with a wireless interface updating its TCP keepalive sequence.",
+      "text": "The events include changes in thermal and memory pressure states, deallocation of a task, and adjustments to wireless networking and power settings, indicating normal system activity and potential preparation for sleep mode.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_0"
       ]
     },
     {
-      "text": "The system is also waking up due to a scan offload.",
+      "text": "The logs also suggest a transition from sleep to wake on one of the devices, authorMacBook-Pro, due to a wake on scan offload event.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_0"

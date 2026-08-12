@@ -4,27 +4,34 @@
     "windows:semantic:csi_8"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:4aba76098016e7354afa68fe7d944b223149ce58d6c8cb8af50f5359325d5434"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:0058d45ce4910e0eb5871f3eeca6c060fe9215c5a7f358c126b6bc474650d39a"
+    "prompt_sha256": "sha256:471e96b7e06f35745597a97448313a70e775ad5be45dbe0638fd904cdaded6ab"
   },
   "claims": [
     {
-      "text": "The system log shows the TrustedInstaller process being terminated and then reinitialized after a reboot.",
+      "text": "This excerpt shows a series of events related to the Component-Based Servicing (CBS) and the TrustedInstaller on a Windows system.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_8"
       ]
     },
     {
-      "text": "This indicates a normal shutdown and restart of the TrustedInstaller service, which is responsible for Windows servicing and repair operations.",
+      "text": "The events indicate that the TrustedInstaller main loop ended and finalized on September 28, and then initialized again on September 29, with the loading of the Servicing Stack.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "windows:semantic:csi_8"
+      ]
+    },
+    {
+      "text": "The specific transactions and operations, such as the destruction of a CSI transaction, suggest routine system maintenance or update activities.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_8"

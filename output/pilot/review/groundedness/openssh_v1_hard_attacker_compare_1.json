@@ -5,20 +5,20 @@
     "openssh:hard:attacker_compare:1:112_95_230_3"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:d8ee029ce066e3f804e96c0116dbbc802129a5df3649b526bffbe37b66297c85"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:45c47d25536d3a1abebc0fb7dc17a51726795a6cd5cd3d3c8d52b5682368913e"
+    "prompt_sha256": "sha256:857bfdfe3a9751b4397d08f9d1461006c478dae49f976c9b2de9a5190f1ae442"
   },
   "claims": [
     {
-      "text": "The attack patterns from 103.99.0.122 and 112.95.230.3 differ in terms of target accounts, request cadence, and outcome.",
+      "text": "The attack patterns from 103.99.0.122 and 112.95.230.3 differ significantly in terms of target accounts, with 103.99.0.122 attempting to access a wide range of accounts including admin, support, user, root, and others, while 112.95.230.3 primarily targets the root account, with only one attempt at the pgadmin account.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:1:103_99_0_122",
@@ -26,7 +26,7 @@
       ]
     },
     {
-      "text": "The attacker from 103.99.0.122 targets a wide range of user accounts, including admin, support, user, and others, with a high frequency of failed login attempts, resulting in a repetitive pattern of failed password attempts and disconnects.",
+      "text": "The request cadence also varies, with 103.99.0.122 spreading its attempts over a longer period of nearly two hours, from 09:11 to 11:04, whereas 112.95.230.3 concentrates its attempts within a much shorter timeframe of about 24 minutes, from 07:27 to 07:28.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:1:103_99_0_122",
@@ -34,7 +34,7 @@
       ]
     },
     {
-      "text": "In contrast, the attacker from 112.95.230.3 primarily targets the root account, with a steady stream of failed login attempts and disconnects, but without the same level of repetition and variety in targeted accounts.",
+      "text": "In terms of outcome, both attackers are consistently unsuccessful, with each attempt resulting in a failed password or invalid user error, followed by a disconnect.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:1:103_99_0_122",
@@ -42,7 +42,7 @@
       ]
     },
     {
-      "text": "The outcome of the attacks from both IP addresses is similar, with both attackers being repeatedly disconnected after failed login attempts.",
+      "text": "However, the attacker from 103.99.0.122 looks more anomalous due to the wide range of target accounts and the prolonged duration of the attack.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:1:103_99_0_122",
@@ -50,20 +50,9 @@
       ]
     },
     {
-      "text": "However, the attacker from 103.99.0.122 appears more anomalous due to the broader range of targeted accounts and the higher frequency of failed login attempts.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:1:103_99_0_122",
-        "openssh:hard:attacker_compare:1:112_95_230_3"
-      ]
-    },
-    {
-      "text": "These errors recur without a corrective action in between, indicating a sustained and unmitigated attack.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:1:103_99_0_122",
-        "openssh:hard:attacker_compare:1:112_95_230_3"
-      ]
+      "text": "The root cause of these repeated failed login attempts is that these errors recur without any corrective action in between.",
+      "supported": "no",
+      "candidate_group_ids": []
     }
   ],
   "verdict": "needs_human_review"

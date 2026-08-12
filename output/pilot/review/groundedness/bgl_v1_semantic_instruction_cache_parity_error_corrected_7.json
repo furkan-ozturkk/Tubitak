@@ -4,27 +4,34 @@
     "bgl:semantic:instruction_cache_parity_error_corrected_7"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:588b9140b8325db5c95258ebff80b3b31147cbb4a192dae1ba178fbca355e413"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:746c33ea6b3dbebf226168122baac88fa29ac2ed8b196d7c9817148113baf9b4"
+    "prompt_sha256": "sha256:8a36a154f1c737c0cc102997db8c882be2db8a85e4e7f3d0586c520a05617561"
   },
   "claims": [
     {
-      "text": "This excerpt shows a series of system log lines indicating various hardware and software issues on a system running the RAS (Reliability, Availability, and Serviceability) kernel.",
+      "text": "This excerpt shows a series of log events from different system components, including instruction cache parity errors and double-hummer alignment exceptions.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_7"
       ]
     },
     {
-      "text": "The issues include instruction cache parity errors, a fatal application error due to a missing program image, and a large number of double-hummer alignment exceptions.",
+      "text": "These events are reported by various system ids, such as R02-M1-N0-C:J12-U11 and R22-M0-N4-I:J18-U11, and indicate errors or exceptions that were corrected or encountered by the system.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "bgl:semantic:instruction_cache_parity_error_corrected_7"
+      ]
+    },
+    {
+      "text": "One of the log lines also reports a fatal error due to a missing program image, specifically \"./runtime_malloc\", which prevented the ciod application from loading.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_7"

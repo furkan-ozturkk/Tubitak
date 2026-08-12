@@ -4,34 +4,34 @@
     "hadoop:semantic:mrappmaster_4"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:8aa79dfd205c9b07cc2c2217c663a87506bfc52d9a55d336004f15a7baed2a94"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:5f6c660fa83dc448e2dd76fd7583740f9e7a4f39aa3f7150b622937c1eed6b37"
+    "prompt_sha256": "sha256:f307a6ff96eebd9ab50db84916f4282e396a2fab56bc3dc9592f26a04695d9f0"
   },
   "claims": [
     {
-      "text": "The Hadoop system is initializing its event handling system, registering various event types and their corresponding handlers.",
+      "text": "This excerpt shows the initialization of a Hadoop MapReduce application, specifically the MRAppMaster, which is registering various event handlers with the AsyncDispatcher.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_4"
       ]
     },
     {
-      "text": "This is a normal startup process for the Hadoop MapReduce application master.",
+      "text": "The event handlers are for different types of events, including job history, job, task, task attempt, commit, and speculation events.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_4"
       ]
     },
     {
-      "text": "The event handlers are being set up to process different types of events that may occur during the application's execution.",
+      "text": "The OutputCommitter is also being set to FileOutputCommitter, indicating that the application will be writing output files.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_4"

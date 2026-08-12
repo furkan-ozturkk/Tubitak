@@ -4,34 +4,34 @@
     "hdfs:semantic:addstoredblock_8"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:211b5491cc4feb1efef3671554708abbebb0593979d02ebe21d4ef68ed54b907"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:ac247cb984be77b5ae15305f8e32e95931ad34d1e410e1e98df9949d9c627039"
+    "prompt_sha256": "sha256:6d7f5a0cf3031b0b0848aa3fac5c22e3936052e73272e324b8220dfa6ba93ca1"
   },
   "claims": [
     {
-      "text": "The HDFS system is dynamically allocating and updating blocks, adding new blocks to the block map, and verifying the integrity of existing blocks.",
+      "text": "This excerpt shows various events related to HDFS block management, including the addition of nodes to block maps, verification of block integrity, and allocation of new blocks.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_8"
       ]
     },
     {
-      "text": "This indicates that the system is actively managing data storage and replication across the cluster, ensuring data consistency and availability.",
+      "text": "The events involve multiple blocks and nodes, with specific blocks being added to or verified on different nodes.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_8"
       ]
     },
     {
-      "text": "The addition and verification of blocks suggest that the system is handling data writes and reads efficiently.",
+      "text": "These events indicate normal operational activity in an HDFS system, with data being stored, verified, and managed across the cluster.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_8"

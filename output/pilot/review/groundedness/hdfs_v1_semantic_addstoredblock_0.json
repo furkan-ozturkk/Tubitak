@@ -4,34 +4,34 @@
     "hdfs:semantic:addstoredblock_0"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:601431cd63d5d8fef437fce9812a66ecb3751b8e103a3bf7796c3c8e68cea9d8"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:603ce6a1053b6a1e40853b28ba18d77e7d245157772fede97e1aa3aba57ab428"
+    "prompt_sha256": "sha256:f73c106be2d3b48b13e5504a4e92d66106860dfd6ed2fe92c2f2563237a32205"
   },
   "claims": [
     {
-      "text": "The HDFS system is experiencing a block replication issue, as multiple blocks are being added to the system while others are terminating, indicating an imbalance in block replication.",
+      "text": "This excerpt shows a series of events related to HDFS block management, including the addition of nodes to the block map and the termination of PacketResponders for specific blocks.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_0"
       ]
     },
     {
-      "text": "This could be due to a failure in one or more DataNodes, causing the system to compensate by adding new blocks to other nodes.",
-      "supported": "partial",
+      "text": "The addition of nodes to the block map, as seen in multiple \"NameSystem.addStoredBlock\" messages, indicates that new blocks are being stored on different nodes in the system.",
+      "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_0"
       ]
     },
     {
-      "text": "The system is actively managing block replication to maintain data integrity.",
+      "text": "The termination of PacketResponders and the receipt of a block from a specific node also suggest ongoing data transfer and management activities within the system.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_0"

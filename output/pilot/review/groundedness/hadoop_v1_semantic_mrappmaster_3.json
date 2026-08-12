@@ -4,34 +4,34 @@
     "hadoop:semantic:mrappmaster_3"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:a4a4aa29787e39af04c37dbd10d8079f672aa4b20eebd13a75f7215a459632b1"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:c27421e968e534f27252ac54f2dacc062bfc7909f634eedf65e183f59348460c"
+    "prompt_sha256": "sha256:8e2fd11033ce17d743be2956c976c7bb01c8c4a15c42a5c2be77d4e92920d0d8"
   },
   "claims": [
     {
-      "text": "The Hadoop system is initializing its components, specifically the MRAppMaster, and registering event handlers for various event types.",
+      "text": "This excerpt shows the initialization of a Hadoop MapReduce application, specifically the MRAppMaster, which is setting up its configuration and event handlers.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_3"
       ]
     },
     {
-      "text": "This is a normal startup process for the Hadoop system, where it sets up its internal components and prepares for job execution.",
+      "text": "The logs indicate that the OutputCommitter is being set to FileOutputCommitter, and various event types are being registered with their corresponding event handlers.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_3"
       ]
     },
     {
-      "text": "The system is configuring its output committer to use the FileOutputCommitter.",
+      "text": "The overall process appears to be a normal part of starting a MapReduce job, with no errors or issues reported in these lines.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_3"

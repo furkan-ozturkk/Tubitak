@@ -4,28 +4,35 @@
     "bgl:semantic:instruction_cache_parity_error_corrected_6"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:6e7a1bd556c43f49bffd2d3d416c31a6f9c1be5153ff83fb4af1bd086246f4c5"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:381d60beb3e83ec95fcaa21392fbf373237ad23424cec85269fbb591b1cfd463"
+    "prompt_sha256": "sha256:e26c05eec34634a6c0c1a804accc56686a4af2aefb157ff8c6d5b90d82c4736c"
   },
   "claims": [
     {
-      "text": "This excerpt shows a series of hardware errors, specifically parity errors in the instruction cache, and the system's response to these errors by generating cores.",
+      "text": "This excerpt shows a series of log events from different system components, including instruction cache parity errors and core generation events.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_6"
       ]
     },
     {
-      "text": "The parity errors occurred on multiple nodes (N0, N1, N7, N8, N9) on different days, and the system responded by generating cores, indicating a possible attempt to recover from the errors.",
+      "text": "The instruction cache parity errors were corrected on components R02-M1-N0-C:J12-U11 and R02-M1-N1-C:J12-U01, indicating temporary issues that were resolved.",
       "supported": "yes",
+      "candidate_group_ids": [
+        "bgl:semantic:instruction_cache_parity_error_corrected_6"
+      ]
+    },
+    {
+      "text": "The core generation events on various components, such as R34-M1-N9-C:J07-U11 and others, suggest that the system was collecting diagnostic information, possibly in response to errors or crashes.",
+      "supported": "partial",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_6"
       ]

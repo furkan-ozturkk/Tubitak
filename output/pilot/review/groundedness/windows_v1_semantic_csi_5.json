@@ -4,34 +4,34 @@
     "windows:semantic:csi_5"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:60c427f009bc30528304e77095ff820a05abba3cac5f57e9f316b4b050037a00"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:eee10f348c29c89e225ed852cc99c2c7e1ca580bc39ddc4700268bcbfaf8082e"
+    "prompt_sha256": "sha256:ec36a3bad78bb4e7a5c0982ffbcaa13c63abf2e3699707545407f37fb92a691e"
   },
   "claims": [
     {
-      "text": "The system is performing a scavenge operation, which has completed successfully, and a pending transaction has been committed.",
+      "text": "This excerpt shows a series of events related to a Component Service Infrastructure (CSI) transaction and a Component-Based Servicing (CBS) scavenge operation.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_5"
       ]
     },
     {
-      "text": "The scavenge operation was not necessary because the store coherency cookie matches the last scavenge cookie.",
+      "text": "The CSI transaction is committed and an NT transaction is created, with the result being successful, indicated by the result code 0x00000000.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_5"
       ]
     },
     {
-      "text": "This indicates that the system is maintaining data consistency and integrity.",
+      "text": "The CBS scavenge operation is also reported as completed with a disposition of 0X1.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_5"

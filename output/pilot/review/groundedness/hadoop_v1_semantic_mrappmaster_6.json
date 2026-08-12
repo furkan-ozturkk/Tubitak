@@ -4,34 +4,34 @@
     "hadoop:semantic:mrappmaster_6"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:f97a0d41201cea0d96fa37852d54190b5cdde03e65805f370dfb01b598edaf6b"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:541d191455f92775ceea672c489197868be9782f6fa16fbbcaedef6923cb3ccd"
+    "prompt_sha256": "sha256:ddbb840fc2c1b1f47829b0b16c9ffbb9b5eaf6c243a9f504258ef62fd19deb2b"
   },
   "claims": [
     {
-      "text": "The event shown in this excerpt is the registration of various event types and their corresponding handlers within the Hadoop YARN system.",
+      "text": "This excerpt shows the registration of various event types and handlers by the AsyncDispatcher in the Hadoop YARN system.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_6"
       ]
     },
     {
-      "text": "This registration process is a normal part of the system's initialization and is necessary for the proper functioning of the YARN components.",
+      "text": "The registrations occur for different classes, such as JobEventType, TaskEventType, and ContainerAllocator$EventType, among others, and are handled by corresponding dispatcher classes.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_6"
       ]
     },
     {
-      "text": "The default file system has also been set to hdfs://msra-sa-41:9000.",
+      "text": "The registrations happen during the initialization of the system, as indicated by the \"main\" thread and the consistent timestamp across the log lines.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_6"

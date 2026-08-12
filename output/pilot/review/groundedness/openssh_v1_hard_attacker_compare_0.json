@@ -5,20 +5,20 @@
     "openssh:hard:attacker_compare:0:187_141_143_180"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:2a50c47c11f2b076bf07399085429989b784b03e6c6b76969493b4497b663244"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:46b4b99a0403e261f701d7866f98e0f4dd4b86d720f7f21d4b6894ea5d9378db"
+    "prompt_sha256": "sha256:8d9ed3abc0345e7524edf506da4629004f384ae21b779fe596401ab96655d93b"
   },
   "claims": [
     {
-      "text": "The attack patterns from source 183.62.140.253 and source 187.141.143.180 exhibit distinct characteristics.",
+      "text": "The attack patterns from source 183.62.140.253 and source 187.141.143.180 exhibit distinct characteristics in terms of target accounts, request cadence, and outcome.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:0:183_62_140_253",
@@ -26,7 +26,7 @@
       ]
     },
     {
-      "text": "Source 183.62.140.253 consistently attempts to log in to the system with the root account, with each attempt occurring at a short interval of approximately 2 seconds.",
+      "text": "The attacker from 183.62.140.253 primarily targets the root account, with a high frequency of failed password attempts and received disconnects, spanning a duration of approximately 10 minutes.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:0:183_62_140_253",
@@ -34,7 +34,7 @@
       ]
     },
     {
-      "text": "This suggests a high cadence of attacks, with the attacker attempting to brute-force the password for the root account.",
+      "text": "In contrast, the attacker from 187.141.143.180 also targets the root account, but with a slightly lower frequency of attempts, and also tries other accounts such as magnos, ingrid, jay, and cyrus, over a shorter duration of around 7 minutes.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:0:183_62_140_253",
@@ -42,7 +42,7 @@
       ]
     },
     {
-      "text": "In contrast, source 187.141.143.180 exhibits a more varied attack pattern, with the attacker attempting to log in with multiple user accounts, including invalid users such as magnos, ingrid, jay, and cyrus.",
+      "text": "The cadence of requests from 183.62.140.253 is more rapid, with attempts often occurring within seconds of each other, whereas the requests from 187.141.143.180 are spaced out over longer intervals.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:0:183_62_140_253",
@@ -50,15 +50,7 @@
       ]
     },
     {
-      "text": "This suggests a more exploratory approach, with the attacker attempting to find vulnerabilities in the system.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:0:183_62_140_253",
-        "openssh:hard:attacker_compare:0:187_141_143_180"
-      ]
-    },
-    {
-      "text": "However, upon closer inspection, it becomes clear that both sources exhibit a repetitive pattern of failed login attempts, with each attempt resulting in a disconnect from the system.",
+      "text": "Based on the evidence, 183.62.140.253 appears to be the more anomalous attacker due to the high volume and rapid pace of its attempts.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:0:183_62_140_253",
@@ -66,42 +58,8 @@
       ]
     },
     {
-      "text": "This suggests that the attackers are not attempting to gain access to the system, but rather are engaged in a form of reconnaissance or probing.",
-      "supported": "no",
-      "candidate_group_ids": []
-    },
-    {
-      "text": "The fact that both sources exhibit this pattern suggests that the system is being targeted by multiple attackers, each with their own approach and cadence.",
-      "supported": "no",
-      "candidate_group_ids": []
-    },
-    {
-      "text": "The more anomalous attacker is 183.62.140.253, which exhibits a higher cadence of attacks and a more focused approach, attempting to log in with the root account.",
+      "text": "The root-cause hypothesis is that these errors recur without any corrective action in between, suggesting a persistent and automated attack from both sources.",
       "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:0:183_62_140_253",
-        "openssh:hard:attacker_compare:0:187_141_143_180"
-      ]
-    },
-    {
-      "text": "The repetitive pattern of failed login attempts suggests that the attacker is engaged in a form of brute-force attack, attempting to guess the password for the root account.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:0:183_62_140_253",
-        "openssh:hard:attacker_compare:0:187_141_143_180"
-      ]
-    },
-    {
-      "text": "The fact that this attack is occurring at a high cadence suggests that the attacker is using automated tools to perform the attack.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:0:183_62_140_253",
-        "openssh:hard:attacker_compare:0:187_141_143_180"
-      ]
-    },
-    {
-      "text": "The root-cause hypothesis is that these errors recur without a corrective action in between, suggesting that the system is not implementing adequate security measures to prevent or mitigate these types of attacks.",
-      "supported": "partial",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:0:183_62_140_253",
         "openssh:hard:attacker_compare:0:187_141_143_180"

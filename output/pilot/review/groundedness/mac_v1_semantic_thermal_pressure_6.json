@@ -4,34 +4,34 @@
     "mac:semantic:thermal_pressure_6"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:836bc34c7f9da45aa81695b406eb79fb4e9b735fb93fa24db1874003ccbde924"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:6a169e6c9b887c516aac900951e762d676e36e76d12950ae50ccb19350616088"
+    "prompt_sha256": "sha256:8774867dee08c1c37901c6ad5d517925d68a5e38d3f02f8edbfc5f66a5db0d50"
   },
   "claims": [
     {
-      "text": "The system entered a sleep state at 01:13:14 and again at 01:37:39, but the Wi-Fi remained active.",
+      "text": "The excerpt shows a series of system log events on a Mac device, including changes in thermal and memory pressure states, system sleep modes, and Wi-Fi connectivity.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_6"
       ]
     },
     {
-      "text": "The system ignored two scheduled jobs, one due in 207556 seconds and the other in 206850 seconds.",
+      "text": "The device enters and exits system sleep mode multiple times, with the Wi-Fi staying on during one of these periods.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_6"
       ]
     },
     {
-      "text": "The system's sleep state and active Wi-Fi suggest a potential power management issue.",
+      "text": "The log also includes messages from a job scheduler related to an iCloud heartbeat job, which is ignored due to its scheduled start time being too far in the future.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_6"

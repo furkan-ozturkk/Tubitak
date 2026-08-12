@@ -4,34 +4,38 @@
     "hdfs:semantic:addstoredblock_3"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:ddb968864bf3bc5626330ab9430f7d8f8a88a6770e25ffb60817634400a5bf85"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:87070060a1fa8b30fcbaa1e0d85070f38db7ca7e32a4c84358c353d8d27b64ef"
+    "prompt_sha256": "sha256:7198736301ac72eb3729d1843199bd8a0ec3631943c6a2d12ada1ac3e9f963bf"
   },
   "claims": [
     {
-      "text": "The HDFS system is receiving blocks from various nodes, with each block being received by a specific DataNode at address 10.251.201.204:50010.",
-      "supported": "no",
-      "candidate_group_ids": []
-    },
-    {
-      "text": "This indicates that the DataNode at this address is actively receiving and storing blocks from other nodes in the HDFS system.",
+      "text": "This excerpt shows a series of events related to HDFS block reception and updates.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_3"
       ]
     },
     {
-      "text": "The blocks being received are of varying sizes and are being added to the block map.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "text": "The lines indicate that various DataNodes are receiving blocks from different sources, with each block having a unique identifier, and some lines specify the block size.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_3"
+      ]
+    },
+    {
+      "text": "The events are logged with their corresponding source and destination IP addresses and ports, indicating data transfer activity within the HDFS system.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_3"
+      ]
     }
   ],
   "verdict": "needs_human_review"

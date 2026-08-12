@@ -4,27 +4,34 @@
     "openstack:semantic:nova_osapi_compute_wsgi_server_3"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:31d6f9002b5ebea5f171fe9462b53fa27cdc141b81ae302776970d8820a25aaa"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:2020c166a0a8ed7b22bc2fa7a46256ce0912804723a936fe978d30f2efea835d"
+    "prompt_sha256": "sha256:45ba469b7b2db252ecfc68538d7a56f05c41cd1b3227027f55f0dda7200570a4"
   },
   "claims": [
     {
-      "text": "This excerpt shows a series of API requests to the OpenStack system, including a GET request to retrieve server details and metadata, and a series of image cache checks on the compute node.",
+      "text": "This excerpt shows a series of API requests and image cache checks on an OpenStack system.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_3"
       ]
     },
     {
-      "text": "The image cache checks indicate that an image is in use on the node, with one local copy and no copies on other nodes sharing the instance storage.",
+      "text": "A GET request to retrieve server details is made to the nova-api, and around the same time, the nova-compute checks the status of an image with id 0673dd71-34c5-4fbb-86c4-40623fbe45b4 in the image cache.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_3"
+      ]
+    },
+    {
+      "text": "The image is found to be in use on the local node, and subsequent metadata requests are made to the nova-api from two different IP addresses.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_3"

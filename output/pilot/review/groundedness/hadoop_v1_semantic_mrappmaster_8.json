@@ -4,34 +4,34 @@
     "hadoop:semantic:mrappmaster_8"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:b0e8a145a33d5c011f5867a23b2938e27256afa755345c684e8c821f75ebedd3"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:8abcc65297148695e6ef150d374f5c15fede2aa378fd386ef7d752198b0aefe0"
+    "prompt_sha256": "sha256:a72f83f7da906c4b77253c27b0ddd7d6402c908a71a7f70476c68356bd0e140d"
   },
   "claims": [
     {
-      "text": "The Hadoop system is registering event handlers for various classes, including those related to task attempts, commits, and container allocation.",
+      "text": "This excerpt shows the registration of various event types and handlers by the AsyncDispatcher in the Hadoop YARN system.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_8"
       ]
     },
     {
-      "text": "This is likely an initialization or startup process for the Hadoop system.",
+      "text": "The registrations occur for different classes, including TaskAttemptEventType, CommitterEventType, and others, indicating the setup of event handling mechanisms.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_8"
       ]
     },
     {
-      "text": "The default file system is also being set to hdfs://msra-sa-41:9000.",
+      "text": "The excerpt also mentions the default file system being set to hdfs://msra-sa-41:9000, as logged by JobHistoryUtils.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_8"

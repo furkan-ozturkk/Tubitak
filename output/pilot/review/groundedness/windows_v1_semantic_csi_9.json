@@ -4,32 +4,34 @@
     "windows:semantic:csi_9"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:46a0b0dbcea9616b6b016f54cd202ea29d7d8b1dadd4c0e86561df333d1b960d"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:a4b21f294a3e125918db19678e81ec3605e45276ec2708df3dd8889ee1003675"
+    "prompt_sha256": "sha256:6fc26326fd977ec83f2402cf306d6d81d955a26f57ea1e50e27872f4d0f859d0"
   },
   "claims": [
     {
-      "text": "The TrustedInstaller service has successfully started and is now in its main loop, initializing the Service Quality Manager (SQM) to upload reports and clean up old report files.",
+      "text": "This excerpt shows the initialization and startup of the TrustedInstaller service, which is part of the Windows Component-Based Servicing (CBS) system.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_9"
       ]
     },
     {
-      "text": "This indicates that the Windows system is now in a state where it is actively monitoring and reporting its performance and usage.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "text": "The logs indicate that the service starts successfully and begins its main loop, and also initializes the Software Quality Metrics (SQM) system with Windows opt-in set to False.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "windows:semantic:csi_9"
+      ]
     },
     {
-      "text": "The TrustedInstaller service is operational and functioning as expected.",
+      "text": "The SQM system then proceeds to clean up old report files and request the upload of unsent reports.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_9"

@@ -4,27 +4,34 @@
     "linux:semantic:check_pass_user_unknown_1"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:88ad3d47298d3fac7102e06e7d4d36fa17f130297d64c48bed39d16b2675e2e2"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:039f5b2ddd0435868f8d95cff4ea18b6794cd7feec2b8a3ddc916dbd13dc5213"
+    "prompt_sha256": "sha256:81b6facae86c550912dc58ebec2d26a4496ce1b221053d59da7b5c2dc956361a"
   },
   "claims": [
     {
-      "text": "Multiple SSH authentication failures occurred on the system combo, with the first failure happening at 12:13:19 and the second at 14:53:32.",
+      "text": "This excerpt shows a series of authentication failures on the combo system, with multiple attempts to log in via ssh from two different remote hosts: 218.188.2.4 and 061092085098.ctinets.com.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_1"
       ]
     },
     {
-      "text": "The failures were due to unknown users attempting to authenticate, with the IP addresses 218.188.2.4 and 061092085098.ctinets.com being associated with the failed login attempts.",
+      "text": "Each attempt results in an \"authentication failure\" due to an \"unknown user\".",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_1"
+      ]
+    },
+    {
+      "text": "The failures occur at different times, with two attempts at 12:13 and two more at 14:53, indicating repeated login attempts from the same or different sources.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_1"

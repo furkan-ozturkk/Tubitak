@@ -4,34 +4,34 @@
     "windows:semantic:csi_6"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:71c27ed5689dc473ad92c1161d4b2d6123b118cb7a27bb02d22c40b86b6f7e3c"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:0eab98bfb2a6a3ed60ed5e3df64189d01f4fb87b3cbc285467a2f48ce14a1e59"
+    "prompt_sha256": "sha256:2a4c3075fe9bb29fa20f89b30d712ea55871ef665a1e372d12454f93339baa5c"
   },
   "claims": [
     {
-      "text": "The system has completed a CBS (Component-Based Servicing) Scavenge operation, which is a maintenance task that ensures the system's component store is up-to-date and consistent.",
+      "text": "This excerpt shows a series of system log events related to the Commit and completion of a Component-Based Servicing (CBS) scavenge operation, which finished with a disposition of 0X1.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_6"
       ]
     },
     {
-      "text": "This operation has completed successfully, with a disposition of 0x1, indicating a normal completion.",
+      "text": "The events include the creation and destruction of a Component Service Interface (CSI) transaction and the termination of an idle processing thread.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_6"
       ]
     },
     {
-      "text": "The system is now idle and ready for the next operation.",
+      "text": "The log lines indicate that these operations occurred normally, with no errors reported.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_6"

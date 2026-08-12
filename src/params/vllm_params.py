@@ -21,8 +21,8 @@ from typing import Any
 
 from src.params.scale_params import ScaleConfig
 
-DEFAULT_GOLD_DRAFT_BASE_URL = "http://furkan.ozturk_vllm:8003"
-DEFAULT_GOLD_DRAFT_MODEL = "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4"
+DEFAULT_GOLD_DRAFT_BASE_URL = "http://furkan.ozturk_vllm:8004"
+DEFAULT_GOLD_DRAFT_MODEL = "casperhansen/llama-3.3-70b-instruct-awq"
 DEFAULT_GROUNDEDNESS_BASE_URL = "http://furkan.ozturk_vllm:8001"
 DEFAULT_GROUNDEDNESS_MODEL = "Qwen/Qwen3-32B-AWQ"
 

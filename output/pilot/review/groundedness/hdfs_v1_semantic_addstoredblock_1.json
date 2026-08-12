@@ -4,34 +4,34 @@
     "hdfs:semantic:addstoredblock_1"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:a6f235ee335959c727b965d82355109bdd38714b051c263963774045246a1fa1"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:489e3604c0157f521a0399368c2e3c6d1e695c51c43fb7584dec0965faf282fa"
+    "prompt_sha256": "sha256:ef33bd7551659d6b551d3f9530965c6f26fa359f8b6cbc4c471f1b468faaae59"
   },
   "claims": [
     {
-      "text": "The HDFS system is receiving and storing blocks from various nodes.",
+      "text": "This excerpt shows various events related to HDFS block management, including the addition of nodes to a block map, the reception of blocks, and the termination of PacketResponders for specific blocks.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_1"
       ]
     },
     {
-      "text": "The blocks are being added to the block map, and the system is also terminating packet responders for certain blocks.",
+      "text": "The events are reported by different components, such as the FSNamesystem and the DataNode, and involve different block IDs and node addresses.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_1"
       ]
     },
     {
-      "text": "This indicates that the HDFS system is actively handling block transfers and storage.",
+      "text": "These events indicate normal operational activity in an HDFS system, with blocks being added, received, and processed by various nodes.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_1"

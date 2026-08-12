@@ -4,34 +4,34 @@
     "mac:semantic:thermal_pressure_1"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:e097dff34615b782b4c501d2f429c63c98ad318803d21bdef9939b871136699c"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:97565fea84bac8d21c7d4fee175d7886e81a4657530a2dc1f4801b6049a297fe"
+    "prompt_sha256": "sha256:5d89031b5c170f8214c62bb54582bad85242c88aea83611b24fed703ba5cf3d3"
   },
   "claims": [
     {
-      "text": "The system log excerpt shows a series of events and conditions, including a low thermal and memory pressure state, a network connection setup, a network address translation (NAT64) change, and a Wi-Fi channel change.",
+      "text": "This excerpt shows various system events and conditions on two devices, calvisitor-10-105-160-95 and authorMacBook-Pro, including changes in thermal and memory pressure, network activity, and dock notifications.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_1"
       ]
     },
     {
-      "text": "The system also experiences a sudden change in the suggested best app, and the AirPort is enabled.",
+      "text": "The events indicate normal system operations, such as network connections and application notifications, as well as some specific technical details like channel changes and AQM aggregate results.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_1"
       ]
     },
     {
-      "text": "These events occurred over a period of time, from 09:44 to 10:08 on July 1.",
+      "text": "The logs do not indicate any specific errors or issues, but rather provide a snapshot of system activity over a period of time.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_1"

@@ -4,34 +4,34 @@
     "mac:semantic:thermal_pressure_2"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:f0b1b3eb02e41960f402cc7d73edd4712e9712b57d014ef2d5ec4d2e80059223"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:6da55f42d6f20dcb87553a7ed6dc6b119de7da3d77e572785ebe28d6a6903bab"
+    "prompt_sha256": "sha256:5fc0ed12e8a1c6537dc85c5044be6759590f6708f40c1d6076a02c8da5ece064"
   },
   "claims": [
     {
-      "text": "This excerpt shows a series of system events and conditions, including a thermal and memory pressure state check, a location icon activation, a system wake call, a network analytics journal record drop, a Safari safe browsing update delay, and a network access denial for a process.",
+      "text": "This excerpt shows various system events and conditions on two Mac systems, calvisitor-10-105-163-202 and authorMacBook-Pro, including thermal and memory pressure states, location services, and network activity.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_2"
       ]
     },
     {
-      "text": "The events occurred on two different Macs, calvisitor-10-105-163-202 and authorMacBook-Pro, with the latter experiencing a system wake call and a network analytics issue.",
+      "text": "The events occur over a period of approximately 26 minutes, with some events, such as the AppleCamIn system wake call, happening simultaneously on both systems.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_2"
       ]
     },
     {
-      "text": "The system is also experiencing network activity, including an mDNS response.",
+      "text": "The log lines also indicate some errors or denied actions, such as a hashing failure in NetworkAnalyticsEngine and a denied network-outbound request by sandboxd.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_2"

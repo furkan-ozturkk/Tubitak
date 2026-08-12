@@ -4,34 +4,34 @@
     "openssh:semantic:possible_break_in_attempt_7"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:4067f8d398892f630f0016d80cb7894f02c260bb581a9c38d1be74dedbe91421"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:8156fb8f2f842ef31533ffcbbc4a2772f25bd323143177d09aba58251052261b"
+    "prompt_sha256": "sha256:1fe5fac20c1fa6fbfcc294482231581bf981509791e34ff56fd14abf8f139a35"
   },
   "claims": [
     {
-      "text": "An unauthorized user attempted to log in to the system using the invalid username \"oracle\" from the IP address 187.141.143.180, resulting in an authentication failure and the user being disconnected.",
+      "text": "This excerpt shows a failed SSH login attempt from the IP address 187.141.143.180, where the user \"oracle\" is not a valid user.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_7"
       ]
     },
     {
-      "text": "This is a possible break-in attempt as indicated by the OpenSSH log.",
+      "text": "The logs indicate a series of errors, including reverse mapping failures and authentication failures, culminating in a disconnect from the remote host.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_7"
       ]
     },
     {
-      "text": "The system successfully prevented the unauthorized access.",
+      "text": "The repeated \"POSSIBLE BREAK-IN ATTEMPT\" warnings suggest that the SSH server is detecting potentially malicious activity from this IP address.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_7"

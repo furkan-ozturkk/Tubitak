@@ -4,27 +4,34 @@
     "openssh:semantic:possible_break_in_attempt_5"
   ],
   "draft_model": {
-    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
-    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
     "prompt_sha256": "sha256:8d0bad2c7dbe19de3e11019da48ab8cecfca6e0ae169162c2180df588648ba58"
   },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:ff0c3da91a871b9884fcaa1061f94e602e25dc7910d340943887feb3f94244e5"
+    "prompt_sha256": "sha256:d6602fd7aa56fee2e3a615fe256a7a476f91e2b0315c9a11d7e2c588a5e9b7f5"
   },
   "claims": [
     {
-      "text": "There was a possible break-in attempt on the system, as indicated by the \"POSSIBLE BREAK-IN ATTEMPT!\" message.",
+      "text": "This excerpt shows two separate attempts to connect to the system via SSH from the same IP address, 187.141.143.180, with both attempts resulting in authentication failures for the root user due to failed passwords.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_5"
       ]
     },
     {
-      "text": "The attacker attempted to authenticate as the root user from IP address 187.141.143.180, but their password was rejected twice, resulting in a disconnection.",
+      "text": "The system logs these attempts as possible break-in attempts, also noting the failure of reverse mapping checks for the associated domain name.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:semantic:possible_break_in_attempt_5"
+      ]
+    },
+    {
+      "text": "Each attempt is followed by a disconnect message from the same IP address.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_5"
