@@ -4,27 +4,27 @@
     "apache:semantic:child_workerenv_in_error_state_8"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:90d9e1660befa245d400d395fb3788f5ad0097f43df4a454f272efff8b3d8d68"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:3d6240102d236cef1b9afd7b311b1ad251a7a3ce4d74d3ec43adacd19a3f20a9"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:874e0a9d7efa1769606489d136942c8083c0fac64c917ddcee19c4be883a4a3e"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:517c6e51f9b87bd2ec7997738f95e2efcf3b741a02c62e27ee5a917170b786e6"
   },
   "claims": [
     {
-      "text": "The log shows repeated errors indicating that the mod_jk child process for workerEnv entered error state 6 at 13:10:59 and again at 13:16:29, while subsequent notices confirm successful initialization of workerEnv using /etc/httpd/conf/workers2.properties.",
+      "text": "The Apache system is experiencing a recurring error condition with the mod_jk child workerEnv, which is in error state 6.",
       "supported": "yes",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_8"
       ]
     },
     {
-      "text": "This suggests a failure in the JK connector's integration with Apache despite proper configuration loading.",
+      "text": "This condition occurs immediately after the workerEnv initialization is reported as successful.",
       "supported": "yes",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_8"

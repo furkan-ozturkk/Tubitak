@@ -37,26 +37,24 @@
     ]
   },
   "error_count": 0,
-  "warning_count": 1,
+  "warning_count": 0,
   "errors": [],
-  "warnings": [
-    "[/output/pilot/questions_2026-08-07.json#202] id=hadoop_v1_hard_container_task_compare_1: difficulty=hard but expected_answer has ~3 sentence(s) (Section 7.3 expects >=4)."
-  ],
+  "warnings": [],
   "config_snapshot": {
     "command": "validate",
     "code_version": null,
     "experiment_tag": null,
-    "dataset": "/output/pilot/questions_2026-08-07.json",
+    "dataset": "/output/pilot/questions_2026-08-11.json",
     "questions": [
-      "/output/pilot/questions_2026-08-07.json"
+      "/output/pilot/questions_2026-08-11.json"
     ],
     "corpus_dir": "/data/loghub",
     "schema": "/app/config/question_schema.json",
     "manifest": "/app/src/corpus/corpus_manifest.json",
-    "strict": true,
+    "strict": false,
     "full": false,
-    "gold_draft_model": "nemotron-3-nano:30b",
-    "groundedness_model": "gpt-oss:20b",
+    "gold_draft_model": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "groundedness_model": "Qwen/Qwen3-32B-AWQ",
     "test_fraction": null,
     "min_matches": null,
     "max_cited_lines": null,
@@ -64,9 +62,9 @@
     "questions_per_dataset": null,
     "min_sentences": null,
     "input_digests": {
-      "schema": "sha256:eae81b6793e5c71be861b3c3470416f64717e1f4f9eca5c51b2ed4ce4723c11d",
+      "schema": "sha256:7e59893c0a829d4600e6bede4d3e872c6c09e8800d02f14ed63d6cc6d64a2f0b",
       "questions": {
-        "/output/pilot/questions_2026-08-07.json": "sha256:7cef20f3d53a38c867d9ff2c1e3a907834188d44216cc2a5b1d7406c912dd0f6"
+        "/output/pilot/questions_2026-08-11.json": "sha256:ff0e607dfdbf2c4131031df878f01afa992d30d5549fe9f9bcba7238f88fa649"
       }
     },
     "corpus_digests": {

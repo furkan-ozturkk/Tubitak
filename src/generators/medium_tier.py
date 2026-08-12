@@ -30,7 +30,7 @@ from src.data.dataset_specs import DatasetSpec
 from src.utils.helper_groundedness import check_claims, write_report
 from src.params.generation_params import GenerationConfig, MediumTierParams
 from src.utils.helper_evidence import evidence_ref, gold_provenance, slugify
-from src.utils.helper_ollama import OllamaClient
+from src.utils.helper_vllm import VllmClient
 
 CREATED_BY = "src/generators/medium_tier.py@v1"
 
@@ -179,8 +179,11 @@ def _build_prompt(dataset_name: str, evidence_lines: list[str]) -> str:
     return (
         f"You are analyzing a short excerpt of raw {dataset_name} system log lines. "
         "Read ONLY the evidence below and answer using nothing but what these lines show "
-        "-- do not speculate about anything not directly stated. In 1 to 3 sentences, "
-        "explain what event or condition this excerpt shows and what it means.\n\n"
+        "-- do not speculate about anything not directly stated. If the excerpt names more "
+        "than one id of the same kind (block, container, node, address), treat them as "
+        "unrelated unless a line explicitly connects them -- do not describe something said "
+        "about one id as if it happened to another. In 1 to 3 sentences, explain what event "
+        "or condition this excerpt shows and what it means.\n\n"
         f"EVIDENCE:\n{numbered}\n\n"
         "Answer with only the explanation (1-3 sentences), no preamble, no bullet points."
     )
@@ -218,7 +221,7 @@ def build_medium_records(
     view: CorpusView,
     spec: DatasetSpec,
     config: GenerationConfig,
-    client: OllamaClient,
+    client: VllmClient,
 ) -> list[dict[str, Any]]:
     """Builds every medium-tier record for one dataset.
 
@@ -231,7 +234,7 @@ def build_medium_records(
         view: The dataset's corpus.
         spec: The dataset's curation spec.
         config: Generation config; its ``medium`` field carries the tier knobs.
-        client: Ollama client used for the gold draft.
+        client: vLLM client used for the gold draft.
 
     Returns:
         The drafted records, all ``review_status=in_review``.

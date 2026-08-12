@@ -4,27 +4,34 @@
     "windows:semantic:csi_6"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:e3d6073813cd4f1f352c953b49b88211c891b03fb8c9a4a479d9cf03162b35ba"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:71c27ed5689dc473ad92c1161d4b2d6123b118cb7a27bb02d22c40b86b6f7e3c"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:d835663f9b5b83d41c2ca81c6f02b59951e8ab0681c7fc1ca4285500542d2207"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:0eab98bfb2a6a3ed60ed5e3df64189d01f4fb87b3cbc285467a2f48ce14a1e59"
   },
   "claims": [
     {
-      "text": "The excerpt shows a Windows Component Store transaction being committed and finalized without cold patching, followed by cleanup of the transaction and termination of idle processing threads.",
+      "text": "The system has completed a CBS (Component-Based Servicing) Scavenge operation, which is a maintenance task that ensures the system's component store is up-to-date and consistent.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_6"
       ]
     },
     {
-      "text": "This indicates normal operation of the system file integrity maintenance process during routine maintenance.",
+      "text": "This operation has completed successfully, with a disposition of 0x1, indicating a normal completion.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "windows:semantic:csi_6"
+      ]
+    },
+    {
+      "text": "The system is now idle and ready for the next operation.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_6"

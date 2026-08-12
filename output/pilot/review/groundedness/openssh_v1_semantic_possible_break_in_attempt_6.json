@@ -4,27 +4,27 @@
     "openssh:semantic:possible_break_in_attempt_6"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:27cb06ca6421b50d33f8b0e1fd334ca24f0e6fa2fdf18d43d575c77c2e14aab9"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:3d8fd75542232c58e440115c0f9409a740bde2444075fe86b0edf83a8c7625d5"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:3121053f6d3702c1c8130f856469b1dfb4e0aa6d47d3dbb5dba7d4623b149b68"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:b2a6c28506455ffbbfe57e82906852b32256de0fb7c2890a23bc7def7d04e434"
   },
   "claims": [
     {
-      "text": "The log shows repeated failed authentication attempts by a remote host at IP address 187.141.143.180 targeting the root user over SSH, triggering OpenSSH's \"POSSIBLE BREAK-IN ATTEMPT\" warning due to reverse DNS lookup failures and subsequent disconnections.",
+      "text": "There was a failed login attempt to the root account from the IP address 187.141.143.180, which triggered a possible break-in attempt warning.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_6"
       ]
     },
     {
-      "text": "This indicates an unauthorized brute-force or targeted attack attempting to gain shell access via the root account from that source IP.",
+      "text": "The login attempt was made using SSH protocol version 2 and was unsuccessful, as indicated by the \"Failed password\" and \"Received disconnect\" messages.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_6"

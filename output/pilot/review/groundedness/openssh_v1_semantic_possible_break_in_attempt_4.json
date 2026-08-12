@@ -4,20 +4,34 @@
     "openssh:semantic:possible_break_in_attempt_4"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:68498cadd2339efdcdb80fa4faba63365ff50b094710d7c6de2ddf1c75300c8a"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:b0cc8563f0a2e9568d2bf238def8abf5a0114ebcda00694db00e2e156565548f"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:05935b56908f644b9b4e68be83426900046b53e9a9bbab088978c266366cdbfb"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:6c170095bd29be823345b171a225a90ee20ed46d069c4bec96bb68106b4a4d5b"
   },
   "claims": [
     {
-      "text": "The log shows repeated failed authentication attempts by a remote host at IP address 187.141.143.180 targeting the root user over SSH, triggering \"POSSIBLE BREAK-IN ATTEMPT\" warnings from sshd's reverse mapping checks and resulting in disconnections; this indicates an unauthorized brute-force or targeted login attempt against the server.",
+      "text": "An unauthorized user attempted to log in as root from IP address 187.141.143.180, but failed to authenticate twice, and was subsequently disconnected.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:semantic:possible_break_in_attempt_4"
+      ]
+    },
+    {
+      "text": "This is a possible break-in attempt, as indicated by the OpenSSH log.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:semantic:possible_break_in_attempt_4"
+      ]
+    },
+    {
+      "text": "The user's IP address is associated with the domain customer-187-141-143-180-sta.uninet-ide.com.mx.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_4"

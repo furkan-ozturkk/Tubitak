@@ -4,27 +4,27 @@
     "windows:semantic:csi_2"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:fffa9e2b1b0d6d7ca78e475e4580b99760f1d146e8ff5cc8e035a38809d85e91"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:f342faf171507b4e5a5a16af58a0ff3f9dc4a63ca68e5732329fc86bf18b5e8c"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:0ba82bc3041d87d6e8f1166462d632f770f728323583a040d0a5580fcc006a0b"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:484b1309fa908ac2ebaebeb80697d980f61c1e6969f458cdb42b5b04c255659a"
   },
   "claims": [
     {
-      "text": "The excerpt shows that a Windows Update session was successfully initialized and started processing without requiring additional startup tasks, indicating normal operation of the update service.",
+      "text": "Windows startup processing has completed successfully, and the system has initialized the CSI Store and two sessions for Windows Update.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_2"
       ]
     },
     {
-      "text": "This suggests the system's component store and update agent are functioning as expected during routine maintenance.",
+      "text": "The startup processing thread has terminated normally, and the system is now in a state where it can perform Windows updates.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_2"

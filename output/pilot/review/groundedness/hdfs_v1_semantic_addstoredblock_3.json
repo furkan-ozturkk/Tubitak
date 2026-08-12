@@ -4,31 +4,34 @@
     "hdfs:semantic:addstoredblock_3"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:54bd09675cb10fdc519dcf348ee419531dd82d686a258af782460ce4a020bdba"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:ddb968864bf3bc5626330ab9430f7d8f8a88a6770e25ffb60817634400a5bf85"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:4e293fafa7b09c5798c3930c53cb228a6179674eb267c91f339db5c54cd3b83a"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:87070060a1fa8b30fcbaa1e0d85070f38db7ca7e32a4c84358c353d8d27b64ef"
   },
   "claims": [
     {
-      "text": "The excerpt shows a series of DataNode operations where blocks are being received from various client IPs and acknowledged by the NameNode, indicating normal block replication and storage updates within the HDFS cluster.",
+      "text": "The HDFS system is receiving blocks from various nodes, with each block being received by a specific DataNode at address 10.251.201.204:50010.",
+      "supported": "no",
+      "candidate_group_ids": []
+    },
+    {
+      "text": "This indicates that the DataNode at this address is actively receiving and storing blocks from other nodes in the HDFS system.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_3"
       ]
     },
     {
-      "text": "These log entries reflect routine data node activity involving block reception, acknowledgment, and termination of packet responders for stored blocks.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hdfs:semantic:addstoredblock_3"
-      ]
+      "text": "The blocks being received are of varying sizes and are being added to the block map.",
+      "supported": "no",
+      "candidate_group_ids": []
     }
   ],
   "verdict": "needs_human_review"

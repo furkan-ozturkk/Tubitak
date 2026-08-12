@@ -4,27 +4,27 @@
     "bgl:semantic:instruction_cache_parity_error_corrected_7"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:6f7a0b5d8d80aa84cf5d96a45d95c2824791a1c9c9a537aad5504caf3a4e0d78"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:588b9140b8325db5c95258ebff80b3b31147cbb4a192dae1ba178fbca355e413"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:f2f2f29fdb83733f7eeec34ce02ded6095d646ef8b6348c2d0e124a844bef651"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:746c33ea6b3dbebf226168122baac88fa29ac2ed8b196d7c9817148113baf9b4"
   },
   "claims": [
     {
-      "text": "The excerpt shows repeated kernel-level cache parity errors and fatal application failures involving \"double-hummer alignment exceptions\" and a missing runtime image file, indicating hardware or firmware issues causing instruction cache corrections and critical software loading errors on specific system components (R02-M1-N0-C:J12-U11, R22-M0-N4-I:J18-U11).",
-      "supported": "partial",
+      "text": "This excerpt shows a series of system log lines indicating various hardware and software issues on a system running the RAS (Reliability, Availability, and Serviceability) kernel.",
+      "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_7"
       ]
     },
     {
-      "text": "These events reflect recurring low-level hardware faults in the RAS (Reliability, Availability, Serviceability) subsystem, particularly involving alignment exceptions and corrupted program images.",
+      "text": "The issues include instruction cache parity errors, a fatal application error due to a missing program image, and a large number of double-hummer alignment exceptions.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_7"

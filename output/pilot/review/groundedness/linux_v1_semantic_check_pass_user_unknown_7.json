@@ -4,29 +4,31 @@
     "linux:semantic:check_pass_user_unknown_7"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:45842b3a8d66a96d7603f623610f8ada4b76dd3c1b38dca9d430ca30184a8454"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:8e556d94eb3cf2bdd670396f1623f915a63db21cec303bfa13f3e4dc5f0e784d"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:98901d243250cd0dfe8d1819da2cac168723f2b188f8f78ab5742296f2c0c284"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:fae195d23dbe77f90fc5b3ba90fa775733c5121d48b0355d1d76b21968ae0b50"
   },
   "claims": [
     {
-      "text": "The excerpt shows multiple failed SSH authentication attempts from a remote host (biblioteka.wsi.edu.pl) to the local system at user ID 0 (root), each logged as \"user unknown\" and marked as authentication failures by the pam_unix module.",
-      "supported": "yes",
+      "text": "Multiple SSH authentication attempts have failed for an unknown user from the IP address 'biblioteka.wsi.edu.pl' with a 'NODEVssh' tty, likely due to a brute-force attack.",
+      "supported": "partial",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_7"
       ]
     },
     {
-      "text": "This indicates repeated unsuccessful login attempts targeting the root account over SSH, likely constituting a brute-force attack attempting to gain unauthorized administrative access.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "text": "The attempts were made from four different processes (18545, 18547, 18548, and 18549) spawned by the SSH daemon.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_7"
+      ]
     }
   ],
   "verdict": "needs_human_review"

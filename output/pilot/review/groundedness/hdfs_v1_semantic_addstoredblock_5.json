@@ -4,27 +4,34 @@
     "hdfs:semantic:addstoredblock_5"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:9fa660db2856f63440a29286831e3c8dff56dc0a7aca1bfcd11d97b37c5a9894"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:4eb4839514bffa2fa0c3bd56a2bb70fe2207e4913402b982a508dc1f4324df21"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:f2ec792aa7417cff07502256d016e5283b1212679ca83edc16bde6de5b568135"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:4faa0bc20fdcf5c52f97590d9b3177d3737869421bd587ac8ba5c74340918352"
   },
   "claims": [
     {
-      "text": "The excerpt shows a DataNode receiving and processing multiple blocks of size 64 MB from various source IPs, while the NameNode updates its block map and allocates a new block for a user file path.",
+      "text": "The HDFS system is receiving blocks from various nodes and adding them to its block map.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_5"
       ]
     },
     {
-      "text": "This indicates normal block replication activity within an HDFS data node cluster.",
+      "text": "This indicates that the HDFS system is actively replicating data across its nodes to ensure data availability and redundancy.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_5"
+      ]
+    },
+    {
+      "text": "The blocks are being received from different nodes, suggesting a distributed data replication process.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_5"

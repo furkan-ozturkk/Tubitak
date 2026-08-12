@@ -4,28 +4,28 @@
     "linux:semantic:check_pass_user_unknown_0"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:d44bda13f996cc826758c76e085a932f6ff8569a08116ddc6b4394163f45671e"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:cc5924569577c1b728c18366b622edb768bf730d82897b254afa7971e28c3ec4"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:1d819cac35c94aca65e0712bdbf2c9b95fd5d3796f1fe620eaca2e58537ce180"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:e02e26bbc2381499fdbd8590afc5b43750d47576964667e634c8d4f49af116cb"
   },
   "claims": [
     {
-      "text": "The log shows multiple failed authentication attempts for the root account from a remote host at IP address 218.188.2.4 and later from 220-135-151-1.hinet-ip.hinet.net, all rejected by sshd's pam_unix module.",
-      "supported": "partial",
+      "text": "Multiple authentication failures occurred on the ssh service, with the user 'root' attempting to log in from the IP address 220-135-151-1.hinet-ip.hinet.net, but the user is unknown or does not exist.",
+      "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_0"
       ]
     },
     {
-      "text": "Each entry records an authentication failure with the same user (root), UID 0, and euid 0, indicating repeated login attempts that were denied.",
-      "supported": "partial",
+      "text": "This indicates that the user 'root' is trying to gain unauthorized access to the system.",
+      "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_0"
       ]

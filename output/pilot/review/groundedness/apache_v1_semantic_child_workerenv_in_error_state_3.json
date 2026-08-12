@@ -4,27 +4,34 @@
     "apache:semantic:child_workerenv_in_error_state_3"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:ab4bc2c3e6be5738338f6e8e56cb5bb720a2c8c666ede88440efd4001873ce46"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:9994460ee681d5479d7d87874a665c2b8c02973e0287d7437649f725a50790d9"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:3393ab4263b0ed47df2e42b8ad0604f2ebcdbe4cf2bb7fc7ecf726b5dfc5f727"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:d52a2dd601a0c2e3b4551fd9970a55f7d750e4b4e57ed30612e43d9290590d90"
   },
   "claims": [
     {
-      "text": "The log shows repeated errors indicating that the Apache module mod_jk is encountering its workerEnv process in error states 6 and 7, suggesting misconfiguration or failure to properly initialize child processes for handling requests via AJP.",
-      "supported": "partial",
+      "text": "The mod_jk child workerEnv is in an error state, transitioning between states 6 and 7.",
+      "supported": "yes",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_3"
       ]
     },
     {
-      "text": "Despite attempts to initialize workerEnv successfully using workers2.properties, the persistent error states imply unresolved issues with the JK connector's integration with Apache.",
+      "text": "The jk2_init() function found children 1254, 1256, and 1255 in the scoreboard slots 7, 6, and 8, respectively.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "apache:semantic:child_workerenv_in_error_state_3"
+      ]
+    },
+    {
+      "text": "The workerEnv.init() function successfully initialized with the configuration file /etc/httpd/conf/workers2.properties.",
       "supported": "yes",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_3"

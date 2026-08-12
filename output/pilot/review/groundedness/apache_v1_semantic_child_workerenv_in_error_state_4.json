@@ -4,20 +4,27 @@
     "apache:semantic:child_workerenv_in_error_state_4"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:da846320e6212c5377bdaeab387318bae97c3c42756cca2b3f1ab04f5c7b9be5"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:ba8d397c4542c77214cef3509a29ec09e756a5398360fad799eb2007f78d6e2e"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:d42bafa3ad4d8ce00759f1a46b56772f11bcf193048e56eaaf0e8326438ddf7a"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:815f6bfef445cb38249c2c73383c68a5ee41627fe3f054d24b524a6f6b159106"
   },
   "claims": [
     {
-      "text": "The logs show repeated errors indicating that the Apache mod_jk workerEnv is failing to initialize properly in error states 6 and 9, despite successful initialization messages for workers2.properties; additionally, a directory index request from client 218.39.132.175 was forbidden by an access rule at /var/www/html/.",
+      "text": "This excerpt shows a series of errors and notices related to the mod_jk child workerEnv, which is in an error state at various points.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "apache:semantic:child_workerenv_in_error_state_4"
+      ]
+    },
+    {
+      "text": "The workerEnv is successfully initialized, but the mod_jk child is experiencing errors.",
       "supported": "yes",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_4"

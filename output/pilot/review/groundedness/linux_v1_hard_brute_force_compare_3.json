@@ -5,20 +5,20 @@
     "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:43bec6786589e90e5c973a3a39d0aa8d7e0d4eb78fd74ae476994ea110cd1216"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:747cb7f8a1fa5db16cf3bf8315b5e9dd77fb64c24f7355848848e7dbced9f6e0"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:68fa53604859c0448c6877bfc67a7bcfab38aed5d4d5435f908ef543485dd212"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:dad61ba3488f62e13ec7cd74a96a88827978465a7b45d0e463c7eb7c44a04f5f"
   },
   "claims": [
     {
-      "text": "The two groups both record repeated failed root‑login attempts from a single source, but they differ in timing and network context.",
+      "text": "Both 220.117.241.87 and h64-187-1-131.gtconnect.net exhibit a similar pattern of failed login attempts, with each IP address attempting to authenticate as the root user over a short period of time.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:3:220_117_241_87",
@@ -26,12 +26,23 @@
       ]
     },
     {
-      "text": "In the 220.117.241.87 group the failures occur over a continuous 63‑second window (from 19:15:48 to 19:16:01) with many attempts clustered within seconds, indicating an automated script that is rapidly probing for success.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "text": "The duration of these attempts is approximately 2 minutes for 220.117.241.87 and 3 minutes for h64-187-1-131.gtconnect.net, with both IP addresses attempting to log in at a rate of around 1-2 attempts per second.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:3:220_117_241_87",
+        "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
+      ]
     },
     {
-      "text": "In contrast, the h64-187-1-131.gtconnect.net group shows failures spread across a longer 52‑second interval (from 12:11:53 to 12:12:10) with fewer attempts per second and no obvious clustering, suggesting a more intermittent or human‑driven probing effort.",
+      "text": "This rapid succession of failed login attempts suggests a coordinated effort to brute-force the system, rather than a series of isolated, individual attempts.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:3:220_117_241_87",
+        "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
+      ]
+    },
+    {
+      "text": "The fact that both IP addresses exhibit this same pattern of behavior suggests that they may be part of a larger, organized effort to compromise the system.",
       "supported": "partial",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:3:220_117_241_87",
@@ -39,21 +50,13 @@
       ]
     },
     {
-      "text": "Both sets target the same service (sshd) and use identical authentication‑failure messages, but the burst density of 220.117.241.87 is far higher, making it the more anomalous pattern.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:3:220_117_241_87",
-        "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
-      ]
-    },
-    {
-      "text": "This disparity points to a compromised botnet or brute‑force tool that is being run from a single IP address with high request rates, while the other source likely represents a less coordinated attack or a misconfigured scanner.",
+      "text": "The more anomalous of the two, h64-187-1-131.gtconnect.net, appears to have a slightly longer duration of failed login attempts, and a slightly higher rate of attempts per second, suggesting that it may be the more aggressive of the two.",
       "supported": "no",
       "candidate_group_ids": []
     },
     {
-      "text": "The root‑cause hypothesis is therefore that an automated credential‑stuffing malware operating from 220.117.241.87 is responsible for the anomalous surge of failed logins.",
-      "supported": "partial",
+      "text": "However, the root cause of this behavior is not immediately clear, and further investigation would be necessary to determine the underlying cause of these failed login attempts.",
+      "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:3:220_117_241_87",
         "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"

@@ -4,27 +4,27 @@
     "openstack:semantic:nova_osapi_compute_wsgi_server_1"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:bad1445f7566d5ad41e2bca4de0a059fa73cc51b09410520fc41af6b9ab8dcef"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:7708527ae7e226f8cf1b25bd186e47c35763a6e92b2b11e2c37a15ab7db50919"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:bcd2dcd359447f65a032060db2b86d6655f715214041abea2d4ded1b2b036fa5"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:670e20452ea9f567b0338a08bb5dbeb4d27d5f0eb215ff1cf4078acdbef5b05e"
   },
   "claims": [
     {
-      "text": "The log shows repeated successful API requests to list servers (status 200) and a compute node checking that a base image file is in use before any further operations.",
+      "text": "Nova API server is handling multiple GET requests from the same client IP (10.11.10.1) to retrieve server details for the instance with ID 54fadb412c4e40cdbaed9335e4c35a9e, all of which are successful with a status of 200.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_1"
       ]
     },
     {
-      "text": "This indicates normal operation where Nova’s API service responded quickly while the compute service verified storage usage of an instance’s base image.",
+      "text": "Meanwhile, the compute node is checking the status of an image with ID 0673dd71-34c5-4fbb-86c4-40623fbe45b4, indicating it is in use on the local node.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_1"

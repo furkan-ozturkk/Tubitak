@@ -4,20 +4,27 @@
     "linux:semantic:check_pass_user_unknown_1"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:f772fbce03b7718dbbaeed3fb68600bbab41a6c80dc7fbd5d0f46dd363c8500c"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:88ad3d47298d3fac7102e06e7d4d36fa17f130297d64c48bed39d16b2675e2e2"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:67097b937f810bc63e12212dd813d34f4197a349ef7e03a6bf328a567633d5d5"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:039f5b2ddd0435868f8d95cff4ea18b6794cd7feec2b8a3ddc916dbd13dc5213"
   },
   "claims": [
     {
-      "text": "The log shows repeated failed authentication attempts via SSH from external hosts (rhost=218.188.2.4 and rhost=061092085098.ctinets.com) where the system is trying to authenticate a user that does not exist (\"user unknown\"), resulting in \"authentication failure\" messages for each attempt.",
+      "text": "Multiple SSH authentication failures occurred on the system combo, with the first failure happening at 12:13:19 and the second at 14:53:32.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_1"
+      ]
+    },
+    {
+      "text": "The failures were due to unknown users attempting to authenticate, with the IP addresses 218.188.2.4 and 061092085098.ctinets.com being associated with the failed login attempts.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_1"

@@ -76,7 +76,8 @@ services:
       loghub:
         condition: service_healthy
     environment:
-      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://10.15.33.66:11435}
+      GOLD_DRAFT_BASE_URL: ${GOLD_DRAFT_BASE_URL:-http://furkan.ozturk_vllm:8003}
+      GROUNDEDNESS_BASE_URL: ${GROUNDEDNESS_BASE_URL:-http://furkan.ozturk_vllm:8001}
       PGHOST: loghub
       PGPORT: "5432"
       POSTGRES_DB: ${POSTGRES_DB:-loghub}

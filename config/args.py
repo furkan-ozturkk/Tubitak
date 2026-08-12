@@ -52,7 +52,7 @@ DEFAULT_MANIFEST = (
 )
 
 COMMANDS = (
-    "check-ollama",
+    "check-vllm",
     "generate",
     "validate",
     "verify-answers",
@@ -184,7 +184,6 @@ def _validate_tier_knobs(args: argparse.Namespace) -> None:
         "target_total_questions": args.target_total_questions,
         "sql_limit": args.sql_limit,
         "num_predict": args.num_predict,
-        "num_ctx": args.num_ctx,
     }
     for name, value in positive.items():
         if value is not None and value < 1:
@@ -218,7 +217,7 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
         type=str,
         default="generate",
         choices=list(COMMANDS),
-        help="Operation to run: check-ollama (connectivity + required models, Section 5.5/6), "
+        help="Operation to run: check-vllm (connectivity + required models, Section 5.5/6), "
         "generate (write the question dataset, Section 3.1/7), validate (schema + cross-record "
         "+ evidence checks, Sections 2/6), verify-answers (independent check: a model writes "
         "the SQL for each question and its result is compared to the gold answer), "
@@ -414,30 +413,46 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
     )
 
     parser.add_argument(
-        "--base_url",
+        "--gold_draft_base_url",
         type=str,
-        default=os.environ.get("OLLAMA_BASE_URL", "http://10.15.33.66:11435"),
-        help="Remote Ollama server (Section 5.5); its operation is outside this project's control",
+        default=os.environ.get("GOLD_DRAFT_BASE_URL", "http://furkan.ozturk_vllm:8003"),
+        help="Local vLLM server that drafts medium/hard gold answers (Section 5.5)",
     )
     parser.add_argument(
         "--gold_draft_model",
         type=str,
-        default="nemotron-3-nano:30b",
-        help="Model that drafts medium/hard gold answers. Must differ from --groundedness_model "
-        "(Section 5.5/6)",
+        default="hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+        help="Model id --gold_draft_base_url was started with. Must differ from "
+        "--groundedness_model (Section 5.5/6)",
+    )
+    parser.add_argument(
+        "--groundedness_base_url",
+        type=str,
+        default=os.environ.get(
+            "GROUNDEDNESS_BASE_URL", "http://furkan.ozturk_vllm:8001"
+        ),
+        help="Local vLLM server that runs the claim-by-claim groundedness check "
+        "(Section 5.5)",
     )
     parser.add_argument(
         "--groundedness_model",
         type=str,
-        default="gpt-oss:20b",
-        help="Model that runs the claim-by-claim groundedness check. Must differ from "
+        default="Qwen/Qwen3-32B-AWQ",
+        help="Model id --groundedness_base_url was started with. Must differ from "
         "--gold_draft_model (Section 5.5/6)",
+    )
+    parser.add_argument(
+        "--sql_base_url",
+        type=str,
+        default=None,
+        help="[verify-answers] Server that writes the verification SQL. Omit to reuse "
+        "--groundedness_base_url",
     )
     parser.add_argument(
         "--sql_model",
         type=str,
         default=None,
-        help="[verify-answers] Model that writes the verification SQL. Omit to reuse "
+        help="[verify-answers] Model id --sql_base_url was started with. Omit to reuse "
         "--groundedness_model, which is already a different family from the drafting model, "
         "so the query checking an answer never comes from the model that wrote it",
     )
@@ -445,20 +460,20 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
         "--require_models",
         nargs="*",
         default=None,
-        help="[check-ollama] Model names that must be present on the server. Omit to require the "
-        "two role models above",
+        help="[check-vllm] Model ids that must be served. Omit to require the "
+        "role models above",
     )
     parser.add_argument(
         "--max_parallel_model_calls",
         type=int,
         default=None,
-        help="Concurrent Ollama calls (dataclass default 4)",
+        help="Concurrent vLLM calls (dataclass default 4)",
     )
     parser.add_argument(
         "--max_retries",
         type=int,
         default=None,
-        help="Attempts per Ollama call before giving up (dataclass default 5)",
+        help="Attempts per vLLM call before giving up (dataclass default 5)",
     )
     parser.add_argument(
         "--backoff_base_seconds",
@@ -484,16 +499,8 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
         "--num_predict",
         type=int,
         default=None,
-        help="Token cap per model completion, bounding runaway drafts (dataclass "
-        "default 512)",
-    )
-    parser.add_argument(
-        "--num_ctx",
-        type=int,
-        default=None,
-        help="Context window requested per model call; left to Ollama's own default "
-        "this silently truncates a long prompt instead of erroring (dataclass "
-        "default 32768)",
+        help="Token cap per model completion, sent as max_tokens, bounding runaway "
+        "drafts (dataclass default 512)",
     )
 
     parser.add_argument(

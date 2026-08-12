@@ -35,4 +35,4 @@ USER datasetgen
 
 # Default command: print a help message. Real pipeline commands are supplied via
 # `command:` in compose.yml or through `docker compose exec`.
-CMD ["python3", "-c", "print('datasetgen ready. Example: docker compose exec datasetgen python3 main.py --command check-ollama')"]
+CMD ["python3", "-c", "print('datasetgen ready. Example: docker compose exec datasetgen python3 main.py --command check-vllm')"]

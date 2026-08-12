@@ -4,27 +4,34 @@
     "hadoop:semantic:mrappmaster_4"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:02617c709c630cdc56a790c20d12a301e0e4bee6bb41cf4be0eef190f0a765ce"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:8aa79dfd205c9b07cc2c2217c663a87506bfc52d9a55d336004f15a7baed2a94"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:319aa7229fec4a5be8ede654754e4b79bc181d7c393135e4fa056deaa9096ec8"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:5f6c660fa83dc448e2dd76fd7583740f9e7a4f39aa3f7150b622937c1eed6b37"
   },
   "claims": [
     {
-      "text": "The excerpt shows that during job initialization, Hadoop’s Application Master registers several internal event dispatcher classes for handling job completion, task events, commit operations, and speculation, indicating the framework is setting up its event dispatching system before processing begins.",
+      "text": "The Hadoop system is initializing its event handling system, registering various event types and their corresponding handlers.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_4"
       ]
     },
     {
-      "text": "This registration step prepares the system to manage various lifecycle events throughout the MapReduce job execution.",
+      "text": "This is a normal startup process for the Hadoop MapReduce application master.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:semantic:mrappmaster_4"
+      ]
+    },
+    {
+      "text": "The event handlers are being set up to process different types of events that may occur during the application's execution.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_4"

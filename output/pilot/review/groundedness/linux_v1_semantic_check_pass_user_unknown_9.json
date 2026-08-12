@@ -4,28 +4,35 @@
     "linux:semantic:check_pass_user_unknown_9"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:5d974a8c7477b232c1da125602bc9e61a6936b29db3fc7bc2880fe291a4b827d"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:e5422cdcc0691fb3a25bead9e6dbb81a6399347b8d9c56ca4ed250a17845bb96"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:6ea5e92f330a5b238a77d199ae0249eb8f42477d065743a289dc59f03538b0d4"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:79a41f4e561467604a8a52739459b75debd97e6d85ff9e78be2a1a7ab5ae7c22"
   },
   "claims": [
     {
-      "text": "The log shows repeated failed SSH authentication attempts from a remote host (c9063558.virtua.com.br) using PAM's pam_unix module, indicating unsuccessful login attempts by an unknown user on the system.",
+      "text": "Multiple failed SSH login attempts were made from the same IP address (c9063558.virtua.com.br) and the same user is unknown.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_9"
       ]
     },
     {
-      "text": "Additionally, multiple FTP connections are recorded from IP 202.82.200.188 at the same timestamp, suggesting concurrent access attempts to both SSH and FTP services.",
-      "supported": "partial",
+      "text": "Additionally, multiple FTP connections were made from the same IP address (202.82.200.188) at the same time.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_9"
+      ]
+    },
+    {
+      "text": "These events may indicate potential malicious activity.",
+      "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_9"
       ]

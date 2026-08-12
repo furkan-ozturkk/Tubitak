@@ -4,29 +4,38 @@
     "hdfs:semantic:addstoredblock_9"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:41d5842dbcc0f9e4e5cf983b94b90f891a86a464ea5a0e48167653d1f72fee09"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:a6d474f722fe255e707b95e299e6a6eeca8f8f0d99c1ad40058c1234b1e3dd38"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:49e6c2d9c3e298068e72ff5bd0739ececaa7b60cd78d7d2c5f19c879323309b4"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:6e2dfbc9962946789a64e0f539dc75f147ea15e8e98846df328ba91537cfae35"
   },
   "claims": [
     {
-      "text": "The excerpt shows repeated DataNode operations where blocks are being received from client connections and added to the NameNode's block map, indicating normal block storage activity on the HDFS data nodes.",
+      "text": "The HDFS system is receiving blocks from various nodes and adding them to its block map.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_9"
       ]
     },
     {
-      "text": "Each line records a block transfer between a client IP address and port to a DataNode's 50010 port, followed by confirmation that the block is now stored in the system's block map.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "text": "This indicates that the system is actively replicating data across different nodes to ensure data redundancy and availability.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_9"
+      ]
+    },
+    {
+      "text": "The blocks are being received from different source addresses and added to the block map with their respective sizes.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_9"
+      ]
     }
   ],
   "verdict": "needs_human_review"

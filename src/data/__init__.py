@@ -9,8 +9,8 @@
 
 The database client is deliberately not here. ``src.utils.helper_postgres`` is
 the transport that reaches loghub's ``lines`` table over ``datasetgen-net``, and
-it lives beside ``src.utils.helper_ollama`` because both are clients for a remote
-service this project does not own. This package is about the corpus as data.
+it lives beside ``src.utils.helper_vllm`` because both are clients for a service
+this package does not itself own. This package is about the corpus as data.
 
 Which of the two a tier reads from is not a style choice. Anything whose gold
 value a reader must be able to reproduce — the easy tier's counts and lookups,

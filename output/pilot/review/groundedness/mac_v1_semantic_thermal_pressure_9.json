@@ -4,31 +4,36 @@
     "mac:semantic:thermal_pressure_9"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:3379037bd9a8ff8da11156da80eba1d8f5630d87d0ad158e56e32ccbd2e7981f"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:2018c9093ba97735c1bb64c9c9a6255babf9687ec908bf1cc102ddb89c598c67"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:dd2256fd563deef875717addbcf44e222df8499376dc8c7fc033e0de6a2792c2"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:a63c7c08e5202793d71f8c3f6491fe8add4c25b1fef1b10e6533d6ab4dc61ecb"
   },
   "claims": [
     {
-      "text": "The system logged multiple wake events and Bluetooth activation around 22:29–22:43, followed by a Safari safe browsing update warning about an unexpected delay and a network connectivity failure with no server response.",
+      "text": "The system experienced a series of wake calls, including a thermal pressure state and AppleCamIn system wake calls, which may indicate system activity or power management events.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_9"
       ]
     },
     {
-      "text": "These indicate normal wake activity but also a delayed background task and a failed network connection attempt.",
-      "supported": "partial",
+      "text": "The system also experienced a brief network connectivity issue and a failed connection attempt to a server.",
+      "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_9"
       ]
+    },
+    {
+      "text": "The AddressBook.InternetAccountsBridge successfully connected to a server after two attempts.",
+      "supported": "no",
+      "candidate_group_ids": []
     }
   ],
   "verdict": "needs_human_review"

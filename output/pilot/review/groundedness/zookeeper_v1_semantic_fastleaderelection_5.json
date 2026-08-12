@@ -4,27 +4,27 @@
     "zookeeper:semantic:fastleaderelection_5"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:076660baa9084092fb015ecb08dc6f23efe2a4172c3e9d5f0ccc8135edf383ab"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:ec2928f61e68c77ce1a62ea999ce3088b7e69591bb015df0015a649f024d12c5"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:bb00803dc906549fc10c73588d9145a6e6b847e2f1ee76cd011e150161a1d41b"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:077385f696c288cd13c1455c3f960aa741f0866ad57183f37e421a761850664f"
   },
   "claims": [
     {
-      "text": "The log shows repeated warnings that Zookeeper cannot establish connections to peer nodes at addresses 10.10.34.12 and 10.10.34.13 on port 3888 during leader election, indicating those peers are unreachable or failing to communicate for quorum formation.",
+      "text": "The ZooKeeper system is experiencing issues with establishing connections to nodes 2 and 3 at their respective election addresses.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_5"
       ]
     },
     {
-      "text": "This suggests the cluster is unable to elect a new leader due to network connectivity issues with these specific servers.",
+      "text": "The system is unable to open channels to these nodes, resulting in a series of warnings and timeouts.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_5"

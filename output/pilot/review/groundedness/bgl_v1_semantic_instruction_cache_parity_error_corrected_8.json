@@ -4,27 +4,27 @@
     "bgl:semantic:instruction_cache_parity_error_corrected_8"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:51a97fe66aa55d9eff283965b08f2d8cf71af003b53cef74897de7d8d14445bd"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:5de1937a0d9efc992655a5bfc8ade1348e4503d7120c3cf984fe6fe02afab10f"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:6cfab12b06dbd3df431e61c6e549fc4ac3aeedc38887b87b52ca5fd7877890dc"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:d5f942811bda9e0c770ec35c5d34d8e5094b304e22cc7d565393d4f822a254b3"
   },
   "claims": [
     {
-      "text": "The excerpt shows multiple corrected parity errors in the instruction cache and DDR memory on various ranks and symbols, indicating hardware-level error detection and correction events within the RAS kernel logs.",
+      "text": "This excerpt shows a series of system log events, including parity errors in the instruction cache and DDR errors, as well as fatal application errors due to permission denied issues.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_8"
       ]
     },
     {
-      "text": "Additionally, two fatal application errors occur due to permission issues when attempting to load a specific program image file.",
+      "text": "The parity errors and DDR errors suggest hardware issues, while the fatal application errors indicate software problems.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_8"

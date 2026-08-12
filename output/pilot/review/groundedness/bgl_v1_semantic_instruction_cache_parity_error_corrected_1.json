@@ -4,28 +4,28 @@
     "bgl:semantic:instruction_cache_parity_error_corrected_1"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:49433e1a6e99bfe48c6b0b7fdfe0347b6997f529132a668236c64b9775ffb4f3"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:f6b9f4511bb9a12c80d1b7c43aca672f342aa7aa340254855ec40f242a4a3198"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:c9964a5993c4c5c5a7d6d25491d9faff94f6ea1cae394150d6df6ed257d1e10a"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:26a7bcdb5e58250611594602c08d0677e62b6c1fec1b6ea8a75a18eac07dc89d"
   },
   "claims": [
     {
-      "text": "The excerpt shows repeated kernel log entries indicating that the system's instruction cache is experiencing parity errors which are being automatically corrected by hardware ECC mechanisms.",
+      "text": "This excerpt shows a series of corrected instruction cache parity errors in the RAS KERNEL of a system, specifically on node R02-M1-N0-C:J12-U11, over a period of approximately 1 hour.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_1"
       ]
     },
     {
-      "text": "These events occur at regular intervals throughout a short time window on June 6, 2005, suggesting sustained but non-fatal cache-level memory anomalies in the RAS (Reliability, Availability, Serviceability) subsystem.",
-      "supported": "partial",
+      "text": "The errors were corrected by the system's RAS KERNEL, indicating that the system is able to detect and recover from these errors.",
+      "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_1"
       ]

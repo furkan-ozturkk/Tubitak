@@ -29,7 +29,7 @@ it and its default is its owning dataclass.
 
 Usage examples, with the container-internal paths from docker/compose.yml:
 
-  python3 main.py --command check-ollama
+  python3 main.py --command check-vllm
   python3 main.py --command generate
   python3 main.py --command generate --full
   python3 main.py --command validate --strict
@@ -47,13 +47,13 @@ from src.commands.generate import run_generation
 from src.params.corpus_params import get_corpus_params
 from src.params.export_params import get_analyzer_export_params
 from src.params.generation_params import get_generation_params
-from src.params.ollama_params import get_ollama_params
 from src.params.results_params import build_config_snapshot
 from src.params.review_params import get_review_apply_params, get_review_export_params
 from src.params.scale_params import get_scale_params
 from src.params.sql_verification_params import get_sql_verification_params
 from src.params.validation_params import get_validation_params
-from src.utils.helper_ollama import check_server
+from src.params.vllm_params import get_vllm_params
+from src.utils.helper_vllm import check_server
 from src.utils.helper_review import apply_worksheet, export_worksheet
 from src.commands.validate import run_validation
 from src.commands.sql_verification import run_sql_verification
@@ -77,7 +77,7 @@ def main() -> int:
     corpus_config = get_corpus_params(args)
     generation_config = get_generation_params(args)
     scale_config = get_scale_params(args)
-    ollama_config = get_ollama_params(args, scale_config)
+    vllm_config = get_vllm_params(args, scale_config)
     validation_config = get_validation_params(args)
     sql_verification_config = get_sql_verification_params(args)
     review_export_config = get_review_export_params(args)
@@ -85,19 +85,19 @@ def main() -> int:
     export_config = get_analyzer_export_params(args)
     config_snapshot = build_config_snapshot(args)
 
-    if args.command == "check-ollama":
-        return check_server(ollama_config)
+    if args.command == "check-vllm":
+        return check_server(vllm_config)
 
     elif args.command == "generate":
         return run_generation(
-            corpus_config, generation_config, scale_config, ollama_config
+            corpus_config, generation_config, scale_config, vllm_config
         )
 
     elif args.command == "validate":
         return run_validation(validation_config, config_snapshot)
 
     elif args.command == "verify-answers":
-        return run_sql_verification(sql_verification_config, ollama_config)
+        return run_sql_verification(sql_verification_config, vllm_config)
 
     elif args.command == "review-export":
         return export_worksheet(review_export_config)
@@ -110,7 +110,7 @@ def main() -> int:
 
     else:
         raise ValueError(
-            f"Unknown command: {args.command}. Choose check-ollama | generate | "
+            f"Unknown command: {args.command}. Choose check-vllm | generate | "
             f"validate | verify-answers | review-export | review-apply | export-analyzer"
         )
 

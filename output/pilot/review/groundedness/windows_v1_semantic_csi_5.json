@@ -4,29 +4,38 @@
     "windows:semantic:csi_5"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:b4b81a3afddf76e35586d81c4304d7b0b425d113a985ba7938d3162e68550896"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:60c427f009bc30528304e77095ff820a05abba3cac5f57e9f316b4b050037a00"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:c9f295454d18570934af755df29c805f32723b5139ef1056dd2ddc2db2f79149"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:eee10f348c29c89e225ed852cc99c2c7e1ca580bc39ddc4700268bcbfaf8082e"
   },
   "claims": [
     {
-      "text": "The log shows a Windows Component Store Service (CBS) scavenge operation completed successfully during a transaction commit, indicating normal cleanup of pending component updates without errors or rollbacks.",
-      "supported": "partial",
+      "text": "The system is performing a scavenge operation, which has completed successfully, and a pending transaction has been committed.",
+      "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_5"
       ]
     },
     {
-      "text": "This reflects routine maintenance activity where the system finalized a pending update installation step by clearing temporary state.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "text": "The scavenge operation was not necessary because the store coherency cookie matches the last scavenge cookie.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "windows:semantic:csi_5"
+      ]
+    },
+    {
+      "text": "This indicates that the system is maintaining data consistency and integrity.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "windows:semantic:csi_5"
+      ]
     }
   ],
   "verdict": "needs_human_review"

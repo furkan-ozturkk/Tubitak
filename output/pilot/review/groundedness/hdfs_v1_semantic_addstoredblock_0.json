@@ -4,27 +4,34 @@
     "hdfs:semantic:addstoredblock_0"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:0b5f06850efc7beba86ea06344cb17c01af8623c249ca1fe19267f015795d9d4"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:601431cd63d5d8fef437fce9812a66ecb3751b8e103a3bf7796c3c8e68cea9d8"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:d08c64251ce5919674afd3cab5b00ef069e78f7dcf3c3e45c145b00e3dcb0062"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:603ce6a1053b6a1e40853b28ba18d77e7d245157772fede97e1aa3aba57ab428"
   },
   "claims": [
     {
-      "text": "The excerpt shows NameNode updates to its block map indicating new blocks have been stored on DataNodes at 10.251.73.220:50010, 10.251.43.115:50010, 10.251.203.80:50010 and 10.250.11.85:50010 with size 67108864 bytes each, while DataNode packet responders terminate connections for various blocks including one being received from 10.251.42.84.",
+      "text": "The HDFS system is experiencing a block replication issue, as multiple blocks are being added to the system while others are terminating, indicating an imbalance in block replication.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_0"
+      ]
+    },
+    {
+      "text": "This could be due to a failure in one or more DataNodes, causing the system to compensate by adding new blocks to other nodes.",
       "supported": "partial",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_0"
       ]
     },
     {
-      "text": "This reflects normal block replication and storage operations within the HDFS cluster.",
+      "text": "The system is actively managing block replication to maintain data integrity.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_0"

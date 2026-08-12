@@ -4,27 +4,20 @@
     "linux:semantic:check_pass_user_unknown_5"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:fc486eb36357af167a128cc9b4c5c4affd311ce12807ed406241e1d917cb6e44"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:4cf4aa39778ffafed2d3013a37bbb375fbde588b733994ece237677382c10b8a"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:bbcd4597afc3fcaee308964c210bed51b1abecf7bd66860cd9618d548a7004d5"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:75330cb572f113a24458ea28e6eef9afdbac197317100558ea37ea5570e57ee4"
   },
   "claims": [
     {
-      "text": "The log shows repeated failed SSH authentication attempts from a remote host IP 216‑69‑169‑168 at 04:30:55–56, each indicating an unknown user and authentication failure for root (uid=0).",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_5"
-      ]
-    },
-    {
-      "text": "It also records two FTP connection entries from the same source address 210.245.165.136 at 13:16:30.",
+      "text": "Multiple failed SSH authentication attempts were made from the IP address ip-216-69-169-168.ip.secureserver.net, and a new FTP connection was established from a different IP address 210.245.165.136.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_5"

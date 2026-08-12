@@ -4,28 +4,35 @@
     "mac:semantic:thermal_pressure_0"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:868375e98c84c0b9423b385cc70d0d854cd6200f27a6c2526b061d1f81223c18"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:88abcff85a4dc1702c9634816be0c7a31c34110c5f534670ed349ec3db05e4f0"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:3d84bc5549a3f779d6101a99e0d8e9968d6cfa87692fde516ea6a6a974d2e3c9"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:3975d451b4e2954668a7bab5b28cf9f76a9b3e1a44a3a88fa3010fd1230315bd"
   },
   "claims": [
     {
-      "text": "The system logged a thermal pressure state of 1 and memory pressure state of 0 at 09:01 am, indicating low thermal stress but normal memory load.",
+      "text": "This excerpt shows a series of system events and conditions, including thermal and memory pressure, a network interface being enabled and disabled, frequent transitions on an interface, and a device going to sleep.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_0"
       ]
     },
     {
-      "text": "Shortly after, the Wi‑Fi interface entered sleep mode (Wake Reason: Wake on Scan offload) while remaining externally connected, as shown by the ARPT wake reason entry.",
-      "supported": "partial",
+      "text": "The device is also experiencing network activity, with a wireless interface updating its TCP keepalive sequence.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "mac:semantic:thermal_pressure_0"
+      ]
+    },
+    {
+      "text": "The system is also waking up due to a scan offload.",
+      "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_0"
       ]

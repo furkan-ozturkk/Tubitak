@@ -4,27 +4,27 @@
     "openstack:semantic:nova_osapi_compute_wsgi_server_6"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:88d3a6db95555460192b9ac9e3a004e272e9186f6b6808cdded2ad2066cb9395"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:dc8c4a1593dbfb27435f30f7633751d22db1cc1be2142dc65d7176e77e45d51d"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:00e23042d4bc383a9a8711a1f2fc1201e02625e267a7f98b1bf4b14194dcb2f6"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:9c4e60086638f2a3593992052750911553f2d1f422f7bf982532e72193cfb70c"
   },
   "claims": [
     {
-      "text": "The log shows repeated successful API calls to retrieve server details via a GET request to /servers/detail, each returning HTTP status 200 and varying response times around 0.25–0.28 seconds.",
+      "text": "This excerpt shows a series of successful HTTP GET requests to the OpenStack Compute API, specifically retrieving server details for the instance with ID 54fadb412c4e40cdbaed9335e4c35a9e.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_6"
       ]
     },
     {
-      "text": "This indicates normal operation of the Nova compute API handling multiple requests from the same client IP within a short timeframe.",
+      "text": "The requests are made from the IP address 10.11.10.1 and are handled by the nova-api service, resulting in a status of 200 for each request.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_6"

@@ -4,27 +4,34 @@
     "hadoop:semantic:mrappmaster_8"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:185c837fd910eb4a11e4732ab4cc8fcd9036b685ad0af4e48dc61828afcb15b8"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:b0e8a145a33d5c011f5867a23b2938e27256afa755345c684e8c821f75ebedd3"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:fc1da34694a57a21d57a3e1f192ba9fc58424d4b921e8e269e4639a2db3b16ba"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:8abcc65297148695e6ef150d374f5c15fede2aa378fd386ef7d752198b0aefe0"
   },
   "claims": [
     {
-      "text": "The excerpt shows that a Hadoop MapReduce application master is initializing and registering several internal event dispatcher components—such as task attempt events, committers, speculation, container allocation, and launcher routing—while also configuring the default file system to HDFS at hdfs://msra-sa-41:9000.",
+      "text": "The Hadoop system is registering event handlers for various classes, including those related to task attempts, commits, and container allocation.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_8"
       ]
     },
     {
-      "text": "This indicates that the job history service is being set up within a MapReduce application running on YARN.",
+      "text": "This is likely an initialization or startup process for the Hadoop system.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:semantic:mrappmaster_8"
+      ]
+    },
+    {
+      "text": "The default file system is also being set to hdfs://msra-sa-41:9000.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_8"

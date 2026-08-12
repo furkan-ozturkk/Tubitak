@@ -4,27 +4,34 @@
     "hadoop:semantic:mrappmaster_3"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:b44f8f77055800b26df0a43df0b1a0d4e8150576d54a76cf013f9551e4e060b7"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:a4a4aa29787e39af04c37dbd10d8079f672aa4b20eebd13a75f7215a459632b1"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:3fcb2824669ccc9ab517e28c8a2e194d24ef5f6f5c1842c53b6d8784991491b7"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:c27421e968e534f27252ac54f2dacc062bfc7909f634eedf65e183f59348460c"
   },
   "claims": [
     {
-      "text": "The excerpt shows that a MapReduce job's Application Master is initializing and registering event dispatchers for job control, task management, and commit events within YARN, indicating the setup phase of a Hadoop job execution.",
+      "text": "The Hadoop system is initializing its components, specifically the MRAppMaster, and registering event handlers for various event types.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_3"
       ]
     },
     {
-      "text": "This confirms the system is preparing to coordinate map-reduce tasks through its distributed resource manager.",
+      "text": "This is a normal startup process for the Hadoop system, where it sets up its internal components and prepares for job execution.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:semantic:mrappmaster_3"
+      ]
+    },
+    {
+      "text": "The system is configuring its output committer to use the FileOutputCommitter.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_3"

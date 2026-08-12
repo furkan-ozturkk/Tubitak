@@ -4,27 +4,34 @@
     "openssh:semantic:possible_break_in_attempt_0"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:b786be0a5e61bb0b99b7eb350af57b53682e056401fcf88939405d290916bb0e"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:6df0e8a589be183cdafa6be441b86f3a4c36db55919d42d0c4fe5b3141d09611"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:0459e96b0e49f29325fc3ccb23fcb108201233fd67d8c9f3d19027cf214bc01a"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:7752bf5748e3b98d1164deaa37204b2090650f312eb3fdf33c0171c6e929fd7f"
   },
   "claims": [
     {
-      "text": "The log shows multiple failed authentication attempts from IP 173.234.31.186 for a non‑existent user “webmaster”, including reverse‑DNS lookup failures and an explicit \"POSSIBLE BREAK-IN ATTEMPT\" warning, indicating a brute‑force or unauthorized login attempt targeting the SSH service.",
-      "supported": "partial",
+      "text": "This excerpt shows an attempted SSH login with an invalid username, which was likely a break-in attempt.",
+      "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_0"
       ]
     },
     {
-      "text": "The subsequent connection closure confirms the attacker was rejected before gaining access.",
+      "text": "The login attempt was made from IP address 173.234.31.186, but the username \"webmaster\" was not recognized, and the password authentication failed.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:semantic:possible_break_in_attempt_0"
+      ]
+    },
+    {
+      "text": "The connection was then closed by the remote host.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_0"

@@ -4,27 +4,34 @@
     "apache:semantic:child_workerenv_in_error_state_5"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:c49d5d5b45147137fe60400e88969f04458fe77246d3f6e470d259347aafe72b"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:970878883efa96290f74336e3c6a3bc1ff4ea0998585986285681c1c7783db54"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:90f983464a5e07adff1ee87a7831dc7b51b83b0ceec6e5cb6508837e821ce175"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:ba8ef60eda3720e1790ce121cd3ff2cd8aa18e3e4c481635e448ee79e8fef7cd"
   },
   "claims": [
     {
-      "text": "The log shows Apache's mod_jk connector initializing multiple Tomcat worker processes (children) and assigning them to specific slots in a shared scoreboard, indicating normal operation of the JK load balancing module.",
-      "supported": "partial",
+      "text": "This excerpt shows that Apache's mod_jk child worker is in an error state and is being restarted, as evidenced by the repeated \"jk2_init()\" messages finding new child processes in the scoreboard.",
+      "supported": "yes",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_5"
       ]
     },
     {
-      "text": "The error message about child workerEnv being in error state 6 precedes successful initialization notices for new children placed into available scoreboard slots.",
+      "text": "The scoreboard slots are being reassigned to new child processes, indicating a dynamic process management.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "apache:semantic:child_workerenv_in_error_state_5"
+      ]
+    },
+    {
+      "text": "The error state of the original child worker is not resolved.",
       "supported": "yes",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_5"

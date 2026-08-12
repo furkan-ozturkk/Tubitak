@@ -14,7 +14,7 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
-from src.utils.helper_ollama import _extract_sql
+from src.utils.helper_vllm import _extract_sql
 from src.utils.helper_postgres import assert_readonly_select
 from src.commands.sql_verification import compare
 

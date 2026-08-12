@@ -4,27 +4,27 @@
     "bgl:semantic:instruction_cache_parity_error_corrected_0"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:2356316e6a0a6bda2538eaa024e0fbe9e7cadf2eb60603036d66975818caa48f"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:91c749721bf11f4f5cded567a48fb8fb1b1253fafdd09bcd718898463b397f7d"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:d75aa1a78b59cc2344ac9211f405f43151704f49cc1e70d8682aab9e6110b5f8"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:6241a3e4735c37e6158d272f4acd074f0f4eabae81aecf19023a2c3a0225cbbd"
   },
   "claims": [
     {
-      "text": "The excerpt shows repeated kernel-level cache parity errors and alignment exceptions occurring across multiple processors and time intervals on June 3 2005, indicating hardware‑level memory integrity issues within the system’s instruction cache and alignment handling.",
+      "text": "This excerpt shows a series of parity errors and double-hummer alignment exceptions in the system, indicating hardware or software issues that are being corrected by the RAS (Reliability, Availability, and Serviceability) kernel.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_0"
       ]
     },
     {
-      "text": "These events suggest degraded or failing cache components and possible timing‑related alignment faults affecting overall system stability.",
+      "text": "The errors occurred in different nodes (N0, N1, N6, etc.) and were reported at various times, suggesting a recurring problem.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_0"

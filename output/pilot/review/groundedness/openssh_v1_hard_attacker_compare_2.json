@@ -5,20 +5,20 @@
     "openssh:hard:attacker_compare:2:185_190_58_151"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:8bd6589b2d2c69f60158ea9d427c89ebdbba9e7b28d299284e44c4785a995062"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:0f92bc475d70f5536eddb2c5f693eca68cae137100586e8ed04117fdc74c1eae"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:2217bff463539885010822c64292dd62a963f7c25d01c52c19db25ecf2eb9aa9"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:8f56d4102e08978653070216d5ccfdd9bd4fd3ce2ba9ec9e1f0e32c7ba6c9cce"
   },
   "claims": [
     {
-      "text": "Both groups show a pattern of repeated failed SSH login attempts using the same usernames (admin, guest, default) and identical failure messages (“Failed password for invalid user …”), indicating automated credential‑guessing rather than legitimate access.",
+      "text": "The intrusion attempts coming from 5.188.10.180 and 185.190.58.151 both exhibit suspicious behavior, but the pattern of their attempts differs.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:2:5_188_10_180",
@@ -26,21 +26,37 @@
       ]
     },
     {
-      "text": "The 5.188.10.180 source exhibits a longer continuous burst—starting at 08:24 and persisting with new usernames and fresh port numbers until 09:13, after which it ends with “Did not receive identification string,” suggesting the scanner kept probing for over an hour before giving up.",
+      "text": "The IP address 5.188.10.180 shows a prolonged and intense burst of activity, with a single user, 'admin', being targeted for over 10 minutes, resulting in 11 failed password attempts.",
       "supported": "no",
       "candidate_group_ids": []
     },
     {
-      "text": "In contrast, 185.190.58.151 initiates its burst later (at 09:07) and completes a similar series of attempts within roughly an hour, ending also with “Did not receive identification string,” but it does so with fewer distinct usernames and a more compact timeline.",
-      "supported": "partial",
+      "text": "This prolonged and repetitive pattern of attacks suggests a sustained effort to gain unauthorized access to the system.",
+      "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:2:5_188_10_180",
         "openssh:hard:attacker_compare:2:185_190_58_151"
       ]
     },
     {
-      "text": "Because the longer, uninterrupted activity from 5.188.10.180 involves many repeated login cycles without any successful entry or corrective action, it demonstrates a higher level of persistence and thus behaves more suspiciously; the hypothesis is that this IP belongs to an external brute‑force scanner attempting exhaustive password guessing against the SSH service.",
-      "supported": "partial",
+      "text": "In contrast, the IP address 185.190.58.151 also shows a pattern of repeated attempts, but with a wider range of users being targeted, including '0', '123', 'admin', and 'api'.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:2:5_188_10_180",
+        "openssh:hard:attacker_compare:2:185_190_58_151"
+      ]
+    },
+    {
+      "text": "However, the frequency and duration of these attempts are not as prolonged as those seen with 5.188.10.180.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:2:5_188_10_180",
+        "openssh:hard:attacker_compare:2:185_190_58_151"
+      ]
+    },
+    {
+      "text": "The most suspicious behavior is exhibited by 5.188.10.180, which shows a clear and sustained pattern of repeated attempts to gain unauthorized access to the system, with no apparent corrective action taken in between.",
+      "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:2:5_188_10_180",
         "openssh:hard:attacker_compare:2:185_190_58_151"

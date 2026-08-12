@@ -39,7 +39,7 @@ check "analysis.analysis_tables" $PY -c "import analysis.analysis_tables"
 
 echo "=== CLI surface ==="
 check "--help"                   $PY main.py --help
-for command in check-ollama generate validate verify-answers review-export review-apply export-analyzer; do
+for command in check-vllm generate validate verify-answers review-export review-apply export-analyzer; do
   check "--command $command parses" $PY -c "
 from config.args import args_parser
 args_parser(['--command', '$command'])

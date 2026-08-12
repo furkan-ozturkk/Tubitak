@@ -4,27 +4,27 @@
     "windows:semantic:csi_0"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:2f0567972a2a355bc941d124bc06303d1b72313c7594b16bae3c6e9e8f1fb56c"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:466c70043f8312c966ee32f7d3dc135a094834066537c2aadaaff50a9130ecdb"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:98d93e40abeb9b5b2ed8b30789f3376dbced28ff67537fc0e1fa760968bfec49"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:8fa4c7b56c31b85606a59f3cda20b01a053bbcff603d22892dec1e2c9a377a2d"
   },
   "claims": [
     {
-      "text": "The excerpt shows that at approximately 4:30 AM on September 28 2016, the TrustedInstaller service was initialized and started successfully by the CBS subsystem, completing its initialization phase.",
+      "text": "The TrustedInstaller service has successfully started and is now running its main loop, with the Windows Quality Metrics (SQM) component initializing in online mode with Windows opt-in disabled and report files older than 10 days being cleaned up.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_0"
       ]
     },
     {
-      "text": "This indicates a normal Windows Update/Installation background process beginning operation.",
+      "text": "This indicates that the TrustedInstaller service has completed its initialization and is ready to perform its tasks.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_0"

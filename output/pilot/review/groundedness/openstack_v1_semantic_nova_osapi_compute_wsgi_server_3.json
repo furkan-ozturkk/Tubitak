@@ -4,34 +4,27 @@
     "openstack:semantic:nova_osapi_compute_wsgi_server_3"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:9f72adc2cc9799451c809f4a3c1b29171efb4273454525979526d55c36dc162b"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:31d6f9002b5ebea5f171fe9462b53fa27cdc141b81ae302776970d8820a25aaa"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:e79ed9d87ea56bde34426cf3c25a76de2faa67f7b3a777344d47b985171fc842"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:2020c166a0a8ed7b22bc2fa7a46256ce0912804723a936fe978d30f2efea835d"
   },
   "claims": [
     {
-      "text": "The log shows a successful API request to list servers and subsequent compute node activity checking an image file's usage status.",
+      "text": "This excerpt shows a series of API requests to the OpenStack system, including a GET request to retrieve server details and metadata, and a series of image cache checks on the compute node.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_3"
       ]
     },
     {
-      "text": "The metadata service responded successfully to requests for meta_data.json and vendor_data.json.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_3"
-      ]
-    },
-    {
-      "text": "A compute node is verifying that the base image for instance storage is in use locally with no other nodes sharing it.",
+      "text": "The image cache checks indicate that an image is in use on the node, with one local copy and no copies on other nodes sharing the instance storage.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_3"

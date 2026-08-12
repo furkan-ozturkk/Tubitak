@@ -4,27 +4,27 @@
     "bgl:semantic:instruction_cache_parity_error_corrected_6"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:e503d753f4b10bfc4217907eb582fc48a00f00e0ffbb847958c1fc76590a62d9"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:6e7a1bd556c43f49bffd2d3d416c31a6f9c1be5153ff83fb4af1bd086246f4c5"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:f80be2fc44c7ea981962803f1bb32e7e3b328aff076c62ab4b2a47d1508c0d08"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:381d60beb3e83ec95fcaa21392fbf373237ad23424cec85269fbb591b1cfd463"
   },
   "claims": [
     {
-      "text": "The excerpt shows multiple instances of corrected instruction cache parity errors and kernel-generated core dumps occurring across different system components on June 15–16, indicating recurring hardware-level memory integrity issues triggering error recovery mechanisms.",
+      "text": "This excerpt shows a series of hardware errors, specifically parity errors in the instruction cache, and the system's response to these errors by generating cores.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_6"
       ]
     },
     {
-      "text": "These events suggest the system is experiencing persistent low-level hardware faults requiring attention to underlying hardware reliability concerns.",
+      "text": "The parity errors occurred on multiple nodes (N0, N1, N7, N8, N9) on different days, and the system responded by generating cores, indicating a possible attempt to recover from the errors.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_6"

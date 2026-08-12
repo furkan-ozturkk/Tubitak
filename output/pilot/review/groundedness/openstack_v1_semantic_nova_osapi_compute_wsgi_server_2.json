@@ -4,27 +4,27 @@
     "openstack:semantic:nova_osapi_compute_wsgi_server_2"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:6af7bd5949b223f8297741671fe72dc9d3d5443238dca62a54be7883e29a2c83"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:c5a9e3b9ea09d343c4810712f7f203bbe5d74eeeb45b59d413170abc3da160a1"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:d531620d6399f2ae03727b2f66799532abe3fc9f0c05fe9e1e815841d1bcbf9f"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:d7430699002301e74bad468d619ff68288f404f28a2e58615dad84f1e9056843"
   },
   "claims": [
     {
-      "text": "The log shows a series of API requests to list servers and create an external network event for instance 95960536, followed by a compute node reporting that the VM associated with that instance was resumed as part of its lifecycle.",
-      "supported": "partial",
+      "text": "This excerpt shows a series of API requests to retrieve server details and a network event for an instance, as well as a compute manager event indicating that the instance has resumed.",
+      "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_2"
       ]
     },
     {
-      "text": "This indicates the OpenStack services processed a request to trigger an external event on the instance and then successfully resumed the virtual machine.",
+      "text": "The instance 95960536-049b-41f6-9049-05fc479b6a7c is associated with a network event and is being managed by the compute manager.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_2"

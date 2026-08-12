@@ -4,27 +4,27 @@
     "linux:semantic:check_pass_user_unknown_4"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:5cda3b6612fd72adcfdbac51390df8d4e436a97acfa819ca8b9d4f3d220a4cc8"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:4b151cc4c2b4fd7149bfc150cd83925102a09bfbae8b9618a4aa888c15e0ed80"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:190c6a921c9865a8a150bc220b8eab951e94521f0245dfe4d1aa53ca177a6b3f"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:7b120c2d7142ef3a9d9fe5c2c0d36d135b00a322cd764e67023b7bae7f555c83"
   },
   "claims": [
     {
-      "text": "The excerpt shows repeated authentication failures for a user that is not recognized by the system, originating from remote IP address 65.166.159.14 and targeting SSH access with root privileges (uid=0 euid=0).",
+      "text": "Multiple failed SSH authentication attempts are being made from the IP address 65.166.159.14, with the attempts being made from the same tty (NODEVssh) and the same user unknown status.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_4"
       ]
     },
     {
-      "text": "Each failure occurs during password verification attempts where the username is reported as \"unknown\" by pam_unix.",
+      "text": "This indicates a potential brute-force attack on the SSH service.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_4"

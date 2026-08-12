@@ -4,28 +4,35 @@
     "mac:semantic:thermal_pressure_7"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:1f3af8fda89dcfbd8f46ed1f9a629c229c57e6d4eb4a731c4d23461445758a2e"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:a66adee82c54ea6bb24e7972347ec935b4ae62a4d5dc64cf99295baf8e4426a8"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:4e1e5eca857a2ae285d32016b3f41c7109bd21424ec8222e7f23a6189b85d2f2"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:d4f2835764aef32d2b6933d9e88fa31c4cbe38084f6a8f0ef5c572176450a077"
   },
   "claims": [
     {
-      "text": "The system logged a thermal and memory pressure state of zero at 4:27 am, indicating normal resource conditions.",
+      "text": "The system experienced a wake-up event, transitioning from a sleep state to a full wake state, and the network interface was enabled.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_7"
       ]
     },
     {
-      "text": "Subsequent kernel messages show network activity related to mDNS, power changes for the AirPort interface including sleep and wake events, and a security alert scheduler warning about an incorrect start time.",
-      "supported": "partial",
+      "text": "The system log also shows a scheduled security alert job being ignored due to an upcoming start time.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "mac:semantic:thermal_pressure_7"
+      ]
+    },
+    {
+      "text": "The system's memory and thermal pressure states were normal at the time of the wake-up event.",
+      "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_7"
       ]

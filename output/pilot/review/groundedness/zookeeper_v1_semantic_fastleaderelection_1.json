@@ -4,27 +4,27 @@
     "zookeeper:semantic:fastleaderelection_1"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:9214d0960076cf25254ac7bb793c47daee6f84749f3f43bfd0da469007dd871f"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:8d526e487d2e53108389d6e44a38d227975822cc544b0fc67bd0e788c2505628"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:024bab9afff89720eda5668e74da01082ee9f65315194093802216350a961c66"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:3df8c06ec8eddcd442f9011b08c0f4259a7fe4a9cc94dd6eeca46d9baf415b07"
   },
   "claims": [
     {
-      "text": "The log shows a Zookeeper server transitioning from LOOKING to FOLLOWING state and accepting new client connections on port 2181, indicating it has elected a new leader in the cluster.",
+      "text": "This excerpt shows a series of client connections and disconnections to a ZooKeeper server, with multiple clients establishing and closing sessions over a period of time.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_1"
       ]
     },
     {
-      "text": "A subsequent warning about \"caught end of stream exception\" suggests an abnormal termination of a client connection after this election.",
+      "text": "The server appears to be handling multiple client connections concurrently, with some clients disconnecting due to an end-of-stream exception.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_1"

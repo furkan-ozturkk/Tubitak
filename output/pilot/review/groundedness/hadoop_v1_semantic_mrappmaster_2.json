@@ -4,27 +4,34 @@
     "hadoop:semantic:mrappmaster_2"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:f96c3fe2c69ce001678293b99b22b8324ce038384a96c44c8b30df638f90398b"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:fb10dab826917b1a29fad2fa190a1c592f9076a7e8fdb6a7d2263a3a522ca33d"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:6b3d64b7e512e79ecb3ab676c0ba663c11cc35abcd800e5df09c772c93fe34af"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:cb3f967ce13f4428d11f0c215a2035810e3e6307d284d681928993455a09084f"
   },
   "claims": [
     {
-      "text": "The excerpt shows an Application Master registering several YARN event handlers and setting up output committers as part of job initialization.",
+      "text": "This excerpt shows the initialization of a YARN application master, specifically the configuration of the output committer and the registration of event handlers.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_2"
       ]
     },
     {
-      "text": "These log entries indicate that the Hadoop container is preparing to manage map-reduce tasks by configuring task and job event dispatchers within the YARN framework.",
+      "text": "The application master is configured to use the FileOutputCommitter, which is responsible for managing the output of the application.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:semantic:mrappmaster_2"
+      ]
+    },
+    {
+      "text": "The event handlers are registered to handle various events related to the application, such as job and task attempts.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_2"

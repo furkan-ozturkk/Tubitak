@@ -39,11 +39,11 @@ LogRouter's source code or infrastructure.
 │   ├── corpus/                # pinned manifest + the fetcher (runs in the loghub container)
 │   ├── data/                  # corpus loading, hashing, per-dataset question specs
 │   ├── generators/            # easy_tier.py, medium_tier.py, hard_tier.py
-│   └── utils/                 # clients (postgres, ollama) and helpers
+│   └── utils/                 # clients (postgres, vllm) and helpers
 ├── analysis/
 │   └── analysis_tables.py     # offline composition tables over a finished dataset
 ├── scripts/
-│   ├── run_all.sh             # check-ollama -> generate -> validate -> verify-answers -> tables -> export
+│   ├── run_all.sh             # check-vllm -> generate -> validate -> verify-answers -> tables -> export
 │   ├── check_smoke.sh         # imports, CLI, validations, unit tests
 │   ├── check_status.sh        # what is in output/ right now
 │   └── tasks/                 # one file per pipeline stage, parameters only (run_all.sh owns the program)
@@ -86,8 +86,8 @@ flags; `--help` lists every override.
 ```bash
 E="docker compose -f docker/compose.yml exec datasetgen python3 main.py"
 
-$E --command check-ollama      # connectivity, required models, model families
-$E --command generate          # full three-tier pilot pass (needs Ollama)
+$E --command check-vllm        # connectivity, required models, model families
+$E --command generate          # full three-tier pilot pass (needs vLLM)
 $E --command generate --full   # identical pass, written to its own scratch file
 $E --command validate          # schema + cross-record + split + corpus + answer checks
 $E --command validate --strict # phrasing-diversity rule as an error; expected to PASS

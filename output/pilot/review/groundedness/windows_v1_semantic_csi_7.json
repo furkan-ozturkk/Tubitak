@@ -4,34 +4,27 @@
     "windows:semantic:csi_7"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:a57de67275d04533834e0108a09deacab58dd2d725a0de80652cf689ddf4ba98"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:75a8d38915257352bbe13186779cb842d0a3f5d50f4558d262c397b74685691c"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:5d59f80741ec7a941b54b34f7c25c5b8d12491983cae4c7ffa1dffe45e813325"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:98c209c0969db90bf0e7ced71d93d71d0e8f3438447ed59a9759231ab672484b"
   },
   "claims": [
     {
-      "text": "The excerpt shows that Windows Update's background service (TrustedInstaller) completed a transaction and entered its final cleanup phase before shutting down normally.",
+      "text": "The system log shows that a Windows system maintenance process, likely the Windows Servicing Store (CBS), has completed a scavenge operation and is now terminating its main loop and starting finalization.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_7"
       ]
     },
     {
-      "text": "The \"Reboot mark refs: 0\" indicates no pending reboot is required after this operation.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_7"
-      ]
-    },
-    {
-      "text": "This marks the end of an update installation cycle without triggering a system restart.",
+      "text": "This indicates that the system is preparing to shut down or restart.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_7"

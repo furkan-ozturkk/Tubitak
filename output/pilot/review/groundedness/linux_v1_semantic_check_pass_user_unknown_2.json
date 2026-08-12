@@ -4,26 +4,28 @@
     "linux:semantic:check_pass_user_unknown_2"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:179830982a435d1cb4ebd59c5ae91f3a7991c5891f404d34ac6a068639db669f"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:4803db2ae6c565f031ea26b4c6139c596abd95177ae691448af87551dab1bfdf"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:c724de4116c09d192f1f15ccb955f3b176754e2b99b08c4045f2641bcdd004a5"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:d6cfa9e40850481f412eb676ca1dd0a77c9647b380c3899851cc8120458f2494"
   },
   "claims": [
     {
-      "text": "The log shows multiple failed SSH authentication attempts from different source IPs associated with a Korean ISP, all targeting the root user on an unknown tty device.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "text": "Multiple failed SSH authentication attempts were made from two different IP addresses (061092085098.ctinets.com and d211-116-254-214.rev.krline.net) within a short period of time, indicating potential brute-force login attempts.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_2"
+      ]
     },
     {
-      "text": "Each failure is recorded by pam_unix as \"user unknown\" and \"authentication failure\", indicating unsuccessful login attempts to the system's SSH service.",
-      "supported": "yes",
+      "text": "The fact that the user is unknown and the authentication failed suggests that the attempts were likely automated or malicious.",
+      "supported": "partial",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_2"
       ]

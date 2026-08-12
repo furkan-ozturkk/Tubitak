@@ -6,7 +6,7 @@
 #   why tests/test_validate_answers.py asserts that it does not.
 # psycopg2-binary: src/utils/helper_postgres.py and loghub/fetch_corpus.py
 #
-# There is no HTTP library and no YAML parser here on purpose. Every Ollama call
+# There is no HTTP library and no YAML parser here on purpose. Every vLLM call
 # goes through urllib from the standard library, and configuration is Python
 # dataclasses plus config/args.py rather than a YAML file, so `requests` and
 # `PyYAML` were declared but never imported.

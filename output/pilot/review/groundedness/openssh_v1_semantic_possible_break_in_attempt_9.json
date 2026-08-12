@@ -4,21 +4,35 @@
     "openssh:semantic:possible_break_in_attempt_9"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:e1d67eb217d848ceaf9a34a5a9e8e85e8e26cea0394d0b60d111fe851f302bfd"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:51e474041f3f935936a5d60fbf0c2d81463023ad5ec13c6a34fe8251fa003a8c"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:cfbfdae74c68d7d10af8541abcc5da536d89204e8001ad25557668cd66782b54"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:141521cfc1d12563248071cb58acdcd6eb789f9046f8de0dd7434919de6f5d46"
   },
   "claims": [
     {
-      "text": "The log shows repeated authentication failures and a disconnect from IP 187.141.143.180 for an unknown user \"nagios1\", accompanied by warnings of possible break-in attempts due to failed reverse DNS lookups, indicating a suspected brute-force or unauthorized access attempt against the SSH service.",
+      "text": "An unauthorized user attempted to log in to the system using the invalid username \"nagios1\" from the IP address 187.141.143.180, resulting in an authentication failure and the user being disconnected.",
       "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:semantic:possible_break_in_attempt_9"
+      ]
+    },
+    {
+      "text": "This is indicated by the \"POSSIBLE BREAK-IN ATTEMPT\" message and the \"authentication failure\" log entry.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:semantic:possible_break_in_attempt_9"
+      ]
+    },
+    {
+      "text": "The user's attempt to log in was likely a failed brute-force attack.",
+      "supported": "partial",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_9"
       ]

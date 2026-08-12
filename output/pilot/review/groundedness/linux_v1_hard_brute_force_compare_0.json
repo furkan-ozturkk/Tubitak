@@ -5,41 +5,20 @@
     "linux:hard:brute_force_compare:0:207_243_167_114"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:41e437ae9db0a41b643bb779a91cb1481f8b9dbe88d113af00e066be3852cb2e"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:f1c11aa71e4ddc753bdc1cbacebe80eec826f1fca7da89718a33d3c07049adc7"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:aa999d1b470214c7c04b6f2f9b7a95e4eb36385704cea8f780bb9d4075b018d4"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:296d550c9347e012af4b698776353ce8033a508f5a14c8a5b084e594d7560e77"
   },
   "claims": [
     {
-      "text": "The two groups show parallel bursts of failed root‑login attempts from distinct external IPs, but the timing patterns differ enough to highlight one as more anomalous.",
-      "supported": "no",
-      "candidate_group_ids": []
-    },
-    {
-      "text": "In Group 150.183.249.110 the failures are recorded at 16:01 – 16:03 on July 10, with many attempts clustered within a few seconds (e.g., four failures in the same second) and then a sparse continuation up to 16:03:18; this tight clustering of repeated failures from the same source suggests an automated brute‑force script.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:0:150_183_249_110",
-        "linux:hard:brute_force_compare:0:207_243_167_114"
-      ]
-    },
-    {
-      "text": "In Group 207.243.167.114 the failures occur at 07:02 – 07:04 on July 26, spaced roughly every 8–15 seconds with no more than two attempts in any single second and a relatively even distribution across the three‑minute window; this steadier pacing is less typical of an aggressive credential‑guessing tool.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:0:150_183_249_110",
-        "linux:hard:brute_force_compare:0:207_243_167_114"
-      ]
-    },
-    {
-      "text": "Because Group 150.183.249.110 exhibits a higher frequency of failures within short intervals, multiple attempts targeting the same root account in rapid succession, and repeated authentication failures without any intervening success or corrective delay, it appears more anomalous than the slower, more evenly spaced pattern seen from 207.243.167.114.",
+      "text": "The SSH authentication attempts from 150.183.249.110 and 207.243.167.114 both exhibit a pattern of repeated failures, but the timing and target accounts differ between the two groups.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:0:150_183_249_110",
@@ -47,7 +26,31 @@
       ]
     },
     {
-      "text": "The root‑cause hypothesis is that an external attacker (or compromised host) at IP 150.183.249.110 is conducting a brute‑force SSH login campaign against the server, repeatedly attempting to authenticate as root over a condensed timeframe, likely exploiting weak credentials or unpatched services to gain unauthorized access.",
+      "text": "The attempts from 150.183.249.110 span a longer period, from 16:01:43 to 16:03:18, with a burst of activity lasting approximately 2 minutes and 35 seconds.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:0:150_183_249_110",
+        "linux:hard:brute_force_compare:0:207_243_167_114"
+      ]
+    },
+    {
+      "text": "In contrast, the attempts from 207.243.167.114 occur over a shorter period, from 07:02:27 to 07:04:12, with a burst of activity lasting approximately 1 minute and 45 seconds.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:0:150_183_249_110",
+        "linux:hard:brute_force_compare:0:207_243_167_114"
+      ]
+    },
+    {
+      "text": "Both groups target the root account, but the IP addresses attempting to access the account are different.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:0:150_183_249_110",
+        "linux:hard:brute_force_compare:0:207_243_167_114"
+      ]
+    },
+    {
+      "text": "The repeated failures from both IP addresses suggest that these errors recur without a corrective action in between, indicating a potential issue with the SSH service or the authentication mechanism.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:0:150_183_249_110",

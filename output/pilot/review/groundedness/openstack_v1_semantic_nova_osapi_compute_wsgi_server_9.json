@@ -4,27 +4,27 @@
     "openstack:semantic:nova_osapi_compute_wsgi_server_9"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:ede979ef29c858c961f74a40b28c9b95bc412019e40619442ef7339bc1899ea7"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:38e6872df5b244cde0c572f41f28d721652227a61e63bdecc1d33472580df82d"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:0989ee3bc2f3b1c44ed85c080ca4e9a0bafb31f33374eaa6f2ecdd214dfbcfdb"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:3bf41df6c72539d42fc6010acb849d3d186ed088c69dcaba88b357f0a13ddaf7"
   },
   "claims": [
     {
-      "text": "The log shows repeated successful API calls to list servers (status 200) from a Nova‑API process at 10.11.10.1, each taking roughly 0.25–0.44 seconds.",
+      "text": "Nova API server is handling multiple concurrent requests from the same client IP address (10.11.10.1) to retrieve server details for the same instance (54fadb412c4e40cdbaed9335e4c35a9e) with a status of 200, indicating successful responses.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_9"
       ]
     },
     {
-      "text": "Immediately after these requests, the compute node’s image cache checks an image and reports that it is already in use locally (one copy on this node, none elsewhere).",
+      "text": "The requests are being processed within a short time frame, suggesting efficient handling of concurrent requests.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_9"

@@ -4,29 +4,31 @@
     "windows:semantic:csi_8"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:1666e998243e86ec72ff8478645c796e06f03b0898e6a3596a24fa738d4de084"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:4aba76098016e7354afa68fe7d944b223149ce58d6c8cb8af50f5359325d5434"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:39a7e667ff036814f3ca1920572967ed64c01f1305782eccaa973be7db6f59ab"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:0058d45ce4910e0eb5871f3eeca6c060fe9215c5a7f358c126b6bc474650d39a"
   },
   "claims": [
     {
-      "text": "The excerpt shows a Windows system shutting down after completing TrustedInstaller finalization and before restarting its initialization at midnight, indicating normal termination of servicing processes.",
+      "text": "The system log shows the TrustedInstaller process being terminated and then reinitialized after a reboot.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_8"
       ]
     },
     {
-      "text": "The log confirms that the Servicing Stack was loaded successfully just prior to this shutdown cycle.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "text": "This indicates a normal shutdown and restart of the TrustedInstaller service, which is responsible for Windows servicing and repair operations.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "windows:semantic:csi_8"
+      ]
     }
   ],
   "verdict": "needs_human_review"

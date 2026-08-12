@@ -4,34 +4,27 @@
     "openstack:semantic:nova_osapi_compute_wsgi_server_7"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:4c561626bed6a7aa8b8c68f687a9564ab65815cfd37b09d57cc951098ecdde1d"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:a560a455a8f350e922a5b37b0134a21d527eff6064db58649c09160dd5aa70b7"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:b4064937759590c78a78c8740fde2c2e09633e4e62c311fa96dc74c94af47fe3"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:9a0e1e4caaa758060656a1643558f6a4ae3edca010946bfd6cc7f6afbdc5df01"
   },
   "claims": [
     {
-      "text": "The log shows repeated successful API calls to list servers with a 200 status and response size of 1893 bytes, each taking roughly 0.26 seconds.",
+      "text": "This excerpt shows a series of successful HTTP GET requests to the OpenStack API, specifically retrieving server details for a single instance with ID 54fadb412c4e40cdbaed9335e4c35a9e, over a period of approximately 3 seconds.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_7"
       ]
     },
     {
-      "text": "Immediately after these requests, the compute node performed resource tracking, reporting that it has 16 usable vCPUs but only 1 is currently allocated.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_7"
-      ]
-    },
-    {
-      "text": "This indicates normal operation where the API responded quickly to a server list request and then assessed available compute resources on the host.",
+      "text": "The requests are made from IP address 10.11.10.1 and are handled by the nova-api service.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_7"

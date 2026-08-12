@@ -4,27 +4,34 @@
     "openstack:semantic:nova_osapi_compute_wsgi_server_4"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:76aa3a6993c697abe095afede8ed697583298590edfc10972310f590b7c3b6c2"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:1c0535da9d399e1fe967b53e2f91097d982d753a3e2731d14a708bf38bae04aa"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:57c12a941e7b7b72f8e76a898f5d031a28d652328288d729a61ad3eecb0c4fe1"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:164025bf9291c67612aa10e2700f4414255e6f2923bc7796ecee879a4341b2ce"
   },
   "claims": [
     {
-      "text": "The log shows an instance deletion operation completed in about 1.5 seconds, including network deallocation and hypervisor destruction, but a warning indicates that the base image file for the instance could not be found after cleanup.",
+      "text": "An instance with ID 43204226-2f87-4da7-b7ee-4d20cc66e846 was deleted on a hypervisor, taking 1.01 seconds to destroy and 0.46 seconds to deallocate its network.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_4"
       ]
     },
     {
-      "text": "This suggests the instance was successfully terminated while its associated storage references were removed, though a minor inconsistency remains in the image cache.",
+      "text": "This instance deletion was likely initiated by a request to the OpenStack API, as evidenced by the API log entries showing GET requests for server details.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_4"
+      ]
+    },
+    {
+      "text": "The deletion process was completed successfully, with no errors reported in the compute log.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_4"

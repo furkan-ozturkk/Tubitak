@@ -29,12 +29,12 @@ one it is has to be read by a person.
 
 from typing import Any
 
-from src.params.ollama_params import OllamaConfig
 from src.params.sql_verification_params import SqlVerificationConfig
+from src.params.vllm_params import VllmConfig
 from src.utils import helper_postgres
-from src.utils.helper_ollama import OllamaClient
 from src.utils.helper_records import dataset_key_from_evidence, load_questions
 from src.utils.helper_run import write_json
+from src.utils.helper_vllm import VllmClient
 
 
 def _scalar(rows: list[tuple]) -> Any:
@@ -105,7 +105,7 @@ def compare(answer_type: str, expected_answer: str, value: Any) -> tuple[bool, s
     return False, f"answer_type={answer_type} cannot be settled by a query"
 
 
-def verify_record(record: dict[str, Any], client: OllamaClient) -> dict[str, Any]:
+def verify_record(record: dict[str, Any], client: VllmClient) -> dict[str, Any]:
     """Verifies one record by asking the model for SQL and running it.
 
     Every failure mode is recorded rather than raised, because one unusable query
@@ -114,7 +114,7 @@ def verify_record(record: dict[str, Any], client: OllamaClient) -> dict[str, Any
 
     Args:
         record: The question record.
-        client: Ollama client; the query is written by ``sql_model``.
+        client: vLLM client; the query is written by ``sql_model``.
 
     Returns:
         One report entry.
@@ -167,13 +167,13 @@ def verify_record(record: dict[str, Any], client: OllamaClient) -> dict[str, Any
 
 
 def run_sql_verification(
-    config: SqlVerificationConfig, ollama_config: OllamaConfig
+    config: SqlVerificationConfig, vllm_config: VllmConfig
 ) -> int:
     """Verifies a dataset's deterministic answers and writes the report.
 
     Args:
         config: What to verify and where to record it.
-        ollama_config: Server address and model roles.
+        vllm_config: Server address and model roles.
 
     Returns:
         ``0`` every eligible record agreed, ``1`` at least one disagreed or could not
@@ -181,7 +181,7 @@ def run_sql_verification(
     """
     print("Command      : verify-answers")
     print(f"Dataset      : {config.dataset}")
-    print(f"SQL model    : {ollama_config.sql_model}")
+    print(f"SQL model    : {vllm_config.sql_model}")
 
     try:
         records = load_questions([str(config.dataset)])
@@ -200,7 +200,7 @@ def run_sql_verification(
             )
             return 2
 
-        client = OllamaClient(ollama_config)
+        client = VllmClient(vllm_config)
         entries = []
         for record in eligible:
             entry = verify_record(record, client)
@@ -211,7 +211,7 @@ def run_sql_verification(
         agreed = sum(1 for entry in entries if entry["agrees"])
         report = {
             "dataset": str(config.dataset),
-            "sql_model": ollama_config.sql_model,
+            "sql_model": vllm_config.sql_model,
             "checked": len(entries),
             "agreed": agreed,
             "disagreed": len(entries) - agreed,

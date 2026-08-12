@@ -3,7 +3,7 @@
 Nothing here generates or validates anything. Every module reads an
 ``output/**/questions.json`` (and, where present, the ``validation_report.json``
 beside it), so the analysis re-runs against a finished dataset without a corpus
-volume, a database, or an Ollama server.
+volume, a database, or a vLLM server.
 
 Flat by design, and each module is an entry point with its own ``argparse`` — the
 project's single CLI surface in ``config/args.py`` is for the pipeline that

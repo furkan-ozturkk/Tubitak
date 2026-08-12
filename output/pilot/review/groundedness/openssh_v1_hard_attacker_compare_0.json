@@ -5,20 +5,20 @@
     "openssh:hard:attacker_compare:0:187_141_143_180"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:7a4dc6caa4d613fa988ea6a330d09b79b54e92f547610add775d626cff160076"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:2a50c47c11f2b076bf07399085429989b784b03e6c6b76969493b4497b663244"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:9d0ee9f0d743d7001ab46d516f4971576321e0cdc1288ed8ca849282b29276c8"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:46b4b99a0403e261f701d7866f98e0f4dd4b86d720f7f21d4b6894ea5d9378db"
   },
   "claims": [
     {
-      "text": "The two groups show identical attack mechanics: each source repeatedly attempts SSH logins with a short, tightly‑spaced burst of failed root or invalid‑user passwords followed by an immediate “Received disconnect … Bye Bye” message that terminates the session.",
+      "text": "The attack patterns from source 183.62.140.253 and source 187.141.143.180 exhibit distinct characteristics.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:0:183_62_140_253",
@@ -26,23 +26,7 @@
       ]
     },
     {
-      "text": "In Group 183.62.140.253 the cadence is roughly one attempt every 2–3 seconds from 10:54 to 11:04, targeting first a non‑existent user (zhangyan), then several distinct invalid usernames (dff) and finally dozens of root attempts before the pattern repeats at 11:04; this demonstrates a sustained brute‑force sweep that lasts over ten minutes.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:0:183_62_140_253",
-        "openssh:hard:attacker_compare:0:187_141_143_180"
-      ]
-    },
-    {
-      "text": "Group 187.141.143.180 exhibits an almost identical timing profile—six failed root attempts within the first minute, then a second wave of three invalid‑user attempts at 09:19 – 09:20—but it compresses the entire activity into a tighter nine‑minute window and ends shortly after the final disconnect.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:0:183_62_140_253",
-        "openssh:hard:attacker_compare:0:187_141_143_180"
-      ]
-    },
-    {
-      "text": "Both sources therefore share the same root‑cause hypothesis: they are part of an automated, credential‑stuffing campaign that uses scripted password‑guessing against SSH, deliberately aborts each connection with a “Bye Bye” signal to avoid detection, and cycles through many source IPs (or rotates payloads) while maintaining a consistent low‑and‑slow burst pattern.",
+      "text": "Source 183.62.140.253 consistently attempts to log in to the system with the root account, with each attempt occurring at a short interval of approximately 2 seconds.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:0:183_62_140_253",
@@ -50,7 +34,73 @@
       ]
     },
     {
-      "text": "The more anomalous attacker is 183.62.140.253 because its activity persists longer, includes an initial probe of a non‑existent user before moving to root, and shows a higher volume of repeated failed attempts across a broader time span, indicating a more aggressive and less constrained brute‑force effort compared with the shorter, tightly clustered bursts seen from 187.141.143.180.",
+      "text": "This suggests a high cadence of attacks, with the attacker attempting to brute-force the password for the root account.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:0:183_62_140_253",
+        "openssh:hard:attacker_compare:0:187_141_143_180"
+      ]
+    },
+    {
+      "text": "In contrast, source 187.141.143.180 exhibits a more varied attack pattern, with the attacker attempting to log in with multiple user accounts, including invalid users such as magnos, ingrid, jay, and cyrus.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:0:183_62_140_253",
+        "openssh:hard:attacker_compare:0:187_141_143_180"
+      ]
+    },
+    {
+      "text": "This suggests a more exploratory approach, with the attacker attempting to find vulnerabilities in the system.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:0:183_62_140_253",
+        "openssh:hard:attacker_compare:0:187_141_143_180"
+      ]
+    },
+    {
+      "text": "However, upon closer inspection, it becomes clear that both sources exhibit a repetitive pattern of failed login attempts, with each attempt resulting in a disconnect from the system.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:0:183_62_140_253",
+        "openssh:hard:attacker_compare:0:187_141_143_180"
+      ]
+    },
+    {
+      "text": "This suggests that the attackers are not attempting to gain access to the system, but rather are engaged in a form of reconnaissance or probing.",
+      "supported": "no",
+      "candidate_group_ids": []
+    },
+    {
+      "text": "The fact that both sources exhibit this pattern suggests that the system is being targeted by multiple attackers, each with their own approach and cadence.",
+      "supported": "no",
+      "candidate_group_ids": []
+    },
+    {
+      "text": "The more anomalous attacker is 183.62.140.253, which exhibits a higher cadence of attacks and a more focused approach, attempting to log in with the root account.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:0:183_62_140_253",
+        "openssh:hard:attacker_compare:0:187_141_143_180"
+      ]
+    },
+    {
+      "text": "The repetitive pattern of failed login attempts suggests that the attacker is engaged in a form of brute-force attack, attempting to guess the password for the root account.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:0:183_62_140_253",
+        "openssh:hard:attacker_compare:0:187_141_143_180"
+      ]
+    },
+    {
+      "text": "The fact that this attack is occurring at a high cadence suggests that the attacker is using automated tools to perform the attack.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:0:183_62_140_253",
+        "openssh:hard:attacker_compare:0:187_141_143_180"
+      ]
+    },
+    {
+      "text": "The root-cause hypothesis is that these errors recur without a corrective action in between, suggesting that the system is not implementing adequate security measures to prevent or mitigate these types of attacks.",
       "supported": "partial",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:0:183_62_140_253",

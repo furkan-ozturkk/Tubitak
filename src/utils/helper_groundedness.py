@@ -1,6 +1,6 @@
 """Claim-by-claim groundedness checking shared by the model-drafted tiers.
 
-A client-side helper beside ``helper_ollama`` and ``helper_review`` rather than a
+A client-side helper beside ``helper_vllm`` and ``helper_review`` rather than a
 generator: it produces no records, it orchestrates the reviewing model over a
 draft and files the report the review flow reads.
 
@@ -24,12 +24,12 @@ from pathlib import Path
 from typing import Any
 
 from src.utils.helper_evidence import split_sentences
-from src.utils.helper_ollama import OllamaClient
 from src.utils.helper_run import write_json
+from src.utils.helper_vllm import VllmClient
 
 
 def check_claims(
-    client: OllamaClient,
+    client: VllmClient,
     answer_text: str,
     evidence_text: str,
     group_ids: list[str],
@@ -37,7 +37,7 @@ def check_claims(
     """Checks each sentence of a drafted answer against its evidence.
 
     Args:
-        client: Ollama client; the check always runs on ``groundedness_model``.
+        client: vLLM client; the check always runs on ``groundedness_model``.
         answer_text: The drafted gold answer.
         evidence_text: The evidence the answer had to be derived from.
         group_ids: The question's evidence group ids.

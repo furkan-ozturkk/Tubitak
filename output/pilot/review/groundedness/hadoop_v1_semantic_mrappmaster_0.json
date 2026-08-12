@@ -4,27 +4,27 @@
     "hadoop:semantic:mrappmaster_0"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:81cfd6c84c88f53e6813eeccf2d1845d9c4f74702d30e005c67af87fdb9a64fd"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:35c6db018079cff88a78e98f512654c13cb72efc6e214762aa8281897b823320"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:14df29af7b443974ba46c3b41213c788e37f27fdf98fb2a71e2c0ed43e4866a6"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:5074f562cac51b8a4d2699abe50255917b22351bb559c302b78a8e6164e18553"
   },
   "claims": [
     {
-      "text": "The excerpt shows the Hadoop MapReduce application master initializing and registering YARN event handlers as it starts processing an application attempt.",
+      "text": "A Hadoop MapReduce application has been created with application ID appattempt_1445144423722_0020_000001, and it is executing with a YARN application master RM token.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_0"
       ]
     },
     {
-      "text": "It indicates that the system is setting up job history tracking and output committer configuration during the early stage of application execution.",
+      "text": "The application is using the new API committer and has set the output committer to FileOutputCommitter.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_0"

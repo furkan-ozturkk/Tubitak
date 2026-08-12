@@ -5,20 +5,20 @@
     "linux:hard:brute_force_compare:2:218_188_2_4"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:33cbb08b3724e13361651f1baf30f6ef8db82803baed16c21d82486d8f4bfda2"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:b13f448ca1f530bb99dd05299d9909eaacfa16f59c1521c1be27c9d5197b44a4"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:8acf7362f8cdd1f250cc87616a71e76a2f5568a20fce02fccb14c4198392bcde"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:0a48ffdbb55afeb997d26eed4017b73172b625e383e03c70b135d053631b95d0"
   },
   "claims": [
     {
-      "text": "The logs from 195.129.24.210 show a prolonged series of authentication failures that span multiple days, with repeated attempts clustered around two distinct time windows (June 30 and July 1) and each failure is logged as “authentication failure; logname= uid=0 euid=0 … user=root” indicating an explicit attempt to compromise the root account.",
+      "text": "The authentication activity originating from 195.129.24.210 and 218.188.2.4 both show repeated authentication failures, but the pattern of these failures differs between the two groups.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:2:195_129_24_210",
@@ -26,7 +26,7 @@
       ]
     },
     {
-      "text": "In contrast, the entries from 218.188.2.4 are confined to a single day (June 14‑15) and consist of only 14 failures that occur within a narrow burst of minutes, after which no further attempts appear in the captured evidence.",
+      "text": "The group from 195.129.24.210 shows a burst of activity on two separate days, with 11 consecutive authentication failures occurring on July 1, and 4 failures on June 30, all within a short period of time.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:2:195_129_24_210",
@@ -34,15 +34,7 @@
       ]
     },
     {
-      "text": "Because the first source exhibits repeated, multi‑day bursts targeting root with no intervening successful logins or remediation actions, it demonstrates more sustained suspicious behavior than the shorter, isolated burst from 218.188.2.4.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:2:195_129_24_210",
-        "linux:hard:brute_force_compare:2:218_188_2_4"
-      ]
-    },
-    {
-      "text": "The pattern of continuous failures without any corrective response suggests an ongoing brute‑force or credential‑stuffing campaign aimed at gaining privileged access.",
+      "text": "In contrast, the group from 218.188.2.4 shows a single burst of activity on June 15, with 12 consecutive authentication failures occurring within a short period of time.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:2:195_129_24_210",
@@ -50,8 +42,16 @@
       ]
     },
     {
-      "text": "Therefore, 195.129.24.210 is the more suspicious source, likely representing a persistent attacker probing for root‑level entry.",
-      "supported": "partial",
+      "text": "However, the group from 195.129.24.210 shows a more prolonged period of repeated failures, with two distinct bursts of activity separated by a day, whereas the group from 218.188.2.4 shows a single, shorter burst of activity.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:2:195_129_24_210",
+        "linux:hard:brute_force_compare:2:218_188_2_4"
+      ]
+    },
+    {
+      "text": "These repeated failures without a corrective action in between suggest that the authentication activity from 195.129.24.210 may be more suspicious than that from 218.188.2.4.",
+      "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:2:195_129_24_210",
         "linux:hard:brute_force_compare:2:218_188_2_4"

@@ -4,21 +4,28 @@
     "zookeeper:semantic:fastleaderelection_8"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:35e2caaabd49cc1c960f8397564c03b46e6225ba839da45b44c36ff8d065c5df"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:8d46c35e5a424f7110ac5495528d962b6460d6777ec28115b79b780eec837119"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:3dde32e7c9eecbe39ec87f63a3425827451e3c63d84884f43a1d34be60227596"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:e165f2d4b5f9746b4c5a4db641b2d9db340efca361c4e66a34a8853330772fb7"
   },
   "claims": [
     {
-      "text": "The log shows repeated failures to establish connections with server 3 during leader election and learner handling, culminating in a shutdown of the learner handler process on July 29th at 19:04:30, indicating that server 3 became unreachable or could not complete the required handshake for ZooKeeper quorum operations.",
-      "supported": "partial",
+      "text": "The ZooKeeper system is experiencing issues with its quorum, specifically with node 3, which is unable to establish a connection to the election address /10.10.34.13:3888.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "zookeeper:semantic:fastleaderelection_8"
+      ]
+    },
+    {
+      "text": "This has resulted in a notification time out and a broken connection, causing the system to attempt to re-establish the connection.",
+      "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_8"
       ]

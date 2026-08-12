@@ -4,27 +4,34 @@
     "openssh:semantic:possible_break_in_attempt_2"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:2ad68421ef403dbdc8b9877780b54976b910346cc63e879732661ca883597b3a"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:03742108341a5c35266437b197c05d930ac33f1e5a7f680d630246178d383dfe"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:2447093e1ccf567554a4f09e03f2cf8c079014bdb91385e04d424247a5f131bf"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:05c1bdaff98da13f21a41d499f3a58e26a98817116a85e4f093fcfb49829f9ac"
   },
   "claims": [
     {
-      "text": "The log shows repeated failed authentication attempts by a remote host at IP address 187.141.143.180 targeting the root user over SSH, triggering OpenSSH's \"POSSIBLE BREAK-IN ATTEMPT\" warning due to reverse DNS lookup failures and subsequent disconnections.",
+      "text": "There was a failed login attempt to the root account from the IP address 187.141.143.180, which triggered a possible break-in attempt warning.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_2"
       ]
     },
     {
-      "text": "This indicates an automated or manual brute-force attack attempting unauthorized access via the root account from that source IP.",
+      "text": "The login attempt was made through SSH and failed due to an incorrect password.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:semantic:possible_break_in_attempt_2"
+      ]
+    },
+    {
+      "text": "The IP address 187.141.143.180 made two consecutive failed login attempts, which may indicate a brute-force attack.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_2"

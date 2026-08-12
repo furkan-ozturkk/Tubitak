@@ -4,27 +4,34 @@
     "windows:semantic:csi_4"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:9c0edef26c687645bf4cc4d61bb1a466fc5ffb5422b9969ed190b9c51888cf90"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:168826a8c3d9832b6a8980d27cd9b5c2a1c9db96796bd8a5da6b0f6f0814ebe4"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:1f5f9835ef3b2e058ed6c86192597cf9bffbc4abed8f153de586d0e0affdef4e"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:4db354011921a3024d8a2c4415294ac52af99440d5a69a2674e51416e11f7ab0"
   },
   "claims": [
     {
-      "text": "The excerpt shows a Windows Component Store (CBS) transaction being committed and finalized by the CSI subsystem during system maintenance, indicating normal operation of the component deployment engine without errors or scavenge activity.",
+      "text": "The Windows system is performing a CSI (Component-Based Servicing) transaction for deployment engine {d16d444c-56d8-11d5-882d-0080c847b195} with flags 00000002.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_4"
       ]
     },
     {
-      "text": "This reflects routine background processing to update or repair system components using the Component Based Servicing (CBS) service.",
+      "text": "This transaction is a scavenge operation, which involves checking the store for coherency and applying any necessary changes.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "windows:semantic:csi_4"
+      ]
+    },
+    {
+      "text": "The operation was successful, with no issues reported.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_4"

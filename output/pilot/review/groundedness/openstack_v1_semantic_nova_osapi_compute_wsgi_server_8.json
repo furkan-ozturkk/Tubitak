@@ -4,28 +4,28 @@
     "openstack:semantic:nova_osapi_compute_wsgi_server_8"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:1d2ffe6d92eac4fade0401e0b35a128f72694d0af7adf7b00841c8c38e8e14a5"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:7bc2b5a0656404d51a1a45f0a8adffb33582dc8a01517bcb201485c9035a45a8"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:44257f59909477745fe32d1ea3bf8bbbaf673a34c2fc294c6a911249fdc35330"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:44c676da560be6c3c9123ea50e3e78e7dd1537cf26c382cab2b64ca1eea9a7a2"
   },
   "claims": [
     {
-      "text": "The log shows a server detail request processed successfully by nova-api and then, shortly after, an instance identified as d96a117b-0193-4549-bdcc-63b917273d1d was started on the compute node.",
+      "text": "This excerpt shows a series of API requests to retrieve server details and a compute node starting an instance.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_8"
       ]
     },
     {
-      "text": "This indicates that a VM lifecycle event—specifically the start of that instance—was recorded by nova-compute after the API request completed.",
-      "supported": "partial",
+      "text": "The requests are all successful, returning a status of 200, and the instance is successfully started on the compute node.",
+      "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_8"
       ]

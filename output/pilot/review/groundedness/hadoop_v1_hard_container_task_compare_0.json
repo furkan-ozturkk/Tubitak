@@ -5,36 +5,20 @@
     "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000003"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:2a8632aa40e1c52ddf5a14547a7d6b722dbe0c6c59f538ec837d06f4f52672b9"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:ea9db9c8a6de00fdcf68661844bc9bafe416a1d310006007db0e897cdfb4482b"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:233a824e445cefaf1d8915a61da0e32e4b73bf67886eaa1c58202a2723e7a66f"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:edd4d311439c91dfed1f0fbf3d7a990cd2c034aa49bd3548fffeb8e4a53a733e"
   },
   "claims": [
     {
-      "text": "The two container logs show a clear failure pattern in container_1445144423722_0020_01_000003, while the other container proceeds to completion.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000005",
-        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000003"
-      ]
-    },
-    {
-      "text": "In group [Group: container_1445144423722_0020_01_000003] the task attempt starts at 18:01:58 and is followed only by a cleanup event at 18:06:28, indicating that the container was terminated without any successful map or reduce output; this abrupt termination occurs after a five‑minute idle period with no further processing events.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000005",
-        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000003"
-      ]
-    },
-    {
-      "text": "In contrast, group [Group: container_1445144423722_0020_01_000005] records the full lifecycle of its task attempt—launch, execution on a node manager, and finally a cleanup event at 18:04:50 followed by an explicit “completed container” notification from the ResourceManager at 18:04:52—showing that the container finished normally.",
+      "text": "The event sequences for container_1445144423722_0020_01_000005 and container_1445144423722_0020_01_000003 suggest a normal execution, but with a notable difference in the timing of the container cleanup events.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000005",
@@ -42,17 +26,33 @@
       ]
     },
     {
-      "text": "The root‑cause hypothesis is that container_1445144423722_0020_01_000003 experienced an abnormal termination, likely due to a node‑manager failure or resource starvation on its assigned NM (MININT-FNANLI5), causing the container to be killed and cleaned up without completing its task.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "text": "Container_1445144423722_0020_01_000005 was assigned to attempt_1445144423722_0020_m_000003_0 at 18:02:47 and was completed by 18:04:52, with a remote cleanup event occurring at 18:04:50.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000005",
+        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000003"
+      ]
     },
     {
-      "text": "This abnormal termination explains why only four log lines are present for that group, whereas the other group contains the full sequence of allocation, launch, execution, cleanup, and completion events.",
+      "text": "In contrast, container_1445144423722_0020_01_000003 was assigned to attempt_1445144423722_0020_m_000001_0 at 18:01:58 and was still being cleaned up by 18:06:28, with a significant gap of over 4 minutes between the remote launch and cleanup events.",
       "supported": "partial",
       "candidate_group_ids": [
         "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000005",
         "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000003"
       ]
+    },
+    {
+      "text": "This discrepancy in timing suggests that container_1445144423722_0020_01_000003 may have experienced a task/container failure, which led to a prolonged cleanup process.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000005",
+        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000003"
+      ]
+    },
+    {
+      "text": "The root-cause hypothesis is that these errors recur without a corrective action in between, indicating a potential issue with the container management or task execution.",
+      "supported": "no",
+      "candidate_group_ids": []
     }
   ],
   "verdict": "needs_human_review"

@@ -4,27 +4,27 @@
     "windows:semantic:csi_1"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:72656ee81aa88a0e08e2617f7cc0df703dfd4297efe73eb7aa872d6105d33f99"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:a285817c3bbaa4183b9d766704e1aa8547927fc86fd7e4187f4f0949b4ff247f"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:792fc6710b0ae1a859f6db478231834c3c72fc4a94bb49588c6b4cad3d09f9f6"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:17ca5d950a40ad34e95b808e62d5d132e01847f5ab62764cb0a97c8c8887b84c"
   },
   "claims": [
     {
-      "text": "The excerpt shows that during TrustedInstaller initialization, the system attempted to start an online SQM upload but failed because it could not begin uploading files matching C:\\Windows\\servicing\\sqm\\*_std.sqm, returning error 0x80004005 (E_FAIL).",
+      "text": "The TrustedInstaller service has successfully started its main loop and is initializing its components, including the SQM (Software Quality Monitoring) service, which is responsible for collecting and uploading system reports.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_1"
       ]
     },
     {
-      "text": "This indicates a failure in initiating the scheduled quality metrics report upload process.",
+      "text": "However, the SQM service failed to start the upload process due to an unspecified error (HRESULT = 0x80004005 - E_FAIL).",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_1"

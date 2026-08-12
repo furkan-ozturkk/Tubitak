@@ -4,28 +4,35 @@
     "apache:semantic:child_workerenv_in_error_state_1"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:e45d0501063bc775e0eab17bfd4a652be45efba23f710e2399ea9921922267e5"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:21674fedc863f936e970ac868619f0479bc96697c30072184c08cf93f8edab91"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:d20e565a64604c12dc7146bbe3dc704439f67d00a4d3aa30eace168825d0d8b9"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:fd224fbaf0dc2023b2f9a705dd60ffac06e67a930d647d2038fabc3be2ddbe84"
   },
   "claims": [
     {
-      "text": "The log shows repeated errors indicating that the Apache module mod_jk is encountering a worker named workerEnv stuck in error states 6 and 7 at 06:12:40 on December 4, 2005, followed by a successful initialization of the jk2_init process and workerEnv.init() completing without errors at 06:13:01.",
-      "supported": "partial",
+      "text": "The Apache system is experiencing a recurring error condition with the mod_jk child workerEnv, which transitions between error states 6 and 7.",
+      "supported": "yes",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_1"
       ]
     },
     {
-      "text": "This suggests that although the worker was initially failing with repeated error states, it eventually recovered or was reinitialized successfully after a brief period.",
-      "supported": "partial",
+      "text": "This condition persists for a short period, from 06:12:40 to 06:13:01, before the workerEnv.init() process completes successfully.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "apache:semantic:child_workerenv_in_error_state_1"
+      ]
+    },
+    {
+      "text": "The error state is then re-established at 06:13:01.",
+      "supported": "yes",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_1"
       ]

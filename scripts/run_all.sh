@@ -1,8 +1,8 @@
 #!/bin/bash
-# End-to-end driver: check-ollama -> generate -> validate -> verify-answers -> tables -> export.
+# End-to-end driver: check-vllm -> generate -> validate -> verify-answers -> tables -> export.
 #
 # Stages 01, 02, 03, 04, 06 and 07. Stage 01 runs first because every generate pass
-# drafts medium/hard gold on the remote Ollama server -- failing on connectivity
+# drafts medium/hard gold on the local vLLM servers -- failing on connectivity
 # in seconds beats failing mid-pass. Stage 04 (verify-answers) runs before stage 05
 # (human review) on purpose: every question a model can independently re-derive
 # gets that automated check first, so a human only ever reviews what a model
@@ -18,7 +18,7 @@
 set -u
 cd "$(dirname "$0")/.."
 
-STAGES="01_check_ollama 02_generate 03_validate 04_verify_answers 06_analysis_offline 07_export_analyzer"
+STAGES="01_check_vllm 02_generate 03_validate 04_verify_answers 06_analysis_offline 07_export_analyzer"
 LOGDIR=output/logs
 mkdir -p "$LOGDIR"
 STAMP=$(date +%Y%m%d_%H%M%S)

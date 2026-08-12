@@ -4,27 +4,34 @@
     "hdfs:semantic:addstoredblock_7"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:8db44f6eb8aa8688ef748b191fa19655ae4f9c887bf0946e64fc0c54337bd91e"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:253d1a967a3cec58d4c43f3f1cc0df5e4ce79eefc7323110da064dbd1466e995"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:8074199530fb4c988fcd76399880d02eab59727bfc0ba51d326bbe2684683bdb"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:10b3260087f7059d107ca9e13d801e43664a6a7c36ece3fb815d93476f17fc11"
   },
   "claims": [
     {
-      "text": "The excerpt shows repeated additions to the block map where new data nodes at various IP addresses are registered as storage locations for large 64 MB blocks, indicating that these nodes have successfully reported and stored new blocks in HDFS.",
+      "text": "The HDFS system is receiving and storing blocks from various sources.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_7"
       ]
     },
     {
-      "text": "This reflects normal block replication activity as the system incorporates additional DataNode capacity into its namespace metadata.",
+      "text": "The blocks are being added to the block map, indicating that they are being successfully stored on the DataNodes.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_7"
+      ]
+    },
+    {
+      "text": "This suggests that the HDFS system is functioning normally and data is being replicated across the cluster.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_7"

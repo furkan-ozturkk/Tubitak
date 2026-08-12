@@ -4,27 +4,34 @@
     "hdfs:semantic:addstoredblock_8"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:f4ecfb3208c0da3f324c6ce2d3fa2b120eedf1ad9847177c0da6900603716e5e"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:211b5491cc4feb1efef3671554708abbebb0593979d02ebe21d4ef68ed54b907"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:d7c662f95cd439c40ee0057c26d075f86ccf127688ce3016d39e4af69a4bc6e8"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:ac247cb984be77b5ae15305f8e32e95931ad34d1e410e1e98df9949d9c627039"
   },
   "claims": [
     {
-      "text": "The excerpt shows NameNode operations adding stored blocks and allocating new blocks for files under /user/root/rand6/_temporary/, while DataNodes receive and acknowledge these blocks, confirming successful storage and replication of 64 MB data chunks across the cluster.",
-      "supported": "partial",
+      "text": "The HDFS system is dynamically allocating and updating blocks, adding new blocks to the block map, and verifying the integrity of existing blocks.",
+      "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_8"
       ]
     },
     {
-      "text": "This indicates normal block-level activity as tasks read, write, and verify data in HDFS.",
+      "text": "This indicates that the system is actively managing data storage and replication across the cluster, ensuring data consistency and availability.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_8"
+      ]
+    },
+    {
+      "text": "The addition and verification of blocks suggest that the system is handling data writes and reads efficiently.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_8"

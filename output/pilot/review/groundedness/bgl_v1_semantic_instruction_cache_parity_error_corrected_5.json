@@ -4,29 +4,31 @@
     "bgl:semantic:instruction_cache_parity_error_corrected_5"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:48a93634ad13c3374d43f4b82c50a268d8611179260a1e9d789f18c6a3d8bcaa"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:d8a5e7a881d0cc0f6877b00fc61c0fbe734c914639d8486756bff8f2819346ae"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:13ad9a24fa41acc6f7f7404857836a2d4b843e5f120775418d7ddd14ef3a5250"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:42223e9cdef00958ae3e36a9c5e0a4d946306b3ea9ff517bf71351f3240eea25"
   },
   "claims": [
     {
-      "text": "The excerpt shows repeated kernel-level messages indicating corrected instruction cache parity errors on multiple processors and cores across different time intervals, suggesting intermittent hardware-level memory integrity issues within the system's CPU caches.",
+      "text": "This excerpt shows a series of instruction cache parity errors being corrected by the RAS (Reliability, Availability, and Serviceability) system in a BGL system over a period of time.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_5"
       ]
     },
     {
-      "text": "These events occur at regular intervals without any associated error severity escalation or system crash indicators in the provided logs.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "text": "The errors occurred on multiple nodes (N0, N1, N9) and were corrected by the RAS system, indicating that the system is able to detect and recover from these errors.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "bgl:semantic:instruction_cache_parity_error_corrected_5"
+      ]
     }
   ],
   "verdict": "needs_human_review"

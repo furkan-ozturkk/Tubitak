@@ -4,27 +4,34 @@
     "mac:semantic:thermal_pressure_6"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:aae3e2bff7edd948b0a8f103e7e99f7bdf6665dbefa0c7d6e429de4b21f93adb"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:836bc34c7f9da45aa81695b406eb79fb4e9b735fb93fa24db1874003ccbde924"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:7f904414376079be1813a7e04edd03be9a87083f355ec5019d2e2ea26dae8740"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:6a169e6c9b887c516aac900951e762d676e36e76d12950ae50ccb19350616088"
   },
   "claims": [
     {
-      "text": "The system experienced multiple sleep/wake cycles and Wi-Fi power state changes around 1:00–1:49 AM, including a brief wake event where the network interface remained active for offloading before returning to sleep.",
-      "supported": "partial",
+      "text": "The system entered a sleep state at 01:13:14 and again at 01:37:39, but the Wi-Fi remained active.",
+      "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_6"
       ]
     },
     {
-      "text": "The iCloud heartbeat task was repeatedly ignored due to invalid future timestamps.",
+      "text": "The system ignored two scheduled jobs, one due in 207556 seconds and the other in 206850 seconds.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "mac:semantic:thermal_pressure_6"
+      ]
+    },
+    {
+      "text": "The system's sleep state and active Wi-Fi suggest a potential power management issue.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_6"

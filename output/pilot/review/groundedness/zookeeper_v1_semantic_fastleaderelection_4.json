@@ -4,27 +4,27 @@
     "zookeeper:semantic:fastleaderelection_4"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:640ea593feb71d596f5630a305c730640450c3791902d293136cfadbc25f6fa1"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:4f3ab9213756d86c3adfbf6b603f990c07ee4d35087ab08d63a7836e0254eecd"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:e65a39f56eadc7e94719538247d161ce0c30bd288d91a1b1a1543475502068e7"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:0533bf5db20baac17dbb0dcc13d44a6a832bfeb6cb034e5d4548d70daf3df103"
   },
   "claims": [
     {
-      "text": "The log shows repeated warnings that Zookeeper cannot establish connections to peer nodes (specifically at addresses 10.10.34.12 and 10.10.34.13) on port 3888, indicating network connectivity issues or unreachable servers during leader election attempts.",
+      "text": "The ZooKeeper system is experiencing issues with establishing connections to nodes 2 and 3 at their respective election addresses.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_4"
       ]
     },
     {
-      "text": "These failures occur alongside periodic \"Notification time out\" messages, suggesting the cluster is unable to maintain quorum due to persistent connection problems with specific peers.",
+      "text": "The system has been unable to open channels to these nodes for an extended period, with repeated warnings indicating ongoing connection failures.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_4"

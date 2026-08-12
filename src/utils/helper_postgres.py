@@ -1,9 +1,9 @@
 """Client for loghub's Postgres (+pgvector) corpus store.
 
-A client, and so a ``helper_*`` beside ``helper_ollama``, not a member of
+A client, and so a ``helper_*`` beside ``helper_vllm``, not a member of
 ``src.data``: that package models the corpus itself — its bytes, its hashing — and
 this is the transport that happens to reach a database over ``datasetgen-net``.
-The two remote systems this project talks to sit next to each other under one
+The two systems this project talks to sit next to each other under one
 convention.
 
 The ``lines`` table, not the raw ``*_2k.log`` files, answers every question whose

@@ -4,27 +4,34 @@
     "hdfs:semantic:addstoredblock_6"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:df78c13fe27d3c13f9561f6b91961ee4e8ee71c1a71eb0bdb20fc8e1b67269cf"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:cc361443d369e25e01f5a3b956d56ecf62329783010438c56c0d804f16c81221"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:6151ca7681636be46373b25cf0c643fc914b8bd42abd1ef20b84375604a4b17d"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:b1a24bddce8bde3fbe7a4df34d98469c89a2df0782003ced6a4e8a1ea3a5822e"
   },
   "claims": [
     {
-      "text": "The excerpt shows NameNode operations updating block mappings and marking blocks as invalid on specific DataNodes, indicating ongoing storage management activities within the HDFS cluster.",
+      "text": "The HDFS system is experiencing block and DataNode issues, with multiple blocks being added and removed from the system, and DataNode PacketResponders terminating.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_6"
       ]
     },
     {
-      "text": "These logs reflect routine block addition and deletion events handled by the NameNode in response to DataNode communications.",
+      "text": "This indicates that the HDFS system is experiencing instability and potential data loss due to the dynamic addition and removal of blocks and DataNodes.",
+      "supported": "partial",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_6"
+      ]
+    },
+    {
+      "text": "The system is also receiving and terminating blocks, suggesting that data is being transferred but not always successfully stored.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_6"

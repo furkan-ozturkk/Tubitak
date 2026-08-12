@@ -4,27 +4,27 @@
     "openstack:semantic:nova_osapi_compute_wsgi_server_0"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:0dc63b49bfca60c48cfd41d46a5823e473df026ca0a83fb9aeaaedd28b78b547"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:07fca7ad0d90ba9617e3dc524d5d4ee4896f767deed756d42e9052a49d9db825"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:47c6f5b65adf83ee4ab6380c875edf111f3594fe8cf9027ab4a06f316de113f8"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:26668bd0d86e7a35e7eb23edf5d38954d3b03a52f9b6cb848b0e56df516bc176"
   },
   "claims": [
     {
-      "text": "The log shows repeated successful API requests to list servers ending in status 200, followed by a compute node recording that instance **b9000564‑fe1a‑409b‑b8cc‑1e88b294cd1d** was started and then paused.",
+      "text": "This excerpt shows a series of successful GET requests to the Nova API for server details, followed by a VM being started and then paused on a compute node.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_0"
       ]
     },
     {
-      "text": "This indicates the API responded to client queries while the virtual machine underwent lifecycle events of start and pause.",
+      "text": "The requests and compute node events are unrelated, occurring at different times.",
       "supported": "no",
       "candidate_group_ids": []
     }

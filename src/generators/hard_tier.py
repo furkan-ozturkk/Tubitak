@@ -38,7 +38,7 @@ from src.data.dataset_specs import DatasetSpec, HardGroupSpec
 from src.utils.helper_groundedness import check_claims, write_report
 from src.params.generation_params import GenerationConfig
 from src.utils.helper_evidence import evidence_ref, gold_provenance, slugify
-from src.utils.helper_ollama import OllamaClient
+from src.utils.helper_vllm import VllmClient
 
 CREATED_BY = "src/generators/hard_tier.py@v1"
 
@@ -175,14 +175,22 @@ def _build_prompt(
     return (
         f"You are analyzing raw {dataset_name} log lines from {group_count} related event "
         "groups. Each group is a header naming the group followed by every line in it. "
-        "Read ONLY the evidence below. Do not speculate about anything not shown. Groups "
-        "may hold very different numbers of lines -- that difference is not itself a sign "
-        "of anomaly, so do not compare groups by which one has more lines; compare them by "
-        "the timing, actors and event pattern the lines actually describe (e.g. how long a "
-        "burst of activity spans, or whether errors recur without any corrective action). "
-        f"Write an answer of at least {min_sentences} sentences that correlates the groups, "
-        "explicitly uses facts from every group, and proposes a root-cause hypothesis.\n\n"
-        f"QUESTION: {question_text}\n\nEVIDENCE:\n{evidence_text}\n\nAnswer:"
+        "Read ONLY the evidence below. Groups may hold very different numbers of lines -- "
+        "that difference is not itself a sign of anomaly, so do not compare groups by which "
+        "one has more lines; compare them by the timing, actors and event pattern the lines "
+        "actually describe (e.g. how long a burst of activity spans, or whether errors recur "
+        "without any corrective action). Never attribute a fact about one entity (an IP, a "
+        "block id, a container id, a node) to a different entity, even one of the same kind "
+        "-- two ids are two different things unless a line explicitly connects them.\n\n"
+        f"Write an answer of at least {min_sentences} sentences that correlates the groups "
+        "and explicitly uses facts from every group. End with one root-cause sentence, but "
+        "keep it to what the timing and repetition pattern in the evidence itself supports "
+        "-- 'these errors recur without a corrective action in between' is grounded; naming "
+        "a specific unobserved cause ('a botnet', 'a misconfigured switch', 'a software bug') "
+        "or a category of actor not shown in the evidence ('a script kiddie') is not, and "
+        "must be avoided. Do not add sections, headers, bullet points, or a list of "
+        "recommendations -- plain prose sentences only, nothing beyond the analysis asked "
+        f"for.\n\nQUESTION: {question_text}\n\nEVIDENCE:\n{evidence_text}\n\nAnswer:"
     )
 
 
@@ -190,7 +198,7 @@ def build_hard_records(
     view: CorpusView,
     spec: DatasetSpec,
     config: GenerationConfig,
-    client: OllamaClient,
+    client: VllmClient,
 ) -> list[dict[str, Any]]:
     """Builds every hard-tier record for one dataset.
 
@@ -203,7 +211,7 @@ def build_hard_records(
         spec: The dataset's curation spec.
         config: Generation config; its ``hard`` field carries the tier knobs and its
             ``review_dir`` is where groundedness reports are written.
-        client: Ollama client used for the draft and the groundedness check.
+        client: vLLM client used for the draft and the groundedness check.
 
     Returns:
         The drafted records, all ``review_status=in_review``.

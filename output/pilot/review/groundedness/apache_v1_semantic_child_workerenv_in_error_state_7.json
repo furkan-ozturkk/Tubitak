@@ -4,28 +4,28 @@
     "apache:semantic:child_workerenv_in_error_state_7"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:4b57cb41dc00fcee5f18775c0e2559efabe197af66bc3c48fcc71e48bad204de"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:8154bbae1d17d0894452d393f975da9b3816fa9ac8157d7a370514297628e7f2"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:f4876793ed7beb8873fa9f6409f8d048a17c5d06892515123685c5d049d15a2f"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:0e9844f0ed01d0625cce166aa402cd1378c7d0ee861fc55ba1c66c5af0e73968"
   },
   "claims": [
     {
-      "text": "The log shows Apache's mod_jk connector initializing child processes and successfully loading the workers configuration file at 10:21:13 on December 5, 2005, after encountering an earlier error with workerEnv in state 7.",
+      "text": "The Apache system is experiencing an error with a mod_jk child worker, which was in error state 7.",
       "supported": "yes",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_7"
       ]
     },
     {
-      "text": "This indicates normal startup progression where the JK connector is setting up its communication channels between Apache and Tomcat instances.",
-      "supported": "partial",
+      "text": "However, the system has successfully initialized multiple child processes (5366, 5365, 5367, 5368) in the scoreboard, and the worker environment has been initialized successfully with the workers2.properties configuration.",
+      "supported": "yes",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_7"
       ]

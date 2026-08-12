@@ -4,27 +4,34 @@
     "windows:semantic:csi_3"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:54fb98a8f7d4aeee4e65a5f7516f73821ef9e28482517e952eb5a110f38712c7"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:4adf11d1a1fe91d08c866b567dc0b09cf7fd511aac4d01073e63ad5cfd0e8e37"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:e7278fc9353772f1c251b957751b5575249718de82353487485388f45e322cad"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:d2f1ff9b9e1a1d15d7ad711dbf9b7a9b45cc57ca78674c39e30addf53461c044"
   },
   "claims": [
     {
-      "text": "The excerpt shows a Windows Update session being initialized and completing successfully, but it also records an unrecognized package attribute warning that triggers a manifest validation error (HRESULT 0x800f080d).",
+      "text": "The system log shows that Windows startup processing completed successfully and a session was initialized by the WindowsUpdateAgent.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_3"
       ]
     },
     {
-      "text": "This indicates the update agent started normally while encountering an invalid manifest entry.",
+      "text": "However, a warning was issued due to an unrecognized packageExtended attribute, indicating a potential issue with a Windows update.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "windows:semantic:csi_3"
+      ]
+    },
+    {
+      "text": "The system is expecting a specific attribute with HRESULT 0x800f080d.",
       "supported": "yes",
       "candidate_group_ids": [
         "windows:semantic:csi_3"

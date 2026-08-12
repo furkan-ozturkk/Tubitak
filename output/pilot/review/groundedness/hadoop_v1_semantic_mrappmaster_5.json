@@ -4,27 +4,27 @@
     "hadoop:semantic:mrappmaster_5"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:9003329606843c78cf953d15e556037bac3e578cdd1a1da7a45808743c2c8cf5"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:23473c91e77e25a5ee40ea6c83f1c373075177577874a943353276398dc6287d"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:f98b3767931a9b3215c9c2c2adc08cd646fd50b4e6059f7a39aae86a5fdb5937"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:1a0d8b0bcc09d9d17bc40d0302b8c405bfb3471d8d592565a8fc44821e477fbb"
   },
   "claims": [
     {
-      "text": "The excerpt shows that a MapReduce job's Application Master is initializing and registering several internal event dispatchers for handling output committing, YARN events, speculation, and container allocation within the Hadoop ecosystem.",
+      "text": "The event shown in this excerpt is the registration of various event types with the AsyncDispatcher in the Hadoop system.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_5"
       ]
     },
     {
-      "text": "These registrations indicate the setup phase of the job's coordination framework before actual task execution begins.",
+      "text": "This registration allows the system to handle different types of events, such as job history events, task events, and container allocation events, in a centralized manner.",
       "supported": "yes",
       "candidate_group_ids": [
         "hadoop:semantic:mrappmaster_5"

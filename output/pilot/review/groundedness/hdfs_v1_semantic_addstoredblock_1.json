@@ -4,34 +4,34 @@
     "hdfs:semantic:addstoredblock_1"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:4a25348ad3a57d6bde0beb1f365ef97b2a61a8e44cba3c5dc723738786545638"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:a6f235ee335959c727b965d82355109bdd38714b051c263963774045246a1fa1"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:e2762663d596d329157dc97546fe66b0b74cf1c9414e3f0409653df700cec60d"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:489e3604c0157f521a0399368c2e3c6d1e695c51c43fb7584dec0965faf282fa"
   },
   "claims": [
     {
-      "text": "The excerpt shows a DataNode receiving and processing multiple blocks from various sources, including adding new blocks to its storage map and responding to block packets before terminating certain packet handlers.",
+      "text": "The HDFS system is receiving and storing blocks from various nodes.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_1"
       ]
     },
     {
-      "text": "This indicates normal block replication and network activity within the HDFS data node operation.",
+      "text": "The blocks are being added to the block map, and the system is also terminating packet responders for certain blocks.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_1"
       ]
     },
     {
-      "text": "The system is actively updating its internal block mappings as it receives and stores data blocks over the network.",
+      "text": "This indicates that the HDFS system is actively handling block transfers and storage.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_1"

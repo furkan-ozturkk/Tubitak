@@ -4,20 +4,25 @@
     "linux:semantic:check_pass_user_unknown_6"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:db83405d08b69b224eb271a6c40f7950f6e5f6e9d8e1d9c778d67212a33c365b"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:5403a43ef40ed27c33e8cac6cc7a3d7b364fa59fca1ea70ec2c4515d5c1d0f7c"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:68de376ddecb6567615050fb4d1fbfcc4f0eb09e29ca14026da2f2d2231d61c7"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:a296f1bb1e27b180cb221210286ef18b58873855f19b7b2ec1c2e9efd6ba4225"
   },
   "claims": [
     {
-      "text": "The log shows multiple failed SSH authentication attempts from user unknown on tty=NODEVssh originating from rhost=massive.merukuru.org at 04:41:51, followed by two FTP connection records from IP 210.118.170.95 at 09:20:24 indicating a remote host accessed both services around the same time.",
+      "text": "Two SSH connections and three FTP connections were attempted from the IP address 210.118.170.95, but all of them failed due to authentication failures, with the user unknown.",
+      "supported": "no",
+      "candidate_group_ids": []
+    },
+    {
+      "text": "The SSH connections were made from the same IP address at the same time, suggesting a possible brute-force attack.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_6"

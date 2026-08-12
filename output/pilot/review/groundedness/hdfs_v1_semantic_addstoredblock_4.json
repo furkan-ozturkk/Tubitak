@@ -4,27 +4,34 @@
     "hdfs:semantic:addstoredblock_4"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:57a52daafe1ec822557291c358e2efcef115ae15a117a4f1c70d3931b3738b81"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:bba62e260d7ac34ca52614611f6ed42b53e836409545b768cd9d0265012fcb02"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:bbe99bccc5dd474243244a75f6cbe1ebb70407974ac3261bd1efa3700e012a87"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:d77af0006b801c96db22f213ca30a703379b2af326cba2d2615c564c964c255d"
   },
   "claims": [
     {
-      "text": "The excerpt shows repeated additions of new data blocks to the block map by different DataNode IP addresses and subsequent receipt or processing of those blocks by the same nodes, indicating normal block replication and storage operations within the HDFS cluster.",
-      "supported": "partial",
+      "text": "The HDFS system is receiving and storing blocks from various nodes, with some blocks being verified and others being received from specific addresses.",
+      "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_4"
       ]
     },
     {
-      "text": "These events reflect ongoing block-level activity such as storing new replicas and transferring blocks between DataNodes.",
+      "text": "The blockMap is being updated to reflect these changes, indicating that the blocks are being successfully added to the system.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "hdfs:semantic:addstoredblock_4"
+      ]
+    },
+    {
+      "text": "This suggests that the HDFS system is actively storing and managing data from multiple nodes.",
       "supported": "yes",
       "candidate_group_ids": [
         "hdfs:semantic:addstoredblock_4"

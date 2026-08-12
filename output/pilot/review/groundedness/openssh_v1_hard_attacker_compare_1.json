@@ -5,20 +5,20 @@
     "openssh:hard:attacker_compare:1:112_95_230_3"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:7e03e9ad8f7a509ce88a51ab91a5ada45779664b97d24857376704ad369d4af8"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:d8ee029ce066e3f804e96c0116dbbc802129a5df3649b526bffbe37b66297c85"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:524947b0d7efb5cf614cc163116370e185fe1c905a5fdf12aa802fb1a7c71791"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:45c47d25536d3a1abebc0fb7dc17a51726795a6cd5cd3d3c8d52b5682368913e"
   },
   "claims": [
     {
-      "text": "The two groups show distinct attack patterns in target accounts, request cadence and outcome despite both originating from single source IPs.",
+      "text": "The attack patterns from 103.99.0.122 and 112.95.230.3 differ in terms of target accounts, request cadence, and outcome.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:1:103_99_0_122",
@@ -26,7 +26,7 @@
       ]
     },
     {
-      "text": "Group 103.99.0.122 repeatedly attempts authentication against a wide variety of usernames—including “admin,” “support,” “user,” “cisco,” “test,” “guest” and even numeric identifiers like “1234”—and each failed attempt is followed by the same pre‑authentication disconnect message indicating that no further authentication methods are available.",
+      "text": "The attacker from 103.99.0.122 targets a wide range of user accounts, including admin, support, user, and others, with a high frequency of failed login attempts, resulting in a repetitive pattern of failed password attempts and disconnects.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:1:103_99_0_122",
@@ -34,23 +34,7 @@
       ]
     },
     {
-      "text": "This cadence is punctuated by occasional attempts to log in as “root” interspersed among many low‑privilege guesses, and the activity persists over a four‑hour window with bursts of three to five failed attempts per minute before each disconnection.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:1:103_99_0_122",
-        "openssh:hard:attacker_compare:1:112_95_230_3"
-      ]
-    },
-    {
-      "text": "In contrast, Group 112.95.230.3 focuses almost exclusively on repeated root login attempts, sending dozens of “Failed password for root” messages in rapid succession (often every few seconds) and immediately terminating the session with the concise “Bye Bye” disconnect notice; no other usernames appear in its log excerpt.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:1:103_99_0_122",
-        "openssh:hard:attacker_compare:1:112_95_230_3"
-      ]
-    },
-    {
-      "text": "The outcome differs as well: the first group’s bursts end with a generic authentication‑method‑exhausted error, suggesting the attacker is probing for any valid credential, whereas the second group’s relentless root attempts culminate only in disconnection after each failure, indicating a brute‑force effort aimed specifically at gaining super‑user access.",
+      "text": "In contrast, the attacker from 112.95.230.3 primarily targets the root account, with a steady stream of failed login attempts and disconnects, but without the same level of repetition and variety in targeted accounts.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:1:103_99_0_122",
@@ -58,7 +42,7 @@
       ]
     },
     {
-      "text": "Because Group 103.99.0.122 exhibits a broader target set and irregular timing that mixes low‑privilege guesses with occasional privileged attempts, it appears more anomalous compared to the highly focused root‑only barrage of 112.95.230.3.",
+      "text": "The outcome of the attacks from both IP addresses is similar, with both attackers being repeatedly disconnected after failed login attempts.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:1:103_99_0_122",
@@ -66,7 +50,15 @@
       ]
     },
     {
-      "text": "The most plausible root‑cause hypothesis is that two separate compromised scanners or bots are operating against the same host: one (103.99.0.122) is running a generic credential‑spraying tool that cycles through many usernames and aborts when authentication methods run out, while the other (112.95.230.3) is employing an automated root‑login brute‑force script that relentlessly hammers the SSH service for administrative access; both may be coordinated or simply share the same compromised source infrastructure but differ in intent and technique.",
+      "text": "However, the attacker from 103.99.0.122 appears more anomalous due to the broader range of targeted accounts and the higher frequency of failed login attempts.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:hard:attacker_compare:1:103_99_0_122",
+        "openssh:hard:attacker_compare:1:112_95_230_3"
+      ]
+    },
+    {
+      "text": "These errors recur without a corrective action in between, indicating a sustained and unmitigated attack.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:hard:attacker_compare:1:103_99_0_122",

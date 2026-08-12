@@ -5,20 +5,20 @@
     "linux:hard:brute_force_compare:1:60_30_224_116"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:8feeb7ba7cc8a5a38843aeaf73044e63da65d8aaba861ff504229286122de819"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:67bb69a5f1df4be0c71f43358799a60ee1fa4dda0261c0708a806b41497d4c6c"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:3d017ecad377ea672f70b29c4d667332fc7b36b2b156b19ee44bb461b5e51bab"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:7726e9159ae5e5f399cf1ca79bc56825d023a5e494ae14f9294e249ef476cd5a"
   },
   "claims": [
     {
-      "text": "The two groups both record repeated `authentication failure` messages from the same SSH daemon, but they differ in source and timing pattern; the first group originates from a fully‑qualified hostname `n219076184117.netvigator.com` with failures clustered between 03:17 and 03:22 on June 22, while the second group comes from an IP address `60.30.224.116` and shows a burst of failures at 19:03 on June 30 followed by another cluster around 00:21 on July 1.",
+      "text": "The login attempts from n219076184117.netvigator.com and 60.30.224.116 exhibit distinct patterns.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
@@ -26,23 +26,31 @@
       ]
     },
     {
-      "text": "In both cases the target account is consistently `root`, indicating an attempt to gain privileged access, yet the hostname‑based source exhibits many more individual failure entries (over 30 timestamps) within a tight six‑minute window, whereas the IP‑based source shows only about 20 failures spread over two distinct night‑time intervals.",
-      "supported": "partial",
+      "text": "The login attempts from n219076184117.netvigator.com occur in a burst, with 23 consecutive authentication failures happening within a span of 54 seconds, all targeting the root user.",
+      "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
         "linux:hard:brute_force_compare:1:60_30_224_116"
       ]
     },
     {
-      "text": "This concentration of rapid, repeated root login attempts from `n219076184117.netvigator.com` suggests an automated brute‑force or credential‑stuffing script targeting that host, making it the more anomalous source.",
-      "supported": "partial",
+      "text": "In contrast, the login attempts from 60.30.224.116 are more sporadic, with 20 authentication failures occurring over a period of 2 days, with some gaps in between.",
+      "supported": "yes",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
         "linux:hard:brute_force_compare:1:60_30_224_116"
       ]
     },
     {
-      "text": "The root‑cause hypothesis is that a compromised botnet or malicious scanner is systematically trying default or weak credentials on SSH services reachable via `n219076184117.netvigator.com`, and the lack of any successful login or corrective action after these failures points to an ongoing, unmitigated attack.",
+      "text": "While both groups target the root user, the sheer number of consecutive attempts from n219076184117.netvigator.com suggests a more intense and sustained effort to gain unauthorized access.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
+        "linux:hard:brute_force_compare:1:60_30_224_116"
+      ]
+    },
+    {
+      "text": "These errors recur without a corrective action in between, indicating a potential vulnerability or misconfiguration that is being exploited by an external actor.",
       "supported": "partial",
       "candidate_group_ids": [
         "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",

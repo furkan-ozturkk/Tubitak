@@ -46,7 +46,7 @@ class ScaleConfig:
         target_total_questions: The pass's question target. Reported beside the
             realised counts, never enforced.
         difficulty_mix: Target share per tier.
-        max_parallel_model_calls: Semaphore width over the Ollama client.
+        max_parallel_model_calls: Semaphore width over the vLLM client.
     """
 
     target_total_questions: int = 100

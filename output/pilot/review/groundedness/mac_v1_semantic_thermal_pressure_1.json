@@ -4,27 +4,34 @@
     "mac:semantic:thermal_pressure_1"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:0b67adad665e00f19b37b072ebea6f9266ccd0708a232e53649770f35bb79635"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:e097dff34615b782b4c501d2f429c63c98ad318803d21bdef9939b871136699c"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:866aa7cd6c29fe683e2495b4fe81c368ad887434ebbf866bdc18f0e19a90ceb1"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:97565fea84bac8d21c7d4fee175d7886e81a4657530a2dc1f4801b6049a297fe"
   },
   "claims": [
     {
-      "text": "The log shows a thermal pressure state of 1 indicating elevated heat while memory pressure remains low and later indicates a channel change to Wi‑Fi channel 1 after network activity.",
+      "text": "The system log excerpt shows a series of events and conditions, including a low thermal and memory pressure state, a network connection setup, a network address translation (NAT64) change, and a Wi-Fi channel change.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_1"
       ]
     },
     {
-      "text": "This suggests the system experienced increased temperature under load but did not face memory pressure issues.",
+      "text": "The system also experiences a sudden change in the suggested best app, and the AirPort is enabled.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "mac:semantic:thermal_pressure_1"
+      ]
+    },
+    {
+      "text": "These events occurred over a period of time, from 09:44 to 10:08 on July 1.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_1"

@@ -4,27 +4,27 @@
     "bgl:semantic:instruction_cache_parity_error_corrected_9"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:d6dafb31c52cd975b1bcaf102baabe503067e2710160c45cfa985b583f2dcf1b"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:cacaa986228c8b4622aa418f213d9f27afcd55006a57bff4935920524b4a5cea"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:34021ece5168cdb0455bbbe339e7e4156e67f58f97689291a3104b0f1f1dc9e2"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:af2f15ffe3681f92f89bd75b2871c3c90c2d58505dd9306e77f467a4ddde193f"
   },
   "claims": [
     {
-      "text": "The excerpt shows repeated RAS kernel messages indicating corrected instruction cache parity errors on multiple occasions between December 26, 2005 and January 3, 2006, reflecting hardware-level memory integrity corrections occurring across different system components and time periods.",
-      "supported": "partial",
+      "text": "This excerpt shows a series of instruction cache parity errors corrected on a system over a period of time, with the last event occurring on a different system.",
+      "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_9"
       ]
     },
     {
-      "text": "The final entry additionally records that the ciod process generated 128 core files for a specific application following these events.",
+      "text": "The instruction cache parity errors indicate hardware issues, but the system is able to correct them, suggesting that the system's error correction mechanisms are functioning properly.",
       "supported": "yes",
       "candidate_group_ids": [
         "bgl:semantic:instruction_cache_parity_error_corrected_9"

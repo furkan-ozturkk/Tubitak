@@ -4,27 +4,34 @@
     "openssh:semantic:possible_break_in_attempt_1"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:4c54318378c623dfb5d973fddf0c7c27311ac3d02cbbe5885880af8d94f45d11"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:3b20f10d83f3ad1bef1cd3f927af44c2d374e70833ade81ba6604f9c9af4334f"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:8601ab3bba532d70b12ce135aeb3fc7e7fb4bb8c74864f7306816d1ff9a22fff"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:bf80e966b9586a3c655cb6850171a560b09175e7ca2ea60738463f3197e1627c"
   },
   "claims": [
     {
-      "text": "The log shows repeated failed authentication attempts by a remote host at IP address 187.141.143.180 targeting the root user over SSH, triggering \"POSSIBLE BREAK-IN ATTEMPT\" warnings from sshd's reverse mapping checks and PAM authentication failures.",
+      "text": "There was a failed login attempt to the root account from the IP address 187.141.143.180, which triggered a possible break-in attempt warning.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_1"
       ]
     },
     {
-      "text": "The connection is ultimately terminated after multiple failed password attempts from that source IP on different ports.",
+      "text": "The login attempt was made via SSH and failed due to an incorrect password.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openssh:semantic:possible_break_in_attempt_1"
+      ]
+    },
+    {
+      "text": "The connection was then closed after the failed login attempt.",
       "supported": "yes",
       "candidate_group_ids": [
         "openssh:semantic:possible_break_in_attempt_1"

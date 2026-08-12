@@ -4,31 +4,36 @@
     "apache:semantic:child_workerenv_in_error_state_6"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:349093b36ca672271abab134970c8c8e8edd88ff33e5f4c793469a6ba8664256"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:1cc4b5b2b6c222b50e63bf90da00d2f9efc07af83022dca8861e84a4c60a559c"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:d2eb94ae90c20e97de84d7684915433b68c48e7bf09ef58e664a27a916c39862"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:9b31dabaa650a11f9ddcb9578481b3f31b8c9e78dedf55fc239e835402429965"
   },
   "claims": [
     {
-      "text": "The log shows repeated errors indicating that the mod_jk workerEnv process is failing to initialize properly and entering error states 7, 8, and 9 before eventually successfully initializing at state 0 as evidenced by the jk2_init() notice finding a child process in slot 8.",
-      "supported": "partial",
+      "text": "The Apache system is experiencing intermittent errors with the mod_jk child workerEnv, which is in error state 9, 7, and 8 at different times.",
+      "supported": "yes",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_6"
       ]
     },
     {
-      "text": "This indicates an issue with the Apache JServ connector configuration or connectivity that was resolved when the worker started successfully.",
+      "text": "The workerEnv.init() function is successful, indicating that the configuration file /etc/httpd/conf/workers2.properties is loaded correctly.",
       "supported": "yes",
       "candidate_group_ids": [
         "apache:semantic:child_workerenv_in_error_state_6"
       ]
+    },
+    {
+      "text": "However, the mod_jk child workerEnv is unable to recover from these error states.",
+      "supported": "no",
+      "candidate_group_ids": []
     }
   ],
   "verdict": "needs_human_review"

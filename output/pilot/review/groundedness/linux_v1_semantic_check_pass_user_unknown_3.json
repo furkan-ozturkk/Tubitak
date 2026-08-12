@@ -4,20 +4,27 @@
     "linux:semantic:check_pass_user_unknown_3"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:b55406e5c98ca71f2c80bca302dbe0cd911d3818619551d3115879e7d506ee64"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:efbd583274e9696d0ead90adcaee9f5e446521a0ea4549eb92bfdeafe212844f"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:2f9dd5930f7ce25fcfd1ac45b9d3cd639ff84c46665932a18c54f396e618b27c"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:91d5d28a3bb5e8d03dbcc1db30adfd61b506decc45f298ec5e0f66a220901d36"
   },
   "claims": [
     {
-      "text": "The log shows multiple failed authentication attempts via SSH from a remote host (adsl-70-242-75-179.dsl.ksc2mo.swbell.net) to the system's root user account at 01:30:59 on June 18, with each attempt recorded as \"user unknown\" and resulting in authentication failure.",
+      "text": "Multiple SSH authentication failures occurred at 01:30:59 on June 18, with the same IP address (adsl-70-242-75-179.dsl.ksc2mo.swbell.net) attempting to log in as an unknown user, likely due to incorrect credentials.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_3"
+      ]
+    },
+    {
+      "text": "The authentication failures were detected by the pam_unix module of the sshd service.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_3"

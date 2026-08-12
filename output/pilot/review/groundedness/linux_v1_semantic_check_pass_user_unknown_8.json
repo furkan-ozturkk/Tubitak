@@ -4,29 +4,31 @@
     "linux:semantic:check_pass_user_unknown_8"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:2164c72ff44024f6c53c4171b88388b1806112d0ecac61a147239d5fd92ef048"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:1517772e5ab0405f95049a994987d4e851ef06807abcdf7fc8df1813180a57f1"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:c16e4bf409cbcc5affa0c9796c4834af8abc8b8ba9fe76db6ab2ce7b0e977346"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:8a22d9da2a1543ed66c5c610266148ec74fbbd0c1e08d322db9e6824b0716910"
   },
   "claims": [
     {
-      "text": "The excerpt shows multiple failed SSH login attempts from host zummit.com at 04:15:43 on July 2nd, each logged as authentication failures by pam_unix for user unknown with uid=0 and euid=0.",
+      "text": "Multiple SSH authentication attempts were made from the host \"zummit.com\" but failed due to the user being unknown.",
       "supported": "yes",
       "candidate_group_ids": [
         "linux:semantic:check_pass_user_unknown_8"
       ]
     },
     {
-      "text": "This indicates repeated unsuccessful login attempts targeting a privileged account (root) from the remote IP zummit.com.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "text": "This indicates that the system is being targeted by an unauthorized access attempt.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "linux:semantic:check_pass_user_unknown_8"
+      ]
     }
   ],
   "verdict": "needs_human_review"

@@ -41,12 +41,12 @@ from src.generators import (
 )
 from src.params.corpus_params import CorpusConfig
 from src.params.generation_params import GenerationConfig
-from src.params.ollama_params import OllamaConfig
 from src.params.results_params import GenerationSummary
 from src.params.scale_params import ScaleConfig
+from src.params.vllm_params import VllmConfig
 from src.utils import helper_postgres
-from src.utils.helper_ollama import OllamaClient
 from src.utils.helper_run import print_generation_summary, write_json
+from src.utils.helper_vllm import VllmClient
 from src.utils.helper_splits import resolve_splits
 
 
@@ -72,14 +72,14 @@ def generate_easy(
 
 
 def generate_medium(
-    corpus_config: CorpusConfig, config: GenerationConfig, client: OllamaClient
+    corpus_config: CorpusConfig, config: GenerationConfig, client: VllmClient
 ) -> list[dict[str, Any]]:
     """Runs the medium tier across every curated dataset.
 
     Args:
         corpus_config: Where the corpus is read from and how it is partitioned.
         config: Generation config.
-        client: Ollama client used for the gold drafts.
+        client: vLLM client used for the gold drafts.
 
     Returns:
         Every medium-tier record, without ``split``, all ``in_review``.
@@ -94,14 +94,14 @@ def generate_medium(
 
 
 def generate_hard(
-    corpus_config: CorpusConfig, config: GenerationConfig, client: OllamaClient
+    corpus_config: CorpusConfig, config: GenerationConfig, client: VllmClient
 ) -> list[dict[str, Any]]:
     """Runs the hard tier across every curated dataset.
 
     Args:
         corpus_config: Where the corpus is read from and how it is partitioned.
         config: Generation config; ``review_dir`` receives the groundedness reports.
-        client: Ollama client used for the drafts and the groundedness checks.
+        client: vLLM client used for the drafts and the groundedness checks.
 
     Returns:
         Every hard-tier record, without ``split``, all ``in_review``.
@@ -116,14 +116,14 @@ def generate_hard(
 
 
 def generate_all_tiers(
-    corpus_config: CorpusConfig, config: GenerationConfig, client: OllamaClient
+    corpus_config: CorpusConfig, config: GenerationConfig, client: VllmClient
 ) -> tuple[list[dict[str, Any]], GenerationSummary]:
     """Runs all three tiers at full width and returns their merged records.
 
     Args:
         corpus_config: Where the corpus is read from and how it is partitioned.
         config: Generation config.
-        client: Ollama client used by the medium and hard tiers.
+        client: vLLM client used by the medium and hard tiers.
 
     Returns:
         Tuple ``(records, summary)``.
@@ -151,11 +151,11 @@ def run_generation(
     corpus_config: CorpusConfig,
     config: GenerationConfig,
     scale_config: ScaleConfig,
-    ollama_config: OllamaConfig,
+    vllm_config: VllmConfig,
 ) -> int:
     """Runs one generate pass end to end and writes the dataset.
 
-    The Ollama client is built for every pass: medium and hard gold is
+    The vLLM client is built for every pass: medium and hard gold is
     model-drafted, so generation needs a model server. Only ``validate.py``'s
     SQL-based checks remain model-free.
 
@@ -163,7 +163,7 @@ def run_generation(
         corpus_config: Where the corpus is read from and how it is partitioned.
         config: Generation config, including the output path.
         scale_config: Reporting target and model-call concurrency.
-        ollama_config: Server address and the two role models.
+        vllm_config: Server address and the two role models.
 
     Returns:
         ``0``.
@@ -172,12 +172,12 @@ def run_generation(
     print(f"Corpus dir   : {corpus_config.corpus_dir}")
     print(f"Output       : {config.out}")
     print(f"Test fraction: {corpus_config.test_fraction}")
-    print(f"Gold draft   : {ollama_config.gold_draft_model}")
-    print(f"Groundedness : {ollama_config.groundedness_model}")
-    print(f"Parallel     : {ollama_config.max_parallel_calls}")
+    print(f"Gold draft   : {vllm_config.gold_draft_model}")
+    print(f"Groundedness : {vllm_config.groundedness_model}")
+    print(f"Parallel     : {vllm_config.max_parallel_calls}")
 
     try:
-        client = OllamaClient(ollama_config)
+        client = VllmClient(vllm_config)
         records, summary = generate_all_tiers(corpus_config, config, client)
         summary.target_total = scale_config.target_total_questions
         summary.difficulty_mix = scale_config.difficulty_mix

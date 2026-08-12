@@ -4,20 +4,27 @@
     "zookeeper:semantic:fastleaderelection_9"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:6c894d51fdd9643dbca18ff08c430e8d98b2557cefddcd239e55016d400fc4d2"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:31ab7665e876f7d0e13e70b8dbdd38fb5e6cacf541ddbb306833c367fa93fc03"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:32a1ac998d0791dd03f60626987c79a2c0defed88e1e04a41028b34bca7f0b5d"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:809d5d6e041e5a2a35fbd66156cc82665a098ab85ee3a49ffade3580ddf7fb5a"
   },
   "claims": [
     {
-      "text": "The log shows a Zookeeper server (myid=3) repeatedly reporting it is in LOOKING state while attempting to elect a leader, indicating an ongoing election process triggered by loss of connectivity or leader failure; subsequent warnings about broken connections and worker threads leaving confirm that the server lost contact with its peers and is terminating its communication attempts.",
+      "text": "The ZooKeeper system is experiencing a failure in its connection to a peer with id 188978561024, as indicated by repeated \"Connection broken\" warnings.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "zookeeper:semantic:fastleaderelection_9"
+      ]
+    },
+    {
+      "text": "This is likely causing the system to enter a state of \"LOOKING\" for a new leader, as shown by the repeated \"Notification\" messages with a state of \"LOOKING\".",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_9"

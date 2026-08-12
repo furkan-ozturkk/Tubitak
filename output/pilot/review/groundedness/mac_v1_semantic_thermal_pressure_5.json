@@ -4,27 +4,34 @@
     "mac:semantic:thermal_pressure_5"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:3e1d844e7ea2df7228b8e38dac418263f8c9d3a40e345a9db3e5908267739428"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:c1029ecebfc3aafebc0e12a8b1141a7a7c13d065335ab823f305bcf0ea94c4d8"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:f0c23c5c63c839397f4f333bfe173c3c64e93ea5412beea6ea30c7f3fc175033"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:0b4721446b58a377b6fd3fe4c4249411d5d563807f288c9153653c8193b1b1aa"
   },
   "claims": [
     {
-      "text": "The excerpt shows a thermal pressure state of 1 followed by an assertion failure in BezelServices related to driver address retrieval, indicating a hardware or firmware issue under load; this is later followed by kernel messages about hibernate preparation and memory cleanup, suggesting the system attempted to manage thermal conditions before entering low-power states.",
+      "text": "The system experienced a thermal pressure state and assertion failures in the BezelServices and UserEventAgent, but these conditions were resolved.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_5"
       ]
     },
     {
-      "text": "The repeated telemetry assertion failures point to potential instability in background services during these transitions.",
+      "text": "The kernel also waited for a Thunderbolt connection and initiated hibernation, which involved flushing memory and freeing up wired pages.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "mac:semantic:thermal_pressure_5"
+      ]
+    },
+    {
+      "text": "The system's thermal and memory pressure states returned to normal.",
       "supported": "yes",
       "candidate_group_ids": [
         "mac:semantic:thermal_pressure_5"

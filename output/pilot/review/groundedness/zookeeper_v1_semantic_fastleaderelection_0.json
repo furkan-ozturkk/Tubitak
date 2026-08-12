@@ -4,27 +4,34 @@
     "zookeeper:semantic:fastleaderelection_0"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:66187a2a1f85d92be0c314ba988ceacb4abab2ab387a9508c3df301adc3b1105"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:255193e713f9e55954d2142fefa0cf950777e42169dbfa1805f8f8c3872bd37b"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:71378732c16b43e9285e2eebb57da83b153ee2c7a474bcb63018b7d374b409ff"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:c5595f03b6f1b6d854934b5453811fcfd9d5ff7f487a73a35f09b872943dd697"
   },
   "claims": [
     {
-      "text": "The log shows repeated connection failures and restarts of a quorum election process on server myid=1, indicating it is losing connections to other ensemble members and attempting to re-establish them.",
-      "supported": "partial",
+      "text": "The ZooKeeper system is experiencing a connection issue with a worker thread, specifically SendWorker with id 188978561024, which is leaving the thread and being interrupted while waiting for a message on a queue.",
+      "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_0"
       ]
     },
     {
-      "text": "The warnings about SendWorker leaving threads and interrupted messages suggest the server's networking or message handling components are encountering issues that cause it to drop connections and trigger reconnection attempts.",
+      "text": "This is causing a connection break, and the system is attempting to reconnect by receiving new connection requests.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "zookeeper:semantic:fastleaderelection_0"
+      ]
+    },
+    {
+      "text": "The system is also experiencing a notification time out, but this is not directly related to the connection issue.",
       "supported": "yes",
       "candidate_group_ids": [
         "zookeeper:semantic:fastleaderelection_0"

@@ -4,27 +4,34 @@
     "openstack:semantic:nova_osapi_compute_wsgi_server_5"
   ],
   "draft_model": {
-    "name": "nemotron-3-nano:30b",
-    "family": "nemotron_h_moe",
-    "digest": "b725f11174073334edd0c2ff396b8d4e66d7dab22a5a63717ccad5a08a270cf1",
-    "prompt_sha256": "sha256:9817b31caeadf2ebec77b2506ebe20105b0c6b0edd400c0461667b37634f1d30"
+    "name": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+    "family": "llama",
+    "digest": "sha256:2a089267098f381c19dc239ec1b76a4957f5d3aee06ffacb4a9bfafc3a825cb2",
+    "prompt_sha256": "sha256:e6760e5d95a16fd45e32763727d59f1141ee5a24e3fb515840bc83e891e7a875"
   },
   "reviewer_model": {
-    "name": "gpt-oss:20b",
-    "family": "gptoss",
-    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
-    "prompt_sha256": "sha256:951c31d37af2e11fdea143e514111bc6d84041c413e5bb2945f5bf28b07c6fef"
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:537873710ed077a9495f5b699257ab266f5594590094edf3070865b068007b98"
   },
   "claims": [
     {
-      "text": "The log shows a server creation request received by nova-api that was accepted (status 202) and immediately followed by compute node attempts to claim resources for instance d54b44eb‑2d1a‑4aa2‑ba6b‑074d35f8f12c, reporting available memory of about 95 GB and no disk limit.",
+      "text": "A request to create a new server was made to the Nova API, and the server was successfully claimed by the compute node.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_5"
       ]
     },
     {
-      "text": "This indicates the compute service is evaluating whether sufficient resources exist to schedule the new instance.",
+      "text": "The compute node has sufficient free memory and disk space to accommodate the requested server.",
+      "supported": "yes",
+      "candidate_group_ids": [
+        "openstack:semantic:nova_osapi_compute_wsgi_server_5"
+      ]
+    },
+    {
+      "text": "The server is being created on the compute node with a memory limit of 96258 MB and an unlimited disk limit.",
       "supported": "yes",
       "candidate_group_ids": [
         "openstack:semantic:nova_osapi_compute_wsgi_server_5"
