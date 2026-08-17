@@ -3,40 +3,38 @@
   "group_ids": [
     "windows:semantic:csi_0"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:466c70043f8312c966ee32f7d3dc135a094834066537c2aadaaff50a9130ecdb"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:58ae6b1604a0de87766b64eeaffab69488ab0139eaf7b9ee63b2909cd4740b5e"
+    "prompt_sha256": "sha256:627c3e7b1229a53facd51e88255cd7b4322aa0ec803d9f156d368ab3b7463e2c"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows the initialization and startup of the TrustedInstaller service, which is part of the Windows Component-Based Servicing (CBS) system.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_0"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the initialization of TrustedInstaller, the loading of the Servicing Stack, and the three calls to WcpInitialize."
     },
     {
-      "text": "The logs indicate that the WcpInitialize function was called multiple times with different stack traces, and then the TrustedInstaller service started its main loop and initialized successfully.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_0"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (TrustedInstaller), the event type (initialization), and the outcome (successful start of the service)."
     },
     {
-      "text": "The logs also mention the initialization of Software Quality Metrics (SQM) with Windows opt-in set to False and the cleaning up of old report files.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_0"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question about what happened around the first occurrence of 'CSI' and what it means, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all important parts of the evidence, including the initialization steps, the WcpInitialize calls, and the successful start of the service."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:da716bd20320b029c9aba2797a8967b74249cac65829b75da41cfd55ff0b64ed"
+  }
 }

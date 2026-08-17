@@ -1,0 +1,29 @@
+{
+  "question_id": "linux_v1_presence_invalid_user_2",
+  "group_ids": [
+    "linux:presence:invalid_user"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:92984a0f7028f40e0e486052fd7c6c426b7be9fbdc29be5236ba8dc49e770704"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question clearly asks whether there is at least one occurrence of 'Invalid user' in the log, and it specifies the literal to search for."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a direct \"No (0 matching lines)\" response, which is the correct format for a yes/no question with a count."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that searched for 'Invalid user' case-insensitively and found 0 matches, supporting the answer that there are no such occurrences."
+    }
+  ]
+}

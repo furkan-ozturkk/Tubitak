@@ -4,67 +4,38 @@
     "bgl:hard:node_error_compare:1:r16_m1_n2_c_j17_u01",
     "bgl:hard:node_error_compare:1:r37_m1_nc_c_j02_u11"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:40288766cedc1a575fd476915ad50dfcd0b0ee79fa0310361662f2521da840c6"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:c5d30d2586cde12cc0ea4406640a9356cb48045226bb7de808d33f5ad5f1ec30"
+    "prompt_sha256": "sha256:17d0509a1d5a5059eb347073d9ea0680bb4a3ea775e97d63df5c808145dd580d"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The RAS events for compute node R16-M1-N2-C:J17-U01 and R37-M1-NC-C:J02-U11 exhibit distinct error patterns.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:hard:node_error_compare:1:r16_m1_n2_c_j17_u01",
-        "bgl:hard:node_error_compare:1:r37_m1_nc_c_j02_u11"
-      ]
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes distinct facts to each node without conflating or misattributing details between them."
     },
     {
-      "text": "The events for R16-M1-N2-C:J17-U01 occur sporadically over a period of approximately 27 days, from June 3 to June 30, with varying error messages, including CE sym 2 and CE sym 0, and different masks.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:hard:node_error_compare:1:r16_m1_n2_c_j17_u01",
-        "bgl:hard:node_error_compare:1:r37_m1_nc_c_j02_u11"
-      ]
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of error patterns—sporadic and varied for R16-M1-N2-C:J17-U01, and repetitive and consistent for R37-M1-NC-C:J02-U11—is directly supported by the timestamps and error types in the evidence."
     },
     {
-      "text": "In contrast, the events for R37-M1-NC-C:J02-U11 occur in a burst over a short period of approximately 9 hours on December 26, with a consistent error message indicating an instruction cache parity error corrected.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:hard:node_error_compare:1:r16_m1_n2_c_j17_u01",
-        "bgl:hard:node_error_compare:1:r37_m1_nc_c_j02_u11"
-      ]
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer avoids naming specific causes or actors not present in the evidence and instead focuses on observable patterns and judgments based on the data."
     },
     {
-      "text": "This burst of activity on R37-M1-NC-C:J02-U11, with 7 events occurring within a 7-hour window, appears more anomalous than the sporadic events on R16-M1-N2-C:J17-U01.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:hard:node_error_compare:1:r16_m1_n2_c_j17_u01",
-        "bgl:hard:node_error_compare:1:r37_m1_nc_c_j02_u11"
-      ]
-    },
-    {
-      "text": "The repetition of the same error message on R37-M1-NC-C:J02-U11 without any corrective action in between suggests a persistent issue.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:hard:node_error_compare:1:r16_m1_n2_c_j17_u01",
-        "bgl:hard:node_error_compare:1:r37_m1_nc_c_j02_u11"
-      ]
-    },
-    {
-      "text": "The root cause of the anomaly is that these instruction cache parity errors on R37-M1-NC-C:J02-U11 recur repeatedly over a short period without any intervening corrective action.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "bgl:hard:node_error_compare:1:r16_m1_n2_c_j17_u01",
-        "bgl:hard:node_error_compare:1:r37_m1_nc_c_j02_u11"
-      ]
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by correlating the error patterns and explicitly stating which node appears more anomalous, based on the evidence provided."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:6fd51a8f1c6f5082a709ebcdc5347f97cecbb1be5afda28c7ac690f3acc94f5a"
+  }
 }

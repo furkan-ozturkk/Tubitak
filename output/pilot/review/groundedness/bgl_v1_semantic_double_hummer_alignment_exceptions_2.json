@@ -1,0 +1,36 @@
+{
+  "question_id": "bgl_v1_semantic_double_hummer_alignment_exceptions_2",
+  "group_ids": [
+    "bgl:semantic:double_hummer_alignment_exceptions_2"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:8750a791c9e9f73771b85bc0b958bca1668658ce7c804088a662bb393d187f9d"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "correct",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial"
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:3db780f3e426d40b2ecc29c1301585b30b8e17540f2fc86cf234e3ba89f6550a"
+  }
+}

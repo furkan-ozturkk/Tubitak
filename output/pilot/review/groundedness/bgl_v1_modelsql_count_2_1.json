@@ -1,0 +1,29 @@
+{
+  "question_id": "bgl_v1_modelsql_count_2_1",
+  "group_ids": [
+    "bgl:modelsql:count:2"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:df3b2126d0e785ccd6d7c2393be103fd551caa527935d6552211f32c84b0e969"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the total number of log entries in the 'bgl' dataset that include the exact phrase \"generating core\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The lines shown in the evidence do contain the phrase \"generating core\", but since only a sample is shown and the total count is not verified by the evidence, it is not possible to confirm the accuracy of the full count from the evidence provided."
+    }
+  ]
+}

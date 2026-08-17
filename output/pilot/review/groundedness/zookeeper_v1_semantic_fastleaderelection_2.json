@@ -3,40 +3,38 @@
   "group_ids": [
     "zookeeper:semantic:fastleaderelection_2"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:dcc052bbf5b670142130122eaa3124794e6a193201e4aa6f6dc7ded7d0041864"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:f6db148ec21c7cf0ce7b766724f5f12c82a2e9c084e35267a54934f9521dfd13"
+    "prompt_sha256": "sha256:d4e16f04dffe54e3bc3e1587eb8a139ef3c153cf7d76ebf6d3d52dffdadebb63"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of events related to a Zookeeper quorum peer with myid=1, including repeated notification timeouts and failed attempts to open a channel to peers with ids 2 and 3 at specific election addresses.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "zookeeper:semantic:fastleaderelection_2"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as connection failures and timeouts, without adding unsupported claims."
     },
     {
-      "text": "The warnings indicate that the peer was unable to establish a connection to these other peers, specifically to peer 2 at address /10.10.34.12:3888 on multiple occasions.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "zookeeper:semantic:fastleaderelection_2"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (QuorumPeer[myid=1]), the event type (connection failures and timeouts), and accurately notes the absence of a stated outcome."
     },
     {
-      "text": "The notification timeouts, which occur at regular intervals, suggest that the peer is waiting for some response or notification that is not being received.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "zookeeper:semantic:fastleaderelection_2"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by summarizing the event shown in the Zookeeper log near the 11th occurrence of 'FastLeaderElection'."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all key details from the evidence—repeated connection failures to peers 2 and 3, interspersed timeouts, and the lack of a stated outcome—without omitting important information."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:44cd0a40e6eeaa42ecaac4b7d669a7df19a34b43ee603ae5ad76bc5b30ef9141"
+  }
 }

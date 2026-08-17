@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_presence_maximum_authentication_attempts_0",
+  "group_ids": [
+    "openssh:presence:maximum_authentication_attempts"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:88e20c1bbcac5a32d96bb9ded11ca7631c407da01b6d0a63c8c58b2c2950ff7c"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log contains any line with the specific phrase \"maximum authentication attempts\", using case-insensitive matching."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format, stating \"No (0 matching lines)\" and directly answering the question as required."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows that no line in the dataset contains the phrase \"maximum authentication attempts\" (case-insensitive), supporting the answer that there are 0 matching lines."
+    }
+  ]
+}

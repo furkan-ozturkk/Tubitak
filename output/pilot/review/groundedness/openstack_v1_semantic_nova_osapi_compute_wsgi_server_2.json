@@ -3,40 +3,34 @@
   "group_ids": [
     "openstack:semantic:nova_osapi_compute_wsgi_server_2"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:c5a9e3b9ea09d343c4810712f7f203bbe5d74eeeb45b59d413170abc3da160a1"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:2829f17c77d88c41c1a631cf4da05f490888bcd2294b499c2087ae1c256710d1"
+    "prompt_sha256": "sha256:00178a98b68baa481b2e157a1ddaea7da21dcd1de9850a533812840b7ec0f92c"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of API requests and responses, as well as some internal OpenStack events, occurring around the same time.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_2"
-      ]
+      "dimension": "grounded",
+      "verdict": "partial"
     },
     {
-      "text": "The requests from IP address 10.11.10.1 are querying server details and sending external events, and are being successfully processed with a status of 200.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_2"
-      ]
+      "dimension": "correct",
+      "verdict": "partial"
     },
     {
-      "text": "Additionally, there are events related to an instance with ID 95960536-049b-41f6-9049-05fc479b6a7c, including a network interface being plugged in and the VM being resumed.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_2"
-      ]
+      "dimension": "relevant",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial"
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:c06bf1c17abf7a5527b1a17aa7fd08ab912943ac9cbbb23d7a0dfc427cf16e55"
+  }
 }

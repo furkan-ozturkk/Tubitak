@@ -1,0 +1,29 @@
+{
+  "question_id": "mac_v1_modelsql_count_1_0",
+  "group_ids": [
+    "mac:modelsql:count:1"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:9c33431baf2ca9cf9baaf8d34b5e54be7bf4a6606e80f76f1c4e8b86fdf1b657"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of log entries in the 'mac' dataset that do not contain the word \"error\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query selects lines from the 'mac' dataset where the text does not contain \"error\", and the count of 1818 is stated as the result of that query."
+    }
+  ]
+}

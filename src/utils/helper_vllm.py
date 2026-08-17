@@ -1,7 +1,8 @@
 """Client for the local vLLM servers (Section 5.5).
 
-Used by the medium tier (gold draft) and the hard tier (gold draft + per-claim
-groundedness check). Concurrency is capped by a semaphore at
+Used by the medium and hard tiers (gold draft, via ``draft``) and by all three
+tiers (easy, medium, hard) for the post-hoc quality check (``check_dimensions``),
+run on ``groundedness_model``. Concurrency is capped by a semaphore at
 ``VllmConfig.max_parallel_calls``, and every call retries with exponential
 backoff: a vLLM server can still be mid-restart or mid-graph-capture when a
 pass starts, and a transient failure there is not a reason for a generation
@@ -25,6 +26,7 @@ family check here.
 
 import hashlib
 import json
+import re
 import sys
 import threading
 import time
@@ -45,6 +47,10 @@ _KNOWN_FAMILIES = (
     "deepseek",
 )
 
+_FAMILY_VERSION_PATTERN = re.compile(
+    r"(" + "|".join(_KNOWN_FAMILIES) + r")(\d+(?:\.\d+)*)?"
+)
+
 _THINK_OPEN = "<think>"
 _THINK_CLOSE = "</think>"
 
@@ -60,17 +66,35 @@ def _infer_family(model_id: str) -> str:
     neither matches a known name — but it is what is knowable from a served
     model id alone.
 
+    A bare stem is not enough once two roles can both be "qwen": adding
+    ``sql_invention`` (a Qwen2.5-Coder checkpoint) alongside ``groundedness``
+    (a Qwen3 checkpoint) made ``"qwen" == "qwen"`` collapse two genuinely
+    different models -- different generation, different training, different
+    weights -- into a false "same family" that ``assert_model_families_differ``
+    would then wrongly refuse. The version digits immediately following the
+    stem (``qwen3``, ``qwen2.5``) are captured when present, so the two stay
+    distinguishable; an id search picks whichever occurrence of the stem in
+    the id carries a version (HF ids commonly repeat the family name once
+    bare in the org prefix and once versioned in the repo name, e.g.
+    ``"Qwen/Qwen3-32B-AWQ"``, and the bare occurrence would otherwise win by
+    appearing first).
+
     Args:
         model_id: The model id a vLLM server was started with.
 
     Returns:
-        A lowercase family token, e.g. ``"llama"`` or ``"qwen"``.
+        A lowercase family token, e.g. ``"llama3.3"`` or ``"qwen3"`` when a
+        version could be read off the id, otherwise the bare stem (or, for an
+        unlisted family, the whole lowercased id).
     """
     lowered = model_id.lower()
-    for family in _KNOWN_FAMILIES:
-        if family in lowered:
-            return family
-    return lowered
+    matches = list(_FAMILY_VERSION_PATTERN.finditer(lowered))
+    if not matches:
+        return lowered
+    versioned = [match for match in matches if match.group(2)]
+    match = versioned[0] if versioned else matches[0]
+    stem, version = match.group(1), match.group(2)
+    return f"{stem}{version}" if version else stem
 
 
 def _strip_thinking(text: str) -> str:
@@ -127,6 +151,7 @@ class VllmClient:
         self._semaphore = threading.Semaphore(config.max_parallel_calls)
         self._served_id_cache: dict[str, str] = {}
         self._families_checked = False
+        self._sql_invention_family_checked = False
 
     def _request(
         self, base_url: str, path: str, payload: dict | None = None, method: str = "GET"
@@ -262,6 +287,45 @@ class VllmClient:
             )
         self._families_checked = True
 
+    def assert_sql_invention_differs_from_groundedness(self) -> None:
+        """Verifies ``sql_invention_model`` and ``groundedness_model`` differ.
+
+        The pairing ``assert_model_families_differ`` checks is gold-draft
+        versus groundedness; SQL invention (Section 7.1,
+        ``invent_sql_question``) is a third role that can be a different model
+        entirely (a code-specialised checkpoint), so its own answer -- the
+        invented question and query -- needs its own guarantee that the model
+        checking it afterwards is not itself, by the same Section 5.5/6 logic.
+        Runs once, on the first ``invent_sql_question`` call.
+
+        Raises:
+            RuntimeError: If the two models resolve to the same server and id,
+                or share an inferred family.
+        """
+        if self._sql_invention_family_checked:
+            return
+        invention = self.model_details(
+            self.config.sql_invention_base_url, self.config.sql_invention_model
+        )
+        review = self.model_details(
+            self.config.groundedness_base_url, self.config.groundedness_model
+        )
+        if invention["digest"] == review["digest"]:
+            raise RuntimeError(
+                f"sql_invention_model '{invention['name']}' and "
+                f"groundedness_model '{review['name']}' resolve to the same "
+                f"server and model; Section 5.5/6 forbids a model certifying "
+                f"its own answer."
+            )
+        if invention["family"] == review["family"]:
+            raise RuntimeError(
+                f"sql_invention_model '{invention['name']}' and "
+                f"groundedness_model '{review['name']}' are both family "
+                f"'{invention['family']}'; Section 5.5/6 requires different "
+                f"model families."
+            )
+        self._sql_invention_family_checked = True
+
     def _generate(self, base_url: str, model: str, prompt: str) -> dict[str, Any]:
         """Runs one completion and returns it with its provenance block.
 
@@ -318,55 +382,60 @@ class VllmClient:
             self.config.gold_draft_base_url, self.config.gold_draft_model, prompt
         )
 
-    def groundedness_check(
-        self, claim: str, evidence_text: str
-    ) -> tuple[str, dict[str, Any]]:
-        """Checks whether the evidence supports one claim.
+    def check_dimensions(
+        self,
+        context: dict[str, str],
+        dimensions: list[tuple[str, str]],
+    ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+        """Checks a produced answer against several independent quality dimensions.
 
-        Always uses ``groundedness_model``. Anything that is not a clear yes or
-        no is recorded as ``"partial"`` rather than forced to one side: the
-        verdict feeds a human review worksheet, and an ambiguous answer is a
-        real signal there.
-
-        The reviewer's own provenance block is returned rather than discarded,
-        so the groundedness report can record which weights and which prompt
-        produced the verdict. A report that names only the drafting model
-        documents half of the integrity claim.
+        One call, always on ``groundedness_model`` -- a different family from the
+        drafting model (Section 5.5/6) -- evaluates every dimension at once against
+        the full context. This replaces the earlier per-sentence claim check
+        (``groundedness_check``), which showed the reviewer one claim and the
+        evidence but never the question the answer had to address: a claim could
+        be locally true and still leave the check blind to an answer that did not
+        actually answer what was asked. Every dimension defined here sees whatever
+        context blocks the caller passes -- typically the question, the evidence
+        and the answer together.
 
         Args:
-            claim: One sentence from the drafted gold answer.
-            evidence_text: The evidence block the claim must be supported by.
+            context: Named context blocks to show the model, e.g. ``{"QUESTION":
+                ..., "EVIDENCE": ..., "ANSWER": ...}``, rendered in insertion
+                order.
+            dimensions: ``(key, question)`` pairs, one per quality dimension --
+                ``key`` is the machine-readable label stored on the record,
+                ``question`` is the natural-language question shown to the model.
 
         Returns:
-            Tuple ``(verdict, result)`` where verdict is ``"yes"``, ``"no"`` or
-            ``"partial"``, and result carries ``text`` and ``model``.
+            Tuple ``(checks, model)`` where ``checks`` holds one
+            ``{"dimension", "verdict"[, "detail"]}`` entry per input dimension, in
+            the same order, ``verdict`` being ``"yes"``, ``"no"`` or
+            ``"partial"``; ``model`` is the reviewing model's provenance block.
         """
+        context_text = "\n\n".join(
+            f"{label}:\n{text}" for label, text in context.items()
+        )
+        numbered_questions = "\n".join(
+            f"{index}) [{key}] {question}"
+            for index, (key, question) in enumerate(dimensions, start=1)
+        )
         prompt = (
-            "You are a strict fact-checker. You will be given EVIDENCE (raw log lines) "
-            "and one CLAIM sentence taken from a longer answer about that evidence. "
-            "Decide whether the evidence supports the claim.\n\n"
-            "The claim does not have to be a direct quote. A comparative or summarizing "
-            "judgment (e.g. 'X is more anomalous than Y') is supported if the underlying "
-            "pattern -- timing, repetition, count, duration -- is genuinely present in the "
-            "evidence, even though those exact words are not. What is never supported: a "
-            "specific cause, actor identity, actor category, or motive that is not itself "
-            "named in the evidence (e.g. 'a botnet', 'a script kiddie', 'a misconfigured "
-            "switch'), and any fact stated about one id (a block, container, node or "
-            "address) that the evidence actually shows about a different id.\n\n"
-            "Answer with exactly one word: yes, no, or partial.\n\n"
-            f"EVIDENCE:\n{evidence_text}\n\nCLAIM:\n{claim}\n\nAnswer:"
+            "You are a strict, independent reviewer checking a produced answer "
+            "against the context it was supposed to be derived from. Answer every "
+            "numbered question below about that answer, using nothing but the "
+            "context given -- no outside knowledge.\n\n"
+            "Answer each question on its own line, in exactly this form: "
+            "'<number>) <yes|no|partial>: <one short sentence of justification>'. "
+            "Use 'partial' whenever the answer is not clearly right or clearly "
+            "wrong -- do not force an ambiguous case to yes or no.\n\n"
+            f"{context_text}\n\nQUESTIONS:\n{numbered_questions}\n\nANSWERS:"
         )
         result = self._generate(
             self.config.groundedness_base_url, self.config.groundedness_model, prompt
         )
-        answer = result["text"].strip().lower()
-        if answer.startswith("yes"):
-            verdict = "yes"
-        elif answer.startswith("no"):
-            verdict = "no"
-        else:
-            verdict = "partial"
-        return verdict, result
+        checks = _parse_dimension_verdicts(result["text"], dimensions)
+        return checks, result["model"]
 
     def write_sql(self, question: str, dataset_key: str) -> dict[str, Any]:
         """Asks the model to write the SQL that answers one question.
@@ -416,6 +485,185 @@ class VllmClient:
             "model": result["model"],
         }
 
+    def invent_sql_question(
+        self,
+        dataset_key: str,
+        sample_lines: list[str],
+        already_asked: list[str],
+        already_sql: list[str],
+        polarity: str,
+        suggested_mode: str,
+    ) -> dict[str, Any]:
+        """Invents one easy-tier question and the SQL that answers it.
+
+        The reverse of ``write_sql``: that method is handed a question and writes
+        the query; this one is handed a sample of real lines and invents both the
+        question and the query, so the easy tier's question count can scale with a
+        parameter (``--easy_target_total``) instead of a fixed curated literal
+        list (Section 7.1). Always runs on ``sql_invention_model`` -- a role
+        distinct from medium/hard's ``gold_draft_model``, since writing correct
+        SQL calls for a different strength than drafting a natural-language
+        synthesis -- so the later ``check_dimensions`` pass on
+        ``groundedness_model`` is never a model checking its own invention
+        (Section 5.5/6).
+
+        The invented SQL is untrusted exactly like ``write_sql``'s: the caller
+        must still run it through ``helper_postgres.assert_readonly_select`` and
+        ``assert_scoped_to_dataset`` before ever executing it, and the executed
+        result -- not this call's own claim -- is what becomes the gold answer.
+
+        Args:
+            dataset_key: The ``lines.dataset`` value the invented query must
+                restrict itself to.
+            sample_lines: A real excerpt of this dataset's lines, shown as
+                inspiration -- never as something to copy verbatim into the
+                answer, since the answer will come from executing the query
+                against the whole table, not from what is shown here.
+            already_asked: Questions already invented for this dataset in this
+                run, so the model does not invent the same idea twice.
+            already_sql: The ``ANSWER_SQL`` already accepted for this dataset
+                in this run, shown alongside ``already_asked`` because a
+                reworded question repeating the same underlying condition
+                (Section 7.1: observed reliably from this role's
+                code-specialised model, more than from the general-purpose
+                model it replaced here) still gets rejected and retried by the
+                caller -- showing the SQL, not just the question text, gives
+                the model the more concrete thing to actually avoid.
+            polarity: ``"positive"`` asks for an ordinary presence/count
+                question; ``"negative"`` asks for one about the ABSENCE of a
+                pattern, mirroring the presence tier's "No" requirement
+                (Section 7.1) for questions a model invents rather than a
+                curated literal.
+            suggested_mode: One of ``"count"``, ``"presence"``, ``"line_lookup"``
+                or ``"scalar"``, cycled by the caller across a dataset's slots.
+                Left entirely to the model, MODE gravitates to ``scalar``
+                (aggregate questions are simply more available in a raw log
+                table) and the other three all but disappear; naming a
+                default steers it back without removing its escape hatch for
+                a genuinely better idea.
+
+        Returns:
+            Mapping with ``mode`` (``"count"``, ``"presence"``, ``"line_lookup"``
+            or ``"scalar"``), ``questions`` (three phrasings of the one invented
+            question), ``answer_sql``, ``evidence_sql`` (``None`` unless
+            ``mode == "scalar"``), and ``model`` (the provenance block).
+
+        Raises:
+            ValueError: If the completion does not carry every required field.
+            RuntimeError: If ``sql_invention_model`` and ``groundedness_model``
+                turn out to share a family.
+        """
+        polarity_instruction = (
+            "Invent a question about the ABSENCE or NEGATION of a pattern -- e.g. "
+            "how many lines do NOT contain X, how many lines lack an ERROR "
+            "marker, is there any line without Y -- not a plain presence/count "
+            "of a pattern."
+            if polarity == "negative"
+            else "Invent a question about the presence, count, or a distinctive "
+            "value (e.g. the longest line, the number of distinct values of "
+            "something) found in this data."
+        )
+        avoid = (
+            (
+                "Questions already asked for this dataset -- invent something "
+                "different (a reworded repeat of the same underlying condition "
+                "is still a repeat):\n"
+                + "\n".join(f"- {q}" for q in already_asked)
+                + "\n\nSQL conditions already used -- do not write a condition "
+                "equivalent to any of these, even with different ILIKE text or "
+                "column order:\n"
+                + "\n".join(f"- {s}" for s in already_sql)
+            )
+            if already_asked
+            else "No questions have been asked for this dataset yet."
+        )
+        excerpt = "\n".join(sample_lines)
+        prompt = (
+            "You write PostgreSQL queries. The only table is:\n"
+            "  lines(id BIGSERIAL, dataset TEXT, line_number INTEGER, text TEXT)\n"
+            "One row per log line. `text` is the raw line. `line_number` is 1-based.\n\n"
+            f"Here is a real excerpt from dataset '{dataset_key}' (for inspiration "
+            "only -- your ANSWER_SQL will run against the WHOLE table, not just "
+            f"this excerpt):\n{excerpt}\n\n{avoid}\n\n"
+            f"{polarity_instruction}\n\n"
+            "Rules:\n"
+            f"- Every query MUST restrict itself with dataset = '{dataset_key}'.\n"
+            "- Match text case-insensitively unless the question demands otherwise, "
+            "using ILIKE or the ~* operator. Do not use regexp_count's third "
+            "argument as a case-insensitivity flag -- in PostgreSQL that argument "
+            "is an integer start position, not a flags string.\n"
+            "- Pick exactly one MODE:\n"
+            "  count      -- ANSWER_SQL is `SELECT line_number, text FROM lines "
+            "WHERE <condition>`; the answer is how many rows it returns.\n"
+            "  presence   -- same shape as count; the answer is whether it "
+            "returns any rows at all.\n"
+            "  line_lookup -- same shape as count plus `ORDER BY ... LIMIT 1`; "
+            "the answer is that one row's text.\n"
+            "  scalar     -- ANSWER_SQL returns exactly one row, one column (e.g. "
+            "COUNT(DISTINCT ...), MAX(length(text))); you MUST also give "
+            "EVIDENCE_SQL, a `SELECT line_number, text FROM lines WHERE ...` "
+            "(with a LIMIT) a human could read to sanity-check the scalar.\n"
+            f"- Default to MODE={suggested_mode} unless the data in front of you "
+            "genuinely suggests a different mode tells a better question -- do "
+            "not default to scalar just because it is the most flexible option.\n"
+            "- Output in exactly this format, one field per line, no other prose, "
+            "no markdown fences, no semicolons:\n"
+            "MODE: <count|presence|line_lookup|scalar>\n"
+            "QUESTION_1: <question>\n"
+            "QUESTION_2: <the same question, differently worded>\n"
+            "QUESTION_3: <the same question, differently worded again>\n"
+            "ANSWER_SQL: <the query>\n"
+            "EVIDENCE_SQL: <only if MODE is scalar>"
+        )
+        self.assert_sql_invention_differs_from_groundedness()
+        result = self._generate(
+            self.config.sql_invention_base_url, self.config.sql_invention_model, prompt
+        )
+        parsed = _parse_invented_question(result["text"])
+        parsed["model"] = result["model"]
+        return parsed
+
+
+_VERDICT_LINE_PATTERN = re.compile(
+    r"(?im)^\s*(\d+)\)\s*(yes|no|partial)\b[:\-]?\s*(.*)$"
+)
+
+
+def _parse_dimension_verdicts(
+    text: str, dimensions: list[tuple[str, str]]
+) -> list[dict[str, Any]]:
+    """Parses one verdict line per dimension out of a ``check_dimensions`` completion.
+
+    Matched by each line's leading number rather than by line order, so a model
+    that answers out of sequence still lands each verdict on the dimension it was
+    asked about. A dimension the model never addressed with a recognisable line
+    falls back to ``"partial"`` with no detail -- the same fallback the earlier
+    single-claim check used for an unparseable answer: an ambiguous result is a
+    signal for the human reviewer, not a reason to fail the whole check.
+
+    Args:
+        text: The reviewing model's raw completion.
+        dimensions: The ``(key, question)`` pairs the prompt asked about, in the
+            order they were numbered.
+
+    Returns:
+        One ``{"dimension", "verdict"[, "detail"]}`` entry per input dimension.
+    """
+    by_number: dict[int, tuple[str, str]] = {}
+    for match in _VERDICT_LINE_PATTERN.finditer(text):
+        number = int(match.group(1))
+        if number not in by_number:
+            by_number[number] = (match.group(2).lower(), match.group(3).strip())
+
+    checks = []
+    for index, (key, _question) in enumerate(dimensions, start=1):
+        verdict, detail = by_number.get(index, ("partial", ""))
+        entry: dict[str, Any] = {"dimension": key, "verdict": verdict}
+        if detail:
+            entry["detail"] = detail
+        checks.append(entry)
+    return checks
+
 
 def _extract_sql(completion: str) -> str:
     """Pulls the SQL statement out of a completion.
@@ -441,6 +689,74 @@ def _extract_sql(completion: str) -> str:
                 text = candidate
                 break
     return text.strip().rstrip(";").strip()
+
+
+_INVENTED_MODES = ("count", "presence", "line_lookup", "scalar")
+
+_FIELD_PATTERN = re.compile(
+    r"^\s*(MODE|QUESTION_1|QUESTION_2|QUESTION_3|ANSWER_SQL|EVIDENCE_SQL)\s*:\s*",
+    re.IGNORECASE | re.MULTILINE,
+)
+
+
+def _parse_invented_question(completion: str) -> dict[str, Any]:
+    """Parses ``VllmClient.invent_sql_question``'s labelled-field completion.
+
+    Splits on the fixed field labels rather than on newlines, since ``ANSWER_SQL``
+    and ``EVIDENCE_SQL`` are themselves free text that could contain line breaks
+    a naive per-line parser would misread as a new field.
+
+    Args:
+        completion: The raw model output.
+
+    Returns:
+        Mapping with ``mode``, ``questions`` (three strings) and ``answer_sql``,
+        plus ``evidence_sql`` (``None`` unless present).
+
+    Raises:
+        ValueError: If a required field is missing, ``MODE`` is not one of the
+            four known values, or ``mode == "scalar"`` without an
+            ``EVIDENCE_SQL``.
+    """
+    matches = list(_FIELD_PATTERN.finditer(completion))
+    fields: dict[str, str] = {}
+    for index, match in enumerate(matches):
+        label = match.group(1).upper()
+        start = match.end()
+        end = matches[index + 1].start() if index + 1 < len(matches) else len(completion)
+        fields[label] = completion[start:end].strip()
+
+    missing = [
+        label
+        for label in ("MODE", "QUESTION_1", "QUESTION_2", "QUESTION_3", "ANSWER_SQL")
+        if not fields.get(label)
+    ]
+    if missing:
+        raise ValueError(
+            f"invented-question completion is missing field(s): {missing}"
+        )
+
+    mode = fields["MODE"].strip().lower()
+    if mode not in _INVENTED_MODES:
+        raise ValueError(
+            f"invented-question completion has MODE={mode!r}, expected one of "
+            f"{_INVENTED_MODES}"
+        )
+    if mode == "scalar" and not fields.get("EVIDENCE_SQL"):
+        raise ValueError("MODE=scalar requires an EVIDENCE_SQL field")
+
+    return {
+        "mode": mode,
+        "questions": [
+            fields["QUESTION_1"],
+            fields["QUESTION_2"],
+            fields["QUESTION_3"],
+        ],
+        "answer_sql": _extract_sql(fields["ANSWER_SQL"]),
+        "evidence_sql": (
+            _extract_sql(fields["EVIDENCE_SQL"]) if fields.get("EVIDENCE_SQL") else None
+        ),
+    }
 
 
 def check_server(config: VllmConfig) -> int:

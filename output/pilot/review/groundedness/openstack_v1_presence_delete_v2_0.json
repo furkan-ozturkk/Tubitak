@@ -1,0 +1,29 @@
+{
+  "question_id": "openstack_v1_presence_delete_v2_0",
+  "group_ids": [
+    "openstack:presence:delete_v2"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:9d056957b52b237e75ab9e082affb4b48f768d09c3ea6edfc84d7568c4e14513"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log contains any line with 'DELETE /v2', which is a literal pattern."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format for a yes/no question, providing a verdict and a count in parentheses."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that finds 22 lines matching the pattern, and the example lines shown confirm that the pattern exists in the dataset."
+    }
+  ]
+}

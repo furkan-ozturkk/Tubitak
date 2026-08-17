@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_presence_mrappmaster_1",
+  "group_ids": [
+    "hadoop:presence:mrappmaster"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:db093ad9b110a3d9545a41e8ef2effcaa5080ca4748b732db05ee65c87c6a625"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log has a line mentioning 'MRAppMaster'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the required format, stating a verdict and a count of matching lines."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query and the example lines confirm that 'MRAppMaster' is mentioned, and the query returns 15 matching lines as stated in the answer."
+    }
+  ]
+}

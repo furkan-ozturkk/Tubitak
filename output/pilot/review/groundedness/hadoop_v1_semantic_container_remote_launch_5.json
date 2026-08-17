@@ -1,0 +1,40 @@
+{
+  "question_id": "hadoop_v1_semantic_container_remote_launch_5",
+  "group_ids": [
+    "hadoop:semantic:container_remote_launch_5"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:7cbe36860f876fa381b24d6a02f6ace2b663a2560bb0744ec05431e9eae84717"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states information directly supported by the evidence and does not add unsupported claims."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the task attempt, the event type (state transition), and the outcome (task attempt running)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what happened around the sixth occurrence of 'CONTAINER_REMOTE_LAUNCH' and what it means."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key steps (resolving node, launching container, opening proxy, and state transition) and the outcome, making it reasonably complete."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:6a2ba67bf293343c6512b12463f5e51a8c33b6416e9995a6938593d0792c1b35"
+  }
+}

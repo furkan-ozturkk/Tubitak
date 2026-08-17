@@ -1,0 +1,29 @@
+{
+  "question_id": "bgl_v1_modelsql_count_1_1",
+  "group_ids": [
+    "bgl:modelsql:count:1"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:8706a6f85ce7c93571fe4c09e1fb8bffc4c1d433e36e40daedd0c8810a9ba8b5"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the number of log lines in the 'bgl' dataset that do not include the phrase \"RAS KERNEL INFO\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count-based question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that correctly filters the 'bgl' dataset for lines not containing \"RAS KERNEL INFO\" (case-insensitively), and the answer of 420 is stated as the total number of lines returned by that query."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "question_id": "mac_v1_semantic_wake_reason_3",
+  "group_ids": [
+    "mac:semantic:wake_reason_3"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:e46884d2b3b6792328111b33e3ab64d1be1323b90c3679b7daec88913c691a4a"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence and sticks to the described events."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type, and notes the lack of a stated outcome as in the structured summary."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the question's focus on the tenth occurrence of 'wake reason' and its significance, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer mentions the wake event and link up but does not clearly specify the tenth occurrence of 'wake reason' or its exact significance."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:98033b916c87491fe41e639bd48fbc7931167e78ddc86e9ba5a914d872a268fd"
+  }
+}

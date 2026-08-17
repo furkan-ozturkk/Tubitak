@@ -1,0 +1,40 @@
+{
+  "question_id": "apache_v1_semantic_jk2_init_3",
+  "group_ids": [
+    "apache:semantic:jk2_init_3"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:4923f7c3934ce9f700ffbd020f5f1d7cb02874f9c8a06d265dfa51a391fb5648"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence, such as the error state progression or the significance of the error state."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (mod_jk child workerEnv), the event type (initialization and error reporting), and the outcome (error state 6)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by describing what took place around the jk2_init occurrence and its significance, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key points from the evidence: the jk2_init function found child processes, workerEnv.init succeeded, and the workerEnv entered an error state, ending in state 6."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:445e8da0f8b739df80389d38d687e2fa5d5c4367a391e0407a0995ba563800af"
+  }
+}

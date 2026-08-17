@@ -3,40 +3,38 @@
   "group_ids": [
     "apache:semantic:child_workerenv_in_error_state_4"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:ba8d397c4542c77214cef3509a29ec09e756a5398360fad799eb2007f78d6e2e"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:9508311b04652c1edd2532315af2e9df389f0891dbce5f75bfd8cc9fd937b41e"
+    "prompt_sha256": "sha256:792e62f9661fd16f003ebea5efdaf9bb89676ac29b8def074cf1399b568726c4"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The excerpt shows a series of error and notice events related to mod_jk, a Apache module, with repeated error states and successful initializations of workerEnv.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "apache:semantic:child_workerenv_in_error_state_4"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and accurately describes the observed pattern of initialization and error states."
     },
     {
-      "text": "These errors occur in rapid succession, all at the same second, indicating a potential issue with the module's configuration or operation.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "apache:semantic:child_workerenv_in_error_state_4"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (mod_jk child workerEnv), the event type (initialization and error reporting), and the outcome (repeated errors without a stated resolution)."
     },
     {
-      "text": "A separate error event occurs 10 minutes later, where a client's request for a directory index is forbidden by rule, but this appears unrelated to the earlier mod_jk errors.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "apache:semantic:child_workerenv_in_error_state_4"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by walking through the log entries and explaining what they mean, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence—initialization successes, error states, and the cyclical nature of the issue—without omitting important parts."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:e6776f2acaca38a97f29a6aeaed39175dc4de517f8a52c6a4d01b13841d8390d"
+  }
 }

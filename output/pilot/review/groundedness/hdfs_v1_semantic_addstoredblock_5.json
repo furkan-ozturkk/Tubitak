@@ -3,40 +3,38 @@
   "group_ids": [
     "hdfs:semantic:addstoredblock_5"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:4eb4839514bffa2fa0c3bd56a2bb70fe2207e4913402b982a508dc1f4324df21"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:d970499b287eb27627db0c5973e4b9a60961d6fa88cd49304a7cab172900185e"
+    "prompt_sha256": "sha256:5337b6312c60002162f2cc0070e2bb87ea6bc463a74c266a79cb363afee9307f"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of events related to HDFS block management, including the addition of a node to a block map, the reception of blocks by DataNodes, and the termination of PacketResponders for specific blocks.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hdfs:semantic:addstoredblock_5"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the block being received, added to the block map, and packet responders terminating."
     },
     {
-      "text": "The events indicate that data is being written to or replicated across the HDFS cluster, with various nodes receiving blocks of size 67108864.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hdfs:semantic:addstoredblock_5"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the block, the event type (block reception and storage), and the observed events (receiving blocks, adding to block map, terminating packet responders)."
     },
     {
-      "text": "The FSNamesystem also allocates a new block, blk_3376391218693716925, for a file in the /user/root/randtxt3 directory.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hdfs:semantic:addstoredblock_5"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining what happened with the block around the 156th occurrence of 'addStoredBlock' and what it means in terms of data distribution."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: the block being received, the addition to the block map, the termination of packet responders, and the indication of data distribution."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:fd5191fa090678f5ed798f366857698c4601b89c0307abf2a298941918ec5be0"
+  }
 }

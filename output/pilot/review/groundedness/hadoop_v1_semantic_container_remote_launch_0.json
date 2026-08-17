@@ -1,0 +1,40 @@
+{
+  "question_id": "hadoop_v1_semantic_container_remote_launch_0",
+  "group_ids": [
+    "hadoop:semantic:container_remote_launch_0"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:2358028e16a770b592755a94475d19c45cf94f9dcef3a27016b4ee18ffaf332c"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and accurately reflects the described events."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, the event type (state transitions), and the outcome (RUNNING state)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining what happened around the first occurrence of 'CONTAINER_REMOTE_LAUNCH' and what it means."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key events (assignment, container launch, proxy opening, shuffle port, and transition to RUNNING) and explains their significance without omitting important details."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:b9856a6565f6729705963f6cb9d244730f5b78e63f5f9b16249cf343f3bb28d7"
+  }
+}

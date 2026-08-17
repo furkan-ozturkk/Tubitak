@@ -1,0 +1,29 @@
+{
+  "question_id": "zookeeper_v1_count_warn_0",
+  "group_ids": [
+    "zookeeper:count:warn"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:1bca41b1df40d7e76c63e1d4d28463db1a22ae3add1bff513f3a52e9b9ddc7aa"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of log lines containing 'WARN'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that counts lines with 'WARN' case-insensitively and states that it returns 1318 lines, which matches the answer."
+    }
+  ]
+}

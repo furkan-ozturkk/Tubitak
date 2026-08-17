@@ -3,40 +3,38 @@
   "group_ids": [
     "mac:semantic:thermal_pressure_4"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:b39b67bbffa9a7b587ff47037deada0bebab6063ab2e94832855416bc1e94cee"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:cfd375aa5c740ad74b78546055c19b2b166ee2c3b6dafc957052a105ab209c3c"
+    "prompt_sha256": "sha256:d7c364486068e67e948d32adce7f08ba65116e2c175726d47125f863c7cad218"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows various system events and conditions on the authorMacBook-Pro, including thermal and memory pressure states, IPv6 address assignments, and Thunderbolt HPD packet notifications.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_4"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence and sticks to the described events and their general nature."
     },
     {
-      "text": "It also indicates that the system woke up and that there were denied network-outbound attempts by the com.apple.Addres process.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_4"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (authorMacBook-Pro), the event type (system log events), and the lack of a stated outcome as described in the structured summary."
     },
     {
-      "text": "The events are logged by different system components, such as the kernel, com.apple.CDScheduler, and sandboxd, over a period of approximately 35 minutes.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_4"
-      ]
+      "dimension": "relevant",
+      "verdict": "no",
+      "detail": "The answer does not address the specific request to walk through the 13th occurrence of \"Thermal pressure\" in the log, nor does it explain what that occurrence means."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer summarizes the general nature of the events but omits the specific detail about the 13th occurrence of \"Thermal pressure,\" which is central to the question."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:0972ec81b688b9f04e421b92859d69610663432b1660f44f30cafc2c2db1d6d1"
+  }
 }

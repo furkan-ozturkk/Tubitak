@@ -3,40 +3,38 @@
   "group_ids": [
     "openssh:semantic:possible_break_in_attempt_1"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:3b20f10d83f3ad1bef1cd3f927af44c2d374e70833ade81ba6604f9c9af4334f"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:3f943618cf5638b86e7ae0d926542c859ebd9fd9e36ac8de5d38e73dcf7fe3e3"
+    "prompt_sha256": "sha256:02d99d1d627548ef9c365bb705e6e47a108fdd3e0365879be0b141c8bd37a0a3"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of failed SSH login attempts from the IP address 187.141.143.180, with the system logging \"POSSIBLE BREAK-IN ATTEMPT!\" due to reverse mapping checking failures.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:semantic:possible_break_in_attempt_1"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as failed authentication attempts, reverse mapping issues, and disconnections."
     },
     {
-      "text": "The attempts were made for the root user, with failed password authentications recorded.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:semantic:possible_break_in_attempt_1"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (187.141.143.180), the event type (authentication attempts), and the outcome (failures and disconnections)."
     },
     {
-      "text": "Another IP address, 185.190.58.151, is also seen connecting and then closing its connection, but it is not associated with any authentication attempts in these logs.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:semantic:possible_break_in_attempt_1"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer specifically describes what is happening in the OpenSSH log around the ninth occurrence of 'POSSIBLE BREAK-IN ATTEMPT', as the question requested."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: failed reverse mapping, failed password attempts for root, and repeated disconnections."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:8aea572588dd072ad9b456e80e734b8fdfb62fe644b3cf4356a4e0136af0a951"
+  }
 }

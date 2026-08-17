@@ -1,0 +1,29 @@
+{
+  "question_id": "zookeeper_v1_modelsql_count_5_0",
+  "group_ids": [
+    "zookeeper:modelsql:count:5"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:6bad92152c0ee278dccb9537290478d1c0a1a1a3f95f8c154bb960c0616c0483"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of log entries containing the exact word \"ERROR\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The lines shown under EVIDENCE do not contain the word \"ERROR\", only \"WARN\", so they do not support the count of entries with \"ERROR\". However, the EVIDENCE also states that the count of 305 was computed directly by an exact substring search, so the count itself may be accurate based on other lines not shown."
+    }
+  ]
+}

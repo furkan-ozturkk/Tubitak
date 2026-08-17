@@ -1,0 +1,29 @@
+{
+  "question_id": "zookeeper_v1_modelsql_count_1_2",
+  "group_ids": [
+    "zookeeper:modelsql:count:1"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:09c74ee9bc8a305192f5ffacc77db880001f6f9d37a40eef19a502c3620c0352"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'zookeeper' dataset that do not contain the word \"WARN\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that selects lines from the 'zookeeper' dataset where the text does not contain \"warn\" (case-insensitive), and it states that the query returns 682 matching lines, which aligns with the answer."
+    }
+  ]
+}

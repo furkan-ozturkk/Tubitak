@@ -3,40 +3,38 @@
   "group_ids": [
     "windows:semantic:csi_1"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:a285817c3bbaa4183b9d766704e1aa8547927fc86fd7e4187f4f0949b4ff247f"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:36e638e97a1c3cd63ae201d7f4e90e6ff7a03f8cac6e05c2b476807eaebdcc4e"
+    "prompt_sha256": "sha256:c225382eca75cf39909a5fcb6d796dcde7cc94888855673f21e10022b1d07dea"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The excerpt shows the initialization and startup of the TrustedInstaller service, which is part of the CBS (Component-Based Servicing) system.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_1"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states information directly supported by the evidence, such as the TrustedInstaller service starting successfully and the WcpInitialize being called three times."
     },
     {
-      "text": "The service starts successfully, and then various maintenance tasks are performed, including initializing online services and cleaning up old report files.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_1"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (TrustedInstaller), the event type (initialization and startup), and the outcome (successful service start)."
     },
     {
-      "text": "However, an error occurs when attempting to upload unsent reports, with a failure code of 0x80004005, indicating an unspecified failure.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_1"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer specifically addresses the third occurrence of 'CSI' by noting that WcpInitialize was called three times, aligning with the question's focus."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all key elements from the evidence: loading the Servicing Stack, WcpInitialize being called three times, SQM initialization and cleanup, and the successful start of the TrustedInstaller service."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:6521fb28a3f64fe41604d3d4c6a2bcdfccb8f76957b27ef5a8c19c4966b6af74"
+  }
 }

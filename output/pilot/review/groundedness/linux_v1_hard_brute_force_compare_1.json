@@ -4,64 +4,38 @@
     "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
     "linux:hard:brute_force_compare:1:60_30_224_116"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:67bb69a5f1df4be0c71f43358799a60ee1fa4dda0261c0708a806b41497d4c6c"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:c50e859a15fac139bb0190708426a04419fcaceb0f4514d7859c10374abf64d2"
+    "prompt_sha256": "sha256:ebed45490c813bed5e8a22a0d4418708fb252a7b44fe119757081c51c2986a0e"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The login attempts from n219076184117.netvigator.com and 60.30.224.116 exhibit distinct patterns in terms of timing and target accounts.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
-        "linux:hard:brute_force_compare:1:60_30_224_116"
-      ]
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes facts to each group without mixing or misattributing details between them."
     },
     {
-      "text": "The attempts from n219076184117.netvigator.com occurred in a short burst on June 22, with 23 authentication failures recorded within a span of approximately 54 seconds, all targeting the root account.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
-        "linux:hard:brute_force_compare:1:60_30_224_116"
-      ]
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of timing and density of login attempts is directly supported by the timestamps and frequency in the evidence."
     },
     {
-      "text": "In contrast, the attempts from 60.30.224.116 were spread across two days, June 30 and July 1, with a cluster of failures on June 30 at 19:03, followed by another set of failures on July 1 at 00:21, also targeting the root account.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
-        "linux:hard:brute_force_compare:1:60_30_224_116"
-      ]
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not name a specific cause, actor identity, or motive not present in the evidence and instead sticks to the observed pattern."
     },
     {
-      "text": "Notably, the attempts from 60.30.224.116 show a pause in activity between the two sets of failures, whereas the attempts from n219076184117.netvigator.com were more rapid and continuous.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
-        "linux:hard:brute_force_compare:1:60_30_224_116"
-      ]
-    },
-    {
-      "text": "The source that looks more anomalous is n219076184117.netvigator.com due to the high frequency and short duration of the attempts.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:1:n219076184117_netvigator_com",
-        "linux:hard:brute_force_compare:1:60_30_224_116"
-      ]
-    },
-    {
-      "text": "The root cause of these anomalies is that these errors recur without any corrective action in between, indicating a potential ongoing issue with unauthorized access attempts to the system.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer contrasts the timing and target accounts, identifies which source looks more anomalous, and notes the lack of a specific root-cause in the evidence as requested."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:fdfbab86a2f22d4ca083a5eb583703d63207ce54e9206a6ac15651b99e82689c"
+  }
 }

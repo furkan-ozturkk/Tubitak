@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_modelsql_count_5_1",
+  "group_ids": [
+    "windows:modelsql:count:5"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:a5baebe1a484132a3b7f8f65482d69301918c0114221c671763d79297baba265"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of log entries in the 'windows' dataset that do not include the word \"Info\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence suggests that no line contains the exact literal \"Info\" as a substring, but the answer depends on the SQL query's case sensitivity and matching logic, which is not fully described."
+    }
+  ]
+}

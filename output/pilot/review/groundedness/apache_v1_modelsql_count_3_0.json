@@ -1,0 +1,29 @@
+{
+  "question_id": "apache_v1_modelsql_count_3_0",
+  "group_ids": [
+    "apache:modelsql:count:3"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:f774f04efcef5701f4ebd86a9635abe3c350f92d61f1c5d328a9fd4edeb4230b"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of lines in the 'apache' dataset that do not contain the word \"worker\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The lines shown in the evidence do not contain the word \"worker\", but they are only a sample and not sufficient to confirm the total count of 892."
+    }
+  ]
+}

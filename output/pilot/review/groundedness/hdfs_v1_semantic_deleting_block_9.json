@@ -1,0 +1,40 @@
+{
+  "question_id": "hdfs_v1_semantic_deleting_block_9",
+  "group_ids": [
+    "hdfs:semantic:deleting_block_9"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:6b4d186fc4d78136c400af5c536a154b0af7b5bb8e53f7b11d51b0bedf93aa1d"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and stays within the bounds of the structured summary."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the block deletion, the addition of a node to a block map, and the reception of blocks from various sources as described in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the HDFS log around the 235th occurrence of 'Deleting block' and explains what it means, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key elements from the evidence—block deletions, node addition, and block reception—without omitting important details."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:5938b388b45057c5a2b0d9b9451bc665cfbefdb49108c42751799a4cbaecd007"
+  }
+}

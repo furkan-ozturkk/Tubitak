@@ -1,0 +1,26 @@
+{
+  "question_id": "hadoop_v1_modelsql_scalar_2_2",
+  "group_ids": [
+    "hadoop:modelsql:scalar:2"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:f01e9e40de761ff8f36f5296ee5b602e49a966c04c998c66f469b97102f8c85c"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "question_id": "windows_v1_semantic_failed_to_internally_open_7",
+  "group_ids": [
+    "windows:semantic:failed_to_internally_open_7"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:c93f302c388e2879d330ff08edd771f0e493eddab5ace384e9602c50e3e29f7f"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and correctly avoids speculation."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the event type (Windows Update), the entity (Package_for_KB3121255), and the outcome (not stated)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific event near the eighth occurrence of \"Failed to internally open\" as asked in the question."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key elements from the evidence: failed package openings, initialization of sessions, and reading of cached applicability."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:8b2cef9d02eff5d1ae8c8b235a37e3452395d388abcd44f9a9f61684f081ca31"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "question_id": "hdfs_v1_semantic_deleting_block_1",
+  "group_ids": [
+    "hdfs:semantic:deleting_block_1"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:56f0e12a316f3200e1b664ec77bdd7445d45a3f3c0ff1586e0a92d6bdf83b43e"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the deletion of multiple blocks and the specific block mentioned."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the event type (block deletion), the entity (blk_-3860035787700398391), and notes that the outcome is not stated."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what is happening in the log around the 27th occurrence of 'Deleting block,' rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer captures the main idea of multiple deletions and the specific block, but it does not explicitly mention the 27th occurrence or the exact timing or sequence of the deletions."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:750d33b2ae1b83b17015085b2eb30a5b54571350dfc4c4aaf95f0d000553bc84"
+  }
+}

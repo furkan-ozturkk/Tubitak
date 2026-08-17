@@ -3,40 +3,38 @@
   "group_ids": [
     "mac:semantic:thermal_pressure_0"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:88abcff85a4dc1702c9634816be0c7a31c34110c5f534670ed349ec3db05e4f0"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:bd3f548cf6f4581d923814e2d0aa863f5053e09a857615e97ea24395912d797f"
+    "prompt_sha256": "sha256:173e1d0c08e44f9635ce8724d1baca9ae73cc4f89d8b33538b19a0a6d3a1b0f6"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of system log events on two devices, calvisitor-10-105-160-95 and authorMacBook-Pro, occurring over a period of a few minutes.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_0"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence and sticks to the described events."
     },
     {
-      "text": "The events include changes in thermal and memory pressure states, deallocation of a task, and adjustments to wireless networking and power settings, indicating normal system activity and potential preparation for sleep mode.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_0"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the entity, event types, and lack of stated outcome as shown in the evidence."
     },
     {
-      "text": "The logs also suggest a transition from sleep to wake on one of the devices, authorMacBook-Pro, due to a wake on scan offload event.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_0"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by describing what happened around the first occurrence of 'Thermal pressure' and its meaning in context."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer is reasonably complete, summarizing the relevant events and their implications without omitting important details."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:0c5f8c3e2075ee0f56bf287d6c969ac1ccc4baa6e15dd353bd9c84f54b7d3c46"
+  }
 }

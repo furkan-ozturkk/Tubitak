@@ -3,40 +3,38 @@
   "group_ids": [
     "linux:semantic:check_pass_user_unknown_3"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:efbd583274e9696d0ead90adcaee9f5e446521a0ea4549eb92bfdeafe212844f"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:fb6bf08157735e1572d457a0c8e15a835303344dba9608bd2e638a6ba084d151"
+    "prompt_sha256": "sha256:59efc84f0285c06659b31a81c4e2fd301ac114517a07a9a67044c3d47064cb77"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of authentication failures that occurred on the same host, combo, from the same remote host, adsl-70-242-75-179.dsl.ksc2mo.swbell.net.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_3"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence, such as the specific user names or the success of the attempts."
     },
     {
-      "text": "The failures all occurred at the same time, 01:30:59, and were attempts to log in with unknown usernames.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_3"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, the event type (authentication attempts), and the outcome (failures), as shown in the evidence."
     },
     {
-      "text": "Each failure is associated with a different process ID, indicating that they were separate attempts.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_3"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining what took place around the 34th occurrence and its significance, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence—multiple check pass attempts, authentication failures, the entity, and the timing—without omitting important information."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:c3b22f6121aac60406ce311e632503b73e61f788f62e086cdf61238624a01bea"
+  }
 }

@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_lookup_csi_first_1",
+  "group_ids": [
+    "windows:lookup:csi_first"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:4805809f98684f421017d93c6067c95d2ca7efd434b014abd4db07e2b973ecfb"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question clearly asks for the first log line mentioning 'CSI', and it specifies that the match is case-insensitive."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is the exact text of one log line, as required for this type of question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a log line that contains 'CSI' and matches the criteria specified in the question."
+    }
+  ]
+}

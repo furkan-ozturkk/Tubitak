@@ -3,40 +3,38 @@
   "group_ids": [
     "hadoop:semantic:mrappmaster_4"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:8aa79dfd205c9b07cc2c2217c663a87506bfc52d9a55d336004f15a7baed2a94"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:f307a6ff96eebd9ab50db84916f4282e396a2fab56bc3dc9592f26a04695d9f0"
+    "prompt_sha256": "sha256:2ad7e0526f984b6d1966aa8011f9b1e7a602ad9b16472a3203e0f22baea0e399"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows the initialization of a Hadoop MapReduce application, specifically the MRAppMaster, which is registering various event handlers with the AsyncDispatcher.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_4"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence and aligns with the structured summary and log entries."
     },
     {
-      "text": "The event handlers are for different types of events, including job history, job, task, task attempt, commit, and speculation events.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_4"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the entity, event type, and outcome as described in the evidence and structured summary."
     },
     {
-      "text": "The OutputCommitter is also being set to FileOutputCommitter, indicating that the application will be writing output files.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_4"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the Hadoop log around the fifth occurrence of 'MRAppMaster' and explains what it means."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all important parts of the evidence, such as MRAppMaster creation, token execution, and setup of OutputCommitter and event dispatchers."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:5e0b920dba9e054f4b507a27485718d8e35d3fd28542e3816efbd874bd4d0f28"
+  }
 }

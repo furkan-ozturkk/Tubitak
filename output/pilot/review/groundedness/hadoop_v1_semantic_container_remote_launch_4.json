@@ -1,0 +1,40 @@
+{
+  "question_id": "hadoop_v1_semantic_container_remote_launch_4",
+  "group_ids": [
+    "hadoop:semantic:container_remote_launch_4"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:c0bae70613c2bdbbc230bb5a72633e281da955596d0cd3a56f3f5a6a9efc4cd7"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and accurately reflects the described events."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, the event type (task assignment and container launch), and aligns with the structured summary's description."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by walking through the log around the relevant event and explaining its meaning."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer captures the main points but omits specific log details like timestamps and the exact sequence of events in the log entries."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:95fd3c14d14268527e0e390f8f0f1292d67e9e5e6ba0f88056c7adbdc729758b"
+  }
+}

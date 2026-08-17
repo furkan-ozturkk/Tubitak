@@ -1,0 +1,40 @@
+{
+  "question_id": "linux_v1_semantic_session_opened_6",
+  "group_ids": [
+    "linux:semantic:session_opened_6"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:c49efc48db32439ddd7094407c2748f2ba31d046e937512f30f7300cc6dc7073"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and avoids speculation."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the event type (session openings and closings), the entity (user test), and notes that no outcome is stated, aligning with the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what is happening around session openings, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer captures the general pattern but omits specific details like the 73rd occurrence or the exact timing and sequence of session events for user test."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:08bc3d5963ea077101e9bf1c3ad1905fb91e0aa41b881630e1fd2b1fc1661d6f"
+  }
+}

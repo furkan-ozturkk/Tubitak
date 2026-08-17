@@ -1,0 +1,29 @@
+{
+  "question_id": "hdfs_v1_presence_outofmemoryerror_0",
+  "group_ids": [
+    "hdfs:presence:outofmemoryerror"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:4793d118036b603e1053e8b0a1b33191e16c3d95bdc82b717ccd5d98a46986c1"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log contains any line with 'OutOfMemoryError'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a direct YES/NO response with the required parenthetical count, correctly formatted as 'No (0 matching lines)'."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows that no lines matched the query for 'OutOfMemoryError', supporting the answer that there are 0 matching lines."
+    }
+  ]
+}

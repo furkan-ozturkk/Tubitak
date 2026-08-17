@@ -3,40 +3,38 @@
   "group_ids": [
     "windows:semantic:csi_3"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:4adf11d1a1fe91d08c866b567dc0b09cf7fd511aac4d01073e63ad5cfd0e8e37"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:bde20a7af04651076736fb05926a8ca3a9f0bdce1e44a7363922a75fa62b3ad5"
+    "prompt_sha256": "sha256:84d2ce4a8e5bf0fe0f81c4c3584c996398f964ab89731d052ad1b365abb1174e"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows the startup processing of the CBS (Component-Based Servicing) system, which terminated normally and did not require any additional processing.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_3"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and accurately reflects the described events."
     },
     {
-      "text": "The CSI (Component Servicing Infrastructure) store was initialized, and two sessions were started by the Windows Update Agent.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_3"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (TrustedInstaller), the event type (system initialization), and the outcome (startup processing not required, threads terminated normally)."
     },
     {
-      "text": "An error occurred during this process, with a warning about an unrecognized package attribute and an invalid item in the manifest.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_3"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the seventh occurrence of 'CSI' and explains what took place and its significance."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key elements from the evidence: the checking of startup processing, the creation of an NT transaction, the initialization of the CSI store and CBS sessions, and the normal termination of the thread."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:8f6fc827922233485b7e28a5723cf7732bd2e6da031e495c14bfa1c59b770ca7"
+  }
 }

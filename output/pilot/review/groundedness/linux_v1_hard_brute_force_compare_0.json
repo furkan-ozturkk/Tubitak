@@ -4,64 +4,37 @@
     "linux:hard:brute_force_compare:0:150_183_249_110",
     "linux:hard:brute_force_compare:0:207_243_167_114"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:f1c11aa71e4ddc753bdc1cbacebe80eec826f1fca7da89718a33d3c07049adc7"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:6a7f0151712bb076e885fbb2821ba6311e70a8b6d8a13ddbfc7a979e82e62cfe"
+    "prompt_sha256": "sha256:02f0ba5ee5e6159fb41afb009176357b0ec0221fb348662f6de4c3c4cb3f7d23"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The SSH authentication attempts from 150.183.249.110 and 207.243.167.114 exhibit distinct patterns in terms of timing and targeted accounts.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:0:150_183_249_110",
-        "linux:hard:brute_force_compare:0:207_243_167_114"
-      ]
+      "dimension": "groups_used_correctly",
+      "verdict": "partial"
     },
     {
-      "text": "The attempts from 150.183.249.110 occur in rapid succession, with multiple attempts per second, and are all targeted at the root account.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:0:150_183_249_110",
-        "linux:hard:brute_force_compare:0:207_243_167_114"
-      ]
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of timing and frequency between the two groups is supported by the timestamps and line counts in the evidence."
     },
     {
-      "text": "In contrast, the attempts from 207.243.167.114 are spaced out over a longer period, with approximately 8-10 seconds between each attempt, and are also targeted at the root account.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:0:150_183_249_110",
-        "linux:hard:brute_force_compare:0:207_243_167_114"
-      ]
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not name a specific cause, actor identity, or motive not present in the evidence."
     },
     {
-      "text": "The source that looks more anomalous is 150.183.249.110, given the high frequency and short duration of its authentication attempts, which suggests a potential brute-force attack.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:0:150_183_249_110",
-        "linux:hard:brute_force_compare:0:207_243_167_114"
-      ]
-    },
-    {
-      "text": "The attempts from 207.243.167.114, while still suspicious, appear more sporadic and may indicate a different type of attack or scanning behavior.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:0:150_183_249_110",
-        "linux:hard:brute_force_compare:0:207_243_167_114"
-      ]
-    },
-    {
-      "text": "The root cause of these errors is that these authentication failures recur without any corrective action in between, indicating a persistent attempt to gain unauthorized access to the system.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by contrasting timing and accounts targeted, identifies 150.183.249.110 as more anomalous, and provides a root-cause hypothesis grounded in the evidence."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:1bee4bfc5706a99e299fd653d52d58f9c95c32dd949cb1fb3012ddc541ae28a6"
+  }
 }

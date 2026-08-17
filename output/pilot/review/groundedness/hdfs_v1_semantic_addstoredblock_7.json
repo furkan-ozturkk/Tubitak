@@ -3,40 +3,34 @@
   "group_ids": [
     "hdfs:semantic:addstoredblock_7"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:253d1a967a3cec58d4c43f3f1cc0df5e4ce79eefc7323110da064dbd1466e995"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:3d14c0b54bc677c26477d6cb124adb1c6c67cddc2952561ab05ff471d5dec881"
+    "prompt_sha256": "sha256:efbe1d49bc9788e55961ea5370ca3d26b0d741a0a713ebc7e2d306e34c92f436"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of events related to HDFS block storage and transfer, including the addition of nodes to block maps and the reception of blocks by DataNodes.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hdfs:semantic:addstoredblock_7"
-      ]
+      "dimension": "grounded",
+      "verdict": "partial"
     },
     {
-      "text": "The events involve multiple blocks and nodes, with each block having a unique ID and being associated with a specific node and size.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hdfs:semantic:addstoredblock_7"
-      ]
+      "dimension": "correct",
+      "verdict": "partial"
     },
     {
-      "text": "The log lines indicate that the blocks are being stored, received, or transferred between different nodes, with sizes consistently reported as 67108864.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hdfs:semantic:addstoredblock_7"
-      ]
+      "dimension": "relevant",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial"
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:57f1019044230d787cdf12a856a08fc20065862d1230d4915c5e6da502f34a5c"
+  }
 }

@@ -3,40 +3,38 @@
   "group_ids": [
     "bgl:semantic:instruction_cache_parity_error_corrected_3"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:7e8b410f7e280ed79ae3d0b14a2765dae68c655aacb69c0193cc5c1294eaa9db"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:52f24bf7daf243a603be1a4389fc8c57d26f8b642b36fe1c02e68a57e5e27c04"
+    "prompt_sha256": "sha256:7f296e6db3cb5e82f5584c59d5b83fde02e9f90f5d5b71acfa3106d484742eac"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of instruction cache parity error corrections occurring on R02-M1-N0-C:J12-U11 between 21:31 and 22:23 on 2005-06-14.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:semantic:instruction_cache_parity_error_corrected_3"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence, such as the specific cause of the errors or any system failure."
     },
     {
-      "text": "The same type of error is not shown to occur on this component after 22:23, but two different components, R21-M1-N1-C:J07-U11 and R25-M1-N1-C:J15-U11, are shown to be generating core files at 06:57 on 2005-06-15.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:semantic:instruction_cache_parity_error_corrected_3"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, the event type (instruction cache parity error corrections), and the outcome (no stated negative impact)."
     },
     {
-      "text": "These events indicate hardware or system issues, with the first series suggesting recurring cache errors and the latter two indicating potential system crashes or failures.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "bgl:semantic:instruction_cache_parity_error_corrected_3"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by describing what occurred around the 13th occurrence and its significance, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: the entity, the repeated corrections, the system's ability to recover, and the lack of stated negative outcome."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:65cfc8736d6342518e08f9e129097f77406c235ade1611267a1d245e2bfd7ebc"
+  }
 }

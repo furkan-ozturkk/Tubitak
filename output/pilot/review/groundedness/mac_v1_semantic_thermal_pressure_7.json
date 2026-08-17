@@ -3,40 +3,38 @@
   "group_ids": [
     "mac:semantic:thermal_pressure_7"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:a66adee82c54ea6bb24e7972347ec935b4ae62a4d5dc64cf99295baf8e4426a8"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:530bae1c673cff0fba9698d407e171b253db41c4a6bd0cba1a9dc9114b611d39"
+    "prompt_sha256": "sha256:49930c219adec4d858a9793a0734849b380a126869077584e6b165899b13adf7"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The excerpt shows a series of system log events on a Mac device, including thermal and memory pressure states, network activity, and system sleep and wake events.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_7"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only mentions events explicitly listed in the evidence and does not add unsupported claims."
     },
     {
-      "text": "A process named com.apple.Addres was denied network-outbound access, and the system underwent a full wake from sleep.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_7"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type, and outcome as described in the evidence."
     },
     {
-      "text": "The log also includes messages from various processes, such as com.apple.cts and QQ, indicating scheduled job evaluations and other activities.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_7"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by summarizing the event shown in the log near the 22nd occurrence of 'Thermal pressure'."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all key events from the evidence without omitting important details."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:7bd3352b8d3ebfed50213a8bd8b84416b12b2f088c4c6f98f8fc91996157bd90"
+  }
 }

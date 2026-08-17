@@ -3,40 +3,38 @@
   "group_ids": [
     "openstack:semantic:nova_osapi_compute_wsgi_server_3"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:31d6f9002b5ebea5f171fe9462b53fa27cdc141b81ae302776970d8820a25aaa"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:45ba469b7b2db252ecfc68538d7a56f05c41cd1b3227027f55f0dda7200570a4"
+    "prompt_sha256": "sha256:f2c0e4c8e82c80c8f479a78593cc2b1ec0554e25669e58fd4272c2720ec0d56c"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of API requests and image cache checks on an OpenStack system.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_3"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states information directly supported by the evidence and does not add unsupported claims."
     },
     {
-      "text": "A GET request to retrieve server details is made to the nova-api, and around the same time, the nova-compute checks the status of an image with id 0673dd71-34c5-4fbb-86c4-40623fbe45b4 in the image cache.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_3"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the instance ID, the event type (spawning and building), and the skipped sync_power_state due to a pending task."
     },
     {
-      "text": "The image is found to be in use on the local node, and subsequent metadata requests are made to the nova-api from two different IP addresses.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_3"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what took place and its significance, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: instance spawning, sync_power_state skipped, VM resumed, and instance built, with approximate times."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:12301f3ba3b51f7c308fa25c452199b7ef15b458b57e228d9883a72261b5fd5c"
+  }
 }

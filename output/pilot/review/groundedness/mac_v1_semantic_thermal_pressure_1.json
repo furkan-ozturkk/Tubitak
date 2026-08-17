@@ -3,40 +3,38 @@
   "group_ids": [
     "mac:semantic:thermal_pressure_1"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:e097dff34615b782b4c501d2f429c63c98ad318803d21bdef9939b871136699c"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:5d89031b5c170f8214c62bb54582bad85242c88aea83611b24fed703ba5cf3d3"
+    "prompt_sha256": "sha256:d2299e64acea6ce18173d2b40ad1f01bc46dcb0500169177d56c7dd88d8d9a60"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows various system events and conditions on two devices, calvisitor-10-105-160-95 and authorMacBook-Pro, including changes in thermal and memory pressure, network activity, and dock notifications.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_1"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence and sticks to the described events."
     },
     {
-      "text": "The events indicate normal system operations, such as network connections and application notifications, as well as some specific technical details like channel changes and AQM aggregate results.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_1"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the entity, event types (kernel messages, interface transitions, thermal pressure), and the lack of a stated outcome."
     },
     {
-      "text": "The logs do not indicate any specific errors or issues, but rather provide a snapshot of system activity over a period of time.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_1"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by describing what is happening in the log around the relevant events, not just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer is reasonably complete but does not specifically focus on the fourth occurrence of 'Thermal pressure' or describe what is happening around it."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:06ae76e38efc65dc9aeffa73dce753cb855d1e7ed49e23431ca645c12de8e376"
+  }
 }

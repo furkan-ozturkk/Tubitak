@@ -3,40 +3,38 @@
   "group_ids": [
     "mac:semantic:thermal_pressure_2"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:f0b1b3eb02e41960f402cc7d73edd4712e9712b57d014ef2d5ec4d2e80059223"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:5fc0ed12e8a1c6537dc85c5044be6759590f6708f40c1d6076a02c8da5ece064"
+    "prompt_sha256": "sha256:fcc08b21450546f986bcf9a31ff0c792af297a07221bb2e4d214fd26ab2fed9d"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows various system events and conditions on two Mac systems, calvisitor-10-105-163-202 and authorMacBook-Pro, including thermal and memory pressure states, location services, and network activity.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_2"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not supported by the evidence and accurately reflects the described events."
     },
     {
-      "text": "The events occur over a period of approximately 26 minutes, with some events, such as the AppleCamIn system wake call, happening simultaneously on both systems.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_2"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type, and outcome as described in the evidence."
     },
     {
-      "text": "The log lines also indicate some errors or denied actions, such as a hashing failure in NetworkAnalyticsEngine and a denied network-outbound request by sandboxd.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_2"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the event shown in the log, not just a generic summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key elements from the evidence without omitting important details."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:b0ff304f4f96ad71e792d96927704b29f8d68eae328586bf11c3d2aa247eb739"
+  }
 }

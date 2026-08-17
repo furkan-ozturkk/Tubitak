@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_presence_error_2",
+  "group_ids": [
+    "windows:presence:error"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:b7526a6eee9d68d9ad1b74d6991952b9645e1706c98c8df237c8965aef30d215"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question clearly asks whether there is at least one occurrence of 'Error' in the log, and it specifies the pattern to look for."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer provides a 'Yes' verdict with a parenthetical count of matching lines, which matches the required format for this type of question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that finds lines with 'Error' (case-insensitively) and shows two such lines, supporting the answer's claim of two matches."
+    }
+  ]
+}

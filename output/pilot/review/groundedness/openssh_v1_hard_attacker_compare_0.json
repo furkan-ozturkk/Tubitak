@@ -4,67 +4,38 @@
     "openssh:hard:attacker_compare:0:183_62_140_253",
     "openssh:hard:attacker_compare:0:187_141_143_180"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:2a50c47c11f2b076bf07399085429989b784b03e6c6b76969493b4497b663244"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:8d9ed3abc0345e7524edf506da4629004f384ae21b779fe596401ab96655d93b"
+    "prompt_sha256": "sha256:53e0d1836eb3fe24f17f897f1eb92a01b3a4b9bf1da6bb91088e67af7c48d8fd"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The attack patterns from source 183.62.140.253 and source 187.141.143.180 exhibit distinct characteristics in terms of target accounts, request cadence, and outcome.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:0:183_62_140_253",
-        "openssh:hard:attacker_compare:0:187_141_143_180"
-      ]
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes specific facts to each group without misrepresenting one group's actions as the other's."
     },
     {
-      "text": "The attacker from 183.62.140.253 primarily targets the root account, with a high frequency of failed password attempts and received disconnects, spanning a duration of approximately 10 minutes.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:0:183_62_140_253",
-        "openssh:hard:attacker_compare:0:187_141_143_180"
-      ]
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of attack patterns, including the volume, speed, and range of target accounts, is supported by the timestamps and log entries in the evidence."
     },
     {
-      "text": "In contrast, the attacker from 187.141.143.180 also targets the root account, but with a slightly lower frequency of attempts, and also tries other accounts such as magnos, ingrid, jay, and cyrus, over a shorter duration of around 7 minutes.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:0:183_62_140_253",
-        "openssh:hard:attacker_compare:0:187_141_143_180"
-      ]
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer avoids naming specific causes, actors, or motives not present in the evidence and instead offers a general hypothesis based on the observed patterns."
     },
     {
-      "text": "The cadence of requests from 183.62.140.253 is more rapid, with attempts often occurring within seconds of each other, whereas the requests from 187.141.143.180 are spaced out over longer intervals.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:0:183_62_140_253",
-        "openssh:hard:attacker_compare:0:187_141_143_180"
-      ]
-    },
-    {
-      "text": "Based on the evidence, 183.62.140.253 appears to be the more anomalous attacker due to the high volume and rapid pace of its attempts.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:0:183_62_140_253",
-        "openssh:hard:attacker_compare:0:187_141_143_180"
-      ]
-    },
-    {
-      "text": "The root-cause hypothesis is that these errors recur without any corrective action in between, suggesting a persistent and automated attack from both sources.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:0:183_62_140_253",
-        "openssh:hard:attacker_compare:0:187_141_143_180"
-      ]
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer identifies the more anomalous attacker and provides a root-cause hypothesis grounded in the evidence."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:5d96e79692e9db772f4340639c97255b9dce4515b3207335edf649b3df6e6ec4"
+  }
 }

@@ -3,40 +3,38 @@
   "group_ids": [
     "mac:semantic:thermal_pressure_5"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:c1029ecebfc3aafebc0e12a8b1141a7a7c13d065335ab823f305bcf0ea94c4d8"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:a3f7f1df2c312c255518c08f1d2318471d2b8f6c1483c0b321c2bba1ea6fe817"
+    "prompt_sha256": "sha256:23b288f7dbb3bd528f3654373bc71b93a99ea8a4caae7a4211a0d3650654cc55"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The excerpt shows a series of system log events indicating various conditions and errors on a Mac system, including thermal and memory pressure states, assertion failures, and kernel activities related to hibernation and memory management.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_5"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything that is not supported by the evidence provided in the log entries."
     },
     {
-      "text": "An assertion failure occurred in BezelServices and UserEventAgent, with the latter happening twice, and the kernel performed actions such as waiting for a Thunderbolt operation and freeing up wired pages.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_5"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type, and notes the lack of a stated outcome as described in the structured summary and evidence."
     },
     {
-      "text": "The system's thermal pressure state changed from 1 to 0, and its memory pressure state remained at 0.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_5"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what happened around the 16th occurrence of 'Thermal pressure' and what it means, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key events and their implications from the evidence, such as thermal and memory pressure checks, assertion failures, and other system behaviors."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:182e368ebc65418e2a779e3fb0b8f024ec84bccda09153ab011d29f1d7fa65f6"
+  }
 }

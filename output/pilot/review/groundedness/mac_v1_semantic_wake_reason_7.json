@@ -1,0 +1,40 @@
+{
+  "question_id": "mac_v1_semantic_wake_reason_7",
+  "group_ids": [
+    "mac:semantic:wake_reason_7"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:76fa34dbecc49aee5444608628fa58227dfaa2c810070c0306b3c67fd36168ef"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only mentions events and details explicitly present in the evidence and does not add unsupported information."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (authorMacBook-Pro), the event type (system and application logs), and accurately reflects the outcomes described in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific event near the 22nd occurrence of 'wake reason' and goes beyond a generic summary by focusing on relevant details."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer captures the main notable error and some other issues, but it omits the specific wake reason event (Host 0x01) and multitouch device start, which are also relevant to the question."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:67ab35e31bd99158e038d88222d5907963de01afb364d02951ff431d0e35ead7"
+  }
+}

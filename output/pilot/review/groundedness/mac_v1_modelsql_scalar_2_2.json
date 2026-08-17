@@ -1,0 +1,29 @@
+{
+  "question_id": "mac_v1_modelsql_scalar_2_2",
+  "group_ids": [
+    "mac:modelsql:scalar:2"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:9d65278facb3e994cce90aab0e31a636e0ebd2c6f547149e3f682d17811ccfa3"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of different processes in the 'mac' dataset logs."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which matches the required answer shape for the question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that counts distinct processes using a pattern match, and sample log lines show the presence of process names in the expected format."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "bgl_v1_presence_kerndtlb_2",
+  "group_ids": [
+    "bgl:presence:kerndtlb"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:97d080eee2514c1f1b90c43cd5925084de1b6360e876bd2955216943872be5c4"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the string 'KERNDTLB' appears at least once in the log."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format, stating a verdict and a count of matching lines."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows multiple lines containing 'KERNDTLB' and confirms the query returns 60 matching lines, supporting the answer."
+    }
+  ]
+}

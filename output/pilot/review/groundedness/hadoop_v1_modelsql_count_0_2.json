@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_0_2",
+  "group_ids": [
+    "hadoop:modelsql:count:0"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:0a752c9647ae7cff018c776fedc1cae25b9e12420ebf243271c537acd0465e5b"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the number of log lines in the 'hadoop' dataset that contain \"INFO\" in their message."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that selects lines from the 'hadoop' dataset where the text contains \"INFO\", and it states that this query returns 1042 lines, which matches the answer."
+    }
+  ]
+}

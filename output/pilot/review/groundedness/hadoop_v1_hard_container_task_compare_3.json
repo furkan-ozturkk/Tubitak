@@ -4,56 +4,38 @@
     "hadoop:hard:container_task_compare:3:container_1445144423722_0020_01_000008",
     "hadoop:hard:container_task_compare:3:container_1445144423722_0020_01_000009"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:9b68770493e23e57baeaf87b0084ed337206931a18040cf39f0935f6ff01d75b"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:272e7b414b37d27eb59684661285f1d8bc1785e3915ceca1ffe6146ce5cf7fbb"
+    "prompt_sha256": "sha256:830b514f5450d85d4d22b52b595b875c62f19804f083924de3ba215897a4856c"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The two groups of log lines, container_1445144423722_0020_01_000008 and container_1445144423722_0020_01_000009, show similar sequences of events, with each container being assigned to a task attempt and then launched remotely.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:hard:container_task_compare:3:container_1445144423722_0020_01_000008",
-        "hadoop:hard:container_task_compare:3:container_1445144423722_0020_01_000009"
-      ]
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes facts to each group without misrepresenting one as the other."
     },
     {
-      "text": "The events in both groups occur within a short timeframe of each other, with the events in the second group happening about 8 seconds after the events in the first group.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:hard:container_task_compare:3:container_1445144423722_0020_01_000008",
-        "hadoop:hard:container_task_compare:3:container_1445144423722_0020_01_000009"
-      ]
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of the two groups' sequences and timing is based directly on the timestamps and event types in the evidence."
     },
     {
-      "text": "Both containers are also launched on the same NodeManager, MSRA-SA-41.fareast.corp.microsoft.com:7109, which suggests that the issue is not with the NodeManager itself.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:hard:container_task_compare:3:container_1445144423722_0020_01_000008",
-        "hadoop:hard:container_task_compare:3:container_1445144423722_0020_01_000009"
-      ]
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not assign specific causes or motives not present in the evidence and sticks to the described events."
     },
     {
-      "text": "However, the fact that both containers are assigned and launched in quick succession, with no apparent errors or issues reported in the log lines, does not necessarily indicate a problem, but the repetition of this pattern without any corrective action or errors reported in between these events may indicate a potential issue.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:hard:container_task_compare:3:container_1445144423722_0020_01_000008",
-        "hadoop:hard:container_task_compare:3:container_1445144423722_0020_01_000009"
-      ]
-    },
-    {
-      "text": "The root cause of the potential issue appears to be that these container assignments and launches recur without any reported errors or corrective actions in between.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by comparing the sequences and determining that neither shows failure signs, as requested."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:829f15e9e5441218c7febfa25bd43fd0a3471a932b8c12223f08eb5a4a371f22"
+  }
 }

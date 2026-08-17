@@ -3,40 +3,38 @@
   "group_ids": [
     "hadoop:semantic:mrappmaster_9"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:e5c67b2e5d448525ca1cd0e1e495444dd0a225558806590a76a8f36aa837c0ce"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:686b23a750299ceac132ce4444575c6039cf8d75878a71d9111b93f156f9d474"
+    "prompt_sha256": "sha256:66100d760305ffc22dca44ffb9cc228d34b63c79f3e866872bd2f7854a38a998"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of registration and initialization events for various Hadoop YARN components, including event dispatchers and job history utilities.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_9"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and correctly summarizes the registration of event handlers and the specification of the default file system."
     },
     {
-      "text": "The lines indicate that these components are being set up and configured, with multiple references to the default file system and the registration of different event types.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_9"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the event type (system initialization), the entity (msra-sa-41), and the observed events (registration of event handlers and specification of the default file system)."
     },
     {
-      "text": "The excerpt also notes that emitting job history data to the timeline server is not enabled.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_9"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by walking through the log entries around the tenth occurrence of 'MRAppMaster' and explaining what they mean, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the important parts of the evidence, such as the registration of event handlers and the repeated specification of the default file system, without omitting key details."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:5546bb4f3688c094ea12444ccd74d4d7f893e2b6d3d1af70d5eac009a65a0a88"
+  }
 }

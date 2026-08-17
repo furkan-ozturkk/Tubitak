@@ -41,6 +41,9 @@ class GenerationSummary:
             run was aimed at.
         target_total: The run's ``--target_total_questions`` reporting target.
         difficulty_mix: The configured mix, recorded beside the realised counts.
+        easy_target_total: The run's ``--easy_target_total``, or ``None`` when
+            the model-SQL question source was off and ``easy`` is the curated
+            count alone.
     """
 
     easy: int = 0
@@ -50,6 +53,7 @@ class GenerationSummary:
     official_set: bool = False
     target_total: int | None = None
     difficulty_mix: Any | None = None
+    easy_target_total: int | None = None
 
     @property
     def total(self) -> int:
@@ -188,7 +192,9 @@ def build_config_snapshot(args: Any) -> dict[str, Any]:
         "test_fraction": args.test_fraction,
         "min_matches": args.min_matches,
         "max_cited_lines": args.max_cited_lines,
-        "window_size": args.window_size,
+        "easy_target_total": args.easy_target_total,
+        "context_before": args.context_before,
+        "context_after": args.context_after,
         "questions_per_dataset": args.questions_per_dataset,
         "min_sentences": args.min_sentences,
     }

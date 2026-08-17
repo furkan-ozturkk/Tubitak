@@ -3,40 +3,38 @@
   "group_ids": [
     "openssh:semantic:possible_break_in_attempt_8"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:deb782f80a59ddfc785fa1a7816cdf624f93995a497b142bab87897b3af40fb5"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:1f365d2711b44ee5d657f2d031e90064bcf055039aec9a6b3c914a370836cf33"
+    "prompt_sha256": "sha256:d19038034629547f99b5a5b35ff4b60c48d3c92cb2744923bddf125fd8c36318"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a failed SSH login attempt from the IP address 187.141.143.180, where an invalid user named \"ghost\" attempted to authenticate.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:semantic:possible_break_in_attempt_8"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the IP address, the usernames used, and the system's logging of possible break-in attempts."
     },
     {
-      "text": "The login attempt failed due to the user being unknown, resulting in an authentication failure.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:semantic:possible_break_in_attempt_8"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (187.141.143.180), the event type (authentication failures and connection attempts), and the outcome (no successful access)."
     },
     {
-      "text": "The session was subsequently disconnected, but another similar login attempt with the same warning of a possible break-in attempt occurred shortly after.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:semantic:possible_break_in_attempt_8"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining what occurred around the 65th \"POSSIBLE BREAK-IN ATTEMPT\" log entry and its significance in terms of potential malicious activity."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: the IP address, the usernames used, the failed authentication attempts, and the system's logging of possible break-in attempts."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:ca49e19fd079c4f2b51a213a88f9ffeb1c6c822bc57abe84f5d409d6cef7f36b"
+  }
 }

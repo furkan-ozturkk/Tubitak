@@ -174,7 +174,9 @@ def _validate_tier_knobs(args: argparse.Namespace) -> None:
     """
     positive = {
         "max_cited_lines": args.max_cited_lines,
-        "window_size": args.window_size,
+        "easy_target_total": args.easy_target_total,
+        "context_before": args.context_before,
+        "context_after": args.context_after,
         "questions_per_dataset": args.questions_per_dataset,
         "min_sentences": args.min_sentences,
         "hard_pairs_per_dataset": args.hard_pairs_per_dataset,
@@ -263,8 +265,8 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
         "--review_dir",
         type=Path,
         default=DEFAULT_REVIEW_DIR,
-        help="Directory the hard tier writes its per-question groundedness reports to, and "
-        "review-export summarises from",
+        help="Directory the medium and hard tiers write their per-question validation "
+        "reports to (audit detail beyond each record's own embedded validation field)",
     )
     parser.add_argument(
         "--worksheet",
@@ -345,11 +347,26 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
         "default 5)",
     )
     parser.add_argument(
-        "--window_size",
+        "--easy_target_total",
         type=int,
         default=None,
-        help="[generate/medium] Evidence lines per medium question; Section 7.2 caps it at 8 "
-        "(dataclass default 8)",
+        help="[generate/easy] Total easy-tier question count to aim for; the gap beyond the "
+        "curated literals is filled by model-invented, SQL-backed questions (dataclass "
+        "default None, meaning the curated literals alone)",
+    )
+    parser.add_argument(
+        "--context_before",
+        type=int,
+        default=None,
+        help="[generate/medium] Lines of context cited before the anchor occurrence "
+        "(dataclass default 5)",
+    )
+    parser.add_argument(
+        "--context_after",
+        type=int,
+        default=None,
+        help="[generate/medium] Lines of context cited after the anchor occurrence "
+        "(dataclass default 5)",
     )
     parser.add_argument(
         "--questions_per_dataset",
@@ -455,6 +472,21 @@ def args_parser(argv: list[str] | None = None) -> argparse.Namespace:
         help="[verify-answers] Model id --sql_base_url was started with. Omit to reuse "
         "--groundedness_model, which is already a different family from the drafting model, "
         "so the query checking an answer never comes from the model that wrote it",
+    )
+    parser.add_argument(
+        "--sql_invention_base_url",
+        type=str,
+        default=None,
+        help="[generate/easy] Server that invents an --easy_target_total model-SQL question. "
+        "Omit to use the dataclass default, a dedicated code-specialised model rather than "
+        "--gold_draft_base_url",
+    )
+    parser.add_argument(
+        "--sql_invention_model",
+        type=str,
+        default=None,
+        help="[generate/easy] Model id --sql_invention_base_url was started with. Must be a "
+        "different family from --groundedness_model (Section 5.5/6)",
     )
     parser.add_argument(
         "--require_models",

@@ -1,0 +1,29 @@
+{
+  "question_id": "zookeeper_v1_modelsql_scalar_2_0",
+  "group_ids": [
+    "zookeeper:modelsql:scalar:2"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:9f58cebbaaaa7d629cf6aea35c0b561a23da95b2b2c1c9014a4b0aaef7b24783"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the total number of unique IP addresses in the 'zookeeper' dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which is the correct form for the question's required answer."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence includes several IP addresses, but it is unclear if the count of 19 is accurate without seeing the full dataset or the SQL query used."
+    }
+  ]
+}

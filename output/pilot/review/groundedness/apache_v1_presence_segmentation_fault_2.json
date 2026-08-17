@@ -1,0 +1,29 @@
+{
+  "question_id": "apache_v1_presence_segmentation_fault_2",
+  "group_ids": [
+    "apache:presence:segmentation_fault"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:6a29ac540011300735dc80f3bc4ce7193797745be77c9c0dd3a07922311aaa3c"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the literal \"Segmentation fault\" appears in the log."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format, stating a verdict (\"No\") and a count (\"0 matching lines\")."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows that no lines matched the query for \"Segmentation fault,\" supporting the answer that there are 0 matching lines."
+    }
+  ]
+}

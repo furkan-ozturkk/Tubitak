@@ -3,40 +3,38 @@
   "group_ids": [
     "openstack:semantic:nova_osapi_compute_wsgi_server_6"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:dc8c4a1593dbfb27435f30f7633751d22db1cc1be2142dc65d7176e77e45d51d"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:aa4e8b38853e7cbf63e6beb843cfdc7c93e402619801fd237e9a5cdd07e076f6"
+    "prompt_sha256": "sha256:bd6b0734f9e422b163e722269af2a35ce2e0ef4837e1696bb34ac2e4ab4229cd"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of HTTP GET requests to the Nova API to retrieve server details, all with the same project ID (54fadb412c4e40cdbaed9335e4c35a9e) and from the same IP address (10.11.10.1).",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_6"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states information that is directly supported by the evidence provided in the logs and structured summary."
     },
     {
-      "text": "Each request is successful, with a status code of 200 and a response length of 1893 bytes.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_6"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, the events (GET requests, image creation, VM stop), and the outcome (status code 200 indicating success)."
     },
     {
-      "text": "The requests are made in quick succession, with response times ranging from 0.252 to 0.277 seconds.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_6"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by describing what is happening in the log around the specified log line and includes relevant details."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all important parts of the evidence: the server information retrieval, image creation, VM stop, and multiple server detail requests."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:5e7d30fe1e45d65e1bcc414616378c64eb7ec94777506a651070f7ead63f500a"
+  }
 }

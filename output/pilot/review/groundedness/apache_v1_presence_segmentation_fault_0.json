@@ -1,0 +1,29 @@
+{
+  "question_id": "apache_v1_presence_segmentation_fault_0",
+  "group_ids": [
+    "apache:presence:segmentation_fault"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:0ec399a57e777a1beba0f90a6e74517882b366fa5a3c05bb2742b2b80eb89c13"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log contains any line with the exact phrase 'Segmentation fault'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format for a yes/no question, stating a verdict and a count in parentheses."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows that no line in the dataset contains the literal 'Segmentation fault', supporting the answer \"No (0 matching lines)\"."
+    }
+  ]
+}

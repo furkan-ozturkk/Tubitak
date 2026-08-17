@@ -28,6 +28,7 @@ if REPO_ROOT not in sys.path:
 
 from src.commands import validate
 from src.data.corpus_loader import sha256_bytes, sha256_line
+from src.generators.easy_tier import query_display_sql
 from src.params.validation_params import ValidationConfig
 from src.utils.helper_splits import resolve_splits
 
@@ -56,6 +57,38 @@ class FakeCorpusRepository:
             lines: The corpus lines, index ``i`` being line ``i + 1``.
         """
         self.lines = lines
+        self.raw_sql_results: dict[str, list[tuple]] = {}
+
+    def assert_readonly_select(self, sql: str) -> None:
+        """Delegates to the real guard -- it touches no database, only text."""
+        from src.utils.helper_postgres import assert_readonly_select as real_guard
+
+        real_guard(sql)
+
+    def assert_scoped_to_dataset(self, sql: str, dataset_key: str) -> None:
+        """Delegates to the real guard -- it touches no database, only text."""
+        from src.utils.helper_postgres import (
+            assert_scoped_to_dataset as real_guard,
+        )
+
+        real_guard(sql, dataset_key)
+
+    def run_readonly_query(self, sql: str) -> list[tuple]:
+        """Returns the rows a test registered for one exact ``raw_sql`` statement.
+
+        Args:
+            sql: The statement being "executed".
+
+        Returns:
+            The rows registered for it in ``self.raw_sql_results``.
+
+        Raises:
+            RuntimeError: If the test never registered a result for this SQL --
+                the same failure a syntactically-broken real query would produce.
+        """
+        if sql not in self.raw_sql_results:
+            raise RuntimeError(f"no canned result registered for: {sql!r}")
+        return self.raw_sql_results[sql]
 
     def get_line(self, dataset: str, line_number: int) -> str:
         """Returns one line's text.
@@ -131,6 +164,24 @@ class FakeCorpusRepository:
         return list(enumerate(self.lines, start=1))
 
 
+def _valid_validation() -> dict:
+    """Builds a passing ``validation`` block, embedded on every fixture record.
+
+    Returns:
+        A ``validation`` object with one satisfied dimension, matching the shape
+        ``helper_validation.run_checks`` writes onto a real record.
+    """
+    return {
+        "checks": [{"dimension": "grounded", "verdict": "yes", "detail": "ok"}],
+        "model": {
+            "name": "test-groundedness-model",
+            "family": "test",
+            "digest": "sha256:" + "2" * 64,
+            "prompt_sha256": "sha256:" + "2" * 64,
+        },
+    }
+
+
 def count_record() -> dict:
     """Builds a valid count record over the test corpus.
 
@@ -140,6 +191,7 @@ def count_record() -> dict:
     literal = "authentication failure"
     group_id = "linux:count:authentication_failure"
     line_numbers = [1, 2, 4]
+    claim_query = {"operator": "count_literal", "literal": literal, "case_sensitive": False}
     return {
         "id": "linux_v1_count_authentication_failure_0",
         "question": "How many log lines contain 'authentication failure'?",
@@ -161,11 +213,8 @@ def count_record() -> dict:
         "numeric_claims": [
             {
                 "value": 3,
-                "query": {
-                    "operator": "count_literal",
-                    "literal": literal,
-                    "case_sensitive": False,
-                },
+                "all_match_line_numbers": line_numbers,
+                "query": claim_query,
             }
         ],
         "evidence": {
@@ -177,8 +226,10 @@ def count_record() -> dict:
                     "group_id": group_id,
                 }
                 for number in line_numbers
-            ]
+            ],
+            "query_sql": query_display_sql("linux", claim_query),
         },
+        "validation": _valid_validation(),
     }
 
 
@@ -189,6 +240,11 @@ def presence_record() -> dict:
         A record answering "No (0 matching lines)" to an absent literal.
     """
     group_id = "linux:presence:invalid_user"
+    claim_query = {
+        "operator": "count_literal",
+        "literal": "Invalid user",
+        "case_sensitive": False,
+    }
     return {
         "id": "linux_v1_presence_invalid_user_0",
         "question": "Does the log contain any line with 'Invalid user'?",
@@ -210,14 +266,12 @@ def presence_record() -> dict:
         "numeric_claims": [
             {
                 "value": 0,
-                "query": {
-                    "operator": "count_literal",
-                    "literal": "Invalid user",
-                    "case_sensitive": False,
-                },
+                "all_match_line_numbers": [],
+                "query": claim_query,
             }
         ],
         "evidence": {
+            "query_sql": query_display_sql("linux", claim_query),
             "refs": [
                 {
                     "id": f"linux:line:00000001:{sha256_line(CORPUS_LINES[0])[7:23]}",
@@ -227,6 +281,139 @@ def presence_record() -> dict:
                 }
             ]
         },
+        "validation": _valid_validation(),
+    }
+
+
+RAW_SQL_COUNT_STATEMENT = (
+    "SELECT line_number, text FROM lines WHERE dataset = 'linux' AND text ILIKE "
+    "'%failure%'"
+)
+
+RAW_SQL_SCALAR_STATEMENT = (
+    "SELECT COUNT(DISTINCT split_part(text, ' ', 5)) FROM lines WHERE dataset = "
+    "'linux'"
+)
+
+RAW_SQL_SCALAR_EVIDENCE_STATEMENT = (
+    "SELECT line_number, text FROM lines WHERE dataset = 'linux' LIMIT 5"
+)
+
+
+def raw_sql_count_record() -> dict:
+    """Builds a valid model-invented, raw-SQL count record over the test corpus.
+
+    Returns:
+        A record whose answer, claim and evidence all agree, with
+        ``numeric_claims.query.operator == "raw_sql"``.
+    """
+    group_id = "linux:modelsql:count:0"
+    line_numbers = [1, 2, 4]
+    claim_query = {"operator": "raw_sql", "sql": RAW_SQL_COUNT_STATEMENT}
+    return {
+        "id": "linux_v1_modelsql_count_0_0",
+        "question": "How many lines mention a failure?",
+        "routing_path": "sql",
+        "answer_type": "count",
+        "task": "Aggregation",
+        "difficulty": "easy",
+        "phrasing_family": "model-1",
+        "split": "dev",
+        "review_status": "verified",
+        "reviewers": ["faz1_pilot_script"],
+        "expected_answer": "3",
+        "gold_provenance": {
+            "method": "model_written_deterministic_sql",
+            "created_by": "src/generators/easy_tier.py@v1",
+            "created_at": "2026-08-01T00:00:00Z",
+            "corpus_sha256": CORPUS_SHA,
+            "model": {
+                "name": "test-invention-model",
+                "family": "test",
+                "digest": "sha256:" + "1" * 64,
+                "prompt_sha256": "sha256:" + "1" * 64,
+            },
+        },
+        "numeric_claims": [
+            {
+                "value": 3,
+                "all_match_line_numbers": line_numbers,
+                "query": claim_query,
+            }
+        ],
+        "evidence": {
+            "refs": [
+                {
+                    "id": f"linux:line:{number:08d}:{sha256_line(CORPUS_LINES[number - 1])[7:23]}",
+                    "line_number": number,
+                    "line_hash": sha256_line(CORPUS_LINES[number - 1]),
+                    "group_id": group_id,
+                }
+                for number in line_numbers
+            ],
+            "query_sql": query_display_sql("linux", claim_query),
+        },
+        "validation": _valid_validation(),
+    }
+
+
+def raw_sql_scalar_record() -> dict:
+    """Builds a valid model-invented, raw-SQL scalar record over the test corpus.
+
+    Returns:
+        A record whose answer is a distinct-value count, backed by an
+        ``ANSWER_SQL``/``EVIDENCE_SQL`` pair rather than a matching-line list.
+    """
+    group_id = "linux:modelsql:scalar:0"
+    claim_query = {
+        "operator": "raw_sql",
+        "sql": RAW_SQL_SCALAR_STATEMENT,
+        "evidence_sql": RAW_SQL_SCALAR_EVIDENCE_STATEMENT,
+    }
+    return {
+        "id": "linux_v1_modelsql_scalar_0_0",
+        "question": "How many distinct fifth words appear in the log?",
+        "routing_path": "sql",
+        "answer_type": "scalar",
+        "task": "Aggregation",
+        "difficulty": "easy",
+        "phrasing_family": "model-1",
+        "split": "dev",
+        "review_status": "verified",
+        "reviewers": ["faz1_pilot_script"],
+        "expected_answer": "2",
+        "gold_provenance": {
+            "method": "model_written_deterministic_sql",
+            "created_by": "src/generators/easy_tier.py@v1",
+            "created_at": "2026-08-01T00:00:00Z",
+            "corpus_sha256": CORPUS_SHA,
+            "model": {
+                "name": "test-invention-model",
+                "family": "test",
+                "digest": "sha256:" + "1" * 64,
+                "prompt_sha256": "sha256:" + "1" * 64,
+            },
+        },
+        "numeric_claims": [
+            {
+                "value": 2,
+                "all_match_line_numbers": [1, 2],
+                "query": claim_query,
+            }
+        ],
+        "evidence": {
+            "query_sql": query_display_sql("linux", claim_query),
+            "refs": [
+                {
+                    "id": f"linux:line:{number:08d}:{sha256_line(CORPUS_LINES[number - 1])[7:23]}",
+                    "line_number": number,
+                    "line_hash": sha256_line(CORPUS_LINES[number - 1]),
+                    "group_id": group_id,
+                }
+                for number in (1, 2)
+            ]
+        },
+        "validation": _valid_validation(),
     }
 
 
@@ -265,6 +452,7 @@ def lookup_record() -> dict:
                 }
             ]
         },
+        "validation": _valid_validation(),
     }
 
 
@@ -274,6 +462,16 @@ class ValidatorAnswerTest(unittest.TestCase):
     def setUp(self):
         self.schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
         self.repository = FakeCorpusRepository(CORPUS_LINES)
+        self.repository.raw_sql_results[RAW_SQL_COUNT_STATEMENT] = [
+            (1, CORPUS_LINES[0]),
+            (2, CORPUS_LINES[1]),
+            (4, CORPUS_LINES[3]),
+        ]
+        self.repository.raw_sql_results[RAW_SQL_SCALAR_STATEMENT] = [(2,)]
+        self.repository.raw_sql_results[RAW_SQL_SCALAR_EVIDENCE_STATEMENT] = [
+            (1, CORPUS_LINES[0]),
+            (2, CORPUS_LINES[1]),
+        ]
         self.corpus_index = {
             "linux": {
                 "path": Path("Linux_2k.log"),
@@ -320,8 +518,57 @@ class ValidatorAnswerTest(unittest.TestCase):
 
     def test_valid_records_pass(self):
         errors, _warnings = self.run_validator(
-            [count_record(), presence_record(), lookup_record()]
+            [
+                count_record(),
+                presence_record(),
+                lookup_record(),
+                raw_sql_count_record(),
+                raw_sql_scalar_record(),
+            ]
         )
+        self.assertEqual(errors, [])
+
+    def test_raw_sql_count_answer_disagreeing_with_recomputed_value_fails(self):
+        record = raw_sql_count_record()
+        record["expected_answer"] = "999999"
+        self.assertRejects([record], "expected_answer '999999' does not match")
+
+    def test_raw_sql_count_claim_disagreeing_with_reexecution_fails(self):
+        record = raw_sql_count_record()
+        record["numeric_claims"][0]["value"] = 40
+        record["expected_answer"] = "40"
+        self.assertRejects([record], "could not be reproduced")
+
+    def test_raw_sql_unscoped_to_dataset_fails(self):
+        record = raw_sql_count_record()
+        unscoped_sql = "SELECT line_number, text FROM lines WHERE text ILIKE '%failure%'"
+        record["numeric_claims"][0]["query"]["sql"] = unscoped_sql
+        self.repository.raw_sql_results[unscoped_sql] = [
+            (1, CORPUS_LINES[0]),
+            (2, CORPUS_LINES[1]),
+            (4, CORPUS_LINES[3]),
+        ]
+        self.assertRejects([record], "could not be re-executed")
+
+    def test_evidence_query_sql_disagreeing_with_claim_query_fails(self):
+        record = count_record()
+        record["evidence"]["query_sql"] = "SELECT 1"
+        self.assertRejects([record], "evidence.query_sql does not match")
+
+    def test_raw_sql_scalar_answer_disagreeing_with_recomputed_value_fails(self):
+        record = raw_sql_scalar_record()
+        record["expected_answer"] = "999"
+        self.assertRejects([record], "does not match the recomputed scalar")
+
+    def test_raw_sql_scalar_with_empty_evidence_sql_fails(self):
+        record = raw_sql_scalar_record()
+        self.repository.raw_sql_results[RAW_SQL_SCALAR_EVIDENCE_STATEMENT] = []
+        self.assertRejects([record], "evidence_sql returned no rows")
+
+    def test_raw_sql_scalar_all_match_line_numbers_is_not_cross_checked(self):
+        record = raw_sql_scalar_record()
+        record["numeric_claims"][0]["all_match_line_numbers"] = [999]
+        errors, _warnings = self.run_validator([record])
         self.assertEqual(errors, [])
 
     def test_count_answer_disagreeing_with_recomputed_value_fails(self):
@@ -335,10 +582,18 @@ class ValidatorAnswerTest(unittest.TestCase):
         record["expected_answer"] = "490"
         self.assertRejects([record], "could not be reproduced")
 
+    def test_incomplete_match_line_list_fails(self):
+        record = count_record()
+        record["numeric_claims"][0]["all_match_line_numbers"] = [1, 2]
+        self.assertRejects(
+            [record], "all_match_line_numbers could not be reproduced"
+        )
+
     def test_presence_no_with_positive_count_fails(self):
         record = presence_record()
         record["numeric_claims"][0]["query"]["literal"] = "authentication failure"
         record["numeric_claims"][0]["value"] = 3
+        record["numeric_claims"][0]["all_match_line_numbers"] = [1, 2, 4]
         self.assertRejects([record], "contradicts the recomputed count")
 
     def test_presence_yes_with_zero_count_fails(self):
@@ -415,6 +670,11 @@ class ValidatorAnswerTest(unittest.TestCase):
             "prompt_sha256": sha256_line("prompt"),
         }
         self.assertRejects([record], "names no human")
+
+    def test_verified_record_with_unsupported_check_fails(self):
+        record = count_record()
+        record["validation"]["checks"][0]["verdict"] = "no"
+        self.assertRejects([record], "validation.checks marks")
 
 
 if __name__ == "__main__":

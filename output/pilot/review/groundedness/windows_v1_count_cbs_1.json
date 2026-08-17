@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_count_cbs_1",
+  "group_ids": [
+    "windows:count:cbs"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:3fd78acd8d7c735a6699d67de84753f45b2f0db1718d81a124380180ee3afab1"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks to count lines mentioning 'CBS'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query explicitly states there are 1973 matching lines, and the answer matches that number."
+    }
+  ]
+}

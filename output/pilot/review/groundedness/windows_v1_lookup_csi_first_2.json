@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_lookup_csi_first_2",
+  "group_ids": [
+    "windows:lookup:csi_first"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:97a16e02dd6f86b1088b2499a216294ce2dc734e87a436d4b59a5fd5c25703ba"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question clearly asks for the first line where 'CSI' appears, and it is unambiguous in its intent."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer provides the exact text of one log line, which is the correct kind of answer for this line-lookup question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a single line with 'CSI' in it, and since it is the only line provided, it is the first and only line where 'CSI' appears."
+    }
+  ]
+}

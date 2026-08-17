@@ -3,40 +3,38 @@
   "group_ids": [
     "apache:semantic:child_workerenv_in_error_state_1"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:21674fedc863f936e970ac868619f0479bc96697c30072184c08cf93f8edab91"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:3cde3594c6a2b3b1ad8d2e9926b0541e0a124966cb68ccbb6585c294b44a427e"
+    "prompt_sha256": "sha256:ba19b5d9f40f03df82d239127fefd629d51cb058da4e72900606de52d65fc150"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The excerpt shows a series of error messages indicating that the mod_jk child workerEnv is in an error state, with the error state changing from 6 to 7 and back to 6.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "apache:semantic:child_workerenv_in_error_state_1"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, without adding unsupported claims."
     },
     {
-      "text": "These errors occur within a one-minute time frame, suggesting a recurring or persistent issue.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "apache:semantic:child_workerenv_in_error_state_1"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the workerEnv, the error states, and the detection of a child process in the scoreboard slot as described in the evidence."
     },
     {
-      "text": "The presence of notice-level messages indicating successful initialization of a child process and loading of configuration files suggests that the system is attempting to recover or restart, but the error condition persists.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "apache:semantic:child_workerenv_in_error_state_1"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question about what is happening in the Apache log around the 54th occurrence of the error message, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key points from the evidence: initialization, error states, and the later detection of a child process, making it reasonably complete."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:04094af21c0ae67d8d8b86f4ac6020c035db81813bab30681324b32126def8a5"
+  }
 }

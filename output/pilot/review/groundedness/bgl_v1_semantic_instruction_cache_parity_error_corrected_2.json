@@ -3,40 +3,34 @@
   "group_ids": [
     "bgl:semantic:instruction_cache_parity_error_corrected_2"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:07c3f0f74d7d0d74056cdee5d5adc6f9bc50a176de828135bae72ebc2a2df0cf"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:0d70a678ade390814f418f1bfeed0fab76ea1dac09a3f75aceb0d5be5d184017"
+    "prompt_sha256": "sha256:184b9f62aac2005c40757b2a13c92b7052df4cf2a10f6fbfed4822e232ef223d"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of log lines indicating various events on different system components, including instruction cache parity errors corrected on R02-M1-N0-C:J12-U11 and generation of core files on other components.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:semantic:instruction_cache_parity_error_corrected_2"
-      ]
+      "dimension": "grounded",
+      "verdict": "partial"
     },
     {
-      "text": "The instruction cache parity errors all occurred on the same component, R02-M1-N0-C:J12-U11, within a short time frame.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:semantic:instruction_cache_parity_error_corrected_2"
-      ]
+      "dimension": "correct",
+      "verdict": "partial"
     },
     {
-      "text": "The other log lines show unrelated events on different components, including core file generation and an unrecognized message sent by a CPU.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:semantic:instruction_cache_parity_error_corrected_2"
-      ]
+      "dimension": "relevant",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial"
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:8b53d324aedd79dd73bae3dd7e5ac7d86d7ddfea3f27aa482e3846cc63711d79"
+  }
 }

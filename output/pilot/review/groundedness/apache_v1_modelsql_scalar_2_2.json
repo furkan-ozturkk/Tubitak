@@ -1,0 +1,29 @@
+{
+  "question_id": "apache_v1_modelsql_scalar_2_2",
+  "group_ids": [
+    "apache:modelsql:scalar:2"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:3d182b5d3e0bd41a261f6c9731ff4b47b84acfc4a3390b49a51b2409365e8007"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of unique error messages in the 'apache' dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which matches the required answer shape for the question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that counts distinct error messages in the 'apache' dataset and sample data showing such messages exist, supporting the answer."
+    }
+  ]
+}

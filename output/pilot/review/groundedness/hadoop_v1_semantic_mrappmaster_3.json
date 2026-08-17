@@ -3,40 +3,38 @@
   "group_ids": [
     "hadoop:semantic:mrappmaster_3"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:a4a4aa29787e39af04c37dbd10d8079f672aa4b20eebd13a75f7215a459632b1"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:8e2fd11033ce17d743be2956c976c7bb01c8c4a15c42a5c2be77d4e92920d0d8"
+    "prompt_sha256": "sha256:533f97c96ae7fc89ae0d458b7b5c10f822132a1b2049de4d46784497968ca8f4"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows the initialization of a Hadoop MapReduce application, specifically the MRAppMaster, which is setting up its configuration and event handlers.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_3"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only includes information directly supported by the evidence and does not add unsupported claims."
     },
     {
-      "text": "The logs indicate that the OutputCommitter is being set to FileOutputCommitter, and various event types are being registered with their corresponding event handlers.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_3"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type, and details from the evidence, and accurately notes the absence of an outcome."
     },
     {
-      "text": "The overall process appears to be a normal part of starting a MapReduce job, with no errors or issues reported in these lines.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_3"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what took place and its significance, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all key elements from the evidence: MRAppMaster creation, token execution, OutputCommitter configuration, and event dispatcher registration."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:dd5c883c909da178e58ba5f775c17debc9e1ba9cf8b71fe24689d227f38229f3"
+  }
 }

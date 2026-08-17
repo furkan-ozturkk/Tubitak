@@ -1,0 +1,40 @@
+{
+  "question_id": "windows_v1_semantic_failed_to_internally_open_9",
+  "group_ids": [
+    "windows:semantic:failed_to_internally_open_9"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:8e8005adda7394e0ba26dd10bf79000c0314c1065b2b8fd8e3d1b9bec4d9533d"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not supported by the evidence, such as specific causes or outcomes beyond what is described in the log entries."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (CBS), the event type (errors and warnings), and notes the lack of a stated outcome, aligning with the structured summary and evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by walking through the log's content around the tenth occurrence of \"Failed to internally open,\" explaining what it means in the context of the CBS and WindowsUpdateAgent."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer is reasonably complete but does not explicitly reference the tenth occurrence of \"Failed to internally open\" or provide a detailed walkthrough of that specific log line."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:880f79dca065918b7a65e0ce4ceb681b0ac27863836377c1a16d23c0eef6615f"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "apache_v1_count_notice_0",
+  "group_ids": [
+    "apache:count:notice"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:cd9e4701f8450b7a8ead3c35aea39ad8f1a61697f1e0149281c7a3add751324f"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of log lines containing '[notice]'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that counts lines with '[notice]' case-insensitively and states that it returns 1405 lines, which matches the answer."
+    }
+  ]
+}

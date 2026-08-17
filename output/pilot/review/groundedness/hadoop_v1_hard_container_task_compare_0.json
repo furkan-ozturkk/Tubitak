@@ -4,53 +4,38 @@
     "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000005",
     "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000003"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:ea9db9c8a6de00fdcf68661844bc9bafe416a1d310006007db0e897cdfb4482b"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:55ca080d668a97d6af41cf08452208f93a017371a8eba9e34d2806d22e7a783e"
+    "prompt_sha256": "sha256:76ae5366f49a4d3ebac914089a62e010b30199f1e784877d98f4c853573edfe6"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The event sequences for container_1445144423722_0020_01_000005 and container_1445144423722_0020_01_000003 show distinct patterns, suggesting that one of them may have experienced a task or container failure.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000005",
-        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000003"
-      ]
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes facts to each container without misrepresenting one as the other."
     },
     {
-      "text": "Container_1445144423722_0020_01_000005 was assigned to attempt_1445144423722_0020_m_000003_0 and completed its task within approximately 2 minutes, as indicated by the CONTAINER_REMOTE_LAUNCH and CONTAINER_REMOTE_CLEANUP events.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000005",
-        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000003"
-      ]
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of event sequences and completion times is based on the timestamps and events listed in the evidence."
     },
     {
-      "text": "In contrast, container_1445144424422_0020_01_000003 was assigned to attempt_1445144423722_0020_m_000001_0 and took around 4.5 minutes to complete, with a similar sequence of events.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer avoids naming specific causes or motives not present in the evidence and instead offers a hypothesis based on observed differences."
     },
     {
-      "text": "Notably, container_1445144423722_0020_01_000003 was running on a different NodeManager (MININT-FNANLI5.fareast.corp.microsoft.com:52368) compared to container_1445144423722_0020_01_000005 (MSRA-SA-41.fareast.corp.microsoft.com:7109), which could be a factor in the differing execution times.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000005",
-        "hadoop:hard:container_task_compare:0:container_1445144423722_0020_01_000003"
-      ]
-    },
-    {
-      "text": "The root cause of the potential issue appears to be related to the fact that these containers are executing on different nodes with different completion times, and errors or delays may recur without any corrective action in between, as evidenced by the distinct event patterns and timings.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by comparing the event sequences, noting differences in timing and node assignment, and concludes that both suggest normal execution without clear failure."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:3e6bed9bb5cfb116901c1ede7834ff154c996e0ba6ea448e885b0e6eb6368bad"
+  }
 }

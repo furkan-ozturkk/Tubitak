@@ -3,40 +3,34 @@
   "group_ids": [
     "openstack:semantic:nova_osapi_compute_wsgi_server_7"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:a560a455a8f350e922a5b37b0134a21d527eff6064db58649c09160dd5aa70b7"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:682d298840a91235102832afec967055eaf3de7fa940bc153bd5c7929dca91b7"
+    "prompt_sha256": "sha256:4a4b0b77c3bdff63654248a53925df8975757bfadaa49865de6803b15c66b9ef"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The excerpt shows a series of GET requests to the Nova API from the IP address 10.11.10.1, all of which are successful (status: 200) and retrieve server details for the same project (54fadb412c4e40cdbaed9335e4c35a9e).",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_7"
-      ]
+      "dimension": "grounded",
+      "verdict": "partial"
     },
     {
-      "text": "These requests occur in quick succession, with response times ranging from 0.255 to 0.269 seconds.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_7"
-      ]
+      "dimension": "correct",
+      "verdict": "partial"
     },
     {
-      "text": "Additionally, the excerpt shows a resource audit on a compute node named cp-1.slowvm1.tcloud-pg0.utah.cloudlab.us, which reports 16 usable vcpus and 1 allocated vcpu.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_7"
-      ]
+      "dimension": "relevant",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial"
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:c1df39b8ac8fa5f9e9c89258ec63cf3a39c01c748d2d910cb96257fecfe871c4"
+  }
 }

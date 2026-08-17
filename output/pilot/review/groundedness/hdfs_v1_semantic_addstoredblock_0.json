@@ -3,40 +3,38 @@
   "group_ids": [
     "hdfs:semantic:addstoredblock_0"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:601431cd63d5d8fef437fce9812a66ecb3751b8e103a3bf7796c3c8e68cea9d8"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:f73c106be2d3b48b13e5504a4e92d66106860dfd6ed2fe92c2f2563237a32205"
+    "prompt_sha256": "sha256:68939da08436f583bf5dfd8faba6d4a8dd4a28bcfecfa34d7ebee95d674565c1"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of events related to HDFS block management, including the addition of nodes to the block map and the termination of PacketResponders for specific blocks.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hdfs:semantic:addstoredblock_0"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence, focusing only on PacketResponder terminations and blockMap updates."
     },
     {
-      "text": "The addition of nodes to the block map, as seen in multiple \"NameSystem.addStoredBlock\" messages, indicates that new blocks are being stored on different nodes in the system.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hdfs:semantic:addstoredblock_0"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the evidence, correctly identifying the PacketResponder terminations and blockMap additions."
     },
     {
-      "text": "The termination of PacketResponders and the receipt of a block from a specific node also suggest ongoing data transfer and management activities within the system.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hdfs:semantic:addstoredblock_0"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by explaining what happened around the first occurrence of 'addStoredBlock' and what it means."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer is reasonably complete but omits specific details about the first 'addStoredBlock' event (e.g., the block ID and DataNode involved)."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:cd61c715f8584768b20d8fbfa050729cd8084755a7eb6ac0276c04f54c787a17"
+  }
 }

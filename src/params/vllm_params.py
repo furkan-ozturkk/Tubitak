@@ -25,6 +25,8 @@ DEFAULT_GOLD_DRAFT_BASE_URL = "http://furkan.ozturk_vllm:8004"
 DEFAULT_GOLD_DRAFT_MODEL = "casperhansen/llama-3.3-70b-instruct-awq"
 DEFAULT_GROUNDEDNESS_BASE_URL = "http://furkan.ozturk_vllm:8001"
 DEFAULT_GROUNDEDNESS_MODEL = "Qwen/Qwen3-32B-AWQ"
+DEFAULT_SQL_INVENTION_BASE_URL = "http://furkan.ozturk_vllm:8005"
+DEFAULT_SQL_INVENTION_MODEL = "Qwen/Qwen2.5-Coder-14B-Instruct-AWQ"
 
 
 @dataclass(frozen=True)
@@ -44,6 +46,18 @@ class VllmConfig:
             that checks an answer never comes from the model that wrote it.
         sql_model: Model id ``sql_base_url`` was started with. Defaults to
             ``groundedness_model``.
+        sql_invention_base_url: vLLM server that invents an easy-tier
+            question and its SQL (``VllmClient.invent_sql_question``,
+            ``--easy_target_total``). Defaults to a dedicated code-specialised
+            model rather than ``gold_draft_base_url``: writing correct SQL is
+            the actual task here, and the general-purpose drafting model was
+            observed producing malformed statements in this role (Section
+            7.1) that a code-tuned model is expected to make fewer of --
+            this is a rationale for the default, not a measured comparison.
+        sql_invention_model: Model id ``sql_invention_base_url`` was started
+            with. Must be a different family from ``groundedness_model``
+            (Section 5.5/6): the model that invents a question is not the
+            model that later checks it.
         max_parallel_calls: Semaphore width over the whole client (Section 3.2).
         max_retries: Attempts per call before giving up.
         backoff_base_seconds: Base of the exponential retry backoff.
@@ -68,6 +82,8 @@ class VllmConfig:
     groundedness_model: str = DEFAULT_GROUNDEDNESS_MODEL
     sql_base_url: str = DEFAULT_GROUNDEDNESS_BASE_URL
     sql_model: str = DEFAULT_GROUNDEDNESS_MODEL
+    sql_invention_base_url: str = DEFAULT_SQL_INVENTION_BASE_URL
+    sql_invention_model: str = DEFAULT_SQL_INVENTION_MODEL
     max_parallel_calls: int = 4
     max_retries: int = 5
     backoff_base_seconds: float = 2.0
@@ -83,12 +99,19 @@ class VllmConfig:
         ground = (
             self.groundedness_base_url,
             self.groundedness_model,
-            "groundedness_check",
+            "quality_check",
         )
         sql = (self.sql_base_url, self.sql_model, "sql_verification")
+        invention = (
+            self.sql_invention_base_url,
+            self.sql_invention_model,
+            "sql_invention",
+        )
         roles = [gold, ground]
         if sql[:2] not in (gold[:2], ground[:2]):
             roles.append(sql)
+        if invention[:2] not in (gold[:2], ground[:2], sql[:2]):
+            roles.append(invention)
         return tuple(roles)
 
     @property
@@ -136,6 +159,16 @@ def get_vllm_params(args: Any, scale_config: ScaleConfig | None = None) -> VllmC
         ),
         sql_model=(
             args.groundedness_model if args.sql_model is None else args.sql_model
+        ),
+        sql_invention_base_url=(
+            VllmConfig.sql_invention_base_url
+            if args.sql_invention_base_url is None
+            else args.sql_invention_base_url
+        ),
+        sql_invention_model=(
+            VllmConfig.sql_invention_model
+            if args.sql_invention_model is None
+            else args.sql_invention_model
         ),
         max_parallel_calls=max_parallel,
         max_retries=(

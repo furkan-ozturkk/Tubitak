@@ -3,40 +3,38 @@
   "group_ids": [
     "openstack:semantic:nova_osapi_compute_wsgi_server_9"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:38e6872df5b244cde0c572f41f28d721652227a61e63bdecc1d33472580df82d"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:951ec8b6bf13be69a2fba25a4d89cee009533e6b86be451354b87dd5c280eede"
+    "prompt_sha256": "sha256:5970c2558660e0deb10ffad0c79c03baaaf962fd82d68a9cd2f060e20a949491"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The excerpt shows a series of GET requests to the Nova API from the IP address 10.11.10.1, all requesting server details for the same project (54fadb412c4e40cdbaed9335e4c35a9e) and all receiving a successful response (status: 200).",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_9"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states information directly supported by the evidence provided in the logs and structured summary."
     },
     {
-      "text": "These requests occur in quick succession, with response times ranging from 0.2558961 to 0.4362931 seconds.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_9"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type (queries and checks), and accurately reflects the evidence without misrepresenting the outcome."
     },
     {
-      "text": "Additionally, the excerpt shows an image check by the Nova compute service, which reports that the image 0673dd71-34c5-4fbb-86c4-40623fbe45b4 is in use on the local node.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_9"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the 721st occurrence of 'nova.osapi_compute.wsgi.server' and explains what the logs show and what they mean."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all important parts of the evidence: the skipped sync_power_state check, the API requests, and the image cache checks, without omitting key details."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:b38fde4147b2804f1de4658bdae36d68e0edd05f1bf8119b29f50572f6ac0030"
+  }
 }

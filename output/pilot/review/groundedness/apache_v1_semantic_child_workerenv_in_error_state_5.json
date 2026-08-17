@@ -3,40 +3,38 @@
   "group_ids": [
     "apache:semantic:child_workerenv_in_error_state_5"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:970878883efa96290f74336e3c6a3bc1ff4ea0998585986285681c1c7783db54"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:8fc26634b3caea601e8386c02f29380bc8c0e0c21ecdd73f1a9afdf684d993f4"
+    "prompt_sha256": "sha256:a86494e92a1f5f495c99c046fb6f7944634d5ae7b0943a617fb3e7a3cfe48875"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of events related to the initialization of mod_jk child workers, with multiple children being found in various scoreboard slots.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "apache:semantic:child_workerenv_in_error_state_5"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as error states, initialization success, and jk2_init findings."
     },
     {
-      "text": "The excerpt begins with an error stating that a child worker is in an error state, but the subsequent notices indicate that other children are being successfully found and initialized.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "apache:semantic:child_workerenv_in_error_state_5"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (workerEnv), the event type (mod_jk error and initialization events), and notes no specific outcome was stated."
     },
     {
-      "text": "The repeated assignment of children to scoreboard slot 6 suggests that there may be some turnover or recycling of this slot.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "apache:semantic:child_workerenv_in_error_state_5"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what happened and what it means around the 266th occurrence of 'child workerEnv in error state'."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key points from the evidence: error states 6 and 7, successful initialization, and the jk2_init findings."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:5c43300df1a951687d2e3c6385618ee2b5b79b5bf02dbc826d12865e31baaf15"
+  }
 }

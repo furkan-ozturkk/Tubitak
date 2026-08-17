@@ -1,0 +1,29 @@
+{
+  "question_id": "apache_v1_modelsql_count_1_1",
+  "group_ids": [
+    "apache:modelsql:count:1"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:156a3d973f97b5cd5cdd781c52b3d1850a0bfc0cbfdfab34fd0229acf939e550"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the total number of lines in the 'apache' dataset that do not contain the word \"error\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that selects lines from the 'apache' dataset where the text does not contain \"error\", and it states that this query returns 1405 lines, which matches the answer."
+    }
+  ]
+}

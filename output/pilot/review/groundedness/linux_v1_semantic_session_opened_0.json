@@ -1,0 +1,40 @@
+{
+  "question_id": "linux_v1_semantic_session_opened_0",
+  "group_ids": [
+    "linux:semantic:session_opened_0"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:f0cc4f4c767689e65523d7277011ab55100813754a21d4d2ab08d8160dc8021b"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as authentication failures, session openings, logrotate abnormal exit, and a password check for an unknown user."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (combo), the event type (authentication and system events), and accurately reflects the observed events without claiming an outcome that isn't stated."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what happened around the first occurrence of 'session opened' and what it means, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all important parts of the evidence, such as the authentication failures, session events, logrotate issue, and the unknown user check, making it reasonably complete."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:d66696bcca3bc72c88457c10a171167304d25731facb46ee4b0bbc99c6aff32a"
+  }
+}

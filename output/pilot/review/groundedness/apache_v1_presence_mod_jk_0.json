@@ -1,0 +1,29 @@
+{
+  "question_id": "apache_v1_presence_mod_jk_0",
+  "group_ids": [
+    "apache:presence:mod_jk"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:9ef86c5171898b21139989bb516b5d96651510fa3fa849c912a340340bd374fd"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log contains any line with 'mod_jk', which is a literal pattern."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format, stating \"Yes (551 matching lines)\" as required for a YES/NO question with a count."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query and the example lines both show that 'mod_jk' appears in the logs, and the count of 551 is derived from the query's result."
+    }
+  ]
+}

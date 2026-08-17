@@ -3,38 +3,38 @@
   "group_ids": [
     "linux:semantic:check_pass_user_unknown_2"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:4803db2ae6c565f031ea26b4c6139c596abd95177ae691448af87551dab1bfdf"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:1bb16ade809c7327c83a44b8407b83e0c7ac223bbb738b718cd0c215c74a1bf3"
+    "prompt_sha256": "sha256:ab1d3bb3aebdf7b888baf41e78057d96e6c5d150fadcb3b50014465441e7b356"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of authentication failures on the \"combo\" system, with multiple attempts to log in via SSH from different remote hosts.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence, such as the hosts, the event type, and the outcome of the authentication attempts."
     },
     {
-      "text": "The failures occurred at two different times, with one attempt from 061092085098.ctinets.com at 14:53:36 and multiple attempts from d211-116-254-214.rev.krline.net at 20:05:31.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_2"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (combo), the event type (authentication attempts), and the outcome (unsuccessful)."
     },
     {
-      "text": "Each attempt resulted in an \"authentication failure\" due to an unknown user, as indicated by \"user unknown\" and \"authentication failure\" messages in the logs.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_2"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by summarizing the event shown in the Linux log near the 23rd occurrence of 'check pass; user unknown'."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: multiple attempts, the hosts involved, the nature of the events, and the implication of repeated failures."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:fd158c2e9b9d9c325c34c0630a3cc4219a782a080f7599ad38023bec2be85ffe"
+  }
 }

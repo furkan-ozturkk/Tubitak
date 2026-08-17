@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_modelsql_scalar_2_2",
+  "group_ids": [
+    "openssh:modelsql:scalar:2"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:e99f8833a4e3679d36fe346c3e2bad212761bc038cf552e8d0d61da92004e9dc"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of different IP addresses that made SSH login attempts in the openssh dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which matches the required answer shape for a distinct count as requested by the question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that extracts and counts distinct IP addresses from the openssh dataset, and sample log lines that show the presence of IP addresses in the dataset, supporting the computation of the answer."
+    }
+  ]
+}

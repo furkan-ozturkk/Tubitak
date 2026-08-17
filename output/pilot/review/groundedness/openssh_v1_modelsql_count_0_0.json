@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_modelsql_count_0_0",
+  "group_ids": [
+    "openssh:modelsql:count:0"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:ce1ebcf73bdfc5f83dc4f1cff76085862524f147a25dcb2567660841bb4b8004"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of failed password attempts in the openssh dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that correctly identifies lines with \"Failed password\" in the openssh dataset, and the count of 520 is stated as the total number of matching lines."
+    }
+  ]
+}

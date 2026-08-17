@@ -1,0 +1,40 @@
+{
+  "question_id": "apache_v1_semantic_jk2_init_5",
+  "group_ids": [
+    "apache:semantic:jk2_init_5"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:c34699c748632528d67236193f86e98d8eb73868d177bc76eadc4faf516c851f"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the jk2_init finding children, workerEnv.init() succeeding, and mod_jk reporting an error state."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (workerEnv), the event type (initialization and error reporting), and the outcome (workerEnv in error state 10)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining what happened around the 421st occurrence of 'jk2_init' and what it means, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key elements from the evidence: the jk2_init findings, the workerEnv.init() successes, and the eventual error state reported by mod_jk."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:62df774dea2551e84b61b0547863db16c5a0b32669de3397f3a61c39cef0ea9b"
+  }
+}

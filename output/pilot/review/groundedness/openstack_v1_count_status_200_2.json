@@ -1,0 +1,29 @@
+{
+  "question_id": "openstack_v1_count_status_200_2",
+  "group_ids": [
+    "openstack:count:status_200"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:5e4555bd5654ce1041d7bae97532411a5917ce2d1584bb0e2cb6c2028304d168"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the total number of occurrences of 'status: 200'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence states that the query returns 933 matching lines, which directly supports the given answer."
+    }
+  ]
+}

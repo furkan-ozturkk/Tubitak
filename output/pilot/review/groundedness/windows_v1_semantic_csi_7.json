@@ -3,40 +3,38 @@
   "group_ids": [
     "windows:semantic:csi_7"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:75a8d38915257352bbe13186779cb842d0a3f5d50f4558d262c397b74685691c"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:b91cae4d86c2e79f64f7a49dfb5f8d8a498e84d05cc411b4bf363ff00e7548bb"
+    "prompt_sha256": "sha256:cb43d3245d6787fcda3f38db9723fa1a626321b95b345b7eaa56625758c802c8"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of events related to the completion of a system process, specifically the Component-Based Servicing (CBS) and the Configuration Service Installer (CSI).",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_7"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and correctly interprets the log entries without adding unsupported claims."
     },
     {
-      "text": "The events indicate that a scavenging process was completed, and various threads and transactions were terminated or destroyed, leading to the ending of the TrustedInstaller main loop and the start of its finalization.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_7"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately identifies the CSI entity, the system maintenance event type, and the lack of an explicit outcome, all of which are supported by the evidence."
     },
     {
-      "text": "The overall process appears to have concluded normally, with no errors indicated.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_7"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the event shown in the Windows log near the 15th occurrence of 'CSI', rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key elements from the evidence—scavenge begins, operations performed, NT transaction created, and scavenge completed—without omitting important details."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:6cd89251d6795ca8073bd8dea3422fc5822771d36e6171bf2dfa8ae7aa0eecec"
+  }
 }

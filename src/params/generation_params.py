@@ -45,10 +45,19 @@ class EasyTierParams:
             literals are exempt — zero matches there is a valid "No" example,
             not a thin question.
         max_cited_lines: Cap on ``evidence.refs`` per count/presence question.
+        target_total: When set, the tier's total question count this run
+            should aim for. The curated literals in ``dataset_specs.py`` are
+            built first and priced with ``count_curated_intents``; the gap to
+            this target is filled by model-invented, SQL-backed questions
+            (``allocate_model_sql_slots``), which is what lets a single number
+            control the easy tier's size instead of a fixed literal list.
+            ``None`` (the default) reproduces the tier's original, fully
+            curated behaviour exactly.
     """
 
     min_matches: int = 3
     max_cited_lines: int = 5
+    target_total: int | None = None
 
 
 @dataclass(frozen=True)
@@ -56,13 +65,20 @@ class MediumTierParams:
     """Curation knobs for the medium tier (Section 7.2): single-event explanation.
 
     Attributes:
-        window_size: Evidence lines per question; Section 7.2 caps this at 8.
-        questions_per_dataset: Anchor occurrences drafted per LogHub dataset.
-            Picks are spread evenly across the file so their evidence windows
-            do not overlap.
+        context_before: Lines of context cited before the anchor occurrence.
+        context_after: Lines of context cited after the anchor occurrence. The
+            window is symmetric by default (5 + anchor + 5 = 11 lines) rather
+            than anchor-plus-forward-only, because what led up to an event is
+            often exactly what the "what does it mean" half of the question
+            needs and a forward-only window can never show.
+        questions_per_dataset: Anchor occurrences drafted per anchor, per
+            LogHub dataset (a dataset with two curated anchors yields twice
+            this many medium questions). Picks are spread evenly across the
+            file so their evidence windows do not overlap.
     """
 
-    window_size: int = 8
+    context_before: int = 5
+    context_after: int = 5
     questions_per_dataset: int = 2
 
 
@@ -132,13 +148,17 @@ def get_easy_tier_params(args: Any) -> EasyTierParams:
     return EasyTierParams(
         min_matches=_resolve(args.min_matches, EasyTierParams.min_matches),
         max_cited_lines=_resolve(args.max_cited_lines, EasyTierParams.max_cited_lines),
+        target_total=args.easy_target_total,
     )
 
 
 def get_medium_tier_params(args: Any) -> MediumTierParams:
     """Constructs MediumTierParams from parsed command-line arguments."""
     return MediumTierParams(
-        window_size=_resolve(args.window_size, MediumTierParams.window_size),
+        context_before=_resolve(
+            args.context_before, MediumTierParams.context_before
+        ),
+        context_after=_resolve(args.context_after, MediumTierParams.context_after),
         questions_per_dataset=_resolve(
             args.questions_per_dataset, MediumTierParams.questions_per_dataset
         ),

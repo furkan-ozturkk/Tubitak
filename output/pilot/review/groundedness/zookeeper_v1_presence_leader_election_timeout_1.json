@@ -1,0 +1,29 @@
+{
+  "question_id": "zookeeper_v1_presence_leader_election_timeout_1",
+  "group_ids": [
+    "zookeeper:presence:leader_election_timeout"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:8516ae54d61e9118225abd4f7943631cd085c974b54e250eecd4534eeee203ee"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log contains a line mentioning 'leader election timeout'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format, stating a verdict and a count of matching lines."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows that no line contains the exact literal 'leader election timeout', and the query confirms this with 0 matches."
+    }
+  ]
+}

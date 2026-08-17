@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_presence_access_is_denied_1",
+  "group_ids": [
+    "windows:presence:access_is_denied"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:9dc613e736c69f04e7f8d9b8e77fcb8466c047e20e2ac1fa19fcfdc76abe6aae"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log contains a line mentioning 'Access is denied'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is of the correct form, stating 'No (0 matching lines)' as required by the question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows that no lines matched the query for 'Access is denied', supporting the answer that no such line exists."
+    }
+  ]
+}

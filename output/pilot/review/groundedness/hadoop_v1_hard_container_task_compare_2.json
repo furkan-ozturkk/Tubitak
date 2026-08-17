@@ -4,51 +4,38 @@
     "hadoop:hard:container_task_compare:2:container_1445144423722_0020_01_000006",
     "hadoop:hard:container_task_compare:2:container_1445144423722_0020_01_000007"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:ec8f9b012b4ffae28b40c39b5cbd04f308785dd3713f8d7a58e2ad85cea4dc57"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:db7d85647bf7a7f0f965374672854fd49f859eb4f207289daa9e59d16823f1fb"
+    "prompt_sha256": "sha256:0ecb380c8726a31c18597e0ccdcc1b2cc4a84353f7ddb0aff7890e8713cf33a2"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The execution logs for containers container_1445144423722_0020_01_000006 and container_1445144423722_0020_01_000007 show similar patterns of assignment and launch, with both containers being assigned to their respective task attempts at the same time, 2015-10-18 18:03:55,408.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:hard:container_task_compare:2:container_1445144423722_0020_01_000006",
-        "hadoop:hard:container_task_compare:2:container_1445144423722_0020_01_000007"
-      ]
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes facts to each container without misrepresenting or conflating information between them."
     },
     {
-      "text": "The containers are then launched remotely, with container_1445144423722_0020_01_000006 being launched at 2015-10-18 18:03:55,517 and container_1445144423722_0020_01_000007 being launched at 2015-10-18 18:03:55,595.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:hard:container_task_compare:2:container_1445144423722_0020_01_000006",
-        "hadoop:hard:container_task_compare:2:container_1445144423722_0020_01_000007"
-      ]
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison in the answer is based on the shared patterns of assignment, launch events, and NodeManager usage, all of which are present in the evidence."
     },
     {
-      "text": "Both containers are using the same NodeManager, MSRA-SA-41.fareast.corp.microsoft.com:7109, as indicated by the last line of each group.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:hard:container_task_compare:2:container_1445144423722_0020_01_000006",
-        "hadoop:hard:container_task_compare:2:container_1445144423722_0020_01_000007"
-      ]
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not assign specific causes or motives not present in the evidence and avoids speculation."
     },
     {
-      "text": "However, neither group shows any explicit signs of task failure, but the fact that these two containers are launched in quick succession for different task attempts, attempt_1445144423722_0020_m_000004_0 and attempt_1445144423722_0020_m_000005_0, respectively, and there is no indication of completion or success of the previous task attempt before the launch of the next one, suggests that these errors recur without a corrective action in between.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "hadoop:hard:container_task_compare:2:container_1445144423722_0020_01_000006",
-        "hadoop:hard:container_task_compare:2:container_1445144423722_0020_01_000007"
-      ]
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by comparing the logs and concluding that neither container shows signs of a task failure based on the evidence."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:fce6ac6113c272593fd1a6c34f57404c5e0691b66afd2df689d7dfc8bc304985"
+  }
 }

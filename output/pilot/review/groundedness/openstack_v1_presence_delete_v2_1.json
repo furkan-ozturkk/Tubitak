@@ -1,0 +1,29 @@
+{
+  "question_id": "openstack_v1_presence_delete_v2_1",
+  "group_ids": [
+    "openstack:presence:delete_v2"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:c99f7716fafb1a9edcd67382f26319bb41cc7f1d0893ee87b413797e09abfc03"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log has a line mentioning 'DELETE /v2', using case-insensitive matching."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format for a yes/no question, stating \"Yes (22 matching lines)\" as required."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query and the example lines confirm that the text \"DELETE /v2\" exists in the dataset, and the query explicitly states there are 22 matching lines."
+    }
+  ]
+}

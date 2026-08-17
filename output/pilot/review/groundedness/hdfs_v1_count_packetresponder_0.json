@@ -1,0 +1,29 @@
+{
+  "question_id": "hdfs_v1_count_packetresponder_0",
+  "group_ids": [
+    "hdfs:count:packetresponder"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:50fdeeccc9a596f676f5411aaee17e2e9f31303d509df452f82c686edcbf0f19"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of log lines containing 'PacketResponder'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that counts lines with 'PacketResponder' and states the result is 603, which matches the answer."
+    }
+  ]
+}

@@ -3,40 +3,38 @@
   "group_ids": [
     "openssh:semantic:possible_break_in_attempt_0"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:6df0e8a589be183cdafa6be441b86f3a4c36db55919d42d0c4fe5b3141d09611"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:af712f60d3e6a7ce1eafe1e48cf3af1d65fedca300e8df7cbd44bd5bee8db4d6"
+    "prompt_sha256": "sha256:a7397c1ecfa7a5dac1034482304f32ee38665451c8379443668ee4ad8cdd77a1"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a possible break-in attempt on the LabSZ system via SSH, where an invalid user \"webmaster\" from IP address 173.234.31.186 attempted to authenticate but failed due to an invalid username and password.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:semantic:possible_break_in_attempt_0"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states information directly supported by the evidence, such as the invalid user, failed password check, and the possible break-in attempt."
     },
     {
-      "text": "The connection was subsequently closed by the remote host.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:semantic:possible_break_in_attempt_0"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (\"webmaster\"), the event type (authentication attempt), and the outcome (authentication failure)."
     },
     {
-      "text": "A separate connection from IP address 212.47.254.145 was also closed, but the details of this event are not provided in the preceding lines.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:semantic:possible_break_in_attempt_0"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining what happened and what the \"POSSIBLE BREAK-IN ATTEMPT\" means, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key elements from the evidence: the invalid user, failed password, reverse mapping failure, and the system's interpretation as a possible break-in."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:26557816d8bc7f1f4607f22fa39432664e11ce2fd455a156ba9a6001cf869b8c"
+  }
 }

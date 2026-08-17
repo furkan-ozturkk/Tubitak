@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_modelsql_count_5_0",
+  "group_ids": [
+    "windows:modelsql:count:5"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:8cbb8d55a3477d9bb45d77c056ff913e66928c52183e5acad58863da4c4c7bd3"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks how many log entries in the 'windows' dataset do not contain the phrase \"Info\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence suggests no exact substring matches for \"Info\", but it does not confirm how many entries do not contain the phrase, as the query's logic (case sensitivity, pattern matching) is not specified."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "question_id": "zookeeper_v1_semantic_cannot_open_channel_0",
+  "group_ids": [
+    "zookeeper:semantic:cannot_open_channel_0"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:f3ea41e31d6175ca2db593de2bbbf71419a34d211f698975cfffe09a5d1f38e8"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not supported by the evidence, such as the cause of the connection closure or the specific meaning of the \"Cannot open channel\" message."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "partial",
+      "detail": "The answer correctly identifies the client and the session establishment attempt, but it does not clarify what the \"Cannot open channel\" message refers to, which is a key part of the question."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific events around the first occurrence of \"Cannot open channel\" and explains what happened with the client session."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer is reasonably complete in describing the session attempt and termination, but it omits the specific context of the \"Cannot open channel\" message, which is important for a full understanding of the log entry."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:0e64a02a92f858f0d08ae05aa1d3718d0f721800e9dbafc3a3750bfc0ba46307"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "mac_v1_modelsql_count_4_0",
+  "group_ids": [
+    "mac:modelsql:count:4"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:d0ab24f52e468bbb5bfbd04ea0d60007a64ed994f6dd30a0c46f2681c46a91de"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of log entries in the 'mac' dataset that mention the literal word \"kernel\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The lines shown in the evidence do contain the word \"kernel\", but since only a sample is shown and the total count is not verified by the evidence, it is not possible to confirm if 775 is accurate based solely on the evidence provided."
+    }
+  ]
+}

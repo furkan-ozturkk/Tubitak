@@ -1,0 +1,29 @@
+{
+  "question_id": "mac_v1_count_kernel_0",
+  "group_ids": [
+    "mac:count:kernel"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:ec2472cf2badc21733ea96627d737efdb8e9af7c90d57cc233f98b3eb07c913d"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of log lines containing the word 'kernel'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that counts all lines with 'kernel' (case-insensitively) in the 'mac' dataset, and the answer matches the stated result of that query."
+    }
+  ]
+}

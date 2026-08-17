@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_modelsql_count_4_0",
+  "group_ids": [
+    "windows:modelsql:count:4"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:41a80b4e30fe30a0f06cc155ee016129e1fdfd4f21d2e471515560e91f86dda0"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of log entries in the 'windows' dataset that contain the exact phrase \"Session\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The lines shown in the evidence do contain the phrase \"Session\", supporting that some entries match, but they do not confirm the total count of 609."
+    }
+  ]
+}

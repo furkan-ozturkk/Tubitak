@@ -3,40 +3,38 @@
   "group_ids": [
     "hadoop:semantic:mrappmaster_0"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:35c6db018079cff88a78e98f512654c13cb72efc6e214762aa8281897b823320"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:0fc343fba790f0ecc053dfd94843327839247ba6ef1652c8fd35bb96e5abcc21"
+    "prompt_sha256": "sha256:be1f49084bb7cc8ee4ae7a60ac5e681042106bbf9c032961452f9e21d09f1bbe"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows the creation and initialization of a MapReduce application master, specifically for application appattempt_1445144423722_0020_000001.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_0"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and accurately reflects the information provided."
     },
     {
-      "text": "The logs indicate that the MRAppMaster is being set up with various configurations, including tokens, committers, and event handlers.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_0"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type, and details from the evidence, and notes the lack of a stated outcome."
     },
     {
-      "text": "The event handlers being registered suggest that the application is preparing to handle job history and job events.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_0"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining what happened around the first occurrence of 'MRAppMaster' and what it means."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all important parts of the evidence, such as the creation of the MRAppMaster, token execution, and configuration of the OutputCommitter."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:cf33f8eb3624f20646d2280717b5bc27281940379abab75e1ab625ff49befbb8"
+  }
 }

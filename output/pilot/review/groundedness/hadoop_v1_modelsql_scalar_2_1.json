@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_scalar_2_1",
+  "group_ids": [
+    "hadoop:modelsql:scalar:2"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:7845c431d66f80b9812e5393bdd94b9c36648b25baae41f4a5bc9926cbdfe9fa"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the number of distinct log entries in the 'hadoop' dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which is the correct form for answering a count-based question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "no",
+      "detail": "The evidence provides a few example log lines but does not contain any information that would allow the conclusion that there are 1985 distinct log entries."
+    }
+  ]
+}

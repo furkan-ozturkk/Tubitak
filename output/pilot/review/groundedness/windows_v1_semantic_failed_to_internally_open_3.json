@@ -1,0 +1,40 @@
+{
+  "question_id": "windows_v1_semantic_failed_to_internally_open_3",
+  "group_ids": [
+    "windows:semantic:failed_to_internally_open_3"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:333225c98440d014097c899d9bcff5ef19c5a25d869a8fe293930e7e7bc4986f"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the session ID, the error code, and the repeated attempts by the WindowsUpdateAgent."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (session 30546173_4280593480), the event type (failed internal package opening), and the outcome (not stated)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the fourth occurrence of \"Failed to internally open\" and explains what took place and its significance (invalid package error)."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the repeated nature of the error and the involvement of the WindowsUpdateAgent, which are important parts of the evidence."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:57d51fbb40a784ac3d503344ae41c6fb53a68644d63d548c63669e6634dfbdff"
+  }
+}

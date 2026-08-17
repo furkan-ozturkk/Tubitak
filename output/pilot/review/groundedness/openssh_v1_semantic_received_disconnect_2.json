@@ -1,0 +1,40 @@
+{
+  "question_id": "openssh_v1_semantic_received_disconnect_2",
+  "group_ids": [
+    "openssh:semantic:received_disconnect_2"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:054490161daeb8dfef7e1be3265ab332acbe190ccf79be8845d56fff0ef5f54a"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence, such as the failed password attempts, reverse mapping checks, and disconnects."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (187.141.143.180), the event type (failed password attempts and reverse mapping checks), and the outcome (no successful authentication)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by summarizing the event shown in the log near the 93rd occurrence of 'Received disconnect', rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key elements from the evidence: failed password attempts, reverse mapping failures, disconnects, and the implication of a potential brute-force attack."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:c9f4cbffb07c0394c4511481f4761f611bcddc8f3dc7b1075a3c5b15a0dee4f0"
+  }
+}

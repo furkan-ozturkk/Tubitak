@@ -1,0 +1,29 @@
+{
+  "question_id": "hdfs_v1_modelsql_count_3_1",
+  "group_ids": [
+    "hdfs:modelsql:count:3"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:72ff86d505a616d34b9c72390f1e7fbff040af5b4456b9e7ea07a191514fe99a"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the number of log entries in the 'hdfs' dataset that mention \"block\" without including \"terminating\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The lines shown under EVIDENCE appear to be genuine matches for \"block\", but there is no evidence provided to confirm that any of them do not include \"terminating\"."
+    }
+  ]
+}

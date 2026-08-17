@@ -1,0 +1,40 @@
+{
+  "question_id": "mac_v1_semantic_wake_reason_6",
+  "group_ids": [
+    "mac:semantic:wake_reason_6"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:c9705d44d48fe29d606fb376817a91114ec4b212004cc461044e7a94bd8a0230"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only describes events present in the evidence, such as BSSID changes, network access denials, and wake reasons like RTC alarm and sleep timer."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (calvisitor-10-105-163-10), event type (system log events), and accurately reflects the described activities without asserting an outcome not stated."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer specifically addresses the wake reasons and related events around them, as asked in the question, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer captures the main points but omits specific timestamps or details about the 19th occurrence of 'wake reason' (e.g., the exact wake reason or time), which the question implies should be addressed."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:45e4ad3a4abdce207c880d6555e8056841a8223ec75444b8c697ebd28e6a9a63"
+  }
+}

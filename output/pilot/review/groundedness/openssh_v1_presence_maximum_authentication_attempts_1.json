@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_presence_maximum_authentication_attempts_1",
+  "group_ids": [
+    "openssh:presence:maximum_authentication_attempts"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:5132daa3bbb55240dc38aa27822127c94bd61e1d052dd4bffb63efc4696c75c2"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log has a line mentioning 'maximum authentication attempts'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format, stating 'No (0 matching lines)' as required for this type of question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows that no lines matched the query for 'maximum authentication attempts', supporting the answer that no such line exists."
+    }
+  ]
+}

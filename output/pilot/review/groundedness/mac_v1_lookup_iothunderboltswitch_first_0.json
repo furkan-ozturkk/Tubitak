@@ -1,0 +1,29 @@
+{
+  "question_id": "mac_v1_lookup_iothunderboltswitch_first_0",
+  "group_ids": [
+    "mac:lookup:iothunderboltswitch_first"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:e96f2cfd72e5c0869c319b3f76268cbacda2e6a3d675c2936ef379dfd88f6e87"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question clearly asks for the first line that reports 'IOThunderboltSwitch', and it refers to a literal string."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is the exact text of one log line, as required for this line-lookup question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes the line that contains 'IOThunderboltSwitch', and the answer matches that line exactly."
+    }
+  ]
+}

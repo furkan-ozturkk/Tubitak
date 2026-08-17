@@ -1,0 +1,29 @@
+{
+  "question_id": "openstack_v1_lookup_status_200_first_2",
+  "group_ids": [
+    "openstack:lookup:status_200_first"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:19e2e18786e2251b1c2e818ad3bf3e9b978914da0fee5206a83a35793353767d"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the first line where 'status: 200' appears."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer provides the exact text of one log line, which is the required answer shape for this line-lookup question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a single log line that contains 'status: 200', and the answer matches that line exactly."
+    }
+  ]
+}

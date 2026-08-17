@@ -3,40 +3,38 @@
   "group_ids": [
     "hadoop:semantic:mrappmaster_6"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:f97a0d41201cea0d96fa37852d54190b5cdde03e65805f370dfb01b598edaf6b"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:ddbb840fc2c1b1f47829b0b16c9ffbb9b5eaf6c243a9f504258ef62fd19deb2b"
+    "prompt_sha256": "sha256:c127fab0cdf9fac86c966ed74be9e77511ac0fdc88d860445b5014d340a095a3"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows the registration of various event types and handlers by the AsyncDispatcher in the Hadoop YARN system.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_6"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not supported by the evidence and accurately reflects the information provided in the log entries."
     },
     {
-      "text": "The registrations occur for different classes, such as JobEventType, TaskEventType, and ContainerAllocator$EventType, among others, and are handled by corresponding dispatcher classes.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_6"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (application_id 20), the event type (application initialization), and the outcome (none stated), all of which are consistent with the evidence."
     },
     {
-      "text": "The registrations happen during the initialization of the system, as indicated by the \"main\" thread and the consistent timestamp across the log lines.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_6"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by describing what is happening in the Hadoop log around the seventh occurrence of 'MRAppMaster', rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence—setting the OutputCommitter and registering event handlers—without omitting important information."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:487ee96c0fa95832cca1423a7ed293f2874c5e51412c26b36cace2dafd3d57fb"
+  }
 }

@@ -1,0 +1,40 @@
+{
+  "question_id": "openssh_v1_semantic_received_disconnect_1",
+  "group_ids": [
+    "openssh:semantic:received_disconnect_1"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:2f34e0a36da1e50b98e3aef49ca78c3ae1022f1a768e05d9adcf08e4dd6db93b"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states information directly supported by the evidence, such as the failed authentication attempt for the user \"support\" and the disconnect."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (\"support\"), the event type (authentication failure), and the outcome (disconnect due to failed authentication)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer specifically addresses the question about the 47th occurrence of \"Received disconnect\" by describing the relevant authentication attempt and its failure."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: the user, the failed authentication, the password check, and the disconnect, making it reasonably complete."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:aa3976355220de871e38d36e22c6ca10d0e0820b553cbf5023a04c6f3b97d0ff"
+  }
+}

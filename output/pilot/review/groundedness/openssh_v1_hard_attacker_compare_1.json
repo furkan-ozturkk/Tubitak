@@ -4,56 +4,38 @@
     "openssh:hard:attacker_compare:1:103_99_0_122",
     "openssh:hard:attacker_compare:1:112_95_230_3"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:d8ee029ce066e3f804e96c0116dbbc802129a5df3649b526bffbe37b66297c85"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:857bfdfe3a9751b4397d08f9d1461006c478dae49f976c9b2de9a5190f1ae442"
+    "prompt_sha256": "sha256:d6cc80d47ef8869a27091be7ec1718ef8c059766bc28bac33e82d9f3c3a96dc7"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The attack patterns from 103.99.0.122 and 112.95.230.3 differ significantly in terms of target accounts, with 103.99.0.122 attempting to access a wide range of accounts including admin, support, user, root, and others, while 112.95.230.3 primarily targets the root account, with only one attempt at the pgadmin account.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:1:103_99_0_122",
-        "openssh:hard:attacker_compare:1:112_95_230_3"
-      ]
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes distinct behaviors to each group without conflating them, such as the wide range of accounts for 103.99.0.122 and the focus on \"root\" for 112.95.230.3."
     },
     {
-      "text": "The request cadence also varies, with 103.99.0.122 spreading its attempts over a longer period of nearly two hours, from 09:11 to 11:04, whereas 112.95.230.3 concentrates its attempts within a much shorter timeframe of about 24 minutes, from 07:27 to 07:28.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:1:103_99_0_122",
-        "openssh:hard:attacker_compare:1:112_95_230_3"
-      ]
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of target accounts, request cadence, and outcomes is supported by the timestamps and log entries in the evidence."
     },
     {
-      "text": "In terms of outcome, both attackers are consistently unsuccessful, with each attempt resulting in a failed password or invalid user error, followed by a disconnect.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:1:103_99_0_122",
-        "openssh:hard:attacker_compare:1:112_95_230_3"
-      ]
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer avoids assigning specific motives or identities and sticks to observable patterns in the evidence."
     },
     {
-      "text": "However, the attacker from 103.99.0.122 looks more anomalous due to the wide range of target accounts and the prolonged duration of the attack.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:1:103_99_0_122",
-        "openssh:hard:attacker_compare:1:112_95_230_3"
-      ]
-    },
-    {
-      "text": "The root cause of these repeated failed login attempts is that these errors recur without any corrective action in between.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the differences in target accounts, request cadence, and outcomes, and identifies which attacker appears more anomalous based on the evidence."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:7f226a7b85a3258ed331fc55d538c33234f218894e95f67d9310c1114cc7f555"
+  }
 }

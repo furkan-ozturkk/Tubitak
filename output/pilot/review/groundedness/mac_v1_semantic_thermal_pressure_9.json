@@ -3,40 +3,38 @@
   "group_ids": [
     "mac:semantic:thermal_pressure_9"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:2018c9093ba97735c1bb64c9c9a6255babf9687ec908bf1cc102ddb89c598c67"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:0d925b4c077b093c7160b3a4aafb137667f2a539485a59e2448ef958d7c81ab7"
+    "prompt_sha256": "sha256:1322a275fa4f543e9dc9a91d2c02e2abcb8360d88c0c84eff68427a84f1e9196"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of system log events on a Mac device, including changes in thermal and memory pressure states, system wake calls, and various application and service activities.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_9"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence and sticks to the described system events and status updates."
     },
     {
-      "text": "The events indicate normal system operations, such as the Bluetooth Low Energy scanner being powered on and various services like Safari and Address Book performing routine tasks.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_9"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the entity, event type, and outcome as described in the structured summary and evidence."
     },
     {
-      "text": "The log lines also show some deferred or ignored tasks, like the Safari Safe Browsing update being postponed for 978 seconds and a failed connection attempt by the Address Book service.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_9"
-      ]
+      "dimension": "relevant",
+      "verdict": "no",
+      "detail": "The answer does not address the specific mention of the 28th occurrence of \"Thermal pressure\" in the question, making it irrelevant to the question's focus."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer is reasonably complete in summarizing the system events but omits the specific detail about the 28th occurrence of \"Thermal pressure,\" which is central to the question."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:00283834a81bc3561b6fee0a8d1a3c2638e86a766065793e9c069064bfd14887"
+  }
 }

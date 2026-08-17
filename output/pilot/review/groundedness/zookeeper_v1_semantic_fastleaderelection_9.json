@@ -3,40 +3,38 @@
   "group_ids": [
     "zookeeper:semantic:fastleaderelection_9"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:31ab7665e876f7d0e13e70b8dbdd38fb5e6cacf541ddbb306833c367fa93fc03"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:533a5d5990b3a5ae8ac9cfd2613981fd960c10de1a6027bfd7d6fa9541312cad"
+    "prompt_sha256": "sha256:c3bdbfcade78df45ca07a629928c68185cb6ef1cd0d2f86eee83e19ff1c28f0d"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of events related to a Zookeeper system, starting with notifications of a \"LOOKING\" state, indicating that the system is attempting to establish leadership.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "zookeeper:semantic:fastleaderelection_9"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only mentions information directly supported by the evidence, such as session termination, quorum peer state changes, and connection issues."
     },
     {
-      "text": "The system then encounters connection issues, with warnings of interrupted messages, broken connections, and send workers leaving their threads, all related to an id of 188978561024.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "zookeeper:semantic:fastleaderelection_9"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the session, the event type (session termination and connection issues), and accurately reflects the evidence without claiming an outcome that isn't stated."
     },
     {
-      "text": "These warnings suggest a loss of communication or connectivity for this specific id, while the system with myid=3 is aware of the issue but its own state is not explicitly affected.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "zookeeper:semantic:fastleaderelection_9"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining what the Zookeeper log shows around the 46th occurrence of 'FastLeaderElection' and what it means, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key elements from the evidence: session termination, quorum peer state changes, connection failures, and the implications of the \"LOOKING\" state and broken connections."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:1f8c6702a1c8b8393afec2521064a92c00bc15df15ec5ed625ce33e712437d3a"
+  }
 }

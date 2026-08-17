@@ -25,12 +25,12 @@ and the input digests is appended to a log beside the dataset. The record's own
 rather than resolved last-writer-wins, which is what a hand-edited CSV produces
 when rows are copied.
 
-**A flagged draft cannot be accepted verbatim.** When a record's groundedness
-report marks any claim ``supported: "no"``, an ``accept`` is refused: the
-unsupported sentence is still in the draft, and accepting it would have a human
-certify a claim a second model already found the evidence does not carry. The
-reviewer edits the sentence away or rejects the record; the report is advisory
-everywhere else.
+**A flagged draft cannot be accepted verbatim.** When a record's own
+``validation.checks`` (Section 6) marks any quality dimension ``verdict: "no"``,
+an ``accept`` is refused: the unsupported dimension is still true of the draft,
+and accepting it would have a human certify something a second model already
+found the evidence does not carry. The reviewer edits the answer away from the
+problem or rejects the record; the check is advisory everywhere else.
 
 CSV fields are escaped against spreadsheet formula injection. A log line beginning
 with ``=`` or ``+`` is ordinary in this corpus and would otherwise be evaluated when
@@ -54,7 +54,7 @@ WORKSHEET_FIELDS = [
     "question",
     "draft_answer",
     "draft_sha256",
-    "groundedness_summary",
+    "validation_summary",
     "evidence",
     "decision",
     "edited_answer",
@@ -111,53 +111,45 @@ def _csv_unsafe(value: str) -> str:
     return value
 
 
-def _unsupported_claims(review_dir: Path | None, question_id: str) -> list[str]:
-    """Returns the draft claims the groundedness model marked unsupported.
+def _unsupported_dimensions(record: dict[str, Any]) -> list[str]:
+    """Returns the quality dimensions a record's own ``validation`` block marked unsupported.
+
+    Reads the record's embedded ``validation.checks`` (Section 6) directly rather
+    than a side file: the record is the single source of truth for its own
+    validation result, and every record built by the current generators carries
+    one, easy tier included.
 
     Args:
-        review_dir: Directory of per-question groundedness reports, or ``None``.
-        question_id: The record id whose report to read.
+        record: A question record.
 
     Returns:
-        The ``supported == "no"`` claim texts; empty when there is no report —
-        which, now that both model-drafted tiers run the check, only happens
-        for records generated before it existed.
+        The ``verdict == "no"`` dimension keys; empty when the record has no
+        ``validation`` block (only possible for a record predating this field)
+        or every dimension passed.
     """
-    if not review_dir:
-        return []
-    report_path = Path(review_dir) / f"{question_id}.json"
-    if not report_path.exists():
-        return []
-    report = json.loads(report_path.read_text(encoding="utf-8"))
+    validation = record.get("validation") or {}
     return [
-        claim.get("text", "")
-        for claim in report.get("claims", [])
-        if claim.get("supported") == "no"
+        check.get("dimension", "")
+        for check in validation.get("checks", [])
+        if check.get("verdict") == "no"
     ]
 
 
-def _groundedness_summary(review_dir: Path | None, question_id: str) -> str:
-    """Summarises one question's groundedness report for the worksheet.
+def _validation_summary(record: dict[str, Any]) -> str:
+    """Summarises one record's own ``validation`` block for the worksheet.
 
     Args:
-        review_dir: Directory of per-question groundedness reports, or ``None``.
-        question_id: The record id whose report to summarise.
+        record: A question record.
 
     Returns:
-        A ``"<supported>/<total> claims supported"`` string, or ``""`` when there
-        is no report — which, now that both model-drafted tiers run the check,
-        only happens for records generated before it existed.
+        A ``"<supported>/<total> dimensions supported"`` string, or ``""`` when
+        the record has no ``validation`` block.
     """
-    if not review_dir:
+    checks = (record.get("validation") or {}).get("checks", [])
+    if not checks:
         return ""
-    report_path = Path(review_dir) / f"{question_id}.json"
-    if not report_path.exists():
-        return ""
-    report = json.loads(report_path.read_text(encoding="utf-8"))
-    supported = [claim["supported"] for claim in report.get("claims", [])]
-    if not supported:
-        return ""
-    return f"{supported.count('yes')}/{len(supported)} claims supported"
+    supported = sum(1 for check in checks if check.get("verdict") == "yes")
+    return f"{supported}/{len(checks)} dimensions supported"
 
 
 def _evidence_text(record: dict[str, Any]) -> str:
@@ -183,7 +175,7 @@ def export_worksheet(config: ReviewExportConfig) -> int:
     """Exports every in_review record to a CSV worksheet.
 
     Args:
-        config: Dataset, worksheet destination and groundedness report directory.
+        config: Dataset and worksheet destination.
 
     Returns:
         ``0``.
@@ -201,9 +193,7 @@ def export_worksheet(config: ReviewExportConfig) -> int:
                 "question": _csv_safe(question["question"]),
                 "draft_answer": _csv_safe(draft_answer),
                 "draft_sha256": _sha256_text(draft_answer),
-                "groundedness_summary": _groundedness_summary(
-                    config.review_dir, question["id"]
-                ),
+                "validation_summary": _validation_summary(question),
                 "evidence": _csv_safe(_evidence_text(question)),
                 "decision": "",
                 "edited_answer": "",
@@ -230,7 +220,6 @@ def export_worksheet(config: ReviewExportConfig) -> int:
 def _validate_worksheet(
     decisions: list[dict[str, str]],
     by_id: dict[str, dict[str, Any]],
-    review_dir: Path | None = None,
 ) -> list[str]:
     """Checks a filled-in worksheet against the dataset before applying anything.
 
@@ -239,16 +228,15 @@ def _validate_worksheet(
     dataset in a state nobody chose.
 
     One check is about the decision itself rather than the worksheet's shape: an
-    ``accept`` on a record whose groundedness report holds a ``supported: "no"``
-    claim is refused. The unsupported sentence is still in the draft, so
-    accepting it verbatim certifies a claim a second model already said the
-    evidence does not carry; the reviewer has to either ``edit`` the sentence
-    away or ``reject`` the record.
+    ``accept`` on a record whose own ``validation.checks`` holds a ``verdict:
+    "no"`` dimension is refused. The unsupported dimension is still true of the
+    draft, so accepting it verbatim certifies something a second model already
+    said the evidence does not carry; the reviewer has to either ``edit`` the
+    answer away from the problem or ``reject`` the record.
 
     Args:
         decisions: Rows read from the worksheet.
         by_id: Dataset records, keyed by id.
-        review_dir: Directory of per-question groundedness reports, or ``None``.
 
     Returns:
         Human-readable problems; empty when the worksheet is safe to apply.
@@ -291,13 +279,12 @@ def _validate_worksheet(
             continue
 
         if decision == "accept":
-            unsupported = _unsupported_claims(review_dir, question_id)
+            unsupported = _unsupported_dimensions(record)
             if unsupported:
                 problems.append(
                     f"row {row_number}: id {question_id} cannot be accepted as-is: "
-                    f"its groundedness report marks {len(unsupported)} claim(s) "
-                    f"unsupported (first: '{unsupported[0][:80]}...'). Edit the "
-                    f"answer to remove them, or reject the record."
+                    f"its own validation.checks marks {unsupported} unsupported. "
+                    f"Edit the answer to resolve them, or reject the record."
                 )
     return problems
 
@@ -324,7 +311,7 @@ def apply_worksheet(config: ReviewApplyConfig) -> int:
     with open(config.worksheet, "r", encoding="utf-8", newline="") as handle:
         decisions = list(csv.DictReader(handle))
 
-    problems = _validate_worksheet(decisions, by_id, config.review_dir)
+    problems = _validate_worksheet(decisions, by_id)
     if problems:
         print(
             f"REJECTED: worksheet has {len(problems)} problem(s); nothing was written."

@@ -1,0 +1,29 @@
+{
+  "question_id": "mac_v1_presence_thermal_pressure_2",
+  "group_ids": [
+    "mac:presence:thermal_pressure"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:457946afc368f2196b07defb8b5b1e38a11b61a01fc0442adc2bcc52a240556f"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether \"Thermal pressure\" appears at least once in the log."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format, stating \"Yes (39 matching lines)\" as required."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query and the example lines confirm that \"Thermal pressure\" appears in the dataset, and the query explicitly returns 39 matching lines."
+    }
+  ]
+}

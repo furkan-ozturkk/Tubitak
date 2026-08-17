@@ -3,40 +3,38 @@
   "group_ids": [
     "hdfs:semantic:addstoredblock_6"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:cc361443d369e25e01f5a3b956d56ecf62329783010438c56c0d804f16c81221"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:ed51c3617d8df2abd40c8ddbc04a0185efd69a9441319c8ca20853c699d6f8c4"
+    "prompt_sha256": "sha256:9455e7ca1746ad2d095594e5e23b513baf33c42e67da5918e35196dd0460e895"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows various events related to HDFS block management, including the addition of nodes to a block map, the termination of packet responders for specific blocks, and the reception of a block from a source node.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hdfs:semantic:addstoredblock_6"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the block being added to the NameSystem and PacketResponders terminating."
     },
     {
-      "text": "The events indicate changes to the block storage and retrieval process, such as updating the block map and handling block transfers.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hdfs:semantic:addstoredblock_6"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (blk_-4052810234606327693), the event type (block management), and accurately reflects the observed events without claiming an outcome."
     },
     {
-      "text": "The addition of blocks to an invalidSet for specific nodes suggests that some blocks may be marked as invalid or corrupted on those nodes.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hdfs:semantic:addstoredblock_6"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question about what is happening around the 187th occurrence of 'addStoredBlock' by describing the relevant events in the log."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer captures the main points but omits specific details like the exact timestamps or the other blocks involved, which could add context to the ongoing activity."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:bd862efaef16a235785a228308f72aaa9d9a2f1a966964e588babdfb323aad5a"
+  }
 }

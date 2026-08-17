@@ -1,0 +1,29 @@
+{
+  "question_id": "hdfs_v1_presence_exception_0",
+  "group_ids": [
+    "hdfs:presence:exception"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:fa9c24bfb7a67c86a9ea65a8c6c89b8b84fc27dc97522a47e23da305f166a7ca"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log contains any line with the word 'Exception'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format, stating a verdict and a count of matching lines."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query and the example lines confirm that the term 'Exception' is present in the dataset, and the count of 80 matches is consistent with the query logic."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "hdfs_v1_lookup_addstoredblock_first_1",
+  "group_ids": [
+    "hdfs:lookup:addstoredblock_first"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:7ed5ecc4a00af84f2a0e046f3678b4d1d2b5491b44df1e56d3cf09130fca3afa"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question clearly asks for the first log line mentioning 'addStoredBlock', and it specifies the pattern to look for."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is the exact text of one log line, as required for this line-lookup question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a single log line that contains 'addStoredBlock', and the answer matches that line exactly."
+    }
+  ]
+}

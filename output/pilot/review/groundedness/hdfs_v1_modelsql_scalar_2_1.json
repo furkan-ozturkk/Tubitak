@@ -1,0 +1,29 @@
+{
+  "question_id": "hdfs_v1_modelsql_scalar_2_1",
+  "group_ids": [
+    "hdfs:modelsql:scalar:2"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:9f946936223f07fbf8e57c26e98bb9bb534c2cbfd6e10772207e0b63a604095a"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of distinct IP addresses in the 'hdfs' dataset logs."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which is the correct form for the question's required answer."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence includes one line with an IP address (10.251.73.220), but there is no indication of how many distinct IP addresses were processed overall, so it is unclear how the answer \"200\" was derived from the provided evidence."
+    }
+  ]
+}

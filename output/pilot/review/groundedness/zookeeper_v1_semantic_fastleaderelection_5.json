@@ -3,40 +3,38 @@
   "group_ids": [
     "zookeeper:semantic:fastleaderelection_5"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:ec2928f61e68c77ce1a62ea999ce3088b7e69591bb015df0015a649f024d12c5"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:47f47247998230222d679818462b3a8c9286fc3558e2015efe4ae3ec49c6e216"
+    "prompt_sha256": "sha256:46b318f982f9ff543d179a7b8a34b39b60c3b7149dabd28b27d2412abbc99d36"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of warnings and info messages from a QuorumPeer with myid=1, indicating that it is having trouble connecting to other peers with myids 2 and 3 at specific election addresses.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "zookeeper:semantic:fastleaderelection_5"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as connection failures and notification timeouts, without adding unsupported claims."
     },
     {
-      "text": "The warnings specifically state that it cannot open a channel to these peers, while the info messages note notification timeouts of 60000.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "zookeeper:semantic:fastleaderelection_5"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (QuorumPeer[myid=1]), the event type (connection failures), and the outcome (not specified in the evidence)."
     },
     {
-      "text": "These messages suggest a potential communication issue within the quorum, but the exact cause and effect are not specified in the excerpt.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "zookeeper:semantic:fastleaderelection_5"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining what happened around the 26th occurrence of 'FastLeaderElection' and what it means, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence—repeated connection failures, notification timeouts, and the lack of a stated outcome—without omitting important information."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:4ede92f7d0ec8821cf36b3dc7e618fd2832a9a448da8d8d0203e1a23e9c8de54"
+  }
 }

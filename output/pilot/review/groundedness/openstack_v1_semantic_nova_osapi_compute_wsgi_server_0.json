@@ -3,40 +3,38 @@
   "group_ids": [
     "openstack:semantic:nova_osapi_compute_wsgi_server_0"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:07fca7ad0d90ba9617e3dc524d5d4ee4896f767deed756d42e9052a49d9db825"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:afd9f46a5705f35c0734db17764e27e4fcf1c415ca535e4ecc136cf00e05f983"
+    "prompt_sha256": "sha256:a54b09a67c0b62f4a8125d8b8a6ab0014a51dcc2343a0466fe4948c7c498ca74"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The excerpt shows a series of successful GET requests to the Nova API from the IP address 10.11.10.1, all requesting server details for the same project (54fadb412c4e40cdbaed9335e4c35a9e).",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_0"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the entity, the repeated GET requests, and the successful status 200 responses."
     },
     {
-      "text": "These requests were made in quick succession, with response times ranging from 0.247 to 0.273 seconds.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_0"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, the event type (GET requests for server details), and the outcome (successful responses with status 200)."
     },
     {
-      "text": "Additionally, the excerpt shows a VM with instance ID b9000564-fe1a-409b-b8cc-1e88b294cd1d being started and then immediately paused, as recorded in the nova-compute log.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_0"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what happened and what it means, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: the entity, the repeated requests, the success status, and a reasonable interpretation of the behavior."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:f24762726cbd2fff3d5e4665223120845131ddb8e8a397aa73e0e611da2b5eed"
+  }
 }

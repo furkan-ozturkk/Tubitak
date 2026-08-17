@@ -3,40 +3,38 @@
   "group_ids": [
     "apache:semantic:child_workerenv_in_error_state_0"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:9389007dada6bc311c4a94b6dd98822ea723667dbd937b1154c3384565a6d6ef"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:c86393fa9aab8422bf8f5c95e72d8551ca3679cc5428270c6a02f3435c113fbc"
+    "prompt_sha256": "sha256:b7b18a923c50c4005145ab341d91c69e03ef0be25750b09533ffce0530e89abd"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The excerpt shows a series of events related to the initialization of mod_jk workers in an Apache system.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "apache:semantic:child_workerenv_in_error_state_0"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence and sticks to the described events."
     },
     {
-      "text": "It indicates that the mod_jk child workerEnv enters an error state 6 at the beginning and end of the excerpt, with various worker processes being found and initialized in between.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "apache:semantic:child_workerenv_in_error_state_0"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the entity (workerEnv), the event type (initialization and error), and the lack of a stated outcome."
     },
     {
-      "text": "The repeated \"workerEnv.init() ok\" notices suggest that the worker environment is being successfully initialized for multiple processes despite the error state.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "apache:semantic:child_workerenv_in_error_state_0"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what happened around the first error state mention, not just a generic summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key points from the evidence: the error, the later discovery of children, and the reinitializations."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:d544a8a3594a067e3f327a264449d151cc204b0e4ea3d3886d8e31f9cfaa672a"
+  }
 }

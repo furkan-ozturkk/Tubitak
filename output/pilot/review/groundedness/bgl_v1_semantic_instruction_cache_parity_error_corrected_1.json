@@ -3,40 +3,38 @@
   "group_ids": [
     "bgl:semantic:instruction_cache_parity_error_corrected_1"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:f6b9f4511bb9a12c80d1b7c43aca672f342aa7aa340254855ec40f242a4a3198"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:50f5443b0acb5540f1444abd72a7085e7efa79ff7dc2ad3780c12517b5fefda8"
+    "prompt_sha256": "sha256:fdcc5b0118450d7a6cb7f8cc9843a8f5bbf1ccb26071401bc1911e2a241bd441"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of instruction cache parity error corrections occurring on the entity identified as R02-M1-N0-C:J12-U11.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:semantic:instruction_cache_parity_error_corrected_1"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the entity, the event type, and the lack of stated outcome."
     },
     {
-      "text": "These corrections happened at various times between 10:33 and 11:11 on June 6, 2005, with the entity's RAS KERNEL INFO logging each event.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:semantic:instruction_cache_parity_error_corrected_1"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (R02-M1-N0-C:J12-U11), the event type (instruction cache parity error corrected), and the lack of stated outcome."
     },
     {
-      "text": "The fact that these errors were corrected suggests that the system has a mechanism in place to detect and recover from such errors, but the frequency of these corrections may indicate an underlying issue.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:semantic:instruction_cache_parity_error_corrected_1"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by describing what is happening in the BGL log around the specified event, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence—entity, event, timing, and lack of stated outcome—without omitting important information."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:d8a68193d8953e65af71c4d466a9f5ff93759e10d538f3772d4787dea414d420"
+  }
 }

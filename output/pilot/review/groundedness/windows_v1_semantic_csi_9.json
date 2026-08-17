@@ -3,40 +3,38 @@
   "group_ids": [
     "windows:semantic:csi_9"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:46a0b0dbcea9616b6b016f54cd202ea29d7d8b1dadd4c0e86561df333d1b960d"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:6fc26326fd977ec83f2402cf306d6d81d955a26f57ea1e50e27872f4d0f859d0"
+    "prompt_sha256": "sha256:784609594644cb5f0f2ccd259d8971a007eab01190b579933d49594478fe779c"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows the initialization and startup of the TrustedInstaller service, which is part of the Windows Component-Based Servicing (CBS) system.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_9"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only describes events and outcomes explicitly mentioned in the evidence without adding unsupported claims."
     },
     {
-      "text": "The logs indicate that the service starts successfully and begins its main loop, and also initializes the Software Quality Metrics (SQM) system with Windows opt-in set to False.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_9"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (TrustedInstaller), the event type (initialization), and the outcome (successful service start) as shown in the evidence."
     },
     {
-      "text": "The SQM system then proceeds to clean up old report files and request the upload of unsent reports.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_9"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the Windows log around the 19th occurrence of 'CSI' by describing the relevant CSI events and their meaning."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer summarizes the key steps but omits specific CSI event details (e.g., the exact CSI log lines and their timestamps), which could be considered important for a complete walkthrough."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:ccd3d1387e3000f95fe7b56b578e2560849137da12cc4be87c06639497f9b58a"
+  }
 }

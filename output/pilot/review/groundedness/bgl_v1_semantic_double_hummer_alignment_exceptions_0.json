@@ -1,0 +1,40 @@
+{
+  "question_id": "bgl_v1_semantic_double_hummer_alignment_exceptions_0",
+  "group_ids": [
+    "bgl:semantic:double_hummer_alignment_exceptions_0"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:37a7d6121e492cbfb59daddc0714e2dc04b28f9a22d2be8c982f9ed09e6cfee2"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the entities, events, and lack of stated outcome."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "no",
+      "detail": "The answer incorrectly attributes the \"CE sym error\" and \"APP FATAL ciod failures\" to the R02-M1-N0-C:J12-U11 entity, while the evidence shows these occurred on different entities."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by describing what happened around the first occurrence of \"double-hummer alignment exceptions\" and what it means in context."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer mentions the double-hummer alignment exceptions and related events but does not clearly specify the first occurrence or its immediate context."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:9edc6a4a7b4948ebef09794dfcc4209e89accaf01597f343c8b0050b102aca1a"
+  }
+}

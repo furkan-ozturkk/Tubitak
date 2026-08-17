@@ -1,0 +1,29 @@
+{
+  "question_id": "apache_v1_count_notice_2",
+  "group_ids": [
+    "apache:count:notice"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:18793028832f7a51ec9b52a95427b75389b8bd3f5130b64e2283a9d495aa4eb3"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question clearly asks for the total number of '[notice]' occurrences, and it specifies the pattern to look for."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that counts lines with '[notice]' case-insensitively, and the answer matches the stated result of that query."
+    }
+  ]
+}

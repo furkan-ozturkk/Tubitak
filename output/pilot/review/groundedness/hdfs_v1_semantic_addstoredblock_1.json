@@ -3,40 +3,34 @@
   "group_ids": [
     "hdfs:semantic:addstoredblock_1"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:a6f235ee335959c727b965d82355109bdd38714b051c263963774045246a1fa1"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:ef33bd7551659d6b551d3f9530965c6f26fa359f8b6cbc4c471f1b468faaae59"
+    "prompt_sha256": "sha256:fb708b90759fe40469fb13464cb130e1e133f6c58a16804b99257045a07da38a"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows various events related to HDFS block management, including the addition of nodes to a block map, the reception of blocks, and the termination of PacketResponders for specific blocks.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hdfs:semantic:addstoredblock_1"
-      ]
+      "dimension": "grounded",
+      "verdict": "partial"
     },
     {
-      "text": "The events are reported by different components, such as the FSNamesystem and the DataNode, and involve different block IDs and node addresses.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hdfs:semantic:addstoredblock_1"
-      ]
+      "dimension": "correct",
+      "verdict": "partial"
     },
     {
-      "text": "These events indicate normal operational activity in an HDFS system, with blocks being added, received, and processed by various nodes.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hdfs:semantic:addstoredblock_1"
-      ]
+      "dimension": "relevant",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial"
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:21530fadedfa53b6bd2eba5e67078ab5aa4699dde6748746c9938b2b2dea8666"
+  }
 }

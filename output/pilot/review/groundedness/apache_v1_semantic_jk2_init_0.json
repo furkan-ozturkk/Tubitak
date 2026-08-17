@@ -1,0 +1,40 @@
+{
+  "question_id": "apache_v1_semantic_jk2_init_0",
+  "group_ids": [
+    "apache:semantic:jk2_init_0"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:76e1da202cfdb1479db3eddd8a6ac48fbdae3d4d3d64aa578503b01913d1f183"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and aligns with the structured summary."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the entity (workerEnv), the event type (initialization and error reporting), and the observed events as described in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question about what happened around the first occurrence of 'jk2_init' and what it means, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key points from the evidence—initialization, error, discovery of children, and repeated initializations—without omitting important details."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:6efe0b41d3aff0e56c0138beb8fe26fe067d411110a61505d88ffccd76d0fd4c"
+  }
+}

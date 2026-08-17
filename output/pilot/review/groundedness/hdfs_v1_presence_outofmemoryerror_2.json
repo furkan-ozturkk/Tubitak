@@ -1,0 +1,29 @@
+{
+  "question_id": "hdfs_v1_presence_outofmemoryerror_2",
+  "group_ids": [
+    "hdfs:presence:outofmemoryerror"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:c3fa4103c29183d50c3c42519723d26129229e805188db6853ffbaaf1169fd37"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether 'OutOfMemoryError' appears in the log, with case-insensitive matching."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format, stating a verdict ('No') and a count ('0 matching lines')."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows that no lines contain the substring 'OutOfMemoryError', even with case-insensitive matching, supporting the answer."
+    }
+  ]
+}

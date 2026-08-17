@@ -1,0 +1,40 @@
+{
+  "question_id": "apache_v1_semantic_jk2_init_4",
+  "group_ids": [
+    "apache:semantic:jk2_init_4"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:eaa4f8cd6997da2b9a75752d271243ae111cb8b9f62031e5b9f12c74ffeec56a"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer sticks to the information provided in the evidence without adding unsupported claims."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the event type (initialization and error), the entity (child 1566), and the outcome (failure to find the child)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by walking through the log around the 337th occurrence of 'jk2_init' and explaining what it means."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the relevant details from the evidence, such as the successful finding of other children and the failure to find child 1566, making it reasonably complete."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:2fb826989a68df3bf179b8cf214d3e215b79b59d3b7f7bce196d2c0eaa0b8f64"
+  }
+}

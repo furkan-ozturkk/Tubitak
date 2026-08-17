@@ -273,6 +273,38 @@ def assert_readonly_select(sql: str) -> None:
         raise ValueError(f"forbidden construct in query: {found.group(1).lower()!r}")
 
 
+def assert_scoped_to_dataset(sql: str, dataset_key: str) -> None:
+    """Rejects a query that does not restrict itself to one dataset.
+
+    Model-invented SQL (``VllmClient.invent_sql_question``) chooses its own WHERE
+    clause, unlike the generator's own ``count_literal``/``count_regex`` calls,
+    which always bind ``dataset`` themselves. Without this check a query that
+    forgot -- or a model that decided not to bother -- the ``dataset`` filter
+    would scan every dataset's lines and could recompute a "count" that mixes
+    rows from other logs into a record that claims to be about this one.
+
+    A substring check on the quoted dataset value, not a full SQL parse: dataset
+    keys are a closed, lowercase, alphanumeric set (Section 7.1), so a literal
+    ``'<key>'`` appearing anywhere in the query is a reliable enough signal, and
+    the read-only transaction plus ``assert_readonly_select`` are what actually
+    stand between this query and the database, not this heuristic.
+
+    Args:
+        sql: The candidate query, already passed through ``assert_readonly_select``.
+        dataset_key: The dataset the query is supposed to be restricted to.
+
+    Raises:
+        ValueError: If no ``dataset = '<dataset_key>'``-shaped restriction is found.
+    """
+    pattern = re.compile(
+        r"dataset\s*=\s*'" + re.escape(dataset_key) + r"'", re.IGNORECASE
+    )
+    if not pattern.search(sql):
+        raise ValueError(
+            f"query does not restrict itself to dataset = '{dataset_key}'"
+        )
+
+
 def run_readonly_query(sql: str) -> list[tuple]:
     """Runs an untrusted query inside a read-only transaction.
 

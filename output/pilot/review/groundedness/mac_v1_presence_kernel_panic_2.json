@@ -1,0 +1,29 @@
+{
+  "question_id": "mac_v1_presence_kernel_panic_2",
+  "group_ids": [
+    "mac:presence:kernel_panic"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:c9ad9f6a0a56c90868682e30cc7268a169058505af380bbaf11946abe78d0db9"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the literal or pattern \"kernel panic\" appears in the log."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is of the correct form, stating \"No (0 matching lines)\" as required by the question's format."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows that no lines matched the query for \"kernel panic,\" supporting the answer that there are 0 matching lines."
+    }
+  ]
+}

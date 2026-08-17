@@ -1,0 +1,29 @@
+{
+  "question_id": "linux_v1_presence_invalid_user_1",
+  "group_ids": [
+    "linux:presence:invalid_user"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:5cfeda3d1ad2b96e12b29de94b9bcbae5f5061e8e7595de2706a6ed520ea90ed"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log has a line mentioning 'Invalid user'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format, stating 'No (0 matching lines)' as required for a YES/NO question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows that no lines contain the phrase 'Invalid user' (case-insensitive), supporting the answer."
+    }
+  ]
+}

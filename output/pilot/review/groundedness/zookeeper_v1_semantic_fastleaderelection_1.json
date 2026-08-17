@@ -3,40 +3,38 @@
   "group_ids": [
     "zookeeper:semantic:fastleaderelection_1"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:8d526e487d2e53108389d6e44a38d227975822cc544b0fc67bd0e788c2505628"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:ccb99b0fc8b58df6006a4f61710f759dbae200f28e58bf51935c83dd60625464"
+    "prompt_sha256": "sha256:0303c54d31aa23d63ea660eec78959b6f92ea3f6afc9afdd5bcc2dc885fcb435"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of events related to client connections to a ZooKeeper server, including the establishment of new sessions and the closure of existing ones.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "zookeeper:semantic:fastleaderelection_1"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only describes events and outcomes explicitly mentioned in the evidence, such as the client from /10.10.34.11:56492 establishing a session after encountering exceptions."
     },
     {
-      "text": "The events indicate that multiple clients from different IP addresses are connecting to the server, with each connection being assigned a unique session ID and a negotiated timeout of 10000.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "zookeeper:semantic:fastleaderelection_1"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type (session establishment), and outcome (successful session with negotiated timeout) as described in the evidence."
     },
     {
-      "text": "The excerpt also mentions a closed socket connection and an end of stream exception, indicating some disruption or error in the communication with one of the clients.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "zookeeper:semantic:fastleaderelection_1"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question about what is happening in the log around the sixth occurrence of 'FastLeaderElection' by describing the session establishment process and related events."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer mentions the successful session but does not explicitly reference the sixth occurrence of 'FastLeaderElection' or its specific details, which is the focus of the question."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:4c46e01b0bae19529988912ec357b99f3a00203df160060ef058bfabd103e0c1"
+  }
 }

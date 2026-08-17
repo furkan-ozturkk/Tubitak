@@ -1,0 +1,29 @@
+{
+  "question_id": "linux_v1_count_authentication_failure_1",
+  "group_ids": [
+    "linux:count:authentication_failure"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:6bd9fe1602e5e409c0d844f8579eba1fe802e3bba648650350ab427e9bff4e62"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question clearly asks to count lines mentioning 'authentication failure', and it specifies the pattern to look for."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that counts lines with 'authentication failure' in a case-insensitive manner, and the answer matches the stated total of 490."
+    }
+  ]
+}

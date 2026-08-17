@@ -1,0 +1,29 @@
+{
+  "question_id": "openstack_v1_presence_delete_v2_2",
+  "group_ids": [
+    "openstack:presence:delete_v2"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:ca8af8e7d5c801c314ca0b57591dc46bdfdac9ff7154f5a6f425bc2e85cccc3d"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether there is at least one occurrence of 'DELETE /v2' in the log."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format for a yes/no question, stating \"Yes (22 matching lines)\" as required."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that finds lines with 'DELETE /v2' and states there are 22 matching lines, supporting the answer."
+    }
+  ]
+}

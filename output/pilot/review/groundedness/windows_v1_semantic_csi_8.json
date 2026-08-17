@@ -3,40 +3,38 @@
   "group_ids": [
     "windows:semantic:csi_8"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:4aba76098016e7354afa68fe7d944b223149ce58d6c8cb8af50f5359325d5434"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:471e96b7e06f35745597a97448313a70e775ad5be45dbe0638fd904cdaded6ab"
+    "prompt_sha256": "sha256:fdcc653d04e3c4526dcf8486f73839a4997c3bffacbd769861bcfed9e0472d70"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of events related to the Component-Based Servicing (CBS) and the TrustedInstaller on a Windows system.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_8"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the completion of scavenge, termination of the idle thread, and finalization by TrustedInstaller."
     },
     {
-      "text": "The events indicate that the TrustedInstaller main loop ended and finalized on September 28, and then initialized again on September 29, with the loading of the Servicing Stack.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_8"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (TrustedInstaller), the events (scavenge completion, termination of idle thread, ending of main loop, and finalization), and the outcome (normal completion with no errors)."
     },
     {
-      "text": "The specific transactions and operations, such as the destruction of a CSI transaction, suggest routine system maintenance or update activities.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_8"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by describing what took place around the CSI events and their significance, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all key parts of the evidence: the scavenge completion, idle thread termination, main loop ending, and finalization, making it reasonably complete."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:b8b8e6ef40556a574af6d267a350d84e90ff89f073f85f107a691200363fd19b"
+  }
 }

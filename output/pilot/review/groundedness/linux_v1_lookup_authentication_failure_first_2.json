@@ -1,0 +1,29 @@
+{
+  "question_id": "linux_v1_lookup_authentication_failure_first_2",
+  "group_ids": [
+    "linux:lookup:authentication_failure_first"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:37662ad81af891762d1bbe8849c9edae106196d896c7727c761baaef53631356"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question clearly asks for the first line containing \"authentication failure\" and specifies case-insensitive matching."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer provides the exact text of a log line, which is the correct form for this type of question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a log line that contains \"authentication failure\" and matches the question's criteria."
+    }
+  ]
+}

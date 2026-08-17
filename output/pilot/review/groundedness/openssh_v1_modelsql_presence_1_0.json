@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_modelsql_presence_1_0",
+  "group_ids": [
+    "openssh:modelsql:presence:1"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:b3700b63c453aaac723e1b86d598cd58379c3173126426a10d21ec0e787029c2"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether any lines in the dataset lack the word \"sshd\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format, stating a verdict (\"No\") and a count (\"0 matching lines\")."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence states no lines contain the literal \"sshd\", but the answer claims no lines at all, which depends on the SQL query's exact logic and case sensitivity."
+    }
+  ]
+}

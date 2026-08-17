@@ -1,0 +1,29 @@
+{
+  "question_id": "apache_v1_lookup_child_workerenv_in_error_state_first_2",
+  "group_ids": [
+    "apache:lookup:child_workerenv_in_error_state_first"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:42c9ddf6d97af08766c33db7f7b4bc79755631508521a6f685d7afb5a2583cd5"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the first line containing a specific phrase, regardless of case."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer provides the exact text of a log line, which is the correct form for this type of question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a log line that matches the phrase \"child workerEnv in error state\" and is presented as the correct line."
+    }
+  ]
+}

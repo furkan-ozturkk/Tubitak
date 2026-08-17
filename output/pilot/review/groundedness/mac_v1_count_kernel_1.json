@@ -1,0 +1,29 @@
+{
+  "question_id": "mac_v1_count_kernel_1",
+  "group_ids": [
+    "mac:count:kernel"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:19b4ea5fbe1ccbf8a162768b64486ca4416e1345f24f451b26b7aeabbb9869fe"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question clearly asks to count lines mentioning 'kernel', and it specifies case-insensitive matching."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query explicitly counts lines where the text contains 'kernel' (case-insensitively) in the 'mac' dataset, and the answer matches the stated total of 775."
+    }
+  ]
+}

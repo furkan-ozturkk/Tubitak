@@ -3,40 +3,38 @@
   "group_ids": [
     "openstack:semantic:nova_osapi_compute_wsgi_server_4"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:1c0535da9d399e1fe967b53e2f91097d982d753a3e2731d14a708bf38bae04aa"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:d96b5f78a44fec5eaa868c60ff79d61bb46e1e4ae0f3ddb5e98e7a6a37792907"
+    "prompt_sha256": "sha256:d81e970e50785c7e7295426b807c72c311f48a67dee4153a43428a55cf47c1d9"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows the deletion of an instance with ID 43204226-2f87-4da7-b7ee-4d20cc66e846, which involved deleting instance files and deallocating network resources.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_4"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states information directly supported by the evidence provided in the logs."
     },
     {
-      "text": "The instance deletion process took a total of 1.01 seconds to complete on the hypervisor and an additional 0.46 seconds to deallocate the network.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_4"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the instance ID, the event type (deletion), and the outcome (successful destruction)."
     },
     {
-      "text": "The logs also record various API requests and responses, including GET requests to retrieve server details and metadata, which were successfully processed with a status of 200.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_4"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer explains the log entries around the relevant event and what they mean, directly addressing the question."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes key details such as the DELETE request, termination, destruction, file deletion, and the time taken, making it reasonably complete."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:28a19c08353c8e935ec3e9ad2eb62ef80ffcd4427b9a396943ac935de3320d1e"
+  }
 }

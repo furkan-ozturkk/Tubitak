@@ -1,0 +1,29 @@
+{
+  "question_id": "bgl_v1_presence_kernel_panic_1",
+  "group_ids": [
+    "bgl:presence:kernel_panic"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:8242e34fa053c0fd56777c059b26723864b9061fc8bbeb5bfd48a2f37774ca22"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log contains a line mentioning 'kernel panic'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format, stating a verdict ('No') and a count ('0 matching lines')."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows that no lines matched the query for 'kernel panic', supporting the answer that no such line exists."
+    }
+  ]
+}

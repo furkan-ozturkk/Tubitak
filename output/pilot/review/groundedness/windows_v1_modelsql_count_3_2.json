@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_modelsql_count_3_2",
+  "group_ids": [
+    "windows:modelsql:count:3"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:1d743f461e088a2ae754fb9916202ff3ee2987403db8658a39e59b3ac8f50450"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of entries in the 'windows' dataset that lack the word \"Warning\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence shows that the count was derived from an exact substring search, but it does not confirm whether the search was for the absence of \"Warning\" or the presence of it. The lines shown do not contain \"Warning\", but the count of 1718 is not directly supported or refuted by the evidence provided."
+    }
+  ]
+}

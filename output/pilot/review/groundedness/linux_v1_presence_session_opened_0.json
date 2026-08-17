@@ -1,0 +1,29 @@
+{
+  "question_id": "linux_v1_presence_session_opened_0",
+  "group_ids": [
+    "linux:presence:session_opened"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:23f58a5e5d8c5f4e6492fbf907d1af96a2b29ec4c93751392e35bf649852b8e8"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log contains any line with the phrase 'session opened'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the required format, stating a verdict ('Yes') and a count of matching lines in parentheses."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that finds 123 lines matching '%session opened%' in the 'linux' dataset, and example lines that confirm the pattern exists."
+    }
+  ]
+}

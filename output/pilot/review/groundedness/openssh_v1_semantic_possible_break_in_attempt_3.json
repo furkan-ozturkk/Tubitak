@@ -3,40 +3,38 @@
   "group_ids": [
     "openssh:semantic:possible_break_in_attempt_3"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:58941ca33c9cbdc8bacbfcd5d3b7f027f495a31793e63769471a7868c98a0cc2"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:4a41ca7fda8228af89a8ea4332a46899f750623c53fc0a4ce258a97273032903"
+    "prompt_sha256": "sha256:3f18b26c7abf55e14b8da740bb888b2b2ece968beeceefdfedb3c905d8b79466"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows two separate attempts to connect to the system via SSH from the same IP address, 187.141.143.180, with both attempts resulting in authentication failures due to incorrect passwords for the root user.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:semantic:possible_break_in_attempt_3"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and accurately reflects the details provided."
     },
     {
-      "text": "The system logs these attempts as possible break-in attempts, indicating potential security threats.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:semantic:possible_break_in_attempt_3"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (187.141.143.180), the event type (authentication failures and possible break-in attempts), and the outcome (disconnections and failed attempts)."
     },
     {
-      "text": "Each attempt is followed by a disconnect message, suggesting that the connection was terminated after the failed login.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:semantic:possible_break_in_attempt_3"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining what occurred around the 25th occurrence of \"POSSIBLE BREAK-IN ATTEMPT\" and its significance."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key elements from the evidence: the IP address, the failed authentication attempts, the reverse mapping failure, and the disconnections, making it reasonably complete."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:ec52af4e507de60c513b153692ad97248d0c4be023f22f4ed096a17584a3af3c"
+  }
 }

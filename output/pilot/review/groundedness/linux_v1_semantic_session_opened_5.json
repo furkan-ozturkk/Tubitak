@@ -1,0 +1,40 @@
+{
+  "question_id": "linux_v1_semantic_session_opened_5",
+  "group_ids": [
+    "linux:semantic:session_opened_5"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:74bcea51689e48de70feae5bf4f6135120213bbc3f027944b8a5e80aeef07bcc"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence, focusing only on the described events and their timing."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the event type (SSH and su sessions), the entities (user test and user cyrus), and the repeated openings and closings as shown in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what happened around the 61st occurrence of 'session opened' and what it means, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer captures the main pattern of repeated session openings and closings but does not explicitly mention the exact number of sessions (three) or the specific timestamps, which are important details in the evidence."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:0e7db906b203f37989de16eec7118908da4038325dfd4ab33c529b1cf51d9504"
+  }
+}

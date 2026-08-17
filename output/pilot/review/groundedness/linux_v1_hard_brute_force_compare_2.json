@@ -4,56 +4,38 @@
     "linux:hard:brute_force_compare:2:195_129_24_210",
     "linux:hard:brute_force_compare:2:218_188_2_4"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:b13f448ca1f530bb99dd05299d9909eaacfa16f59c1521c1be27c9d5197b44a4"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:8f55c40dc2edeb18adee8bf48a6750553c313a68a077d7cc5c0d3ade5a8b88bf"
+    "prompt_sha256": "sha256:1cc07003861ad8abc26b7cf9c3b3057f898151b06723d14d18ed1e71d5007551"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The authentication activity originating from 195.129.24.210 and 218.188.2.4 shows distinct patterns.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:2:195_129_24_210",
-        "linux:hard:brute_force_compare:2:218_188_2_4"
-      ]
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes distinct patterns to each IP address based on the evidence provided, without mixing facts between them."
     },
     {
-      "text": "The group from 195.129.24.210 contains 15 lines of authentication failures, all of which are attempts to access the root user account, with a notable burst of activity on Jul 1 10:56, where 9 authentication failures occur within a 3-second window, and two earlier failures on Jun 30 20:16.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:2:195_129_24_210",
-        "linux:hard:brute_force_compare:2:218_188_2_4"
-      ]
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of intensity and duration of authentication attempts between the two IP addresses is supported by the timestamps and frequency of log entries in the evidence."
     },
     {
-      "text": "In contrast, the group from 218.188.2.4 contains 14 lines of authentication failures, also targeting the root user, but spread out over two days, Jun 14 and Jun 15, with a cluster of 10 failures on Jun 15 12:12, all within the same second, and two additional failures a minute later.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:2:195_129_24_210",
-        "linux:hard:brute_force_compare:2:218_188_2_4"
-      ]
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer avoids assigning specific motives or identities to the actors and does not introduce any causal claims not present in the evidence."
     },
     {
-      "text": "The intensity and recurrence of authentication attempts from 195.129.24.210, particularly the concentrated burst on Jul 1, suggest more suspicious behavior compared to 218.188.2.4, which, although showing a cluster of attempts, does not exhibit the same level of persistence over time as seen with 195.129.24.210.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:2:195_129_24_210",
-        "linux:hard:brute_force_compare:2:218_188_2_4"
-      ]
-    },
-    {
-      "text": "The root cause of the suspicious behavior is that these repeated authentication failures from 195.129.24.210 recur without any corrective action in between, indicating a potential ongoing threat.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by contrasting the two IP addresses and identifying which one shows more suspicious behavior based on the evidence."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:4ddd4f1f3b82e1df80ee9ab0276dbfb5dd491fec01c08abdfe31f471b3a63604"
+  }
 }

@@ -1,0 +1,40 @@
+{
+  "question_id": "hadoop_v1_semantic_container_remote_launch_8",
+  "group_ids": [
+    "hadoop:semantic:container_remote_launch_8"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:7034b633d9cf01eb0ad176dd8055b9f97b1cd2f4d0694bc642411332ac86a1cb"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states information directly supported by the evidence and does not add unsupported claims."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the task attempt, the event type (allocation and launch), and the outcome (container and shuffle port assignment)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by describing what took place around the ninth occurrence of 'CONTAINER_REMOTE_LAUNCH' and its significance."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all key elements from the evidence: the task attempt, the transition from UNASSIGNED to ASSIGNED, the container launch, and the shuffle port assignment."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:bf0828b27350ab1221a3fa67289f4dbf9d272584c1a628bbf316e4968afe0277"
+  }
+}

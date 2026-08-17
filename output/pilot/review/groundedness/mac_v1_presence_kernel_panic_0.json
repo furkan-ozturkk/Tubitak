@@ -1,0 +1,29 @@
+{
+  "question_id": "mac_v1_presence_kernel_panic_0",
+  "group_ids": [
+    "mac:presence:kernel_panic"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:175fd7b7bd77824e6e8e9422072a8c3b6321bb0989fcfd8a645060f40bbb41d1"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log contains any line with the literal or pattern \"kernel panic\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is of the correct form, stating \"No (0 matching lines)\" directly in response to the question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows that no line in the dataset contains the substring \"kernel panic\", even when matched case-insensitively, supporting the answer."
+    }
+  ]
+}

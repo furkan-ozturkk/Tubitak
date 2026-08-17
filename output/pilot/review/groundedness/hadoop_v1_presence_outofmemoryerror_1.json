@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_presence_outofmemoryerror_1",
+  "group_ids": [
+    "hadoop:presence:outofmemoryerror"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:61dd7bfdae06ab74e5380b67d2d53e6025b3191d8af0b9a006c081184768862b"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log contains a line mentioning 'OutOfMemoryError'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format, stating a verdict ('No') and a count ('0 matching lines')."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows that no lines matched the query for 'OutOfMemoryError', supporting the answer that no such line exists."
+    }
+  ]
+}

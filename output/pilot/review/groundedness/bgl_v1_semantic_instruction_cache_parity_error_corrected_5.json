@@ -3,40 +3,38 @@
   "group_ids": [
     "bgl:semantic:instruction_cache_parity_error_corrected_5"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:d8a5e7a881d0cc0f6877b00fc61c0fbe734c914639d8486756bff8f2819346ae"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:d7bc2bc33a1c62c35394f071244457af972b19da450cbd867aaba3d501759d1d"
+    "prompt_sha256": "sha256:9a533cfc0c87b673af0c292325e75c724317b7bff62461962c6c89738039f58e"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of log lines indicating instruction cache parity errors that were corrected on two different systems, R02-M1-N0-C:J12-U11 and R02-M1-N1-C:J12-U01.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:semantic:instruction_cache_parity_error_corrected_5"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the entity, the event, and the lack of stated outcome."
     },
     {
-      "text": "The errors on R02-M1-N0-C:J12-U11 occurred over a period of several hours on June 15, with another error occurring on a similar system, R02-M1-N1-C:J12-U01, the following day.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:semantic:instruction_cache_parity_error_corrected_5"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, the event type (\"instruction cache parity error corrected\"), and the lack of stated outcome."
     },
     {
-      "text": "A separate log line from a different system, R34-M1-N9-C:J07-U11, indicates a different event, generating core.16218, with no explicit connection to the cache parity errors.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:semantic:instruction_cache_parity_error_corrected_5"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining what happened and what it means, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: the entity, the repeated events, the time range, and the lack of stated outcome."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:49d07e6eebff9268ad0b9d1eb40bd45377fc1a23a14d34d2c544f0e8e3834320"
+  }
 }

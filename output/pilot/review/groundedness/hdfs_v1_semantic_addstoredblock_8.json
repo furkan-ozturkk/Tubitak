@@ -3,40 +3,38 @@
   "group_ids": [
     "hdfs:semantic:addstoredblock_8"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:211b5491cc4feb1efef3671554708abbebb0593979d02ebe21d4ef68ed54b907"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:6d7f5a0cf3031b0b0848aa3fac5c22e3936052e73272e324b8220dfa6ba93ca1"
+    "prompt_sha256": "sha256:3e9464e03e83c4a9ecc9969fdde08759109c6bea1ca105ce674caf01b57459ca"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows various events related to HDFS block management, including the addition of nodes to block maps, verification of block integrity, and allocation of new blocks.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hdfs:semantic:addstoredblock_8"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only mentions events and entities explicitly present in the evidence and does not add unsupported claims."
     },
     {
-      "text": "The events involve multiple blocks and nodes, with specific blocks being added to or verified on different nodes.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hdfs:semantic:addstoredblock_8"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the block deletion and other related events, aligning with the structured summary and evidence."
     },
     {
-      "text": "These events indicate normal operational activity in an HDFS system, with data being stored, verified, and managed across the cluster.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hdfs:semantic:addstoredblock_8"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by describing what took place around the 249th occurrence of 'addStoredBlock' and its significance."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key events (block deletion, allocation, reception, verification, and packet responder termination) and their implications, making it reasonably complete."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:a13d864b3eca172471a3666d3da94206184bde5e5113da92053acbb66744d8c9"
+  }
 }

@@ -4,56 +4,38 @@
     "openssh:hard:attacker_compare:3:123_235_32_19",
     "openssh:hard:attacker_compare:3:52_80_34_196"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:39bbc1e39aa44be2bb5288410ddb046e34f79711210f3a958ac8a8af8eac0686"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:1abbf2e73c76a35ab7061a3c3e08459c4840048c95405e8205148e54f3abe1fd"
+    "prompt_sha256": "sha256:5d014905b4de6e1c8721326c314c85a9e3dcccc5f1b68dcb18bdbf99e99fbfe6"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The two groups of log lines from 123.235.32.19 and 52.80.34.196 exhibit distinct patterns of behavior, with 123.235.32.19 displaying a rapid succession of failed password attempts for the root user within a short time frame, specifically between 07:32:27 and 07:34:33, with 13 failed attempts in just over 2 minutes.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:3:123_235_32_19",
-        "openssh:hard:attacker_compare:3:52_80_34_196"
-      ]
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes distinct behaviors to each IP address based on the evidence provided, without mixing or misattributing facts between them."
     },
     {
-      "text": "In contrast, 52.80.34.196 shows a more sporadic pattern of activity, with failed password attempts for various invalid users, including test9, test, and matlab, spread out over a longer period of time, from 07:07:38 to 10:21:09.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:3:123_235_32_19",
-        "openssh:hard:attacker_compare:3:52_80_34_196"
-      ]
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison between the rapid, concentrated attacks of 123.235.32.19 and the spaced-out, username-based attempts of 52.80.34.196 is directly supported by the timestamps and log content in the evidence."
     },
     {
-      "text": "Notably, 123.235.32.19's attempts are focused solely on the root user, whereas 52.80.34.196's attempts target different usernames.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:3:123_235_32_19",
-        "openssh:hard:attacker_compare:3:52_80_34_196"
-      ]
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not assign specific motives or identities to the attackers, and avoids naming causes not present in the evidence."
     },
     {
-      "text": "The repetition of failed password attempts without any apparent corrective action from 123.235.32.19, particularly the concentrated burst of activity, suggests a more anomalous and potentially malicious behavior compared to 52.80.34.196.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:hard:attacker_compare:3:123_235_32_19",
-        "openssh:hard:attacker_compare:3:52_80_34_196"
-      ]
-    },
-    {
-      "text": "The root cause of the anomaly is that these errors from 123.235.32.19 recur rapidly without any corrective action in between, indicating a possible automated attack on the root account.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer identifies 123.235.32.19 as the more anomalous attacker based on the evidence, addressing the question's request for a comparison and judgment of anomalous behavior."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:a099a7eabb41a923600c76e88b48bc1a4da1ea09dece1e2c164cb4a0d226b9f6"
+  }
 }

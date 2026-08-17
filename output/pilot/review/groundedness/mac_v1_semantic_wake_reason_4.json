@@ -1,0 +1,40 @@
+{
+  "question_id": "mac_v1_semantic_wake_reason_4",
+  "group_ids": [
+    "mac:semantic:wake_reason_4"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:e61e8d21f88b03da37cbcab8e3dd8ddf69169ce3b85a720bb69309204ea0156a"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence and stays within the described events."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the entity, event type, and the nature of the events described in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "no",
+      "detail": "The answer does not address the specific 13th occurrence of \"wake reason\" or walk through the log around that point as the question asks."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer summarizes general system activity but omits the specific details around the 13th \"wake reason\" occurrence, which is central to the question."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:3e0cab9c1cdd33e79e27f105fdfb88f472ef601ff2d436bb49d9e2850e69bcec"
+  }
+}

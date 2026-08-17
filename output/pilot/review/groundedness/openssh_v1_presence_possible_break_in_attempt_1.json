@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_presence_possible_break_in_attempt_1",
+  "group_ids": [
+    "openssh:presence:possible_break_in_attempt"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:409c953ed65b5eaea3b10df2670302a343fff2a2df3e0da476faadd8823f08fc"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log has a line mentioning 'POSSIBLE BREAK-IN ATTEMPT'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer directly answers the question with a 'Yes' verdict and includes the required parenthetical count of matching lines."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that correctly searches for the phrase and example lines that show the phrase appearing as expected."
+    }
+  ]
+}

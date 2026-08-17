@@ -1,0 +1,29 @@
+{
+  "question_id": "linux_v1_modelsql_count_2_2",
+  "group_ids": [
+    "linux:modelsql:count:2"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:f973e8bda598973da4e4d7ece2dc9c2f5606a2a6bfa138c7e0843cb24669c2db"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of lines containing the exact text 'session opened'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The lines shown are genuine matches for the literal 'session opened', but the total count of 123 is stated as computed directly by an exact substring search, not derived from the sample lines."
+    }
+  ]
+}

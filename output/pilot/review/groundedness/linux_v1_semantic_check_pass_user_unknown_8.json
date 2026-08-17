@@ -3,40 +3,38 @@
   "group_ids": [
     "linux:semantic:check_pass_user_unknown_8"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:1517772e5ab0405f95049a994987d4e851ef06807abcdf7fc8df1813180a57f1"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:dd50a4577deef6717015221a67ee9d2d30474a34e026aedc3b992c5b74b835b2"
+    "prompt_sha256": "sha256:1ad687349bfeefe9c9106b7bbd1426ed75ca2a417b7f0ae5026bda552091d1a3"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of authentication failures that occurred on the \"combo\" system, all within the same second.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_8"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence, such as the entity, event type, and outcome."
     },
     {
-      "text": "The failures were due to unknown users attempting to log in from the host \"zummit.com\" via SSH, with each attempt being recorded by a different process of the sshd daemon.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_8"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (zummit.com), the event type (authentication attempts), and the outcome (repeated failures with no success)."
     },
     {
-      "text": "Each attempt resulted in an \"authentication failure\" with a \"user unknown\" error.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_8"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by describing what took place around the \"check pass; user unknown\" events and their significance."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: the repeated attempts, the \"check pass; user unknown\" events, the authentication failures, and the simultaneous timing."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:34b49ca992b4b528783476c9fe60940a6727ce915c7ee004738e12c5c3db1c2f"
+  }
 }

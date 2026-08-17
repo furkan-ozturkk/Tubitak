@@ -3,40 +3,34 @@
   "group_ids": [
     "windows:semantic:csi_2"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:f342faf171507b4e5a5a16af58a0ff3f9dc4a63ca68e5732329fc86bf18b5e8c"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:46b42b4dfcecef11ddbd9950dbef2837936008a498df6ac6d56e0725853fe775"
+    "prompt_sha256": "sha256:dea56d02045dec81349379d199192e2928398da0d5b927a74768f29e11df0522"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of system log events related to the initialization of the CBS (Component-Based Servicing) and CSI (Component Store Interface) on a Windows system.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_2"
-      ]
+      "dimension": "grounded",
+      "verdict": "partial"
     },
     {
-      "text": "The events indicate that startup processing was not required and terminated normally, and that two CBS sessions were initialized by the Windows Update Agent.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_2"
-      ]
+      "dimension": "correct",
+      "verdict": "partial"
     },
     {
-      "text": "The CSI store was also initialized, and an NT transaction was created and resulted in success, as indicated by the result code 0x00000000.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_2"
-      ]
+      "dimension": "relevant",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial"
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:dc4c108f2ea76156d9d1f2b76e981c0b6c180ef34d0f7dc21635a0ee8a314c04"
+  }
 }

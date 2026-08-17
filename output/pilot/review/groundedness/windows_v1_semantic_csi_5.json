@@ -3,40 +3,38 @@
   "group_ids": [
     "windows:semantic:csi_5"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:60c427f009bc30528304e77095ff820a05abba3cac5f57e9f316b4b050037a00"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:ec36a3bad78bb4e7a5c0982ffbcaa13c63abf2e3699707545407f37fb92a691e"
+    "prompt_sha256": "sha256:66a737fa193c77ca3a10a884cd71e800157b89f0d16ee38b96408e5d5deaee99"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of events related to a Component Service Infrastructure (CSI) transaction and a Component-Based Servicing (CBS) scavenge operation.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_5"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence and sticks to the described events and their context."
     },
     {
-      "text": "The CSI transaction is committed and an NT transaction is created, with the result being successful, indicated by the result code 0x00000000.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_5"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the CBS and CSI events, the failed backup log, scavenge operation, and the lack of stated outcome."
     },
     {
-      "text": "The CBS scavenge operation is also reported as completed with a disposition of 0X1.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_5"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the question's focus on what happened around the 11th CSI occurrence and what it means, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer is reasonably complete but does not explicitly mention the 11th CSI occurrence or its specific content (e.g., NT transaction creation), which the question highlights."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:0ead260e095fa1575e36fccc56037fd98190f2f7e67b5c327f444a643db15312"
+  }
 }

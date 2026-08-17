@@ -1,0 +1,40 @@
+{
+  "question_id": "linux_v1_semantic_session_opened_4",
+  "group_ids": [
+    "linux:semantic:session_opened_4"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:e5f0e231d5a821a21e5b5e264aad323456ae6f28225420c01f51dbd8443f6cd7"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence, such as the purpose or outcome of the events."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (user \"test\"), the event type (SSH sessions and FTP connections), and notes that the outcome is not stated."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question by walking through the log around the session events and explaining their meaning, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: the rapid SSH sessions, the FTP connections, and the lack of stated outcome."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:096680693a10f172d62d1ef166ad58b95da260c76177a1c9488e2ab2ccb5546f"
+  }
+}

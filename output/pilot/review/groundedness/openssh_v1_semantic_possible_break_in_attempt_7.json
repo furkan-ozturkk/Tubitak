@@ -3,40 +3,38 @@
   "group_ids": [
     "openssh:semantic:possible_break_in_attempt_7"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:4067f8d398892f630f0016d80cb7894f02c260bb581a9c38d1be74dedbe91421"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:1fe5fac20c1fa6fbfcc294482231581bf981509791e34ff56fd14abf8f139a35"
+    "prompt_sha256": "sha256:5ba803eaa4e1237efebd1b5aeeb5c24a94dc6954525c268f1452310627cde18b"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a failed SSH login attempt from the IP address 187.141.143.180, where the user \"oracle\" is not a valid user.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:semantic:possible_break_in_attempt_7"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence without adding unsupported claims."
     },
     {
-      "text": "The logs indicate a series of errors, including reverse mapping failures and authentication failures, culminating in a disconnect from the remote host.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:semantic:possible_break_in_attempt_7"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type, and outcome as shown in the evidence."
     },
     {
-      "text": "The repeated \"POSSIBLE BREAK-IN ATTEMPT\" warnings suggest that the SSH server is detecting potentially malicious activity from this IP address.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:semantic:possible_break_in_attempt_7"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question about the event shown in the log, not just a generic summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: the user, the IP address, the failed authentication, and the repeated attempt."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:8623346e45c0153adf817c1db66a56f4f02de4e62856af84e97b74ddabbe09df"
+  }
 }

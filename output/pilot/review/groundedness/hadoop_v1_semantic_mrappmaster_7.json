@@ -3,40 +3,38 @@
   "group_ids": [
     "hadoop:semantic:mrappmaster_7"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:8f1008178e8378af77400330cb3dbab62ecffa81f3501417043f399e160aa5dc"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:efc1d864477fa1cf2b09da2599ce5cfb355900a4284785ee6afeb29e42b2d8ff"
+    "prompt_sha256": "sha256:c55c99a93c5bcc5df322a21cb6d57c6842dcf4afb27fed7755f34fd8d61a1eaa"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows the registration of various event types and handlers by the AsyncDispatcher in the Hadoop YARN system.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_7"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the log entries, such as setting the OutputCommitter and registering event handlers."
     },
     {
-      "text": "The registrations occur for different classes, such as TaskEventType, TaskAttemptEventType, and ContainerAllocator$EventType, among others, and are all performed by the main thread.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_7"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the MRAppMaster's initialization, the setting of the OutputCommitter, and the registration of event handlers, all of which are present in the evidence."
     },
     {
-      "text": "These registrations indicate the initialization of the event handling system in Hadoop YARN.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_7"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the event shown in the Hadoop log near the eighth occurrence of 'MRAppMaster', as requested by the question."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key elements from the evidence: the OutputCommitter being set and the registration of multiple event handlers, without omitting important details."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:e2926a05b7dfa2184ba6b4a527f0976b3165cf5907fcb3f88ff749b67492dc3f"
+  }
 }

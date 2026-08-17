@@ -1,0 +1,29 @@
+{
+  "question_id": "mac_v1_presence_thermal_pressure_0",
+  "group_ids": [
+    "mac:presence:thermal_pressure"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:cfe4f42204a3b3eff2bbb0881589299db083d6946ee67747a9e963f197f8e76a"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log contains any line with the exact phrase 'Thermal pressure'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format, stating a verdict and a count of matching lines."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query and the example lines confirm that 'Thermal pressure' appears in the logs, and the count of 39 matches is consistent with the query logic."
+    }
+  ]
+}

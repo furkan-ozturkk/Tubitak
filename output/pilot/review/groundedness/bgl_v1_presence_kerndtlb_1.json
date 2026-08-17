@@ -1,0 +1,29 @@
+{
+  "question_id": "bgl_v1_presence_kerndtlb_1",
+  "group_ids": [
+    "bgl:presence:kerndtlb"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:da5a1c5a2645354a9717215f1bca59c88a5fb669e7a51678bcabeba644edc779"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log has a line mentioning 'KERNDTLB', which is a literal pattern."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format for a yes/no question, providing a verdict and a count in parentheses."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query and the example lines show that 'KERNDTLB' appears in the log, and the query is designed to return all matching lines, supporting the answer."
+    }
+  ]
+}

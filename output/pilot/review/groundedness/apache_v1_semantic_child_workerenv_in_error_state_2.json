@@ -3,40 +3,38 @@
   "group_ids": [
     "apache:semantic:child_workerenv_in_error_state_2"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:16411f60717108f609160799fd6110b05f9bdbffa12dc653290ae089a5dcbfe7"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:717a188d167de93916d3806519567d80e51d58cf163f2dc5d9e864b2f7fbe330"
+    "prompt_sha256": "sha256:5b6b2f10c6cd445aea57a880b5c117b07611104c34be0e71cb71941786a91e62"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The excerpt shows a series of error and notice events related to mod_jk child workerEnv, which enters various error states, including 7, 6, and 8, on December 4, 2005, at 06:51:23.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "apache:semantic:child_workerenv_in_error_state_2"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence, such as the initialization of workerEnv, the error states, and the discrepancy between \"ok\" and error reports."
     },
     {
-      "text": "Despite these errors, the workerEnv.init() function reports \"ok\" multiple times, indicating successful initialization of the workers2.properties configuration.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "apache:semantic:child_workerenv_in_error_state_2"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the event type (initialization and error reporting), the entity (workerEnv), and the observed events (initialization followed by errors in different states)."
     },
     {
-      "text": "A subsequent notice event at 06:51:25 reports finding a child process in scoreboard slot 6, which corresponds to one of the error states reported earlier.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "apache:semantic:child_workerenv_in_error_state_2"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the event shown in the Apache log near the 107th occurrence of 'child workerEnv in error state', rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: multiple initializations, the error states (7, 6, and 8), and the discrepancy between \"ok\" and error reports."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:01bbf10570b3a219e8e0dc8855d01f273a67e8607c184b48956c1dfbe577cf93"
+  }
 }

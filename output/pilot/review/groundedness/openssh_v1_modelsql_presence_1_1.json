@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_modelsql_presence_1_1",
+  "group_ids": [
+    "openssh:modelsql:presence:1"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:607eb1e402e23d12ea67392e747b89edb6e4f71fb709199cd42f35d7d250eb2e"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether any log entry in the dataset does not mention \"sshd\", specifying the literal to look for."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format for a yes/no question, providing a verdict and a count in parentheses."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence states that no line contains the literal \"sshd\" (0 matches from an exact substring search), but it does not clarify whether the dataset contains entries that might mention \"sshd\" in a different form (e.g., case-insensitive or partial matches). The provided log line includes \"sshd\", but it is unrelated to the literal search."
+    }
+  ]
+}

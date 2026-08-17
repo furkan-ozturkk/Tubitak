@@ -3,40 +3,38 @@
   "group_ids": [
     "mac:semantic:thermal_pressure_8"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:366bdb0e5abd0b31a928e8f31fb7d2bd48d1658952d1d6ea8ece9c134721ce1f"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:9564a61eb0a8862c4799b3425d878c3e090b37131a15aea7271cf9103f56c56d"
+    "prompt_sha256": "sha256:46cecd51113fb7c39835711fa87e4efd64fe724bd801b0f5def19a4304c12060"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows various system events and conditions on a Mac system, including thermal and memory pressure states, job scheduling, and network interface power management.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_8"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence and sticks to the described events."
     },
     {
-      "text": "The events are reported by different system components, such as the kernel, CDScheduler, and various applications, and occur at different times.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_8"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly reflects the entity, event type, and outcome as described in the evidence."
     },
     {
-      "text": "These log lines indicate normal system activity, with some events being ignored or completed, and others reporting status changes or unexpected notifications.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "mac:semantic:thermal_pressure_8"
-      ]
+      "dimension": "relevant",
+      "verdict": "no",
+      "detail": "The answer does not address the specific mention of \"Thermal pressure\" or the 25th occurrence as asked in the question."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer summarizes the general nature of the events but omits the specific details about the \"Thermal pressure\" entry and its significance."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:4f5338cf2eb5396dda584486415a4b0d1c8011bbc4dabebc5d6e66ec903444d4"
+  }
 }

@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_modelsql_count_5_2",
+  "group_ids": [
+    "windows:modelsql:count:5"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:4c9144441172cc53e7ad9189c053f09c36d8b222690439a516121f13da52176f"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks how many log entries in the 'windows' dataset lack the exact phrase \"Info\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence states that no line in the dataset contains the exact literal \"Info\", but the answer depends on the SQL query's logic, which is not provided, so it's unclear if the query's logic aligns with the question's exact phrasing."
+    }
+  ]
+}

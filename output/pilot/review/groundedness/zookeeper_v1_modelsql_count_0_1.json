@@ -1,0 +1,29 @@
+{
+  "question_id": "zookeeper_v1_modelsql_count_0_1",
+  "group_ids": [
+    "zookeeper:modelsql:count:0"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:e6d42dd1e97f1ae77eb7f572f56bd6f96318cfbf593af48d007b3dbfb70a795b"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the total number of warnings in the 'zookeeper' dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that counts all lines in the 'zookeeper' dataset containing the word \"WARN\" (case-insensitively), and the answer matches the stated result of that query."
+    }
+  ]
+}

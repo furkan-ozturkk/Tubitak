@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_count_cbs_0",
+  "group_ids": [
+    "windows:count:cbs"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:af4041a35fa28fc80226599c34dbafa990ca840eccd73ccfe51ba447da889f1e"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of log lines containing 'CBS'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that counts all lines with 'CBS' in the 'windows' dataset, and the answer matches the stated result of that query."
+    }
+  ]
+}

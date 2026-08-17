@@ -3,40 +3,38 @@
   "group_ids": [
     "bgl:semantic:instruction_cache_parity_error_corrected_9"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:cacaa986228c8b4622aa418f213d9f27afcd55006a57bff4935920524b4a5cea"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:287f0110d58254fa7ed1b69d0d6fffd1afeb3fbd9308edde9c51f70c94dcc487"
+    "prompt_sha256": "sha256:e87c84926a7c5929d13d196d10c48991f79d267649828765322432fb9591940f"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of instruction cache parity errors that were corrected on the system R37-M1-NC-C:J02-U11 between December 26 and 27.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:semantic:instruction_cache_parity_error_corrected_9"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only mentions what is explicitly stated in the evidence, such as the entity, the types of errors, and the time frame."
     },
     {
-      "text": "The errors occurred at various times, with the last one recorded on December 27 at 01:24:58.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:semantic:instruction_cache_parity_error_corrected_9"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, the event types (program image loading error, kernel fatal errors, and instruction cache parity error corrections), and notes that the outcome is not stated."
     },
     {
-      "text": "A separate event on January 3 recorded a different system, R07-M0-N0-I:J18-U11, generating 128 core files for a specific program.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:semantic:instruction_cache_parity_error_corrected_9"
-      ]
+      "dimension": "relevant",
+      "verdict": "no",
+      "detail": "The answer does not specifically address the 37th occurrence of the instruction cache parity error or what the BGL log shows around that point."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer summarizes the general pattern of errors but omits the specific details about the 37th occurrence and the exact timestamps or sequence of events around it."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:f675a3d05ad4afc910a616ab9497ef0e5e992bf78d2f60d257f5b83e07200fa4"
+  }
 }

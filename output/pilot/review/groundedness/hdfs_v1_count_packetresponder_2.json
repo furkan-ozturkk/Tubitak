@@ -1,0 +1,29 @@
+{
+  "question_id": "hdfs_v1_count_packetresponder_2",
+  "group_ids": [
+    "hdfs:count:packetresponder"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:a7b774d85cac22a607e769f39c73599b806d024af1c26b6a93131e8ee3362970"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question clearly asks for the total number of occurrences of 'PacketResponder' in the dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that counts all lines with 'PacketResponder' in a case-insensitive manner, and the answer matches the stated total of 603."
+    }
+  ]
+}

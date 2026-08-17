@@ -3,40 +3,38 @@
   "group_ids": [
     "zookeeper:semantic:fastleaderelection_0"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:255193e713f9e55954d2142fefa0cf950777e42169dbfa1805f8f8c3872bd37b"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:30421fc0096f7e9c44eb7e7c52206fefbfa13ef80c7e482595ada01050397100"
+    "prompt_sha256": "sha256:e3a3c3f59e3974b4b500eb14c4e0df819c6e1756f4c8786e947c948af482bc99"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of events related to connections and communication in a Zookeeper system, including a received connection request and subsequent warnings about send and receive workers leaving threads or encountering errors.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "zookeeper:semantic:fastleaderelection_0"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, without adding unsupported claims."
     },
     {
-      "text": "A connection broken error is reported for id 188978561024, with my id = 1, on two occasions.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "zookeeper:semantic:fastleaderelection_0"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type, and observed events as described in the evidence."
     },
     {
-      "text": "The excerpt also indicates that new connection requests are still being received, such as from /10.10.34.13:57707, despite the errors and warnings.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "zookeeper:semantic:fastleaderelection_0"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what happened and what it means, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all the important parts of the evidence, such as the notification timeout, connection request, send worker issues, and broken connection."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:7205fdfdbb385608bf77744f5299ded17a6cade6152a9735809ec77307e6cddc"
+  }
 }

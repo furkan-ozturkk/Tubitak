@@ -1,0 +1,29 @@
+{
+  "question_id": "mac_v1_modelsql_scalar_0_2",
+  "group_ids": [
+    "mac:modelsql:scalar:0"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:086508a2e54485937d56edeba3d92004247a5df210c315886a9e13f2b5f31028"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the length of the longest line in the 'mac' dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which matches the required answer shape for the question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query computes the maximum length of the 'text' field for the 'mac' dataset, and the sample evidence confirms that such data exists."
+    }
+  ]
+}

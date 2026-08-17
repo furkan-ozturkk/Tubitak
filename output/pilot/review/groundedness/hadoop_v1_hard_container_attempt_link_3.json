@@ -1,0 +1,37 @@
+{
+  "question_id": "hadoop_v1_hard_container_attempt_link_3",
+  "group_ids": [
+    "hadoop:hard:container_attempt_link:3:container_1445144423722_0020_01_000002",
+    "hadoop:hard:container_attempt_link:3:attempt_1445144423722_0020_m_000000_0"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:d0db337bbc7c22b85e6416dc0e2f88de9fd57980e7eac41ca4b15c58f67f4862"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "partial"
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:530c891c7d53fbe586719bffead3dd90cc1880e0b3d221fdd9aeee4fc2063b33"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "bgl_v1_count_double_hummer_alignment_exceptions_2",
+  "group_ids": [
+    "bgl:count:double_hummer_alignment_exceptions"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:2149bc2ee0d3a468efa46eb3445d4b54a179c84dbbfb09a4cabaeba2cf9823ac"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the total number of occurrences of the exact phrase \"double-hummer alignment exceptions\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence states that the query returns 109 matching lines, which directly supports the answer."
+    }
+  ]
+}

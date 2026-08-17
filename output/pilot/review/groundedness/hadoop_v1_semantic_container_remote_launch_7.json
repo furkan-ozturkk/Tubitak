@@ -1,0 +1,40 @@
+{
+  "question_id": "hadoop_v1_semantic_container_remote_launch_7",
+  "group_ids": [
+    "hadoop:semantic:container_remote_launch_7"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:5b472b10acb312e2096a1d1f6ed2fc1b201c96427ad341ef02696accb186df2d"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states information directly supported by the evidence and does not infer or add unsupported details."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the task attempt, the event type (state transition and container launch), and the outcome (launch in the specified container)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the event shown in the Hadoop log near the eighth occurrence of 'CONTAINER_REMOTE_LAUNCH', as requested by the question."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key elements from the evidence: the task attempt ID, the state transition, the container ID, and the context of the reduce slow start threshold check."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:38ce4b329d8f5f7b40e87c6c45f5a41a90cb6f58b7a584bb13f2b2797bdc7560"
+  }
+}

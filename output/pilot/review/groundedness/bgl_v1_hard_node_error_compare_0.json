@@ -4,59 +4,38 @@
     "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01",
     "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:6f68ad7b923025e69e1a7ba29cda703920e69727341d4a234e834eaaa0e49db0"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:2eccf234ea900da0857c6d9df85bad1bb08d78f17fef812d8f080e561a1e4285"
+    "prompt_sha256": "sha256:f55d1763f4475a94b20cf3a12adda4f8a30d658a30974ba64f5908f3d4a6434b"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The RAS events logged for compute node R30-M0-N9-C:J16-U01 show a consistent pattern of KERNEL FATAL data TLB error interrupts, with all 30 lines reporting the same type of error, indicating a potential issue with the node's kernel or hardware.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01",
-        "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
-      ]
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly distinguishes between the two groups and attributes facts only to the group they belong to in the evidence."
     },
     {
-      "text": "In contrast, the RAS events logged for node R02-M1-N0-C:J12-U11 report instruction cache parity errors, but these errors are corrected, and the node does not exhibit the same level of fatal errors as R30-M0-N9-C:J16-U01.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01",
-        "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
-      ]
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison between the two groups' event patterns is based on the evidence provided, noting the differences in error types and timing."
     },
     {
-      "text": "The timing of the errors on R30-M0-N9-C:J16-U01 suggests a prolonged period of instability, with errors occurring over several hours, whereas the errors on R02-M1-N0-C:J12-U11 are more sporadic and occur over a longer period of time, spanning several days.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01",
-        "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
-      ]
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer avoids naming a specific cause or actor not mentioned in the evidence and refrains from asserting unsupported causality."
     },
     {
-      "text": "The fact that R30-M0-N9-C:J16-U01 experiences repeated fatal errors without any corrective action in between suggests a more severe issue with this node.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01",
-        "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
-      ]
-    },
-    {
-      "text": "The root cause of the anomalies on R30-M0-N9-C:J16-U01 is that these fatal data TLB error interrupts recur without a corrective action in between, indicating a persistent problem that requires attention.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "bgl:hard:node_error_compare:0:r30_m0_n9_c_j16_u01",
-        "bgl:hard:node_error_compare:0:r02_m1_n0_c_j12_u11"
-      ]
+      "dimension": "answers_question",
+      "verdict": "partial",
+      "detail": "The answer identifies the anomalous behavior of R30-M0-N9-C:J16-U01 but does not propose a specific root-cause hypothesis as requested in the question."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:81c58023c0bafef137f2146737262d005d06652fb4f96397bf8d2b0acc998402"
+  }
 }

@@ -1,0 +1,29 @@
+{
+  "question_id": "linux_v1_modelsql_count_0_2",
+  "group_ids": [
+    "linux:modelsql:count:0"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:48baf0d85aa903c91c2ec3c8135ba038b3d3bbaae0961be19d44c73a169180ed"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of authentication failures in the 'linux' dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that selects lines with 'authentication failure' in the 'linux' dataset, and the answer matches the total count of such lines (490)."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_modelsql_presence_1_2",
+  "group_ids": [
+    "openssh:modelsql:presence:1"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:a41e7a55e37a0acb622af4c2acce3132149e106b917488f4dbb98869c145387e"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether any lines in the dataset lack the string \"sshd\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the required format, stating a verdict (\"No\") and a count (\"0 matching lines\")."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence states there are no exact substring matches for \"sshd\", but it does not clarify whether the query was case-sensitive or whether it considered variations or partial matches, which could affect the conclusion."
+    }
+  ]
+}

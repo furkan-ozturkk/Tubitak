@@ -3,40 +3,38 @@
   "group_ids": [
     "windows:semantic:csi_6"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:71c27ed5689dc473ad92c1161d4b2d6123b118cb7a27bb02d22c40b86b6f7e3c"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:2a4c3075fe9bb29fa20f89b30d712ea55871ef665a1e372d12454f93339baa5c"
+    "prompt_sha256": "sha256:bccd50b079f65b9a667840eebd7afbeccfd08865e9178d4c0aca7fa733fc717d"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of system log events related to the Commit and completion of a Component-Based Servicing (CBS) scavenge operation, which finished with a disposition of 0X1.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_6"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence and sticks to the described events and outcomes."
     },
     {
-      "text": "The events include the creation and destruction of a Component Service Interface (CSI) transaction and the termination of an idle processing thread.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_6"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type, and outcome as described in the evidence."
     },
     {
-      "text": "The log lines indicate that these operations occurred normally, with no errors reported.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_6"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what is happening around the CSI event, not just a generic summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key elements of the scavenge operation, CSI transaction, and its successful completion as shown in the evidence."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:2754540ca4627d470feaa2a1b8be6e21c5f19d46e06ab943d17081c1dee1d635"
+  }
 }

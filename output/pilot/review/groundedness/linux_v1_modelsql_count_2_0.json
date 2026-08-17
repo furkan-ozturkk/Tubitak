@@ -1,0 +1,29 @@
+{
+  "question_id": "linux_v1_modelsql_count_2_0",
+  "group_ids": [
+    "linux:modelsql:count:2"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:e8a9cc348bb18da196e07ee6425b4e4d4d971e736020fb3e44f0b6f8a13a0fb0"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of lines in the 'linux' dataset that mention the exact phrase 'session opened'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The lines shown in the evidence are genuine matches for the phrase 'session opened', but the total count of 123 is stated without direct evidence from the lines provided."
+    }
+  ]
+}

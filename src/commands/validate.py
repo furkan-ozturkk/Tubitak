@@ -74,7 +74,7 @@ from src.data.corpus_loader import (
     sha256_file,
     sha256_line,
 )
-from src.generators.easy_tier import presence_answer
+from src.generators.easy_tier import presence_answer, query_display_sql
 from src.params.results_params import ValidationReport, ValidationStats
 from src.params.validation_params import ValidationConfig
 from src.utils import helper_postgres
@@ -93,6 +93,8 @@ MIN_HARD_GROUPS = 2
 
 MODEL_ASSISTED_METHOD = "independent_model_then_human"
 DETERMINISTIC_METHOD = "deterministic_aggregation"
+MODEL_WRITTEN_SQL_METHOD = "model_written_deterministic_sql"
+EASY_METHODS = (DETERMINISTIC_METHOD, MODEL_WRITTEN_SQL_METHOD)
 
 
 def build_corpus_index(corpus_dir: Path | None) -> dict[str, dict[str, Any]]:
@@ -208,37 +210,93 @@ def _check_evidence_refs(
 
 
 def _recompute_claim(
-    claim: dict[str, Any], dataset_key: str, loc: str, errors: list[str]
-) -> int | None:
-    """Recomputes one numeric claim from Postgres.
+    claim: dict[str, Any],
+    dataset_key: str,
+    answer_type: str | None,
+    loc: str,
+    errors: list[str],
+) -> tuple[Any, list[int]] | None:
+    """Recomputes one numeric claim's value and full match list from Postgres.
+
+    ``raw_sql`` (Section 7.1: a model-invented easy question) is re-derived by
+    literally re-executing the stored statement -- through the same
+    ``assert_readonly_select``/``assert_scoped_to_dataset`` guards generation
+    put it through, since stored text is still untrusted input at validate
+    time -- which is a stronger guarantee than the other two operators give:
+    it is not a different computation that should agree, it is the identical
+    query run again. A ``scalar``-answer question has no "matching lines" of
+    its own, so its ``evidence_sql`` (when present) is re-run only as a sanity
+    check that it still returns something, not compared row for row.
 
     Args:
         claim: One ``numeric_claims`` entry.
         dataset_key: Dataset the record cites.
+        answer_type: The record's ``answer_type`` — ``raw_sql`` needs this to
+            know whether its statement returns matching rows (count/presence)
+            or a single scalar.
         loc: Human-readable record location, used in error text.
         errors: Error list, appended to in place.
 
     Returns:
-        The recomputed value, or ``None`` when the operator is unknown or the query
-        failed.
+        Tuple ``(value, line_numbers)`` — ``line_numbers`` are 1-based and
+        exactly what ``all_match_line_numbers`` must equal for every operator
+        except a scalar ``raw_sql``, where it is always ``[]`` (Section 6: that
+        comparison is skipped by the caller) — or ``None`` when the operator is
+        unknown or the query failed.
     """
     query = claim.get("query", {})
     operator = query.get("operator")
     case_sensitive = query.get("case_sensitive", False)
     if operator == "count_literal":
-        recomputed, _ = helper_postgres.count_literal(
+        return helper_postgres.count_literal(
             dataset_key, query.get("literal", ""), case_sensitive
         )
-        return recomputed
     if operator == "count_regex":
         try:
-            recomputed, _ = helper_postgres.count_regex(
+            return helper_postgres.count_regex(
                 dataset_key, query.get("pattern", ""), case_sensitive
             )
         except Exception as error:
             errors.append(f"{loc}: invalid regex '{query.get('pattern')}': {error}")
             return None
-        return recomputed
+    if operator == "raw_sql":
+        sql = query.get("sql", "")
+        try:
+            helper_postgres.assert_readonly_select(sql)
+            helper_postgres.assert_scoped_to_dataset(sql, dataset_key)
+            rows = helper_postgres.run_readonly_query(sql)
+        except Exception as error:
+            errors.append(
+                f"{loc}: numeric_claims.query.sql could not be re-executed: {error}"
+            )
+            return None
+        if answer_type == "scalar":
+            if len(rows) != 1 or len(rows[0]) != 1:
+                errors.append(
+                    f"{loc}: numeric_claims.query.sql (scalar) returned {len(rows)} "
+                    f"row(s) on re-execution, expected exactly 1."
+                )
+                return None
+            evidence_sql = query.get("evidence_sql")
+            if evidence_sql:
+                try:
+                    helper_postgres.assert_readonly_select(evidence_sql)
+                    helper_postgres.assert_scoped_to_dataset(evidence_sql, dataset_key)
+                    evidence_rows = helper_postgres.run_readonly_query(evidence_sql)
+                except Exception as error:
+                    errors.append(
+                        f"{loc}: numeric_claims.query.evidence_sql could not be "
+                        f"re-executed: {error}"
+                    )
+                    return None
+                if not evidence_rows:
+                    errors.append(
+                        f"{loc}: numeric_claims.query.evidence_sql returned no rows "
+                        f"on re-execution."
+                    )
+                    return None
+            return rows[0][0], []
+        return len(rows), [row[0] for row in rows]
     return None
 
 
@@ -252,8 +310,18 @@ def _check_answer(
     ``count`` — the answer must be the recomputed number, verbatim.
     ``presence`` — the answer must be ``Yes`` exactly when the recomputed count is
     positive, so a claim of zero matches cannot ship with an answer of ``Yes``.
+    ``scalar`` — a model-invented aggregate question (Section 7.1): the answer must
+    equal the recomputed scalar, verbatim; there is no matching-line list to check
+    against, since the claim's own SQL does not return rows to compare.
     ``line_lookup`` — the answer must equal the text of a line the record cites,
     which is what stops a lookup from citing one line and answering with another.
+
+    A fifth check, independent of the three above, applies whenever
+    ``numeric_claims`` does: ``evidence.query_sql`` (Section 7.1) must be exactly
+    the statement ``query_display_sql`` renders from the first claim's own
+    ``query`` -- both describe the same statement by construction at generation
+    time, so a mismatch means the two were edited out of step, not that either
+    alone is wrong.
 
     Args:
         record: The question record.
@@ -264,7 +332,7 @@ def _check_answer(
     answer_type = record.get("answer_type")
     expected_answer = record.get("expected_answer", "")
 
-    if answer_type in ("count", "presence"):
+    if answer_type in ("count", "presence", "scalar"):
         claims = record.get("numeric_claims") or []
         if not claims:
             errors.append(
@@ -272,30 +340,57 @@ def _check_answer(
                 f"answer cannot be reproduced."
             )
             return
+        evidence_query_sql = record.get("evidence", {}).get("query_sql")
+        try:
+            expected_query_sql = query_display_sql(dataset_key, claims[0].get("query", {}))
+        except (KeyError, ValueError) as error:
+            errors.append(f"{loc}: evidence.query_sql could not be checked: {error}")
+        else:
+            if evidence_query_sql != expected_query_sql:
+                errors.append(
+                    f"{loc}: evidence.query_sql does not match the statement "
+                    f"numeric_claims[0].query means; they must describe the same "
+                    f"query."
+                )
         for claim in claims:
-            recomputed = _recompute_claim(claim, dataset_key, loc, errors)
+            recomputed = _recompute_claim(claim, dataset_key, answer_type, loc, errors)
             if recomputed is None:
                 continue
+            recomputed_value, recomputed_line_numbers = recomputed
             claimed_value = claim.get("value")
-            if recomputed != claimed_value:
+            if recomputed_value != claimed_value:
                 errors.append(
                     f"{loc}: numeric_claims value could not be reproduced from Postgres "
-                    f"(claimed={claimed_value} recomputed={recomputed}, "
+                    f"(claimed={claimed_value} recomputed={recomputed_value}, "
                     f"operator={claim.get('query', {}).get('operator')})."
                 )
                 continue
-            if answer_type == "count" and expected_answer != str(recomputed):
+            if answer_type != "scalar":
+                claimed_line_numbers = claim.get("all_match_line_numbers") or []
+                if sorted(claimed_line_numbers) != sorted(recomputed_line_numbers):
+                    errors.append(
+                        f"{loc}: numeric_claims.all_match_line_numbers could not be "
+                        f"reproduced from Postgres ({len(claimed_line_numbers)} "
+                        f"claimed line(s), {len(recomputed_line_numbers)} recomputed)."
+                    )
+                    continue
+            if answer_type == "count" and expected_answer != str(recomputed_value):
                 errors.append(
                     f"{loc}: expected_answer '{expected_answer}' does not match the "
-                    f"recomputed count {recomputed}."
+                    f"recomputed count {recomputed_value}."
                 )
             elif answer_type == "presence":
-                should_be = presence_answer(recomputed)
+                should_be = presence_answer(recomputed_value)
                 if expected_answer != should_be:
                     errors.append(
                         f"{loc}: expected_answer '{expected_answer}' contradicts the "
-                        f"recomputed count {recomputed}, which requires '{should_be}'."
+                        f"recomputed count {recomputed_value}, which requires '{should_be}'."
                     )
+            elif answer_type == "scalar" and expected_answer != str(recomputed_value):
+                errors.append(
+                    f"{loc}: expected_answer '{expected_answer}' does not match the "
+                    f"recomputed scalar {recomputed_value}."
+                )
 
     elif answer_type == "line_lookup":
         cited_texts = []
@@ -328,7 +423,12 @@ def _check_provenance_consistency(
     is the relationship between the method and the review status: a
     ``deterministic_aggregation`` record is machine-reproducible and may ship
     ``verified``, while a model-drafted one may only reach ``verified`` through a
-    human, and that human has to be named in ``reviewers``.
+    human, and that human has to be named in ``reviewers``. It also cannot express
+    the relationship between ``validation`` and ``review_status``: a record whose
+    post-hoc quality check marked any dimension unsupported (``"no"``) has an open
+    problem regardless of tier, so it cannot ship ``verified`` — this is the second,
+    independent guarantee behind ``easy_tier.py``'s own auto-downgrade, and the only
+    enforcement for medium/hard beyond ``helper_review``'s worksheet-time refusal.
 
     Args:
         record: The question record.
@@ -341,15 +441,16 @@ def _check_provenance_consistency(
     difficulty = record.get("difficulty")
     reviewers = record.get("reviewers") or []
 
-    if difficulty == "easy" and method != DETERMINISTIC_METHOD:
+    if difficulty == "easy" and method not in EASY_METHODS:
         warnings.append(
             f"{loc}: difficulty=easy but gold_provenance.method='{method}'; the easy tier "
-            f"is machine-computed."
+            f"is machine-computed (either a curated literal or a model-invented, "
+            f"re-executed SQL statement)."
         )
-    if difficulty in ("medium", "hard") and method == DETERMINISTIC_METHOD:
+    if difficulty in ("medium", "hard") and method in EASY_METHODS:
         errors.append(
-            f"{loc}: difficulty={difficulty} claims method='{DETERMINISTIC_METHOD}', but "
-            f"no deterministic procedure produces a {difficulty}-tier answer."
+            f"{loc}: difficulty={difficulty} claims method='{method}', but no "
+            f"deterministic procedure produces a {difficulty}-tier answer."
         )
     if method == MODEL_ASSISTED_METHOD and status == "verified" and len(reviewers) < 2:
         errors.append(
@@ -357,6 +458,19 @@ def _check_provenance_consistency(
             f"reviewers={reviewers} names no human beyond the generating script; a "
             f"model-drafted answer is only verified once a person accepted it "
             f"(Section 7.3 step 5)."
+        )
+
+    validation = record.get("validation") or {}
+    unsupported = [
+        check.get("dimension")
+        for check in validation.get("checks", [])
+        if check.get("verdict") == "no"
+    ]
+    if unsupported and status == "verified":
+        errors.append(
+            f"{loc}: review_status='verified' but validation.checks marks "
+            f"{unsupported} unsupported ('no'); a record with an unresolved "
+            f"quality-check failure cannot ship verified."
         )
 
 

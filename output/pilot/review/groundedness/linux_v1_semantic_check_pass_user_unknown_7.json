@@ -3,40 +3,38 @@
   "group_ids": [
     "linux:semantic:check_pass_user_unknown_7"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:8e556d94eb3cf2bdd670396f1623f915a63db21cec303bfa13f3e4dc5f0e784d"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:4351eae42ec1f053ef4b8ca8071ca72ed2e206415de3ceb9372d045ca576a57e"
+    "prompt_sha256": "sha256:8abb442bad186f0217044f87baa12ef61e7817686648fe1520c00f5b8f3f70b5"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of authentication failures that occurred on the same host, combo, from the same remote host, biblioteka.wsi.edu.pl.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_7"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence, such as the entity, event type, and repeated failures from the same host."
     },
     {
-      "text": "The failures are recorded as \"user unknown\" and \"authentication failure\" by the sshd(pam_unix) process, indicating that the login attempts were unsuccessful due to an unknown user.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_7"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (sshd(pam_unix)), the event type (authentication failures), and the outcome (none stated), aligning with the evidence."
     },
     {
-      "text": "All of these events occurred at the same time, 12:48:41 on Jun 30, and were handled by different processes with IDs 18545, 18547, 18548, and 18549.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_7"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by summarizing the event shown in the log near the specified occurrence, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence—multiple authentication failures, the remote host, and the timestamps—without omitting important information."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:110436dc5258fd93d122b75cafe0cff1d27399a476ce9402b6bd10c638ebe2ff"
+  }
 }

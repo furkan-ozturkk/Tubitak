@@ -1,0 +1,40 @@
+{
+  "question_id": "openstack_v1_semantic_instance_7",
+  "group_ids": [
+    "openstack:semantic:instance_7"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:de752a2b5207eb0d96cf4afd8614948969fa3e8f6917d641df573c1eda86825d"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as resource allocation, a successful claim, and API requests."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type (resource allocation and instance creation), and accurately reflects the evidence without claiming an outcome that isn't stated."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific event shown in the log near the 372nd occurrence of 'instance:' rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all important aspects from the evidence: resource usage, successful claim, image creation, and API requests."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:38ec9be2aef1fcc6e5ff39aa1eec2cbbc2f5e933e4a5c09d3b50d461f7158813"
+  }
+}

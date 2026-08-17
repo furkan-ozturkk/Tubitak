@@ -3,40 +3,38 @@
   "group_ids": [
     "openstack:semantic:nova_osapi_compute_wsgi_server_8"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:7bc2b5a0656404d51a1a45f0a8adffb33582dc8a01517bcb201485c9035a45a8"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:56feab27fe5a5e06670833e0c7d593498ea811a29b15ba133616d8e26c180f75"
+    "prompt_sha256": "sha256:912200e1a04d84a446a546e7bd7d3cd24e6447a874b2e783175a6f7a2b6b83a6"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of API requests to retrieve server details, all of which return a status of 200, indicating successful requests.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_8"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the repeated GET requests and image cache checks, without adding unsupported claims."
     },
     {
-      "text": "Additionally, it shows the nova-compute service checking the status of an image and reporting on its usage, as well as starting a VM instance with the id d96a117b-0193-4549-bdcc-63b917273d1d.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_8"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, the event type (GET requests and image cache checks), and the outcome (successful responses and image in use)."
     },
     {
-      "text": "The requests and compute operations appear to be unrelated, with different request ids and no explicit connection between them.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_8"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by describing what took place around the 641st occurrence and its significance, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence—repeated GET requests, image cache checks, and the inference of polling or monitoring—without omitting important information."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:92241eb10cd3456e34868a8044f9193d36398275935fd4bd1815dba500cdc94c"
+  }
 }

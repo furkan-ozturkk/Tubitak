@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_presence_error_0",
+  "group_ids": [
+    "windows:presence:error"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:6bad1d8cbecb126489306e90925d1cdbda7fa88e1189d85b0d765f5db9321206"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log contains any line with the word 'Error'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the required format, stating a verdict ('Yes') and a count of matching lines."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that finds two lines with 'Error' (case-insensitively), and the answer correctly reflects that."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_3_2",
+  "group_ids": [
+    "hadoop:modelsql:count:3"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:16ee2acb968dc7f7b75507238cd89af61872c320b199d85b2424de9bd64ffc7d"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'hadoop' dataset that do not include the keywords \"INFO\", \"WARN\", or \"ERROR\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a COUNT question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence suggests that no line in the dataset contains the literal (0 matches from an exact substring search), but it does not clarify whether the SQL query used to answer the question correctly excluded all lines with \"INFO\", \"WARN\", or \"ERROR\" regardless of case or context."
+    }
+  ]
+}

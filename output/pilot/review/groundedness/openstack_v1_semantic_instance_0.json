@@ -1,0 +1,40 @@
+{
+  "question_id": "openstack_v1_semantic_instance_0",
+  "group_ids": [
+    "openstack:semantic:instance_0"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:2089993909f29d63ea73fd91f3ec087833ff89fbd6b6575eb248c4b9d7b624a3"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states information directly supported by the evidence, such as the VM being started, paused, and the sync_power_state being skipped due to a pending task."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (b9000564-fe1a-409b-b8cc-1e88b294cd1d), the event (VM started and paused), and the outcome (paused with a pending task)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining what happened around the first occurrence of 'instance:' in the log and what it means, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all important details from the evidence, including the VM's start, pause, and the skipped sync_power_state due to a pending task."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:52b8d664b8e50364c85a1baaaf13918f3dbcfe19dfeae8db8ef9125e45f150f2"
+  }
+}

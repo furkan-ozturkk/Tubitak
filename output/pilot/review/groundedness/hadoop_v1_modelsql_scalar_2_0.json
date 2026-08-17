@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_scalar_2_0",
+  "group_ids": [
+    "hadoop:modelsql:scalar:2"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:62c80452495f79614978a5d3db099374ab059e64d37d32d763e7fa130132be02"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the total number of unique log entries in the 'hadoop' dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which is the correct form for the question's required answer."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence includes sample log entries but does not provide the total count or any indication of how many unique entries exist in the full dataset."
+    }
+  ]
+}

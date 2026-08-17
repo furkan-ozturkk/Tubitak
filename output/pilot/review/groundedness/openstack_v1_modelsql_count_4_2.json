@@ -1,0 +1,29 @@
+{
+  "question_id": "openstack_v1_modelsql_count_4_2",
+  "group_ids": [
+    "openstack:modelsql:count:4"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:4788eaca779b4fdef31695d7ec7d969f649998ecf412cea3e83d61a27a9cff23"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the number of times the literal word \"INFO\" appears in the log entries of the 'openstack' dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The lines shown in the EVIDENCE section do contain the word \"INFO\" as specified, but they are only a sample and do not confirm the total count of 1969."
+    }
+  ]
+}

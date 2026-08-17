@@ -3,40 +3,38 @@
   "group_ids": [
     "openssh:semantic:possible_break_in_attempt_9"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:51e474041f3f935936a5d60fbf0c2d81463023ad5ec13c6a34fe8251fa003a8c"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:d3ac3f89c199d45baaafd35a07eebad75f29bf76b87fb7caceb040080f959c9c"
+    "prompt_sha256": "sha256:f764f28162431e38a6d7cc2384f6132bf739030f4d70880634a798357d422c0d"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a failed SSH login attempt from the IP address 187.141.143.180, with the user \"nagios1\" being an invalid user.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:semantic:possible_break_in_attempt_9"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the IP address, the invalid user attempts, and the system's response."
     },
     {
-      "text": "The login attempt resulted in an authentication failure, and the connection was subsequently disconnected.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:semantic:possible_break_in_attempt_9"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (187.141.143.180), the event type (invalid user authentication attempts), and the outcome (authentication failure and possible break-in attempt)."
     },
     {
-      "text": "The system also flagged the attempt as a possible break-in due to a failed reverse mapping check.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openssh:semantic:possible_break_in_attempt_9"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by walking through the log entries and explaining what they mean, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: the IP address, the invalid users, the password failures, the disconnects, and the system's detection of a possible break-in."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:3458bb0ce3e47cae5bec4c50093fa05304c37e74d3b6ee9860b87f43359d0dff"
+  }
 }

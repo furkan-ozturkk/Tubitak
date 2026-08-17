@@ -3,40 +3,38 @@
   "group_ids": [
     "linux:semantic:check_pass_user_unknown_4"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:4b151cc4c2b4fd7149bfc150cd83925102a09bfbae8b9618a4aa888c15e0ed80"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:f801ad5e2f5acad398db51e51eac31476e457976b24d4eae94a935cfcdc9066b"
+    "prompt_sha256": "sha256:12916bd3c4957d3d6e83b7bbbea1e29bd44083668d53d986197a50d1b9909cfd"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of authentication failures on the combo system, all originating from the same IP address, 65.166.159.14.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_4"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what the evidence shows, such as the IP address, the repeated \"user unknown\" checks, and the authentication failures."
     },
     {
-      "text": "The failures occurred within a 1-second time frame, with multiple attempts to check a password for an unknown user.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_4"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (65.166.159.14), the event type (authentication attempts), and the outcome (failures due to unknown users)."
     },
     {
-      "text": "Each attempt resulted in an authentication failure, indicating that the login credentials provided were invalid.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_4"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by walking through the log entries and explaining what the \"user unknown\" messages mean in the context of the 45th occurrence."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer captures the main idea but does not explicitly reference the 45th occurrence or provide a detailed walkthrough of that specific point in the log."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:c97a35d293536e3a6735818c034007818cb6a179c75213818c205f5a0fb8191f"
+  }
 }

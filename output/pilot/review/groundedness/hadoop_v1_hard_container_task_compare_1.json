@@ -4,45 +4,38 @@
     "hadoop:hard:container_task_compare:1:container_1445144423722_0020_01_000004",
     "hadoop:hard:container_task_compare:1:container_1445144423722_0020_01_000002"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:2cfd918a10efcb642421c4f627ac7b3a9ddfc8a3136dcb6935349318a21de8d6"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:16d24b792cf881bf0299b752aa2a0be99548f7535953257aed2dae3c4c6ce9bf"
+    "prompt_sha256": "sha256:76e0c780315163b2ded1fb0a68be5e37963961f1a1684e0bdf29f6a823f4c2ec"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The task event sequences for container_1445144423722_0020_01_000004 and container_1445144423722_0020_01_000002 show similar patterns, with both containers being assigned to task attempts, launched, and then cleaned up.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:hard:container_task_compare:1:container_1445144423722_0020_01_000004",
-        "hadoop:hard:container_task_compare:1:container_1445144423722_0020_01_000002"
-      ]
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes facts to each container without mixing or misattributing information between them."
     },
     {
-      "text": "However, the timing of these events differs, with container_1445144423722_0020_01_000004 taking approximately 4 minutes to complete its task, while container_1445144423722_0020_01_000002 completes its task in a much shorter time frame, with no cleanup event recorded in the provided evidence.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "hadoop:hard:container_task_compare:1:container_1445144423722_0020_01_000004",
-        "hadoop:hard:container_task_compare:1:container_1445144423722_0020_01_000002"
-      ]
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of assignment, launch, and cleanup is supported by the timestamps and events in the evidence for both containers."
     },
     {
-      "text": "Container_1445144423722_0020_01_000004 shows a clear sequence of launch and cleanup, indicating successful completion of its task, whereas container_1445144423722_0020_01_000002's sequence is incomplete, suggesting potential failure or interruption.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not name a specific cause, actor identity, or motive not present in the evidence and avoids false causality."
     },
     {
-      "text": "The root cause of the potential issue with container_1445144423722_0020_01_000002 appears to be that its task attempt is not followed by a cleanup event, and similar launch events for other containers, such as container_1445144423722_0020_01_000004, are followed by cleanup events, indicating that these errors recur without a corrective action in between.",
-      "supported": "no",
-      "candidate_group_ids": []
+      "dimension": "answers_question",
+      "verdict": "partial",
+      "detail": "The answer addresses the comparison and notes the lack of explicit failure signs, but it does not clearly state a root-cause hypothesis as requested in the question."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:99dcdc839307d05c2c19db7fedfe212757a6bfb116c2821e76d71b601eab9846"
+  }
 }

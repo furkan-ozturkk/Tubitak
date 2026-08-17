@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_count_container_1",
+  "group_ids": [
+    "hadoop:count:container"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:a448c8609f01d561d05e538e69ce0caffa6b4d39ce3bcb1f0a27699097b6a501"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question clearly asks to count lines mentioning 'Container', and specifies case-insensitive matching."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query explicitly states there are 547 matching lines, and the answer matches that number."
+    }
+  ]
+}

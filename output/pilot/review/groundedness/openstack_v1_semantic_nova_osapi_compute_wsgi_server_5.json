@@ -3,40 +3,34 @@
   "group_ids": [
     "openstack:semantic:nova_osapi_compute_wsgi_server_5"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:e6760e5d95a16fd45e32763727d59f1141ee5a24e3fb515840bc83e891e7a875"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:75dd78817ca685a745710547107575e25d169a3c60189de873306f82d890db1f"
+    "prompt_sha256": "sha256:af1b1a32b1ffdae0cd011f3a69ce799557ee80c10e92b77997cfccebfb065f1f"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of API requests and compute claims related to creating a new server instance with ID d54b44eb-2d1a-4aa2-ba6b-074d35f8f12c.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_5"
-      ]
+      "dimension": "grounded",
+      "verdict": "partial"
     },
     {
-      "text": "The nova-api logs indicate that a POST request to create a server was successful, followed by two GET requests to retrieve server details, both of which returned a 200 status.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_5"
-      ]
+      "dimension": "correct",
+      "verdict": "partial"
     },
     {
-      "text": "The nova-compute logs then show the compute service attempting to claim resources for the new instance, checking memory and disk availability to determine if the instance can be created.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "openstack:semantic:nova_osapi_compute_wsgi_server_5"
-      ]
+      "dimension": "relevant",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial"
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:6cf5e6e0ee207a2ebc9708b72392eccd60b80899d5a4757bf8da62e43e2b3d8f"
+  }
 }

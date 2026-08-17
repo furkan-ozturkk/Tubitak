@@ -1,0 +1,29 @@
+{
+  "question_id": "zookeeper_v1_lookup_fastleaderelection_first_0",
+  "group_ids": [
+    "zookeeper:lookup:fastleaderelection_first"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:cde8e5407d8aca9a37f8133bc2995c252ff991187e944f4e26ccd5afd4300882"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question clearly asks for the first line that reports 'FastLeaderElection', and it is unambiguous in its intent."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is the exact text of one log line, which is the required answer shape for this line-lookup question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes the line that contains 'FastLeaderElection', and the answer matches that line exactly."
+    }
+  ]
+}

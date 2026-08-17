@@ -1,0 +1,40 @@
+{
+  "question_id": "openstack_v1_semantic_instance_4",
+  "group_ids": [
+    "openstack:semantic:instance_4"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:a2a0104b841932a857f68cc37b840c0a34b6337fe167bb67df4a77f8ca099401"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the instance ID, the events of destruction, file deletion, and network deallocation, and the time taken for each."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, the event type (instance deletion), and the outcome (instance deleted), all of which are accurately reflected in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the 213th occurrence of 'instance:' by explaining what the log shows and what it means, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence—instance ID, destruction, file deletion, network deallocation, and timing—without omitting any important parts."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:862de4fdc0e91181b3c85424795d83646002b9d11f1a193b50b58d48cd504297"
+  }
+}

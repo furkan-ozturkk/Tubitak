@@ -3,40 +3,38 @@
   "group_ids": [
     "apache:semantic:child_workerenv_in_error_state_9"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:7aa916c4fa630bfc6eaa195312dbcd351bd5a9512039793661350b5b8e7fdebd"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:6c7f06bd1188fd05d6894e7c3cca0ec4780f7eb02bd464006cd3ccc513561b04"
+    "prompt_sha256": "sha256:ed53ea266deb881eae52028d0248e313e672e3f3aea4d98354f6aa0af032c7da"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The excerpt shows a series of error and notice events related to mod_jk child workerEnv, with the worker transitioning between error states 7 and 6.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "apache:semantic:child_workerenv_in_error_state_9"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence, such as specific causes of the errors or outcomes."
     },
     {
-      "text": "Despite repeated initialization notices for workerEnv, the worker remains in an error state, indicating a persistent issue.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "apache:semantic:child_workerenv_in_error_state_9"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the workerEnv entity, the error states, and the repeated successful initialization as described in the evidence."
     },
     {
-      "text": "The error state persists even after a new child process, 6302, is found in the scoreboard slot 8.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "apache:semantic:child_workerenv_in_error_state_9"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the Apache log around the error states and explains what it means, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key points from the evidence: successful initialization, error states 6 and 7, and the repeated nature of the issue."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:5dc4e9f3e13d75cd8e65226254c3ed7ec3022d1767da86904818244d564a9ca5"
+  }
 }

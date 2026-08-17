@@ -1,0 +1,40 @@
+{
+  "question_id": "linux_v1_semantic_session_opened_7",
+  "group_ids": [
+    "linux:semantic:session_opened_7"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:e4c1a91bb62ceb39560333cf748ade70660e135406007b41e14e43fc65013364"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only includes information directly supported by the evidence provided in the log entries."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (combo), the event type (system log events), and accurately describes the observed events without asserting an outcome not stated."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer summarizes the event shown in the Linux log near the 85th occurrence of 'session opened', as the question specifically asked."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all the important parts of the evidence: multiple FTP connections, the user session, cupsd shutdown/startup, syslogd restart, and logrotate's abnormal exit."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:c0bfb69ac2cbc40ec29efe8a67662b0eee86796f457ef52cac469d0b38b14237"
+  }
+}

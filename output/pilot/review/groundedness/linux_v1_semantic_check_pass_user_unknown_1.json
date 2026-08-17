@@ -3,40 +3,38 @@
   "group_ids": [
     "linux:semantic:check_pass_user_unknown_1"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:88ad3d47298d3fac7102e06e7d4d36fa17f130297d64c48bed39d16b2675e2e2"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:81b6facae86c550912dc58ebec2d26a4496ce1b221053d59da7b5c2dc956361a"
+    "prompt_sha256": "sha256:f14d22a9d1a5bb79b75879d94c8e02f6681da7f821802478aa352339393963ea"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of authentication failures on the combo system, with multiple attempts to log in via ssh from two different remote hosts: 218.188.2.4 and 061092085098.ctinets.com.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_1"
-      ]
+      "dimension": "grounded",
+      "verdict": "no",
+      "detail": "The answer states that \"check pass\" events were interspersed with authentication failures and suggests the entity was trying different credentials, which is not shown in the evidence."
     },
     {
-      "text": "Each attempt results in an \"authentication failure\" due to an \"unknown user\".",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_1"
-      ]
+      "dimension": "correct",
+      "verdict": "partial",
+      "detail": "The answer correctly identifies the entity and event type but inaccurately infers intent (trying different credentials) not supported by the evidence."
     },
     {
-      "text": "The failures occur at different times, with two attempts at 12:13 and two more at 14:53, indicating repeated login attempts from the same or different sources.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_1"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by describing what is happening in the log around the \"check pass; user unknown\" events."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer mentions the IP addresses and events but omits the specific timing around the 12th occurrence of \"check pass; user unknown,\" which is the focus of the question."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:470dc6050240d9e641f9b231933479b6e15999df4d5e401640acf5314ebce91c"
+  }
 }

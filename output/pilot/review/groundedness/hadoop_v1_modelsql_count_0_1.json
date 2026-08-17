@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_0_1",
+  "group_ids": [
+    "hadoop:modelsql:count:0"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:0d0d2de9e7df6786db87096094bbe4e597a9bc2b261f0501b16f9f292f2d7fe8"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the total count of lines in the 'hadoop' dataset that include the term \"INFO\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that selects lines from the 'hadoop' dataset where the text includes \"INFO\" (case-insensitively), and it states that the query returns 1042 lines, which matches the answer."
+    }
+  ]
+}

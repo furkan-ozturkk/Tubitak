@@ -1,0 +1,29 @@
+{
+  "question_id": "zookeeper_v1_count_warn_1",
+  "group_ids": [
+    "zookeeper:count:warn"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:4a377cf54f87e4335c1469c1f190d01323ad3eda6e058624696b0d76cc39f9af"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question clearly asks to count lines mentioning 'WARN', and it specifies case-insensitive matching."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query explicitly counts lines with 'WARN' (case-insensitive) in the 'zookeeper' dataset, and the answer matches the stated total of 1318."
+    }
+  ]
+}

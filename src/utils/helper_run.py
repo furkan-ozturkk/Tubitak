@@ -86,6 +86,8 @@ def print_generation_summary(summary: GenerationSummary) -> None:
         f"easy={summary.easy} medium={summary.medium} hard={summary.hard} "
         f"total={total} ({label})"
     )
+    if summary.easy_target_total is not None:
+        print(f"easy target  : target={summary.easy_target_total} realised={summary.easy}")
     if total and summary.difficulty_mix is not None:
         realised = (
             f"easy={summary.easy / total:.2f} "

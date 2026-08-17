@@ -4,59 +4,38 @@
     "linux:hard:brute_force_compare:3:220_117_241_87",
     "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:747cb7f8a1fa5db16cf3bf8315b5e9dd77fb64c24f7355848848e7dbced9f6e0"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:8b88ddf2c69f4a414f854d5a7f2b56d7fad954b7bba74526c73477c285a886eb"
+    "prompt_sha256": "sha256:a812794502b97027460e6f40fec1e4ade481d3cb6c03129a995decd30ec848b4"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The two groups of log lines, one from 220.117.241.87 and the other from h64-187-1-131.gtconnect.net, both show a pattern of repeated failed login attempts to the root user account via SSH.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:3:220_117_241_87",
-        "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
-      ]
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly distinguishes between the two groups, using facts specific to each without conflating them."
     },
     {
-      "text": "The group from 220.117.241.87 consists of 13 lines, all occurring within a 13-second time span on July 4, indicating a rapid burst of activity.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:3:220_117_241_87",
-        "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
-      ]
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of timing and pattern is based on the timestamps and repetition of failed login attempts in the evidence."
     },
     {
-      "text": "In contrast, the group from h64-187-1-131.gtconnect.net also has 13 lines, but these are spread out over a 17-second period on June 29, showing a slightly slower pace of attempts.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:3:220_117_241_87",
-        "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
-      ]
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer avoids naming specific causes, actors, or motives not present in the evidence and sticks to general interpretations."
     },
     {
-      "text": "Notably, both groups target the root user, suggesting a potential brute-force attack or password guessing attempt.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:3:220_117_241_87",
-        "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
-      ]
-    },
-    {
-      "text": "The fact that these errors recur without any corrective action in between, as seen in the repeated failures from both IP addresses, suggests that the root cause of these anomalies is the lack of effective measures to prevent or respond to these repeated failed login attempts.",
-      "supported": "partial",
-      "candidate_group_ids": [
-        "linux:hard:brute_force_compare:3:220_117_241_87",
-        "linux:hard:brute_force_compare:3:h64_187_1_131_gtconnect_net"
-      ]
+      "dimension": "answers_question",
+      "verdict": "partial",
+      "detail": "The answer identifies the more anomalous pattern (faster attempts from 220.117.241.87) but does not propose a specific root-cause hypothesis for it, as required by the question."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:f3d6f1623697e05f3f0f33ffb5e566d421db5f9e83051bed25f0e93c15ce76c0"
+  }
 }

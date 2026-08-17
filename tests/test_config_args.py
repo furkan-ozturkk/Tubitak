@@ -60,9 +60,13 @@ class ModelSeparationTest(unittest.TestCase):
 
 
 class TierKnobTest(unittest.TestCase):
-    def test_zero_window_size_is_rejected(self):
+    def test_zero_context_before_is_rejected(self):
         with self.assertRaises(ValueError):
-            args_parser(["--window_size", "0"])
+            args_parser(["--context_before", "0"])
+
+    def test_zero_context_after_is_rejected(self):
+        with self.assertRaises(ValueError):
+            args_parser(["--context_after", "0"])
 
     def test_zero_questions_per_dataset_is_rejected(self):
         with self.assertRaises(ValueError):
@@ -94,7 +98,8 @@ class TierKnobTest(unittest.TestCase):
         for name in (
             "min_matches",
             "max_cited_lines",
-            "window_size",
+            "context_before",
+            "context_after",
             "questions_per_dataset",
             "min_sentences",
             "test_fraction",

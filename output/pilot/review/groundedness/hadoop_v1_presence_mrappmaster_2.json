@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_presence_mrappmaster_2",
+  "group_ids": [
+    "hadoop:presence:mrappmaster"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:1e66bc08792e650e81bf05b5145c784426e0cd10e69fe85385507a22a121fe3d"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question clearly asks whether there is at least one occurrence of 'MRAppMaster' in the log, and it refers to a specific pattern."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the required format, stating a verdict ('Yes') and a count of matching lines in parentheses."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query and the example lines confirm that 'MRAppMaster' appears in the log, and the query explicitly returns 15 matching lines."
+    }
+  ]
+}

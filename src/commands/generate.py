@@ -39,6 +39,7 @@ from src.generators import (
     build_hard_records,
     build_medium_records,
 )
+from src.generators.easy_tier import allocate_model_sql_slots, count_curated_intents
 from src.params.corpus_params import CorpusConfig
 from src.params.generation_params import GenerationConfig
 from src.params.results_params import GenerationSummary
@@ -51,21 +52,42 @@ from src.utils.helper_splits import resolve_splits
 
 
 def generate_easy(
-    corpus_config: CorpusConfig, config: GenerationConfig
+    corpus_config: CorpusConfig, config: GenerationConfig, client: VllmClient
 ) -> list[dict[str, Any]]:
     """Runs the easy tier across every curated dataset.
+
+    When ``config.easy.target_total`` is set, this first prices out every
+    dataset's curated-literal question count with ``count_curated_intents`` (no
+    model calls -- pure Postgres counts against the pruning rules the curated
+    builders already apply), then hands the gap to
+    ``allocate_model_sql_slots`` so each dataset knows how many model-invented
+    questions to add on top of its curated ones. This two-pass shape is what
+    lets a single ``--easy_target_total`` decide the tier's total question
+    count instead of a per-dataset knob that only ever adds a fixed amount
+    (Section 7.1).
 
     Args:
         corpus_config: Where the corpus is read from and how it is partitioned.
         config: Generation config.
+        client: vLLM client used for the post-hoc quality check on every
+            record, and for inventing the model-SQL questions when
+            ``config.easy.target_total`` is set.
 
     Returns:
         Every easy-tier record, without ``split``.
     """
+    views = {name: corpus_provider(corpus_config, spec) for name, spec in DATASET_SPECS.items()}
+    curated_counts = {
+        name: count_curated_intents(views[name], spec, config.easy)
+        for name, spec in DATASET_SPECS.items()
+    }
+    slot_allocation = allocate_model_sql_slots(config.easy.target_total, curated_counts)
+
     all_records: list[dict[str, Any]] = []
     for name, spec in DATASET_SPECS.items():
-        view = corpus_provider(corpus_config, spec)
-        records = build_easy_records(view, spec, config)
+        records = build_easy_records(
+            views[name], spec, config, client, slot_allocation[name]
+        )
         print(f"[{name}] easy: {len(records)} questions")
         all_records.extend(records)
     return all_records
@@ -129,7 +151,7 @@ def generate_all_tiers(
         Tuple ``(records, summary)``.
     """
     print("=== Easy (deterministic) ===")
-    easy_records = generate_easy(corpus_config, config)
+    easy_records = generate_easy(corpus_config, config, client)
 
     print("\n=== Medium (semantic) ===")
     medium_records = generate_medium(corpus_config, config, client)
@@ -143,6 +165,7 @@ def generate_all_tiers(
         hard=len(hard_records),
         out=config.out,
         official_set=not config.full,
+        easy_target_total=config.easy.target_total,
     )
     return easy_records + medium_records + hard_records, summary
 

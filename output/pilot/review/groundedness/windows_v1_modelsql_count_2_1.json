@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_modelsql_count_2_1",
+  "group_ids": [
+    "windows:modelsql:count:2"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:b41fb6916712f48c7af6724eb035c355906c1aa3eb10519c1581a32137814328"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the total number of log lines containing a specific phrase."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query correctly filters for the dataset and the phrase (case-insensitively), and the answer matches the stated result of that query."
+    }
+  ]
+}

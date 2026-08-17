@@ -1,0 +1,29 @@
+{
+  "question_id": "linux_v1_modelsql_scalar_2_2",
+  "group_ids": [
+    "linux:modelsql:scalar:2"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:cab708eadceb1a229db0b9b06293f234ef261070f77bc6cc53fe4ced56a3ccba"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of different IP addresses that made FTP connections in the 'linux' dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which matches the required answer shape for a count."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence includes a query that computes the count of distinct IP addresses from FTP connection logs in the 'linux' dataset, and sample lines show that such data exists, but the actual correctness of the answer \"38\" cannot be confirmed without executing the query."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "hdfs_v1_modelsql_count_5_0",
+  "group_ids": [
+    "hdfs:modelsql:count:5"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:5f8d46ff5d10de2b4480e124569b3fc29cf6aeead80a1b6e963f758e63dde37f"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks how many log entries in the 'hdfs' dataset do not contain any numeric values."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count-based question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence suggests that no line contains a specific numeric literal, but it does not confirm whether numeric values in other forms (e.g., numbers written as words or other numeric patterns) are present or absent."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "question_id": "linux_v1_semantic_session_opened_9",
+  "group_ids": [
+    "linux:semantic:session_opened_9"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:8926b495e5adddb4791e92d892b47e985e287c76b59b900184857cecb45d2ec3"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and avoids making unsupported claims."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the entity (\"combo\"), the event type (authentication attempts and system events), and the lack of a stated outcome."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the Linux log around the 109th occurrence of \"session opened\" and explains what it means, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer mentions the key events but does not explicitly reference the 109th occurrence of \"session opened,\" which is central to the question."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:800de9f8b714070fe058a90f0d930b300288d61fd7515ce08f9480c322f0f15e"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "question_id": "bgl_v1_semantic_double_hummer_alignment_exceptions_1",
+  "group_ids": [
+    "bgl:semantic:double_hummer_alignment_exceptions_1"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:c6722e85fc8c264e617c9e8b6c73ac925251660b95b45cbd3a27cc52f7ab82eb"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence, such as specific causes or outcomes of the exceptions."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the event type, the first and last entities involved, and accurately notes that the outcome is not stated."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by describing what is happening in the log around the 11th occurrence, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer is reasonably complete but does not explicitly mention the 11th occurrence or the specific entity it involves (R23-M1-N8-C:J06-U01), which is part of the question's focus."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:b87c34020c095aba8fc6b4b60dcffa36bf5496e534df24dbbf66b51ee8a861c4"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "openstack_v1_modelsql_scalar_2_0",
+  "group_ids": [
+    "openstack:modelsql:scalar:2"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:32458469aed5f995a6b06d37857038ef1033befa9a1a8c47fda6832d370f3173"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the total number of unique log entries in the 'openstack' dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which is the correct form for the question's required answer."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence shows a few log entries but does not provide enough information to confirm or refute the total count of 2000 unique log entries."
+    }
+  ]
+}

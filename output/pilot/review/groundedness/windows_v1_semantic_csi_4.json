@@ -3,40 +3,38 @@
   "group_ids": [
     "windows:semantic:csi_4"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:168826a8c3d9832b6a8980d27cd9b5c2a1c9db96796bd8a5da6b0f6f0814ebe4"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:415dfe15bf6aeae9754183ed3293ff9a1b3a13f09fc0ced73bdbd7edb4d8aa0d"
+    "prompt_sha256": "sha256:8b49e73854b7bb4af9bf5456cf604dd91668a265f23160ef96bf740060146be6"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a CSI (Component-Based Servicing) transaction being initialized and committed, indicating a system operation related to the deployment engine.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_4"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence and aligns with the structured summary and log details."
     },
     {
-      "text": "The transaction involves performing one operation and creating an NT transaction, with no issues or errors reported in the provided log lines.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_4"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (KB3177467), event type (system update), and notes the lack of a stated outcome as per the evidence."
     },
     {
-      "text": "The \"scavenge\" process is begun but quickly skipped as the store coherency cookie matches the last scavenge cookie, suggesting that no changes were needed.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "windows:semantic:csi_4"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the ninth occurrence of 'CSI' and explains what it means, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes key details from the evidence, such as the CSI transaction initialization and store coherency check, and notes the failure to create a backup log."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:d70d08d3d310af85a7db78eddc616b791ca4578622a5c90bf15abc551b0683aa"
+  }
 }

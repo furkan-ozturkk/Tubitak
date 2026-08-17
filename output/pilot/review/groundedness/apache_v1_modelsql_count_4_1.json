@@ -1,0 +1,29 @@
+{
+  "question_id": "apache_v1_modelsql_count_4_1",
+  "group_ids": [
+    "apache:modelsql:count:4"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:5f28eb5e8c920aa57abe462537778a94936f9297cf9b3342352cb4af2db8d50b"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the total number of lines in the 'apache' dataset that include the word \"notice\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count-based question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The lines shown in the evidence do contain the word \"notice\" as specified, but the evidence does not confirm the total count of 1405, only that the method used is valid and the sample lines are genuine matches."
+    }
+  ]
+}

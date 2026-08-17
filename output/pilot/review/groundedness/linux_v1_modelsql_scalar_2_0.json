@@ -1,0 +1,29 @@
+{
+  "question_id": "linux_v1_modelsql_scalar_2_0",
+  "group_ids": [
+    "linux:modelsql:scalar:2"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:77968549b6a336bf53f11ff2579828347221cd3c8721f76ebd56e7d1c5ec61c3"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the total number of unique IP addresses in the 'linux' dataset that have connected to the FTP server."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which is the correct kind of answer for the question's request for a count."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence shows a query that would compute the correct count if executed, and sample data that includes IP addresses, but the actual correctness of the answer \"38\" cannot be confirmed without executing the query against the full dataset."
+    }
+  ]
+}

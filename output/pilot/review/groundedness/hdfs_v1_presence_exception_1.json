@@ -1,0 +1,29 @@
+{
+  "question_id": "hdfs_v1_presence_exception_1",
+  "group_ids": [
+    "hdfs:presence:exception"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:ba024e6795782ebd2cf17edacad338d5c4f1f1c2efc5b616afed3073528302fa"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question clearly asks whether the log has a line mentioning 'Exception', and it specifies case-insensitive matching."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format, stating a verdict and a count of matching lines."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query and the example lines show that 'Exception' appears in the logs, and the query returns 80 matching lines, supporting the answer."
+    }
+  ]
+}

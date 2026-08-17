@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_lookup_mrappmaster_first_2",
+  "group_ids": [
+    "hadoop:lookup:mrappmaster_first"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:dad758287855438409e8838dabe74c83ac795ef64af03853ef7af29788fbd5d1"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question clearly asks for the first line where 'MRAppMaster' appears, and it specifies a literal pattern to look for."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is the exact text of one log line, which is the required answer shape for this line-lookup question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes the line that matches the question and is identical to the answer provided."
+    }
+  ]
+}

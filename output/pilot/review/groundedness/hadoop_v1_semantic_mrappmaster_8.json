@@ -3,40 +3,38 @@
   "group_ids": [
     "hadoop:semantic:mrappmaster_8"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:b0e8a145a33d5c011f5867a23b2938e27256afa755345c684e8c821f75ebedd3"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:a72f83f7da906c4b77253c27b0ddd7d6402c908a71a7f70476c68356bd0e140d"
+    "prompt_sha256": "sha256:b3bd3d9dbecfa99457eb5e0e6bcd51233835b6a565cca5cab8fbe1511f35dd8c"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows the registration of various event types and handlers by the AsyncDispatcher in the Hadoop YARN system.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_8"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only includes information directly supported by the evidence provided in the log entries."
     },
     {
-      "text": "The registrations occur for different classes, including TaskAttemptEventType, CommitterEventType, and others, indicating the setup of event handling mechanisms.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_8"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the MRAppMaster as the entity, the system initialization as the event type, and accurately describes the configuration and registration activities."
     },
     {
-      "text": "The excerpt also mentions the default file system being set to hdfs://msra-sa-41:9000, as logged by JobHistoryUtils.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "hadoop:semantic:mrappmaster_8"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what took place around the ninth occurrence of 'MRAppMaster' and its significance, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all the key elements from the evidence: the OutputCommitter setup, the registration of event handlers and dispatchers, and the default file system configuration."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:2d0d27b1174590643bc9f827f76039d5b1b444c3d0312883d1adb20b92439839"
+  }
 }

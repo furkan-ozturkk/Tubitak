@@ -3,40 +3,38 @@
   "group_ids": [
     "linux:semantic:check_pass_user_unknown_6"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:5403a43ef40ed27c33e8cac6cc7a3d7b364fa59fca1ea70ec2c4515d5c1d0f7c"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:857370d9fcc66a3c1fd1f4e5da00729fe6ae18695f3b958e9486de3dfd566868"
+    "prompt_sha256": "sha256:f74658867e6af0b354135ec63645c927c7b3541ae21dffe50ce56fe21ae6bfb1"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of authentication failures due to unknown users attempting to connect via SSH from the host massive.merukuru.org.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_6"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence, such as the entity, event type, and outcome."
     },
     {
-      "text": "The failures occurred at the same time, 04:41:51, and were recorded by different processes of sshd.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_6"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (massive.merukuru.org), event type (authentication attempts), and outcome (repeated failures with no success)."
     },
     {
-      "text": "Later, at 09:20:24, the system logged connections from the IP address 210.118.170.95 via FTP.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_6"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question about what is happening in the log around the described event, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: the entity, the \"check pass\" attempts, the authentication failures, and the simultaneous timing."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:ce4710384f3c926de479ac32aa853405e8b51d665e7a6e1df2cacb82d46ba316"
+  }
 }

@@ -1,0 +1,29 @@
+{
+  "question_id": "openstack_v1_presence_error_0",
+  "group_ids": [
+    "openstack:presence:error"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:6a4870c3d0c38ad5b58cca3477199a5a0c1cb6dfada5e0923196ae2d6bff95f2"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log contains any line with the word 'ERROR', regardless of case."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is of the correct form, stating a verdict ('No') and a count ('0 matching lines')."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that searched for 'ERROR' case-insensitively and found 0 matches, supporting the answer."
+    }
+  ]
+}

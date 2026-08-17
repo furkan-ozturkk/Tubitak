@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_5_0",
+  "group_ids": [
+    "hadoop:modelsql:count:5"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:a8a61b09aa7b87abdc340778f5613de4380648b6b0e2bb7b254adb94bb76d0fc"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'hadoop' dataset that contain \"WARN\" but not \"ERROR\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The lines shown under EVIDENCE appear to be genuine matches for entries containing \"WARN\" and not \"ERROR\", but since the total count is not derived from the sample, it is not possible to confirm the accuracy of the full count solely from the evidence provided."
+    }
+  ]
+}

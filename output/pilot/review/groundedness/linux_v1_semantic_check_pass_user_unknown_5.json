@@ -3,40 +3,38 @@
   "group_ids": [
     "linux:semantic:check_pass_user_unknown_5"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:4cf4aa39778ffafed2d3013a37bbb375fbde588b733994ece237677382c10b8a"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:ec87d61eac6d7061dc867849c4d7a703ae46a205b04f5eb3a42d157b64f0b5b6"
+    "prompt_sha256": "sha256:f57715264f85e23f8bf46495ba3e2666572bda67ff60157348416b2fe1f8d8bd"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "This excerpt shows a series of failed SSH login attempts from the same IP address, ip-216-69-169-168.ip.secureserver.net, with the user being unknown, indicating potential unauthorized access attempts.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_5"
-      ]
+      "dimension": "grounded",
+      "verdict": "no",
+      "detail": "The answer speculates that the failed attempts \"may indicate a brute-force attack or other malicious activity,\" which is not shown in the evidence."
     },
     {
-      "text": "Later, it shows two FTP connections from a different IP address, 210.245.165.136, which were successfully established.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_5"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type (authentication attempts), and outcome (failures due to unknown users)."
     },
     {
-      "text": "These events suggest potential security issues, including brute-force login attempts and incoming FTP connections from external sources.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_5"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what happened and what it means, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: the IP address, the repeated \"check pass\" and \"authentication failure\" events, and the unknown user issue."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:c3d88221fcc1068ab8a17c1bfbe9019b44c1587107f209f0a5ea4bf7f94fbd44"
+  }
 }

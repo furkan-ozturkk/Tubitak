@@ -1,0 +1,29 @@
+{
+  "question_id": "openstack_v1_presence_error_2",
+  "group_ids": [
+    "openstack:presence:error"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:78ccb89e8ef5ff37330b93a7b0723052535f36d7fc9f9c43608272c6ca7982d9"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether there is at least one occurrence of 'ERROR' in the log, with case-insensitive matching."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a direct \"No (0 matching lines)\" response, which is the correct format for a yes/no question with a count."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that would find any line with 'ERROR' (case-insensitive) and states that no lines matched an exact substring search, supporting the answer."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "apache_v1_modelsql_count_0_0",
+  "group_ids": [
+    "apache:modelsql:count:0"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:29309d2b2c2911af93e753d0d6d980ee1533a9653acffa9a1cc71707fd743606"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of lines containing the word \"error\" in the 'apache' dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query selects lines where the text contains \"error\" (case-insensitive) in the 'apache' dataset, and the answer matches the total count of such lines."
+    }
+  ]
+}

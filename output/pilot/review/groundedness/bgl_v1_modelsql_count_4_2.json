@@ -1,0 +1,29 @@
+{
+  "question_id": "bgl_v1_modelsql_count_4_2",
+  "group_ids": [
+    "bgl:modelsql:count:4"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:58c720117cc79b7623b84207e6a05b7d9cf9ed1ff525ce813474a6fe385b8a28"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'bgl' dataset containing the exact phrase \"double-hummer alignment exceptions\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The lines shown in the evidence do contain the exact phrase \"double-hummer alignment exceptions\", but the answer of 109 is not directly supported or contradicted by the evidence, as the evidence only shows 5 of the total."
+    }
+  ]
+}

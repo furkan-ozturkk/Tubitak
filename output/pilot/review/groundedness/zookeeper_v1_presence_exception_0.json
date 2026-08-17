@@ -1,0 +1,29 @@
+{
+  "question_id": "zookeeper_v1_presence_exception_0",
+  "group_ids": [
+    "zookeeper:presence:exception"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:d0b22e258b57ad54e5481f2ca021dcd413e1513c3704b8cb366cb39028db072d"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks whether the log contains any line with the word 'Exception'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is in the correct format, stating a verdict and a count of matching lines."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that finds lines with 'Exception' and states there are 54 matching lines, supporting the answer."
+    }
+  ]
+}

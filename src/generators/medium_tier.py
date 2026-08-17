@@ -1,34 +1,51 @@
-"""Medium tier (Section 7.2): single-event-family explanation / summary.
+"""Medium tier (Section 7.2): single-event-group explanation.
+
+What this tier measures: given one contiguous group of log lines around a curated
+anchor event, can the answer explain what that one event/condition is and what it
+means -- no second group to correlate against, no cross-entity reasoning, just
+reading and interpreting a single window. This is the line that separates it from
+hard: medium never cites more than one evidence group.
 
 The first tier with a model in it, and therefore the first whose records leave
-generation as ``review_status=in_review``: the gold answer is a draft by
-``gold_draft_model``, and only a human accept/edit through
-``src.utils.helper_review`` can promote it to ``verified``.
+generation as ``review_status=in_review``: only a human accept/edit through
+``src.utils.helper_review`` can promote a record to ``verified``.
 
-Every draft goes through the same claim-by-claim groundedness check as the hard
-tier (``src.utils.helper_groundedness``): each sentence is judged by
-``groundedness_model`` — a different family from the drafting model — and the
-per-question report lands in ``review_dir`` where the review worksheet
-summarises it and ``review-apply`` refuses an ``accept`` over an unsupported
-claim. The tier used to skip this check on the argument that a single-window
-explanation is low-risk; the hard tier's reports showed the drafting model
-over-reaching on exactly this kind of excerpt, so "low-risk" was an assumption
-doing a reviewer's job.
+The gold answer is drafted in two stages rather than asked for directly, so where it
+came from is legible rather than opaque. Stage one (``_extract_structure``) reads
+the raw evidence and pulls out four fields -- event type, entity, the events
+observed and the outcome -- as an intermediate, machine-checkable representation,
+stored on the record as ``structured_summary``. Stage two (``_build_narrative_prompt``)
+turns only that structured summary (plus the original evidence, for exact wording)
+into the 1-3 sentence prose that becomes ``expected_answer``. A reviewer -- human or
+model -- can now ask "does the *summary* match the evidence" and "does the
+*narrative* match the summary" as two separate, smaller questions instead of one
+opaque "is this paragraph right".
 
-Evidence is a contiguous window starting at an anchor occurrence, capped at
-``MediumTierParams.window_size``, and the drafting prompt is explicit that
-nothing outside that window may be used. The cap is not a token-budget
-convenience: a record's ``evidence.refs`` is the claim about what its answer was
-derived from, so anything the model saw has to be in there.
+Every draft is checked holistically by ``src.utils.helper_validation`` against
+``groundedness_model`` -- a different family from the drafting model (Section
+5.5/6) -- across four dimensions (grounded, correct, relevant, sufficient), with
+the question itself part of what the reviewing model sees; the per-question report
+lands in ``review_dir`` where the review worksheet summarises it and
+``review-apply`` refuses an ``accept`` over a dimension marked unsupported.
+
+Evidence is a window centered on an anchor occurrence -- ``MediumTierParams.context_before``
+lines before it and ``context_after`` lines after, clipped at file boundaries -- and the
+drafting prompts are explicit that nothing outside that window may be used. The window
+being symmetric rather than forward-only is deliberate: what led up to an event is
+often exactly what "what does it mean" needs, and a forward-only window can never
+show it. Each curated dataset spec can name more than one anchor
+(``DatasetSpec.medium_anchors``), each standing in for a different event family, so a
+dataset's medium questions are not all instances of the same single event type.
 """
 
+import re
 import sys
 from typing import Any
 
 from src.data.data_factory import CorpusView
-from src.data.dataset_specs import DatasetSpec
-from src.utils.helper_groundedness import check_claims, write_report
+from src.data.dataset_specs import DatasetSpec, MediumAnchorSpec
 from src.params.generation_params import GenerationConfig, MediumTierParams
+from src.utils import helper_validation
 from src.utils.helper_evidence import evidence_ref, gold_provenance, slugify
 from src.utils.helper_vllm import VllmClient
 
@@ -45,6 +62,34 @@ ORDINALS = (
     "eighth",
     "ninth",
     "tenth",
+)
+
+MEDIUM_DIMENSIONS = (
+    (
+        "grounded",
+        "Is the ANSWER grounded in the EVIDENCE -- does it avoid stating "
+        "anything the evidence does not show?",
+    ),
+    (
+        "correct",
+        "Does the ANSWER accurately reflect what the EVIDENCE actually shows "
+        "(the right entity, the right event type, the right outcome)?",
+    ),
+    (
+        "relevant",
+        "Does the ANSWER address what the QUESTION actually asks, rather than "
+        "a generic restatement of the STRUCTURED_SUMMARY that ignores the "
+        "question's own wording?",
+    ),
+    (
+        "sufficient",
+        "Is the ANSWER reasonably complete -- does it avoid omitting an "
+        "important part of what the evidence shows?",
+    ),
+)
+
+_STRUCTURED_FIELD_PATTERN = re.compile(
+    r"(?im)^\s*(EVENT_TYPE|ENTITY|OBSERVED_EVENTS|OUTCOME)\s*:\s*(.+)$"
 )
 
 
@@ -120,8 +165,8 @@ def _question_text(
         anchor: The curated anchor literal.
         match_number: 1-based position of the window's anchor within every
             match of the anchor in the file.
-        occurrence: 0-based index of this question among the dataset's medium
-            picks, used to select the phrasing.
+        occurrence: 0-based index of this question among the anchor's picks,
+            used to select the phrasing.
 
     Returns:
         Tuple ``(phrasing_family, question_text)``.
@@ -149,27 +194,30 @@ def _find_matches(lines: list[str], literal: str) -> list[int]:
     return [i for i, line in enumerate(lines) if needle in line.lower()]
 
 
-def _evidence_window(lines: list[str], start_idx: int, size: int) -> list[int]:
-    """Returns the indices of a window of lines, clipped at end of file.
+def _evidence_window(
+    lines: list[str], anchor_idx: int, context_before: int, context_after: int
+) -> list[int]:
+    """Returns the indices of a symmetric window around an anchor, clipped at the file.
 
     Args:
         lines: The dataset's lines.
-        start_idx: 0-based index of the anchor match.
-        size: Maximum window length.
+        anchor_idx: 0-based index of the anchor match.
+        context_before: Lines of context to include before the anchor.
+        context_after: Lines of context to include after the anchor.
 
     Returns:
-        Window indices, ascending.
+        Window indices, ascending, including the anchor itself.
     """
-    end_idx = min(len(lines), start_idx + size)
+    start_idx = max(0, anchor_idx - context_before)
+    end_idx = min(len(lines), anchor_idx + context_after + 1)
     return list(range(start_idx, end_idx))
 
 
-def _build_prompt(dataset_name: str, evidence_lines: list[str]) -> str:
-    """Builds the drafting prompt for one medium question.
+def _build_extraction_prompt(dataset_name: str, evidence_lines: list[str]) -> str:
+    """Builds the stage-one prompt: raw evidence in, structured fields out.
 
     Args:
-        dataset_name: Dataset the excerpt came from, named so the model does not
-            have to infer the system from the log format.
+        dataset_name: Dataset the excerpt came from.
         evidence_lines: The window's lines, verbatim.
 
     Returns:
@@ -178,14 +226,97 @@ def _build_prompt(dataset_name: str, evidence_lines: list[str]) -> str:
     numbered = "\n".join(evidence_lines)
     return (
         f"You are analyzing a short excerpt of raw {dataset_name} system log lines. "
-        "Read ONLY the evidence below and answer using nothing but what these lines show "
-        "-- do not speculate about anything not directly stated. If the excerpt names more "
-        "than one id of the same kind (block, container, node, address), treat them as "
-        "unrelated unless a line explicitly connects them -- do not describe something said "
-        "about one id as if it happened to another. In 1 to 3 sentences, explain what event "
-        "or condition this excerpt shows and what it means.\n\n"
-        f"EVIDENCE:\n{numbered}\n\n"
-        "Answer with only the explanation (1-3 sentences), no preamble, no bullet points."
+        "Read ONLY the evidence below. Extract exactly four fields about what it "
+        "shows, one per line, in this exact format and nothing else:\n"
+        "EVENT_TYPE: <a short label for the kind of event or condition shown>\n"
+        "ENTITY: <the specific id, address, node, block, session or component the "
+        "event is centered on>\n"
+        "OBSERVED_EVENTS: <what actually happens in the lines, in the order it "
+        "happens>\n"
+        "OUTCOME: <the resulting state or condition; 'none stated' if the excerpt "
+        "does not show one>\n\n"
+        "If the excerpt names more than one id of the same kind, ENTITY names only "
+        "the one the event is centered on -- do not merge two different ids into "
+        "one entity, and do not describe something said about one id as if it "
+        "happened to another.\n\n"
+        f"EVIDENCE:\n{numbered}\n"
+    )
+
+
+def _parse_structured_summary(text: str) -> dict[str, str]:
+    """Parses the stage-one completion into the four ``structured_summary`` fields.
+
+    Matched by label rather than line position, so field order in the completion
+    does not matter. A field the model never produced with a non-empty value
+    falls back to ``"not stated"`` rather than an empty string, since the schema
+    requires each field non-empty and an LLM occasionally drops a line.
+
+    Args:
+        text: The stage-one completion.
+
+    Returns:
+        Mapping with ``event_type``, ``entity``, ``observed_events``, ``outcome``.
+    """
+    found: dict[str, str] = {}
+    for match in _STRUCTURED_FIELD_PATTERN.finditer(text):
+        key = match.group(1).lower()
+        value = match.group(2).strip()
+        if key not in found and value:
+            found[key] = value
+    return {
+        "event_type": found.get("event_type", "not stated"),
+        "entity": found.get("entity", "not stated"),
+        "observed_events": found.get("observed_events", "not stated"),
+        "outcome": found.get("outcome", "not stated"),
+    }
+
+
+def _extract_structure(
+    client: VllmClient, dataset_name: str, evidence_lines: list[str]
+) -> tuple[dict[str, str], dict[str, Any]]:
+    """Runs stage one: drafts and parses the structured summary.
+
+    Args:
+        client: vLLM client; drafts always run on ``gold_draft_model``.
+        dataset_name: Dataset the excerpt came from.
+        evidence_lines: The window's lines, verbatim.
+
+    Returns:
+        Tuple ``(structured_summary, model)``.
+    """
+    draft = client.draft(_build_extraction_prompt(dataset_name, evidence_lines))
+    return _parse_structured_summary(draft["text"]), draft["model"]
+
+
+def _build_narrative_prompt(
+    dataset_name: str, structured: dict[str, str], evidence_lines: list[str]
+) -> str:
+    """Builds the stage-two prompt: structured summary in, prose out.
+
+    Args:
+        dataset_name: Dataset the excerpt came from.
+        structured: Output of ``_parse_structured_summary``.
+        evidence_lines: The window's lines, verbatim, shown again for exact wording.
+
+    Returns:
+        The full prompt.
+    """
+    numbered = "\n".join(evidence_lines)
+    summary = (
+        f"EVENT_TYPE: {structured['event_type']}\n"
+        f"ENTITY: {structured['entity']}\n"
+        f"OBSERVED_EVENTS: {structured['observed_events']}\n"
+        f"OUTCOME: {structured['outcome']}"
+    )
+    return (
+        "Below is a structured summary already extracted from a short excerpt of "
+        f"raw {dataset_name} system log lines, plus the original evidence for exact "
+        "wording. Using ONLY the summary and the evidence -- introduce no fact "
+        "that is not in either -- write 1 to 3 sentences of plain prose explaining "
+        "what happened and what it means.\n\n"
+        f"STRUCTURED SUMMARY:\n{summary}\n\nEVIDENCE:\n{numbered}\n\n"
+        "Answer with only the explanation (1-3 sentences), no preamble, no bullet "
+        "points."
     )
 
 
@@ -217,72 +348,77 @@ def _pick_anchor_occurrences(
     return picks
 
 
-def build_medium_records(
+def _build_one_anchor_records(
     view: CorpusView,
-    spec: DatasetSpec,
+    anchor: MediumAnchorSpec,
     config: GenerationConfig,
     client: VllmClient,
 ) -> list[dict[str, Any]]:
-    """Builds every medium-tier record for one dataset.
-
-    A dataset with no ``medium_anchor_literal``, or whose anchor matches nothing,
-    contributes nothing and says so — the tier is anchored on curated events, and
-    inventing a fallback anchor would mean drafting an explanation of whatever
-    happened to be at the top of the file.
+    """Builds every medium record for one curated anchor.
 
     Args:
         view: The dataset's corpus.
-        spec: The dataset's curation spec.
+        anchor: One curated anchor spec.
         config: Generation config; its ``medium`` field carries the tier knobs.
-        client: vLLM client used for the gold draft.
+        client: vLLM client used for both draft stages and the quality check.
 
     Returns:
-        The drafted records, all ``review_status=in_review``.
+        The drafted records for this anchor, all ``review_status=in_review``.
     """
     params = config.medium
-    if not spec.medium_anchor_literal:
-        return []
-
-    match_indices = _find_matches(view.lines, spec.medium_anchor_literal)
+    match_indices = _find_matches(view.lines, anchor.literal)
     if not match_indices:
         print(
-            f"  [prune] {view.name}: medium anchor '{spec.medium_anchor_literal}' has 0 matches, "
+            f"  [prune] {view.name}: medium anchor '{anchor.literal}' has 0 matches, "
             f"skipping",
             file=sys.stderr,
         )
         return []
 
-    slug = slugify(spec.medium_anchor_literal)
+    slug = slugify(anchor.literal)
     records = []
-    for occurrence, (match_number, start_idx) in enumerate(
+    for occurrence, (match_number, anchor_idx) in enumerate(
         _pick_anchor_occurrences(match_indices, params)
     ):
-        window_indices = _evidence_window(view.lines, start_idx, params.window_size)
+        window_indices = _evidence_window(
+            view.lines, anchor_idx, params.context_before, params.context_after
+        )
         evidence_lines = [view.lines[i] for i in window_indices]
+        evidence_text = "\n".join(evidence_lines)
         group_id = f"{view.key}:semantic:{slug}_{occurrence}"
         refs = [
             evidence_ref(view.key, i + 1, view.lines[i], group_id)
             for i in window_indices
         ]
 
-        draft = client.draft(_build_prompt(view.name, evidence_lines))
+        structured, extraction_model = _extract_structure(
+            client, view.name, evidence_lines
+        )
+        narrative = client.draft(
+            _build_narrative_prompt(view.name, structured, evidence_lines)
+        )
 
         question_id = f"{view.key}_v1_semantic_{slug}_{occurrence}"
-        claims, reviewer_model = check_claims(
-            client, draft["text"], "\n".join(evidence_lines), [group_id]
-        )
-        write_report(
-            config.review_dir,
-            question_id,
-            [group_id],
-            draft["model"],
-            reviewer_model,
-            claims,
+        phrasing_family, question_text = _question_text(
+            view.name, anchor.literal, match_number, occurrence
         )
 
-        phrasing_family, question_text = _question_text(
-            view.name, spec.medium_anchor_literal, match_number, occurrence
+        context = {
+            "QUESTION": question_text,
+            "STRUCTURED_SUMMARY": (
+                f"EVENT_TYPE: {structured['event_type']}\n"
+                f"ENTITY: {structured['entity']}\n"
+                f"OBSERVED_EVENTS: {structured['observed_events']}\n"
+                f"OUTCOME: {structured['outcome']}"
+            ),
+            "EVIDENCE": evidence_text,
+            "ANSWER": narrative["text"],
+        }
+        validation = helper_validation.run_checks(client, context, MEDIUM_DIMENSIONS)
+        helper_validation.write_report(
+            config.review_dir, question_id, [group_id], narrative["model"], validation
         )
+
         records.append(
             {
                 "id": question_id,
@@ -294,19 +430,50 @@ def build_medium_records(
                 "phrasing_family": phrasing_family,
                 "review_status": "in_review",
                 "reviewers": [config.reviewer],
-                "expected_answer": draft["text"],
+                "expected_answer": narrative["text"],
                 "gold_provenance": gold_provenance(
                     method="independent_model_then_human",
                     created_by=CREATED_BY,
                     created_at=config.created_at,
                     corpus_sha256=view.sha256,
-                    model=draft["model"],
+                    model=narrative["model"],
                 ),
+                "structured_summary": structured,
                 "evidence": {"refs": refs},
+                "validation": validation,
             }
         )
         print(
-            f"  [{view.name}] drafted semantic question {occurrence} "
-            f"({len(evidence_lines)} evidence lines, {len(claims)} claims checked)"
+            f"  [{view.name}] drafted semantic question '{anchor.literal}' "
+            f"#{occurrence} ({len(evidence_lines)} evidence lines, "
+            f"extraction_model={extraction_model['name']})"
         )
+    return records
+
+
+def build_medium_records(
+    view: CorpusView,
+    spec: DatasetSpec,
+    config: GenerationConfig,
+    client: VllmClient,
+) -> list[dict[str, Any]]:
+    """Builds every medium-tier record for one dataset, across every curated anchor.
+
+    A dataset with no ``medium_anchors`` contributes nothing and says so — the
+    tier is anchored on curated events, and inventing a fallback anchor would
+    mean drafting an explanation of whatever happened to be at the top of the
+    file.
+
+    Args:
+        view: The dataset's corpus.
+        spec: The dataset's curation spec.
+        config: Generation config; its ``medium`` field carries the tier knobs.
+        client: vLLM client used for the gold drafts and the quality check.
+
+    Returns:
+        The drafted records, all ``review_status=in_review``.
+    """
+    records: list[dict[str, Any]] = []
+    for anchor in spec.medium_anchors:
+        records.extend(_build_one_anchor_records(view, anchor, config, client))
     return records

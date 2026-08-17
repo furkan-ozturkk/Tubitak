@@ -1,0 +1,29 @@
+{
+  "question_id": "bgl_v1_lookup_double_hummer_alignment_exceptions_first_0",
+  "group_ids": [
+    "bgl:lookup:double_hummer_alignment_exceptions_first"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:a81b206a9294ba00e989177ed5ccddd6de2b42103e815e6dfed4c8fbdc2b8219"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question clearly asks for the first line that reports 'double-hummer alignment exceptions'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer provides the exact text of one log line, as required for this line-lookup question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes the line that contains 'double-hummer alignment exceptions', and the answer matches that line exactly."
+    }
+  ]
+}

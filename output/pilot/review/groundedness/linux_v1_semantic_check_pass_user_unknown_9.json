@@ -3,40 +3,38 @@
   "group_ids": [
     "linux:semantic:check_pass_user_unknown_9"
   ],
-  "draft_model": {
-    "name": "casperhansen/llama-3.3-70b-instruct-awq",
-    "family": "llama",
-    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:e5422cdcc0691fb3a25bead9e6dbb81a6399347b8d9c56ca4ed250a17845bb96"
-  },
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:5e949860436b4682193c1f270b3521870f1aafc453e464038eaa58a0da4eb5b5"
+    "prompt_sha256": "sha256:1cc41fe22b51a848312866e3b053ac4edc556a858248b61fb5439b12c81d80b7"
   },
-  "claims": [
+  "checks": [
     {
-      "text": "The excerpt shows a series of failed SSH authentication attempts from the same remote host, c9063558.virtua.com.br, with two separate processes, 13318 and 13323, logging the failures.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_9"
-      ]
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence, such as the SSH failures and FTP connections."
     },
     {
-      "text": "Later, multiple FTP connections are established from a different IP address, 202.82.200.188, with four separate ftpd processes, 13511, 13512, 13513, and 13521, logging the connections.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_9"
-      ]
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (c9063558.virtua.com.br), the event type (SSH authentication failures and FTP connections), and notes the lack of stated outcome."
     },
     {
-      "text": "These events indicate potential security issues, including a possible brute-force attack on the SSH service and multiple simultaneous FTP connections from a single IP address.",
-      "supported": "yes",
-      "candidate_group_ids": [
-        "linux:semantic:check_pass_user_unknown_9"
-      ]
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the Linux log around the 100th occurrence of 'check pass; user unknown' and explains what it means, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer mentions the SSH failures and FTP connections but does not explicitly walk through the 100th occurrence of 'check pass; user unknown' as requested, making it incomplete in that specific regard."
     }
   ],
-  "verdict": "needs_human_review"
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:a91b394f32e589cd6c69e7f58b3ed98a83ffc7a4ff98651ff7cd8dc11cb70962"
+  }
 }

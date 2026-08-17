@@ -19,14 +19,13 @@ class ReviewExportConfig:
 
     Attributes:
         dataset: Question dataset to export ``review_status=in_review`` records from.
-        worksheet: CSV worksheet written for a human to fill in.
-        review_dir: Directory of per-question groundedness reports, summarised into
-            the worksheet's ``groundedness_summary`` column.
+        worksheet: CSV worksheet written for a human to fill in. Its
+            ``validation_summary`` column is read straight off each record's own
+            embedded ``validation`` block (Section 6), not from a side file.
     """
 
     dataset: Path
     worksheet: Path
-    review_dir: Path | None = None
 
 
 @dataclass(frozen=True)
@@ -38,6 +37,10 @@ class ReviewApplyConfig:
     the record has to say which human; an anonymous default that looked like an
     identity would let that assertion be made by nobody.
 
+    An ``accept`` is refused when the record's own embedded ``validation.checks``
+    (Section 6) marks any quality dimension unsupported — the reviewer must
+    ``edit`` the answer away from the problem or ``reject`` the record instead.
+
     Attributes:
         dataset: Question dataset the decisions are applied to.
         worksheet: Filled-in CSV worksheet.
@@ -47,10 +50,6 @@ class ReviewApplyConfig:
         reviewer: Identity appended to each decided record's ``reviewers`` list and
             recorded in every review event.
         event_log: Append-only JSON log of review decisions.
-        review_dir: Directory of per-question groundedness reports. Apply reads
-            them to refuse an ``accept`` on a record whose draft holds a claim
-            the groundedness model marked unsupported — such a record needs an
-            ``edit`` or a ``reject``, not a pass-through.
     """
 
     dataset: Path
@@ -58,7 +57,6 @@ class ReviewApplyConfig:
     out: Path
     reviewer: str = DEFAULT_REVIEWER
     event_log: Path = Path("/output/pilot/review/review_events.json")
-    review_dir: Path | None = None
 
 
 def get_review_export_params(args: Any) -> ReviewExportConfig:
@@ -73,7 +71,6 @@ def get_review_export_params(args: Any) -> ReviewExportConfig:
     return ReviewExportConfig(
         dataset=args.dataset,
         worksheet=args.worksheet,
-        review_dir=args.review_dir,
     )
 
 
@@ -95,5 +92,4 @@ def get_review_apply_params(args: Any) -> ReviewApplyConfig:
         event_log=(
             ReviewApplyConfig.event_log if args.review_log is None else args.review_log
         ),
-        review_dir=args.review_dir,
     )

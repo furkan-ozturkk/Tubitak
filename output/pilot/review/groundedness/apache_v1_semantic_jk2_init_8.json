@@ -1,0 +1,40 @@
+{
+  "question_id": "apache_v1_semantic_jk2_init_8",
+  "group_ids": [
+    "apache:semantic:jk2_init_8"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:01060eee171ff915ec1859e54b9dee8a59d10fe7f5c0e595844f50714ec91357"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence, such as specific causes or outcomes."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the workerEnv entity, the log events, and the lack of stated outcome as described in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what took place around the jk2_init events and their significance, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer captures the main points but omits specific details like the exact timestamps or the number of occurrences around the 673rd jk2_init."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:7c12df3ce0d5dbdfee2ac4fd347be056f03f37c7cb983858eab3ffce8ca5ff12"
+  }
+}

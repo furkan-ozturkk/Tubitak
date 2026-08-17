@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_lookup_possible_break_in_attempt_first_1",
+  "group_ids": [
+    "openssh:lookup:possible_break_in_attempt_first"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:985dee1070ae66f8c8d77e6593c6871bba97072f549e63d91482c419182dd0f2"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question clearly asks for the first log line mentioning 'POSSIBLE BREAK-IN ATTEMPT' and specifies case-insensitive matching."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer provides the exact text of a log line, which is the correct form for this line-lookup question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a log line that contains 'POSSIBLE BREAK-IN ATTEMPT', and it is the only line provided, so it supports the answer."
+    }
+  ]
+}

@@ -1,28 +1,28 @@
 {
   "passed": true,
   "stats": {
-    "total_questions": 206,
-    "unique_ids": 206,
-    "distinct_group_ids": 30,
+    "total_questions": 340,
+    "unique_ids": 340,
+    "distinct_group_ids": 40,
     "by_difficulty": {
-      "easy": 90,
-      "medium": 100,
-      "hard": 16
+      "easy": 120,
+      "medium": 200,
+      "hard": 20
     },
     "by_routing_path": {
-      "sql": 60,
+      "sql": 90,
       "keyword": 30,
-      "semantic": 116
+      "semantic": 220
     },
     "by_split": {
-      "dev": 150,
-      "test": 56
+      "dev": 247,
+      "test": 93
     },
     "by_review_status": {
-      "verified": 90,
-      "in_review": 116
+      "verified": 120,
+      "in_review": 220
     },
-    "hard_question_count": 16,
+    "hard_question_count": 20,
     "datasets_covered": [
       "apache",
       "bgl",
@@ -44,27 +44,29 @@
     "command": "validate",
     "code_version": null,
     "experiment_tag": null,
-    "dataset": "/output/pilot/questions_2026-08-12.json",
+    "dataset": "/output/pilot/questions_2026-08-14.json",
     "questions": [
-      "/output/pilot/questions_2026-08-12.json"
+      "/output/pilot/questions_2026-08-13.json"
     ],
     "corpus_dir": "/data/loghub",
     "schema": "/app/config/question_schema.json",
     "manifest": "/app/src/corpus/corpus_manifest.json",
-    "strict": false,
+    "strict": true,
     "full": false,
     "gold_draft_model": "casperhansen/llama-3.3-70b-instruct-awq",
     "groundedness_model": "Qwen/Qwen3-32B-AWQ",
     "test_fraction": null,
     "min_matches": null,
     "max_cited_lines": null,
-    "window_size": null,
+    "easy_target_total": null,
+    "context_before": null,
+    "context_after": null,
     "questions_per_dataset": null,
     "min_sentences": null,
     "input_digests": {
-      "schema": "sha256:7e59893c0a829d4600e6bede4d3e872c6c09e8800d02f14ed63d6cc6d64a2f0b",
+      "schema": "sha256:69cf6a90cce8418ad95c105ddc837705679d66dd663721ab5428a0d19893a55e",
       "questions": {
-        "/output/pilot/questions_2026-08-12.json": "sha256:20bf3fa8876b18ae6c0ab70440a5c2bf3c8ed9552903f6b072ff880cea33b1ae"
+        "/output/pilot/questions_2026-08-13.json": "sha256:280198435afbd02ee21fc6c0140189dad8021ff5997b0417b51f8c87c3b7d044"
       }
     },
     "corpus_digests": {

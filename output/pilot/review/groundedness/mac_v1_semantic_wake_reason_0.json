@@ -1,0 +1,40 @@
+{
+  "question_id": "mac_v1_semantic_wake_reason_0",
+  "group_ids": [
+    "mac:semantic:wake_reason_0"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:f8230884e4334a924a05c231c526efcafe7115677227d026573be456c3f12fe5"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence and sticks to the described events and their implications."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event types (power state changes, sleep/wake, network activity), and the lack of an adverse outcome as stated in the structured summary and evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question about the first occurrence of \"wake reason\" and explains what happened and what it means, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer captures the main points but omits specific details from the evidence, such as the exact wake reason (\"Wake on Scan offload\") and some of the network activity specifics (e.g., mDNS deregistration, AWDL resuming)."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:256a299433a940fb8bcc2b71c95fd9dc5b8cd06c743e34fee2b32ceb6dea131b"
+  }
+}
