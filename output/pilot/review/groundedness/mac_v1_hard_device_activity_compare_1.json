@@ -1,0 +1,41 @@
+{
+  "question_id": "mac_v1_hard_device_activity_compare_1",
+  "group_ids": [
+    "mac:hard:device_activity_compare:1:calvisitor_10_105_162_178",
+    "mac:hard:device_activity_compare:1:calvisitor_10_105_160_95"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:e2dcea346abf4d8945f1e55334b463dfe8cc7e1169742a2ab714eb68625a5bbd"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes distinct facts to each group without misrepresenting one group's logs as belonging to the other."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison between the two groups is based on the types and frequencies of errors described in the evidence, which are clearly different between the two."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not assign specific causes or motives not present in the evidence, focusing instead on the observed patterns of errors."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by comparing the logged activities, identifying which device's behavior is more anomalous, and explaining why based on the evidence."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:005b5a48252adb0ab8f204cd5e22f5267a170396197d3ac85e9d283b28762a76"
+  }
+}

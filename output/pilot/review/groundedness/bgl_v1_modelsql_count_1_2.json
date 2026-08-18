@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:affc3f4247d7e057e6f8e16c5752b8ac87717b91270cea52847a751b98645038"
+    "prompt_sha256": "sha256:e640b13457e055d548e7482ccbc0675c83cd1e25f4b324e972e9285578dc203f"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'bgl' dataset that do not contain the phrase \"RAS KERNEL INFO\"."
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'bgl' dataset that do not contain the specific phrase."
     },
     {
       "dimension": "answer_matches_question",
@@ -23,7 +23,7 @@
     {
       "dimension": "evidence_supports_answer",
       "verdict": "yes",
-      "detail": "The evidence includes a query that selects lines from the 'bgl' dataset where the text does not contain \"RAS KERNEL INFO\", and it states that the query returns 420 matching lines, which directly supports the answer."
+      "detail": "The query selects lines from the 'bgl' dataset that do not contain the phrase \"instruction cache parity error corrected,\" and the evidence confirms that 1958 such lines exist."
     }
   ]
 }

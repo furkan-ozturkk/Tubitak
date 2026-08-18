@@ -1,0 +1,41 @@
+{
+  "question_id": "openstack_v1_hard_instance_activity_compare_2",
+  "group_ids": [
+    "openstack:hard:instance_activity_compare:2:63a0d960_70b6_44c6_b606_491478a5cadf",
+    "openstack:hard:instance_activity_compare:2:70c1714b_c11b_4c88_b300_239afe1f5ff8"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:6fd6b8608fd03f81939a0bb599a2fd68e5fbf5dd92d97cc0e9f04c36c44c4189"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly references facts from both groups without misattributing details between them."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of the two groups' lifecycle events and durations is based on the evidence provided."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not assign specific causes, actors, or motives not present in the evidence."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by contrasting the two groups and determining neither activity is more concerning based on the evidence."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:7ef1c7f694a01f206b11bd509cea2554ed0e48d6a7859d73f4c7d94bc4b9919d"
+  }
+}

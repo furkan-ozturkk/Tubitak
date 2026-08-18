@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:f74658867e6af0b354135ec63645c927c7b3541ae21dffe50ce56fe21ae6bfb1"
+    "prompt_sha256": "sha256:122bb72773e634e6dbbbf94a4c3ffa9b3efb58d3bd77e7fad6e8f51a61b35924"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer does not state anything beyond what is shown in the evidence, such as the entity, event type, and outcome."
+      "detail": "The answer does not state anything beyond what is shown in the evidence, such as the IP address, the repeated \"user unknown\" checks, and the authentication failures."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (massive.merukuru.org), event type (authentication attempts), and outcome (repeated failures with no success)."
+      "detail": "The answer correctly identifies the entity (65.166.159.14), the event type (authentication attempts), and the outcome (failures due to \"user unknown\")."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question about what is happening in the log around the described event, rather than just summarizing the structured summary."
+      "detail": "The answer directly addresses the question by describing what is happening in the log around the \"user unknown\" occurrences, rather than just restating the structured summary."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence: the entity, the \"check pass\" attempts, the authentication failures, and the simultaneous timing."
+      "detail": "The answer includes the key details from the evidence: the IP address, the repeated failed attempts, and the cause (\"user unknown\"), making it reasonably complete."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:ce4710384f3c926de479ac32aa853405e8b51d665e7a6e1df2cacb82d46ba316"
+    "prompt_sha256": "sha256:14ef406f2f6c8ba44c9e1501bb3835cb02f4c76456d4733431a6daddd96554f5"
   }
 }

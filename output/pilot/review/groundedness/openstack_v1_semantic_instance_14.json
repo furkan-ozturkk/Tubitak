@@ -1,0 +1,40 @@
+{
+  "question_id": "openstack_v1_semantic_instance_14",
+  "group_ids": [
+    "openstack:semantic:instance_14"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:0f322edf4b6c68687bd08a14625ddc6a269c63d51166253f1b56f38b9e4cffd5"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence and aligns with the structured summary and log details."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type, and notes the lack of a stated outcome as per the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining the log's content around the 491st occurrence of 'instance:' and its meaning."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key elements from the evidence: instance creation, resource claims, and the absence of a stated outcome."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:213eb489993874815fcc4e17d0121601a31a98ac5957705e6f7f9d1e9d919e39"
+  }
+}

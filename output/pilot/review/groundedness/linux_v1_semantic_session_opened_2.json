@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:dab11cd4f7377c659cf399738bf8b549bfef9ffd8f2a38c4afd474a0216aa7ef"
+    "prompt_sha256": "sha256:1ff22a714f4e2bf40d2613d5e214222be652ffbb6abc8438a67b5e1df2d65b4a"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer does not state anything not shown in the evidence and accurately reflects the described events."
+      "detail": "The answer does not state anything beyond what is shown in the evidence and avoids speculation."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (combo), the event type (system log events), and accurately summarizes the observed events without claiming an outcome not stated."
+      "detail": "The answer correctly identifies the entity (combo), the event type (authentication attempts and system events), and notes that no outcome is stated."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer addresses the specific event near the 25th session opening, summarizing the relevant system log events as requested."
+      "detail": "The answer addresses the specific event near the 17th occurrence of 'session opened' by summarizing relevant log entries."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key events from the evidence, such as session openings and closings, cupsd shutdown/startup, syslogd restart, and logrotate issues, without omitting important details."
+      "detail": "The answer includes all important parts of the evidence: SSH failures, su sessions for cyrus and news, and the abnormal logrotate exit."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:82f5150dc55f827aa88f315330c0374ddb4a784b74429e5046ccb12e22b1c498"
+    "prompt_sha256": "sha256:714ef5468b65d34a456157e3a79eb00fe1a2884fe7b3cad555176bc3253ce891"
   }
 }

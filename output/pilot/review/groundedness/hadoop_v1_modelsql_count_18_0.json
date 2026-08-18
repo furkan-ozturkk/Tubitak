@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_18_0",
+  "group_ids": [
+    "hadoop:modelsql:count:18"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:b71430cdc2e0ee382e23680ef5ee6db9f00b502a3b30845f96654aedbbc58748"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'hadoop' dataset containing the exact phrase \"Address change\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query correctly filters for lines in the 'hadoop' dataset containing \"Address change\" (case-insensitive due to ILIKE), and the sample lines confirm that the pattern appears in the dataset as expected."
+    }
+  ]
+}

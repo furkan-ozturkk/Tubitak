@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_modelsql_count_6_2",
+  "group_ids": [
+    "windows:modelsql:count:6"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:cd77c5c007c2464dfaad38fbebc212a5de50e2471e5118104506acc25016bc2a"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of the word \"Session\" in the 'windows' dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence shows a query that finds lines containing \"session\" (case-insensitive), but it does not count the number of times the word appears, only the number of lines that contain it. The answer assumes that each line contains exactly one instance of \"Session,\" which is not verified by the evidence."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "question_id": "openstack_v1_hard_instance_activity_compare_7",
+  "group_ids": [
+    "openstack:hard:instance_activity_compare:7:c62f4f25_982c_4ea2_b5e4_93000edfcfbf",
+    "openstack:hard:instance_activity_compare:7:d6b7bd36_2943_4363_9235_fffdd89ea40e"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:ec70ff87402f100f4e7001849143597ba92dc7aac04007b520b7a9fd5c866023"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes facts to each instance without mixing details between them."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of spawning times and lifecycle events is based on the timestamps and event logs provided in the evidence."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not assign specific causes or motives not present in the evidence and avoids speculation."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by contrasting the two instances and evaluating which activity is more concerning based on the evidence."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:dc16d3e35f2cc008a23a8c3fbacf20a1f9289ad823d1322d8050fc118e1d2611"
+  }
+}

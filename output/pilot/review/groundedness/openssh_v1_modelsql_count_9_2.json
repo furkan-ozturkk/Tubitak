@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_modelsql_count_9_2",
+  "group_ids": [
+    "openssh:modelsql:count:9"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:574f30aae7dcdce5bd8448198b41c0f98575247bc6146a77efc8420518d3b2ce"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of entries in the openssh dataset that lack any letters."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The query correctly identifies lines without any letters, but the evidence does not include actual matching lines or confirmation of the count, making it unclear if the answer is fully supported."
+    }
+  ]
+}

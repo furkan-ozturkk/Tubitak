@@ -1,0 +1,40 @@
+{
+  "question_id": "mac_v1_semantic_thermal_pressure_14",
+  "group_ids": [
+    "mac:semantic:thermal_pressure_14"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:4de9885f4f317e0ab31462493aae191da139e55ceef073f765030ad768a9fec0"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence and stays within the described events and their implications."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the entity, event types (system events and status updates), and the lack of a stated outcome as described in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "no",
+      "detail": "The answer does not address the specific request to walk through the 29th occurrence of \"Thermal pressure\" in the log, nor does it explain what that specific instance means."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer summarizes the general system behavior but omits the specific detail about the 29th occurrence of \"Thermal pressure,\" which is central to the question."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:7add2edc5a2e64b050de2224cfab0fdae5b607e5f1f79a90ddd3cff3bbc857a6"
+  }
+}

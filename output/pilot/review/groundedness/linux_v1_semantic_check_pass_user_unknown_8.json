@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:1ad687349bfeefe9c9106b7bbd1426ed75ca2a417b7f0ae5026bda552091d1a3"
+    "prompt_sha256": "sha256:514a4a71059f46652373b40d3d910e963a509e57c52e81cb4214a9034827fd68"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer does not state anything beyond what is shown in the evidence, such as the entity, event type, and outcome."
+      "detail": "The answer avoids stating anything not shown in the evidence, such as the intent or success of the connection attempts."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (zummit.com), the event type (authentication attempts), and the outcome (repeated failures with no success)."
+      "detail": "The answer correctly identifies the entity, event type (authentication failures and connection attempts), and notes the lack of a stated outcome."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by describing what took place around the \"check pass; user unknown\" events and their significance."
+      "detail": "The answer addresses the specific question about the 57th occurrence and its significance, rather than just restating the structured summary."
     },
     {
       "dimension": "sufficient",
-      "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence: the repeated attempts, the \"check pass; user unknown\" events, the authentication failures, and the simultaneous timing."
+      "verdict": "partial",
+      "detail": "The answer mentions the key points but does not explicitly reference the 57th occurrence or the exact log entries around it, which is part of what the question asks for."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:34b49ca992b4b528783476c9fe60940a6727ce915c7ee004738e12c5c3db1c2f"
+    "prompt_sha256": "sha256:3dd2bbf556dba6ff5cf9d8a1d69b9b0870fb475a503fcdd769cbfe6048686b2b"
   }
 }

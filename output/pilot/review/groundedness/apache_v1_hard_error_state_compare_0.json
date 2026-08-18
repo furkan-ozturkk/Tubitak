@@ -1,0 +1,41 @@
+{
+  "question_id": "apache_v1_hard_error_state_compare_0",
+  "group_ids": [
+    "apache:hard:error_state_compare:0:6",
+    "apache:hard:error_state_compare:0:7"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:7ff71812184b6d005214d638cc42596b2bede6244a06327acfa0355bafb94486"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly distinguishes between the two groups and attributes facts only to the group they belong to, without conflating them."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The answer describes the comparison between the two groups based on the frequency and duration of their respective error states, which is directly observable in the evidence."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer avoids naming specific causes or motives not present in the evidence and sticks to the observed patterns in the log data."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by comparing the frequency of the two error states and discussing what the persistence of these errors suggests about the underlying worker problem."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:31c9141ce57e8ff300b6defb34d4e48215e8489338525b9dd1a16cc1f6f24fb5"
+  }
+}

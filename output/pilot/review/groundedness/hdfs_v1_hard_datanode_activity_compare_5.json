@@ -1,0 +1,41 @@
+{
+  "question_id": "hdfs_v1_hard_datanode_activity_compare_5",
+  "group_ids": [
+    "hdfs:hard:datanode_activity_compare:5:10_250_11_194",
+    "hdfs:hard:datanode_activity_compare:5:10_250_13_240"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:f275369f7f7a3f2a83506c3b180a027ddb306d73a20e8ddfd6a9e0538c9ac5a7"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes facts to each DataNode without mixing or misattributing information between them."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The answer identifies a higher frequency of block deletions for 10.250.13.240 compared to the mixed activity of 10.250.11.194, which is supported by the evidence."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer avoids naming a specific cause or actor not present in the evidence and instead notes that the evidence does not support a specific explanation."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "partial",
+      "detail": "The answer identifies the more troubling pattern but notes that the evidence does not support a specific root-cause hypothesis, which is accurate, though the question explicitly asks for a root-cause hypothesis."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:e3e0fa0e7c2d7eecda7dec2586e6ce53426786d8ac55dc92aac1622dc886b2fb"
+  }
+}

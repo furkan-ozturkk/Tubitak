@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:fcc08b21450546f986bcf9a31ff0c792af297a07221bb2e4d214fd26ab2fed9d"
+    "prompt_sha256": "sha256:394f8f3030e3ce8843941c5c1e9a8a37ed3872d31b0124571512d18189fa771e"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer avoids stating anything not supported by the evidence and accurately reflects the described events."
+      "detail": "The answer avoids stating anything not shown in the evidence and sticks to the described system processes and services."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity, event type, and outcome as described in the evidence."
+      "detail": "The answer accurately reflects the entity, event type, and outcome as described in the evidence."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer addresses the specific question about the event shown in the log, not just a generic summary."
+      "detail": "The answer addresses the specific event shown in the Mac log near the fifth occurrence of 'Thermal pressure' as asked by the question."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key elements from the evidence without omitting important details."
+      "detail": "The answer is reasonably complete and does not omit important parts of the evidence."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:b0ff304f4f96ad71e792d96927704b29f8d68eae328586bf11c3d2aa247eb739"
+    "prompt_sha256": "sha256:9e52adc835cc519ab3762ebd14497fa931dfceeaa5ac7a8042df166032623f92"
   }
 }

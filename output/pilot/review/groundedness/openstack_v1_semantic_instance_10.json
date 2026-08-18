@@ -1,0 +1,40 @@
+{
+  "question_id": "openstack_v1_semantic_instance_10",
+  "group_ids": [
+    "openstack:semantic:instance_10"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:f6dfc3172a8316e42cb616e46024e90fe58e8f5443c572d7ecc0d856f001ed4c"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only includes information directly supported by the evidence provided in the logs and does not add unsupported claims."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the VM ID, the events (start, pause, pending task), and the image check, all of which are accurately reflected in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question about what happened around the 351st occurrence of 'instance:' and what it means, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all the key details from the evidence: the VM lifecycle events, the pending task, and the image usage check, making it reasonably complete."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:d16551518c378fa7fc8419bf917b1eb68b3071be991df8cf1ebf68bc8d7ccc7d"
+  }
+}

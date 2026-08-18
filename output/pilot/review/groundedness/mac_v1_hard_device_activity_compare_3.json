@@ -1,0 +1,41 @@
+{
+  "question_id": "mac_v1_hard_device_activity_compare_3",
+  "group_ids": [
+    "mac:hard:device_activity_compare:3:airbears2_10_142_110_255",
+    "mac:hard:device_activity_compare:3:calvisitor_10_105_160_237"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:7014401ec34e61567473132932bc958983e01fed0f02b62aace377fbfd6d312c"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes events to each group without misrepresenting or conflating their activities."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of network-related errors and the distinction in the types of events are supported by the evidence provided."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer avoids assigning specific causes or motives not stated in the evidence and sticks to the described anomalies."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer identifies which group appears more anomalous based on the evidence and explains the reasoning clearly."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:8bc0ca6c28e8ca336e0771222e2f81bbf7070465674e808585945f45f2bd409c"
+  }
+}

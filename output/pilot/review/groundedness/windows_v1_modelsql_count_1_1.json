@@ -7,23 +7,23 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:244b2c52fceae5129728f4bbf5a320bdbd91413061f9248582aec9961f32d787"
+    "prompt_sha256": "sha256:beacc9ce0d9a288c4d579e9731e1b780b171d6cc0dd9e5a97af1e1e10d3f2299"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks for the count of log lines that do not include the specific text \"Failed to start upload\"."
+      "detail": "The question is clearly phrased and unambiguously asks for the number of log lines in the 'windows' dataset that do not include the text \"Failed to start upload\"."
     },
     {
       "dimension": "answer_matches_question",
       "verdict": "yes",
-      "detail": "The answer is a bare integer, which is the correct form for a count question."
+      "detail": "The answer is a bare integer, which is the correct form for a count-based question."
     },
     {
       "dimension": "evidence_supports_answer",
       "verdict": "yes",
-      "detail": "The evidence shows a query that correctly filters out lines containing \"failed to start upload\" (case-insensitive), and the result of that query is stated to be 1998 lines, which matches the answer."
+      "detail": "The evidence shows a query that selects lines from the 'windows' dataset where the text does not contain \"failed to start upload\", and it states that the query returns 1998 lines, which matches the answer."
     }
   ]
 }

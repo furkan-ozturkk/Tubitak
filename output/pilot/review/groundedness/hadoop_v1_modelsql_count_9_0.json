@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_9_0",
+  "group_ids": [
+    "hadoop:modelsql:count:9"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:8e2eac33ef29a9022b850f16accf0746befb5741af9186687685b75dd9d71290"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'hadoop' dataset that do not contain any numeric values."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence includes a query that would compute the correct count, but the evidence also states that no line in the dataset contains the literal \"0\" (from an exact substring search), which is unrelated to the query's pattern-based logic. This creates ambiguity about whether the query's result is truly 0."
+    }
+  ]
+}

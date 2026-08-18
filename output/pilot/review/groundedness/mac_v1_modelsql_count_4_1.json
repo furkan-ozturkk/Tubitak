@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:1c9d0396ca2298b1b7e2f6cebda0fb461e9e07fa25e0dd29f26787219e5f0ef5"
+    "prompt_sha256": "sha256:511272c872d19797b96b6381e0242f0e7ee31af2db54809bc4fbf30f5c6baf7c"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks for the total number of log entries containing the exact term \"kernel\"."
+      "detail": "The question is clearly phrased and asks for the total number of log entries containing the term \"kernel\"."
     },
     {
       "dimension": "answer_matches_question",
@@ -22,8 +22,8 @@
     },
     {
       "dimension": "evidence_supports_answer",
-      "verdict": "partial",
-      "detail": "The lines shown in the evidence do contain the term \"kernel\", but the answer relies on a larger dataset not fully visible here."
+      "verdict": "yes",
+      "detail": "The evidence shows a query that counts all lines with \"kernel\" in the text, and the answer matches the stated result of that query."
     }
   ]
 }

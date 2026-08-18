@@ -1,0 +1,41 @@
+{
+  "question_id": "hdfs_v1_hard_datanode_activity_compare_2",
+  "group_ids": [
+    "hdfs:hard:datanode_activity_compare:2:10_251_90_64",
+    "hdfs:hard:datanode_activity_compare:2:10_250_10_100"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:9ea7524c3e3e8c60e1198b8bad4e02ce1d33d583f2c990a86ab51a8166f4bf21"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes events to each DataNode without misrepresenting or conflating their logs."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison between the two DataNodes is based on the presence of invalidSet additions and a warning in one, versus normal block operations in the other, as shown in the evidence."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not assign specific causes or motives not present in the evidence and avoids speculation."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by contrasting the two DataNodes' activities and identifying which is more concerning based on the evidence."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:d4d49d6be9ded470ff6dfd0d5d87194108578e4add9a4a765b01909b4896ceac"
+  }
+}

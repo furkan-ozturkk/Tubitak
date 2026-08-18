@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:16fb79127bf2a2b89a5c1a606be6aaa86765608889924e1b472f4ffbbe59e0c6"
+    "prompt_sha256": "sha256:4dc8bd1a92759a219cfa9f533b58d70771085c9bacf07d9116a00020a09114bf"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks for the total number of log entries in the 'hdfs' dataset that include the literal word \"INFO\"."
+      "detail": "The question is clearly phrased and unambiguously asks for the total number of log entries in the 'hdfs' dataset that include the word \"INFO\"."
     },
     {
       "dimension": "answer_matches_question",
@@ -23,7 +23,7 @@
     {
       "dimension": "evidence_supports_answer",
       "verdict": "yes",
-      "detail": "The lines shown in the evidence are genuine matches of log entries that include the word \"INFO\", as required by the question."
+      "detail": "The evidence shows a query that correctly filters for lines in the 'hdfs' dataset containing \"INFO\" (case-insensitively), and the answer matches the total number of such lines returned by that query."
     }
   ]
 }

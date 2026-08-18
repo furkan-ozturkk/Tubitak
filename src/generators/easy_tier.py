@@ -529,6 +529,19 @@ def _invent_and_execute(
     the same way, rather than shipped as a second copy of a question already
     asked.
 
+    The except clause below catches every exception, not just ``ValueError``/
+    ``RuntimeError``: ``answer_sql`` is model-written text neither
+    ``assert_readonly_select`` nor ``assert_scoped_to_dataset`` fully validates
+    (a syntactically well-formed but semantically broken predicate, e.g. an
+    ``AND`` clause missing its comparison, only fails once Postgres actually
+    parses it), so ``run_readonly_query`` can raise a driver exception this
+    function never named. A run generating a thousand-plus questions across
+    ten datasets has hundreds of these calls; one bad statement crashing the
+    whole pass, deep into an unrelated dataset, is a worse failure mode than
+    skipping the one slot that produced it (``helper_postgres.run_readonly_query``
+    already rolls back before re-raising, so the connection is clean for the
+    next attempt either way).
+
     Args:
         view: The dataset's corpus.
         client: vLLM client.
@@ -592,7 +605,7 @@ def _invent_and_execute(
                 if invented["mode"] == "line_lookup" and not rows:
                     raise ValueError("line_lookup ANSWER_SQL returned no rows")
             return invented, rows, evidence_rows
-        except (ValueError, RuntimeError) as error:
+        except Exception as error:
             last_error = error
             print(
                 f"  [retry {attempt}/{MODEL_SQL_INVENTION_RETRIES}] "

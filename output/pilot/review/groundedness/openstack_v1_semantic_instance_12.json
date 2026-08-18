@@ -1,0 +1,36 @@
+{
+  "question_id": "openstack_v1_semantic_instance_12",
+  "group_ids": [
+    "openstack:semantic:instance_12"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:2ef9e2dcdb21eb5b4b3a825a095052826a3cc1e224d739e851f75035d4acded3"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "correct",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial"
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:18216a392dbbe071f89b868104f1c2907279aeb1cc2253d235817692b771084c"
+  }
+}

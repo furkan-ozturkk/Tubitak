@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:d7c364486068e67e948d32adce7f08ba65116e2c175726d47125f863c7cad218"
+    "prompt_sha256": "sha256:72c0883e57bd31823fe6710a4e257090f8daed590fc3ad2d6430739ca2cec5bd"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer avoids stating anything not shown in the evidence and sticks to the described events and their general nature."
+      "detail": "The answer does not state anything beyond what is shown in the evidence and stays within the scope of the structured summary."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (authorMacBook-Pro), the event type (system log events), and the lack of a stated outcome as described in the structured summary."
+      "detail": "The answer correctly reflects the entity, event type, and general nature of the events described in the evidence."
     },
     {
       "dimension": "relevant",
       "verdict": "no",
-      "detail": "The answer does not address the specific request to walk through the 13th occurrence of \"Thermal pressure\" in the log, nor does it explain what that occurrence means."
+      "detail": "The answer does not address the specific request to walk through the ninth occurrence of \"Thermal pressure\" or explain what it means."
     },
     {
       "dimension": "sufficient",
       "verdict": "partial",
-      "detail": "The answer summarizes the general nature of the events but omits the specific detail about the 13th occurrence of \"Thermal pressure,\" which is central to the question."
+      "detail": "The answer summarizes the log broadly but omits the specific detail about the ninth occurrence of \"Thermal pressure\" and its meaning, which was the focus of the question."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:0972ec81b688b9f04e421b92859d69610663432b1660f44f30cafc2c2db1d6d1"
+    "prompt_sha256": "sha256:426ee9b461859b97508a0e0fb441f1e040f5706303869b5bc778831f759925e6"
   }
 }

@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:37a7d6121e492cbfb59daddc0714e2dc04b28f9a22d2be8c982f9ed09e6cfee2"
+    "prompt_sha256": "sha256:d49ad29b043724d53edcbfa417d4aa68522bccb9394829eec2a6787f5ea33609"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only states what is directly supported by the evidence, such as the entities, events, and lack of stated outcome."
+      "detail": "The answer only states what is directly supported by the evidence, such as the types of errors and their general implications, without adding unsupported claims."
     },
     {
       "dimension": "correct",
       "verdict": "no",
-      "detail": "The answer incorrectly attributes the \"CE sym error\" and \"APP FATAL ciod failures\" to the R02-M1-N0-C:J12-U11 entity, while the evidence shows these occurred on different entities."
+      "detail": "The answer incorrectly attributes all errors to R02-M1-N0-C:J12-U11, but the evidence shows that double-hummer alignment exceptions occurred on other entities (R23-M0-NE-C:J05-U01, R24-M0-N1-C:J13-U11, R21-M1-N6-C:J08-U11)."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer addresses the question by describing what happened around the first occurrence of \"double-hummer alignment exceptions\" and what it means in context."
+      "detail": "The answer addresses the specific question about the first occurrence of 'double-hummer alignment exceptions' and explains what happened and what it means, rather than just restating the structured summary."
     },
     {
       "dimension": "sufficient",
       "verdict": "partial",
-      "detail": "The answer mentions the double-hummer alignment exceptions and related events but does not clearly specify the first occurrence or its immediate context."
+      "detail": "The answer mentions the double-hummer alignment exceptions and their context but omits the specific timing (\"around the first occurrence\") and the exact number of exceptions at that first occurrence (63543)."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:9edc6a4a7b4948ebef09794dfcc4209e89accaf01597f343c8b0050b102aca1a"
+    "prompt_sha256": "sha256:14a85c4c811fe58383b510810b906cc3b6f12000eadc154d0f248900a521b849"
   }
 }

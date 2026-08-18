@@ -5,9 +5,9 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:e46884d2b3b6792328111b33e3ab64d1be1323b90c3679b7daec88913c691a4a"
+    "prompt_sha256": "sha256:24c74a34f2505f620ea9ed88e94099542d73e898825bac6ff312b141250b5710"
   },
   "checks": [
     {
@@ -18,23 +18,23 @@
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity, event type, and notes the lack of a stated outcome as in the structured summary."
+      "detail": "The answer accurately reflects the entity, event type, and outcome as described in the evidence."
     },
     {
       "dimension": "relevant",
-      "verdict": "yes",
-      "detail": "The answer addresses the question's focus on the tenth occurrence of 'wake reason' and its significance, rather than just restating the summary."
+      "verdict": "no",
+      "detail": "The answer does not address the specific \"seventh occurrence of 'wake reason'\" or its significance as asked in the question."
     },
     {
       "dimension": "sufficient",
       "verdict": "partial",
-      "detail": "The answer mentions the wake event and link up but does not clearly specify the tenth occurrence of 'wake reason' or its exact significance."
+      "detail": "The answer summarizes the general events but omits the specific wake reason and its significance around the seventh occurrence."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:98033b916c87491fe41e639bd48fbc7931167e78ddc86e9ba5a914d872a268fd"
+    "prompt_sha256": "sha256:f6c5e3b525355e4817711c56777c32584278d5cb9b6e7550ed73a730d1440c66"
   }
 }

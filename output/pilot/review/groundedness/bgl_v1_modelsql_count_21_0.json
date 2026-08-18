@@ -1,0 +1,29 @@
+{
+  "question_id": "bgl_v1_modelsql_count_21_0",
+  "group_ids": [
+    "bgl:modelsql:count:21"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:2b50db367f934cdff6d431246c332d5ed7d5d97ca359968dc9c41386de93c85a"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'bgl' dataset that do not contain any of the specified phrases."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that correctly filters out log entries containing any of the specified phrases and counts the remaining entries, which aligns with the question and supports the answer of 180."
+    }
+  ]
+}

@@ -5,32 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:ad28b249eacc0fe43638033124601c9107038096623028c242e94dbf8a4403a2"
+    "prompt_sha256": "sha256:22bb68274b6afdf5a6db002e29f474f3eb4cd2abef79c3b857653c5f4e36fe3f"
   },
   "checks": [
     {
       "dimension": "grounded",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not supported by the evidence, such as the cause or impact of the exceptions."
     },
     {
       "dimension": "correct",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the event type, the entity mentioned in the question, and notes that no outcome is stated, aligning with the evidence."
     },
     {
       "dimension": "relevant",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer addresses the specific event near the 50th occurrence of the exception type, as requested by the question."
     },
     {
       "dimension": "sufficient",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: the event type, the entities involved, the timestamps, and the lack of stated outcome."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:40a4c937155fd673b3ecc68237afe2f14591c8d6f719e554641023feb0961442"
+    "prompt_sha256": "sha256:5518edd025c592695c8c324ec56a4fab2be594cf8b1f69d80ca819533df5f267"
   }
 }

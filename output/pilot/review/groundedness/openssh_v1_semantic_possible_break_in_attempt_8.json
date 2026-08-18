@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:d19038034629547f99b5a5b35ff4b60c48d3c92cb2744923bddf125fd8c36318"
+    "prompt_sha256": "sha256:2b050db102cb9ac24fe8fad9605efb7c546ab0e457ef455b76352898ef111dd5"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only states what is directly supported by the evidence, such as the IP address, the usernames used, and the system's logging of possible break-in attempts."
+      "detail": "The answer does not state anything beyond what is shown in the evidence and avoids speculation."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (187.141.143.180), the event type (authentication failures and connection attempts), and the outcome (no successful access)."
+      "detail": "The answer correctly identifies the entity, event type, and outcome as described in the evidence."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by explaining what occurred around the 65th \"POSSIBLE BREAK-IN ATTEMPT\" log entry and its significance in terms of potential malicious activity."
+      "detail": "The answer directly addresses the question by explaining what took place and its significance, rather than just restating the summary."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence: the IP address, the usernames used, the failed authentication attempts, and the system's logging of possible break-in attempts."
+      "detail": "The answer includes the key details from the evidence, such as the IP address, the failed authentication attempts, and the logged break-in warnings."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:ca49e19fd079c4f2b51a213a88f9ffeb1c6c822bc57abe84f5d409d6cef7f36b"
+    "prompt_sha256": "sha256:5270128f6e627bb28ac8e5da590d580779c3825b62828a56ca387be2dfc5280c"
   }
 }

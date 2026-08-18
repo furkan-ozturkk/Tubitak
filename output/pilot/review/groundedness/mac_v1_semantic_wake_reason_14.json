@@ -1,0 +1,40 @@
+{
+  "question_id": "mac_v1_semantic_wake_reason_14",
+  "group_ids": [
+    "mac:semantic:wake_reason_14"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:52f183a73cca7bc179e278810e2a555e829dfc6f2aa4c7efb2368b0d311bb467"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer sticks to the events and outcomes described in the evidence without adding unsupported claims."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (en0), event type (network and system events), and outcome (authenticated)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the 29th occurrence of 'wake reason' and explains what it means, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer mentions the wake reason indirectly but does not explicitly walk through the 29th occurrence or clearly explain its significance."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:a007f8bbfb257b6c13b2e8cfe05a0c344ae688c1f3ec85b5ca6f3b0e59a401b2"
+  }
+}

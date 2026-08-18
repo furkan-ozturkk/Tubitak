@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_modelsql_count_23_0",
+  "group_ids": [
+    "windows:modelsql:count:23"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:c46490cfb5db3a36b9e38135677ff9a2de05f9b7703d263fa8d7ffb08410b49f"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'windows' dataset that do not contain any numeric values."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence includes a query that should compute the correct count, but the additional note says no line in the dataset contains the literal (0 matches from an exact substring search), which may imply the query's pattern-matching behavior is not as expected. The evidence is ambiguous in whether it fully supports the answer."
+    }
+  ]
+}

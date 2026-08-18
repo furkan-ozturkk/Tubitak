@@ -1,0 +1,29 @@
+{
+  "question_id": "bgl_v1_modelsql_count_21_1",
+  "group_ids": [
+    "bgl:modelsql:count:21"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:09114f76a86619ff61a8b16dbd41f3d41ce0468345d702cf2d3974324f374487"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'bgl' dataset that do not include any of the specified keywords."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that correctly filters out the specified keywords using `NOT ILIKE` and counts the matching lines, which aligns with the question and supports the answer of 180."
+    }
+  ]
+}

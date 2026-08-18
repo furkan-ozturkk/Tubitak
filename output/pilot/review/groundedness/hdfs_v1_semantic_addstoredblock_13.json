@@ -1,0 +1,40 @@
+{
+  "question_id": "hdfs_v1_semantic_addstoredblock_13",
+  "group_ids": [
+    "hdfs:semantic:addstoredblock_13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:61fb598247879a337b6637375d64dda55ac1923d6e015c27bb9f72546c39ba63"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence and aligns with the structured summary and log entries."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type, and outcome as described in the evidence and structured summary."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by describing what took place around the 261st occurrence of 'addStoredBlock' and its significance."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence, such as the block in question, the events involving it, and the termination of PacketResponders."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:7284f0291716308a6a29a550e5adfa50fe2cecdbfa7483d16d7765aa8d84838a"
+  }
+}

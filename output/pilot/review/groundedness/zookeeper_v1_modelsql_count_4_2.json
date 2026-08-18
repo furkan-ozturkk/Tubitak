@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:dc3baf695906cf36e318aa834f7ad8f0f75195a6228069083a59d2f42f150b2b"
+    "prompt_sha256": "sha256:7211037b6b67e16fa9eeefa68efa2403eacb02d2571a3f3a85160320158308bc"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks for the count of log entries containing the word \"INFO\" in the 'zookeeper' dataset."
+      "detail": "The question is clearly phrased and unambiguously asks for the number of times the word \"INFO\" appears in the 'zookeeper' dataset."
     },
     {
       "dimension": "answer_matches_question",
@@ -23,7 +23,7 @@
     {
       "dimension": "evidence_supports_answer",
       "verdict": "partial",
-      "detail": "The lines shown in the evidence are genuine matches for the word \"INFO,\" but the total count of 669 is not directly supported by the evidence since only 5 lines are shown and the rest are not visible."
+      "detail": "The evidence shows a query that counts lines containing \"info\" (case-insensitive due to ILIKE), but the question asks for the word \"INFO\" (uppercase), which may not be fully aligned with the query's logic."
     }
   ]
 }

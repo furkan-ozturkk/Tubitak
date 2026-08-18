@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_modelsql_count_6_2",
+  "group_ids": [
+    "openssh:modelsql:count:6"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:99eb5b827bd04bfc14ce2dc204c79fb062c16b8dcec3661a7eada0320a21d5aa"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the number of lines containing the phrase \"invalid user\" in the openssh dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count-based question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that correctly filters for the dataset and the phrase \"invalid user\" in a case-insensitive manner, and the count of 365 is stated as the result of that query."
+    }
+  ]
+}

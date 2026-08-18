@@ -1,0 +1,29 @@
+{
+  "question_id": "apache_v1_modelsql_scalar_3_0",
+  "group_ids": [
+    "apache:modelsql:scalar:3"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:a18c111b7e82ef957fecc4bdb1e2df64660758b5c16acad893b8902970052dac"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of lines in the 'apache' dataset that do not contain the word \"error\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which is the correct form for the count requested by the question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that computes the exact count needed and sample lines that confirm the dataset contains entries that do not include the word \"error\"."
+    }
+  ]
+}

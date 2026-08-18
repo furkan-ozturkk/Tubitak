@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_11_2",
+  "group_ids": [
+    "hadoop:modelsql:count:11"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:6a47ad44bfb674327993fcde253551740c4bf4dba91189cbd8abd4dbf92afeef"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of lines in the 'hadoop' dataset that lack any letters."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence includes a query that would identify lines without any letters, but the statement that \"no line in the dataset contains this literal (0 matches from an exact substring search)\" is ambiguous and does not clearly confirm the query's result."
+    }
+  ]
+}

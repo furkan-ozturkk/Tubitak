@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_modelsql_count_15_1",
+  "group_ids": [
+    "openssh:modelsql:count:15"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:3e3a71d1be304b522c22c16db52d53079c7581c1f94f5123b22cac0b3a111468"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the number of lines in the openssh dataset that lack any uppercase alphabetic characters."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count-based question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence includes a query that would compute the correct answer, but the provided line of evidence is unrelated and does not confirm the correctness of the answer."
+    }
+  ]
+}

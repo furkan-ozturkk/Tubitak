@@ -1,0 +1,29 @@
+{
+  "question_id": "linux_v1_modelsql_count_17_1",
+  "group_ids": [
+    "linux:modelsql:count:17"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:54f4e1f10a770af49d3f755cd13c967c7edd8eb7ef803a8c55cd9020550963fd"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of lines in the 'linux' dataset with no whitespace characters."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence shows a query that would compute the correct count, but the answer \"0\" may or may not be correct depending on the dataset's contents, which are not provided."
+    }
+  ]
+}

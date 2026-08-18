@@ -5,36 +5,32 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:e87c84926a7c5929d13d196d10c48991f79d267649828765322432fb9591940f"
+    "prompt_sha256": "sha256:3e7cce652d483ad5e97afd3b717a0497cd8352658a9d827f1740659a179dd2f2"
   },
   "checks": [
     {
       "dimension": "grounded",
-      "verdict": "yes",
-      "detail": "The answer only mentions what is explicitly stated in the evidence, such as the entity, the types of errors, and the time frame."
+      "verdict": "partial"
     },
     {
       "dimension": "correct",
-      "verdict": "yes",
-      "detail": "The answer correctly identifies the entity, the event types (program image loading error, kernel fatal errors, and instruction cache parity error corrections), and notes that the outcome is not stated."
+      "verdict": "partial"
     },
     {
       "dimension": "relevant",
-      "verdict": "no",
-      "detail": "The answer does not specifically address the 37th occurrence of the instruction cache parity error or what the BGL log shows around that point."
+      "verdict": "partial"
     },
     {
       "dimension": "sufficient",
-      "verdict": "partial",
-      "detail": "The answer summarizes the general pattern of errors but omits the specific details about the 37th occurrence and the exact timestamps or sequence of events around it."
+      "verdict": "partial"
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:f675a3d05ad4afc910a616ab9497ef0e5e992bf78d2f60d257f5b83e07200fa4"
+    "prompt_sha256": "sha256:dbdf4f3ed2ee0f54ca6db59d0461c2bbbf20d6d3389bab1cb85cf85c9bad73f1"
   }
 }

@@ -1,0 +1,41 @@
+{
+  "question_id": "hdfs_v1_hard_datanode_activity_compare_1",
+  "group_ids": [
+    "hdfs:hard:datanode_activity_compare:1:10_251_73_220",
+    "hdfs:hard:datanode_activity_compare:1:10_251_107_19"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:07e69a0250c5803abdd08e1ccf3cb12571050dc8682edc0d4bcabad0d140e67f"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes facts to each group without misrepresenting one group's data as belonging to the other."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison between the two groups is based on the presence of deletions and varying block sizes in 10.251.107.19, versus consistent additions in 10.251.73.220, which is directly supported by the evidence."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer avoids asserting specific causes or motives not present in the evidence and instead focuses on observable differences in the logs."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by identifying the differences in block activity and explaining why one DataNode's behavior appears more anomalous based on the evidence."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:b81f6845eb9be912f675c56cc0bbae21fac99dd8d33e1760e62e8e9b3ff427d6"
+  }
+}

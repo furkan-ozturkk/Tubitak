@@ -1,0 +1,41 @@
+{
+  "question_id": "openssh_v1_hard_attacker_compare_5",
+  "group_ids": [
+    "openssh:hard:attacker_compare:5:60_2_12_12",
+    "openssh:hard:attacker_compare:5:119_4_203_64"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:22b917380e8263f7a579bf36c67bb50d169de580739b596158348ee316f941c1"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes distinct behaviors to each source without misrepresenting one as the other."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of target accounts, request cadence, and outcomes is directly supported by the timestamps and log messages in the evidence."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not assign specific motives or identities not present in the evidence and avoids false causality."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer identifies the more anomalous attacker and provides a root-cause hypothesis grounded in the evidence."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:8e4d9d083bcf4f422e90dd67b99cad754cf292f53f7693b7289da5d52e010cd7"
+  }
+}

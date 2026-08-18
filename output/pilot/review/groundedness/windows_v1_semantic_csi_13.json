@@ -1,0 +1,40 @@
+{
+  "question_id": "windows_v1_semantic_csi_13",
+  "group_ids": [
+    "windows:semantic:csi_13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:d16d0e697d45bc3f34556027a04c455d05ccd567172a3c8fc85dd5a442e17fc0"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and aligns with the structured summary."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the CSI transaction's initialization, scavenge, committing, and destruction as shown in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific occurrence of the CSI event around the 14th instance and explains its significance in the context of the system log."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all key parts of the evidence: initialization, scavenge, committing, NT transaction creation, and destruction, making it reasonably complete."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:a38b0e36918dcfda2138e5495686e8b4da02e7592505b812c7826f34de1d46d2"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "question_id": "hdfs_v1_semantic_addstoredblock_12",
+  "group_ids": [
+    "hdfs:semantic:addstoredblock_12"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:ae00e6547dfe19f887ebaaf3e103e485dee13df5e8b0aca9d0c06efe29bc7a57"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and avoids making unsupported claims."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the block allocation and reception events, the relevant block, and the updates to the block map as described in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by summarizing the event shown in the HDFS log near the 241st occurrence of 'addStoredBlock'."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence, such as the block ID, the nodes involved, and the block map updates, making it reasonably complete."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:f2cb748408c00003eba5a71f8d74c990059ecfe8fb67771a05695c4be4fa51b6"
+  }
+}

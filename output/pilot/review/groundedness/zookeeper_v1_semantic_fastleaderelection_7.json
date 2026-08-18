@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:5be2e9a3008b32ae2c920014626158e075f454c0eba92be6ce4ee85ce794af1d"
+    "prompt_sha256": "sha256:eed519bf8f338316282d6f456e1561227f8758886b5f8527e198b4d398cb5101"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only states what is directly supported by the evidence, such as connection failures, timeouts, and repeated attempts to connect to nodes 2 and 3."
+      "detail": "The answer only states what is directly supported by the evidence, such as the connection failure, the repeated warnings, and the notification timeouts."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (QuorumPeer[myid=1]), the event type (connection failures and timeouts), and accurately notes that no outcome is stated."
+      "detail": "The answer correctly identifies the entity (QuorumPeer with myid=1), the event type (connection failure), and accurately notes that the outcome is not stated."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by summarizing the event shown in the Zookeeper log near the 36th occurrence of 'FastLeaderElection'."
+      "detail": "The answer directly addresses the question by summarizing the event shown in the Zookeeper log near the 22nd occurrence of 'FastLeaderElection'."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence: the entity, the event type, the repeated failures, and the lack of stated cause or outcome."
+      "detail": "The answer includes all important parts of the evidence: the repeated warnings about peers 2 and 3, the notification timeouts, and the lack of a stated outcome."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:f094d90ddd066f1b5e617d5be9abdf55cb17ac4c91d062ef3d54ffb224731abb"
+    "prompt_sha256": "sha256:1ea1b6e15aa8853e83173873283fead866daa111bd2866e531bc75cd0dc59df1"
   }
 }

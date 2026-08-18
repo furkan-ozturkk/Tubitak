@@ -1,0 +1,40 @@
+{
+  "question_id": "hdfs_v1_semantic_addstoredblock_10",
+  "group_ids": [
+    "hdfs:semantic:addstoredblock_10"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:13fadb3a9f1c475a85ee257661e57c26e46aff3c25a7546e52c024fcfd949aef"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as DataNodes receiving blocks, NameSystem adding blocks, and PacketResponders and DataXceiver actions."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the event type (block additions and receptions), the entity (various blocks), and the lack of a stated outcome, aligning with the structured summary and evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what happened and what it means around the 201st occurrence of 'addStoredBlock,' rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key elements from the evidence—DataNode receiving a block, NameSystem adding to its map, PacketResponder termination, and DataXceiver receiving a block—without omitting important details."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:df7fd2df70c2be5146857cb53b229929e74d54fbd9e295fd50be5822776c7d11"
+  }
+}

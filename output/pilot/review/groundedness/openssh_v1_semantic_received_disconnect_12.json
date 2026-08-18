@@ -1,0 +1,40 @@
+{
+  "question_id": "openssh_v1_semantic_received_disconnect_12",
+  "group_ids": [
+    "openssh:semantic:received_disconnect_12"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:f483a9f618e9e5d3a4f1304ef9c2576b4a946271eecd239eb19b3967ba352ef7"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence, such as the nature of the attacker or the system's response beyond what is explicitly mentioned."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (183.62.140.253), the event type (failed password attempts for root), and the outcome (not stated)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by summarizing the event shown in the log near the 373rd occurrence of 'Received disconnect', rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: the failed password attempts, the disconnects, the IP address, and the lack of stated outcome."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:2f8f4ec5d6239b4bedd1a219f25a6a597f989815889c1bc7b3560372ca0b1f74"
+  }
+}

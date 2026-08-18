@@ -1,0 +1,40 @@
+{
+  "question_id": "windows_v1_semantic_failed_to_internally_open_11",
+  "group_ids": [
+    "windows:semantic:failed_to_internally_open_11"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:7e1a0d96e95db23b9298f262cd58245afa624e83ca46fbb252911733d92d016b"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and avoids speculation."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type, and outcome as described in the structured summary and evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question about what is happening in the log around the 12th occurrence of \"Failed to internally open.\""
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence, such as the session ID, the repeated failures, and the involvement of the Windows Update Agent."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:7b90ceb8446f715b1cae969b4bf36e9d43d247b51dc8ceebd67948b2ac909857"
+  }
+}

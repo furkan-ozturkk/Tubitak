@@ -6,7 +6,7 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
     "prompt_sha256": "sha256:17d0509a1d5a5059eb347073d9ea0680bb4a3ea775e97d63df5c808145dd580d"
   },

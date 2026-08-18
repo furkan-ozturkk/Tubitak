@@ -1,0 +1,40 @@
+{
+  "question_id": "linux_v1_semantic_check_pass_user_unknown_10",
+  "group_ids": [
+    "linux:semantic:check_pass_user_unknown_10"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:41c4f8dc3eabbb596ffef0e4d045059b2a80d54cf83b00089240cf73652fbc80"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence, such as the intent behind the attempts or specific user identities beyond what is provided."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (\"combo\"), the event type (SSH authentication failures), and the outcome (failures with no stated success)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by explaining what happened around the 71st occurrence of \"check pass; user unknown\" and what it means, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer captures the main points but omits specific details from the evidence, such as the exact IP addresses and the exact timestamps of the events."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:3bc992a83c9bacd8f898f504783e4623ac569c3c04a1d829db1f30e8b7de5405"
+  }
+}

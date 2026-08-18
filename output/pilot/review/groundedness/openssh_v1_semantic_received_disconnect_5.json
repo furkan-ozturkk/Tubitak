@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:c6bf813673fded990536590f8566b0eb3c36971cd920d210175e9d14080ea93b"
+    "prompt_sha256": "sha256:74bfb10895ca95ae540314884091f072e202178a5be514d12e7bf6f839bbe50c"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only states what is directly supported by the evidence, such as failed password attempts and disconnects, without adding unsupported claims."
+      "detail": "The answer only states what is directly supported by the evidence, such as the invalid user login attempt and the authentication failure."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (IP address), the event type (failed password attempts and disconnects), and the lack of a stated outcome."
+      "detail": "The answer correctly identifies the entity (\"ingrid\"), the event type (invalid user login attempt), and the outcome (authentication failure)."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question about what happened around the 231st disconnect and what it means, rather than just summarizing the structured summary."
+      "detail": "The answer directly addresses the question about what happened and what it means around the 156th \"Received disconnect\" in the log."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence—failed attempts, the IP address, the disconnects, and the potential implication—without omitting important information."
+      "detail": "The answer includes the key details from the evidence: the invalid user, the failed authentication, the disconnection, and the implication of a potential security threat."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:ce33305b3fd43833b8d9c8eb805e9c0dcad2f558bceb065090b77d866d9f14fd"
+    "prompt_sha256": "sha256:8995349d4fb7053258208e6f2fa9ca9570d068c0098274f4166b2548dcf90118"
   }
 }

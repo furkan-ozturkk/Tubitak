@@ -1,0 +1,41 @@
+{
+  "question_id": "openssh_v1_hard_attacker_compare_4",
+  "group_ids": [
+    "openssh:hard:attacker_compare:4:103_207_39_16",
+    "openssh:hard:attacker_compare:4:103_207_39_212"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:4004808d1606dccbd8c27a8d9dea84b6dfe7afa11c760014d685242e9dbd8d1f"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes facts to each IP address without conflating them, accurately describing the events for both 103.207.39.16 and 103.207.39.212."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of the sequence of events, usernames targeted, and timing is directly supported by the evidence provided for both IP addresses."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer avoids assigning specific causes, actors, or motives not present in the evidence and refrains from making unsupported claims about intent or coordination."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "partial",
+      "detail": "The answer describes the similarities and timing but does not clearly judge which IP represents the more serious threat, as requested in the question."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:ace7d00f63c298c87ac71f2351e80075a9cb76b340e0199a02536090a26b66a4"
+  }
+}

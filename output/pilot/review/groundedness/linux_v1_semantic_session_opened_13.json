@@ -1,0 +1,40 @@
+{
+  "question_id": "linux_v1_semantic_session_opened_13",
+  "group_ids": [
+    "linux:semantic:session_opened_13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:fa0ca7359089dae394d9b164c48bf64f254fad7cb13ee84a683ccd4a2b317a0f"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence, such as the connection attempts, session openings, logrotate exit, and authentication failures."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (211-76-104-65.ebix.net.tw), the event type (authentication failures), and the lack of a stated outcome."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the 105th occurrence of 'session opened' and what took place around it, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer mentions the authentication failures and the entity involved but does not explicitly reference the 105th occurrence of 'session opened' or the exact logs around it, which is central to the question."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:d6cbe372b89782a3ceb7bab48a34abda884c5a8029757b3dc6709fc18449d4a1"
+  }
+}

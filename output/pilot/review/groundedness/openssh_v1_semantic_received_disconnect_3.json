@@ -5,36 +5,32 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:75883ac570e37ad0025f35f42a85908c383899fe3aacea6145ad40773d3ebd04"
+    "prompt_sha256": "sha256:c187198d7cac659a2c65c7ee2aa96abc066f931d6aba66deffd8b321ccdacea3"
   },
   "checks": [
     {
       "dimension": "grounded",
-      "verdict": "yes",
-      "detail": "The answer only states what is directly supported by the evidence, such as failed authentication attempts and disconnects from the specified IP address."
+      "verdict": "partial"
     },
     {
       "dimension": "correct",
-      "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (103.207.39.16), the event type (authentication failures and disconnects), and the outcome (no successful authentication)."
+      "verdict": "partial"
     },
     {
       "dimension": "relevant",
-      "verdict": "yes",
-      "detail": "The answer addresses the specific question about what took place around the disconnects and their significance, rather than just summarizing the structured summary."
+      "verdict": "partial"
     },
     {
       "dimension": "sufficient",
-      "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence, such as the usernames attempted and the fact that each attempt ended with a disconnect."
+      "verdict": "partial"
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:eab22e95075b51846254a904054405ebd89b71c07723d6029ab96491bb9db0bd"
+    "prompt_sha256": "sha256:2771cb3da88a87ad7251c86eb114f2980a886778256142db15f52ce93ec5dc54"
   }
 }

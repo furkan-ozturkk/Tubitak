@@ -5,32 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:dea56d02045dec81349379d199192e2928398da0d5b927a74768f29e11df0522"
+    "prompt_sha256": "sha256:448c898b9c36871b1f8f38113caaeed84eb568f71e22eb71db51870462fabad4"
   },
   "checks": [
     {
       "dimension": "grounded",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer only includes information directly supported by the evidence, such as the TrustedInstaller service starting successfully and the specific events like loading the Servicing Stack and WcpInitialize being called three times."
     },
     {
       "dimension": "correct",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (TrustedInstaller), the event type (system initialization), and the outcome (successful service start), all of which are accurately reflected in the evidence."
     },
     {
       "dimension": "relevant",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer directly addresses the event shown in the Windows log near the third occurrence of 'CSI', summarizing the relevant parts of the log rather than just restating the structured summary."
     },
     {
       "dimension": "sufficient",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer includes all the important parts of the evidence: loading the Servicing Stack, WcpInitialize being called three times, the initialization and cleanup of SQM, and the successful start of the TrustedInstaller service."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:dc4c108f2ea76156d9d1f2b76e981c0b6c180ef34d0f7dc21635a0ee8a314c04"
+    "prompt_sha256": "sha256:6521fb28a3f64fe41604d3d4c6a2bcdfccb8f76957b27ef5a8c19c4966b6af74"
   }
 }

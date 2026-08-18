@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:f973e8bda598973da4e4d7ece2dc9c2f5606a2a6bfa138c7e0843cb24669c2db"
+    "prompt_sha256": "sha256:51d022fd30818cc12844f9c15d7e259c7c214e1a786a2ec670b86d2ae731d975"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks for the count of lines containing the exact text 'session opened'."
+      "detail": "The question is clearly phrased and unambiguously asks for the count of lines containing the word \"connection\" in the 'linux' dataset."
     },
     {
       "dimension": "answer_matches_question",
@@ -22,8 +22,8 @@
     },
     {
       "dimension": "evidence_supports_answer",
-      "verdict": "partial",
-      "detail": "The lines shown are genuine matches for the literal 'session opened', but the total count of 123 is stated as computed directly by an exact substring search, not derived from the sample lines."
+      "verdict": "yes",
+      "detail": "The evidence includes a query that selects lines with \"connection\" in the 'linux' dataset, and the answer matches the total count returned by that query."
     }
   ]
 }

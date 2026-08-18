@@ -1,0 +1,41 @@
+{
+  "question_id": "openstack_v1_hard_instance_activity_compare_5",
+  "group_ids": [
+    "openstack:hard:instance_activity_compare:5:ae3a1b5d_eec1_45bb_b76a_c59d83b1471f",
+    "openstack:hard:instance_activity_compare:5:af5f7392_f7d4_4298_b647_c98924c64aa1"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:8f4a910c6ca2c28a4bd294185c0eb4a08b8c07bd9e9c0936bc2810574617e42c"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly references facts from both groups without misattributing details between them."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of the timing of lifecycle events is based on the timestamps provided in the evidence for both groups."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not name a specific cause, actor identity, or motive not present in the evidence."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "no",
+      "detail": "The answer does not clearly address the question's request to determine which instance shows a more troubling pattern and provide a root-cause hypothesis."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:18949f60cd931e6760fe392b8891f41ad7ba53c72f7c646e4e485f4201dd453a"
+  }
+}

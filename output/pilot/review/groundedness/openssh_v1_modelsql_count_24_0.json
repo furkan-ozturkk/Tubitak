@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_modelsql_count_24_0",
+  "group_ids": [
+    "openssh:modelsql:count:24"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:5ef9aa8b47541c2ad94439408e96625948684784895f4475b7544b4cf48f42eb"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of lines in the openssh dataset containing the word \"sshd\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query correctly filters lines from the openssh dataset where the text contains \"sshd\" (case-insensitively), and the evidence states that it returns 2000 lines."
+    }
+  ]
+}

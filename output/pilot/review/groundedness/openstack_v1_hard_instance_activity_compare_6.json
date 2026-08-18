@@ -1,0 +1,41 @@
+{
+  "question_id": "openstack_v1_hard_instance_activity_compare_6",
+  "group_ids": [
+    "openstack:hard:instance_activity_compare:6:b562ef10_ba2d_48ae_bf4a_18666cba4a51",
+    "openstack:hard:instance_activity_compare:6:be793e89_2cc3_4f99_9884_9c6a624a84bc"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:815c6c71f59bfc7140c9378ec33bcec0d16eee4db76adac68de088750832f32d"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes facts to each instance without mixing details between them."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The answer notes the time difference and similar lifecycle events, which are present in the evidence."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer avoids asserting specific causes or motives not present in the evidence."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by comparing the instances and discussing which might be more anomalous, based on the evidence."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:8d9f41197edfa2ac91a26f5a05ff1bd62baaea9816d431de1a31dd3d3d42d34c"
+  }
+}

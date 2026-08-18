@@ -1,0 +1,29 @@
+{
+  "question_id": "openstack_v1_modelsql_count_28_2",
+  "group_ids": [
+    "openstack:modelsql:count:28"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:4ea9bf4507c3719cd6697df26f40a5d1d9d0eb435bf03e42c99ba6a9d1fc3deb"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the number of times the word \"instance\" appears in the log entries of the 'openstack' dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that correctly filters lines from the 'openstack' dataset containing the word \"instance\" (case-insensitively), and the answer of 923 is stated as the total number of matching lines returned by that query."
+    }
+  ]
+}

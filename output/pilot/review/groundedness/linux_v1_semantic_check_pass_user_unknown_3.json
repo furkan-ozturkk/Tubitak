@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:59efc84f0285c06659b31a81c4e2fd301ac114517a07a9a67044c3d47064cb77"
+    "prompt_sha256": "sha256:10b20c80903f4e7add1c365f0fef35581a6c439b0044856ad57720b5ed33235c"
   },
   "checks": [
     {
       "dimension": "grounded",
-      "verdict": "yes",
-      "detail": "The answer avoids stating anything not shown in the evidence, such as the specific user names or the success of the attempts."
+      "verdict": "partial",
+      "detail": "The answer correctly identifies the evidence but adds the interpretation of \"potential malicious activity, such as a brute-force attack,\" which is not explicitly stated in the evidence."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity, the event type (authentication attempts), and the outcome (failures), as shown in the evidence."
+      "detail": "The answer accurately reflects the entity (combo), the event type (authentication attempts), and the outcome (unsuccessful)."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by explaining what took place around the 34th occurrence and its significance, rather than just restating the summary."
+      "detail": "The answer addresses the specific question about the events around the 22nd occurrence of 'check pass; user unknown' and explains their significance."
     },
     {
       "dimension": "sufficient",
-      "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence—multiple check pass attempts, authentication failures, the entity, and the timing—without omitting important information."
+      "verdict": "partial",
+      "detail": "The answer captures the main points but omits the exact timing and the specific sequence of events around the 22nd occurrence, which could be important for full completeness."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:c3b22f6121aac60406ce311e632503b73e61f788f62e086cdf61238624a01bea"
+    "prompt_sha256": "sha256:810e6f2c5d300afae8edc9dd153f5c2741d36cb219e2d79ea3888f28a96ff715"
   }
 }

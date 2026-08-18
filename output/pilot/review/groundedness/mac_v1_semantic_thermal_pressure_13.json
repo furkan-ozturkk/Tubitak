@@ -1,0 +1,40 @@
+{
+  "question_id": "mac_v1_semantic_thermal_pressure_13",
+  "group_ids": [
+    "mac:semantic:thermal_pressure_13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:7f4dd59f1fca0418874bd0b11d0b90d0b4df2d366f1aafb624e6e6b41d9614ac"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence and accurately reflects the described events."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type, and outcome as described in the structured summary and evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining what took place and its significance, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all important parts of the evidence, such as the system waking due to an alarm, components initializing, and jobs being ignored."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:23cb4edbd43464dba1c8b1baadc3cd39ea0f0d8f10e41743a070e6186eb4664b"
+  }
+}

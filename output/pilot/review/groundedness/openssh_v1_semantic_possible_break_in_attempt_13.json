@@ -1,0 +1,40 @@
+{
+  "question_id": "openssh_v1_semantic_possible_break_in_attempt_13",
+  "group_ids": [
+    "openssh:semantic:possible_break_in_attempt_13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:5055441d4494a3b451d98e29c7e996a789ef3d91232f05b296b9d1e671d6c84d"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the IP address, usernames, and authentication failures."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (187.141.143.180), the event type (invalid user login attempts and possible break-in), and the outcome (authentication failure)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by describing what took place around the 66th occurrence of \"POSSIBLE BREAK-IN ATTEMPT\" and its significance."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all important details from the evidence, such as the usernames used, the failed reverse mapping, and the authentication failures."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:2b598ad8dde2fb445b320125a8ded91ce3f2b9d5c78834b3e309c8221fdeb9e5"
+  }
+}

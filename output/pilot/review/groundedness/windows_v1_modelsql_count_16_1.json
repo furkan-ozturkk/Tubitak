@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_modelsql_count_16_1",
+  "group_ids": [
+    "windows:modelsql:count:16"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:f28cb49c16f287432774f97c3e8bb2280b525385ac8ddd8c6da70a89caf4af30"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the total number of log entries in the 'windows' dataset that include the specific error code \"CBS_E_MANIFEST_INVALID_ITEM\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count-based question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that correctly filters for the 'windows' dataset and includes lines with the specified error code using a case-insensitive match, and the answer of 448 is consistent with the query's logic."
+    }
+  ]
+}

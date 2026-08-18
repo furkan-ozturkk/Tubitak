@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_modelsql_count_4_1",
+  "group_ids": [
+    "openssh:modelsql:count:4"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:47cb94d67302a1dd41d0f45e69341d4811270559e7b0ef765f149334d596ba17"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the total number of lines mentioning a connection closure in the openssh dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that selects lines matching the pattern \"Connection closed by\" in the openssh dataset, and it states that the query returns 34 lines, which supports the given answer."
+    }
+  ]
+}

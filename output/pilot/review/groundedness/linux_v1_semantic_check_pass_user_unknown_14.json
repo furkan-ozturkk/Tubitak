@@ -1,0 +1,40 @@
+{
+  "question_id": "linux_v1_semantic_check_pass_user_unknown_14",
+  "group_ids": [
+    "linux:semantic:check_pass_user_unknown_14"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:16dbf8fee65b425144bb5867656b0d095fd7813abac60dd938f38be7169de51b"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence, such as the entity, event type, and outcome."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type (authentication attempts), and the outcome (failures due to unknown users)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question by explaining the log entries around the authentication failures and their implications."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer captures the main points but does not explicitly walk through the 99th occurrence or provide detailed context around it."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:cf3302a902724899971268239022320e24419b4762b60f4a6c6123c5542c42a0"
+  }
+}

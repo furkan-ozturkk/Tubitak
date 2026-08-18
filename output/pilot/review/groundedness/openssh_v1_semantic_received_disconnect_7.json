@@ -5,15 +5,15 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:a80127df3a340fd3069645453c23aa8b6e42126b9ce729b6e27ddef1fa077ab5"
+    "prompt_sha256": "sha256:25e1674d6fb712a3a70a13c496e080e88914951440acae624e0327ad16361604"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only states what is directly supported by the evidence, such as failed password attempts and disconnects, without adding unsupported claims."
+      "detail": "The answer does not state anything beyond what is shown in the evidence, such as the IP address, the failed password attempts, and the disconnects."
     },
     {
       "dimension": "correct",
@@ -23,18 +23,18 @@
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by summarizing the event shown in the log, rather than just restating the structured summary."
+      "detail": "The answer directly addresses the question by summarizing the event shown in the log near the 218th occurrence of 'Received disconnect'."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence: the IP address, the root user, the failed password attempts, and the repeated disconnects."
+      "detail": "The answer includes the key details from the evidence: multiple failed password attempts for root, the IP address, and the repeated disconnects."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:378ea273448da96ea6c88131574283fb1faac5f93805931864ac31b455405c96"
+    "prompt_sha256": "sha256:9ab228ca0dc73ff6ff0b0465aad38c5e0294d49b49981517e2e35ed171d58be9"
   }
 }

@@ -1,0 +1,36 @@
+{
+  "question_id": "openssh_v1_semantic_possible_break_in_attempt_12",
+  "group_ids": [
+    "openssh:semantic:possible_break_in_attempt_12"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:26f5b6fea5cb8e913967a1777855bab9724a4c0a553820b548bcedc8cbfd6fbc"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "correct",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial"
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:d5e492b3c286126b08d72eda63e0b46d450128c881b75c7f554d7d6c0b863d9a"
+  }
+}

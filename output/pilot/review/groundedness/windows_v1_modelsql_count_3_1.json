@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:bc3dd66c037ce5ac388d99aa9129a756419afb488451c178f31d431821a4951e"
+    "prompt_sha256": "sha256:50d4535af09231ebded248f19030e0b33a686c03da3ad3eabc195f6c1b801119"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks for the number of log lines in the 'windows' dataset that do not include the word \"Warning\"."
+      "detail": "The question is clearly phrased and unambiguously asks for the number of log entries in the 'windows' dataset that do not include the substring \"CBS\"."
     },
     {
       "dimension": "answer_matches_question",
@@ -22,8 +22,8 @@
     },
     {
       "dimension": "evidence_supports_answer",
-      "verdict": "partial",
-      "detail": "The lines shown under EVIDENCE do not include any with the word \"Warning\", suggesting they are genuine matches for the condition, but the EVIDENCE does not confirm the total count of 1718."
+      "verdict": "yes",
+      "detail": "The evidence shows a query that correctly filters the 'windows' dataset for entries not containing \"CBS\" (case-insensitively), and the answer of 27 is stated as the total count returned by that query."
     }
   ]
 }

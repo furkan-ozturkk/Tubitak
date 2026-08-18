@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:706545e68eaac4ed4ecfb0eb419ad11a26d6fc227fec1bfa3de88e3549a3912e"
+    "prompt_sha256": "sha256:dd77661e9df71fc55cf9955e3384fc6660e9df0804a9260b1d8f02bb6369f72f"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer avoids making claims beyond what the evidence explicitly shows, such as the repeated connection failures and notification timeouts."
+      "detail": "The answer avoids stating anything not supported by the evidence, focusing only on the described connection failures and timeouts."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (QuorumPeer with myid=1), the event type (connection failures), and accurately reflects the evidence without asserting an outcome."
+      "detail": "The answer correctly identifies the entity (QuorumPeer[myid=1]), the event type (connection failures and timeouts), and the pattern of repeated failures."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by describing what is happening in the log around the specified event, rather than just restating the structured summary."
+      "detail": "The answer directly addresses the question by describing what is happening in the log around the specified event."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence—repeated failures to connect to peers 2 and 3, the presence of warnings, and the notification timeouts—without omitting important information."
+      "detail": "The answer captures the key elements of the evidence, including the repeated failures to nodes 2 and 3 and the interspersed timeouts."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:6a81e00a228f8299f2cd2aaf3e685df2915488470169800f64040c63c4023046"
+    "prompt_sha256": "sha256:277672c0685a30314a65fa19472a367bd9d4f4990427b5775c7176fbde8fbc47"
   }
 }

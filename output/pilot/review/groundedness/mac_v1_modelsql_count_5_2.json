@@ -7,23 +7,23 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:2aab64960628a0a4dcba5e7987fdcda61a28b6eac781d6cb163ebe6e53297e07"
+    "prompt_sha256": "sha256:68c1bc913450b6818eabe93a19fd69b569a5dae74cc9e06e5af6889604c182fc"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks how many entries in the 'mac' dataset contain no numbers at all."
+      "detail": "The question is clearly phrased and asks for the count of entries in the 'mac' dataset with no numerical characters."
     },
     {
       "dimension": "answer_matches_question",
       "verdict": "yes",
-      "detail": "The answer is a bare integer, which is the correct form for a count-based question."
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
     },
     {
       "dimension": "evidence_supports_answer",
       "verdict": "partial",
-      "detail": "The evidence suggests that no line contains a specific literal (0 matches from an exact substring search), but it does not confirm whether any lines contain numbers in other forms or positions, so it does not fully support the answer."
+      "detail": "The evidence includes a query that should compute the correct count, but the provided line of text is unrelated and does not confirm the correctness of the answer."
     }
   ]
 }

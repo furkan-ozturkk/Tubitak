@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_13_1",
+  "group_ids": [
+    "hadoop:modelsql:count:13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:5e34fcbf72070d3b00839cd69d48deecfa5a2c3f4c188adae2d5923b1bdc6ceb"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'hadoop' dataset that include \"INFO\" but exclude \"ERROR\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that correctly filters for lines containing \"INFO\" and not containing \"ERROR\" in the 'hadoop' dataset, and it states that the query returns 1038 matching lines."
+    }
+  ]
+}

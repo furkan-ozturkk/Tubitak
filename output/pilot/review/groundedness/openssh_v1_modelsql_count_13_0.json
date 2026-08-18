@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_modelsql_count_13_0",
+  "group_ids": [
+    "openssh:modelsql:count:13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:e89539c5c8ff1fbff3cce809e92ca500acb7982c01fca81b2c02bb52a0499cc0"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of lines in the openssh dataset that contain no whitespace characters."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count-based question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence includes a query that would compute the correct answer, but the provided line of evidence is unrelated and does not confirm the correctness of the answer."
+    }
+  ]
+}

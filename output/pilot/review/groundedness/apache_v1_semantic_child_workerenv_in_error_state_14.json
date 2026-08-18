@@ -1,0 +1,40 @@
+{
+  "question_id": "apache_v1_semantic_child_workerenv_in_error_state_14",
+  "group_ids": [
+    "apache:semantic:child_workerenv_in_error_state_14"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:d1211e90803d78aa138d73e1bd9164481d792e2eb199cb4f540a8aefb9741c14"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and stays within the bounds of the provided information."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the entity (workerEnv), the event type (initialization and error reporting), and the observed events (successful initialization and repeated error state reports)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the Apache log around the 491st occurrence of the error message and explains what it means, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key points from the evidence: successful initialization, repeated error state reports, and the implication of a potential unresolved issue."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:96be18651cff7b9178d017e88dd184c26e2dd07b0f43cc634a2beef4953e806e"
+  }
+}

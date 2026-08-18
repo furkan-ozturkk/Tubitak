@@ -1,0 +1,40 @@
+{
+  "question_id": "openstack_v1_semantic_nova_osapi_compute_wsgi_server_11",
+  "group_ids": [
+    "openstack:semantic:nova_osapi_compute_wsgi_server_11"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:85a6bb0514a8a29164bfd603790b5d441def93249fe48e69967eb295166bf924"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states information that is directly supported by the evidence provided in the logs."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the instance ID, the event type (deletion), and the outcome (resources deallocated)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by describing what is happening in the log around the specified event."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all key aspects of the deletion process as shown in the evidence: instance destruction, file deletion, network deallocation, and base file removal."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:3fd95ba7041bdb968990cd198949989de95a878316ed5dfbc6a1ab81bf892462"
+  }
+}

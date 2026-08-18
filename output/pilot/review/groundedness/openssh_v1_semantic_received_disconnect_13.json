@@ -1,0 +1,40 @@
+{
+  "question_id": "openssh_v1_semantic_received_disconnect_13",
+  "group_ids": [
+    "openssh:semantic:received_disconnect_13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:fb8f9931fb881e681dec8e28990de812a47a8dfc83e5af0c6f170ebe63c38b2d"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what the evidence shows, such as the IP address, the failed password attempts, and the disconnects."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (183.62.140.253), the event type (failed password attempts and disconnects), and the lack of a successful outcome."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by describing what occurred around the 404th 'Received disconnect' and its potential significance."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence—multiple failed attempts, the IP address, the disconnects, and the possible implication of malicious activity."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:52e2f27b209d7e1ab5012b5d07468064e2f007bf426996146f84fc51a04ad95d"
+  }
+}

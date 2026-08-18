@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_15_1",
+  "group_ids": [
+    "hadoop:modelsql:count:15"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:691e8668395f034303f0a09b90f8638a43d9c676a15aba823379252b8ba1b5b6"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of log entries in the 'hadoop' dataset that lack any punctuation."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The query is correct in principle for identifying lines without punctuation, but the evidence does not include the actual result of the query, so it's unclear whether the answer of 0 is accurate."
+    }
+  ]
+}

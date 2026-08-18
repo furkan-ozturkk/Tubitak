@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_26_1",
+  "group_ids": [
+    "hadoop:modelsql:count:26"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:994956a93bd5188c1e3fb5e1224817e5d2736b52952d739798d96f6698fa10f5"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the total number of log entries containing the word \"Failed\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that counts all lines with \"Failed\" in a case-insensitive manner, and the answer matches the stated result of that query."
+    }
+  ]
+}

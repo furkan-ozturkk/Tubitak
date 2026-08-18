@@ -1,0 +1,41 @@
+{
+  "question_id": "hadoop_v1_hard_container_attempt_link_7",
+  "group_ids": [
+    "hadoop:hard:container_attempt_link:7:container_1445144423722_0020_01_000009",
+    "hadoop:hard:container_attempt_link:7:attempt_1445144423722_0020_m_000007_0"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:b59c3c3035f827b8b5df17f67d46a6a15451b5b0db0162a00017da38332db1ff"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly distinguishes between the container group and the task attempt group, using facts from each without conflating them."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The answer describes the relationship between the two groups based on shared container and task attempt IDs and the sequence of events present in the evidence."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not assign specific causes or motives not present in the evidence and sticks to the observed sequence and correlation of events."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by evaluating the consistency of the two sets of logs and concludes that they tell a consistent story without revealing an issue."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:247457a33f2959993a3f2a9da3fca0175378245a9ba56c3b165ac8109ea24027"
+  }
+}

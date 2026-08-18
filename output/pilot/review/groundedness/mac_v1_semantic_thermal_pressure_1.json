@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:d2299e64acea6ce18173d2b40ad1f01bc46dcb0500169177d56c7dd88d8d9a60"
+    "prompt_sha256": "sha256:9fd4b259e375fa5948aa37b2392fbbc099b75cad8d4f0e175a05c66975215978"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer avoids stating anything not shown in the evidence and sticks to the described events."
+      "detail": "The answer avoids making claims not supported by the evidence and accurately summarizes the described system activity."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer accurately reflects the entity, event types (kernel messages, interface transitions, thermal pressure), and the lack of a stated outcome."
+      "detail": "The answer correctly identifies the entity, event type, and describes the absence of errors or outcomes as stated in the evidence."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer addresses the question by describing what is happening in the log around the relevant events, not just restating the summary."
+      "detail": "The answer addresses the specific question about the system log events around the third occurrence of 'Thermal pressure' by summarizing relevant system activity."
     },
     {
       "dimension": "sufficient",
       "verdict": "partial",
-      "detail": "The answer is reasonably complete but does not specifically focus on the fourth occurrence of 'Thermal pressure' or describe what is happening around it."
+      "detail": "The answer is reasonably complete but does not explicitly mention the third occurrence of 'Thermal pressure' or its context in the log."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:06ae76e38efc65dc9aeffa73dce753cb855d1e7ed49e23431ca645c12de8e376"
+    "prompt_sha256": "sha256:db73cdfac205cc4b84691f03b04588fde0cf8d8a0f049a3ae86c3ab98c7ac1c3"
   }
 }

@@ -5,32 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:3353c51506b8ed4978f342681b4157aaa48f052a4f2631776004e8509259ac27"
+    "prompt_sha256": "sha256:0b8900fa90ef00180a5fd90b11178ed6e49bcb946c5e8b4ce84f598625ce3780"
   },
   "checks": [
     {
       "dimension": "grounded",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the entity, the event, and the time frame."
     },
     {
       "dimension": "correct",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (R02-M1-N0-C:J12-U11), the event type (instruction cache parity error corrected), and the lack of stated outcome."
     },
     {
       "dimension": "relevant",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer addresses the specific event near the 15th occurrence of the error and summarizes it in response to the question."
     },
     {
       "dimension": "sufficient",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer includes the entity, the event, the time frame, and the lack of stated outcome, making it reasonably complete."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:e751ab2f37fb3b9b6a4911069ef1df21fe7e4c11749e4429ee55d2acdf873894"
+    "prompt_sha256": "sha256:9a99f9c2401aa87b690db3a2e05e24dec5eaca26949c3e18ff7ef4b9f6f751ba"
   }
 }

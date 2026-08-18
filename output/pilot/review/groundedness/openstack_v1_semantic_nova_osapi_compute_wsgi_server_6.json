@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:bd6b0734f9e422b163e722269af2a35ce2e0ef4837e1696bb34ac2e4ab4229cd"
+    "prompt_sha256": "sha256:13294dfaafb6d05c5e2adb9d9a0fe71afeb035e87bde81080bab73d7f1d63b60"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only states information that is directly supported by the evidence provided in the logs and structured summary."
+      "detail": "The answer only includes information directly supported by the evidence provided in the logs and structured summary."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity, the events (GET requests, image creation, VM stop), and the outcome (status code 200 indicating success)."
+      "detail": "The answer correctly identifies the instance ID, the events (spawning, power state check, VM resume, instance build), and the outcome (200 status for API requests)."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by describing what is happening in the log around the specified log line and includes relevant details."
+      "detail": "The answer directly addresses the question about what is happening in the OpenStack log around the specified log line, rather than just restating the structured summary."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes all important parts of the evidence: the server information retrieval, image creation, VM stop, and multiple server detail requests."
+      "detail": "The answer includes all key details from the evidence: instance spawning time, power state check, VM resume, instance build time, API status 200, and image cache check."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:5e7d30fe1e45d65e1bcc414616378c64eb7ec94777506a651070f7ead63f500a"
+    "prompt_sha256": "sha256:f65893df459f29d4d2bee6b41931b6ed28b22512f8df6f88b7f70b181a47d460"
   }
 }

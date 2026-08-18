@@ -1,0 +1,40 @@
+{
+  "question_id": "zookeeper_v1_semantic_cannot_open_channel_10",
+  "group_ids": [
+    "zookeeper:semantic:cannot_open_channel_10"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:07b591ea19bd23d01925a7432160ac45516f7707b3307559b03853f81c5a875d"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the notification timeouts and failed channel openings to peers 2 and 3."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (QuorumPeer[myid=1]), the event type (notification timeouts and failed channel openings), and the lack of a stated outcome."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining what happened around the 51st occurrence of 'Cannot open channel' and what it means in terms of communication issues."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the recurring nature of the failures, the specific peers and addresses involved, and the lack of a stated outcome, making it reasonably complete."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:5d39e569674fa5280585996fc1eabb2f45d33c47f8d9c6801e764c0b31b8aa59"
+  }
+}

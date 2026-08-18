@@ -1,0 +1,41 @@
+{
+  "question_id": "hdfs_v1_hard_datanode_activity_compare_0",
+  "group_ids": [
+    "hdfs:hard:datanode_activity_compare:0:10_251_214_67",
+    "hdfs:hard:datanode_activity_compare:0:10_251_214_130"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:4f6574e2734fb207e565ee89072eec4a1fdc8025df0bede2e7b0ce2fb180e6ba"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes facts to each DataNode without misrepresenting or conflating their logs."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The answer accurately describes the comparison between the two DataNodes based on the presence of warnings, invalid blocks, and consistent operations in the evidence."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer avoids naming a specific cause not present in the evidence and correctly states that no definitive hypothesis can be made."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer identifies which DataNode shows a more troubling pattern and explains the root-cause judgment based on the evidence, noting the lack of a specific cause."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:c73a678dacf3ba369b0fdafdc574295c0aab16362e4bba13a2e73a4122d5476e"
+  }
+}

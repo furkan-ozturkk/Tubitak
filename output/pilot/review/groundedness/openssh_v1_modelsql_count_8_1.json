@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_modelsql_count_8_1",
+  "group_ids": [
+    "openssh:modelsql:count:8"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:5663b8df83e0c0ab9721044dbae8d0f2a2dbb294a4b3b255ba1d0ddd19f3fa9f"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the total number of lines showing a successful SSH login, which can be interpreted as lines containing \"accepted password\" in the dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count-based question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query selects lines with \"accepted password\" from the 'openssh' dataset, and the evidence states that the query returns 1 matching line, which supports the answer."
+    }
+  ]
+}

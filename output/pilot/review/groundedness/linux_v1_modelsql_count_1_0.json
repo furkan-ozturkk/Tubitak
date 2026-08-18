@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:76c083a3913cdbb2fc28520bbebbc770fe884f953f1578f612a84c6a5bb4b30a"
+    "prompt_sha256": "sha256:6f4c413bbb41cdf54c8198cc42b27ef3c98b0bcfdae0afe7d724163fc69566b5"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks for the count of lines in the 'linux' dataset that do not contain the word \"session\"."
+      "detail": "The question is clearly phrased and asks for the count of lines in the 'linux' dataset that do not contain the word \"error\"."
     },
     {
       "dimension": "answer_matches_question",
@@ -23,7 +23,7 @@
     {
       "dimension": "evidence_supports_answer",
       "verdict": "yes",
-      "detail": "The query selects lines from the 'linux' dataset where the text does not contain \"session\" (case-insensitive), and the answer matches the count of those lines."
+      "detail": "The query selects lines from the 'linux' dataset where the text does not contain \"error\" (case-insensitive), and the answer states that 2000 lines match this condition."
     }
   ]
 }

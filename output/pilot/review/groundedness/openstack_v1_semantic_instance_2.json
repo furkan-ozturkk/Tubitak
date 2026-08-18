@@ -5,32 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:75627b05fed328a05b1260d15849a6fe56538bc165cc30d73d4253345fd6028b"
+    "prompt_sha256": "sha256:4656e5699b87e6db98c161dba4241a2b471f2777309fec77ba2fc8e155618421"
   },
   "checks": [
     {
       "dimension": "grounded",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence, such as the specific resource values or the absence of an outcome."
     },
     {
       "dimension": "correct",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the event type (resource allocation and instance creation), the entity (the instance ID), and the outcome (claim successful and image creation)."
     },
     {
       "dimension": "relevant",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer addresses the specific event shown in the log near the 71st occurrence of 'instance:' rather than just restating the structured summary."
     },
     {
       "dimension": "sufficient",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer includes the key parts of the evidence: the instance attempting to claim resources, the claim being successful, and the image creation, without omitting important details."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:0babb0be39e26bc1086bf4a5080e2cf545e9df15df559bdae69c5e6b1bf9c63a"
+    "prompt_sha256": "sha256:671ca196558b0f3cca7f5c6fe6e3dfaae473992e9ef2111bdf2c3e22a1038ea7"
   }
 }

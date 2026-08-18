@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_8_0",
+  "group_ids": [
+    "hadoop:modelsql:count:8"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:8f1e2fcd1df6b00bab5394127deaad19d5c060c78b8d0cc6a57f83316c952799"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of log entries in the 'hadoop' dataset containing the word \"container\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that counts lines in the 'hadoop' dataset where the text contains \"container\" (case-insensitively), and the answer matches the result of that query."
+    }
+  ]
+}

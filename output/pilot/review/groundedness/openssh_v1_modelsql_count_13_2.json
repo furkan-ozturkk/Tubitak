@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_modelsql_count_13_2",
+  "group_ids": [
+    "openssh:modelsql:count:13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:6ac5b570c4c8ecbf96d810ac4fd1a3f1a7aa25e623d0ab3e6702f3aaef80b2ff"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of entries in the openssh dataset with no spaces or tabs."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The query is designed to find lines without whitespace, and the answer is 0, but the evidence does not include any actual data to confirm this count."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "question_id": "openssh_v1_semantic_received_disconnect_14",
+  "group_ids": [
+    "openssh:semantic:received_disconnect_14"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:0212b4b60d1804214f6fe0dc9791086ebd90527abf88926ac7bb30ddd2c9bd32"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states information directly supported by the evidence, such as failed attempts, disconnects, and the invalid user \"1234\" from 103.99.0.122."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (IPs), event type (failed authentication, disconnects), and outcome (no successful access)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "no",
+      "detail": "The answer does not walk through the 435th occurrence of \"Received disconnect\" as the question specifically asks, but instead provides a general summary of the evidence."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer summarizes the evidence but omits the specific details around the 435th \"Received disconnect\" event, which is the focus of the question."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:36226de1623563c890232c88c7fc6ec23425d31118823f3b7dbbd9f07c4d150d"
+  }
+}

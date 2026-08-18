@@ -1,0 +1,40 @@
+{
+  "question_id": "hdfs_v1_semantic_deleting_block_13",
+  "group_ids": [
+    "hdfs:semantic:deleting_block_13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:9e5589706ece7d02dec04f36484b09866312ea3980e8134ffe56a0c85f5b4e5f"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence, such as the reason for the deletion or the outcome."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the PacketResponder termination for the specified block and the subsequent deletion of multiple blocks."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by describing what took place around the 222nd occurrence of 'Deleting block' and its significance."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key elements from the evidence: the PacketResponder termination, the block deletion, and the implication of a cleanup process."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:39550f72676de4f3f51dc8f8933526e52d901da676da3161eb1b2ee55b5b1520"
+  }
+}

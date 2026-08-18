@@ -1,0 +1,40 @@
+{
+  "question_id": "bgl_v1_semantic_instruction_cache_parity_error_corrected_10",
+  "group_ids": [
+    "bgl:semantic:instruction_cache_parity_error_corrected_10"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:9a533cfc0c87b673af0c292325e75c724317b7bff62461962c6c89738039f58e"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the entity, the event, and the lack of stated outcome."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, the event type (\"instruction cache parity error corrected\"), and the lack of stated outcome."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining what happened and what it means, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: the entity, the repeated events, the time range, and the lack of stated outcome."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:49d07e6eebff9268ad0b9d1eb40bd45377fc1a23a14d34d2c544f0e8e3834320"
+  }
+}

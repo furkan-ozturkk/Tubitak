@@ -1,0 +1,40 @@
+{
+  "question_id": "apache_v1_semantic_jk2_init_11",
+  "group_ids": [
+    "apache:semantic:jk2_init_11"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:f98701e2368897b577e9f0462dde7890790f6962e084de565ec19da6c8332c7f"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and accurately reflects the described events."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (workerEnv), the event type (initialization and error), and the outcome (workerEnv in error state 7)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question about what is happening in the Apache log around the 617th occurrence of 'jk2_init', rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key points from the evidence: the initialization of workerEnv, the error states, and the discrepancy between the success message and the error state."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:8123070b2710b2b1ac8e9c61a9abf1fe5accb0a23bf5ee21d63555c0fe4cccf1"
+  }
+}

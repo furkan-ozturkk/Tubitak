@@ -1,0 +1,40 @@
+{
+  "question_id": "windows_v1_semantic_failed_to_internally_open_14",
+  "group_ids": [
+    "windows:semantic:failed_to_internally_open_14"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:f73cea7a8b48cfabfd5bbaef6418eb20b77606d1767d6d5c5be127258794e90c"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and avoids speculation."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (Session 30546354_2850665229), the event type (failed to open package), and the outcome (not stated)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the 15th occurrence and explains what the log shows and what it means."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer mentions the repeated failures but does not explicitly walk through the 15th occurrence or detail the pattern of multiple sessions."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:63b079c777581ecae028d3026ea37215b27f4cdd8faf5f5172a25c2acfb9e26c"
+  }
+}

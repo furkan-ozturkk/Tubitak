@@ -1,0 +1,40 @@
+{
+  "question_id": "bgl_v1_semantic_double_hummer_alignment_exceptions_14",
+  "group_ids": [
+    "bgl:semantic:double_hummer_alignment_exceptions_14"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:feea59e2c76ab27c0ed4cb0004bf28c6c4850398656617ad5f9972b43e32ed45"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not supported by the evidence, such as the cause or impact of the exceptions."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the event type, the entity, and the lack of stated outcome as shown in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by describing the BGL log around the 99th occurrence and explaining what the exceptions indicate, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer mentions the sequence and entities involved but does not specify the 99th occurrence or its exact context in the log."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:cba9657e93e9f30a60d4268c8f6c94e87b127bf57f224e3afc0e2c7d09a5a144"
+  }
+}

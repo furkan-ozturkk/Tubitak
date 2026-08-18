@@ -1,0 +1,40 @@
+{
+  "question_id": "zookeeper_v1_semantic_fastleaderelection_11",
+  "group_ids": [
+    "zookeeper:semantic:fastleaderelection_11"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:78c8d4ccc613e44470f13bb09b3111466bac7702801a438d08bdcdb2c335b895"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as connection failures, timeouts, and the involvement of peers 2 and 3."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (QuorumPeer[myid=1]), the event type (connection failures and timeouts), and notes that the outcome is not stated, which matches the structured summary and evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by describing what is happening in the Zookeeper log around the relevant occurrences of 'FastLeaderElection', rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: the entity, the event type, the repeated failures to connect to peers 2 and 3, and the lack of a stated outcome."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:bb2eecc684a3ab9a31b227b574d56fac57c5d27bd0299285704f1d681ec66c50"
+  }
+}

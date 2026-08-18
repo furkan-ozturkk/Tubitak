@@ -5,32 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:809cd7412b07c700677454975bd5ac41115d79c886e9368a260e5776fd13bb0b"
+    "prompt_sha256": "sha256:ff073c163469247a991b8dc8d373146096cc215a82b466ed353297fa7c63b873"
   },
   "checks": [
     {
       "dimension": "grounded",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not supported by the evidence, such as the cause or resolution of the exceptions."
     },
     {
       "dimension": "correct",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type, and outcome as described in the evidence."
     },
     {
       "dimension": "relevant",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer addresses the question by walking through the log entries and explaining what the exceptions mean in context."
     },
     {
       "dimension": "sufficient",
-      "verdict": "partial"
+      "verdict": "partial",
+      "detail": "The answer summarizes the pattern and timing but does not walk through the 29th occurrence specifically, which the question explicitly asks for."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:7407166666bee4ec0e6267e09fb122d0d602f3fc3978098ba943c22d13c234f7"
+    "prompt_sha256": "sha256:c024e83fbdf63f869993d6cb8ef2a8ab87b782f3506d300ba8d101dff17b9a0c"
   }
 }

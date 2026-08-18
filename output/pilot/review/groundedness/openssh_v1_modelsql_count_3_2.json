@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_modelsql_count_3_2",
+  "group_ids": [
+    "openssh:modelsql:count:3"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:310105ba483d51ae876a883e9618ffc7ffb4ddfe988f0639da3e996ad370d7e2"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of lines in the openssh dataset that lack an IP address."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query selects lines from the openssh dataset that do not contain an IP address pattern, and the answer matches the count of such lines."
+    }
+  ]
+}

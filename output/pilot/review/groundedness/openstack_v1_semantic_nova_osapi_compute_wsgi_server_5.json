@@ -5,32 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:af1b1a32b1ffdae0cd011f3a69ce799557ee80c10e92b77997cfccebfb065f1f"
+    "prompt_sha256": "sha256:5175c55c029f5910fdc71bc8bc91d0f49d8eea4cf04b3ef8cf07d460556da404"
   },
   "checks": [
     {
       "dimension": "grounded",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as API requests handled, image usage checked, VM started and paused, and sync_power_state skipped due to a pending task."
     },
     {
       "dimension": "correct",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (ae3a1b5d-eec1-45bb-b76a-c59d83b1471f), the event type (system and API events), and the outcomes described in the evidence."
     },
     {
       "dimension": "relevant",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by describing what happened around the 266th occurrence of 'nova.osapi_compute.wsgi.server' and what it means, rather than just restating the structured summary."
     },
     {
       "dimension": "sufficient",
-      "verdict": "partial"
+      "verdict": "yes",
+      "detail": "The answer includes all important parts of the evidence: API requests handled, image usage checked, VM started and paused, and the sync_power_state skipped due to a pending task."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:6cf5e6e0ee207a2ebc9708b72392eccd60b80899d5a4757bf8da62e43e2b3d8f"
+    "prompt_sha256": "sha256:9c8c7a9ab291da825f1d126ef70ce53f00d98e8b93a6e148bf759814bf3e0d7c"
   }
 }

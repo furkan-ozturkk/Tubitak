@@ -1,0 +1,29 @@
+{
+  "question_id": "hdfs_v1_modelsql_count_9_2",
+  "group_ids": [
+    "hdfs:modelsql:count:9"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:bcbdd54fb3dccd015bbf5041695e987537fd329f0ee0c664741dd58c2bdd5b89"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of log entries in the 'hdfs' dataset that lack any IP addresses."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query selects lines from the 'hdfs' dataset where the text does not contain an IP address pattern, and the answer matches the total count of such lines."
+    }
+  ]
+}

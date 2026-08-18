@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_8_2",
+  "group_ids": [
+    "hadoop:modelsql:count:8"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:3fde7996ddeecc137a8f77fb052efeeb50812f38a1fcf28f15bac1be5657d9cc"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the number of times the word \"container\" appears in the 'hadoop' dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence shows that the query retrieves lines containing \"container\" (case-insensitive), but it does not count the total number of occurrences of the word \"container\" — only the number of lines that contain it. The answer assumes that the number of matching lines (547) equals the number of occurrences of the word, which may not be accurate."
+    }
+  ]
+}

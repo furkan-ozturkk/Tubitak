@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_24_1",
+  "group_ids": [
+    "hadoop:modelsql:count:24"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:61e249bb0ae39a2aebac02515da0c51a24dc3b084d77a1935833d95cf47bb52e"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the total number of log entries containing the exact phrase \"Retrying\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count-based question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query selects lines containing \"retrying\" in a case-insensitive manner, and the count of 146 is explicitly stated as the result of that query."
+    }
+  ]
+}

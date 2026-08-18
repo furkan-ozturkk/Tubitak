@@ -7,23 +7,23 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:c4008c033a876eae7aa1b02f1e297220d8245470d673a152b4ef6767e2bda4f0"
+    "prompt_sha256": "sha256:9e69b3414c8109d8d0882db537a62121f3381e5cd55c3de07bcf51aec542edad"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and unambiguously asks for the total number of unique error messages in the 'apache' dataset."
+      "detail": "The question is clearly phrased and asks for the total number of unique error states in the 'apache' dataset."
     },
     {
       "dimension": "answer_matches_question",
       "verdict": "yes",
-      "detail": "The answer is a single numeric value, which directly matches the required answer shape for the question."
+      "detail": "The answer is a single numeric value, which matches the required answer shape for the question."
     },
     {
       "dimension": "evidence_supports_answer",
       "verdict": "partial",
-      "detail": "The evidence includes a query that counts distinct error messages and sample data showing such messages, but the correctness of the final count (378) cannot be verified without executing the query against the full dataset."
+      "detail": "The evidence includes a query that should count distinct error states and sample data showing error state 6 repeated, but it does not confirm whether the final count of 5 is accurate without executing the query."
     }
   ]
 }

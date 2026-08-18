@@ -1,0 +1,40 @@
+{
+  "question_id": "bgl_v1_semantic_double_hummer_alignment_exceptions_10",
+  "group_ids": [
+    "bgl:semantic:double_hummer_alignment_exceptions_10"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:baf382a87e14f7fbdc0f161a9c7f9d7dcdb810256fbe98fc2baa2c31b48f099c"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence, such as the cause or outcome of the exceptions."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the event type (RAS KERNEL INFO), the entity (R26-M1-N1-C:J11-U01), and the lack of stated outcome."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what happened and what it might mean, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: multiple entities, the event type, and the lack of stated outcome."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:40a4c937155fd673b3ecc68237afe2f14591c8d6f719e554641023feb0961442"
+  }
+}

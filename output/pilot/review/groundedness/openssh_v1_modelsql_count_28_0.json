@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_modelsql_count_28_0",
+  "group_ids": [
+    "openssh:modelsql:count:28"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:709e55fdc597d0f66e9317a236e45fea9a616181c85fe5ad6cbf35af8778ea77"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of lines in the openssh dataset that mention the process ID (PID) of the SSH daemon."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query searches for lines in the openssh dataset containing a pattern that matches the SSH daemon's PID format, and the count of 2000 is stated as the result of that query."
+    }
+  ]
+}

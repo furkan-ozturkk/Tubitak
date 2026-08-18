@@ -1,0 +1,29 @@
+{
+  "question_id": "zookeeper_v1_modelsql_count_8_0",
+  "group_ids": [
+    "zookeeper:modelsql:count:8"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:30f5836643511c8d233d211b0f861097255b3e07c6e1e9c27544fabe6f51c21d"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks about log entries in the 'zookeeper' dataset that mention a session ID starting with '0x'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count-based question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The query pattern `[0-9a-f]{16}` does not match session IDs starting with '0x', so it cannot support the answer definitively; however, the answer could be correct if no such session IDs exist in the dataset."
+    }
+  ]
+}

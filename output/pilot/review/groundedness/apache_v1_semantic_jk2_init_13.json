@@ -1,0 +1,40 @@
+{
+  "question_id": "apache_v1_semantic_jk2_init_13",
+  "group_ids": [
+    "apache:semantic:jk2_init_13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:a8bd657cd2d6cbd662dafa5ae9d3808c616b3ef0c7ae721befa4cf24bfd81ff1"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the error states and initialization notices."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (workerEnv), the event type (initialization and error messages), and notes the lack of a stated outcome."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what took place around the 729th occurrence of 'jk2_init' and its significance, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence, such as the error states, initialization successes, and scoreboard slot assignments, without omitting important information."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:cb149c8a461ef13746d140dc30a6aef8e850ce49a5296c16913efa5d662c34f2"
+  }
+}

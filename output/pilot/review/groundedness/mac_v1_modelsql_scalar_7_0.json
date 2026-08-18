@@ -1,0 +1,29 @@
+{
+  "question_id": "mac_v1_modelsql_scalar_7_0",
+  "group_ids": [
+    "mac:modelsql:scalar:7"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:fb724a53dc9f1d9a74297bbb05474d031da6c2e1c0e730f7deb68bd450f68213"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for a count of log entries in the 'mac' dataset with line numbers greater than 1000."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which matches the required answer shape for the question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence includes a query that would compute the correct count, but the sample rows shown do not confirm the actual count is 1000, so the correctness of the answer is ambiguous."
+    }
+  ]
+}

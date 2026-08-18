@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:ab1d3bb3aebdf7b888baf41e78057d96e6c5d150fadcb3b50014465441e7b356"
+    "prompt_sha256": "sha256:ddbc55ec9c08dddafcbe6323a258a987b334845618583254664aaa2f8a2ee332"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer does not state anything beyond what is shown in the evidence, such as the hosts, the event type, and the outcome of the authentication attempts."
+      "detail": "The answer does not state anything beyond what is shown in the evidence, such as the entities, events, and outcomes described in the log entries."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (combo), the event type (authentication attempts), and the outcome (unsuccessful)."
+      "detail": "The answer correctly identifies the event type as authentication attempts, the entities involved, and accurately reflects that all attempts failed."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by summarizing the event shown in the Linux log near the 23rd occurrence of 'check pass; user unknown'."
+      "detail": "The answer directly addresses the question by summarizing the event shown in the Linux log near the 15th occurrence of 'check pass; user unknown'."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence: multiple attempts, the hosts involved, the nature of the events, and the implication of repeated failures."
+      "detail": "The answer includes the key details from the evidence, such as the multiple attempts, the remote hosts, the \"check pass\" events, and the authentication failures."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:fd158c2e9b9d9c325c34c0630a3cc4219a782a080f7599ad38023bec2be85ffe"
+    "prompt_sha256": "sha256:6ac9f03b762a5524d27c30525c07e6138e6a8b7381d7f672544fa83637a1c37c"
   }
 }

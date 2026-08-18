@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_modelsql_scalar_26_0",
+  "group_ids": [
+    "windows:modelsql:scalar:26"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:1cdd3e1480f07734472bdded7f72670e9f8b9ef3b9fcf82d08c1414d64b415db"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the total number of distinct packages in the 'windows' dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which is the correct form for the question's requirement of a distinct count."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence includes a query that computes the count of distinct packages using a regex to extract package names, and sample data showing lines with package names, but the actual correctness of the count (280) cannot be verified without executing the query on the full dataset."
+    }
+  ]
+}

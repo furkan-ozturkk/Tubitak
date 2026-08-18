@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:321d37a489ff77192bd80ac001a1d30e06d7e4cdd7596c342ee399408a69ae11"
+    "prompt_sha256": "sha256:bb62b348f4fc2e792ba672f9ad3d006457ee293de35b65380b0ede8eee09ea69"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'hadoop' dataset that do not contain the words \"INFO\", \"WARN\", or \"ERROR\"."
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'hadoop' dataset that do not contain the words \"INFO\" or \"ERROR\"."
     },
     {
       "dimension": "answer_matches_question",
@@ -22,8 +22,8 @@
     },
     {
       "dimension": "evidence_supports_answer",
-      "verdict": "partial",
-      "detail": "The evidence suggests that no line in the dataset contains the literal (0 matches from an exact substring search), but it does not confirm whether the SQL query correctly excluded all entries with \"INFO\", \"WARN\", or \"ERROR\" in a case-sensitive or case-insensitive manner, nor does it confirm the total count of such entries."
+      "verdict": "yes",
+      "detail": "The query filters for lines in the 'hadoop' dataset that do not contain \"INFO\" or \"ERROR\" (case-insensitively), and the answer states that 806 such lines exist, which the query would return."
     }
   ]
 }

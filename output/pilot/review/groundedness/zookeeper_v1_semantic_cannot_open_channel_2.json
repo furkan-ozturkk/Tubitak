@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:b79dc223bf0232d35a2253aaf75fa536dbba1fac748f4524a8f4881fbeb9eae2"
+    "prompt_sha256": "sha256:8dc255c8ac312e74d687ed3391b56506a3b3ff7117d3dab53821330b6409e8cc"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only states what is directly supported by the evidence, such as the entity, event type, and lack of stated outcome."
+      "detail": "The answer does not state anything beyond what is shown in the evidence and avoids speculation."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (QuorumPeer[myid=1]), the event type (connection failures and timeouts), and accurately notes the absence of a stated outcome."
+      "detail": "The answer correctly identifies the entity (QuorumPeer[myid=1]), the event type (connection failure), and the pattern of failed attempts and timeouts."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by summarizing the event shown in the Zookeeper log near the 17th occurrence of 'Cannot open channel'."
+      "detail": "The answer directly addresses the question by summarizing the event shown in the log near the 11th occurrence of \"Cannot open channel.\""
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes all important aspects from the evidence: the repeated connection failures to peers 2 and 3, the interspersed notification timeouts, and the lack of a stated outcome."
+      "detail": "The answer captures the repeated connection failures, the involvement of peers 2 and 3, and the intermittent timeouts, which are all important parts of the evidence."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:5d9c91795a3e8040a3f841189591969b66c46f17d0d38e901afe998c9f795a42"
+    "prompt_sha256": "sha256:a64e8c633b5c2e55df859cec06a101376e00586f1527f3c1be9cc56b97450dca"
   }
 }

@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_modelsql_count_12_1",
+  "group_ids": [
+    "windows:modelsql:count:12"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:230e12c471557a81a26bb91a2dbca7a702424959836415e0b9fccf902f5036ee"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the total number of log entries mentioning \"WindowsUpdateAgent\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that counts all lines mentioning \"WindowsUpdateAgent\" in a case-insensitive manner, and the answer matches the stated result of that query."
+    }
+  ]
+}

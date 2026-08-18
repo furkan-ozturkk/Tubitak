@@ -1,0 +1,40 @@
+{
+  "question_id": "hdfs_v1_semantic_addstoredblock_11",
+  "group_ids": [
+    "hdfs:semantic:addstoredblock_11"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:19a28edfe9aa86e9ef366436af8dc67258963a233f7fa79e9e3515bd3c32386c"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "no",
+      "detail": "The answer claims the block reception was \"successful\" and \"without issues,\" which is not stated in the evidence."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "partial",
+      "detail": "The answer correctly identifies the event type and entity but misrepresents the outcome as \"successful\" when the evidence does not confirm this."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what is happening in the HDFS log around the 221st occurrence of 'addStoredBlock.'"
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer includes key details from the evidence but omits the fact that the outcome is not confirmed, which is an important part of the evidence."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:1cec08a997de2c4e45a5ce0eb6cf470b127dc63fceca734342f987c7d42a5a1c"
+  }
+}

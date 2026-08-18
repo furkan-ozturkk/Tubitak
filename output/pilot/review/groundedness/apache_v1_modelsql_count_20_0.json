@@ -1,0 +1,29 @@
+{
+  "question_id": "apache_v1_modelsql_count_20_0",
+  "group_ids": [
+    "apache:modelsql:count:20"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:b55419cd7a121facda2546bab047293452b7b282649a34bd75f5a4764ac0fd4e"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of lines in the 'apache' dataset containing the word \"workerEnv\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, directly answering the count question as required."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that correctly counts lines with \"workerEnv\" in the 'apache' dataset, and the sample lines confirm the query's condition matches relevant text."
+    }
+  ]
+}

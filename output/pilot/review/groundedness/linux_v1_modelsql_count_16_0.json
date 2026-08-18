@@ -1,0 +1,29 @@
+{
+  "question_id": "linux_v1_modelsql_count_16_0",
+  "group_ids": [
+    "linux:modelsql:count:16"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:407d9dbe440b2ea95ac99be3603aef29a509845bebd9885fac9df8db1ff80a64"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of lines in the 'linux' dataset that mention the word \"attempts\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that would find lines containing \"attempts\" (case-insensitive), and it states that no line contains this literal, supporting the answer of 0."
+    }
+  ]
+}

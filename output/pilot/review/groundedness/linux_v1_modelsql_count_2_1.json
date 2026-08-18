@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:738871c9d677f70db4fb46ca76d483cb968b5d09a297b5bdf43854dba208d9f2"
+    "prompt_sha256": "sha256:5cf0d91f8f6b8753e1629d42ca3364368ed8e9668735ba6ffce4dcf4457683d3"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and unambiguously asks for the total number of entries in the 'linux' dataset that include the exact phrase 'session opened'."
+      "detail": "The question is clearly phrased and unambiguously asks for the total number of occurrences of the word \"connection\" in the 'linux' dataset."
     },
     {
       "dimension": "answer_matches_question",
@@ -22,8 +22,8 @@
     },
     {
       "dimension": "evidence_supports_answer",
-      "verdict": "partial",
-      "detail": "The lines shown in the evidence are genuine matches of the phrase 'session opened', but the total count of 123 is stated rather than derived from the evidence."
+      "verdict": "yes",
+      "detail": "The evidence shows a query that counts all lines in the 'linux' dataset where the word \"connection\" appears (case-insensitively), and the answer matches the stated result of that query."
     }
   ]
 }

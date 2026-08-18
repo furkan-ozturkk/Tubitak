@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_6_2",
+  "group_ids": [
+    "hadoop:modelsql:count:6"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:cb0eb6b1943fea15da3a11ac5b8e35ed3f502a2cc7179d5fdb4cfa5c4bab6294"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of log entries in the 'hadoop' dataset containing the word \"Recalculating\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that correctly filters for the 'hadoop' dataset and matches lines containing \"Recalculating\" (case-insensitively), and the answer matches the stated result of that query."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "linux_v1_modelsql_count_12_0",
+  "group_ids": [
+    "linux:modelsql:count:12"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:f3ae4d55c8cf4d5c79020c13a6fb4d425f1c71f520c575dfc2fa6523a2ca1a76"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of lines in the 'linux' dataset that mention the exact phrase \"check pass\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that counts lines matching the phrase \"check pass\" in the 'linux' dataset, and the answer matches the stated result of that query."
+    }
+  ]
+}

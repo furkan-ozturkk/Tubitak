@@ -1,0 +1,29 @@
+{
+  "question_id": "zookeeper_v1_modelsql_count_24_0",
+  "group_ids": [
+    "zookeeper:modelsql:count:24"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:4e90b0335aa3780a999a41d8cc59de47d00101d230fca96d4ce3ce0b12572150"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'zookeeper' dataset containing the word \"Connection\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, directly answering the count question as required."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that correctly counts lines in the 'zookeeper' dataset containing \"connection\" (case-insensitive), and the answer matches the stated result of that query."
+    }
+  ]
+}

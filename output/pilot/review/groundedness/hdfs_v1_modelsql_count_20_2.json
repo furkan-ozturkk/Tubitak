@@ -1,0 +1,29 @@
+{
+  "question_id": "hdfs_v1_modelsql_count_20_2",
+  "group_ids": [
+    "hdfs:modelsql:count:20"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:800a4992f8a366780a7d96a368f2fd1d95748e5aa78be7785870e0b82448cea7"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question clearly asks for the count of log entries referencing \"PacketResponder\" and is unambiguous in its intent."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that counts lines with \"PacketResponder\" in a case-insensitive manner, and the result of that query is stated to be 603."
+    }
+  ]
+}

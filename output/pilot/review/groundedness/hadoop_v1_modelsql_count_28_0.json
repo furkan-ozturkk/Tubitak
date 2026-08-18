@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_28_0",
+  "group_ids": [
+    "hadoop:modelsql:count:28"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:ef980240feadbc98049f888f847e8bd49c7e5c361a150fd8d9de630dc39f681c"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'hadoop' dataset containing the word \"WARN\" followed by any characters until the end of the line."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The EVIDENCE shows a query that would find lines starting with \"warn\" (case-insensitive), but the evidence also states that no line in the dataset contains the exact literal \"WARN\" as a substring, suggesting the query may not have found any matches, which supports the answer of 0, but the evidence is somewhat ambiguous."
+    }
+  ]
+}

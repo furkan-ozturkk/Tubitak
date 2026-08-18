@@ -5,9 +5,9 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:2f9e4246d4508e392e9fafc2876820cb183f73034946aa2841253812a29a658d"
+    "prompt_sha256": "sha256:829dd321fa84e9875ffeff91a833182efacdbca7817c60d272e88a11777cb445"
   },
   "checks": [
     {
@@ -18,7 +18,7 @@
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (183.62.140.253), the event type (failed password attempts and disconnects), and the outcome (no successful authentication)."
+      "detail": "The answer correctly identifies the entity (183.62.140.253), the event type (failed password attempts and disconnects), and the lack of a successful outcome."
     },
     {
       "dimension": "relevant",
@@ -35,6 +35,6 @@
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:ccc5deaf908452e7c8da73dc659bd06a802a01560b3adf4d563e65630e302028"
+    "prompt_sha256": "sha256:b473da4c30ba854364940cfba129e3ed63f3c1be7c4e2ce1af224e0d5ec821c5"
   }
 }

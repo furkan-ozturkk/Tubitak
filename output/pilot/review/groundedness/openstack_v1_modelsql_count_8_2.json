@@ -1,0 +1,29 @@
+{
+  "question_id": "openstack_v1_modelsql_count_8_2",
+  "group_ids": [
+    "openstack:modelsql:count:8"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:fb84ee2a66ff6ca8b903f375830b98948d8b4f9d0470e44e2e70b6a8cf3753f8"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the number of times the word \"Creating\" appears in the log entries of the 'openstack' dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence shows a query that finds lines containing \"creating\" (case-insensitive), but it does not count how many times the word appears in each line, only how many lines contain it. The answer assumes each line contains one occurrence, which may not be accurate."
+    }
+  ]
+}

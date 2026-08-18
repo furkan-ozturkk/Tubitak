@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:fdcc5b0118450d7a6cb7f8cc9843a8f5bbf1ccb26071401bc1911e2a241bd441"
+    "prompt_sha256": "sha256:174b522c8ceb210d2616b9731571e2ddb5b55f853f268f2b43218810c67f805c"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only states what is directly supported by the evidence, such as the entity, the event type, and the lack of stated outcome."
+      "detail": "The answer only states what is directly supported by the evidence, such as the entity, the repeated event, and the lack of stated outcome."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (R02-M1-N0-C:J12-U11), the event type (instruction cache parity error corrected), and the lack of stated outcome."
+      "detail": "The answer correctly identifies the entity, the event type (\"instruction cache parity error corrected\"), and the lack of a stated outcome."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by describing what is happening in the BGL log around the specified event, rather than just restating the structured summary."
+      "detail": "The answer directly addresses the question by describing what is happening in the BGL log around the specified event."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence—entity, event, timing, and lack of stated outcome—without omitting important information."
+      "detail": "The answer includes the key details from the evidence: the entity, the repeated nature of the event, the approximate time span, and the lack of a stated outcome."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:d8a68193d8953e65af71c4d466a9f5ff93759e10d538f3772d4787dea414d420"
+    "prompt_sha256": "sha256:275cb3fa6edbe0b65b01db85ada14aebb3ffb87afaa6625fe0da8e956ddd0014"
   }
 }

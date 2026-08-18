@@ -1,0 +1,29 @@
+{
+  "question_id": "linux_v1_modelsql_count_12_1",
+  "group_ids": [
+    "linux:modelsql:count:12"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:3a3566b571bad02b6410ba50d58037d9814ddafa3d2998dca68f74db69eb4a59"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the total number of occurrences of the exact phrase \"check pass\" in the 'linux' dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that correctly counts lines in the 'linux' dataset where the text contains \"check pass\" (case-insensitively), and the answer matches the stated result of that query."
+    }
+  ]
+}

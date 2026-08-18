@@ -1,0 +1,40 @@
+{
+  "question_id": "openstack_v1_semantic_nova_osapi_compute_wsgi_server_12",
+  "group_ids": [
+    "openstack:semantic:nova_osapi_compute_wsgi_server_12"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:11b253aae68ddab1febe59b9c35e906fd0298340b8588f0399d5bbf3a52a2b22"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the repeated GET requests and successful 200 responses."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, the event type (GET requests for server details), and the outcome (successful 200 responses)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about summarizing the event shown in the log, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: the entity, the repeated GET requests, and the successful responses."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:22dc5ee9a637844484027d9dfda4922439b03d032f1151283506e0253746d425"
+  }
+}

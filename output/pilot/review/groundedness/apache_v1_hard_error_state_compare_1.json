@@ -1,0 +1,41 @@
+{
+  "question_id": "apache_v1_hard_error_state_compare_1",
+  "group_ids": [
+    "apache:hard:error_state_compare:1:8",
+    "apache:hard:error_state_compare:1:9"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:eed095f2caf548ec6fc98015d375d4f191dd131980b4cc64bf52e6ab25ec3dbc"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes the frequency and timing of occurrences to each respective error state without conflating them."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of frequency (30 vs. 20) and the overlapping timing of occurrences is directly supported by the evidence provided."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not name any specific cause, actor, or motive not present in the evidence and avoids speculative causality."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "partial",
+      "detail": "The answer addresses the recurrence and persistence of the error states and identifies error state 8 as more persistent, but it does not provide a root-cause judgment as requested in the question."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:b2d70c36a4de4e9946577769f74461ec571ba2848bc4c549c0c808c95a426776"
+  }
+}

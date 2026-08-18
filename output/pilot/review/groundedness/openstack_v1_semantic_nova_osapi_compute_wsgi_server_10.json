@@ -1,0 +1,40 @@
+{
+  "question_id": "openstack_v1_semantic_nova_osapi_compute_wsgi_server_10",
+  "group_ids": [
+    "openstack:semantic:nova_osapi_compute_wsgi_server_10"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:a5fbaea22206d798809324c59094d398eef8b401e466f1efe33733004b212070"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the instance being started, power state synchronization discrepancy, and the instance being paused."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (bf8c824d-f099-4433-a41e-e3da7578262e), the events (started, power states synchronized, paused), and the outcome (instance paused)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining what happened around the 531st occurrence of 'nova.osapi_compute.wsgi.server' and what it means, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer is reasonably complete, covering the key events (start, synchronization issue, pause) and providing a plausible interpretation of the outcome."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:4aeb4a0ab7e80b835203c942c3d0c787d50fb1c9c226b97ea6d1fc40aa6e3bd9"
+  }
+}

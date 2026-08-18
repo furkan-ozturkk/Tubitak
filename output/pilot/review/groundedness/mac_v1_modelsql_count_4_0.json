@@ -7,23 +7,23 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:d0ab24f52e468bbb5bfbd04ea0d60007a64ed994f6dd30a0c46f2681c46a91de"
+    "prompt_sha256": "sha256:7da35d54b1df63a01c6c19312bc1117544b27782a899268da498ad295d70f909"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks for the count of log entries in the 'mac' dataset that mention the literal word \"kernel\"."
+      "detail": "The question is clearly phrased and asks for the count of log entries in the 'mac' dataset that mention the word \"kernel\"."
     },
     {
       "dimension": "answer_matches_question",
       "verdict": "yes",
-      "detail": "The answer is a bare integer, as required for a count question."
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
     },
     {
       "dimension": "evidence_supports_answer",
-      "verdict": "partial",
-      "detail": "The lines shown in the evidence do contain the word \"kernel\", but since only a sample is shown and the total count is not verified by the evidence, it is not possible to confirm if 775 is accurate based solely on the evidence provided."
+      "verdict": "yes",
+      "detail": "The query selects lines from the 'mac' dataset where the text contains \"kernel\" (case-insensitive), and the answer matches the count of those lines."
     }
   ]
 }

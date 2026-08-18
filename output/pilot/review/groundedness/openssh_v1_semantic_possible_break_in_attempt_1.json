@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:02d99d1d627548ef9c365bb705e6e47a108fdd3e0365879be0b141c8bd37a0a3"
+    "prompt_sha256": "sha256:d2b626d49799f270daeec0333ddba4801b672fc3afc4b189653235bcbd287339"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only states what is directly supported by the evidence, such as failed authentication attempts, reverse mapping issues, and disconnections."
+      "detail": "The answer only describes events and outcomes explicitly mentioned in the evidence without adding unsupported claims."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (187.141.143.180), the event type (authentication attempts), and the outcome (failures and disconnections)."
+      "detail": "The answer correctly identifies the entity (103.99.0.122), the event type (invalid user login attempt, password failure, disconnection), and the outcome (no successful authentication)."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer specifically describes what is happening in the OpenSSH log around the ninth occurrence of 'POSSIBLE BREAK-IN ATTEMPT', as the question requested."
+      "detail": "The answer directly addresses the question about what is happening in the log around the relevant event, rather than just summarizing the structured summary."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence: failed reverse mapping, failed password attempts for root, and repeated disconnections."
+      "detail": "The answer includes all key details from the evidence: the invalid user, password failure, disconnection, and the likely intent of the attempt."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:8aea572588dd072ad9b456e80e734b8fdfb62fe644b3cf4356a4e0136af0a951"
+    "prompt_sha256": "sha256:24f93a31bf136588fc629f4acad9d4bc1ef45b4fef497fe6d8336f5299ff74c3"
   }
 }

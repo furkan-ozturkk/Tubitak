@@ -1,0 +1,36 @@
+{
+  "question_id": "mac_v1_semantic_wake_reason_12",
+  "group_ids": [
+    "mac:semantic:wake_reason_12"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:88069d4ddfb01eff56f82b810cb072c83a6dccd2768475ed452470c5c1425e26"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "correct",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial"
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:546a1f43ef33f36ef25657be5c9a5463e4ac5370c2430c89b80f0e682defd790"
+  }
+}

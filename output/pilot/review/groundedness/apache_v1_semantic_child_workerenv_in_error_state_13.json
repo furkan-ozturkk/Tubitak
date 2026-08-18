@@ -1,0 +1,40 @@
+{
+  "question_id": "apache_v1_semantic_child_workerenv_in_error_state_13",
+  "group_ids": [
+    "apache:semantic:child_workerenv_in_error_state_13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:29597f25b2ad8ef47ccb7e3d6cd91c6198689f1ff9d57175d5fe24d07338afa2"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the initialization of workerEnv, errors in mod_jk child workerEnv, and the discovery of child processes in scoreboard slots."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the evidence, correctly identifying the entity (workerEnv), the event type (system log events), and the outcomes (initialization success, error states, and active child processes)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what took place around the error state mentions and their significance, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer is reasonably complete, covering the key points from the evidence: successful initializations, error states, and active child processes in scoreboard slots."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:595e48ac2d115c71080073c8ecab06168f76a78b97b25f65182b4cdd67b392c4"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "question_id": "openstack_v1_hard_instance_activity_compare_4",
+  "group_ids": [
+    "openstack:hard:instance_activity_compare:4:95960536_049b_41f6_9049_05fc479b6a7c",
+    "openstack:hard:instance_activity_compare:4:96abccce_8d1f_4e07_b6d1_4b2ab87e23b4"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:e03c20c28733c035171ce2c78b662f709d3d961ed84d70cb4400e73a938ddc90"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly references facts from each group without misattributing details between them."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of the \"During sync_power_state\" messages between the two groups is directly supported by the evidence."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not assign specific causes or motives not present in the evidence, focusing instead on observed log patterns."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer identifies which instance shows a more troubling pattern and explains the reasoning based on the evidence."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:73b4591e3847f41c26982a0c4a22740a6e89dc899a9478e48acda0d3d1ea0067"
+  }
+}

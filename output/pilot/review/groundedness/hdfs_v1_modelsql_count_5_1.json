@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:4ae729d69478579b3691b529918283b9f3f9d874190e575a55df5741e32cf8e4"
+    "prompt_sha256": "sha256:393fea27890a11dc9b7495bd12a1d84f8df8d47ce17fb3e5ca1cbcf607476f24"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks for the count of log entries in the 'hdfs' dataset that do not contain any numbers."
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'hdfs' dataset containing \"WARN\" but not \"exception\"."
     },
     {
       "dimension": "answer_matches_question",
@@ -23,7 +23,7 @@
     {
       "dimension": "evidence_supports_answer",
       "verdict": "partial",
-      "detail": "The evidence suggests that no line contains the exact literal \"0\", but it does not confirm whether any numbers (e.g., \"1\", \"2\", etc.) appear in the dataset or how many lines lack any numbers entirely."
+      "detail": "The evidence shows the query that would compute the correct answer, but it does not provide the actual result of that query. The answer \"0\" may or may not be correct based on the dataset, but the evidence does not confirm it."
     }
   ]
 }

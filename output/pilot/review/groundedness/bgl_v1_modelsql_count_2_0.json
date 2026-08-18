@@ -7,23 +7,23 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:5c6efc8667d93f4aeb93d2357eb3ed1e0dce604a5cab9c6befe7f02c9f004444"
+    "prompt_sha256": "sha256:9d8e3978297610d6c84a4faa3faa19f90851a9a46e3f70a60635b7594d874db6"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and unambiguously asks for the number of log entries in the 'bgl' dataset that contain the exact phrase \"generating core\"."
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'bgl' dataset containing the exact phrase \"RAS KERNEL FATAL\"."
     },
     {
       "dimension": "answer_matches_question",
       "verdict": "yes",
-      "detail": "The answer is a bare integer, which is the correct form for a count question."
+      "detail": "The answer is a bare integer, which is the correct form for a count-based question."
     },
     {
       "dimension": "evidence_supports_answer",
-      "verdict": "partial",
-      "detail": "The lines shown in the evidence appear to be genuine matches of the phrase \"generating core\", but the evidence does not confirm the total count of 721."
+      "verdict": "yes",
+      "detail": "The evidence includes a query that correctly filters for the 'bgl' dataset and matches the phrase \"RAS KERNEL FATAL\" using a case-insensitive search, and it states that the query returns 240 matching lines."
     }
   ]
 }

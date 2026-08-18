@@ -1,0 +1,41 @@
+{
+  "question_id": "hadoop_v1_hard_container_attempt_link_6",
+  "group_ids": [
+    "hadoop:hard:container_attempt_link:6:container_1445144423722_0020_01_000008",
+    "hadoop:hard:container_attempt_link:6:attempt_1445144423722_0020_m_000006_0"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:35ad99d6f09c0af9c5a90b2c8c309fa500a2851bff3096b211e84a696b78d7d4"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes events to each group without misrepresenting facts from one group as belonging to the other."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The answer describes the relationship between the container and task attempt based on the shared container assignment and task launch events in the evidence."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer avoids asserting specific causes or motives not present in the evidence and instead describes the observed relationship and lack of issues."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by correlating the sequences and determining that neither side shows a problem the other doesn't explain."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:4691412ad0f5bb172ea6467b555a11e54fe0f631850ebadfb15a4301924db280"
+  }
+}

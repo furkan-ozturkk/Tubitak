@@ -1,0 +1,40 @@
+{
+  "question_id": "openstack_v1_semantic_nova_osapi_compute_wsgi_server_13",
+  "group_ids": [
+    "openstack:semantic:nova_osapi_compute_wsgi_server_13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:4afcaf57aa564c2ef00ae3b2b204b1659e6d8b52c7ef038412ff62cc076a24e4"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only includes information directly supported by the evidence provided in the logs and structured summary."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type (instance spawning), and outcome (successful spawning in 19.19 seconds) as shown in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by describing what took place around the 690th occurrence of 'nova.osapi_compute.wsgi.server' and its significance."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all key aspects of the evidence: image usage check, base files, API requests, VM resumption, and the successful spawning of the instance."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:91a47084b6bd004a9199519a72df1017aad5ca73b34f685ebb2217276c9dadbe"
+  }
+}

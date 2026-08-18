@@ -1,0 +1,41 @@
+{
+  "question_id": "hdfs_v1_hard_datanode_activity_compare_7",
+  "group_ids": [
+    "hdfs:hard:datanode_activity_compare:7:10_251_201_204",
+    "hdfs:hard:datanode_activity_compare:7:10_251_203_149"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:33264fabb8bbe7b2724bc1bc9334630f54ce2f378c697ded0223082a5c02790d"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes events to each DataNode without misrepresenting or conflating their activities."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison between the two DataNodes is based on the actual patterns of block reception and deletion present in the evidence."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not assign specific causes or motives not present in the evidence, such as node configuration or network conditions."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by contrasting the two DataNodes' activities and evaluating which is more concerning, based on the evidence provided."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:966d00acf3ad54eddf9e9b37018d748611bccf8b70525b24c6fa99ff0e76aee9"
+  }
+}

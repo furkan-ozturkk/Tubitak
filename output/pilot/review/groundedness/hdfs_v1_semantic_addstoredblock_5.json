@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:5337b6312c60002162f2cc0070e2bb87ea6bc463a74c266a79cb363afee9307f"
+    "prompt_sha256": "sha256:440f65d0ffdcd0bf9e0fd0b2580976b8d0b010b363c129c697cc204240c2f200"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only states what is directly supported by the evidence, such as the block being received, added to the block map, and packet responders terminating."
+      "detail": "The answer only states what is directly supported by the evidence and does not add unsupported claims."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the block, the event type (block reception and storage), and the observed events (receiving blocks, adding to block map, terminating packet responders)."
+      "detail": "The answer correctly identifies the entity, event type, and notes the lack of stated outcome as per the evidence."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by explaining what happened with the block around the 156th occurrence of 'addStoredBlock' and what it means in terms of data distribution."
+      "detail": "The answer directly addresses the question about the 101st occurrence of 'addStoredBlock' and explains what happened and what it means."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence: the block being received, the addition to the block map, the termination of packet responders, and the indication of data distribution."
+      "detail": "The answer includes the key details from the evidence: the block reception, map update, packet receipt, and termination of the packet responder."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:fd5191fa090678f5ed798f366857698c4601b89c0307abf2a298941918ec5be0"
+    "prompt_sha256": "sha256:d0f38ce3bc2bfb5c80fd3f8a91579bb0658c1702ac371c7c0ac10749f922cf3d"
   }
 }

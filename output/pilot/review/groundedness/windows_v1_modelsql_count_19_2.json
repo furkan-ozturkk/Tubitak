@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_modelsql_count_19_2",
+  "group_ids": [
+    "windows:modelsql:count:19"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:2ef9aee77d269bbc07bdc8646a9279b2c88801da40aa1bebb3489599fce8132b"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of lines in the 'windows' dataset that lack any error messages."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query filters lines in the 'windows' dataset that do not contain any of the specified error-related keywords, and the result of 1470 matches is consistent with the logic of the query and the provided evidence."
+    }
+  ]
+}

@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:67e892707ae1f0b730156de199ad313d104db81d04bfab0cd3b11594155d95e5"
+    "prompt_sha256": "sha256:c6888df56aa59ae4ce4187d5d5114167cb7cd7db175458d2b5199acbceacb32b"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only states what is directly supported by the evidence, such as the entity, the event type, and the time frame."
+      "detail": "The answer avoids stating anything not shown in the evidence, such as the specific details of the ninth occurrence or the technical meaning of the error."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity, the event type (instruction cache parity error corrected), and notes that the outcome is not stated, as per the evidence."
+      "detail": "The answer correctly identifies the entity, event type, and outcome as described in the evidence."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer addresses the specific question about the BGL log and the 17th occurrence by explaining what the log shows and what it means, rather than just restating the summary."
+      "detail": "The answer addresses the question by discussing the BGL log around the ninth occurrence and explaining what the event means, rather than just restating the structured summary."
     },
     {
       "dimension": "sufficient",
       "verdict": "partial",
-      "detail": "The answer mentions the entity and the event, and the time frame, but it does not specifically address the 17th occurrence of the event or provide details about what the 17th occurrence means in context."
+      "detail": "The answer is reasonably complete but omits specific details about the ninth occurrence and the technical explanation of what an instruction cache parity error means."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:03a75c45b9eed5b8ff6ea80fd058c0ef8cc9ded3f7b6b2ed6066bc92cd438ff9"
+    "prompt_sha256": "sha256:8b53d324aedd79dd73bae3dd7e5ac7d86d7ddfea3f27aa482e3846cc63711d79"
   }
 }

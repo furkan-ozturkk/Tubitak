@@ -1,0 +1,40 @@
+{
+  "question_id": "zookeeper_v1_semantic_cannot_open_channel_13",
+  "group_ids": [
+    "zookeeper:semantic:cannot_open_channel_13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:e85ab17828162c80c7613926f031a461c117c84b87277a4869dd7937b0f96186"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as connection failures, timeouts, and repeated issues with nodes 2 and 3."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (QuorumPeer[myid=1]), the event type (connection failures and timeouts), and the observed events (repeated failures to open channels to nodes 2 and 3)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what took place around the 66th occurrence of 'Cannot open channel' and its significance, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key points from the evidence: the entity, the repeated failures, the notification timeouts, and the implication of a persistent issue."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:55e17c403a2970147f1aebec0f21ad03c8bfc88486b1e161c4ba92b1d5edb307"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "question_id": "openstack_v1_semantic_nova_osapi_compute_wsgi_server_14",
+  "group_ids": [
+    "openstack:semantic:nova_osapi_compute_wsgi_server_14"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:3dc0b21038a350ec93176816a818204d0dea485bb1d8c5b3e02da2320cd02c4e"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "correct",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial"
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:e6731939cb81aa837a2be2b32a5f7aa6b86d7a3616b372e96459b3f10bb4af72"
+  }
+}

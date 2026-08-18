@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:9b93455253d0c33ccb9e7f394ab7a5c2655ed950ca6cda3a124f648040b7b5a7"
+    "prompt_sha256": "sha256:52eba2a7acb1b14f688386bf0761a4510543cb9300ca86904cacf2e69f5cd6e7"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer avoids stating anything not shown in the evidence and accurately summarizes the described events."
+      "detail": "The answer avoids stating anything not shown in the evidence and accurately reflects the described events."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity, event type, and outcome as reflected in the evidence."
+      "detail": "The answer correctly identifies the entity, event type, and outcome as described in the evidence."
     },
     {
       "dimension": "relevant",
-      "verdict": "yes",
-      "detail": "The answer addresses the specific question about the event near the seventh \"wake reason\" by summarizing relevant system and application events."
+      "verdict": "no",
+      "detail": "The answer does not specifically address the event near the fifth occurrence of \"wake reason\" but instead summarizes all events generically."
     },
     {
       "dimension": "sufficient",
-      "verdict": "yes",
-      "detail": "The answer includes the key events from the evidence without omitting important details."
+      "verdict": "partial",
+      "detail": "The answer summarizes the overall events but omits the specific focus on the event near the fifth \"wake reason\" occurrence, which is the core of the question."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:f6c5e3b525355e4817711c56777c32584278d5cb9b6e7550ed73a730d1440c66"
+    "prompt_sha256": "sha256:354905bd574c1ef4e10721f8e976493bbf1048e9bf449b5f8c94c07c0d26908f"
   }
 }

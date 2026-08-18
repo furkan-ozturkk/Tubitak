@@ -1,0 +1,40 @@
+{
+  "question_id": "bgl_v1_semantic_instruction_cache_parity_error_corrected_13",
+  "group_ids": [
+    "bgl:semantic:instruction_cache_parity_error_corrected_13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:58dc18b8f4734d99bdc1ce0f95dab210b5f749ecd0996f60e3847397c3570fba"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the instruction cache parity errors and the generation of core events on various nodes."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the event type (instruction cache parity error corrected), the entity (R02-M1-N0-C:J12-U11 and others), and the outcome (none stated)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what took place and its significance, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key elements from the evidence: the instruction cache parity errors, the generation of core events, and the time frame, making it reasonably complete."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:d2b10175c3d12b717d94dd418fc6c60a78dcb5c7bf1a19e9517a5aa744ec41c5"
+  }
+}

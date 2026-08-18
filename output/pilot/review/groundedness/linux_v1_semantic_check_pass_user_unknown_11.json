@@ -1,0 +1,40 @@
+{
+  "question_id": "linux_v1_semantic_check_pass_user_unknown_11",
+  "group_ids": [
+    "linux:semantic:check_pass_user_unknown_11"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:450610373e993b86cccb7b5a48dbc07519929d13a65fdcdd5c4a1aa28938084a"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence, such as the intent behind the authentication failures or any specific user targets."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the entity (sshd(pam_unix)), the event type (authentication failures), and the outcome (none stated), as described in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what is happening in the log around the described event, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence—multiple authentication failures from the same host, the timestamps, and the possible implications—without omitting important information."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:110436dc5258fd93d122b75cafe0cff1d27399a476ce9402b6bd10c638ebe2ff"
+  }
+}

@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:76fa34dbecc49aee5444608628fa58227dfaa2c810070c0306b3c67fd36168ef"
+    "prompt_sha256": "sha256:0c9b9978548df45face527810f26e436063656c73c26ac3308ca827097e5ae77"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only mentions events and details explicitly present in the evidence and does not add unsupported information."
+      "detail": "The answer avoids stating anything not shown in the evidence and accurately summarizes the described events."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (authorMacBook-Pro), the event type (system and application logs), and accurately reflects the outcomes described in the evidence."
+      "detail": "The answer correctly identifies the entity, event type, and outcome as reflected in the evidence."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer addresses the specific event near the 22nd occurrence of 'wake reason' and goes beyond a generic summary by focusing on relevant details."
+      "detail": "The answer addresses the specific question about the event near the 15th 'wake reason' by summarizing the relevant system log events."
     },
     {
       "dimension": "sufficient",
-      "verdict": "partial",
-      "detail": "The answer captures the main notable error and some other issues, but it omits the specific wake reason event (Host 0x01) and multitouch device start, which are also relevant to the question."
+      "verdict": "yes",
+      "detail": "The answer includes the key processes, errors, and outcomes described in the evidence without omitting important details."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:67ab35e31bd99158e038d88222d5907963de01afb364d02951ff431d0e35ead7"
+    "prompt_sha256": "sha256:41673cd8e1741da4b5701ecacf1680842ef75c56c3b1b4c7b4a8ca45fa6c02ed"
   }
 }

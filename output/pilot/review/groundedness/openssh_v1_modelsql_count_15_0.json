@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_modelsql_count_15_0",
+  "group_ids": [
+    "openssh:modelsql:count:15"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:aeda41b09c9490433cb70760c9da3900d6564b57e2fb4292f90674e59d95d37a"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of lines in the openssh dataset without any uppercase letters."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The query correctly identifies lines without uppercase letters, but the evidence does not confirm the answer is 0 — it only shows one line that may or may not meet the condition."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "hdfs_v1_modelsql_count_12_2",
+  "group_ids": [
+    "hdfs:modelsql:count:12"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:bb46a8abade5f17b9a8847af3d20ebfe56ed813ca54745f92b5b8ad82e02fdc1"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of occurrences of the word \"verification\" in the 'hdfs' dataset log entries."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query and the example lines confirm that the query correctly identifies lines containing \"verification\" in a case-insensitive manner, and the count of 20 is stated as the result of that query."
+    }
+  ]
+}

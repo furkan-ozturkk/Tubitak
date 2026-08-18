@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:d0b897c68f1c2558bf7e58638f536b3ae677bea69220fc023684933e52c7b135"
+    "prompt_sha256": "sha256:3eb7e51f27755812fd44cd45a1248bd1e757c59f64cfb96c68728bbdbd8c02f2"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks for the count of lines in the 'hadoop' dataset that include \"WARN\" but exclude \"ERROR\"."
+      "detail": "The question is clearly phrased and asks for the count of log entries in the 'hadoop' dataset containing the word \"DEBUG\"."
     },
     {
       "dimension": "answer_matches_question",
@@ -23,7 +23,7 @@
     {
       "dimension": "evidence_supports_answer",
       "verdict": "partial",
-      "detail": "The lines shown in the evidence do include \"WARN\" and do not include \"ERROR\", so they are genuine matches, but the evidence does not confirm whether the total count of 806 is accurate."
+      "detail": "The evidence shows a query that would find lines with \"debug\" (case-insensitive), but it does not show the result of that query, so we cannot be certain the answer is correct without seeing the count result."
     }
   ]
 }

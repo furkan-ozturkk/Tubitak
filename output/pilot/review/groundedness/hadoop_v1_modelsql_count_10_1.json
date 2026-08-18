@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_10_1",
+  "group_ids": [
+    "hadoop:modelsql:count:10"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:7078a0124b54b2e5975b65271c7fa1620657fc9ff3005747bdf6290a18d2911f"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the total number of log entries in the 'hadoop' dataset that mention \"Container\" immediately followed by a number."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence includes a query that should find the relevant log entries, but it is stated that no line in the dataset contains this literal (0 matches from an exact substring search), which suggests the answer may be correct, but the evidence does not include actual results from the query execution."
+    }
+  ]
+}

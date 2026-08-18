@@ -7,23 +7,23 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:e97f2be7188bf00728b117226d2d0f3543a0f6482eb19c9ffb842bfde4de0814"
+    "prompt_sha256": "sha256:5ce8fbbd612b4c2c57afbdbdd15db0e66a7bd79502595831f22d3fc720c353e3"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and unambiguously asks about the number of log entries in the 'bgl' dataset that contain the exact phrase \"double-hummer alignment exceptions.\""
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'bgl' dataset containing the phrase \"floating point instr\"."
     },
     {
       "dimension": "answer_matches_question",
       "verdict": "yes",
-      "detail": "The answer is a bare integer, which is the correct form for a count-based question."
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
     },
     {
       "dimension": "evidence_supports_answer",
-      "verdict": "partial",
-      "detail": "The lines shown in the evidence do contain the exact phrase \"double-hummer alignment exceptions,\" so they are genuine matches. However, the evidence only shows a sample of 5 lines and does not confirm the total count of 109."
+      "verdict": "yes",
+      "detail": "The evidence shows a query that correctly filters for the dataset and the phrase, and the count of 4 matches is stated as the result of that query."
     }
   ]
 }

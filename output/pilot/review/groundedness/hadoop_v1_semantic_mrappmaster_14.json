@@ -1,0 +1,40 @@
+{
+  "question_id": "hadoop_v1_semantic_mrappmaster_14",
+  "group_ids": [
+    "hadoop:semantic:mrappmaster_14"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:4ae3e76ccfdccd0b541bf1aeeb442ea318d70087f498d984695f5301fa0060e5"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and accurately reflects the information provided."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (job_1445144423722_0020), the event type (job initialization), and the outcome (transition to INITED state), all of which are supported by the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by explaining what the log shows around the 15th occurrence of 'MRAppMaster' and what it means, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key points from the evidence: the job token addition, the decision not to uberize, the input size and splits, the number of reduces, the job state transition, and the MRAppMaster launch."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:0a071cb63f14443941a9b65c2cb4b3034a0d037eaf70ca330daa128689836f05"
+  }
+}

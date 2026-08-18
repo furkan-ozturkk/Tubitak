@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:95da08b5000612743bc20445fb4f55d1edfbfba3a9eeafb3e1347c937878ac8c"
+    "prompt_sha256": "sha256:7d117afecadd1391bfcccd5034c204426474dbdb2f6a96a06090f221046745ac"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'hadoop' dataset that do not contain \"INFO\", \"WARN\", or \"ERROR\"."
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'hadoop' dataset that do not contain the words \"INFO\" or \"ERROR\"."
     },
     {
       "dimension": "answer_matches_question",
@@ -22,8 +22,8 @@
     },
     {
       "dimension": "evidence_supports_answer",
-      "verdict": "partial",
-      "detail": "The evidence suggests that no line contains the exact literal mentioned, but it does not confirm whether the SQL query correctly identified entries lacking \"INFO\", \"WARN\", or \"ERROR\" in general."
+      "verdict": "yes",
+      "detail": "The evidence shows a query that correctly filters out entries with \"INFO\" or \"ERROR\" (case-insensitively), and the result of that query is stated to be 806, which matches the answer."
     }
   ]
 }

@@ -1,0 +1,29 @@
+{
+  "question_id": "mac_v1_modelsql_count_9_1",
+  "group_ids": [
+    "mac:modelsql:count:9"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:a2cf5e686959565823aa50df75df1c54919df2b0dc128f44401962a4cfd87986"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the total number of log entries in the 'mac' dataset that consist entirely of lowercase characters."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count-based question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The EVIDENCE provides a query that would identify lines without uppercase letters, but it does not confirm the actual count of such lines, so it partially supports the answer without definitive proof."
+    }
+  ]
+}

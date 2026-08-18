@@ -13,7 +13,7 @@
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks for the total number of lines in the 'hdfs' dataset that include the word \"terminating\"."
+      "detail": "The question is clearly phrased and unambiguously asks for the total number of lines in the 'hdfs' dataset that include the word \"terminating\"."
     },
     {
       "dimension": "answer_matches_question",
@@ -23,7 +23,7 @@
     {
       "dimension": "evidence_supports_answer",
       "verdict": "yes",
-      "detail": "The evidence shows a query that correctly filters lines in the 'hdfs' dataset containing \"terminating\" (case-insensitively), and the answer matches the stated result of that query."
+      "detail": "The evidence shows a query that correctly filters for the 'hdfs' dataset and lines containing \"terminating\", and the count of 311 is stated as the result of that query."
     }
   ]
 }

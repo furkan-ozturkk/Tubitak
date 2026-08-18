@@ -1,0 +1,41 @@
+{
+  "question_id": "hadoop_v1_hard_container_attempt_link_5",
+  "group_ids": [
+    "hadoop:hard:container_attempt_link:5:container_1445144423722_0020_01_000007",
+    "hadoop:hard:container_attempt_link:5:attempt_1445144423722_0020_m_000005_0"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:99dd04d9eac2a3f3d50da70576f75b0d11dfa3e8bdb9d339e6905a7f122f0ffc"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes facts to each group without misrepresenting one group's events as the other's."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The answer describes the relationship between the two groups based on the explicit assignment and event sequence in the evidence."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not introduce any causal claims or actor identities not present in the evidence."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining that the attempt's history explains the container's events, with no unaccounted discrepancies."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:8d1685dc146e979e8dff18a225d40c53913958adca5968a95bdb099718929ab8"
+  }
+}

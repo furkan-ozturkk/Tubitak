@@ -1,0 +1,41 @@
+{
+  "question_id": "hdfs_v1_hard_datanode_activity_compare_4",
+  "group_ids": [
+    "hdfs:hard:datanode_activity_compare:4:10_251_39_179",
+    "hdfs:hard:datanode_activity_compare:4:10_251_42_84"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:7c361bf49cff1eee8df1c9a42ef1040c0d5ffa42d64bc1d9d6a520662e1d906a"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes facts to each group without mixing or misattributing information between them."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison between the two groups is based on the presence of warnings in one group and their absence in the other, which is directly supported by the evidence."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not name a specific cause, actor identity, category, or motive not present in the evidence, and instead focuses on the observed patterns."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer identifies which DataNode shows a more troubling pattern and provides reasoning based on the evidence, addressing the question fully."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:88270dec565c0e059750f56700f9314bc58a5f06399fd1c6134ed237e7a24630"
+  }
+}

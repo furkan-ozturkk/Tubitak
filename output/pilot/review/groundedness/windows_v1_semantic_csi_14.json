@@ -1,0 +1,40 @@
+{
+  "question_id": "windows_v1_semantic_csi_14",
+  "group_ids": [
+    "windows:semantic:csi_14"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:c271fc1fa57496f365f1e152ca778bbe70b1a18415f3d113ea21e8f9ddd7a0b2"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence and sticks to the described events and their implications."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (CSI), the event type (scavenge operation), and the outcome (completed with disposition 0x1)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the 15th occurrence of 'CSI' in the log and explains what it means, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key steps of the scavenge operation, the NT transaction creation, and the completion message, covering the important parts of the evidence."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:6cd89251d6795ca8073bd8dea3422fc5822771d36e6171bf2dfa8ae7aa0eecec"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "question_id": "hdfs_v1_semantic_deleting_block_12",
+  "group_ids": [
+    "hdfs:semantic:deleting_block_12"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:6a7a9a4f530c807cd9a4a652780af0d4c5e6e6983cad97c8ceccea582b4559d0"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "correct",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial"
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:60fccfb237133edcda6426368e1be9a985ac0b4e9708c46d2ccb7f431d87addf"
+  }
+}

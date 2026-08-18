@@ -1,0 +1,41 @@
+{
+  "question_id": "openstack_v1_hard_instance_activity_compare_3",
+  "group_ids": [
+    "openstack:hard:instance_activity_compare:3:78dc1847_8848_49cc_933e_9239b12c9dcf",
+    "openstack:hard:instance_activity_compare:3:7e7cc42f_3cb9_4d91_804c_f5a32d54f1c5"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:673709db359cc17291999effdb276ef97abd1d96045bddc93c02f51054f47a96"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes facts to each instance without mixing details between them, accurately reflecting the evidence for both groups."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The answer describes the relationship between the two groups based on the evidence, noting the similarity in their lifecycle events and timing differences, which are present in the logs."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer avoids naming specific causes, actors, or motives not present in the evidence and sticks to the observed patterns in the logs."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by comparing the two instances' activities and concluding that neither appears significantly more anomalous than the other, as requested."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:d2ea6362fb1fb710972b7dfdbcdcccea679ac27d66b2eb6c8136429fad08d601"
+  }
+}

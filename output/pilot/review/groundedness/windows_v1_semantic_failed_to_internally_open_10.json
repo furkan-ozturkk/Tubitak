@@ -1,0 +1,40 @@
+{
+  "question_id": "windows_v1_semantic_failed_to_internally_open_10",
+  "group_ids": [
+    "windows:semantic:failed_to_internally_open_10"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:9d57bbc7f0684dd95aad81b537d088ece321900cdfd597bbc0d2a72394f8f7dd"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence, such as specific outcomes or causes beyond what is described in the logs."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the entity (WindowsUpdateAgent), the event type (warnings and errors in system logs), and the lack of a stated outcome."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what happened and what it means, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key points from the evidence: the warnings about unrecognized attributes, the failed attempts to open packages, and the context of session initialization by WindowsUpdateAgent."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:bb067882af76011dfc2509cd5ac80c9d79a87c4bade31bd0e6030bbb05c96adf"
+  }
+}

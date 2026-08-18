@@ -1,0 +1,40 @@
+{
+  "question_id": "zookeeper_v1_semantic_fastleaderelection_13",
+  "group_ids": [
+    "zookeeper:semantic:fastleaderelection_13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:5e71f03db30254e7966f3f2de836fbbab55ddff454241837f6160ec494dcafb6"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as notification timeouts and failed channel openings, without adding unsupported claims."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (QuorumPeer[myid=1]), the event type (connection and notification issues), and accurately notes the lack of a stated outcome."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what took place around the 40th occurrence of 'FastLeaderElection' and its significance, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence—notification timeouts, failed channel openings, and a broken connection—without omitting important parts."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:ce88a9dd4ba02daa99fca5eeed43eb2ff3b10d03564ffec6249a7d7a401d3596"
+  }
+}

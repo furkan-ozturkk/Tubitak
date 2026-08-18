@@ -1,0 +1,40 @@
+{
+  "question_id": "openssh_v1_semantic_possible_break_in_attempt_14",
+  "group_ids": [
+    "openssh:semantic:possible_break_in_attempt_14"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:f6395b82b0cec05f5b5bee166e96171b00f89f6306ac207453804c620a8713f2"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer is grounded in the evidence and does not state anything that is not shown in the logs or summary."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the entity (187.141.143.180), the event type (failed login attempts and reverse mapping), and the outcome (no successful login)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining the log around the 71st occurrence and what it means, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key elements from the evidence: failed login attempts with different usernames, disconnects, reverse mapping failure, and the implication of a brute-force attack."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:583474a4f8aef04db4162b966b2742a050d90ffa4ece5649bdbe0085ee6cd22b"
+  }
+}

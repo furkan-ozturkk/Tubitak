@@ -7,23 +7,23 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:baadc27fc5b8a44fcec81e2d9771a5894a8b1e177e53c9226874aecbd802b0dc"
+    "prompt_sha256": "sha256:0d59478b949f2a0f2b76656f099759bde345c2acaf579dca8713b3ca365bfd61"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and unambiguously asks for the total number of distinct processes referenced in the logs of the 'mac' dataset."
+      "detail": "The question is clearly phrased and unambiguously asks for the total number of distinct processes in the 'mac' dataset."
     },
     {
       "dimension": "answer_matches_question",
       "verdict": "yes",
-      "detail": "The answer is a single numeric value, which directly matches the required answer shape for the question."
+      "detail": "The answer is a single numeric value, which is the correct form for the count of distinct processes."
     },
     {
       "dimension": "evidence_supports_answer",
       "verdict": "yes",
-      "detail": "The evidence includes a query that counts distinct process names extracted from the logs, and sample lines show that such process names exist in the dataset, supporting the computation of the answer."
+      "detail": "The evidence includes a query that counts distinct process IDs in the 'mac' dataset and sample data showing that such process IDs exist, supporting the answer."
     }
   ]
 }

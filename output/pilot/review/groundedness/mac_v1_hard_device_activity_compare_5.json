@@ -1,0 +1,41 @@
+{
+  "question_id": "mac_v1_hard_device_activity_compare_5",
+  "group_ids": [
+    "mac:hard:device_activity_compare:5:calvisitor_10_105_160_205",
+    "mac:hard:device_activity_compare:5:calvisitor_10_105_162_124"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:219418f9e4f01e26e4282270853c14c3e4ef1451685a70c41c477249278c8299"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes facts to each device without mixing or misattributing events between them."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison between the two devices is based on the specific events listed in the evidence, such as repeated sandboxd denials for one and application constraints for the other."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not name a specific cause, actor identity, or motive not present in the evidence, and instead offers a general hypothesis about network configuration or sandbox settings."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by identifying which device shows a more troubling pattern and provides a root-cause hypothesis based on the evidence."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:4d3295e28c5a21ad938d3a5c825b65193c7668f4b3d580776acea43daa265d16"
+  }
+}

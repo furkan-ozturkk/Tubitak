@@ -1,0 +1,41 @@
+{
+  "question_id": "openstack_v1_hard_instance_activity_compare_1",
+  "group_ids": [
+    "openstack:hard:instance_activity_compare:1:17288ea8_cbf4_4f0e_94fe_853fd2735f29",
+    "openstack:hard:instance_activity_compare:1:43204226_2f87_4da7_b7ee_4d20cc66e846"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:642ae2b53be142fff92c76f83b583d13263cd525201bf07dd5523f01ebe6d685"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly references facts from both groups without misattributing details between them."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The answer describes the relationship between the two groups based on the timing and lifecycle events present in the evidence."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer avoids naming specific causes or motives not present in the evidence and only mentions potential issues based on the logs."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by comparing the two instances, noting differences in timing and potential anomalies, and explaining why one might appear more anomalous."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:3ac0e9b015ba6a19b46780c65a9f764d0277862e145890848a87828155be142f"
+  }
+}

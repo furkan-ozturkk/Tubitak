@@ -1,0 +1,29 @@
+{
+  "question_id": "zookeeper_v1_modelsql_count_20_2",
+  "group_ids": [
+    "zookeeper:modelsql:count:20"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:cc8dae6537ce6d60e144f14696e9d8541484c10658be27977f34c1f8ce7f7140"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the number of times the word \"EXPIRING\" appears in the 'zookeeper' dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that counts lines in the 'zookeeper' dataset where the word \"expiring\" appears (case-insensitive), and it states that 40 lines match, which supports the answer."
+    }
+  ]
+}

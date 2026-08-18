@@ -1,0 +1,29 @@
+{
+  "question_id": "mac_v1_modelsql_count_9_2",
+  "group_ids": [
+    "mac:modelsql:count:9"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:512c8dd669ecb69e6c8882c6aeb975cb127bda742873dc60e48b04f69d1367d1"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of lines in the 'mac' dataset without any uppercase alphabetic characters."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The query is correct in form and would compute the answer, but the evidence does not include the actual result of the query, so it is unclear whether 0 is accurate."
+    }
+  ]
+}

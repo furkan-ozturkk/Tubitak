@@ -1,0 +1,29 @@
+{
+  "question_id": "apache_v1_modelsql_scalar_7_1",
+  "group_ids": [
+    "apache:modelsql:scalar:7"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:f2f779d30a51fc23c4a9b8cc57eb30b01b2b98a2d56d026ca9276dd66854d748"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the total number of lines in the 'apache' dataset that exclude both \"error\" and \"jk2_init\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which matches the required answer shape for the question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that computes the answer by filtering out lines with \"error\" or \"jk2_init\" and counting the remaining lines, and a sample line is shown that matches the criteria."
+    }
+  ]
+}

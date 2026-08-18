@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_14_0",
+  "group_ids": [
+    "hadoop:modelsql:count:14"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:4a68d76b827c78d54013c9fd6a02f235be6a981031546fda05bc8b249d627d67"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'hadoop' dataset that contain the exact sequence \"WARN \" followed by \"ERROR\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence shows a query that matches lines containing \"warn\" and \"error\" in a case-insensitive way, but the question specifies \"WARN\" followed by a space and \"ERROR\" as exact case-sensitive strings. The query's use of ILIKE and lack of exact spacing constraints may not fully align with the question's requirements, making the match ambiguous."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "question_id": "linux_v1_hard_brute_force_compare_4",
+  "group_ids": [
+    "linux:hard:brute_force_compare:4:061092085098_ctinets_com",
+    "linux:hard:brute_force_compare:4:202_181_236_180"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:e5e9c1127b6f5f91ff32d6e72b79491dd525909bac65722413f910c0f2f03eae"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes distinct characteristics to each group without misrepresenting facts between them."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of timing and targeting is based on observable differences in the evidence provided for each group."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer avoids assigning specific motives or identities not present in the evidence and refrains from speculative causality."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer identifies which source's behavior looks more like an attack and provides reasoning grounded in the evidence."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:c34af63e0c739f799a3342b17ddbaf39357e8984a27a580562ca0cbaa50ac05b"
+  }
+}

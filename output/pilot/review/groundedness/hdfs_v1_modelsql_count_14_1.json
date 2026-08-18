@@ -1,0 +1,29 @@
+{
+  "question_id": "hdfs_v1_modelsql_count_14_1",
+  "group_ids": [
+    "hdfs:modelsql:count:14"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:133c0a9309a3cb370aba3bd06d1a3ba1a2d77558a3a3da9f62737808419d6f71"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the total number of log entries in the 'hdfs' dataset that include \"DataNode\" but not \"PacketResponder\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query selects lines from the 'hdfs' dataset that include \"DataNode\" (case-insensitive) and excludes those with \"PacketResponder\" (case-insensitive), which matches the question's criteria. The lines shown also align with the query's pattern."
+    }
+  ]
+}

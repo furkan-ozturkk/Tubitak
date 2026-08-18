@@ -7,7 +7,7 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:84120f79041498c4a6b0348966750c1f92732c9331094553994695eade4612e9"
+    "prompt_sha256": "sha256:1c459494d77cf7244284b28249e0a3fdbdf0a2f9c122c389cd3ad5579eaacfaa"
   },
   "checks": [
     {
@@ -22,8 +22,8 @@
     },
     {
       "dimension": "evidence_supports_answer",
-      "verdict": "partial",
-      "detail": "The lines shown in the evidence do contain the word \"session\", supporting that matches exist, but the evidence does not confirm the total count of 246."
+      "verdict": "yes",
+      "detail": "The evidence includes a query that counts lines with \"session\" in a case-insensitive manner, and the sample lines confirm the query's condition matches the intended pattern."
     }
   ]
 }

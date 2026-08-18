@@ -5,36 +5,32 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:d6ce75ba6b7732c0d9716550e438dd0a8ff2a93df82821bea87dec2f65b983f9"
+    "prompt_sha256": "sha256:a47828ff5ad6609a43cc9bbe7241852ca80ebfb255e2310a106b37f26d1618cd"
   },
   "checks": [
     {
       "dimension": "grounded",
-      "verdict": "yes",
-      "detail": "The answer only includes information directly supported by the evidence provided in the logs and structured summary."
+      "verdict": "partial"
     },
     {
       "dimension": "correct",
-      "verdict": "yes",
-      "detail": "The answer correctly identifies the instance ID, event type, and outcome as described in the evidence and structured summary."
+      "verdict": "partial"
     },
     {
       "dimension": "relevant",
-      "verdict": "yes",
-      "detail": "The answer directly addresses the question by explaining the log events around the 478th occurrence of 'instance:' and what they mean."
+      "verdict": "partial"
     },
     {
       "dimension": "sufficient",
-      "verdict": "yes",
-      "detail": "The answer includes all key details from the evidence, such as the spawning process, API requests, network event, and build time."
+      "verdict": "partial"
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:9a7c19939599efbea205057b8c0eab7faa1598f1ecf5a1c7bf2e847267709880"
+    "prompt_sha256": "sha256:056f7a0b3c7e70e7e4a3de98ac2525ecd8a00da42497b3d0df12d21b1d1755f1"
   }
 }

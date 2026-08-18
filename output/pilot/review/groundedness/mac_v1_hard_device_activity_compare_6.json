@@ -1,0 +1,37 @@
+{
+  "question_id": "mac_v1_hard_device_activity_compare_6",
+  "group_ids": [
+    "mac:hard:device_activity_compare:6:calvisitor_10_105_162_32",
+    "mac:hard:device_activity_compare:6:calvisitor_10_105_163_253"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:903e28a6b917d0a59706f7fb7ea5d47428fe782cc3d60e9be57f55d0b04e70a7"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "partial"
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:5bc3b0df5895732efc56bec3e11797911370e2e0efa0e0436b1ecd3fdab07643"
+  }
+}

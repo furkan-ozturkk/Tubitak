@@ -1,0 +1,40 @@
+{
+  "question_id": "linux_v1_semantic_session_opened_11",
+  "group_ids": [
+    "linux:semantic:session_opened_11"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:0ca560f541196a00deaa985779dfe079ce6ba2e28235d13dd6e68eb564426fc9"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as failed root login attempts, su sessions, and logrotate exiting abnormally."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (combo), the event type (authentication failures and system events), and accurately reflects that no specific outcome is stated."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what is happening around the 89th occurrence of 'session opened' by describing the relevant events in the log."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer summarizes the key events but does not explicitly mention the 89th occurrence of 'session opened' or its specific context in the log."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:5be359f9d966a78ff302b366f0780ae15789efe1cb974abbdedce025b56f04bb"
+  }
+}

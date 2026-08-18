@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:9a533cfc0c87b673af0c292325e75c724317b7bff62461962c6c89738039f58e"
+    "prompt_sha256": "sha256:1654fe9363871964a5b17166e5161bbd8faa63f7d152d17e37c995163cb68db4"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only states what is directly supported by the evidence, such as the entity, the event, and the lack of stated outcome."
+      "detail": "The answer avoids stating anything not shown in the evidence, such as the specific meaning of the error or the cause."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity, the event type (\"instruction cache parity error corrected\"), and the lack of stated outcome."
+      "detail": "The answer correctly identifies the entity, the event type (instruction cache parity error corrections), and the outcome (not stated)."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by explaining what happened and what it means, rather than just restating the structured summary."
+      "detail": "The answer directly addresses the question by explaining what happened and what it means, rather than just restating the summary."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence: the entity, the repeated events, the time range, and the lack of stated outcome."
+      "detail": "The answer includes the repeated corrections, the subsequent RAS events on different entities, and the lack of stated outcome, making it reasonably complete."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:49d07e6eebff9268ad0b9d1eb40bd45377fc1a23a14d34d2c544f0e8e3834320"
+    "prompt_sha256": "sha256:2d41c2dc53ee5895104672c146f74cd888b55e6108212969e6f61f98c73a6cc2"
   }
 }

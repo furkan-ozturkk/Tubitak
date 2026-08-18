@@ -1,0 +1,29 @@
+{
+  "question_id": "apache_v1_modelsql_scalar_7_0",
+  "group_ids": [
+    "apache:modelsql:scalar:7"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:879b154b367d8e8fc938a7bb06306d35707d37404437e84ea5df12655fb5322b"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of lines in the 'apache' dataset that do not contain \"error\" or \"jk2_init\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which matches the required answer shape for this question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query correctly counts lines in the 'apache' dataset that do not contain \"error\" or \"jk2_init\", and the sample evidence confirms such lines exist in the dataset."
+    }
+  ]
+}

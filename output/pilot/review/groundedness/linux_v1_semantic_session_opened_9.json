@@ -5,9 +5,9 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:8926b495e5adddb4791e92d892b47e985e287c76b59b900184857cecb45d2ec3"
+    "prompt_sha256": "sha256:92e403bca4f9ec778ed2b9ad3e70fe79ce93307eb697c7a39f4ac0637d760f07"
   },
   "checks": [
     {
@@ -18,23 +18,23 @@
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer accurately reflects the entity (\"combo\"), the event type (authentication attempts and system events), and the lack of a stated outcome."
+      "detail": "The answer correctly identifies the event type (session openings and closings), the entity (user test), and accurately reflects that no outcome is stated."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer addresses the specific question about the Linux log around the 109th occurrence of \"session opened\" and explains what it means, rather than just restating the summary."
+      "detail": "The answer addresses the specific question about the 73rd occurrence of 'session opened' and explains what the log shows, rather than just restating the structured summary."
     },
     {
       "dimension": "sufficient",
       "verdict": "partial",
-      "detail": "The answer mentions the key events but does not explicitly reference the 109th occurrence of \"session opened,\" which is central to the question."
+      "detail": "The answer mentions the general pattern of session openings and closings but does not specifically identify or walk through the 73rd occurrence of 'session opened' in the evidence."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:800de9f8b714070fe058a90f0d930b300288d61fd7515ce08f9480c322f0f15e"
+    "prompt_sha256": "sha256:08bc3d5963ea077101e9bf1c3ad1905fb91e0aa41b881630e1fd2b1fc1661d6f"
   }
 }

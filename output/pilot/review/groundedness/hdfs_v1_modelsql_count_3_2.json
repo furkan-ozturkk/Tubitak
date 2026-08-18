@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:4f6681b33b5ba92422480bc475ff3310e85c5a43d1dba81b16c6fd58733dd9cd"
+    "prompt_sha256": "sha256:ab311a1cbc59817e018c8833896e0d1c7664d7a78ec932cf98ed327e50226a5f"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks for the count of log entries in the 'hdfs' dataset containing \"block\" but excluding \"terminating\"."
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'hdfs' dataset that do not contain the word \"block\"."
     },
     {
       "dimension": "answer_matches_question",
@@ -22,8 +22,8 @@
     },
     {
       "dimension": "evidence_supports_answer",
-      "verdict": "partial",
-      "detail": "The lines shown under EVIDENCE appear to be genuine matches for \"block\", but there is no evidence provided to confirm that \"terminating\" is excluded from the count."
+      "verdict": "yes",
+      "detail": "The evidence shows a query that filters the 'hdfs' dataset and excludes entries containing \"block\" (case-insensitively), and the answer matches the count returned by that query."
     }
   ]
 }

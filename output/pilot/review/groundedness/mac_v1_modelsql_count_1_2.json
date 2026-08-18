@@ -7,7 +7,7 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:12a1c90965b1604104ff7a540a49589335ac4a058a7406544391ae56b328f037"
+    "prompt_sha256": "sha256:4286b7225b68e90de29492b1cb78eff77b34e6d3d9cb4e1bd5b49888188bdfce"
   },
   "checks": [
     {
@@ -23,7 +23,7 @@
     {
       "dimension": "evidence_supports_answer",
       "verdict": "yes",
-      "detail": "The query selects lines from the 'mac' dataset where the text does not contain \"error\", and the count of 1818 is stated as the result of that query."
+      "detail": "The query selects lines from the 'mac' dataset where the text does not contain \"error\" (case-insensitive), and the count of 1818 matches the result of that query."
     }
   ]
 }

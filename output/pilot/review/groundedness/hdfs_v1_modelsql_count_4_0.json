@@ -7,7 +7,7 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:bac9100781cfba5112b6b046d5e8cce33b8a528956e98bf6dfcf22b625e57bf3"
+    "prompt_sha256": "sha256:5e1501b85c88d4781816710687eb71beae1bca6fb0765de12a589aab8860aec8"
   },
   "checks": [
     {
@@ -22,8 +22,8 @@
     },
     {
       "dimension": "evidence_supports_answer",
-      "verdict": "partial",
-      "detail": "The lines shown under EVIDENCE appear to be genuine matches for the word \"INFO\", but the total count of 1920 is not directly supported or refuted by the evidence provided."
+      "verdict": "yes",
+      "detail": "The query selects lines from the 'hdfs' dataset where the text contains \"INFO\" (case-insensitive), and the answer matches the count of those lines."
     }
   ]
 }

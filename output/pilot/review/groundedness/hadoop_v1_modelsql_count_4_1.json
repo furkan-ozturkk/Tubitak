@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:8aa4abb64ae43e0fa79f9a6d7eb61bba715487f61b292a08306a61aa7ecf75d2"
+    "prompt_sha256": "sha256:b51c22106592afe150d15beee13eef394c195ce648cc8b431ac5da40901da4a8"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks for the total number of log entries in the 'hadoop' dataset that include the literal word \"WARN\"."
+      "detail": "The question is clearly phrased and asks for the total number of log entries in the 'hadoop' dataset that include the word \"WARN\"."
     },
     {
       "dimension": "answer_matches_question",
@@ -22,8 +22,8 @@
     },
     {
       "dimension": "evidence_supports_answer",
-      "verdict": "partial",
-      "detail": "The lines shown in the EVIDENCE section do contain the word \"WARN\" as specified, but since the total count is not visible in the sample, it is unclear whether the full dataset supports the given answer of 808."
+      "verdict": "yes",
+      "detail": "The evidence shows a query that selects lines from the 'hadoop' dataset where the text includes \"warn\" in a case-insensitive manner, and the answer matches the total number of such lines."
     }
   ]
 }

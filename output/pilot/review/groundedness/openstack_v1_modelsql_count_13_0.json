@@ -1,0 +1,29 @@
+{
+  "question_id": "openstack_v1_modelsql_count_13_0",
+  "group_ids": [
+    "openstack:modelsql:count:13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:2877dd6ccf7a6faf34ceb7bcf9c9d6467bc98650373726344fe49d2599cb1feb"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of log entries in the 'openstack' dataset containing the word \"nova\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that correctly filters for the 'openstack' dataset and lines containing \"nova\", and the answer matches the stated result of that query."
+    }
+  ]
+}

@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:784609594644cb5f0f2ccd259d8971a007eab01190b579933d49594478fe779c"
+    "prompt_sha256": "sha256:4e7143188155b7838a18f0db200c5c09dd7004364704672fab777c3c5b17ce9a"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only describes events and outcomes explicitly mentioned in the evidence without adding unsupported claims."
+      "detail": "The answer only includes information directly supported by the evidence and does not add unsupported claims."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (TrustedInstaller), the event type (initialization), and the outcome (successful service start) as shown in the evidence."
+      "detail": "The answer correctly identifies the entity, event type, and accurately reflects the observed events and lack of stated outcome."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer addresses the specific question about the Windows log around the 19th occurrence of 'CSI' by describing the relevant CSI events and their meaning."
+      "detail": "The answer addresses the specific request to walk through the log around the tenth occurrence of 'CSI' and explains what it means, rather than just summarizing the structured summary."
     },
     {
       "dimension": "sufficient",
-      "verdict": "partial",
-      "detail": "The answer summarizes the key steps but omits specific CSI event details (e.g., the exact CSI log lines and their timestamps), which could be considered important for a complete walkthrough."
+      "verdict": "yes",
+      "detail": "The answer includes the key events around the CSI transaction and explains their significance without omitting important details from the evidence."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:ccd3d1387e3000f95fe7b56b578e2560849137da12cc4be87c06639497f9b58a"
+    "prompt_sha256": "sha256:e95bd22a9aa12f96efb75a71f09cad50f078da8b112f7a1998ac47513291b3cb"
   }
 }

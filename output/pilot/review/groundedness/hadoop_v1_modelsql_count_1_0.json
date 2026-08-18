@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:fdf4d10da79b32924d5b717cbdb76557b81cd08eea64285d84f8e1c56eda25a8"
+    "prompt_sha256": "sha256:3e3f32e8d6a5078711ff04d027c89eb1bcda15428854f6588e7d9453fbdad418"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks for the count of log entries in the 'hadoop' dataset that do not contain the word \"ERROR\"."
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'hadoop' dataset that do not contain the word \"INFO\"."
     },
     {
       "dimension": "answer_matches_question",
@@ -23,7 +23,7 @@
     {
       "dimension": "evidence_supports_answer",
       "verdict": "yes",
-      "detail": "The query selects lines from the 'hadoop' dataset where the text does not contain \"ERROR\", and the answer states that 1844 such lines exist, which the query is designed to return."
+      "detail": "The query selects lines from the 'hadoop' dataset where the text does not contain \"info\" (case-insensitive), and the answer matches the count of such lines."
     }
   ]
 }

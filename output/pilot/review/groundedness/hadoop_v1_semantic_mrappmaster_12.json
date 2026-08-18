@@ -1,0 +1,40 @@
+{
+  "question_id": "hadoop_v1_semantic_mrappmaster_12",
+  "group_ids": [
+    "hadoop:semantic:mrappmaster_12"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:4f28f227ed3534d19d2f8735eb5be3ac399596e52db55f7de61aa57104c3c78a"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is directly supported by the evidence provided in the log entries."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (job_1445144423722_0020), the event type (Hadoop system initialization), and notes that no outcome is stated, all of which align with the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by summarizing the event shown in the Hadoop log near the 13th occurrence of 'MRAppMaster', rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all the key elements from the evidence—registering classes, loading properties, starting the metrics system, adding a job token, and the decision not to uberize the job—making it reasonably complete."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:1bf4234f11ba1a36d002b4f072406a4b52c82b2bcc0d96bc5e425fe6ce672843"
+  }
+}

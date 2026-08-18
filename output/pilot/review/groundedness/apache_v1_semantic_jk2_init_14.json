@@ -1,0 +1,40 @@
+{
+  "question_id": "apache_v1_semantic_jk2_init_14",
+  "group_ids": [
+    "apache:semantic:jk2_init_14"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:30e2f5e47030472d2005f0341717427f61f791c0f965b65b48cf108491c1af39"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and avoids making unsupported claims."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the workerEnv entity, the error states, and the jk2_init() findings as shown in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the Apache log around the jk2_init occurrences and explains what it means, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key elements from the evidence: the workerEnv initialization, the error states, and the jk2_init() findings, making it reasonably complete."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:bb56f754872fbe93c674d49c5ce4fbda1b48c29212d9877564b7749aaa81c729"
+  }
+}

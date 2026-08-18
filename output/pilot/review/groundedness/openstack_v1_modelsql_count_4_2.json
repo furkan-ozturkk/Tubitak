@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:4788eaca779b4fdef31695d7ec7d969f649998ecf412cea3e83d61a27a9cff23"
+    "prompt_sha256": "sha256:a9379661f9cbd8357f9af8a6c925dedd9761db6dd23a9db182b88515287c50e2"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and unambiguously asks for the number of times the literal word \"INFO\" appears in the log entries of the 'openstack' dataset."
+      "detail": "The question is clearly phrased and unambiguously asks for the number of times the word \"INFO\" appears in the log entries of the 'openstack' dataset."
     },
     {
       "dimension": "answer_matches_question",
@@ -23,7 +23,7 @@
     {
       "dimension": "evidence_supports_answer",
       "verdict": "partial",
-      "detail": "The lines shown in the EVIDENCE section do contain the word \"INFO\" as specified, but they are only a sample and do not confirm the total count of 1969."
+      "detail": "The evidence shows a query that finds lines containing \"info\" in a case-insensitive manner, but the question asks specifically for the word \"INFO\" (uppercase), which may not be fully aligned with the query's case-insensitive matching."
     }
   ]
 }

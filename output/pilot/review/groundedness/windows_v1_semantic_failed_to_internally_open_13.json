@@ -1,0 +1,40 @@
+{
+  "question_id": "windows_v1_semantic_failed_to_internally_open_13",
+  "group_ids": [
+    "windows:semantic:failed_to_internally_open_13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:aef68cf2626af8c4f18d738ecfede8afe9b33e367c899d1e30d2a14d72d67057"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and avoids speculation."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (WindowsUpdateAgent), the event type (failed to open package), and the outcome (not stated)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the 14th occurrence and its significance, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer mentions the repeated failures but does not explicitly reference the 14th occurrence or its specific context in the log."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:2a8c377805754db7631d044d039d84d0d29e820ce7cc563bb1679861487e67fe"
+  }
+}

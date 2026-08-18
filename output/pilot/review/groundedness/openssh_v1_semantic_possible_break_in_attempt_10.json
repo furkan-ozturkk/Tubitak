@@ -1,0 +1,40 @@
+{
+  "question_id": "openssh_v1_semantic_possible_break_in_attempt_10",
+  "group_ids": [
+    "openssh:semantic:possible_break_in_attempt_10"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:50f216223bf75407b55a91a212aba385296ffbef13ff1d9aaaa74141ca006be4"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer is grounded in the evidence and does not state anything not shown in the logs or summary."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the entity, event type, and outcome as described in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question about the 51st occurrence and what it means, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence, such as the IP address, the authentication attempts, the failed reverse mapping, and the implication of a possible break-in."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:2344a06bbd1952af367284d9ddf8447b5f1a983e7eeb4ef37c88788a9ea93183"
+  }
+}

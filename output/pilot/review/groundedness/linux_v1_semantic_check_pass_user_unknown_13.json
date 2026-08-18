@@ -1,0 +1,40 @@
+{
+  "question_id": "linux_v1_semantic_check_pass_user_unknown_13",
+  "group_ids": [
+    "linux:semantic:check_pass_user_unknown_13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:c4a8a6117ca26ea0ea2a8de32a52e467223dc6c7844a6cb536aa1a324761c14e"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence provided in the log entries."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the authentication failures, the session for user cyrus, and the cupsd service events as described in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific events around the 92nd occurrence of 'check pass; user unknown' and explains their significance, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer mentions the key events but does not specify the exact timing or sequence relative to the 92nd 'check pass; user unknown' entry, which is part of the question's focus."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:530a0b0e5c646b598491c92c1656253f32f1a1ea4247800f656bb7bb66f443bd"
+  }
+}

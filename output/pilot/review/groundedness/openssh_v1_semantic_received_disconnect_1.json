@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:2f34e0a36da1e50b98e3aef49ca78c3ae1022f1a768e05d9adcf08e4dd6db93b"
+    "prompt_sha256": "sha256:8d956d1516e3ca70264c41cb0d45c2061ee28bcfe5bd9e04297ef9067dd0c788"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only states information directly supported by the evidence, such as the failed authentication attempt for the user \"support\" and the disconnect."
+      "detail": "The answer does not state anything beyond what is shown in the evidence, such as the failed password attempts and disconnects from the specified IP address."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (\"support\"), the event type (authentication failure), and the outcome (disconnect due to failed authentication)."
+      "detail": "The answer correctly identifies the entity (123.235.32.19), the event type (failed password attempts and disconnects), and the lack of a stated outcome."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer specifically addresses the question about the 47th occurrence of \"Received disconnect\" by describing the relevant authentication attempt and its failure."
+      "detail": "The answer directly addresses the question about what is happening in the log around the disconnect events, rather than just summarizing the structured summary."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence: the user, the failed authentication, the password check, and the disconnect, making it reasonably complete."
+      "detail": "The answer includes the key details from the evidence—failed password attempts, the IP address, the disconnects, and the timing—without omitting important information."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:aa3976355220de871e38d36e22c6ca10d0e0820b553cbf5023a04c6f3b97d0ff"
+    "prompt_sha256": "sha256:ca37ed71eecad1dedd6ad7b46d49fba6c3dce2c1bbb91e30870de038ddb7e87f"
   }
 }

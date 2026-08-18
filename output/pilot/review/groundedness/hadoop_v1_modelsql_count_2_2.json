@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:34699dbd8d6c5b40ee6d453c1a057f0cb7180c52f5e5d7e45088257db28e14b6"
+    "prompt_sha256": "sha256:b46766ad3697a50b27c45de2ce2d3a7733be79c46c1cb4f0350df402d6da71b9"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries containing the word \"WARN\" in the 'hadoop' dataset."
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'hadoop' dataset that contain the word \"ERROR\"."
     },
     {
       "dimension": "answer_matches_question",
@@ -23,7 +23,7 @@
     {
       "dimension": "evidence_supports_answer",
       "verdict": "partial",
-      "detail": "The lines shown in the evidence are genuine matches for the word \"WARN,\" but the evidence does not confirm whether the full dataset was processed correctly or whether the count of 808 is accurate."
+      "detail": "The evidence shows a query that retrieves lines with \"error\" (case-insensitive), and the example lines include \"ERROR\", but the query does not count the results, so it's not definitively clear that the count of 156 is accurate based on the evidence alone."
     }
   ]
 }

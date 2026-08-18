@@ -7,23 +7,23 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:c92414ed22b902d454eb3fa3b9e1488e7d7a8de141c17f3bfee6c296099233c1"
+    "prompt_sha256": "sha256:9651ba8b2f574c317dab28bab620cb1f237a2fb65850d9da144a0b16830cbd7d"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks for the count of log lines in the 'mac' dataset that exclude all digits."
+      "detail": "The question is clearly phrased and asks for the count of log lines in the 'mac' dataset that do not include any numbers."
     },
     {
       "dimension": "answer_matches_question",
       "verdict": "yes",
-      "detail": "The answer is a bare integer, which is the correct form for a count question."
+      "detail": "The answer is a bare integer, as required for a count question."
     },
     {
       "dimension": "evidence_supports_answer",
       "verdict": "partial",
-      "detail": "The evidence suggests that no line contains the literal \"0\" as a substring, but it does not confirm whether any line contains *any* digits, which is what the question is asking about."
+      "detail": "The evidence includes a query that would compute the correct answer, but the provided log line is irrelevant and does not support the answer of 0."
     }
   ]
 }

@@ -1,0 +1,41 @@
+{
+  "question_id": "openssh_v1_hard_attacker_compare_6",
+  "group_ids": [
+    "openssh:hard:attacker_compare:6:183_136_162_51",
+    "openssh:hard:attacker_compare:6:195_154_37_122"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:1df4d499fb80d7e8ae29096f2cf90ac1f917aec24f685ebf16ffecc36f8800c9"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes facts to each group without cross-assigning characteristics between them."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of target accounts, request cadence, and outcomes is supported by the timestamps and log entries in the evidence."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not assign specific motives, identities, or causes not present in the evidence."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the differences in target accounts, request cadence, and outcomes, and identifies which attacker appears more anomalous based on the evidence."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:d1a97563cb84c513245ca39aa438150d13a34bff76814deac38e787287878a1a"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "apache_v1_modelsql_count_8_2",
+  "group_ids": [
+    "apache:modelsql:count:8"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:09c0deac2296b36c2e7a1e7e4432dce6fa056b2c2215dd33452973a289aad59c"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the number of entries in the 'apache' dataset containing the word \"notice\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query selects lines where the text contains \"notice\" (case-insensitively) in the 'apache' dataset, and the answer matches the total count of such lines."
+    }
+  ]
+}

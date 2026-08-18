@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:b6b400b134aae6d13e75eb65c81d8588e035eb44226c2abf46ecefc218c55410"
+    "prompt_sha256": "sha256:ed43c01a81fceb3c5d3238ce7a0ebfd1332367dc4042f77ccc449e05660a360e"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer avoids stating anything not supported by the evidence, such as specific details about the 61st occurrence or the cause of the events."
+      "detail": "The answer avoids making claims beyond what is explicitly stated in the evidence and structured summary."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity, event types (generating core and double-hummer alignment exceptions), and notes that no outcome is stated, matching the evidence."
+      "detail": "The answer correctly identifies the entity, event type, and notes the lack of stated outcome as described in the evidence."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer addresses the specific question about what is happening in the BGL log around the double-hummer alignment exceptions, rather than just summarizing the structured summary."
+      "detail": "The answer directly addresses the question by describing what is happening in the BGL log around the specified event."
     },
     {
       "dimension": "sufficient",
       "verdict": "partial",
-      "detail": "The answer captures the general sequence and timing but does not provide specific details about the 61st occurrence, which is the focus of the question."
+      "detail": "The answer captures the main points but does not specify details such as the frequency or timestamps of the 43rd occurrence."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:dcb3fac7f1c078f8116e24461eca557921fe4b6e4368a7d04f697a107035e01c"
+    "prompt_sha256": "sha256:90c037abd45030bc5b204982d2bd6cc186a0cce14137581f46bc61317bd3bf3f"
   }
 }

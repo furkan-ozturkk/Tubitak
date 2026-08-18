@@ -1,0 +1,41 @@
+{
+  "question_id": "hadoop_v1_hard_container_task_compare_4",
+  "group_ids": [
+    "hadoop:hard:container_task_compare:4:container_1445144423722_0020_01_000010",
+    "hadoop:hard:container_task_compare:4:container_1445144423722_0020_01_000011"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:9684ff7796511adde0b5bc7ce5694bbd594902d82c8233d82a3cf82389eccb95"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes facts to each container without misrepresenting one as the other, accurately referencing each container's specific task attempt and event timing."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The answer describes the relationship between the two containers based on the similar patterns of assignment, launch, and usage, which are explicitly present in the evidence."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not name any specific cause, actor identity, category, or motive not present in the evidence, and instead focuses on the observed events."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by comparing the two containers' events, concluding that both reflect normal execution with no indication of a problem, as required."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:570d9364c21628ad02c2f92c4b8d1b3bdef2b0112b316753ea7e8d2b19628267"
+  }
+}

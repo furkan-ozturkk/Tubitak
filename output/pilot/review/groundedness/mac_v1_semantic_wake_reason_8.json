@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:5bad5a8cea5c7c4765450c3551172bb1ca34875cb69c234b65737fd383573a7a"
+    "prompt_sha256": "sha256:f08c4bd55e5d39e661a907fabd8690e181af039aea9dbc39d1c4992a4c94678b"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer avoids stating anything not shown in the evidence and sticks to the described events."
+      "detail": "The answer only mentions events and details explicitly present in the evidence, such as waking from sleep due to an RTC alarm, AirPort disable, and thermal/memory pressure checks."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity, event type, and notes the lack of a stated outcome as in the structured summary."
+      "detail": "The answer correctly identifies the entity (calvisitor-10-105-162-105), the event type (system wake), and the outcome (no adverse outcomes reported)."
     },
     {
       "dimension": "relevant",
-      "verdict": "no",
-      "detail": "The answer does not address the specific \"25th occurrence of 'wake reason'\" or its significance, as asked in the question."
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by focusing on the 17th occurrence of \"wake reason\" and its significance, rather than providing a generic summary."
     },
     {
       "dimension": "sufficient",
       "verdict": "partial",
-      "detail": "The answer summarizes the evidence but omits the specific wake reason event and its significance, which is central to the question."
+      "detail": "The answer mentions key elements but omits some details from the evidence, such as the specific timing of the wake event (Jul 4 20:51:50) and the job scheduling evaluations."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:546a1f43ef33f36ef25657be5c9a5463e4ac5370c2430c89b80f0e682defd790"
+    "prompt_sha256": "sha256:b2a1dd7f2f166e1b22a4d82e2acae775fff5f0de96988aa9f9ff05bf0b36edc4"
   }
 }

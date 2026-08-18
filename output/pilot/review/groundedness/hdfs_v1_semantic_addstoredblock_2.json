@@ -5,36 +5,32 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:d4621a936fc30df56e13b4166796e18b4eb9f7b1de44445e59a33bb817224e53"
+    "prompt_sha256": "sha256:0ad42ba7fcf82872e78a6c1be2e96ca6ddbe8823a446d2c3399db3b31cfb8850"
   },
   "checks": [
     {
       "dimension": "grounded",
-      "verdict": "yes",
-      "detail": "The answer avoids stating anything not supported by the evidence and sticks to the described events and entities."
+      "verdict": "partial"
     },
     {
       "dimension": "correct",
-      "verdict": "yes",
-      "detail": "The answer correctly identifies the event type, the relevant block, and notes the lack of a stated outcome as in the evidence."
+      "verdict": "partial"
     },
     {
       "dimension": "relevant",
-      "verdict": "yes",
-      "detail": "The answer directly addresses the question about the event near the 63rd occurrence of 'addStoredBlock' and does not merely restate the structured summary."
+      "verdict": "partial"
     },
     {
       "dimension": "sufficient",
-      "verdict": "yes",
-      "detail": "The answer includes the key elements from the evidence: block allocation, receiving blocks, updating block maps, and terminating packet responders."
+      "verdict": "partial"
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:848c51fdfa90472763a1ad86e62b5b07a2cecf9d7eeada8015562b8f2d8e77d8"
+    "prompt_sha256": "sha256:34d4154822393d369bce5cb98074136898c57f9125e91051c3e9dd2a211f2c0f"
   }
 }

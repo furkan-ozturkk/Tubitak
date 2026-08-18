@@ -1,0 +1,40 @@
+{
+  "question_id": "linux_v1_semantic_session_opened_12",
+  "group_ids": [
+    "linux:semantic:session_opened_12"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:cb319cb57e65f3243a13e46728daa7bffd4fbf5393211d166cf224eeb8a58c95"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as authentication failures for root and session events for other users."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (202-132-40-29.adsl.ttn.net), the event type (authentication failures and session openings/closures), and the lack of a stated outcome."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by summarizing the event near the 97th occurrence of 'session opened' and does not merely restate the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence—authentication failures for root, the IP address, and the session events for other users—without omitting important information."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:6df9b065dcf03e17d10f51ec30bfcb50fd7d5353fa80b81704568b12a334ba36"
+  }
+}

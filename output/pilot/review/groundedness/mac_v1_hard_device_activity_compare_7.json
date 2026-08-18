@@ -1,0 +1,41 @@
+{
+  "question_id": "mac_v1_hard_device_activity_compare_7",
+  "group_ids": [
+    "mac:hard:device_activity_compare:7:calvisitor_10_105_160_179",
+    "mac:hard:device_activity_compare:7:calvisitor_10_105_160_226"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:bff17da8c2596362f96ee29b86d15a3a7043306392828826050d74f7662c41bf"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes events to each device without misrepresenting or conflating their logs."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison between the two devices' logs is based on the distinct types of errors and events described in the evidence."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer avoids assigning specific causes or motives not present in the evidence and sticks to observed patterns."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer contrasts the two devices' activities and evaluates which is more concerning, based on the evidence provided."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:d4dd3033abb73213e0348469be15a7cd079731b980c82cb6a9fb1b4ac2d97b20"
+  }
+}

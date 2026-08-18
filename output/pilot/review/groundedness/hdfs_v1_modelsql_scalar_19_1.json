@@ -1,0 +1,29 @@
+{
+  "question_id": "hdfs_v1_modelsql_scalar_19_1",
+  "group_ids": [
+    "hdfs:modelsql:scalar:19"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:8cbb833a12b59cce293634f96f5ad1ad79e033c6274b2ba02ef722c33e292004"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'hdfs' dataset with a line number exceeding 1000."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which is the correct form for the count requested in the question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence includes a query that would compute the correct count, but the sample rows shown do not confirm the actual count is 1000, so it is unclear whether the answer is correct."
+    }
+  ]
+}

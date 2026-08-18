@@ -1,0 +1,40 @@
+{
+  "question_id": "bgl_v1_semantic_double_hummer_alignment_exceptions_12",
+  "group_ids": [
+    "bgl:semantic:double_hummer_alignment_exceptions_12"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:5c17e636dc64ff37a74b80ebc568cb38625fe4cedd105de0e6fde3bc87c384e1"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not supported by the evidence and accurately reflects the logged events and entities."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the event type, the entities involved, and the lack of a stated outcome as shown in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the event near the 85th occurrence of 'double-hummer alignment exceptions' and summarizes it accordingly."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence—event type, entities, and the absence of an outcome—without omitting important information."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:72f9f2829dda173308931da1f5802cbac506a25385eff6d73c2b631b79513974"
+  }
+}

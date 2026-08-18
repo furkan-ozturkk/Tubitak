@@ -18,12 +18,12 @@
     {
       "dimension": "answer_matches_question",
       "verdict": "yes",
-      "detail": "The answer directly answers the question with a \"Yes\" and includes the required parenthetical count of matching lines."
+      "detail": "The answer directly answers the question with a \"Yes\" and includes the required count in parentheses."
     },
     {
       "dimension": "evidence_supports_answer",
       "verdict": "yes",
-      "detail": "The evidence includes a query that finds lines with 'Exception' and states there are 54 matching lines, supporting the answer."
+      "detail": "The evidence shows a query that finds lines containing 'Exception' and confirms 54 matching lines, supporting the answer."
     }
   ]
 }

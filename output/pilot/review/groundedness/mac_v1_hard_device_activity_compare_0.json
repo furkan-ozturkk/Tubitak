@@ -1,0 +1,41 @@
+{
+  "question_id": "mac_v1_hard_device_activity_compare_0",
+  "group_ids": [
+    "mac:hard:device_activity_compare:0:authormacbook_pro",
+    "mac:hard:device_activity_compare:0:calvisitor_10_105_162_105"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:6d10ffb93a51b5951c6f75c8332d2a0f87cf97a68d5c6937b29f0e0e53bc66b7"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes specific facts from the EVIDENCE to each device without cross-assigning details between them."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison in the answer is based on the frequency and variety of network-related errors in the EVIDENCE, which are more pronounced for authorMacBook-Pro."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not name a specific cause, actor identity, or motive not present in the EVIDENCE, and instead focuses on observed patterns."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer identifies which device shows a more troubling pattern and provides a root-cause hypothesis grounded in the EVIDENCE."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:d02c0e99dea2d121004bffb837636a01d3b4ab7198cdff9786daf46d6abebac0"
+  }
+}

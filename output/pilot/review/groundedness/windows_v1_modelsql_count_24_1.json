@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_modelsql_count_24_1",
+  "group_ids": [
+    "windows:modelsql:count:24"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:af95aeb76268211af18188f7dcd3e0160a1158b9d373e97f536d8a4a962e6af4"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the total number of log entries containing the word \"Microsoft\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that counts lines with \"Microsoft\" in a case-insensitive manner, and the answer matches the stated result of that query."
+    }
+  ]
+}

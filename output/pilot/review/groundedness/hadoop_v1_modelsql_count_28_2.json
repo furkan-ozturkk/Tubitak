@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_28_2",
+  "group_ids": [
+    "hadoop:modelsql:count:28"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:14bc0a0d5f6bcd17bee89fac1298dad7e26fdeb1fd7b0e2538fa2647262b7ed3"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks to count log entries in the 'hadoop' dataset that begin with the word \"WARN\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a COUNT question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence shows a query that would count lines beginning with \"warn\" (case-insensitive), which aligns with the question's intent, but the evidence also states that no line in the dataset contains the literal \"WARN\" (0 matches from an exact substring search), suggesting the answer may be correct, though the query's case-insensitive logic could still find matches not captured by the exact literal search."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "question_id": "bgl_v1_semantic_double_hummer_alignment_exceptions_13",
+  "group_ids": [
+    "bgl:semantic:double_hummer_alignment_exceptions_13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:3e4ceb0132fa9ccf434ecd4f2892feb0f7c943a856abba78bd8f5e169b18b4ec"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the entity, event type, and specific PGOOD and MPGOOD errors."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (R11-M1-N7), the event type (NULL DISCOVERY ERROR), and the specific errors (PGOOD and MPGOOD issues)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the 92nd occurrence of 'double-hummer alignment exceptions' by focusing on the relevant event and its significance."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer captures the main issue (PGOOD and MPGOOD errors) but omits other details from the evidence, such as the status of the 2.5V and 1.5V rails and the JTAG resets."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:76039b80001cb705042ed2f676157920ec3e2587df44c13afe0fa157dc967ac6"
+  }
+}

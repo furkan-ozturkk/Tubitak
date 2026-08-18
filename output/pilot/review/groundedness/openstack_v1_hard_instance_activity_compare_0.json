@@ -1,0 +1,41 @@
+{
+  "question_id": "openstack_v1_hard_instance_activity_compare_0",
+  "group_ids": [
+    "openstack:hard:instance_activity_compare:0:bf8c824d_f099_4433_a41e_e3da7578262e",
+    "openstack:hard:instance_activity_compare:0:127e769a_4fe6_4548_93b1_513ac51e0452"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:4115aa4744781df0b30e6e7731785991db6cf1f9754170ae9e329d44c5733b35"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes specific details to each instance without mixing facts between them."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison of the number of \"During sync_power_state\" messages between the two instances is supported by the evidence provided."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not name a specific cause, actor identity, actor category, or motive that is not present in the evidence."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer addresses the question by identifying which instance shows a more troubling pattern and provides a root-cause hypothesis based on the evidence."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:874ff21611196d44a6a6a8432430777c26095c52b86732ec3ea63128e638f27d"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "question_id": "bgl_v1_semantic_instruction_cache_parity_error_corrected_14",
+  "group_ids": [
+    "bgl:semantic:instruction_cache_parity_error_corrected_14"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:143e99cf7844699ae9c999fbe25ebe682af73d0fac437ce381db6757f1b70fc9"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and avoids making unsupported claims."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the event types (RAS KERNEL INFO and RAS APP FATAL), the entities involved, and the outcomes described in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "no",
+      "detail": "The answer does not address the specific 29th occurrence of 'instruction cache parity error corrected' or explain what it means, as asked in the question."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer summarizes the general types of events but omits specific details about the 29th occurrence and the technical meaning of the instruction cache parity error, which are important to the question."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:e751ab2f37fb3b9b6a4911069ef1df21fe7e4c11749e4429ee55d2acdf873894"
+  }
+}

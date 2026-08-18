@@ -1,0 +1,29 @@
+{
+  "question_id": "openstack_v1_modelsql_count_12_1",
+  "group_ids": [
+    "openstack:modelsql:count:12"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:65a8e7e9c6fd264f8d6ad94b525f2e7ba1cb4262d8d6f8f91c49604acb1c94de"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the number of log entries in the 'openstack' dataset that include the phrase \"Terminating\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that correctly filters for the 'openstack' dataset and lines containing \"terminating\" in a case-insensitive manner, and it states that the query returns 22 matching lines, which matches the answer."
+    }
+  ]
+}

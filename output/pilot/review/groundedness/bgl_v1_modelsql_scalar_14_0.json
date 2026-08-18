@@ -1,0 +1,29 @@
+{
+  "question_id": "bgl_v1_modelsql_scalar_14_0",
+  "group_ids": [
+    "bgl:modelsql:scalar:14"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:54b19fab464f9459be1b1ee12f7e47b8e27bd38d8012e3a2af36122ffe06fb9a"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the total number of unique log entries in the 'bgl' dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which is the correct form for the question's required answer."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence includes a query that would compute the correct answer, but the sample rows do not confirm the accuracy of the given answer (2000)."
+    }
+  ]
+}

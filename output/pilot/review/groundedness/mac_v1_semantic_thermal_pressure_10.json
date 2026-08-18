@@ -1,0 +1,40 @@
+{
+  "question_id": "mac_v1_semantic_thermal_pressure_10",
+  "group_ids": [
+    "mac:semantic:thermal_pressure_10"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:f56f2215a25f420766ca332c9bcd9b4ef55fb1768c9f756858a2224f8de3586f"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything not shown in the evidence and stays within the bounds of the provided information."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type, and outcome as described in the evidence and structured summary."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question about what happened and what it means, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key events and their implications without omitting important details from the evidence."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:2da669bb7914fd447d450ed5ea2992070dd882e024b5cbdd45dd4de2f6f38313"
+  }
+}

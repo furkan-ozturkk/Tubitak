@@ -7,23 +7,23 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:30710e8a6fd03df6955f20c00d948b1d42dd35cdc462e189b8e532c0d5a7391e"
+    "prompt_sha256": "sha256:2dd31b3455a44388d965e733faefec9d3aebf498149f093ec846d078ef953ae4"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and unambiguously asks for the total number of log entries in the 'hadoop' dataset that include the word \"WARN\"."
+      "detail": "The question is clearly phrased and unambiguously asks for the total number of log entries in the 'hadoop' dataset that include the word \"ERROR\"."
     },
     {
       "dimension": "answer_matches_question",
       "verdict": "yes",
-      "detail": "The answer is a bare integer, which is the correct form for a count question."
+      "detail": "The answer is a bare integer, which is the correct form for a count-based question."
     },
     {
       "dimension": "evidence_supports_answer",
-      "verdict": "partial",
-      "detail": "The lines shown under EVIDENCE are genuine matches of the word \"WARN\", but they are only a sample and do not confirm the total count of 808."
+      "verdict": "yes",
+      "detail": "The evidence shows a query that selects lines from the 'hadoop' dataset where the text includes \"error\" in a case-insensitive manner, and the answer matches the total number of such lines (156) as stated in the evidence."
     }
   ]
 }

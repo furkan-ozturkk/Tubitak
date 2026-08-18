@@ -7,23 +7,23 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:ada179e5fcd8964bd76965214bdcbe4dd40dd12f8fe8994c85cb8df3d9b8dc9f"
+    "prompt_sha256": "sha256:5044ffee72f9aa88c569abfbd484e6a6402b360c89c8ebf86dfb60959797776e"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and unambiguously asks how many log entries in the 'mac' dataset lack any numeric characters."
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'mac' dataset that do not contain any digits."
     },
     {
       "dimension": "answer_matches_question",
       "verdict": "yes",
-      "detail": "The answer is a bare integer, which is the correct form for a count-based question."
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
     },
     {
       "dimension": "evidence_supports_answer",
       "verdict": "partial",
-      "detail": "The evidence suggests no line contains a specific literal, but it does not conclusively prove that no line contains *any* numeric characters."
+      "detail": "The evidence includes a query that would compute the correct count, but the provided line of text does not support the answer of 0, and the claim that no line contains the literal (0 matches from an exact substring search) is not directly relevant to the pattern-matching question."
     }
   ]
 }

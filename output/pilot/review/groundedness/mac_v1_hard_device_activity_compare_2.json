@@ -1,0 +1,41 @@
+{
+  "question_id": "mac_v1_hard_device_activity_compare_2",
+  "group_ids": [
+    "mac:hard:device_activity_compare:2:calvisitor_10_105_163_202",
+    "mac:hard:device_activity_compare:2:calvisitor_10_105_160_85"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:5c09361edce74b7a31c2ac2e6fc9a369222cf76b18107b804c6cb24314661841"
+  },
+  "checks": [
+    {
+      "dimension": "groups_used_correctly",
+      "verdict": "yes",
+      "detail": "The answer correctly attributes specific errors and events to each device without mixing or misattributing facts between them."
+    },
+    {
+      "dimension": "relationship_grounded",
+      "verdict": "yes",
+      "detail": "The comparison between the frequency and severity of errors on the two devices is supported by the evidence, which shows more repeated and varied errors on calvisitor-10-105-163-202."
+    },
+    {
+      "dimension": "no_false_causality",
+      "verdict": "yes",
+      "detail": "The answer does not assign specific causes, actors, or motives not present in the evidence and sticks to describing the observed patterns."
+    },
+    {
+      "dimension": "answers_question",
+      "verdict": "yes",
+      "detail": "The answer contrasts the kernel/process events of the two devices and evaluates which activity is more concerning, directly addressing the question."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:10e9b963c96e8f31164a4f101c9e9ab46bd368b07a9b6e2d01ffaa0b067b9f63"
+  }
+}

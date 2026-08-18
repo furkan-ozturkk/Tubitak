@@ -7,23 +7,23 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:5cae7f09b68c3fadc9e1d89da246ce30e11ecccd5eaa2d858cb0ea8e87b3c74b"
+    "prompt_sha256": "sha256:15345d8cf5b7e3fd7d38726c4d1126b24adec9e3fe9d3053651f8a37fd9749a2"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks for the count of lines in the 'apache' dataset that do not contain the text \"jk2_init\"."
+      "detail": "The question is clearly phrased and unambiguously asks for the count of lines in the 'apache' dataset that do not contain the text \"jk2_init\"."
     },
     {
       "dimension": "answer_matches_question",
       "verdict": "yes",
-      "detail": "The answer is a bare integer, which is the correct form for a count question."
+      "detail": "The answer is a bare integer, which is the correct form for a count-based question."
     },
     {
       "dimension": "evidence_supports_answer",
-      "verdict": "partial",
-      "detail": "The lines shown in the evidence do not contain \"jk2_init\" and thus support the idea that some lines are non-matching, but they do not confirm the total count of 1152."
+      "verdict": "yes",
+      "detail": "The evidence includes a query that selects lines from the 'apache' dataset where the text does not contain \"jk2_init\", and it states that this query returns 1152 lines, which matches the answer."
     }
   ]
 }

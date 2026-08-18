@@ -1,0 +1,29 @@
+{
+  "question_id": "linux_v1_modelsql_scalar_6_1",
+  "group_ids": [
+    "linux:modelsql:scalar:6"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:aa913557305cf4aac2e956d21c13e24facdb3c69736375995174d2daec803857"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of distinct IP addresses attempting SSH access in the 'linux' logs."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which matches the required answer shape for the question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence shows a query that counts distinct IP-like values from the logs, but the sample lines include both IP addresses and hostnames, and it's unclear if the query correctly distinguishes IP addresses from hostnames."
+    }
+  ]
+}

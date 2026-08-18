@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_modelsql_count_18_2",
+  "group_ids": [
+    "windows:modelsql:count:18"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:bde7a45f514722002b204df8b8a466c4862781dc8ac8ae3850f9fe06b064553e"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'windows' dataset containing the exact phrase \"Expecting attribute name\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that selects lines from the 'windows' dataset where the text contains the phrase \"Expecting attribute name\", and it states that the query returns 224 matching lines."
+    }
+  ]
+}

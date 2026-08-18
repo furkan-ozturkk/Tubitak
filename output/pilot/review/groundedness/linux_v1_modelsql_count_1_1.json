@@ -7,23 +7,23 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:3507647f2e56de9d0318867aaf21f9300d5ce8f5d117d5b47ebe7bcb486189b5"
+    "prompt_sha256": "sha256:609d2b5a5a45c02e196a5bedfee4b7284c92e2e09437d421b535db36dfafa4b9"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks for the total number of log entries in the 'linux' dataset that do not mention \"session\", with no ambiguity in the wording or intent."
+      "detail": "The question is clearly phrased and unambiguously asks for the total number of lines in the 'linux' dataset that do not contain the substring \"error\"."
     },
     {
       "dimension": "answer_matches_question",
       "verdict": "yes",
-      "detail": "The answer is a bare integer, which is the correct form for a count question."
+      "detail": "The answer is a bare integer, which is the correct form for a count-based question."
     },
     {
       "dimension": "evidence_supports_answer",
       "verdict": "yes",
-      "detail": "The evidence includes a query that selects lines from the 'linux' dataset where the text does not contain \"session\" (case-insensitive), and it states that the query returns 1754 lines, which matches the answer."
+      "detail": "The evidence includes a query that correctly filters lines in the 'linux' dataset excluding those with the substring \"error\", and it states that the query returns 2000 lines, which matches the answer."
     }
   ]
 }

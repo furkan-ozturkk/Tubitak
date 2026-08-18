@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:98d3b9196c1f86aeb4d4aec1fe25aa4f83b218648ea67ffa2821d1cb0df8031c"
+    "prompt_sha256": "sha256:65c3f378fade7c62b1c90967fca839d124f7a0c7b70dfa27fa9bed8867b458c8"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only states what is directly supported by the evidence, such as the entity, the event type, and the subsequent generation of core events on other entities."
+      "detail": "The answer avoids stating anything not supported by the evidence, such as the cause of the errors or a specific system outcome."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity, the repeated instruction cache parity error corrections, and the generation of core events on other entities, all of which are shown in the evidence."
+      "detail": "The answer correctly identifies the entity (R02-M1-N0-C:J12-U11), the event type (instruction cache parity error corrections), and the lack of a stated outcome."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by describing what is happening in the BGL log around the instruction cache parity error corrections, rather than just restating the structured summary."
+      "detail": "The answer directly addresses the question about what is happening in the BGL log around the 13th occurrence of the error, rather than just restating the summary."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key elements from the evidence: the entity, the repeated error corrections, the subsequent generation of core events on other entities, and the lack of stated outcome."
+      "detail": "The answer includes the key details from the evidence—repeated corrections, the entity involved, and the lack of a stated outcome—without omitting important information."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:5f6dcc015f4b29f24bff11e3598b43f67ed9b55b1aaa11054affb3c585fe6d28"
+    "prompt_sha256": "sha256:65cfc8736d6342518e08f9e129097f77406c235ade1611267a1d245e2bfd7ebc"
   }
 }

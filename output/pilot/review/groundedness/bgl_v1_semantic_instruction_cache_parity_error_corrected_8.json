@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:4ea8a66110a49550a41000323d67eeeea28b712f1eb45925d3d11125b6b82ff7"
+    "prompt_sha256": "sha256:056a0e847723a71590dc6effa7fb70b1bda0799af0480e77f7cdfbd5fbce1409"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only states what is directly supported by the evidence, such as the entity, the repeated instruction cache parity error, and the presence of other RAS events."
+      "detail": "The answer only states what is directly supported by the evidence, such as the entity, the event type, and the time frame."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (R63-M0-N3-C:J02-U11), the event type (instruction cache parity error corrected), and the lack of stated outcome."
+      "detail": "The answer correctly identifies the entity, the event type (instruction cache parity error corrected), and notes that no outcome is stated, which aligns with the evidence."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by describing what occurred around the 33rd occurrence of the error and its significance in context."
+      "detail": "The answer addresses the specific question about what took place and its significance, rather than just restating the structured summary."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence: the repeated error, the entity, and the surrounding RAS events, making it reasonably complete."
+      "detail": "The answer includes the key details from the evidence: the entity, the repeated parity errors, the time frame, and the fact that other entities generated cores, making it reasonably complete."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:47486c17c0d188301c8f91b81fe271dd5e3c8cb4c7139b5dac1ea493a2017f6e"
+    "prompt_sha256": "sha256:03a75c45b9eed5b8ff6ea80fd058c0ef8cc9ded3f7b6b2ed6066bc92cd438ff9"
   }
 }

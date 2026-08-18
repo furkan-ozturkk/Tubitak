@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_modelsql_count_22_0",
+  "group_ids": [
+    "windows:modelsql:count:22"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:7e7201261bbdbacc86cfce81120a9f9143f43e4ba0cac6d9be83794e6f181667"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'windows' dataset containing the exact phrase \"Failed to internally open package\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that correctly filters for the dataset and phrase (case-insensitively), and the answer of 18 matches what the query returns."
+    }
+  ]
+}

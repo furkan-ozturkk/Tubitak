@@ -5,15 +5,15 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:1322a275fa4f543e9dc9a91d2c02e2abcb8360d88c0c84eff68427a84f1e9196"
+    "prompt_sha256": "sha256:fe61501773ea96d330144191d61047d4061e4bfaf9f1ad26ff05ff84673ce68f"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer avoids stating anything not shown in the evidence and sticks to the described system events and status updates."
+      "detail": "The answer avoids stating anything not shown in the evidence and correctly summarizes the system's status and events."
     },
     {
       "dimension": "correct",
@@ -23,18 +23,18 @@
     {
       "dimension": "relevant",
       "verdict": "no",
-      "detail": "The answer does not address the specific mention of the 28th occurrence of \"Thermal pressure\" in the question, making it irrelevant to the question's focus."
+      "detail": "The answer does not address the specific 19th occurrence of \"Thermal pressure\" or explain what it means in the log, as the question asked."
     },
     {
       "dimension": "sufficient",
       "verdict": "partial",
-      "detail": "The answer is reasonably complete in summarizing the system events but omits the specific detail about the 28th occurrence of \"Thermal pressure,\" which is central to the question."
+      "detail": "The answer summarizes the general system behavior but omits the specific detail about the 19th occurrence of \"Thermal pressure,\" which is central to the question."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:00283834a81bc3561b6fee0a8d1a3c2638e86a766065793e9c069064bfd14887"
+    "prompt_sha256": "sha256:7bdec8dc0397575e888ff1fb6a74fadbf94a5b4ed98712ea08f3171bcef11e06"
   }
 }

@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:cc3208a7add6416f7c97742ffbbeacd8fe478fed59518a8ea215174b0e35203a"
+    "prompt_sha256": "sha256:9a156e45237f443dab02e7fb0677f912d2e6f41bb2311148dc8be8b1b58b366d"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and unambiguously asks for the total number of log entries in the 'openstack' dataset that include the word \"INFO\"."
+      "detail": "The question is clearly phrased and unambiguously asks for the number of log entries in the 'openstack' dataset that include the word \"INFO\"."
     },
     {
       "dimension": "answer_matches_question",
@@ -22,8 +22,8 @@
     },
     {
       "dimension": "evidence_supports_answer",
-      "verdict": "partial",
-      "detail": "The lines shown in the evidence are genuine matches of the literal \"INFO\", but they do not confirm the total count of 1969."
+      "verdict": "yes",
+      "detail": "The evidence shows a query that selects lines from the 'openstack' dataset where the text includes \"info\" in a case-insensitive manner, and it states that the query returns 1969 matching lines."
     }
   ]
 }

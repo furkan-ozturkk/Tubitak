@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_11_0",
+  "group_ids": [
+    "hadoop:modelsql:count:11"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:294bac15ac07d88a396e8eca1265430580165f1b8cb8ffa42350593f1b8c2014"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'hadoop' dataset that do not contain any alphabetic characters."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The query correctly identifies lines without alphabetic characters, but the evidence does not include the actual result of the query, so it is unclear whether the answer \"0\" is correct."
+    }
+  ]
+}

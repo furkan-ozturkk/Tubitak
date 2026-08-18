@@ -1,0 +1,29 @@
+{
+  "question_id": "linux_v1_modelsql_count_9_1",
+  "group_ids": [
+    "linux:modelsql:count:9"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:c4646dd8275bb6cfc4c9ed879e92b0e57108ef0e3397ea698b5c653efcebe7c9"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the number of lines in the 'linux' dataset that exclude all digits."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence includes the query that would compute the correct answer, but the provided line of text is unrelated and does not confirm the count is 0."
+    }
+  ]
+}

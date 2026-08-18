@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:ef7505eb1185f4eb3557b6822142348b707350307a91e0922d6f84e77c406f6f"
+    "prompt_sha256": "sha256:61671ae15dbe3013942099e83e214f00fb876ccf0463f5cdb49b31a39a9bcaab"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only includes information directly supported by the evidence provided in the log entries."
+      "detail": "The answer avoids stating anything not shown in the evidence and sticks to the described events and their general implications."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (authorMacBook-Pro), the event type (system wake and network activity), and notes the lack of a stated outcome."
+      "detail": "The answer correctly identifies the entity, event type, and notes the lack of stated outcome as described in the structured summary and evidence."
     },
     {
       "dimension": "relevant",
-      "verdict": "yes",
-      "detail": "The answer addresses the specific question about what took place and its significance around the tenth occurrence of 'Thermal pressure' by describing the sequence of events and their context."
+      "verdict": "no",
+      "detail": "The answer does not specifically address the seventh occurrence of 'Thermal pressure' or its significance, as the question explicitly asks."
     },
     {
       "dimension": "sufficient",
-      "verdict": "yes",
-      "detail": "The answer includes all key events from the evidence, such as thermal pressure, system wake, network activity, and the network access denial, without omitting important details."
+      "verdict": "partial",
+      "detail": "The answer summarizes the log events but omits the specific details around the seventh 'Thermal pressure' entry, which is central to the question."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:1ff876bc0a2282577c01750c6a981883d155634f1d76bc8d20bcbc50e399bd0e"
+    "prompt_sha256": "sha256:b0ff304f4f96ad71e792d96927704b29f8d68eae328586bf11c3d2aa247eb739"
   }
 }

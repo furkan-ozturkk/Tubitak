@@ -1,0 +1,40 @@
+{
+  "question_id": "hdfs_v1_semantic_deleting_block_14",
+  "group_ids": [
+    "hdfs:semantic:deleting_block_14"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:d8681a83c0292b91afd6201cdf0940d18f911910fb83d7a89337d4abbbff9996"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and avoids speculation."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the block, the event type (block deletion), and notes that the outcome is not stated, as per the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about the 239th occurrence of 'Deleting block' and explains what the log shows, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: the block identifier, the invalidSet addition, the file deletion, and the lack of stated outcome."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:f29492be4c12596b97b21954fea9c1f673ea8f92f36d70f3e3026894cb9b0d5b"
+  }
+}

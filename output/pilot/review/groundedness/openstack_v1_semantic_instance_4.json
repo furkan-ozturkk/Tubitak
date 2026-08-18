@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:a2a0104b841932a857f68cc37b840c0a34b6337fe167bb67df4a77f8ca099401"
+    "prompt_sha256": "sha256:e4a05f24334c90dcad1097ff6bd734836de4a8d2afe1e160e6df021e67d23fb9"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only states what is directly supported by the evidence, such as the instance ID, the events of destruction, file deletion, and network deallocation, and the time taken for each."
+      "detail": "The answer avoids stating anything not shown in the evidence and accurately reflects the information provided."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity, the event type (instance deletion), and the outcome (instance deleted), all of which are accurately reflected in the evidence."
+      "detail": "The answer correctly identifies the entity, event type, and outcome as described in the evidence."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer addresses the specific question about the 213th occurrence of 'instance:' by explaining what the log shows and what it means, rather than just restating the structured summary."
+      "detail": "The answer addresses the specific question about the OpenStack log around the 141st occurrence of 'instance:' and explains what it means."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence—instance ID, destruction, file deletion, network deallocation, and timing—without omitting any important parts."
+      "detail": "The answer includes all important parts of the evidence, such as the warning about the unknown base file, the API requests, and the resource claims."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:862de4fdc0e91181b3c85424795d83646002b9d11f1a193b50b58d48cd504297"
+    "prompt_sha256": "sha256:2086e49fa4e61b0e17c587f8b60f3f668816057e092f29ba8de57e543bec0875"
   }
 }

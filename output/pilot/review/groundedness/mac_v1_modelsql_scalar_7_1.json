@@ -1,0 +1,29 @@
+{
+  "question_id": "mac_v1_modelsql_scalar_7_1",
+  "group_ids": [
+    "mac:modelsql:scalar:7"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:614c95ff885d70c0892c6517f7115a8987ed9d4fad50169afe8f2079a86a2eef"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the total count of log entries in the 'mac' dataset with a line number exceeding 1000."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which is the correct form for the required answer (a count)."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence shows the query that would compute the answer, but the actual answer provided (1000) cannot be confirmed as correct or incorrect based on the sample rows or the query alone."
+    }
+  ]
+}

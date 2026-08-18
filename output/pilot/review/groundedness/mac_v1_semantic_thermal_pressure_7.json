@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:49930c219adec4d858a9793a0734849b380a126869077584e6b165899b13adf7"
+    "prompt_sha256": "sha256:578a0e6754766d9841b2e05b199dfb1e683dc595e5e49236db8522d6e2c2fbd3"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only mentions events explicitly listed in the evidence and does not add unsupported claims."
+      "detail": "The answer does not state anything that is not supported by the evidence provided in the log entries."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity, event type, and outcome as described in the evidence."
+      "detail": "The answer correctly identifies the entity (authorMacBook-Pro), the event type (system log events), and accurately reflects that no specific outcome is stated."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by summarizing the event shown in the log near the 22nd occurrence of 'Thermal pressure'."
+      "detail": "The answer directly addresses the question by summarizing the event shown in the Mac log near the 15th occurrence of 'Thermal pressure'."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes all key events from the evidence without omitting important details."
+      "detail": "The answer includes the key elements from the evidence—capture event, skipped file, thermal/memory pressure, button reports, and network evaluations—without omitting important details."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:7bd3352b8d3ebfed50213a8bd8b84416b12b2f088c4c6f98f8fc91996157bd90"
+    "prompt_sha256": "sha256:6bf032ed720842d1dd5f29234e21a136c05610c12dd68aec3baf055f17a7bd46"
   }
 }

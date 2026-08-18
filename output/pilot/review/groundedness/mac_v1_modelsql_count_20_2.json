@@ -1,0 +1,29 @@
+{
+  "question_id": "mac_v1_modelsql_count_20_2",
+  "group_ids": [
+    "mac:modelsql:count:20"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:3064a48f75315cdae73c0a809779d2f178b0fa38df354675c2464927a2fd4e15"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of log entries containing the word \"location\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that counts lines with \"location\" (case-insensitive) in the 'mac' dataset, and the answer matches the stated result of that query."
+    }
+  ]
+}

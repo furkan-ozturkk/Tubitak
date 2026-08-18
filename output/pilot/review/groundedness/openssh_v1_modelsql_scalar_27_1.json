@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_modelsql_scalar_27_1",
+  "group_ids": [
+    "openssh:modelsql:scalar:27"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:7304e6701ccc8f02dbbf824c3c1542bf00f0028611cbc2aa5b3d352260cd5b6e"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the total number of distinct IP addresses in the openssh logs."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which matches the required answer shape for the question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence shows a query that counts distinct IP-like patterns in the openssh dataset, and sample logs that contain IP addresses, but it does not confirm that the query returned 1734 when executed."
+    }
+  ]
+}

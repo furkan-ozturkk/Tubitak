@@ -5,36 +5,32 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:b61028e5a786224c24c405aa1770743987dad4c55ccf035a55a97be33f821e57"
+    "prompt_sha256": "sha256:204bc4dae4c18102a6b61210d2848f3c11d1c1e1c51291c994456b724651d8f2"
   },
   "checks": [
     {
       "dimension": "grounded",
-      "verdict": "yes",
-      "detail": "The answer only states information directly supported by the evidence provided in the logs."
+      "verdict": "partial"
     },
     {
       "dimension": "correct",
-      "verdict": "yes",
-      "detail": "The answer correctly identifies the instance ID, the event type (deletion), and the outcome (successful deletion)."
+      "verdict": "partial"
     },
     {
       "dimension": "relevant",
-      "verdict": "yes",
-      "detail": "The answer addresses the specific question about what took place around the 160th occurrence of 'instance:' and its significance, rather than just restating the structured summary."
+      "verdict": "partial"
     },
     {
       "dimension": "sufficient",
-      "verdict": "yes",
-      "detail": "The answer includes all important parts of the evidence: termination, destruction, and deletion of files, as well as the successful outcome."
+      "verdict": "partial"
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:25c629d337458356d3c579199b2c552311690741195e1dd3bbde9d3dfe6d0192"
+    "prompt_sha256": "sha256:8b718b7ddbd14b991386709721dfc63e884f9b82140656cf7329175f521935a9"
   }
 }

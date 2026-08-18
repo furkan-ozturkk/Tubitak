@@ -1,0 +1,40 @@
+{
+  "question_id": "hadoop_v1_semantic_mrappmaster_13",
+  "group_ids": [
+    "hadoop:semantic:mrappmaster_13"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:4e3521d569be4895311110698d1d6c2dff2092f0bdd1a1254ad859e3b9e85228"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only includes information directly supported by the evidence and does not add unsupported claims."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (job_1445144423722_0020), the event type (job initialization), and the outcome (transition from NEW to INITED)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what took place around the 14th occurrence of 'MRAppMaster' and its significance, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key tasks performed during initialization and the significance of the transition, making it reasonably complete."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:963a54b38fd983d2db16959a539a025b0cec06f45a2b77cf740aeac3d4be6b4c"
+  }
+}

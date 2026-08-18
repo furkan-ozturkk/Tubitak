@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:10bb4175801b65e1c63245383646dbbc0d50b57d0773701ace62d729f5e0e3a0"
+    "prompt_sha256": "sha256:9a65b8aafa23f9849e0a1e530fd0216f3c8dd3e0e2588a4bf87125ffed108c97"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer does not state anything beyond what is shown in the evidence and correctly avoids speculation."
+      "detail": "The answer does not state anything beyond what is shown in the evidence and avoids speculation."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer accurately reflects the entity (187.141.143.180), the event type (authentication failures), and the outcome (disconnections)."
+      "detail": "The answer correctly identifies the entity (IP address), event type (authentication attempts), and notes the outcome (failures and disconnections)."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by summarizing the event shown in the log near the 17th occurrence of \"POSSIBLE BREAK-IN ATTEMPT.\""
+      "detail": "The answer directly addresses the question by summarizing the event shown in the log near the 11th occurrence of \"POSSIBLE BREAK-IN ATTEMPT.\""
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key elements from the evidence: connection attempts, authentication failures, reverse mapping issues, and disconnections."
+      "detail": "The answer includes the key elements from the evidence: multiple connection attempts, failed reverse mapping checks, password failures, and disconnections."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:30329eace9729a9f80730555b7c00a6c3d4aa8dc04e914d8fe3e3054d433309e"
+    "prompt_sha256": "sha256:a40314666c369d94fc54ac2587886d62b6ebda5bcb2bb353ec3d157d7d3ffb6a"
   }
 }

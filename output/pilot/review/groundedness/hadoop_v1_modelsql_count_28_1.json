@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_28_1",
+  "group_ids": [
+    "hadoop:modelsql:count:28"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:a93d3b7600002e9cfe1260326d8e76c5ad47c6f6f51168abf6fa55acba5ad0c1"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the total number of log entries in the 'hadoop' dataset that start with \"WARN\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence shows a query that would count lines starting with \"warn\" (case-insensitive), but the evidence also states that no line contains the exact literal, and the example line shown is unrelated. This suggests the answer may be correct, but the evidence is incomplete or ambiguous in its support."
+    }
+  ]
+}

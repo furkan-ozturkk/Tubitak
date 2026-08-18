@@ -1,0 +1,29 @@
+{
+  "question_id": "zookeeper_v1_modelsql_count_8_2",
+  "group_ids": [
+    "zookeeper:modelsql:count:8"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:f3499f6c9ba4b1483c1dd3564782bb59d56210abb352285f699dd94f312a1805"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of log entries in the 'zookeeper' dataset with session IDs starting with '0x'."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The query pattern `[0-9a-f]{16}` suggests a 16-character hexadecimal string, but the question specifies session IDs starting with '0x', which the query does not explicitly check for."
+    }
+  ]
+}

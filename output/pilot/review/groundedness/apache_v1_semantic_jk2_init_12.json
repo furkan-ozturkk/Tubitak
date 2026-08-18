@@ -1,0 +1,40 @@
+{
+  "question_id": "apache_v1_semantic_jk2_init_12",
+  "group_ids": [
+    "apache:semantic:jk2_init_12"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:fa2acd883e2b7c0c6aef38a02259a3df9063b73699811c9683baf6a526e327cd"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence and correctly avoids speculation."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the entity (workerEnv), the event type (Apache system log events), and the lack of a stated outcome."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific event shown in the Apache log near the 673rd occurrence of 'jk2_init', as asked by the question."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key elements from the evidence: workerEnv initialization, mod_jk child errors, and jk2_init() finding children in scoreboard slots."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:7c12df3ce0d5dbdfee2ac4fd347be056f03f37c7cb983858eab3ffce8ca5ff12"
+  }
+}

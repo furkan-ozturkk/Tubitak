@@ -1,0 +1,40 @@
+{
+  "question_id": "windows_v1_semantic_csi_12",
+  "group_ids": [
+    "windows:semantic:csi_12"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:a4076220ac5452b0d4fd4fd3afb1244a54aa715cd1e7d1f9f533597f8fff76ff"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence and accurately reflects the described events."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type, and outcome as described in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific event shown in the Windows log near the 13th occurrence of 'CSI', as asked by the question."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all important parts of the evidence, such as the scavenge start, CSI transaction, operations, and outcome."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:2754540ca4627d470feaa2a1b8be6e21c5f19d46e06ab943d17081c1dee1d635"
+  }
+}

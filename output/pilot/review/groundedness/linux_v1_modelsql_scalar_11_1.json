@@ -1,0 +1,29 @@
+{
+  "question_id": "linux_v1_modelsql_scalar_11_1",
+  "group_ids": [
+    "linux:modelsql:scalar:11"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:21ae9956e0389102453a4dcaa45dd91630d5da2a8898bdefdbb75b0a30e21f54"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of lines in the 'linux' dataset that exceed 100 characters in length."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which matches the required answer shape for the question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence includes a query that computes the exact count the question asks for, and a sample line confirms that the dataset contains lines that meet the criteria."
+    }
+  ]
+}

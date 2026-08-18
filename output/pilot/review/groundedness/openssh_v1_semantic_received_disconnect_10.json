@@ -1,0 +1,40 @@
+{
+  "question_id": "openssh_v1_semantic_received_disconnect_10",
+  "group_ids": [
+    "openssh:semantic:received_disconnect_10"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:2c022e3c8008d3273fdc91bc02c81bbd0bc492fa38ee1176ebf60cea420b4ba5"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what the evidence shows, such as the IP address, the failed password attempts, and the disconnects."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (183.62.140.253), the event type (failed password attempts and disconnects), and the lack of a successful outcome."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining what happened around the 311th disconnect and what it may indicate, rather than just restating the summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence—failed password attempts, the IP address, the disconnects, and the potential implication—without omitting important information."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:c33f907085dd2b4b39397c8ff1b10f0e5112412a950d1f212bfb6cff88f45635"
+  }
+}

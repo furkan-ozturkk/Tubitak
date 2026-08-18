@@ -1,0 +1,29 @@
+{
+  "question_id": "linux_v1_modelsql_count_20_1",
+  "group_ids": [
+    "linux:modelsql:count:20"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:c6723f67422de41b8e39f504e9ce5e483f1167c15ec496e677b119e92314d331"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the total number of lines in the 'linux' dataset containing the word \"failed\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The evidence shows a query that correctly filters lines in the 'linux' dataset containing \"failed\" (case-insensitively), and the answer of 47 is stated as the total count returned by that query."
+    }
+  ]
+}

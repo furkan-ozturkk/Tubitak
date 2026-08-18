@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:faaf0be69f4ace7942874d4642b8c3df0748d6e793a115067369a6ec438e8a96"
+    "prompt_sha256": "sha256:6cf7773f2a0dae8013c5ce93418e4aa4a8dcb63f0fd5b163ccb4a47955ce1ddf"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only states what is directly supported by the evidence, such as initialization success, error states, and discovery of child processes."
+      "detail": "The answer only states what is directly supported by the log entries, such as error states, jk2_init finding children, and workerEnv.init succeeding."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (mod_jk child workerEnv), the event type (initialization and error messages), and accurately reflects the lack of a stated outcome."
+      "detail": "The answer correctly identifies the entity (workerEnv), the event type (mod_jk error and initialization events), and accurately reflects that no overall outcome is stated in the evidence."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer addresses the specific event shown in the Apache log near the 169th occurrence of 'jk2_init', rather than just restating the structured summary."
+      "detail": "The answer addresses the specific event shown in the Apache log near the 113th occurrence of 'jk2_init', rather than just restating the structured summary."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key elements from the evidence: initialization success, error states, and discovery of child processes in scoreboard slots."
+      "detail": "The answer includes the key points from the evidence: error states, jk2_init finding children, and workerEnv.init succeeding, without omitting important details."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:e293680efc7952d85760fb884195024f57735978c184ad52c0edcf0e146b0a31"
+    "prompt_sha256": "sha256:9ddbafbd4564eff893d525d2297e0a3d98f79c3e5798e7efc65c7ff05af0781a"
   }
 }

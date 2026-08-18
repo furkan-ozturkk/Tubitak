@@ -1,0 +1,40 @@
+{
+  "question_id": "windows_v1_semantic_csi_11",
+  "group_ids": [
+    "windows:semantic:csi_11"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:220a4f8c72925fefe5cfaa6838b454b9dad44aeebc6d9f1274b28b5150091826"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not shown in the evidence and sticks to the described events and outcomes."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the CBS entity, the system maintenance event type, and the successful scavenge outcome with disposition 0X1."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what is happening around the CSI events, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes key details from the evidence, such as the CSI transaction initialization, store coherency cookie check, and the successful completion of the scavenge."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:9e4c42248858a5409a794a5280d1042b96fc9373a827be5198be710515e6bb32"
+  }
+}

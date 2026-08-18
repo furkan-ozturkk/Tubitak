@@ -1,0 +1,40 @@
+{
+  "question_id": "mac_v1_semantic_thermal_pressure_11",
+  "group_ids": [
+    "mac:semantic:thermal_pressure_11"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:6bf8c75bddb7ec5ba13b4462b9660d5598cd6e2b6ff31f6800753a7ee89c2840"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only includes information present in the structured summary and evidence, without adding unsupported details."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity, event type, and outcome as described in the structured summary and evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "no",
+      "detail": "The answer does not address the specific request to describe what is happening around the 23rd occurrence of 'Thermal pressure'; it instead provides a general summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial",
+      "detail": "The answer summarizes the general system activities but omits the specific details about the 23rd 'Thermal pressure' occurrence, which is the focus of the question."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:848e0a4bbb55fff6a07757c5c8f7b7c02c2b517c574b2939fd2fde42e582cf0b"
+  }
+}

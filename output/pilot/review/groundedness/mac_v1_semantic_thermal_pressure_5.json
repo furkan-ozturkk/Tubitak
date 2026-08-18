@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:23b288f7dbb3bd528f3654373bc71b93a99ea8a4caae7a4211a0d3650654cc55"
+    "prompt_sha256": "sha256:d1ede51bb71c2a3766e341e6ff610d0aff88bcf20aa38c50c8722b7b501933c5"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer does not state anything that is not supported by the evidence provided in the log entries."
+      "detail": "The answer avoids stating anything not shown in the evidence and sticks to the described events."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity, event type, and notes the lack of a stated outcome as described in the structured summary and evidence."
+      "detail": "The answer accurately reflects the kernel events, entity, and the lack of a stated outcome as shown in the evidence."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer addresses the specific question about what happened around the 16th occurrence of 'Thermal pressure' and what it means, rather than just restating the summary."
+      "detail": "The answer addresses the specific question about what happened and what it means, rather than just restating the structured summary."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key events and their implications from the evidence, such as thermal and memory pressure checks, assertion failures, and other system behaviors."
+      "detail": "The answer includes the important parts of the evidence, such as thermal pressure, retries, wake events, Wi-Fi status, and sandbox denials."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:182e368ebc65418e2a779e3fb0b8f024ec84bccda09153ab011d29f1d7fa65f6"
+    "prompt_sha256": "sha256:d31276f28682130bc5f2f98adc41b82e3158ff98e4c4c46e5645ec67c42e8141"
   }
 }

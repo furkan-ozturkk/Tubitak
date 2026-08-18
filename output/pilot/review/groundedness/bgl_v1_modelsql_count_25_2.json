@@ -1,0 +1,29 @@
+{
+  "question_id": "bgl_v1_modelsql_count_25_2",
+  "group_ids": [
+    "bgl:modelsql:count:25"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:bf1649c9b81d7db9529cc736f3646d9c6544a80d55714db50aac7aff8d308fe5"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks how many lines in the 'bgl' dataset lack any numeric characters."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence provides a query that would compute the correct answer, but the answer given (0) is not directly supported by the evidence since no query result is shown."
+    }
+  ]
+}

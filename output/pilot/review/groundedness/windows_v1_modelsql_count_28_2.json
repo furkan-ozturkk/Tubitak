@@ -1,0 +1,29 @@
+{
+  "question_id": "windows_v1_modelsql_count_28_2",
+  "group_ids": [
+    "windows:modelsql:count:28"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:e023d8f8cdd1aa33d25843da9abd02b624475be23679f0a530c70fd611ede44c"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the number of times the exact phrase \"CurrentState\" appears in the 'windows' dataset."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence shows a query that finds lines containing \"currentstate\" in a case-insensitive manner, but the question asks for the exact phrase \"CurrentState,\" which may not be fully aligned with the query's logic."
+    }
+  ]
+}

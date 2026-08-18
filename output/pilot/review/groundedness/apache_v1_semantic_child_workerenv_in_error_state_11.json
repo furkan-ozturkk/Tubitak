@@ -1,0 +1,40 @@
+{
+  "question_id": "apache_v1_semantic_child_workerenv_in_error_state_11",
+  "group_ids": [
+    "apache:semantic:child_workerenv_in_error_state_11"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:fb5235997682147b9fcc30d3d6234ea3cf67eb25bd710b944f463b1f5ee67adc"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer does not state anything beyond what is shown in the evidence, such as the initialization of workerEnv, the error states, and the repetition of these events."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer accurately reflects the evidence, correctly identifying the entity (workerEnv), the event type (initialization and error states), and the lack of a stated outcome."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what is happening in the Apache log around the described error occurrences, rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer is reasonably complete, covering the initialization, the error states, and the cyclical nature of the issue as shown in the evidence."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:38ae6100c98402c8895abffcce23a2fb44c0a1f2c332f1596bca57714b0125d6"
+  }
+}

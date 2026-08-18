@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:da80c872a7d8a7f19f74e2492e9123b2621be6d930a741ab231456fbbc98dad8"
+    "prompt_sha256": "sha256:4e0ee1386f2ceddeb55ad23348dc7c4fec5d3a83f3b9f15ef7eeb39e8a6876a8"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and unambiguously asks for the count of lines in the openssh dataset that do not contain any error messages."
+      "detail": "The question is clearly phrased and unambiguously asks for the count of lines in the openssh dataset that do not contain the word \"failed\"."
     },
     {
       "dimension": "answer_matches_question",
@@ -23,7 +23,7 @@
     {
       "dimension": "evidence_supports_answer",
       "verdict": "yes",
-      "detail": "The evidence includes a query that filters out lines with error-related keywords and returns 610 matching lines, which directly supports the answer."
+      "detail": "The evidence includes a query that selects lines not containing \"failed\" (case-insensitively), and the count of 1390 is stated as the result of that query."
     }
   ]
 }

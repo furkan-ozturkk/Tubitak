@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:912200e1a04d84a446a546e7bd7d3cd24e6447a874b2e783175a6f7a2b6b83a6"
+    "prompt_sha256": "sha256:30a954f01b68b15b00b036a82e5f2fc632cff77b81d45dc33cbdd8363a9d4e8a"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only states what is directly supported by the evidence, such as the repeated GET requests and image cache checks, without adding unsupported claims."
+      "detail": "The answer only states information directly supported by the evidence, such as checking image usage, handling API requests, and creating a server external event."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity, the event type (GET requests and image cache checks), and the outcome (successful responses and image in use)."
+      "detail": "The answer correctly identifies the entity, the event types (image usage, API requests, external event), and the outcome (successful execution with status 200)."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by describing what took place around the 641st occurrence and its significance, rather than just restating the structured summary."
+      "detail": "The answer addresses the specific question about what took place around the 425th occurrence of 'nova.osapi_compute.wsgi.server' and its significance, rather than just restating the structured summary."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence—repeated GET requests, image cache checks, and the inference of polling or monitoring—without omitting important information."
+      "detail": "The answer includes all important parts of the evidence, such as the image usage check, the multiple GET requests, and the POST request for the external event."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:92241eb10cd3456e34868a8044f9193d36398275935fd4bd1815dba500cdc94c"
+    "prompt_sha256": "sha256:d1b155e7b4962d370c9f24d5fe8853f11b130d7a6a4cd881aae61a2b30ab7d70"
   }
 }

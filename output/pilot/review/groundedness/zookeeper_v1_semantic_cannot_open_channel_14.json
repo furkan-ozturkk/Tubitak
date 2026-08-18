@@ -1,0 +1,40 @@
+{
+  "question_id": "zookeeper_v1_semantic_cannot_open_channel_14",
+  "group_ids": [
+    "zookeeper:semantic:cannot_open_channel_14"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:210c1071d82e8cda263b96084b3fc3e84b9f251c55edbda0b9ce5de1e78fb53c"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer avoids stating anything not supported by the evidence, such as the cause of the failures or the outcome."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (QuorumPeer[myid=1]), the event type (connection failures), and the outcome (not stated)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by explaining the log around the repeated 'Cannot open channel' messages and their implications."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: the repeated failures, the nodes involved, and the timeout information."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:d9d0354d19b20f041e223131bb659107d23610563cb641f7783f134318236794"
+  }
+}

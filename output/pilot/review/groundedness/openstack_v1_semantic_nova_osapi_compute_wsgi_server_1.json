@@ -5,36 +5,32 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:469ab6334b2ec0bf5c95c1bd5752392a1361c34d978adc498d4661b719f765bd"
+    "prompt_sha256": "sha256:ec0d5d2b5d7a6486e2c63df6b1f32ff3811af062cb2fb0e5b4ef602c7741ac68"
   },
   "checks": [
     {
       "dimension": "grounded",
-      "verdict": "yes",
-      "detail": "The answer only includes information directly supported by the evidence provided in the logs."
+      "verdict": "partial"
     },
     {
       "dimension": "correct",
-      "verdict": "yes",
-      "detail": "The answer correctly identifies the entity, the events (GET requests, VM state changes, pending task, image check), and accurately reflects the evidence."
+      "verdict": "partial"
     },
     {
       "dimension": "relevant",
-      "verdict": "yes",
-      "detail": "The answer specifically addresses the events around the 81st occurrence of 'nova.osapi_compute.wsgi.server' and describes what is happening in the logs."
+      "verdict": "partial"
     },
     {
       "dimension": "sufficient",
-      "verdict": "yes",
-      "detail": "The answer includes all important parts of the evidence, such as the API requests, VM lifecycle events, pending task, and image check."
+      "verdict": "partial"
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:1cc600a39a2e6f69c0d12c1b600375113d2dbb040e06790623dad9059462d4ad"
+    "prompt_sha256": "sha256:a7ac549feda24aed1d2623e3f317e43941b7b5e1347e8ce551b69eb4d94d6b02"
   }
 }

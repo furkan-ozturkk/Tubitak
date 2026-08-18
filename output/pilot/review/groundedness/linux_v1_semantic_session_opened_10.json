@@ -1,0 +1,40 @@
+{
+  "question_id": "linux_v1_semantic_session_opened_10",
+  "group_ids": [
+    "linux:semantic:session_opened_10"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:454134a9d453262574202183955a27b8d6dd257986327a91a8cfb09457da3154"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence and does not add unsupported claims."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the events, entities, and outcome as described in the evidence."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what happened around the 81st occurrence of 'session opened' and what it means, rather than just summarizing the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all the important parts of the evidence, such as the FTP connections, su sessions, logrotate alert, and SSH authentication failure."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:774f7aca2bf0b7255a494d5f54b7b1a4650e82e35a083035951e481c86677d47"
+  }
+}

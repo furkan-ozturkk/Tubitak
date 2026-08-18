@@ -1,0 +1,29 @@
+{
+  "question_id": "openstack_v1_modelsql_scalar_19_2",
+  "group_ids": [
+    "openstack:modelsql:scalar:19"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:9fbbc4896d4cabdf5117037f205819389a10e6158d4a3fa84b258ee23d0d36cb"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'openstack' dataset with a line number greater than 1000."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a single numeric value, which is the correct form for the required answer."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence includes a query that would compute the correct answer, but the sample rows shown do not include line numbers greater than 1000, so it's unclear whether the dataset actually contains such entries or whether the count of 1000 is accurate."
+    }
+  ]
+}

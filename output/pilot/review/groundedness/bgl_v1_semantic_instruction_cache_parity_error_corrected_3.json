@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:7f296e6db3cb5e82f5584c59d5b83fde02e9f90f5d5b71acfa3106d484742eac"
+    "prompt_sha256": "sha256:ca02c2f50502f0d8cb9d0a1e420da0ac8b8f6e066f87e319f47a97bcc3d3aad2"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer avoids stating anything not shown in the evidence, such as the specific cause of the errors or any system failure."
+      "detail": "The answer only states what is directly supported by the evidence, such as the entity, the event, and the lack of stated outcome."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity, the event type (instruction cache parity error corrections), and the outcome (no stated negative impact)."
+      "detail": "The answer correctly identifies the entity (R02-M1-N0-C:J12-U11), the event type (instruction cache parity error corrections), and the lack of stated outcome."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by describing what occurred around the 13th occurrence and its significance, rather than just restating the summary."
+      "detail": "The answer addresses the specific question about what took place and its significance, rather than just restating the structured summary."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence: the entity, the repeated corrections, the system's ability to recover, and the lack of stated negative outcome."
+      "detail": "The answer includes the key details from the evidence: the entity, the repeated event, the time frame, and the lack of stated outcome."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:65cfc8736d6342518e08f9e129097f77406c235ade1611267a1d245e2bfd7ebc"
+    "prompt_sha256": "sha256:c279d5221ea687a86f29276ae3c1f0e6a055a23ad2a4abfb13f8c5248b3912ba"
   }
 }

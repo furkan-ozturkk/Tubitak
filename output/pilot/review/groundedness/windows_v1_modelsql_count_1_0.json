@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:91e521fce860f04301f2193d92d4e2c4f9c4549e11fde2935f1fa00e4dd7f77d"
+    "prompt_sha256": "sha256:9d7d57665b8b87c9b964eaa13dca2691e6f759ce8ac755dc6ba8a4c488773427"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks for the count of log entries that do not contain the specific phrase \"Failed to start upload\"."
+      "detail": "The question is clearly phrased and asks for the count of log entries in the 'windows' dataset that do not contain the specific phrase."
     },
     {
       "dimension": "answer_matches_question",
@@ -23,7 +23,7 @@
     {
       "dimension": "evidence_supports_answer",
       "verdict": "yes",
-      "detail": "The evidence shows a query that selects lines not containing \"failed to start upload\" (case-insensitive), and the answer matches the total count of 1998 returned by that query."
+      "detail": "The query selects lines from the 'windows' dataset where the text does not contain the phrase \"Failed to start upload\" (case-insensitive), and the answer matches the count of those lines."
     }
   ]
 }

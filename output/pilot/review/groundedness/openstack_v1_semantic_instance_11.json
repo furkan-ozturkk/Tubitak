@@ -1,0 +1,40 @@
+{
+  "question_id": "openstack_v1_semantic_instance_11",
+  "group_ids": [
+    "openstack:semantic:instance_11"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:4f416b09284ef5300b516a58460d7bb8b9dd878946022b74bca1acd9c140c36f"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states information that is directly supported by the evidence provided in the logs."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the instance ID, the event type (deletion), and the outcome (successful destruction)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer addresses the specific question about what is happening in the log around the 386th occurrence of 'instance:' by describing the deletion process."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes all important aspects of the evidence: termination, destruction, file deletion, and the time taken for the process."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:e7e45ab100c51673d8e5340069c02c4bc39d5cb7bd7fdf18974e5da1fc968a82"
+  }
+}

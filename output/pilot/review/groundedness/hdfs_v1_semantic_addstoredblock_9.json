@@ -5,9 +5,9 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:f6401ad46ed81db98f899774fd9f5700821f0b5412ded16245ef3d94b8df59ed"
+    "prompt_sha256": "sha256:d771fb5f829f02c5c8ee4aeac465667643441db822663d1dc9aafba7274b3e32"
   },
   "checks": [
     {
@@ -31,6 +31,6 @@
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:ab9d7956a5e1cdfe8164687bac9b4ecfc45a75c1853bf3b58457ff8f06660a9a"
+    "prompt_sha256": "sha256:311634fab1da9dbddb6e4d340cda68926df79e8428a369e416d643d142765750"
   }
 }

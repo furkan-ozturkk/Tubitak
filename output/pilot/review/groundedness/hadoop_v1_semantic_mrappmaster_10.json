@@ -1,0 +1,36 @@
+{
+  "question_id": "hadoop_v1_semantic_mrappmaster_10",
+  "group_ids": [
+    "hadoop:semantic:mrappmaster_10"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:0cff3f0c195162b6b479309a205f8342edbc8c52e94772ed02a427f06aa76351"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "correct",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial"
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:12e8dcbcadea4fc18c5c3f3e9fef7ec9db1eb02d68f18201e47326dd8b9e0879"
+  }
+}

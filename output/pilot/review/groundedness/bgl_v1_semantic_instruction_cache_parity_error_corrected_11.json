@@ -1,0 +1,36 @@
+{
+  "question_id": "bgl_v1_semantic_instruction_cache_parity_error_corrected_11",
+  "group_ids": [
+    "bgl:semantic:instruction_cache_parity_error_corrected_11"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:362e951df8f76bd54de5444c1497b5b84cc0868261cdec49e94a4401592ee40e"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "correct",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "partial"
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "partial"
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:4d87707e92df000b05affbd3fda1d8dc36eb0581912b67f7f3daf53ba24a9feb"
+  }
+}

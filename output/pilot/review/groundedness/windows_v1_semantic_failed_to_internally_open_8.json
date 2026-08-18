@@ -5,7 +5,7 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
     "prompt_sha256": "sha256:706239672cf20dee54828646292b6b2ac0e6d470c060423ed0bac71d0369c591"
   },
@@ -18,17 +18,17 @@
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the event type, the entity involved, and the outcome as described in the evidence."
+      "detail": "The answer correctly identifies the event type, the entity, and the outcome as described in the evidence."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by explaining what occurred around the ninth \"Failed to internally open\" event and its significance."
+      "detail": "The answer directly addresses the question by focusing on the ninth occurrence and its significance, rather than just summarizing the structured summary."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence, including the error code and the implication of an invalid package."
+      "detail": "The answer includes the key details from the evidence: the multiple sessions, the failed package opening, and the error code, making it reasonably complete."
     }
   ],
   "subject_model": {

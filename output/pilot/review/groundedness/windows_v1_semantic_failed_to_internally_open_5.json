@@ -5,7 +5,7 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
     "prompt_sha256": "sha256:8a81bd9bdaaab27e2bf7e7c70e50ee1e3d8b8618b2922e49a8213d3622c2e97f"
   },
@@ -13,22 +13,22 @@
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer only states what is directly supported by the evidence, such as the session ID, the failure to open a package, and the HRESULT code."
+      "detail": "The answer avoids stating anything not shown in the evidence, such as the cause of the error or the outcome of the failures."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (Session 30546173_4280613482), the event type (failure to open package), and the outcome (not stated)."
+      "detail": "The answer correctly identifies the entity (Session 30546173_4280613482), the event type (failed to open package), and the outcome (not stated)."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer addresses the specific question about what happened around the sixth occurrence of \"Failed to internally open\" and what it means, rather than just summarizing the structured summary."
+      "detail": "The answer directly addresses the question about what happened and what it means, rather than just restating the structured summary."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key details from the evidence: the session, the error, the repeated failures, and the lack of stated outcome."
+      "detail": "The answer includes the key details from the evidence: the session ID, the error message, the repeated failures, and the lack of stated outcome."
     }
   ],
   "subject_model": {

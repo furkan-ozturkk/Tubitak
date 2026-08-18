@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:6117d024cf50c1d21a2cff5754ba82f08c8d6043ce95581e9ffeb8502b2cf471"
+    "prompt_sha256": "sha256:34f137e2349f0b4b679c5bdde643d591acbf46339c0b2ee99e1c5d24be6d0eb0"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer avoids stating anything not shown in the evidence and sticks to the described events and entities."
+      "detail": "The answer only states what is directly supported by the evidence, such as receiving blocks, updating block maps, and deleting a block."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer accurately reflects the correct entity, event type, and outcome as described in the evidence."
+      "detail": "The answer correctly identifies the event type (block reception and management), the entity (various blocks), and the outcome (no errors indicated)."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer addresses the specific question about the 125th occurrence of 'addStoredBlock' and explains what the log shows."
+      "detail": "The answer addresses the specific question about the 81st occurrence of 'addStoredBlock' and explains what the log shows, rather than just restating the summary."
     },
     {
       "dimension": "sufficient",
       "verdict": "partial",
-      "detail": "The answer is reasonably complete but does not explicitly reference the 125th occurrence or provide a detailed walk-through of the specific log line in question."
+      "detail": "The answer mentions the general activity around the log but does not specifically walk through the 81st occurrence of 'addStoredBlock' or provide a detailed explanation of what that specific line means."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:9fb9a869c41769de941479c18a47086ee03f90ad4be7b3d6060182ddce62a0f4"
+    "prompt_sha256": "sha256:a3afc8a6074a41824bae91b3e6a005cf11cf8b5f7fcf874d28418a1413208d6b"
   }
 }

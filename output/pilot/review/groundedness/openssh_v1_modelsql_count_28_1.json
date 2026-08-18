@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_modelsql_count_28_1",
+  "group_ids": [
+    "openssh:modelsql:count:28"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:0e745885694807459deb04f13a078c4ea54a879b9ea7aec09847b96179ac7be2"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the total number of lines in the openssh dataset that include the PID of the SSH daemon."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query selects lines from the openssh dataset where the text contains a pattern matching \"[...]\", which corresponds to the inclusion of the SSH daemon's PID in the log lines. The evidence supports the answer of 2000."
+    }
+  ]
+}

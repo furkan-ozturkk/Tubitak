@@ -1,0 +1,29 @@
+{
+  "question_id": "hadoop_v1_modelsql_count_11_1",
+  "group_ids": [
+    "hadoop:modelsql:count:11"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:0811b88e167698e95611d420686ab62db8482a2f2656d3571b6b0915106e94a4"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and unambiguously asks for the count of log entries in the 'hadoop' dataset that consist solely of numeric values."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, which is the correct form for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The query attempts to find lines without alphabetic characters, but it does not ensure that the lines consist solely of numeric values (e.g., it may include lines with symbols or be empty). Thus, the evidence does not definitively support the answer."
+    }
+  ]
+}

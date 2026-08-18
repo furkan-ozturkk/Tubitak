@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:b6a7a1aafabd403700da07b6586294fa7ee6740004db8bffd964b148d73e452a"
+    "prompt_sha256": "sha256:13d9b6315dfbcf076478d049875f3f0db25ce5f9db85c81aa318aad25ceee407"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer does not state anything beyond what is shown in the evidence and correctly interprets the logs without adding unsupported claims."
+      "detail": "The answer does not state anything beyond what is shown in the evidence and correctly avoids speculation."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer accurately reflects the entity (187.141.143.180), the event type (authentication failures and possible break-in attempts), and the outcome (no successful authentication)."
+      "detail": "The answer accurately reflects the entity (187.141.143.180), the event type (authentication failures and possible break-in attempts), and the outcome (disconnections after failed attempts)."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by explaining the logs around the \"POSSIBLE BREAK-IN ATTEMPT\" entries and what they mean, rather than just summarizing the structured summary."
+      "detail": "The answer directly addresses the question by explaining the log entries around the \"POSSIBLE BREAK-IN ATTEMPT\" messages and what they mean."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer covers the key points from the evidence: the IP address, the failed password attempts, the reverse mapping failure, and the implication of a potential break-in attempt."
+      "detail": "The answer includes the key details from the evidence: the IP address, the failed reverse mapping, the failed password attempts for root, and the disconnections."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:754a73dcf12dd0508795b18ed68408aec89a0c3a35aba2b94bef4818cfa2bbab"
+    "prompt_sha256": "sha256:562952459d533b8b32f978a5a1b9f18a2ec875edb0ab96c75a3661dc14253d9c"
   }
 }

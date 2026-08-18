@@ -1,0 +1,29 @@
+{
+  "question_id": "apache_v1_modelsql_count_8_0",
+  "group_ids": [
+    "apache:modelsql:count:8"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:c53dd827b68ad1aff9e762459d4cda0b40e5c165946cbcbaa270b3aa9cb841a9"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of lines in the 'apache' dataset containing the word \"notice\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query selects lines where the text contains \"notice\" (case-insensitive due to ILIKE), and the evidence confirms that the count of 1405 is what the query returns."
+    }
+  ]
+}

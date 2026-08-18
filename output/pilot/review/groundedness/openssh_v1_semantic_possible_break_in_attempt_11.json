@@ -1,0 +1,40 @@
+{
+  "question_id": "openssh_v1_semantic_possible_break_in_attempt_11",
+  "group_ids": [
+    "openssh:semantic:possible_break_in_attempt_11"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:54adac561a52a397e99261a413aa1592487ec80356d16bd7760e501ad070876b"
+  },
+  "checks": [
+    {
+      "dimension": "grounded",
+      "verdict": "yes",
+      "detail": "The answer only states what is directly supported by the evidence, such as the failed authentication attempts and the warning of a possible break-in attempt."
+    },
+    {
+      "dimension": "correct",
+      "verdict": "yes",
+      "detail": "The answer correctly identifies the entity (\"oracle\"), the event type (authentication attempt), and the outcome (authentication failure and possible break-in attempt)."
+    },
+    {
+      "dimension": "relevant",
+      "verdict": "yes",
+      "detail": "The answer directly addresses the question by describing what is happening in the log around the 56th occurrence of \"POSSIBLE BREAK-IN ATTEMPT,\" rather than just restating the structured summary."
+    },
+    {
+      "dimension": "sufficient",
+      "verdict": "yes",
+      "detail": "The answer includes the key details from the evidence: the invalid user, the IP address, the failed authentication, the repeat attempt, and the security warning."
+    }
+  ],
+  "subject_model": {
+    "name": "casperhansen/llama-3.3-70b-instruct-awq",
+    "family": "llama",
+    "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
+    "prompt_sha256": "sha256:22d0d446b8e4df7eae8dee639df066286afaf5577214a4365164061b0c8ed7b8"
+  }
+}

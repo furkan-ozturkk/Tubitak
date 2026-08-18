@@ -7,13 +7,13 @@
     "name": "Qwen/Qwen3-32B-AWQ",
     "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:dfd6f17b64b9f761d06e9c6f67cdd70a8a43cea58035562e5ab6e7c849ece3ee"
+    "prompt_sha256": "sha256:033983ac2d299c6c02594c3619a9e199821eb8931281a2547bc28378da48d8f2"
   },
   "checks": [
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks for the count of lines containing \"sshd\" while excluding authentication failure entries."
+      "detail": "The question is clearly phrased and unambiguously asks for the count of lines in the openssh dataset that exclude all numeric characters."
     },
     {
       "dimension": "answer_matches_question",
@@ -23,7 +23,7 @@
     {
       "dimension": "evidence_supports_answer",
       "verdict": "partial",
-      "detail": "The lines shown include some with \"sshd\" but also include authentication failure entries (e.g., \"Failed password\"), so it's unclear if the count excludes them as required."
+      "detail": "The evidence includes a query that should compute the correct count, but the provided line of text does not support the answer of 0 and is unrelated to the numeric exclusion condition."
     }
   ]
 }

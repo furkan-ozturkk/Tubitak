@@ -1,0 +1,29 @@
+{
+  "question_id": "apache_v1_modelsql_count_12_0",
+  "group_ids": [
+    "apache:modelsql:count:12"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:95c64f59508ced2139c66ea1e2b8c2515c6b3b07726256c811e382cd7bb7bb2e"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of lines in the 'apache' dataset containing the word \"forbidden\"."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "yes",
+      "detail": "The query selects lines from the 'apache' dataset where the text contains \"forbidden\" (case-insensitively), and the evidence states that this query returns 32 lines, supporting the answer."
+    }
+  ]
+}

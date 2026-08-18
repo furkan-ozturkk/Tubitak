@@ -1,0 +1,29 @@
+{
+  "question_id": "openssh_v1_modelsql_count_11_0",
+  "group_ids": [
+    "openssh:modelsql:count:11"
+  ],
+  "reviewer_model": {
+    "name": "Qwen/Qwen3-32B-AWQ",
+    "family": "qwen3",
+    "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
+    "prompt_sha256": "sha256:0d622dfb5010cfc2fd1fe81195104f6141d9974d91b6f50b243e1bee00832613"
+  },
+  "checks": [
+    {
+      "dimension": "question_well_formed",
+      "verdict": "yes",
+      "detail": "The question is clearly phrased and asks for the count of lines in the openssh dataset without any special characters."
+    },
+    {
+      "dimension": "answer_matches_question",
+      "verdict": "yes",
+      "detail": "The answer is a bare integer, as required for a count question."
+    },
+    {
+      "dimension": "evidence_supports_answer",
+      "verdict": "partial",
+      "detail": "The evidence includes a query that attempts to find lines without special characters, but the query's condition is ambiguous due to the use of `[^a-zA-Z0-9\\s]` which may not align precisely with the user's definition of \"special characters.\" Additionally, the evidence does not provide the actual count result from the query, so it's unclear if the answer of \"0\" is correct."
+    }
+  ]
+}

@@ -5,36 +5,36 @@
   ],
   "reviewer_model": {
     "name": "Qwen/Qwen3-32B-AWQ",
-    "family": "qwen",
+    "family": "qwen3",
     "digest": "sha256:8ca8ab116af85c423a6ef1dea528079ef455a98b4930a6425091bfc0e59d5515",
-    "prompt_sha256": "sha256:3a8f3149806a1a62cd7f4e466de33826788a753a5da1bf47320d3f91ba519084"
+    "prompt_sha256": "sha256:e832f246df21f5d93e7f9d67625fa5f8646eb5f7a7610ea0ed70ac206a1bb2aa"
   },
   "checks": [
     {
       "dimension": "grounded",
       "verdict": "yes",
-      "detail": "The answer does not state anything beyond what is shown in the evidence and accurately reflects the details provided."
+      "detail": "The answer does not state anything beyond what is shown in the evidence and correctly avoids speculation."
     },
     {
       "dimension": "correct",
       "verdict": "yes",
-      "detail": "The answer correctly identifies the entity (187.141.143.180), the event type (authentication failures and possible break-in attempts), and the outcome (disconnections)."
+      "detail": "The answer accurately reflects the entity (IP address), event type (authentication failures and possible break-in attempts), and the outcome (disconnections)."
     },
     {
       "dimension": "relevant",
       "verdict": "yes",
-      "detail": "The answer directly addresses the question by explaining what happened and what the \"POSSIBLE BREAK-IN ATTEMPT\" means, rather than just restating the structured summary."
+      "detail": "The answer directly addresses the question about what happened and what the \"POSSIBLE BREAK-IN ATTEMPT\" means, rather than just summarizing the structured summary."
     },
     {
       "dimension": "sufficient",
       "verdict": "yes",
-      "detail": "The answer includes the key elements from the evidence: multiple connection attempts, failed reverse mapping checks, authentication failures for the root user, and disconnections."
+      "detail": "The answer includes the key elements from the evidence: multiple connection attempts, failed reverse mapping checks, authentication failures for root, and disconnections."
     }
   ],
   "subject_model": {
     "name": "casperhansen/llama-3.3-70b-instruct-awq",
     "family": "llama",
     "digest": "sha256:377e9109eae84d6fca0f071ea086f0deaac162701334e4096913c2c51c3c6ffd",
-    "prompt_sha256": "sha256:5270128f6e627bb28ac8e5da590d580779c3825b62828a56ca387be2dfc5280c"
+    "prompt_sha256": "sha256:c1849d6357694a438f95429cb2d2110e6db89e10340542681856e1749c868535"
   }
 }
