@@ -23,7 +23,7 @@
     {
       "dimension": "evidence_supports_answer",
       "verdict": "yes",
-      "detail": "The evidence shows a query that correctly filters lines in the 'hdfs' dataset excluding those with \"terminating\", and the answer matches the count returned by that query."
+      "detail": "The evidence shows a query that correctly filters the 'hdfs' dataset for lines not containing \"terminating\" (case-insensitive), and the answer matches the count returned by that query."
     }
   ]
 }

@@ -18,12 +18,12 @@
     {
       "dimension": "answer_matches_question",
       "verdict": "yes",
-      "detail": "The answer is a single numeric value, which is the correct kind of answer for the question's request for a count."
+      "detail": "The answer is a single numeric value, which is the correct form for the question's required answer."
     },
     {
       "dimension": "evidence_supports_answer",
       "verdict": "partial",
-      "detail": "The evidence shows a query that would compute the correct count if executed, and sample data that includes IP addresses, but the actual correctness of the answer \"38\" cannot be confirmed without executing the query against the full dataset."
+      "detail": "The evidence includes a query that should compute the correct count, and the sample lines show that the data exists, but without executing the query, we cannot confirm the accuracy of the given answer of 38."
     }
   ]
 }

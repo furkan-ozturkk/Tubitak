@@ -23,7 +23,7 @@
     {
       "dimension": "evidence_supports_answer",
       "verdict": "yes",
-      "detail": "The evidence shows that no lines matched the query for 'kernel panic', supporting the answer that no such line exists."
+      "detail": "The evidence shows that no line in the dataset contains the literal 'kernel panic' (case-insensitive match), supporting the answer."
     }
   ]
 }

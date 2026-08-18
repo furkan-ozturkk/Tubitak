@@ -18,12 +18,12 @@
     {
       "dimension": "answer_matches_question",
       "verdict": "yes",
-      "detail": "The answer is in the correct format for a yes/no question, stating a verdict and a count in parentheses."
+      "detail": "The answer is in the correct format, stating a verdict ('No') and a count ('0 matching lines')."
     },
     {
       "dimension": "evidence_supports_answer",
       "verdict": "yes",
-      "detail": "The evidence shows that no line in the dataset contains the literal 'Segmentation fault', supporting the answer \"No (0 matching lines)\"."
+      "detail": "The evidence shows that no line in the dataset contains the literal 'Segmentation fault', and the example line shown is unrelated to the query."
     }
   ]
 }

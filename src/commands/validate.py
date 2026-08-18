@@ -238,10 +238,10 @@ def _recompute_claim(
         errors: Error list, appended to in place.
 
     Returns:
-        Tuple ``(value, line_numbers)`` — ``line_numbers`` are 1-based and
-        exactly what ``all_match_line_numbers`` must equal for every operator
-        except a scalar ``raw_sql``, where it is always ``[]`` (Section 6: that
-        comparison is skipped by the caller) — or ``None`` when the operator is
+        Tuple ``(value, line_numbers)`` — ``line_numbers`` are the 1-based lines
+        the query matched (empty for a scalar ``raw_sql``, which has none of its
+        own), kept for callers that want them even though ``_check_answer``
+        itself only compares ``value`` — or ``None`` when the operator is
         unknown or the query failed.
     """
     query = claim.get("query", {})
@@ -356,7 +356,7 @@ def _check_answer(
             recomputed = _recompute_claim(claim, dataset_key, answer_type, loc, errors)
             if recomputed is None:
                 continue
-            recomputed_value, recomputed_line_numbers = recomputed
+            recomputed_value, _recomputed_line_numbers = recomputed
             claimed_value = claim.get("value")
             if recomputed_value != claimed_value:
                 errors.append(
@@ -365,15 +365,6 @@ def _check_answer(
                     f"operator={claim.get('query', {}).get('operator')})."
                 )
                 continue
-            if answer_type != "scalar":
-                claimed_line_numbers = claim.get("all_match_line_numbers") or []
-                if sorted(claimed_line_numbers) != sorted(recomputed_line_numbers):
-                    errors.append(
-                        f"{loc}: numeric_claims.all_match_line_numbers could not be "
-                        f"reproduced from Postgres ({len(claimed_line_numbers)} "
-                        f"claimed line(s), {len(recomputed_line_numbers)} recomputed)."
-                    )
-                    continue
             if answer_type == "count" and expected_answer != str(recomputed_value):
                 errors.append(
                     f"{loc}: expected_answer '{expected_answer}' does not match the "

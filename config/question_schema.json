@@ -79,13 +79,9 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["value", "all_match_line_numbers", "query"],
+        "required": ["value", "query"],
         "properties": {
           "value": { "type": "number" },
-          "all_match_line_numbers": {
-            "type": "array",
-            "items": { "type": "integer", "minimum": 1 }
-          },
           "query": {
             "type": "object",
             "additionalProperties": false,

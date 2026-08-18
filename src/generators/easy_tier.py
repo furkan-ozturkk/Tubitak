@@ -637,7 +637,6 @@ def _model_sql_records(
         expected_answer = str(value)
         answer_type, routing_path, task = "scalar", "sql", "Aggregation"
         cited_rows = evidence_rows[:5]
-        all_match_line_numbers = [row[0] for row in evidence_rows]
         query["evidence_sql"] = invented["evidence_sql"]
     elif mode == "line_lookup":
         value = None
@@ -650,7 +649,6 @@ def _model_sql_records(
         expected_answer = presence_answer(value) if mode == "presence" else str(value)
         answer_type, routing_path, task = mode, "sql", "Aggregation"
         cited_rows = rows[:5] if rows else [(1, view.lines[0])]
-        all_match_line_numbers = [row[0] for row in rows]
 
     refs = [
         evidence_ref(view.key, line_number, text, group_id)
@@ -683,13 +681,7 @@ def _model_sql_records(
             "evidence": dict(evidence),
         }
         if answer_type != "line_lookup":
-            record["numeric_claims"] = [
-                {
-                    "value": value,
-                    "all_match_line_numbers": all_match_line_numbers,
-                    "query": query,
-                }
-            ]
+            record["numeric_claims"] = [{"value": value, "query": query}]
         records.append(record)
     return records
 
@@ -817,7 +809,6 @@ def _build_count_or_presence(
         evidence_ref(view.key, i + 1, view.lines[i], group_id) for i in cited_indices
     ]
     cited_lines = [view.lines[i] for i in cited_indices]
-    all_match_line_numbers = [i + 1 for i in matched_indices]
     query_dict = {
         "operator": "count_literal",
         "literal": literal,
@@ -853,13 +844,7 @@ def _build_count_or_presence(
                 created_at=config.created_at,
                 corpus_sha256=view.sha256,
             ),
-            "numeric_claims": [
-                {
-                    "value": count,
-                    "all_match_line_numbers": all_match_line_numbers,
-                    "query": dict(query_dict),
-                }
-            ],
+            "numeric_claims": [{"value": count, "query": dict(query_dict)}],
             "evidence": {"refs": refs, "query_sql": sql_text},
         }
         _attach_validation(

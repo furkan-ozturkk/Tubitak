@@ -210,13 +210,7 @@ def count_record() -> dict:
             "created_at": "2026-08-01T00:00:00Z",
             "corpus_sha256": CORPUS_SHA,
         },
-        "numeric_claims": [
-            {
-                "value": 3,
-                "all_match_line_numbers": line_numbers,
-                "query": claim_query,
-            }
-        ],
+        "numeric_claims": [{"value": 3, "query": claim_query}],
         "evidence": {
             "refs": [
                 {
@@ -263,13 +257,7 @@ def presence_record() -> dict:
             "created_at": "2026-08-01T00:00:00Z",
             "corpus_sha256": CORPUS_SHA,
         },
-        "numeric_claims": [
-            {
-                "value": 0,
-                "all_match_line_numbers": [],
-                "query": claim_query,
-            }
-        ],
+        "numeric_claims": [{"value": 0, "query": claim_query}],
         "evidence": {
             "query_sql": query_display_sql("linux", claim_query),
             "refs": [
@@ -334,13 +322,7 @@ def raw_sql_count_record() -> dict:
                 "prompt_sha256": "sha256:" + "1" * 64,
             },
         },
-        "numeric_claims": [
-            {
-                "value": 3,
-                "all_match_line_numbers": line_numbers,
-                "query": claim_query,
-            }
-        ],
+        "numeric_claims": [{"value": 3, "query": claim_query}],
         "evidence": {
             "refs": [
                 {
@@ -394,13 +376,7 @@ def raw_sql_scalar_record() -> dict:
                 "prompt_sha256": "sha256:" + "1" * 64,
             },
         },
-        "numeric_claims": [
-            {
-                "value": 2,
-                "all_match_line_numbers": [1, 2],
-                "query": claim_query,
-            }
-        ],
+        "numeric_claims": [{"value": 2, "query": claim_query}],
         "evidence": {
             "query_sql": query_display_sql("linux", claim_query),
             "refs": [
@@ -565,12 +541,6 @@ class ValidatorAnswerTest(unittest.TestCase):
         self.repository.raw_sql_results[RAW_SQL_SCALAR_EVIDENCE_STATEMENT] = []
         self.assertRejects([record], "evidence_sql returned no rows")
 
-    def test_raw_sql_scalar_all_match_line_numbers_is_not_cross_checked(self):
-        record = raw_sql_scalar_record()
-        record["numeric_claims"][0]["all_match_line_numbers"] = [999]
-        errors, _warnings = self.run_validator([record])
-        self.assertEqual(errors, [])
-
     def test_count_answer_disagreeing_with_recomputed_value_fails(self):
         record = count_record()
         record["expected_answer"] = "999999"
@@ -582,18 +552,10 @@ class ValidatorAnswerTest(unittest.TestCase):
         record["expected_answer"] = "490"
         self.assertRejects([record], "could not be reproduced")
 
-    def test_incomplete_match_line_list_fails(self):
-        record = count_record()
-        record["numeric_claims"][0]["all_match_line_numbers"] = [1, 2]
-        self.assertRejects(
-            [record], "all_match_line_numbers could not be reproduced"
-        )
-
     def test_presence_no_with_positive_count_fails(self):
         record = presence_record()
         record["numeric_claims"][0]["query"]["literal"] = "authentication failure"
         record["numeric_claims"][0]["value"] = 3
-        record["numeric_claims"][0]["all_match_line_numbers"] = [1, 2, 4]
         self.assertRejects([record], "contradicts the recomputed count")
 
     def test_presence_yes_with_zero_count_fails(self):

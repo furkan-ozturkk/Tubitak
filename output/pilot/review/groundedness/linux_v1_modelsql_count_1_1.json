@@ -13,7 +13,7 @@
     {
       "dimension": "question_well_formed",
       "verdict": "yes",
-      "detail": "The question is clearly phrased and asks for the total number of log entries in the 'linux' dataset that do not mention \"session\"."
+      "detail": "The question is clearly phrased and asks for the total number of log entries in the 'linux' dataset that do not mention \"session\", with no ambiguity in the wording or intent."
     },
     {
       "dimension": "answer_matches_question",
@@ -23,7 +23,7 @@
     {
       "dimension": "evidence_supports_answer",
       "verdict": "yes",
-      "detail": "The evidence shows a query that selects lines from the 'linux' dataset where the text does not contain \"session\", and it states that this query returns 1754 lines, which matches the answer."
+      "detail": "The evidence includes a query that selects lines from the 'linux' dataset where the text does not contain \"session\" (case-insensitive), and it states that the query returns 1754 lines, which matches the answer."
     }
   ]
 }

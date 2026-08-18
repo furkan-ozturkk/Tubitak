@@ -18,12 +18,12 @@
     {
       "dimension": "answer_matches_question",
       "verdict": "yes",
-      "detail": "The answer is in the correct format, stating a verdict and a count of matching lines."
+      "detail": "The answer is in the correct format, stating a verdict and including the required parenthetical count."
     },
     {
       "dimension": "evidence_supports_answer",
       "verdict": "yes",
-      "detail": "The query and the example lines confirm that the term 'Exception' is present in the dataset, and the count of 80 matches is consistent with the query logic."
+      "detail": "The evidence includes a query that finds lines with 'Exception' and shows example lines matching the condition, supporting the answer."
     }
   ]
 }

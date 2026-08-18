@@ -23,7 +23,7 @@
     {
       "dimension": "evidence_supports_answer",
       "verdict": "yes",
-      "detail": "The query and the example lines show that 'Exception' appears in the log, and the query returns 80 matching lines, supporting the answer."
+      "detail": "The query and the example lines show that 'Exception' appears in the log, and the query explicitly returns 80 matching lines, supporting the answer."
     }
   ]
 }

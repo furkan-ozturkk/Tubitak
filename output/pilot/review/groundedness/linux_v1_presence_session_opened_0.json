@@ -23,7 +23,7 @@
     {
       "dimension": "evidence_supports_answer",
       "verdict": "yes",
-      "detail": "The evidence includes a query that finds 123 lines matching '%session opened%' in the 'linux' dataset, and example lines that confirm the pattern exists."
+      "detail": "The evidence includes a query that finds 123 lines matching '%session opened%' in the 'linux' dataset, and the example lines confirm that the pattern exists in the data."
     }
   ]
 }
